@@ -67,11 +67,6 @@ const config = {
           },
           {
             name: 'lodash',
-            importNames: ['default'],
-            message: "Please `import { fn } from 'lodash'` instead.",
-          },
-          {
-            name: 'lodash',
             importNames: ['get'],
             message: 'Please use optional chaining instead.',
           },
@@ -125,6 +120,7 @@ const config = {
      * Lodash Plugin Rules
      * @see https://github.com/wix/eslint-plugin-lodash
      * */
+    'lodash/import-scope': ['error', 'member'],
     'lodash/get': 'off',
     'lodash/prefer-lodash-method': 'off',
 
