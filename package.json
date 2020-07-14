@@ -11,13 +11,13 @@
     "lint": "yarn eslint \"**/*.{js,jsx,ts,tsx}\" && yarn stylelint \"**/*.{css,scss,sass,less,js,jsx,ts,tsx}\""
   },
   "devDependencies": {
-    "@commitlint/cli": "^8.3.5",
-    "@commitlint/config-conventional": "^8.3.4",
-    "@typescript-eslint/eslint-plugin": "^3.3.0",
-    "@typescript-eslint/parser": "^3.3.0",
+    "@commitlint/cli": "^9.1.1",
+    "@commitlint/config-conventional": "^9.1.1",
+    "@typescript-eslint/eslint-plugin": "^3.6.1",
+    "@typescript-eslint/parser": "^3.6.1",
     "commitizen": "^4.1.2",
     "cz-conventional-changelog": "^3.2.0",
-    "eslint": "^7.3.0",
+    "eslint": "^7.4.0",
     "husky": "^4.2.5",
     "lerna": "^3.22.1",
     "lint-staged": "^10.2.11",
@@ -26,7 +26,7 @@
     "stylelint-config-recommended": "^3.0.0",
     "stylelint-config-styled-components": "^0.1.1",
     "stylelint-processor-styled-components": "^1.10.0",
-    "typescript": "^3.9.5"
+    "typescript": "^3.9.6"
   },
   "repository": {
     "type": "git",
