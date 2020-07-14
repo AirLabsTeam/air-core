@@ -69,8 +69,10 @@ out
 # storybook build output
 .storybook-dist
 
-# WebStorm Config
+# Editor Configs
 .idea
+.editorconfig
+.vscode
 
 # File system stuff
 .DS_Store
