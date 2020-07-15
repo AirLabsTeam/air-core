@@ -236,7 +236,7 @@ const config = {
       },
       parser: '@typescript-eslint/parser',
       parserOptions: {
-        project: './tsconfig.json',
+        project: './tsconfig.lint.json',
       },
     },
 
