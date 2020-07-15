@@ -1,0 +1,41 @@
+{
+  "name": "@air/zephyr",
+  "version": "1.0.0",
+  "description": "Air's React component library",
+  "keywords": [
+    "react",
+    "components",
+    "typescript",
+    "tsdx"
+  ],
+  "homepage": "https://github.com/AirLabsTeam/web-core/tree/master/packages/zephyr#readme",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "module": "dist/components.esm.production.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "repository": {
+    "directory": "packages/zephr",
+    "type": "git",
+    "url": "git+https://github.com/AirLabsTeam/web-core.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AirLabsTeam/web-core/issues"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test --passWithNoTests",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build"
+  },
+  "peerDependencies": {
+    "react": ">=16"
+  }
+}
