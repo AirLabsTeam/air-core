@@ -4,26 +4,6 @@
   "workspaces": [
     "packages/*"
   ],
-  "scripts": {
-    "bootstrap": "yarn install",
-    "commit": "git-cz",
-    "format": "prettier --write \"**/*\"",
-    "lint": "yarn eslint \"**/*.{js,jsx,ts,tsx}\" && yarn stylelint \"**/*.{css,scss,sass,less,js,jsx,ts,tsx}\""
-  },
-  "devDependencies": {
-    "@commitlint/cli": "^9.1.1",
-    "@commitlint/config-conventional": "^9.1.1",
-    "commitizen": "^4.1.2",
-    "cz-conventional-changelog": "^3.2.0",
-    "husky": "^4.2.5",
-    "lerna": "^3.22.1",
-    "lint-staged": "^10.2.11",
-    "stylelint": "^13.6.1",
-    "stylelint-config-recommended": "^3.0.0",
-    "stylelint-config-styled-components": "^0.1.1",
-    "stylelint-processor-styled-components": "^1.10.0",
-    "typescript": "^3.9.6"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AirLabsTeam/web-core.git"
@@ -33,5 +13,39 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "scripts": {
+    "bootstrap": "yarn install && yarn build",
+    "build": "lerna run build",
+    "build:storybook": "build-storybook",
+    "commit": "git-cz",
+    "format": "yarn prettier --write \"**/*\"",
+    "lint": "yarn eslint \"**/*.{js,jsx,ts,tsx,mdx}\" && yarn stylelint \"**/*.{css,scss,sass,less,js,jsx,ts,tsx,mdx}\"",
+    "storybook": "start-storybook -p 6006",
+    "test": "tsdx test",
+    "test:changes": "tsdx test --changedSince master",
+    "test:ci": "yarn test --ci --coverage --maxWorkers=2",
+    "test:watch": "tsdx test --watch"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^9.1.1",
+    "@commitlint/config-conventional": "^9.1.1",
+    "@testing-library/jest-dom": "^5.11.0",
+    "@testing-library/react": "^10.4.6",
+    "@types/jest": "^26.0.4",
+    "@types/node": "^14.0.23",
+    "@types/react": "^16.9.43",
+    "@types/react-dom": "^16.9.8",
+    "commitizen": "^4.1.2",
+    "cz-conventional-changelog": "^3.2.0",
+    "husky": "^4.2.5",
+    "jest": "^26.1.0",
+    "lerna": "^3.22.1",
+    "lerna-changelog": "^1.0.1",
+    "lint-staged": "^10.2.11",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "tsdx": "^0.13.2",
+    "typescript": "^3.9.6"
   }
 }
