@@ -31,13 +31,14 @@ module.exports = {
     },
   },
   plugins: [
+    'prettier',
     '@typescript-eslint',
     'cypress',
     'import',
     'jest',
     'jsx-a11y',
     'lodash',
-    'prettier',
+    'mdx',
     'react-hooks',
     'react',
     'testing-library',
@@ -57,8 +58,8 @@ module.exports = {
     'plugin:jest/recommended',
     'plugin:jsx-a11y/recommended',
     'plugin:lodash/recommended',
-    'plugin:react/recommended',
     'plugin:react-hooks/recommended',
+    'plugin:react/recommended',
     'plugin:testing-library/recommended',
   ],
   rules: {
@@ -214,10 +215,12 @@ module.exports = {
     'jest/valid-expect': 'error',
   },
   overrides: [
-    // TypeScript Plugin Rules
-    // https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin#supported-rules
+    /**
+     * TypeScript Plugin Rules
+     * @see https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin#supported-rules
+     * */
     {
-      files: ['*.{ts,tsx,mdx}'],
+      files: ['*.{ts,tsx}'],
       rules: {
         'react/prop-types': 'off',
         '@typescript-eslint/no-unnecessary-type-assertion': 'error',
@@ -264,6 +267,32 @@ module.exports = {
         },
       },
       parser: '@typescript-eslint/parser',
+    },
+
+    /**
+     * MDX Plugin Rules
+     * @see https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin#supported-rules
+     * */
+    {
+      files: ['*.mdx'],
+      parserOptions: {
+        ecmaVersion: 2020,
+        sourceType: 'module',
+        extraFileExtensions: ['.mdx'],
+        ecmaFeatures: {
+          jsx: true,
+        },
+      },
+      extends: ['plugin:mdx/overrides'],
+      rules: {
+        'mdx/no-jsx-html-comments': 'error',
+        'mdx/no-unescaped-entities': 'warn',
+        'mdx/no-unused-expressions': 'error',
+        'mdx/remark': 'off',
+        'no-unused-expressions': 'off',
+        'react/no-unescaped-entities': 'off',
+        'react/no-unknown-property': ['error', { ignore: ['class'] }],
+      },
     },
 
     // True Overrides: When the rule simply doesn't make sense!

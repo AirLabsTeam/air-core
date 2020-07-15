@@ -32,6 +32,7 @@
     "eslint-plugin-jest": "^23.18.0",
     "eslint-plugin-jsx-a11y": "^6.3.1",
     "eslint-plugin-lodash": "^7.1.0",
+    "eslint-plugin-mdx": "^1.7.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-promise": "^4.2.1",
