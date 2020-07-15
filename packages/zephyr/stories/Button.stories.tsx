@@ -1,21 +1,17 @@
 import React from 'react';
 // import { actions } from '@storybook/addon-actions';
-import { Button, ButtonProps } from '../src/Button';
+import { Button, ButtonProps } from '../src';
 
-export default {
+const meta = {
   title: 'Button',
   component: Button,
-  excludeStories: ['testID', 'requiredProps'],
 };
 
-export const testID = 'test';
+export default meta;
 
-export const requiredProps = {
-  children: 'Test!',
-  onClick: () => {},
-  // ...actions('onClick'),
+const Template = (args: ButtonProps) => <Button {...args} data-testid={meta.title} />;
+
+export const Text = Template.bind({});
+Text.args = {
+  children: 'Button',
 };
-
-export const WithRequiredProps = (overrideProps?: Partial<ButtonProps>) => (
-  <Button {...requiredProps} data-testid={testID} {...overrideProps} />
-);
