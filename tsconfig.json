@@ -1,5 +1,4 @@
 {
-  "include": ["**/*.{ts,tsx,mdx}"],
   "exclude": ["**/node_modules", "**/dist", "**/*.test.*", "**/*.stories.*"],
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig.json to read more about this file */
