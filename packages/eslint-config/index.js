@@ -19,6 +19,14 @@ module.exports = {
       jsx: true,
     },
   },
+  settings: {
+    react: {
+      version: 'detect',
+    },
+    'import/resolver': {
+      typescript: {}, // this loads <rootdir>/tsconfig.json to eslint for path alias resolution
+    },
+  },
   plugins: [
     '@typescript-eslint',
     'cypress',
@@ -46,6 +54,7 @@ module.exports = {
     'plugin:jest/recommended',
     'plugin:jsx-a11y/recommended',
     'plugin:lodash/recommended',
+    'plugin:react/recommended',
     'plugin:react-hooks/recommended',
     'plugin:testing-library/recommended',
   ],
@@ -114,6 +123,7 @@ module.exports = {
         groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
       },
     ],
+    'import/no-unresolved': 'error',
 
     /**
      * JSX-A11Y Plugin Rules
@@ -129,6 +139,7 @@ module.exports = {
     'lodash/import-scope': ['error', 'member'],
     'lodash/get': 'off',
     'lodash/prefer-lodash-method': 'off',
+    'lodash/prefer-noop': 'off',
 
     /**
      * Testing Library Plugin Rules
@@ -205,6 +216,7 @@ module.exports = {
     {
       files: ['*.{ts,tsx,mdx}'],
       rules: {
+        'react/prop-types': 'off',
         '@typescript-eslint/no-unnecessary-type-assertion': 'error',
         '@typescript-eslint/no-unused-vars': 'error',
         '@typescript-eslint/prefer-nullish-coalescing': 'error',
@@ -253,12 +265,20 @@ module.exports = {
 
     // True Overrides: When the rule simply doesn't make sense!
     {
-      files: '*',
+      files: ['**/jest.setup.ts'],
       rules: {
-        // Enable this per application and explicitly state aliased paths.
-        // More ideal if we use relative imports or just one alias for root (like '~')
-        /** @see https://github.com/microsoft/vscode-eslint/issues/464#issuecomment-463676765 */
-        'import/no-unresolved': 'off',
+        'no-restricted-imports': [
+          'error',
+          {
+            paths: [
+              {
+                name: 'lodash',
+                importNames: ['get'],
+                message: 'Please use optional chaining instead.',
+              },
+            ],
+          },
+        ],
       },
     },
     {
