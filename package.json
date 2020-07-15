@@ -20,7 +20,7 @@
     "build:storybook": "build-storybook",
     "commit": "git-cz",
     "format": "yarn prettier --write \"**/*\"",
-    "lint": "yarn eslint \"**/*.{js,jsx,ts,tsx,mdx}\" && yarn stylelint \"**/*.{css,scss,sass,less,js,jsx,ts,tsx,mdx}\"",
+    "lint": "yarn eslint \"**/*.{js,jsx,ts,tsx,mdx}\"",
     "storybook": "start-storybook -p 6006",
     "test": "tsdx test",
     "test:changes": "tsdx test --changedSince master",

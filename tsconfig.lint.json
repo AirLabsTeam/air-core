@@ -1,5 +1,0 @@
-{
-  /* @see https://github.com/typescript-eslint/typescript-eslint/blob/master/docs/getting-started/linting/MONOREPO.md#one-root-tsconfigjson */
-  "extends": "./tsconfig.json",
-  "exclude": ["**/node_modules", "**/dist"] // lint test & story files
-}

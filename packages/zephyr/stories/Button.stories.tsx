@@ -1,6 +1,6 @@
 import React from 'react';
-import { actions } from '@storybook/addon-actions';
-import { Button, Props } from '../src/Button';
+// import { actions } from '@storybook/addon-actions';
+import { Button, ButtonProps } from '../src/Button';
 
 export default {
   title: 'Button',
@@ -12,9 +12,10 @@ export const testID = 'test';
 
 export const requiredProps = {
   children: 'Test!',
-  ...actions('onClick'),
+  onClick: () => {},
+  // ...actions('onClick'),
 };
 
-export const WithRequiredProps = (overrideProps?: Partial<Props>) => (
+export const WithRequiredProps = (overrideProps?: Partial<ButtonProps>) => (
   <Button {...requiredProps} data-testid={testID} {...overrideProps} />
 );

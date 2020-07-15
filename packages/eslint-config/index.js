@@ -1,13 +1,23 @@
-/**
- * @type {import("eslint").Linter.Config}
- */
-const config = {
+module.exports = {
   env: {
     browser: true,
     commonjs: true,
+    'cypress/globals': true,
     es6: true,
     jest: true,
     node: true,
+  },
+  globals: {
+    cy: true,
+    Cypress: true,
+  },
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    ecmaVersion: 2020,
+    sourceType: 'module',
+    ecmaFeatures: {
+      jsx: true,
+    },
   },
   plugins: [
     '@typescript-eslint',
@@ -24,7 +34,11 @@ const config = {
   ],
   extends: [
     'prettier',
+    'prettier/@typescript-eslint',
+    'prettier/babel',
     'prettier/react',
+    'prettier/standard',
+    'prettier/unicorn',
     'eslint:recommended',
     'plugin:cypress/recommended',
     'plugin:import/errors',
@@ -35,14 +49,6 @@ const config = {
     'plugin:react-hooks/recommended',
     'plugin:testing-library/recommended',
   ],
-  parser: '@typescript-eslint/parser',
-  parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
-    },
-    ecmaVersion: 2018,
-    sourceType: 'module',
-  },
   rules: {
     // Looking for TypeScript Plugin rules? They're in overrides per
     // https://github.com/typescript-eslint/typescript-eslint/issues/1928#issuecomment-617969784
@@ -178,7 +184,7 @@ const config = {
     ],
     'jest/no-hooks': 'off',
     'jest/no-jasmine-globals': 'error',
-    // "jest/no-large-snapshots": ["warn", { "maxSize": 12, "inlineMaxSize": 6 }] // 🥺
+    'jest/no-large-snapshots': 'error',
     'jest/no-test-prefixes': 'error',
     'jest/no-test-return-statement': 'error',
     'jest/prefer-expect-assertions': 'off',
@@ -194,10 +200,10 @@ const config = {
     'jest/valid-expect': 'error',
   },
   overrides: [
-    // TypeSript Plugin Rules
+    // TypeScript Plugin Rules
     // https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin#supported-rules
     {
-      files: ['*.{ts,tsx}'],
+      files: ['*.{ts,tsx,mdx}'],
       rules: {
         '@typescript-eslint/no-unnecessary-type-assertion': 'error',
         '@typescript-eslint/no-unused-vars': 'error',
@@ -234,10 +240,10 @@ const config = {
           // Use to lint various variable names
         ],
       },
-      parser: '@typescript-eslint/parser',
       parserOptions: {
-        project: './tsconfig.lint.json',
+        project: './tsconfig.eslint.json',
       },
+      parser: '@typescript-eslint/parser',
     },
 
     // True Overrides: When the rule simply doesn't make sense!
@@ -278,5 +284,3 @@ const config = {
     },
   ],
 };
-
-module.exports = config;

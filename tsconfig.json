@@ -1,5 +1,5 @@
 {
-  "include": ["**/*.{ts,tsx,mdx}"],
+  "include": ["*.{ts,tsx,mdx}"],
   "exclude": [
     "**/node_modules",
     "**/dist",
@@ -8,7 +8,7 @@
   ],
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig.json to read more about this file */
-    "allowJs": true,
+    "allowJs": false,
     "alwaysStrict": true,
     "baseUrl": "./",
     "declaration": true,
