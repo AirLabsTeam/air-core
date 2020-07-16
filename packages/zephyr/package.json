@@ -10,6 +10,9 @@
   ],
   "homepage": "https://github.com/AirLabsTeam/web-core/tree/master/packages/zephyr#readme",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "dist/index.js",
   "module": "dist/components.esm.production.js",
   "typings": "dist/index.d.ts",

@@ -7,6 +7,9 @@
   ],
   "homepage": "https://github.com/AirLabsTeam/web-core/tree/master/packages/eslint-config#readme",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "index.js",
   "files": [
     "index.js",
