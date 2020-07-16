@@ -1,7 +1,7 @@
 import React, { MouseEvent as ReactMouseEvent, ButtonHTMLAttributes, FC } from 'react';
 
 export interface ButtonProps
-  extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'disabled' | 'children' | 'onClick'> {
+  extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'disabled' | 'onClick'> {
   isDisabled?: boolean;
   onClick: (event: ReactMouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
