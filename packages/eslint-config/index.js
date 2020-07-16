@@ -1,22 +1,44 @@
 /**
  * @type {import("eslint").Linter.Config}
  */
-const config = {
+module.exports = {
   env: {
     browser: true,
     commonjs: true,
+    'cypress/globals': true,
     es6: true,
     jest: true,
     node: true,
   },
+  globals: {
+    cy: true,
+    Cypress: true,
+  },
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    ecmaVersion: 2020,
+    sourceType: 'module',
+    ecmaFeatures: {
+      jsx: true,
+    },
+  },
+  settings: {
+    react: {
+      version: 'detect',
+    },
+    'import/resolver': {
+      typescript: {}, // this loads <rootdir>/tsconfig.json to eslint for path alias resolution
+    },
+  },
   plugins: [
+    'prettier',
     '@typescript-eslint',
     'cypress',
     'import',
     'jest',
     'jsx-a11y',
     'lodash',
-    'prettier',
+    'mdx',
     'react-hooks',
     'react',
     'testing-library',
@@ -24,7 +46,11 @@ const config = {
   ],
   extends: [
     'prettier',
+    'prettier/@typescript-eslint',
+    'prettier/babel',
     'prettier/react',
+    'prettier/standard',
+    'prettier/unicorn',
     'eslint:recommended',
     'plugin:cypress/recommended',
     'plugin:import/errors',
@@ -33,16 +59,9 @@ const config = {
     'plugin:jsx-a11y/recommended',
     'plugin:lodash/recommended',
     'plugin:react-hooks/recommended',
+    'plugin:react/recommended',
     'plugin:testing-library/recommended',
   ],
-  parser: '@typescript-eslint/parser',
-  parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
-    },
-    ecmaVersion: 2018,
-    sourceType: 'module',
-  },
   rules: {
     // Looking for TypeScript Plugin rules? They're in overrides per
     // https://github.com/typescript-eslint/typescript-eslint/issues/1928#issuecomment-617969784
@@ -108,6 +127,7 @@ const config = {
         groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
       },
     ],
+    'import/no-unresolved': 'error',
 
     /**
      * JSX-A11Y Plugin Rules
@@ -123,6 +143,7 @@ const config = {
     'lodash/import-scope': ['error', 'member'],
     'lodash/get': 'off',
     'lodash/prefer-lodash-method': 'off',
+    'lodash/prefer-noop': 'off',
 
     /**
      * Testing Library Plugin Rules
@@ -178,7 +199,7 @@ const config = {
     ],
     'jest/no-hooks': 'off',
     'jest/no-jasmine-globals': 'error',
-    // "jest/no-large-snapshots": ["warn", { "maxSize": 12, "inlineMaxSize": 6 }] // 🥺
+    'jest/no-large-snapshots': 'error',
     'jest/no-test-prefixes': 'error',
     'jest/no-test-return-statement': 'error',
     'jest/prefer-expect-assertions': 'off',
@@ -194,11 +215,14 @@ const config = {
     'jest/valid-expect': 'error',
   },
   overrides: [
-    // TypeSript Plugin Rules
-    // https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin#supported-rules
+    /**
+     * TypeScript Plugin Rules
+     * @see https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin#supported-rules
+     * */
     {
       files: ['*.{ts,tsx}'],
       rules: {
+        'react/prop-types': 'off',
         '@typescript-eslint/no-unnecessary-type-assertion': 'error',
         '@typescript-eslint/no-unused-vars': 'error',
         '@typescript-eslint/prefer-nullish-coalescing': 'error',
@@ -234,20 +258,59 @@ const config = {
           // Use to lint various variable names
         ],
       },
-      parser: '@typescript-eslint/parser',
       parserOptions: {
-        project: './tsconfig.json',
+        project: './tsconfig.eslint.json',
+        ecmaVersion: 2020,
+        sourceType: 'module',
+        ecmaFeatures: {
+          jsx: true,
+        },
+      },
+      parser: '@typescript-eslint/parser',
+    },
+
+    /**
+     * MDX Plugin Rules
+     * @see https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin#supported-rules
+     * */
+    {
+      files: ['*.mdx'],
+      parserOptions: {
+        ecmaVersion: 2020,
+        sourceType: 'module',
+        extraFileExtensions: ['.mdx'],
+        ecmaFeatures: {
+          jsx: true,
+        },
+      },
+      extends: ['plugin:mdx/overrides'],
+      rules: {
+        'mdx/no-jsx-html-comments': 'error',
+        'mdx/no-unescaped-entities': 'warn',
+        'mdx/no-unused-expressions': 'error',
+        'mdx/remark': 'off',
+        'no-unused-expressions': 'off',
+        'react/no-unescaped-entities': 'off',
+        'react/no-unknown-property': ['error', { ignore: ['class'] }],
       },
     },
 
     // True Overrides: When the rule simply doesn't make sense!
     {
-      files: '*',
+      files: ['**/jest.setup.ts'],
       rules: {
-        // Enable this per application and explicitly state aliased paths.
-        // More ideal if we use relative imports or just one alias for root (like '~')
-        /** @see https://github.com/microsoft/vscode-eslint/issues/464#issuecomment-463676765 */
-        'import/no-unresolved': 'off',
+        'no-restricted-imports': [
+          'error',
+          {
+            paths: [
+              {
+                name: 'lodash',
+                importNames: ['get'],
+                message: 'Please use optional chaining instead.',
+              },
+            ],
+          },
+        ],
       },
     },
     {
@@ -278,5 +341,3 @@ const config = {
     },
   ],
 };
-
-module.exports = config;

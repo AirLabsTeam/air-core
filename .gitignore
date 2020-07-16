@@ -1,12 +1,14 @@
 **/node_modules
 **/dist
+**/.cache
+storybook-static
 
 # No npm allowed
 package-lock.json
 
 # Logs
-logs
-*.log
+**/logs
+**/*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
@@ -75,4 +77,4 @@ out
 .vscode
 
 # File system stuff
-.DS_Store
+**/.DS_Store
