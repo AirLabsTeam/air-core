@@ -1,6 +1,7 @@
 **/node_modules
 **/dist
 **/.cache
+.yarn
 
 # No npm allowed
 package-lock.json
