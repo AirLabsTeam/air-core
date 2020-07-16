@@ -1,6 +1,7 @@
 **/node_modules
 **/dist
 **/.cache
+storybook-static
 
 # No npm allowed
 package-lock.json
