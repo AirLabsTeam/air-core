@@ -7,5 +7,13 @@ export interface ButtonProps
 }
 
 export const Button: FC<ButtonProps> = (props) => {
-  return <button {...{ ...props, disabled: props.isDisabled }} />;
+  return (
+    <button
+      {...{
+        ...props,
+        disabled: props.isDisabled,
+        style: { ...props.style, padding: '1rem 0.5rem', backgroundColor: '#FAFAFA' },
+      }}
+    />
+  );
 };

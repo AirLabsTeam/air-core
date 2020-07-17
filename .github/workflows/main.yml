@@ -7,6 +7,8 @@ jobs:
     steps:
       - name: Begin CI...
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
 
       - name: Use Node 12
         uses: actions/setup-node@v1
@@ -39,6 +41,12 @@ jobs:
         with:
           coverageCommand: yarn test:ci
           debug: true
+
+      - uses: chromaui/action@v1
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          buildScriptName: build:storybook
 
       - name: Build
         run: yarn build
