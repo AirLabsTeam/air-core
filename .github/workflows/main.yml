@@ -46,7 +46,7 @@ jobs:
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           token: ${{ secrets.GITHUB_TOKEN }}
-          buildScriptName: yarn build:storybook
+          buildScriptName: build:storybook
 
       - name: Build
         run: yarn build
