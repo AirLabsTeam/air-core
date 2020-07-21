@@ -94,6 +94,7 @@ const config = {
     ],
     'no-dupe-keys': 'error',
     'no-duplicate-case': 'error',
+    'no-extra-boolean-cast': 'off',
     'no-unreachable': 'error',
     'valid-typeof': 'error',
     eqeqeq: 'error',
