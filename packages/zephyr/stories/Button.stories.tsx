@@ -1,6 +1,5 @@
 import React from 'react';
-// import { actions } from '@storybook/addon-actions';
-import { Button, ButtonProps } from '../src';
+import { Button, ButtonProps } from '../src/Button';
 
 const meta = {
   title: 'Button',
