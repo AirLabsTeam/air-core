@@ -15,20 +15,20 @@ describe('formatMilliseconds', () => {
     expect(formatMilliseconds(60000)).toBe('1:00');
   });
 
-  it(`It will show a double digit seconds even if there are only single seconds`, () => {
+  it(`will show a double digit seconds even if there are only single seconds`, () => {
     expect(formatMilliseconds(724000)).toBe('12:04');
   });
 
-  it(`It will show single-digit 0 (not 00) when there are just seconds`, () => {
+  it(`will show single-digit 0 (not 00) when there are just seconds`, () => {
     expect(formatMilliseconds(4000)).toBe('0:04');
   });
 
-  it(`It will only show double digit minutes only when there are hours and single digit minutes`, () => {
+  it(`will only show double digit minutes only when there are hours and single digit minutes`, () => {
     expect(formatMilliseconds(7202000)).toBe('2:00:02');
     expect(formatMilliseconds(7682000)).toBe('2:08:02');
   });
 
-  it(`It doesn't show hours if there are none`, () => {
+  it(`doesn't show hours if there are none`, () => {
     expect(formatMilliseconds(124000)).toBe('2:04');
     expect(formatMilliseconds(479000)).toBe('7:59');
     expect(formatMilliseconds(779900)).toBe('12:59');
@@ -42,20 +42,20 @@ describe('formatDuration', () => {
     expect(formatDuration(60)).toBe('1:00');
   });
 
-  it(`It will show a double digit seconds even if there are only single seconds`, () => {
+  it(`will show a double digit seconds even if there are only single seconds`, () => {
     expect(formatDuration(724)).toBe('12:04');
   });
 
-  it(`It will show single-digit 0 (not 00) when there are just seconds`, () => {
+  it(`will show single-digit 0 (not 00) when there are just seconds`, () => {
     expect(formatDuration(4)).toBe('0:04');
   });
 
-  it(`It will only show double digit minutes only when there are hours and single digit minutes`, () => {
+  it(`will only show double digit minutes only when there are hours and single digit minutes`, () => {
     expect(formatDuration(7202)).toBe('2:00:02');
     expect(formatDuration(7682)).toBe('2:08:02');
   });
 
-  it(`It doesn't show hours if there are none`, () => {
+  it(`doesn't show hours if there are none`, () => {
     expect(formatDuration(124)).toBe('2:04');
     expect(formatDuration(479)).toBe('7:59');
     expect(formatDuration(779)).toBe('12:59');
@@ -71,7 +71,7 @@ describe('formatUpdatedAt', () => {
   const month = day * 31;
   const year = month * 12;
 
-  it(`Now is now`, () => {
+  it(`now is now`, () => {
     expect(formatUpdatedAt(new Date())).toBe('just now');
     expect(formatUpdatedAt(offsetDate(minute * 2 + 10))).toBe('2m');
     expect(formatUpdatedAt(offsetDate(hour * 3 + minute * 5))).toBe('3h');
