@@ -5,6 +5,9 @@ module.exports = {
   // ...jestConfig
   // where jestConfig = https://github.com/formium/tsdx/blob/master/src/index.ts#L512
 
+  // Which files should we check coverage for
+  collectCoverageFrom: ['<rootDir>/packages/**/src/*.{ts,tsx,js,jsx}'],
+
   // A list of reporter names that Jest uses when writing coverage reports
   coverageReporters: ['json', 'lcov'],
 
