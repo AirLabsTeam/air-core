@@ -14,7 +14,7 @@
     "access": "public"
   },
   "main": "dist/index.js",
-  "module": "dist/components.esm.production.js",
+  "module": "dist/zephyr.esm.production.js",
   "typings": "dist/index.d.ts",
   "files": [
     "dist",
@@ -24,7 +24,7 @@
     "node": ">=10"
   },
   "repository": {
-    "directory": "packages/zephr",
+    "directory": "packages/zephyr",
     "type": "git",
     "url": "git+https://github.com/AirLabsTeam/web-core.git"
   },
