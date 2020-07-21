@@ -1,0 +1,44 @@
+{
+  "name": "@air/utilities",
+  "version": "1.0.0",
+  "description": "Universal set of utilities used in Air's suite of apps",
+  "homepage": "https://github.com/AirLabsTeam/web-core/tree/master/packages/utilities#readme",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.yarnpkg.com"
+  },
+  "main": "dist/index.js",
+  "module": "dist/utilities.esm.production.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "repository": {
+    "directory": "packages/utilities",
+    "type": "git",
+    "url": "git+https://github.com/AirLabsTeam/web-core.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AirLabsTeam/web-core/issues"
+  },
+  "scripts": {
+    "start": "tsdx watch --verbose --noClean",
+    "build": "tsdx build --tsconfig tsconfig.build.json",
+    "test": "tsdx test --passWithNoTests",
+    "lint": "tsdx lint"
+  },
+  "devDependencies": {
+    "@air/zephyr": "^1.0.0",
+    "@types/moment": "^2.13.0",
+    "moment": "^2.27.0"
+  },
+  "peerDependencies": {
+    "@air/zephyr": "^1.0.0",
+    "moment": "^2.27.0"
+  }
+}
