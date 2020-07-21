@@ -32,13 +32,14 @@
     "url": "https://github.com/AirLabsTeam/web-core/issues"
   },
   "scripts": {
-    "start": "tsdx watch",
-    "build": "tsdx build",
+    "start": "tsdx watch --verbose --noClean",
+    "build": "tsdx build --tsconfig tsconfig.build.json",
     "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint",
-    "prepare": "tsdx build"
+    "prepublish": "yarn build"
   },
   "peerDependencies": {
-    "react": ">=16"
+    "react": ">=16",
+    "tinycolor2": "^1.4.1"
   }
 }
