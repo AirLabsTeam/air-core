@@ -6,7 +6,7 @@
   "license": "MIT",
   "publishConfig": {
     "access": "public",
-    "registry": "https://registry.yarnpkg.com"
+    "registry": "https://registry.npmjs.org"
   },
   "main": "dist/index.js",
   "module": "dist/utilities.esm.production.js",

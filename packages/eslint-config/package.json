@@ -8,7 +8,8 @@
   "homepage": "https://github.com/AirLabsTeam/web-core/tree/master/packages/eslint-config#readme",
   "license": "MIT",
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   },
   "main": "index.js",
   "files": [
@@ -22,6 +23,9 @@
   },
   "bugs": {
     "url": "https://github.com/AirLabsTeam/web-core/issues"
+  },
+  "scripts": {
+    "build": "echo 'There is no build command for this package.'"
   },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^3.6.1",
