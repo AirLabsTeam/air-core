@@ -145,6 +145,7 @@ module.exports = {
     'lodash/get': 'off',
     'lodash/prefer-lodash-method': 'off',
     'lodash/prefer-noop': 'off',
+    'lodash/prefer-includes': 'off', // unicorn plugin covers this
 
     /**
      * Testing Library Plugin Rules
