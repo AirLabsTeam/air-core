@@ -1,7 +1,7 @@
 /**
  * @type {import("eslint").Linter.Config}
  */
-module.exports = {
+const config = {
   env: {
     browser: true,
     commonjs: true,
@@ -350,3 +350,5 @@ module.exports = {
     },
   ],
 };
+
+module.exports = config;

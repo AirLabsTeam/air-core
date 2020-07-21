@@ -60,13 +60,6 @@ export type ColorName =
   | 'dropbox'
   | 'googleDrive';
 
-/**
- * Universal color palette for Air's suite of apps
- * @example
- * // return #01eae1
- * Colors.peacock3
- * @returns {string} A hexcode or rgba color value
- */
 const lights = {
   white: '#ffffff',
 };
@@ -241,6 +234,12 @@ const pinks = {
   darkPink: '#5e4e53',
 };
 
+/**
+ * @description Universal color palette for Air's suite of apps
+ * @constant colors
+ * @example colors.peacock3 ==> #01eae1
+ * @returns A hexcode or rgba color value
+ */
 export const colors: { [key in ColorName]: string } = {
   ...lights,
   ...pigeons,
