@@ -35,8 +35,7 @@
     "start": "tsdx watch --verbose --noClean",
     "build": "tsdx build --tsconfig tsconfig.build.json",
     "test": "tsdx test --passWithNoTests",
-    "lint": "tsdx lint",
-    "prepublish": "yarn build"
+    "lint": "tsdx lint"
   },
   "peerDependencies": {
     "react": ">=16",
