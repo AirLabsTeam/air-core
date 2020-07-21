@@ -5,16 +5,17 @@ const config = require('./packages/eslint-config/index');
  */
 module.exports = {
   root: true,
-  extends: './packages/eslint-config/index.js',
+  ...config,
   overrides: [
     ...config.overrides,
     {
       files: ['*'],
       rules: {
-        /** This rule doesn't traverse symlinks in workspaces
-         * @see https://github.com/benmosher/eslint-plugin-import/issues/1832#issuecomment-646860898
+        /** Too many issues within a monorepo in CI
+         * @see https://github.com/benmosher/eslint-plugin-import/issues/1832
+         * @see https://github.com/benmosher/eslint-plugin-import/issues/1706
          */
-        'import/no-unresolved': ['error', { ignore: ['@air/[S]+$'] }],
+        'import/no-unresolved': [!!process.env.CI ? 'off' : 'error'],
       },
     },
   ],
