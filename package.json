@@ -15,7 +15,7 @@
     }
   },
   "scripts": {
-    "bootstrap": "yarn install && yarn build:all",
+    "bootstrap": "yarn install && yarn build:packages",
     "build:packages": "lerna run build",
     "build:storybook": "build-storybook",
     "commit": "git-cz",
