@@ -33,11 +33,9 @@
     "lint": "tsdx lint"
   },
   "devDependencies": {
-    "@air/zephyr": "^1.0.0",
     "moment": "^2.27.0"
   },
   "peerDependencies": {
-    "@air/zephyr": "^1.0.0",
     "moment": "^2.27.0"
   }
 }
