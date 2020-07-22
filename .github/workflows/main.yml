@@ -31,6 +31,9 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
+      - name: Build packages # local dependencies rely on eachother and are not installed via NPM.
+        run: yarn workspaces run build
+
       - name: Lint
         run: yarn lint
 
