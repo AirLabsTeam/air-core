@@ -16,7 +16,7 @@
   },
   "scripts": {
     "bootstrap": "yarn install && yarn build",
-    "build": "lerna run build",
+    "build:packages": "lerna run build",
     "build:storybook": "build-storybook",
     "commit": "git-cz",
     "format": "yarn prettier --write \"**/*\"",
