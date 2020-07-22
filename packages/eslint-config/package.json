@@ -1,6 +1,6 @@
 {
   "name": "@air/eslint-config",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "The centralized Prettier + ESLint configuration for all client-side JS and TS at Air.",
   "keywords": [
     "eslint"
