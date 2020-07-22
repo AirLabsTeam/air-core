@@ -15,8 +15,7 @@
         "**/*.stories.*",
         "**/*.md"
       ],
-      "message": "chore(release): publish",
-      "npmClient": "yarn"
+      "message": "chore(release): publish"
     }
   }
 }
