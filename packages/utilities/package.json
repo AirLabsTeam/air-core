@@ -1,21 +1,15 @@
 {
-  "name": "@air/zephyr",
+  "name": "@air/utilities",
   "version": "1.0.0",
-  "description": "Air's React component library",
-  "keywords": [
-    "react",
-    "components",
-    "typescript",
-    "tsdx"
-  ],
-  "homepage": "https://github.com/AirLabsTeam/web-core/tree/master/packages/zephyr#readme",
+  "description": "Universal set of utilities used in Air's suite of apps",
+  "homepage": "https://github.com/AirLabsTeam/web-core/tree/master/packages/utilities#readme",
   "license": "MIT",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
   },
   "main": "dist/index.js",
-  "module": "dist/zephyr.esm.production.js",
+  "module": "dist/utilities.esm.production.js",
   "typings": "dist/index.d.ts",
   "files": [
     "dist",
@@ -25,7 +19,7 @@
     "node": ">=10"
   },
   "repository": {
-    "directory": "packages/zephyr",
+    "directory": "packages/utilities",
     "type": "git",
     "url": "git+https://github.com/AirLabsTeam/web-core.git"
   },
@@ -38,8 +32,12 @@
     "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint"
   },
+  "devDependencies": {
+    "@air/zephyr": "^1.0.0",
+    "moment": "^2.27.0"
+  },
   "peerDependencies": {
-    "react": ">=16",
-    "tinycolor2": "^1.4.1"
+    "@air/zephyr": "^1.0.0",
+    "moment": "^2.27.0"
   }
 }

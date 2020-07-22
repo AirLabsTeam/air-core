@@ -2,3 +2,4 @@
 **/coverage
 **/dist
 .yarn
+**/__snapshots__

@@ -1,7 +1,7 @@
 /**
  * @type {import("eslint").Linter.Config}
  */
-module.exports = {
+const config = {
   env: {
     browser: true,
     commonjs: true,
@@ -94,6 +94,7 @@ module.exports = {
     ],
     'no-dupe-keys': 'error',
     'no-duplicate-case': 'error',
+    'no-extra-boolean-cast': 'off',
     'no-unreachable': 'error',
     'valid-typeof': 'error',
     eqeqeq: 'error',
@@ -127,6 +128,7 @@ module.exports = {
         groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
       },
     ],
+    'import/no-default-export': 'error',
     'import/no-unresolved': 'error',
 
     /**
@@ -144,6 +146,7 @@ module.exports = {
     'lodash/get': 'off',
     'lodash/prefer-lodash-method': 'off',
     'lodash/prefer-noop': 'off',
+    'lodash/prefer-includes': 'off', // unicorn plugin covers this
 
     /**
      * Testing Library Plugin Rules
@@ -317,6 +320,13 @@ module.exports = {
       files: ['*.d.ts'],
       rules: {
         'no-undef': 'off',
+        'import/no-default-export': 'off',
+      },
+    },
+    {
+      files: ['*.stories.*'],
+      rules: {
+        'import/no-default-export': 'off',
       },
     },
     {
@@ -341,3 +351,5 @@ module.exports = {
     },
   ],
 };
+
+module.exports = config;

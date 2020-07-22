@@ -8,7 +8,8 @@
   "homepage": "https://github.com/AirLabsTeam/web-core/tree/master/packages/eslint-config#readme",
   "license": "MIT",
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   },
   "main": "index.js",
   "files": [
@@ -23,10 +24,13 @@
   "bugs": {
     "url": "https://github.com/AirLabsTeam/web-core/issues"
   },
+  "scripts": {
+    "build": "echo 'There is no build command for this package.'"
+  },
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^3.6.1",
-    "@typescript-eslint/parser": "^3.6.1",
-    "eslint": "^7.4.0",
+    "@typescript-eslint/eslint-plugin": "^3.7.0",
+    "@typescript-eslint/parser": "^3.7.0",
+    "eslint": "^7.5.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-import-resolver-typescript": "^2.0.0",
@@ -42,8 +46,8 @@
     "eslint-plugin-react": "^7.20.3",
     "eslint-plugin-react-hooks": "^4.0.8",
     "eslint-plugin-standard": "^4.0.1",
-    "eslint-plugin-testing-library": "^3.3.1",
-    "eslint-plugin-unicorn": "^20.1.0",
+    "eslint-plugin-testing-library": "^3.3.2",
+    "eslint-plugin-unicorn": "^21.0.0",
     "prettier": "^2.0.5"
   }
 }
