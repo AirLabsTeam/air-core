@@ -5,8 +5,18 @@
   "version": "independent",
   "command": {
     "publish": {
-      "npmClient": "yarn",
-      "allowBranch": "main"
+      "allowBranch": "main",
+      "conventionalCommits": "true",
+      "createRelease": "github",
+      "ignoreChanges": [
+        "**/__fixtures__/**",
+        "**/*.snap",
+        "**/*.test.*",
+        "**/*.stories.*",
+        "**/*.md"
+      ],
+      "message": "chore(release): publish",
+      "npmClient": "yarn"
     }
   }
 }
