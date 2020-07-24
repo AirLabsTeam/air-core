@@ -333,6 +333,8 @@ const config = {
       rules: {
         'no-undef': 'off',
         'import/no-default-export': 'off',
+        '@typescript-eslint/naming-convention': 'off', // cuz we dont control other peoples' naming
+        '@typescript-eslint/no-unused-vars': 'off', // may be some sort of implicit override
       },
     },
     {
