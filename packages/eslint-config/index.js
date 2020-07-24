@@ -224,7 +224,7 @@ const config = {
      * @see https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin#supported-rules
      * */
     {
-      files: ['*.{ts,tsx}'],
+      files: ['**/*.{ts,tsx}'],
       rules: {
         // vanilla rule can get type variable usage incorrect
         '@typescript-eslint/no-unused-vars': 'error',
@@ -281,7 +281,7 @@ const config = {
      * @see https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin#supported-rules
      * */
     {
-      files: ['*.mdx'],
+      files: ['**/*.mdx'],
       parserOptions: {
         ecmaVersion: 2020,
         sourceType: 'module',
@@ -322,39 +322,39 @@ const config = {
     },
     {
       // assuming Next.js application
-      files: './pages/*.tsx',
+      files: '**/pages/**/*.tsx',
       rules: {
         'react/react-in-jsx-scope': 'off', // react is a global in this folder
         'import/no-default-export': 'off', // pages have to have a default export
       },
     },
     {
-      files: ['*.d.ts'],
+      files: ['**/*.d.ts'],
       rules: {
         'no-undef': 'off',
         'import/no-default-export': 'off',
       },
     },
     {
-      files: ['*.stories.*'],
+      files: ['**/*.stories.*'],
       rules: {
         'import/no-default-export': 'off',
       },
     },
     {
-      files: ['*.test.{js,jsx,ts,tsx}', '*.spec.{js,jsx,ts,tsx}'],
+      files: ['**/*.test.{js,jsx,ts,tsx}', '**/*.spec.{js,jsx,ts,tsx}'],
       rules: {
         'function-paren-newline': ['error', 'consistent'],
       },
     },
     {
-      files: ['*.spec.{js,jsx,ts,tsx}'],
+      files: ['**/*.spec.{js,jsx,ts,tsx}'],
       rules: {
         'no-unused-expressions': ['off'],
       },
     },
     {
-      files: ['cypress/**/*.{js,jsx,ts,tsx}'],
+      files: ['**/cypress/**/*.{js,jsx,ts,tsx}'],
       rules: {
         'jest/expect-expect': 'off',
         'jest/valid-expect': 'off',
