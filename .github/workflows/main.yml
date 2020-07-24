@@ -10,10 +10,16 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Use Node 12
+      - name: Read .nvmrc
+        run: echo ::set-output name=NVMRC::$(cat .nvmrc)
+        id: nvm
+
+      - name: Use Node
         uses: actions/setup-node@v1
         with:
-          node-version: 14.x
+          always-auth: true
+          registry-url: https://registry.npmjs.org
+          node-version: '${{ steps.nvm.outputs.NVMRC }}'
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
