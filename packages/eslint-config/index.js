@@ -129,6 +129,7 @@ const config = {
       },
     ],
     'import/no-default-export': 'error',
+    'import/default': 'off', // doesn't seem to work
     'import/no-unresolved': 'error',
 
     /**
@@ -225,9 +226,11 @@ const config = {
     {
       files: ['*.{ts,tsx}'],
       rules: {
-        'react/prop-types': 'off',
-        '@typescript-eslint/no-unnecessary-type-assertion': 'error',
+        // vanilla rule can get type variable usage incorrect
         '@typescript-eslint/no-unused-vars': 'error',
+        'no-unused-vars': 'off',
+
+        '@typescript-eslint/no-unnecessary-type-assertion': 'error',
         '@typescript-eslint/prefer-nullish-coalescing': 'error',
         '@typescript-eslint/no-non-null-asserted-optional-chain': 'error',
         '@typescript-eslint/no-use-before-define': 'error',
@@ -260,6 +263,7 @@ const config = {
           // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/naming-convention.md
           // Use to lint various variable names
         ],
+        'react/prop-types': 'off',
       },
       parserOptions: {
         project: './tsconfig.eslint.json',
@@ -314,6 +318,14 @@ const config = {
             ],
           },
         ],
+      },
+    },
+    {
+      // assuming Next.js application
+      files: './pages/*.tsx',
+      rules: {
+        'react/react-in-jsx-scope': 'off', // react is a global in this folder
+        'import/no-default-export': 'off', // pages have to have a default export
       },
     },
     {
