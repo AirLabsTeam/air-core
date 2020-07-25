@@ -1,4 +1,7 @@
+# Keep in sync with .gitignore + .prettierignore
 **/node_modules
-**/coverage
 **/dist
-.yarn
+./packages/icons/native
+**/.cache
+**/coverage
+./storybook-static
