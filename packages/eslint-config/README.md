@@ -11,12 +11,13 @@ The centralized Prettier + ESLint configuration for all client-side JS and TS at
 Inside `.eslintrc.js`:
 
 ```js
+const config = require('@air/eslint-config');
+
 /**
  * @type {import("eslint").Linter.Config}
  */
-const config = {
-  extends: ['@air/eslint-config'],
+module.exports = {
+  // easily lets you merge and alter existing config blobs as opposed to using just the `extends` key
+  ...config,
 };
-
-module.exports = config;
 ```
