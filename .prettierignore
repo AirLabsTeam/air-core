@@ -1,5 +1,11 @@
+# Keep in sync with .eslintignore + .gitignore
 **/node_modules
-**/coverage
 **/dist
-.yarn
+packages/icons/native
+**/.cache
+**/coverage
+storybook-static
+
+
+# Others to be ignored
 **/__snapshots__

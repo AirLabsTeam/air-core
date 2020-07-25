@@ -1,7 +1,11 @@
+# Keep in sync with .eslintignore + .prettierignore
 **/node_modules
 **/dist
+packages/icons/native
 **/.cache
+**/coverage
 storybook-static
+
 
 # No npm allowed
 package-lock.json
