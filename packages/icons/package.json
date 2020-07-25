@@ -1,0 +1,52 @@
+{
+  "name": "@air/icons",
+  "version": "1.0.0",
+  "description": "Air's iconography",
+  "keywords": [
+    "react",
+    "svg",
+    "icons",
+    "iconography"
+  ],
+  "homepage": "https://github.com/AirLabsTeam/web-core/tree/master/packages/icons#readme",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "main": "dist/index.js",
+  "module": "dist/icons.esm.production.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src",
+    "native"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "repository": {
+    "directory": "packages/icons",
+    "type": "git",
+    "url": "git+https://github.com/AirLabsTeam/web-core.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AirLabsTeam/web-core/issues"
+  },
+  "scripts": {
+    "src": "rm -rf ./dist ./native ./src-native && mkdir src-native && cp ./src/index.tsx ./src-native/index.tsx && cp ./src/Icons.ts ./src-native/Icons.ts",
+    "dist": "mkdir ./native && mv ./dist/src-native/* ./native && mv ./dist/src/* ./dist && rm -rf ./src-native ./dist/src ./dist/src-native",
+    "build": "NODE_ENV=production BABEL_ENV=production yarn src && node ./scripts/native && tsc --project ./tsconfig.build.json && yarn dist",
+    "test": "tsdx test --passWithNoTests",
+    "lint": "tsdx lint"
+  },
+  "devDependencies": {
+    "@air/zephyr": "^1.1.0",
+    "react-native-svg": "^9.3.6",
+    "svgs": "^3.2.1"
+  },
+  "peerDependencies": {
+    "react": ">=16",
+    "react-native": ">=0.58"
+  }
+}
