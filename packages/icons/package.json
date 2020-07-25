@@ -41,12 +41,10 @@
     "lint": "tsdx lint"
   },
   "devDependencies": {
-    "@air/zephyr": "^1.1.0",
     "react-native-svg": "^9.3.6",
     "svgs": "^3.2.1"
   },
   "peerDependencies": {
-    "@air/zephyr": "^1.1.0",
     "react": ">=16",
     "react-native": ">=0.58"
   }

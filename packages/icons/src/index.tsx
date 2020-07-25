@@ -1,7 +1,6 @@
 import React from 'react';
 // @ts-ignore
 import Svg, { Path } from 'svgs';
-import { colors } from '@air/zephyr/src/theme/colors';
 import Icons, { IconName } from './Icons';
 
 export { IconName };
@@ -39,16 +38,16 @@ const Icon = ({
   title = name,
   d = Icons[name],
   fill = 'none',
-  stroke = colors.black,
+  stroke = '#000000',
   strokeLinecap = 'round',
   strokeLinejoin = 'round',
   border = false,
   borderWidth = border ? size / 16 : 0,
   borderStyle = 'solid',
-  borderColor = border ? stroke : colors.transparent,
+  borderColor = border ? stroke : 'transparent',
   borderRadius = border ? 512 : 0,
   padding = border ? size / 8 : 0,
-  backgroundColor = colors.transparent,
+  backgroundColor = 'transparent',
   strokeWidth = border ? 2 * 1.5 : 2,
   style = {
     boxSizing: 'border-box',
