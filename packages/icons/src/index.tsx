@@ -4,6 +4,8 @@ import Svg, { Path } from 'svgs';
 import { colors } from '@air/zephyr/src/theme/colors';
 import Icons, { IconName } from './Icons';
 
+export { IconName };
+
 export interface IconProps {
   viewBox?: string;
   size?: number;
