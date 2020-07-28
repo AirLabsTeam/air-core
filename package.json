@@ -15,12 +15,13 @@
     }
   },
   "scripts": {
-    "bootstrap": "yarn install && yarn build:packages",
+    "bootstrap": "yarn install --frozen-lockfile && yarn build:packages",
     "build:packages": "lerna run build",
     "build:storybook": "build-storybook",
     "commit": "git-cz",
     "format": "yarn prettier --write \"**/*\"",
     "lint": "yarn eslint \"**/*.{js,jsx,ts,tsx,mdx}\"",
+    "prepublishOnly": "yarn bootstrap",
     "storybook": "start-storybook -p 6006",
     "test": "tsdx test",
     "test:changes": "tsdx test --changedSince master",

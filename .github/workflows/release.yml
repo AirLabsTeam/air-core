@@ -39,11 +39,8 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
 
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
-
-      - name: Build packages # local dependencies rely on eachother and are not installed via NPM.
-        run: yarn build:packages
+      - name: Bootstrap
+        run: yarn bootstrap
 
       - name: Add NPM Token
         run: echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc
