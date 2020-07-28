@@ -263,7 +263,6 @@ const config = {
           // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/naming-convention.md
           // Use to lint various variable names
         ],
-        'react/prop-types': 'off',
       },
       parserOptions: {
         project: './tsconfig.eslint.json',
