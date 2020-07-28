@@ -45,5 +45,10 @@ jobs:
       - name: Build packages # local dependencies rely on eachother and are not installed via NPM.
         run: yarn build:packages
 
+      - name: Add NPM Token
+        run: echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
       - name: Publish changes
         run: yarn lerna publish --yes --canary --preid beta --no-commit-hooks --no-git-tag-version --no-push
