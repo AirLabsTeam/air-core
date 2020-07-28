@@ -6,7 +6,7 @@
   "command": {
     "publish": {
       "allowBranch": "main",
-      "conventionalCommits": "true",
+      "conventionalCommits": true,
       "createRelease": "github",
       "ignoreChanges": [
         "**/__fixtures__/**",
