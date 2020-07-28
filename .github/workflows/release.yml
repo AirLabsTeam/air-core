@@ -5,12 +5,8 @@ on:
     branches:
       - main
 
-name: CI
-
-on: [push]
-
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
 
     steps:
