@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/AirLabsTeam/web-core/compare/@air/hooks@1.1.0...@air/hooks@1.1.1) (2020-07-28)
+
+### Bug Fixes
+
+- update dependencies ([42d99a6](https://github.com/AirLabsTeam/web-core/commit/42d99a627b1df4f1607ae369be43e4488a5d4a38))
+
 # 1.1.0 (2020-07-24)
 
 ### Features
