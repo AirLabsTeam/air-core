@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/AirLabsTeam/web-core/compare/@air/icons@1.1.0...@air/icons@1.1.1) (2020-07-30)
+
+### Bug Fixes
+
+- change Toggle list icon ([02a09d2](https://github.com/AirLabsTeam/web-core/commit/02a09d266be9e2afa68e11af8ce42492aac24527))
+- fix lint ([6e69faa](https://github.com/AirLabsTeam/web-core/commit/6e69faadcbf99d8e0f04611ccdb1c1959a5a2691))
+
 # 1.1.0 (2020-07-25)
 
 ### Bug Fixes
