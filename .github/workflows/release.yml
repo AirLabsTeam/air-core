@@ -44,5 +44,8 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
+      - name: Install dependencies and build packages
+        run: yarn bootstrap
+
       - name: Publish changes
         run: yarn lerna publish --yes --canary --preid beta --no-commit-hooks --no-git-tag-version --no-push
