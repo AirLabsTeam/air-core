@@ -169,7 +169,7 @@ const config = {
     'unicorn/prefer-includes': 'error',
     'unicorn/prefer-node-append': 'off',
     'unicorn/prefer-node-remove': 'off',
-    'unicorn/prefer-query-selector': 'error',
+    'unicorn/prefer-query-selector': 'off',
     'unicorn/prefer-spread': 'error',
     'unicorn/prefer-starts-ends-with': 'error',
     'unicorn/prefer-text-content': 'error',
