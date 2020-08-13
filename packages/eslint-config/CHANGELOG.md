@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.6](https://github.com/AirLabsTeam/web-core/compare/@air/eslint-config@1.1.5...@air/eslint-config@1.1.6) (2020-08-13)
+
+### Reverts
+
+- **@air/eslint-config:** deactivate "unicorn/prefer-query-selector" rule ([a2ca4fc](https://github.com/AirLabsTeam/web-core/commit/a2ca4fc3b1b8db00cf872aac5b78b3f9925bb3b7))
+
 ## [1.1.5](https://github.com/AirLabsTeam/web-core/compare/@air/eslint-config@1.1.4...@air/eslint-config@1.1.5) (2020-07-28)
 
 ### Bug Fixes

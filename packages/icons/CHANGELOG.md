@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.2](https://github.com/AirLabsTeam/web-core/compare/@air/icons@1.1.1...@air/icons@1.1.2) (2020-08-13)
+
+### Bug Fixes
+
+- **@air/icons:** move `svgs` from devDeps to deps ([525a7cd](https://github.com/AirLabsTeam/web-core/commit/525a7cd0013ce2e5c34807044caa60197f5d9bd1))
+
 ## [1.1.1](https://github.com/AirLabsTeam/web-core/compare/@air/icons@1.1.0...@air/icons@1.1.1) (2020-07-30)
 
 ### Bug Fixes
