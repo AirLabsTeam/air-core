@@ -40,9 +40,11 @@
     "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint"
   },
-  "devDependencies": {
-    "react-native-svg": "^9.3.6",
+  "dependencies": {
     "svgs": "^3.2.1"
+  },
+  "devDependencies": {
+    "react-native-svg": "^9.3.6"
   },
   "peerDependencies": {
     "react": ">=16",
