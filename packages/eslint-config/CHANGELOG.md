@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.7](https://github.com/AirLabsTeam/web-core/compare/@air/eslint-config@1.1.6...@air/eslint-config@1.1.7) (2020-08-16)
+
+### Bug Fixes
+
+- update dependencies ([bcd61d2](https://github.com/AirLabsTeam/web-core/commit/bcd61d263cbc5b4ce5af4f4b371b1328429cbac7))
+
 ## [1.1.6](https://github.com/AirLabsTeam/web-core/compare/@air/eslint-config@1.1.5...@air/eslint-config@1.1.6) (2020-08-13)
 
 ### Reverts
