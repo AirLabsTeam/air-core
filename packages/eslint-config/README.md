@@ -1,6 +1,6 @@
 # `@air/eslint-config`
 
-The centralized Prettier + ESLint configuration for all client-side JS and TS at Air.
+The centralized Prettier + ESLint configuration for all client-side JS and TS at Air. Note, there are some rules which presume you leverage `Next.js`./
 
 ## Installation
 
