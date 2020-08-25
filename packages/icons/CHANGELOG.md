@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@1.1.2...@air/icons@1.2.0) (2020-08-25)
+
+### Features
+
+- **@air/icons:** add in notion icon ([d324164](https://github.com/AirLabsTeam/web-core/commit/d3241640573ff38657fc091798e1193a7a37aec4))
+
 ## [1.1.2](https://github.com/AirLabsTeam/web-core/compare/@air/icons@1.1.1...@air/icons@1.1.2) (2020-08-13)
 
 ### Bug Fixes
