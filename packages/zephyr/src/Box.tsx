@@ -57,5 +57,6 @@ export const Box = styled('div')<BoxProps>(
   baseStyles,
   variant,
   inlineStyles,
+  // @ts-ignore
   (props) => props.css,
 );
