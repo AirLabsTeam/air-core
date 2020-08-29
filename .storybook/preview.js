@@ -1,7 +1,7 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 
-import { theme } from '../packages/zephyr';
+import { theme } from '../packages/zephyr/src/theme';
 
 export const parameters = {
   actions: { argTypesRegex: '^on.*' },
