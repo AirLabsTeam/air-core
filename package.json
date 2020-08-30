@@ -51,6 +51,7 @@
     "chromatic": "^5.1.0",
     "commitizen": "^4.1.2",
     "cz-conventional-changelog": "^3.2.0",
+    "hygen": "^6.0.4",
     "husky": "^4.2.5",
     "jest": "^26.4.0",
     "lerna": "^3.22.1",
