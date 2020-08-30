@@ -1,11 +1,22 @@
-import React, { forwardRef } from 'react';
+import React, { MouseEvent as ReactMouseEvent, forwardRef } from 'react';
 
 import { Box, BoxProps } from './Box';
 
-export type ButtonProps = BoxProps<HTMLButtonElement>;
+export type ButtonProps = Omit<BoxProps<HTMLButtonElement>, 'onClick'> & {
+  onClick: (event: ReactMouseEvent<HTMLButtonElement, MouseEvent>) => void;
+};
 
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
-  return <Box __themeKey="variants.button" as="button" {...props} ref={ref} __baseStyles />;
+export const Button = forwardRef(({ type = 'button', ...restOfProps }: ButtonProps, ref) => {
+  return (
+    <Box
+      __themeKey="variants.button"
+      as="button"
+      {...restOfProps}
+      type={type}
+      ref={ref}
+      __baseStyles={{}}
+    />
+  );
 });
 
 Button.displayName = 'Button';
