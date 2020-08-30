@@ -1,4 +1,4 @@
-const pxToRem = (value: number): string => `${value / 16}rem`;
+import { rem } from 'polished';
 
 export type FontSizeName =
   | 8
@@ -19,20 +19,20 @@ export type FontSizeName =
   | 72;
 
 export const fontSizes: { [key in FontSizeName]: string } = {
-  8: pxToRem(8),
-  10: pxToRem(10),
-  12: pxToRem(12),
-  14: pxToRem(14),
-  16: pxToRem(16),
-  18: pxToRem(18),
-  20: pxToRem(20),
-  24: pxToRem(24),
-  28: pxToRem(28),
-  32: pxToRem(32),
-  36: pxToRem(36),
-  40: pxToRem(40),
-  48: pxToRem(48),
-  56: pxToRem(56),
-  64: pxToRem(64),
-  72: pxToRem(72),
+  8: rem(8),
+  10: rem(10),
+  12: rem(12),
+  14: rem(14),
+  16: rem(16),
+  18: rem(18),
+  20: rem(20),
+  24: rem(24),
+  28: rem(28),
+  32: rem(32),
+  36: rem(36),
+  40: rem(40),
+  48: rem(48),
+  56: rem(56),
+  64: rem(64),
+  72: rem(72),
 };
