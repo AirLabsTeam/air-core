@@ -2,7 +2,7 @@ import React, { MouseEvent as ReactMouseEvent, forwardRef } from 'react';
 
 import { Box, BoxProps } from './Box';
 
-export type ButtonProps = Omit<BoxProps<HTMLButtonElement>, 'onClick'> & {
+export interface ButtonProps extends Omit<BoxProps<HTMLButtonElement>, 'onClick'> {
   onClick: (event: ReactMouseEvent<HTMLButtonElement, MouseEvent>) => void;
 };
 
