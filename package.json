@@ -6,9 +6,9 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AirLabsTeam/web-core.git"
+    "url": "git+https://github.com/AirLabsTeam/air-core.git"
   },
-  "homepage": "https://github.com/AirLabsTeam/web-core",
+  "homepage": "https://github.com/AirLabsTeam/air-core",
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
