@@ -8,7 +8,7 @@ const meta = {
 
 export default meta;
 
-const Template = (args: Omit<ButtonProps, 'ref'>) => <Button {...args} data-testid={meta.title} />;
+const Template = (args: ButtonProps) => <Button {...args} data-testid={meta.title} />;
 
 export const Simple = Template.bind({});
 // @ts-ignore

@@ -28,7 +28,7 @@ interface ProtectedStylings {
   __baseStyles?: SXProp;
 }
 
-export type BoxProps<TElement = HTMLDivElement> = Omit<Attributes<TElement>, 'as' | 'key'> &
+export type BoxProps<TElement = HTMLDivElement> = Omit<Attributes<TElement>, 'as' | 'key' | 'ref'> &
   BoxVariantProps &
   BoxInlineStyleProps &
   ProtectedStylings & {
