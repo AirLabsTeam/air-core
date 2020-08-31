@@ -6,7 +6,8 @@ module.exports = [
   },
   {
     type: 'input',
-    name: 'themeKey',
-    message: 'What is the component key in the theme object? (e.g. variants.componentKey)',
+    name: 'asProp',
+    message:
+      'What is the component HTML tag that would get applied to the component? This value is passed to the `as` polymorphic prop that switches out what is rendered. (Optional)',
   },
 ];
