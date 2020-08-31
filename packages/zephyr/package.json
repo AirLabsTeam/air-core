@@ -45,9 +45,7 @@
   "devDependencies": {
     "@types/styled-system": "^5.1.10",
     "@types/styled-system__css": "^5.0.13",
-    "babel-plugin-polished": "^1.1.0"
-  },
-  "dependencies": {
+    "babel-plugin-polished": "^1.1.0",
     "polished": "^3.6.5"
   }
 }
