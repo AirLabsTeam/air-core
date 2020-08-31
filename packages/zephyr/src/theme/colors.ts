@@ -1,8 +1,5 @@
-import tinycolor from 'tinycolor2';
-
 export type ColorName =
   | 'white'
-  | 'pigeon0.5'
   | 'pigeon0'
   | 'pigeon1'
   | 'pigeon2'
@@ -13,6 +10,7 @@ export type ColorName =
   | 'pigeon7'
   | 'pigeon8'
   | 'pigeon9'
+  | 'pigeonLighter0'
   | 'black'
   | 'peacock0'
   | 'peacock1'
@@ -65,7 +63,6 @@ const lights = {
 };
 
 const pigeons = {
-  'pigeon0.5': '#f7f7f7',
   pigeon0: '#f1f1f1',
   pigeon1: '#dcdcdc',
   pigeon2: '#c1c1c1',
@@ -76,6 +73,10 @@ const pigeons = {
   pigeon7: '#333333',
   pigeon8: '#262626',
   pigeon9: '#0f0f0f',
+};
+
+const pigeonLighters = {
+  pigeonLighter0: '#F7F7F7',
 };
 
 const darks = {
@@ -148,101 +149,10 @@ const integrations = {
   googleDrive: '#0061ff',
 };
 
-// TODO: Remove legacy colors below
-
-const charcoals = {
-  charcoal50: pigeons.pigeon0,
-  charcoal100: pigeons.pigeon1,
-  charcoal200: pigeons.pigeon2,
-  charcoal300: pigeons.pigeon3,
-  charcoal400: pigeons.pigeon4,
-  charcoal500: pigeons.pigeon5,
-  charcoal600: pigeons.pigeon6,
-  charcoal700: pigeons.pigeon7,
-  charcoal800: pigeons.pigeon8,
-  charcoal900: pigeons.pigeon9,
-};
-
-const greens = {
-  green50: peacocks.peacock0,
-  green100: peacocks.peacock1,
-  green200: peacocks.peacock2,
-  green300: peacocks.peacock3,
-  green400: peacocks.peacock4,
-  green500: peacocks.peacock5,
-  green600: peacocks.peacock6,
-  green700: peacocks.peacock7,
-  green800: peacocks.peacock8,
-  green900: peacocks.peacock9,
-  greenAccent100: peacocks.peacock0,
-  greenAccent200: peacocks.peacock1,
-  greenAccent400: peacocks.peacock2,
-  greenAccent700: peacocks.peacock3,
-};
-
-const transparencies = {
-  transBlack40: `${tinycolor(darks.black).setAlpha(0.4)}`,
-  transBlack50: `${tinycolor(darks.black).setAlpha(0.5)}`,
-  transBlack60: `${tinycolor(darks.black).setAlpha(0.6)}`,
-  transBlack70: `${tinycolor(darks.black).setAlpha(0.7)}`,
-  transBlack80: `${tinycolor(darks.black).setAlpha(0.8)}`,
-  transWhite25: `${tinycolor(lights.white).setAlpha(0.25)}`,
-  transWhite30: `${tinycolor(lights.white).setAlpha(0.3)}`,
-  transWhite35: `${tinycolor(lights.white).setAlpha(0.35)}`,
-  transWhite50: `${tinycolor(lights.white).setAlpha(0.5)}`,
-  transWhite60: `${tinycolor(lights.white).setAlpha(0.6)}`,
-  transWhite70: `${tinycolor(lights.white).setAlpha(0.7)}`,
-  transWhite80: `${tinycolor(lights.white).setAlpha(0.8)}`,
-  transWhite90: `${tinycolor(lights.white).setAlpha(0.9)}`,
-  transGray80: `${tinycolor(pigeons.pigeon3).setAlpha(0.8)}`,
-  transCharcoal700_80: `${tinycolor(pigeons.pigeon4).setAlpha(0.8)}`,
-  transPeacock3_30: `${tinycolor(peacocks.peacock3).setAlpha(0.3)}`,
-};
-
-const borders = {
-  border50: pigeons.pigeon1,
-  border100: pigeons.pigeon2,
-};
-
-const blues = {
-  blue50: jays.jay1,
-  blue100: jays.jay2,
-  blue200: jays.jay2,
-  blue300: jays.jay3,
-  blue400: jays.jay4,
-  blue500: jays.jay5,
-  blue600: jays.jay6,
-  blue700: jays.jay7,
-  blue800: jays.jay7,
-  blue900: jays.jay8,
-  blueAccent100: jays.jay0,
-  blueAccent200: jays.jay1,
-  blueAccent400: jays.jay2,
-  blueAccent700: jays.jay3,
-  slate: pigeons.pigeon5,
-  lightBlue: jays.jay0,
-};
-
-const reds = {
-  softRed: flamingos.flamingo4,
-  red: flamingos.flamingo6,
-  deepRed: flamingos.flamingo6,
-};
-
-const pinks = {
-  pink: '#bc8ca0',
-  darkPink: '#5e4e53',
-};
-
-/**
- * @description Universal color palette for Air's suite of apps
- * @constant colors
- * @example colors.peacock3 ==> #01eae1
- * @returns A hexcode or rgba color value
- */
 export const colors: { [key in ColorName]: string } = {
   ...lights,
   ...pigeons,
+  ...pigeonLighters,
   ...darks,
   ...peacocks,
   ...jays,
@@ -251,11 +161,4 @@ export const colors: { [key in ColorName]: string } = {
   ...singles,
   ...accessibility,
   ...integrations,
-  ...charcoals,
-  ...greens,
-  ...transparencies,
-  ...borders,
-  ...blues,
-  ...reds,
-  ...pinks,
 };

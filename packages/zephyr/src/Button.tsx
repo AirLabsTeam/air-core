@@ -1,20 +1,22 @@
-import React, { MouseEvent as ReactMouseEvent, ButtonHTMLAttributes } from 'react';
+import React, { MouseEvent as ReactMouseEvent, forwardRef } from 'react';
 
-export interface ButtonProps
-  extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'disabled' | 'onClick'> {
-  isDisabled?: boolean;
+import { Box, BoxProps } from './Box';
+
+export interface ButtonProps extends Omit<BoxProps<HTMLButtonElement>, 'onClick' | '__baseStyles'> {
   onClick: (event: ReactMouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
-export const Button = (props: ButtonProps) => {
+export const Button = forwardRef(({ type = 'button', ...restOfProps }: ButtonProps, ref) => {
   return (
-    <button
-      {...{
-        ...props,
-        disabled: props.isDisabled,
-        style: { ...props.style, padding: '1rem 0.5rem', backgroundColor: '#FAFAFA' },
-        type: props.type ?? 'button',
-      }}
+    <Box
+      __themeKey="variants.button"
+      as="button"
+      {...restOfProps}
+      type={type}
+      ref={ref}
+      __baseStyles={{}}
     />
   );
-};
+});
+
+Button.displayName = 'Button';

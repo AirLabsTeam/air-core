@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, ButtonProps } from '../src/Button';
 
 const meta = {
-  title: 'Button',
+  title: 'Zephyr/Button',
   component: Button,
 };
 
