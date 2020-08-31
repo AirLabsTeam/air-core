@@ -1,12 +1,7 @@
 #!/bin/bash
 
 # This ensures we dont use `cz-cli` on merge commits...
-# https://stackoverflow.com/questions/56379208/ignoring-merge-commits-for-prepare-commit-msg-git-hook
+# This didn't work https://stackoverflow.com/questions/56379208/ignoring-merge-commits-for-prepare-commit-msg-git-hook
+# But this did: https://stackoverflow.com/questions/61234845/how-to-bypass-pre-commit-hooks-after-fixing-merge-conflicts
 
-COMMIT_MSG_FILE=$1
-COMMIT_SOURCE=$2
-SHA1=$3
-
-if [ "${COMMIT_SOURCE}" = merge ];then
-  exit 0
-fi
+git rev-parse -q --verify MERGE_HEAD && false
