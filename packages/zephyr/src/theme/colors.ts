@@ -149,6 +149,45 @@ const integrations = {
   googleDrive: '#0061ff',
 };
 
+// while some colors share the same values with foundational colors, we are setting them apart for specific use for File Asset Modals and File Clips
+const files = {
+  genericFile0: '#EFEFEF',
+  genericFile1: '#DCDCDC',
+  genericFile2: '#C1C1C1',
+  genericFile3: '#A4A4A4',
+  genericFile4: '#666666',
+  textFile0: '#90B8FF',
+  textFile1: '#6FA2FF',
+  textFile2: '#5A95FF',
+  textFile3: '#498AFF',
+  textFile4: '#2D78FF',
+  databaseFile0: '#A9F482',
+  databaseFile1: '#8CEA65',
+  databaseFile2: '#5EE92A',
+  databaseFile3: '#3AD202',
+  databaseFile4: '#34BE00',
+  compressedFile0: '#FFEBAE',
+  compressedFile1: '#FFE188',
+  compressedFile2: '#FFDA6D',
+  compressedFile3: '#FFCD50',
+  compressedFile4: '#FFB91D',
+  presentationFile0: '#FFC088',
+  presentationFile1: '#FEB264',
+  presentationFile2: '#FFA350',
+  presentationFile3: '#FF9239',
+  presentationFile4: '#FF9239',
+  audioFile0: '#C6A9FF',
+  audioFile1: '#B088FF',
+  audioFile2: '#A072F8',
+  audioFile3: '#945EEA',
+  audioFile4: '#7E41E0',
+  threeDFile0: '#DEEEFC',
+  threeDFile1: '#BFDBF9',
+  threeDFile2: '#9BC1EF',
+  threeDFile3: '#7EA6E0',
+  threeDFile4: '#4C85D8',
+};
+
 export const colors: { [key in ColorName]: string } = {
   ...lights,
   ...pigeons,
@@ -161,4 +200,5 @@ export const colors: { [key in ColorName]: string } = {
   ...singles,
   ...accessibility,
   ...integrations,
+  ...files,
 };
