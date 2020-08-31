@@ -18,7 +18,6 @@
     "bootstrap": "yarn install --frozen-lockfile && yarn build:packages",
     "build:packages": "lerna run build",
     "build:storybook": "build-storybook",
-    "commit": "git-cz",
     "format": "yarn prettier --write \"**/*\"",
     "lint": "yarn eslint \"**/*.{js,jsx,ts,tsx,mdx}\"",
     "prepublishOnly": "yarn bootstrap",
