@@ -22,6 +22,20 @@ export const theme = {
   fontWeights,
   radii,
   space,
+  variants: {
+    heading: {
+      // Define all variants
+      h1: {
+        color: 'red',
+      },
+      h2: {
+        color: 'blue',
+      },
+      h3: {
+        color: 'green',
+      },
+    },
+  },
 };
 
 /** @description Gets the theme object */
