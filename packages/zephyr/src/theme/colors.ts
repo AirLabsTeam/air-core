@@ -56,6 +56,31 @@ export type ColorName =
   | 'transparentSafariHack'
   | 'focus'
   | 'dropbox'
+  | 'macaw0'
+  | 'macaw1'
+  | 'macaw2'
+  | 'macaw3'
+  | 'macaw4'
+  | 'parrot0'
+  | 'parrot1'
+  | 'parrot2'
+  | 'parrot3'
+  | 'parrot4'
+  | 'robin0'
+  | 'robin1'
+  | 'robin2'
+  | 'robin3'
+  | 'robin4'
+  | 'robin0'
+  | 'robin1'
+  | 'robin2'
+  | 'robin3'
+  | 'robin4'
+  | 'cuckoo0'
+  | 'cuckoo1'
+  | 'cuckoo2'
+  | 'cuckoo3'
+  | 'cuckoo4'
   | 'googleDrive';
 
 const lights = {
@@ -135,9 +160,6 @@ const canaries = {
   canary9: '#4c2103',
 };
 
-/**
- * @description for new text files
- */
 const macaws = {
   macaw0: '#90B8FF',
   macaw1: '#6FA2FF',
@@ -146,9 +168,6 @@ const macaws = {
   macaw4: '#2962FF',
 };
 
-/**
- * @description for new database files
- */
 const parrots = {
   parrot0: '#A9F482',
   parrot1: '#8CEA65',
@@ -157,9 +176,6 @@ const parrots = {
   parrot4: '#50B83C',
 };
 
-/**
- * @description for new presentation files
- */
 const robins = {
   robin0: '#FFAA3B',
   robin1: '#FF9800',
@@ -168,9 +184,6 @@ const robins = {
   robin4: '#FF6D00',
 };
 
-/**
- * @description for new audio files
- */
 const cuckoos = {
   cuckoo0: '#C6A9FF',
   cuckoo1: '#B088FF',
