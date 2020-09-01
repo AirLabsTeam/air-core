@@ -135,34 +135,42 @@ const canaries = {
   canary9: '#4c2103',
 };
 
-// for new text files
+/**
+ * @description for new text files
+ */
 const macaws = {
   macaw0: '#90B8FF',
   macaw1: '#6FA2FF',
-  macaw2: '#5A95FF',
-  macaw3: '#498AFF',
-  macaw4: '#2D78FF',
+  macaw2: '#448AFF',
+  macaw3: '#2979FF',
+  macaw4: '#2962FF',
 };
 
-// for new database files
+/**
+ * @description for new database files
+ */
 const parrots = {
   parrot0: '#A9F482',
   parrot1: '#8CEA65',
   parrot2: '#5EE92A',
   parrot3: '#3AD202',
-  parrot4: '#34BE00',
+  parrot4: '#50B83C',
 };
 
-// for new presentation files
+/**
+ * @description for new presentation files
+ */
 const robins = {
-  robin0: '#FFC088',
-  robin1: '#FEB264',
-  robin2: '#FFA350',
-  robin3: '#FF9239',
-  robin4: '#FF9239',
+  robin0: '#FFAA3B',
+  robin1: '#FF9800',
+  robin2: '#FB8800',
+  robin3: '#FB7D00',
+  robin4: '#FF6D00',
 };
 
-// for new audio files
+/**
+ * @description for new audio files
+ */
 const cuckoos = {
   cuckoo0: '#C6A9FF',
   cuckoo1: '#B088FF',
