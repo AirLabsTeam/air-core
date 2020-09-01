@@ -1,5 +1,63 @@
 export type ColorName =
-  | 'white'
+  | 'black'
+  | 'canary0'
+  | 'canary1'
+  | 'canary2'
+  | 'canary3'
+  | 'canary4'
+  | 'canary5'
+  | 'canary6'
+  | 'canary7'
+  | 'canary8'
+  | 'canary9'
+  | 'cuckoo0'
+  | 'cuckoo1'
+  | 'cuckoo2'
+  | 'cuckoo3'
+  | 'cuckoo4'
+  | 'dropbox'
+  | 'flamingo0'
+  | 'flamingo1'
+  | 'flamingo2'
+  | 'flamingo3'
+  | 'flamingo4'
+  | 'flamingo5'
+  | 'flamingo6'
+  | 'flamingo7'
+  | 'flamingo8'
+  | 'flamingo9'
+  | 'focus'
+  | 'googleDrive'
+  | 'jay0'
+  | 'jay1'
+  | 'jay2'
+  | 'jay3'
+  | 'jay4'
+  | 'jay5'
+  | 'jay6'
+  | 'jay7'
+  | 'jay8'
+  | 'jay9'
+  | 'macaw0'
+  | 'macaw1'
+  | 'macaw2'
+  | 'macaw3'
+  | 'macaw4'
+  | 'parrot0'
+  | 'parrot1'
+  | 'parrot2'
+  | 'parrot3'
+  | 'parrot4'
+  | 'peacock0'
+  | 'peacock1'
+  | 'peacock2'
+  | 'peacock3'
+  | 'peacock4'
+  | 'peacock5'
+  | 'peacock6'
+  | 'peacock7'
+  | 'peacock8'
+  | 'peacock9'
   | 'pigeon0'
   | 'pigeon1'
   | 'pigeon2'
@@ -11,127 +69,43 @@ export type ColorName =
   | 'pigeon8'
   | 'pigeon9'
   | 'pigeonLighter0'
-  | 'black'
-  | 'peacock0'
-  | 'peacock1'
-  | 'peacock2'
-  | 'peacock3'
-  | 'peacock4'
-  | 'peacock5'
-  | 'peacock6'
-  | 'peacock7'
-  | 'peacock8'
-  | 'peacock9'
-  | 'jay0'
-  | 'jay1'
-  | 'jay2'
-  | 'jay3'
-  | 'jay4'
-  | 'jay5'
-  | 'jay6'
-  | 'jay7'
-  | 'jay8'
-  | 'jay9'
-  | 'flamingo0'
-  | 'flamingo1'
-  | 'flamingo2'
-  | 'flamingo3'
-  | 'flamingo4'
-  | 'flamingo5'
-  | 'flamingo6'
-  | 'flamingo7'
-  | 'flamingo8'
-  | 'flamingo9'
-  | 'canary0'
-  | 'canary1'
-  | 'canary2'
-  | 'canary3'
-  | 'canary4'
-  | 'canary5'
-  | 'canary6'
-  | 'canary7'
-  | 'canary8'
-  | 'canary9'
+  | 'robin0'
+  | 'robin0'
+  | 'robin1'
+  | 'robin1'
+  | 'robin2'
+  | 'robin2'
+  | 'robin3'
+  | 'robin3'
+  | 'robin4'
+  | 'robin4'
   | 'transparent'
   | 'transparentSafariHack'
-  | 'focus'
-  | 'dropbox'
-  | 'macaw0'
-  | 'macaw1'
-  | 'macaw2'
-  | 'macaw3'
-  | 'macaw4'
-  | 'parrot0'
-  | 'parrot1'
-  | 'parrot2'
-  | 'parrot3'
-  | 'parrot4'
-  | 'robin0'
-  | 'robin1'
-  | 'robin2'
-  | 'robin3'
-  | 'robin4'
-  | 'robin0'
-  | 'robin1'
-  | 'robin2'
-  | 'robin3'
-  | 'robin4'
-  | 'cuckoo0'
-  | 'cuckoo1'
-  | 'cuckoo2'
-  | 'cuckoo3'
-  | 'cuckoo4'
-  | 'googleDrive';
+  | 'white';
 
-const lights = {
-  white: '#ffffff',
+const canaries = {
+  canary0: '#fff1b9',
+  canary1: '#ffe784',
+  canary2: '#fdd778',
+  canary3: '#ffbe3c',
+  canary4: '#ffac00',
+  canary5: '#ff9d00',
+  canary6: '#ef7600',
+  canary7: '#ce4d13',
+  canary8: '#833602',
+  canary9: '#4c2103',
 };
 
-const pigeons = {
-  pigeon0: '#f1f1f1',
-  pigeon1: '#dcdcdc',
-  pigeon2: '#c1c1c1',
-  pigeon3: '#a4a4a4',
-  pigeon4: '#808080',
-  pigeon5: '#666666',
-  pigeon6: '#4d4d4d',
-  pigeon7: '#333333',
-  pigeon8: '#262626',
-  pigeon9: '#0f0f0f',
-};
-
-const pigeonLighters = {
-  pigeonLighter0: '#F7F7F7',
+const cuckoos = {
+  cuckoo0: '#C6A9FF',
+  cuckoo1: '#B088FF',
+  cuckoo2: '#A072F8',
+  cuckoo3: '#945EEA',
+  cuckoo4: '#7E41E0',
 };
 
 const darks = {
   black: '#000000',
-};
-
-const peacocks = {
-  peacock0: '#ccfdea',
-  peacock1: '#9bfbdf',
-  peacock2: '#68f4d8',
-  peacock3: '#42ead7',
-  peacock4: '#0addd7',
-  peacock5: '#07b3be',
-  peacock6: '#05889f',
-  peacock7: '#036280',
-  peacock8: '#01486a',
-  peacock9: '#033b51',
-};
-
-const jays = {
-  jay0: '#deeefc',
-  jay1: '#bfdbf9',
-  jay2: '#9bc1ef',
-  jay3: '#7ea6e0',
-  jay4: '#4c85d8',
-  jay5: '#2954af',
-  jay6: '#1b3889',
-  jay7: '#142a72',
-  jay8: '#102261',
-  jay9: '#0b1953',
 };
 
 const flamingos = {
@@ -147,17 +121,30 @@ const flamingos = {
   flamingo9: '#511421',
 };
 
-const canaries = {
-  canary0: '#fff1b9',
-  canary1: '#ffe784',
-  canary2: '#fdd778',
-  canary3: '#ffbe3c',
-  canary4: '#ffac00',
-  canary5: '#ff9d00',
-  canary6: '#ef7600',
-  canary7: '#ce4d13',
-  canary8: '#833602',
-  canary9: '#4c2103',
+const integrations = {
+  dropbox: '#0061ff',
+  googleDrive: '#0061ff',
+};
+
+const jays = {
+  jay0: '#deeefc',
+  jay1: '#bfdbf9',
+  jay2: '#9bc1ef',
+  jay3: '#7ea6e0',
+  jay4: '#4c85d8',
+  jay5: '#2954af',
+  jay6: '#1b3889',
+  jay7: '#142a72',
+  jay8: '#102261',
+  jay9: '#0b1953',
+};
+
+const accessibility = {
+  focus: jays.jay4,
+};
+
+const lights = {
+  white: '#ffffff',
 };
 
 const macaws = {
@@ -176,6 +163,36 @@ const parrots = {
   parrot4: '#50B83C',
 };
 
+const peacocks = {
+  peacock0: '#ccfdea',
+  peacock1: '#9bfbdf',
+  peacock2: '#68f4d8',
+  peacock3: '#42ead7',
+  peacock4: '#0addd7',
+  peacock5: '#07b3be',
+  peacock6: '#05889f',
+  peacock7: '#036280',
+  peacock8: '#01486a',
+  peacock9: '#033b51',
+};
+
+const pigeonLighters = {
+  pigeonLighter0: '#F7F7F7',
+};
+
+const pigeons = {
+  pigeon0: '#f1f1f1',
+  pigeon1: '#dcdcdc',
+  pigeon2: '#c1c1c1',
+  pigeon3: '#a4a4a4',
+  pigeon4: '#808080',
+  pigeon5: '#666666',
+  pigeon6: '#4d4d4d',
+  pigeon7: '#333333',
+  pigeon8: '#262626',
+  pigeon9: '#0f0f0f',
+};
+
 const robins = {
   robin0: '#FFAA3B',
   robin1: '#FF9800',
@@ -184,42 +201,25 @@ const robins = {
   robin4: '#FF6D00',
 };
 
-const cuckoos = {
-  cuckoo0: '#C6A9FF',
-  cuckoo1: '#B088FF',
-  cuckoo2: '#A072F8',
-  cuckoo3: '#945EEA',
-  cuckoo4: '#7E41E0',
-};
-
 const singles = {
   transparent: 'transparent',
   transparentSafariHack: 'rgba(255, 255, 255, 0.001)',
 };
 
-const accessibility = {
-  focus: jays.jay4,
-};
-
-const integrations = {
-  dropbox: '#0061ff',
-  googleDrive: '#0061ff',
-};
-
 export const colors: { [key in ColorName]: string } = {
-  ...lights,
-  ...pigeons,
-  ...pigeonLighters,
-  ...darks,
-  ...peacocks,
-  ...jays,
-  ...flamingos,
   ...canaries,
-  ...singles,
-  ...accessibility,
+  ...cuckoos,
+  ...darks,
+  ...flamingos,
   ...integrations,
+  ...jays,
+  ...accessibility,
+  ...lights,
   ...macaws,
   ...parrots,
+  ...peacocks,
+  ...pigeonLighters,
+  ...pigeons,
   ...robins,
-  ...cuckoos,
+  ...singles,
 };
