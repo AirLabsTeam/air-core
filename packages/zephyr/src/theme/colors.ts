@@ -215,5 +215,5 @@ export const colors: { [key in ColorName]: string } = {
   ...pigeonLighters,
   ...pigeons,
   ...robins,
-  ...singles,
+  ... miscellaneous,
 };
