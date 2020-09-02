@@ -75,7 +75,6 @@ export type ColorName =
   | 'robin3'
   | 'robin4'
   | 'transparent'
-  | 'transparentSafariHack'
   | 'white';
 
 const canaries = {
