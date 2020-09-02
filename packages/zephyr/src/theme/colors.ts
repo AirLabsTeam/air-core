@@ -75,7 +75,6 @@ export type ColorName =
   | 'robin3'
   | 'robin4'
   | 'transparent'
-  | 'transparentSafariHack'
   | 'white';
 
 const canaries = {
@@ -196,9 +195,8 @@ const robins = {
   robin4: '#FF6D00',
 };
 
-const singles = {
-  transparent: 'transparent',
-  transparentSafariHack: 'rgba(255, 255, 255, 0.001)',
+const miscellaneous = {
+  transparent: 'rgba(255, 255, 255, 0.001)',
 };
 
 export const colors: { [key in ColorName]: string } = {
@@ -216,5 +214,5 @@ export const colors: { [key in ColorName]: string } = {
   ...pigeonLighters,
   ...pigeons,
   ...robins,
-  ...singles,
+  ...miscellaneous,
 };
