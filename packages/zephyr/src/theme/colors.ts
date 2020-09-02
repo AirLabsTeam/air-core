@@ -195,7 +195,7 @@ const robins = {
   robin4: '#FF6D00',
 };
 
-const singles = {
+const miscellaneous = {
   transparent: 'transparent',
   transparentSafariHack: 'rgba(255, 255, 255, 0.001)',
 };
