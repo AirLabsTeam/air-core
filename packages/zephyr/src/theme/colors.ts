@@ -197,7 +197,6 @@ const robins = {
 
 const miscellaneous = {
   transparent: 'transparent',
-  transparentSafariHack: 'rgba(255, 255, 255, 0.001)',
 };
 
 export const colors: { [key in ColorName]: string } = {
