@@ -196,7 +196,7 @@ const robins = {
 };
 
 const miscellaneous = {
-  transparent: 'transparent',
+  transparent: 'rgba(255, 255, 255, 0.001)',
 };
 
 export const colors: { [key in ColorName]: string } = {
@@ -214,5 +214,5 @@ export const colors: { [key in ColorName]: string } = {
   ...pigeonLighters,
   ...pigeons,
   ...robins,
-  ... miscellaneous,
+  ...miscellaneous,
 };
