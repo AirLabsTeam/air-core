@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.1](https://github.com/AirLabsTeam/web-core/compare/@air/icons@1.4.0...@air/icons@1.4.1) (2020-09-09)
+
+### Bug Fixes
+
+- **icons:** fix alphabetical order again ([e09da53](https://github.com/AirLabsTeam/web-core/commit/e09da53a4dcf4bc8c71988450c16fd7e9aff362b))
+- **icons:** replace new video logo, fix alphabetical order ([d9b3b10](https://github.com/AirLabsTeam/web-core/commit/d9b3b10bb15bcab5c4608d44e1a974e15d6f2ee8))
+
 # [1.4.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@1.3.0...@air/icons@1.4.0) (2020-09-09)
 
 ### Features
