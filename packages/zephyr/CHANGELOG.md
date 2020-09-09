@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@1.2.0...@air/zephyr@1.3.0) (2020-09-09)
+
+### Bug Fixes
+
+- **packages/zephyr:** fix new file colors, named after birds ([ddeac96](https://github.com/AirLabsTeam/web-core/commit/ddeac96da8d8fc225c7fd81d1aa9b8d90970a3e0))
+- **packages/zephyr:** use docblocks for comments ([eda3abe](https://github.com/AirLabsTeam/web-core/commit/eda3abea926c0760cc0b3165797611c2a6712b2a))
+- **zephyr:** remove duplicated robin type strings ([9845896](https://github.com/AirLabsTeam/web-core/commit/98458963257a66c4c4e6b5ea1efdc405c7fcd0ec))
+- **zephyr:** replace singles with miscellaneous, remove transparentSafariHack, swap transparent rgba ([aba66f1](https://github.com/AirLabsTeam/web-core/commit/aba66f18ab345cd491a6c6aaeadd02193a3427fc))
+- **zephyr:** set new color types ([163fee6](https://github.com/AirLabsTeam/web-core/commit/163fee60ffecdf8c2b5709f4b256500160fd20b9))
+
+### Features
+
+- **air/zephyr:** add new files colors ([4bf00a5](https://github.com/AirLabsTeam/web-core/commit/4bf00a5005334edd8148a35b531ed33b66cabd32))
+
 # [1.2.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@1.1.1...@air/zephyr@1.2.0) (2020-08-31)
 
 ### Bug Fixes

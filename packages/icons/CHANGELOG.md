@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@1.3.0...@air/icons@1.4.0) (2020-09-09)
+
+### Features
+
+- **icons:** add new file icons, prep video icon replacement ([8551b2c](https://github.com/AirLabsTeam/web-core/commit/8551b2cecaf12da42ea42aace05b1455acc9d735))
+
 # [1.3.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@1.1.2...@air/icons@1.3.0) (2020-08-25)
 
 ### Bug Fixes
