@@ -196,6 +196,7 @@ const robins = {
 };
 
 const miscellaneous = {
+  /** @see https://stackoverflow.com/questions/46309641/what-happens-in-safari-with-the-transparent-color */
   transparent: 'rgba(255, 255, 255, 0.001)',
 };
 
