@@ -3,7 +3,7 @@
 module.exports = {
   // NOTE: TSDX's jest config is merged into with this config like so:
   // ...jestConfig
-  // where jestConfig = https://github.com/formium/tsdx/blob/master/src/index.ts#L512
+  // where jestConfig is defined under the test command in https://github.com/formium/tsdx/blob/master/src/index.ts
 
   // Which files should we check coverage for
   collectCoverageFrom: ['<rootDir>/packages/**/src/*.{ts,tsx,js,jsx}'],
