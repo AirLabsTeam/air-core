@@ -13,6 +13,7 @@ const config = {
   globals: {
     cy: true,
     Cypress: true,
+    JSX: true,
   },
   parser: '@typescript-eslint/parser',
   parserOptions: {
