@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.8](https://github.com/AirLabsTeam/web-core/compare/@air/eslint-config@1.1.7...@air/eslint-config@1.1.8) (2020-09-23)
+
+### Bug Fixes
+
+- add JSX as a global to our lint config ([64217c7](https://github.com/AirLabsTeam/web-core/commit/64217c72f9d3c56517542d2756bdb6473a0c8872))
+- update dependencies ([f7650e7](https://github.com/AirLabsTeam/web-core/commit/f7650e758d3799f646416e110452067857732b83))
+
 ## [1.1.7](https://github.com/AirLabsTeam/web-core/compare/@air/eslint-config@1.1.6...@air/eslint-config@1.1.7) (2020-08-16)
 
 ### Bug Fixes
