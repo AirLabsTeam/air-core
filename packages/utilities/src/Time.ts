@@ -1,4 +1,4 @@
-import moment from 'moment';
+import { format, distanceInWordsToNow, differenceInDays } from 'date-fns';
 
 // Why doesn't JS have stringf? Just the worst really
 const prependZero = (val: number, override = true) => (override && val < 10 ? `0${val}` : val);
@@ -20,15 +20,17 @@ export const formatDuration = (seconds: number): string => {
 
 export const formatMilliseconds = (milliseconds: number) => formatDuration(milliseconds / 1000);
 
-// https://momentjs.com/docs/#/parsing/string-format/ and https://devhints.io/moment
-export const formatDate = (date: any, format = 'L') =>
-  date ? moment.utc(date).format(format) : '';
+export const formatDateForm = (date: any) => format(date, 'YYYY-MM-DD');
 
-export const formatDateForm = (date: any) => formatDate(date, 'YYYY-MM-DD');
+export const formatDateVerbose = (date: any) => format(date, 'LL');
 
-export const formatDateVerbose = (date: any) => formatDate(date, 'LL');
-
-export const formatUpdatedAt = (updatedAt: any) => moment(updatedAt).fromNow();
+export const formatUpdatedAt = (date: Parameters<typeof distanceInWordsToNow>[0]) => {
+  if (differenceInDays(date, new Date()) > 2) {
+    return format(date, 'M/DD/YYYY');
+  } else {
+    return distanceInWordsToNow(date);
+  }
+};
 
 export const updateLocale = () =>
   moment.updateLocale('en', {
