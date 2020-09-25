@@ -37,7 +37,7 @@ jobs:
             ${{ runner.os }}-yarn-
 
       - name: Bootstrap
-        run: yarn; yarn bootstrap
+        run: yarn bootstrap
 
       - name: Lint
         run: yarn lint
