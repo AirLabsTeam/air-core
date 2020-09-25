@@ -37,7 +37,7 @@ jobs:
             ${{ runner.os }}-yarn-
 
       - name: Bootstrap
-        run: pwd; ls -al; yarn; yarn install; yarn build:packages
+        run: pwd; ls -al; cd ../; pwd; ls -al; yarn; yarn install; yarn build:packages
 
       - name: Lint
         run: yarn lint
