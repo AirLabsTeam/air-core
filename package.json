@@ -15,7 +15,7 @@
     }
   },
   "scripts": {
-    "bootstrap": "yarn; yarn install && yarn build:packages",
+    "bootstrap": "yarn && yarn install && yarn build:packages",
     "build:packages": "lerna run build",
     "build:storybook": "build-storybook",
     "format": "yarn prettier --write \"**/*\"",

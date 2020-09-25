@@ -43,6 +43,8 @@
   },
   "devDependencies": {
     "@testing-library/react-hooks": "^3.4.1",
-    "@types/testing-library__react-hooks": "^3.4.0"
+    "@types/react": "^16.9.49",
+    "@types/testing-library__react-hooks": "^3.4.0",
+    "react": "^16.13.1"
   }
 }

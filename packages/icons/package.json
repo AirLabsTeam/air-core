@@ -44,10 +44,8 @@
     "svgs": "^3.2.1"
   },
   "devDependencies": {
+    "react": "^16.13.1",
+    "react-native": "^0.63.2",
     "react-native-svg": "^9.3.6"
-  },
-  "peerDependencies": {
-    "react": ">=16",
-    "react-native": ">=0.58"
   }
 }
