@@ -88,8 +88,5 @@
     "eslint-plugin-testing-library": "^3.9.0",
     "eslint-plugin-unicorn": "^22.0.0",
     "prettier": "^2.1.2"
-  },
-  "dependencies": {
-    "core-js": "^3.6.5"
   }
 }

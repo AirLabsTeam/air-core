@@ -60,6 +60,9 @@ __metadata:
     react-native: ^0.63.2
     react-native-svg: ^9.3.6
     svgs: ^3.2.1
+  peerDependencies:
+    react: ">=16"
+    react-native: ">=0.58"
   languageName: unknown
   linkType: soft
 
@@ -22225,7 +22228,6 @@ resolve@1.15.1:
     babel-loader: ^8.1.0
     chromatic: ^5.2.0
     commitizen: ^4.2.1
-    core-js: ^3.6.5
     cz-conventional-changelog: ^3.3.0
     husky: ^4.3.0
     hygen: ^6.0.4
