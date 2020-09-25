@@ -76,10 +76,13 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@air/zephyr@workspace:packages/zephyr"
   dependencies:
+    "@styled-system/css": ^5.1.5
     "@types/styled-system": ^5.1.10
     "@types/styled-system__css": ^5.0.13
     babel-plugin-polished: ^1.1.0
+    core-js: ^3.6.5
     polished: ^3.6.7
+    styled-components: ^5.2.0
   peerDependencies:
     react: ">=16"
     tinycolor2: ^1.4.1
@@ -8233,6 +8236,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"chokidar@npm:^3.4.1":
+  version: 3.4.2
+  resolution: "chokidar@npm:3.4.2"
+  dependencies:
+    anymatch: ~3.1.1
+    braces: ~3.0.2
+    fsevents: ~2.1.2
+    glob-parent: ~5.1.0
+    is-binary-path: ~2.1.0
+    is-glob: ~4.0.1
+    normalize-path: ~3.0.0
+    readdirp: ~3.4.0
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  checksum: a394c13d28f3a7df6c3d8ca80791599523c654a9e08bec2bb6d0f44a6d74c61f9b46cd871401b8694e57e909055280adad898b93f4269d53b8b0e0c02f02dc12
+  languageName: node
+  linkType: hard
+
 "chownr@npm:^1.1.1, chownr@npm:^1.1.2":
   version: 1.1.4
   resolution: "chownr@npm:1.1.4"
@@ -10328,7 +10350,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"enhanced-resolve@npm:^4.1.0":
+"enhanced-resolve@npm:^4.1.0, enhanced-resolve@npm:^4.3.0":
   version: 4.3.0
   resolution: "enhanced-resolve@npm:4.3.0"
   dependencies:
@@ -20828,6 +20850,7 @@ resolve@1.15.1:
     babel-loader: ^8.1.0
     chromatic: ^5.2.0
     commitizen: ^4.2.1
+    core-js: ^3.6.5
     cz-conventional-changelog: ^3.3.0
     husky: ^4.3.0
     hygen: ^6.0.4
@@ -20843,6 +20866,7 @@ resolve@1.15.1:
     tinycolor2: ^1.4.1
     tsdx: ^0.13.3
     typescript: ^4.0.3
+    webpack: ^4.44.2
   languageName: unknown
   linkType: soft
 
@@ -23799,6 +23823,23 @@ typescript@^4.0.3:
   languageName: node
   linkType: hard
 
+"watchpack@npm:^1.7.4":
+  version: 1.7.4
+  resolution: "watchpack@npm:1.7.4"
+  dependencies:
+    chokidar: ^3.4.1
+    graceful-fs: ^4.1.2
+    neo-async: ^2.5.0
+    watchpack-chokidar2: ^2.0.0
+  dependenciesMeta:
+    chokidar:
+      optional: true
+    watchpack-chokidar2:
+      optional: true
+  checksum: 61876d6e60ddb1e9b0a6143c65a4453543bb1a27638254635d179d4681f15af200de9a61c1a3faec220a29e41ca37381e604345ffa9d48c064a29cff4cb25732
+  languageName: node
+  linkType: hard
+
 "wcwidth@npm:^1.0.0, wcwidth@npm:^1.0.1":
   version: 1.0.1
   resolution: "wcwidth@npm:1.0.1"
@@ -23934,6 +23975,44 @@ typescript@^4.0.3:
   bin:
     webpack: bin/webpack.js
   checksum: 9f1e6375ba28368b4a0d02a0807aa4e148b101244d7ab698c99ac478e3043cdacf7d7c89aa7d4af9549509be7d23878ef863bd6a9540e89a18dd2c04e82e2b4f
+  languageName: node
+  linkType: hard
+
+"webpack@npm:^4.44.2":
+  version: 4.44.2
+  resolution: "webpack@npm:4.44.2"
+  dependencies:
+    "@webassemblyjs/ast": 1.9.0
+    "@webassemblyjs/helper-module-context": 1.9.0
+    "@webassemblyjs/wasm-edit": 1.9.0
+    "@webassemblyjs/wasm-parser": 1.9.0
+    acorn: ^6.4.1
+    ajv: ^6.10.2
+    ajv-keywords: ^3.4.1
+    chrome-trace-event: ^1.0.2
+    enhanced-resolve: ^4.3.0
+    eslint-scope: ^4.0.3
+    json-parse-better-errors: ^1.0.2
+    loader-runner: ^2.4.0
+    loader-utils: ^1.2.3
+    memory-fs: ^0.4.1
+    micromatch: ^3.1.10
+    mkdirp: ^0.5.3
+    neo-async: ^2.6.1
+    node-libs-browser: ^2.2.1
+    schema-utils: ^1.0.0
+    tapable: ^1.1.3
+    terser-webpack-plugin: ^1.4.3
+    watchpack: ^1.7.4
+    webpack-sources: ^1.4.1
+  peerDependenciesMeta:
+    webpack-cli:
+      optional: true
+    webpack-command:
+      optional: true
+  bin:
+    webpack: bin/webpack.js
+  checksum: cb4a9051d64df00494d18afd379d26669b96309f3f41e89e55b8531d99d67060bf8b262a996dbcdc2cda99adfb6c1c2bd9966630d329b09f9f9aa9fc732a3259
   languageName: node
   linkType: hard
 

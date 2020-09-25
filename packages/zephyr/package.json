@@ -43,9 +43,12 @@
     "tinycolor2": "^1.4.1"
   },
   "devDependencies": {
+    "@styled-system/css": "^5.1.5",
     "@types/styled-system": "^5.1.10",
     "@types/styled-system__css": "^5.0.13",
     "babel-plugin-polished": "^1.1.0",
-    "polished": "^3.6.7"
+    "core-js": "^3.6.5",
+    "polished": "^3.6.7",
+    "styled-components": "^5.2.0"
   }
 }
