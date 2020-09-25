@@ -37,10 +37,10 @@ jobs:
             ${{ runner.os }}-yarn-
 
       - name: Bootstrap
-        run: yarn boostrap;
+        run: yarn; yarn install; yarn build:packages;
 
       - name: Lint
-        run: yarn lint
+        run: yarn eslint \"**/*.{js,jsx,ts,tsx,mdx}\"
 
       - name: Test & publish code coverage
         uses: paambaati/codeclimate-action@v2.6.0
