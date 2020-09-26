@@ -5,6 +5,7 @@ packages/icons/native
 **/.cache
 **/coverage
 storybook-static
+.pnp.js
 
 
 # Others to be ignored

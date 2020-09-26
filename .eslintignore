@@ -5,3 +5,4 @@ packages/icons/native
 **/.cache
 **/coverage
 storybook-static
+.pnp.js
