@@ -23,6 +23,9 @@ jobs:
           registry-url: https://registry.npmjs.org
           node-version: '${{ steps.nvm.outputs.NVMRC }}'
 
+      - name: Setup Yarn Berry
+        run: yarn set version berry
+
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::.yarn/cache"
