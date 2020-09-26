@@ -41,6 +41,8 @@
     "lint": "tsdx lint"
   },
   "dependencies": {
+    "@air/zephyr": "workspace:packages/zephyr",
+    "@testing-library/react": "^11.0.4",
     "svgs": "^3.2.1"
   },
   "devDependencies": {
