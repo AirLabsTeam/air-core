@@ -37,7 +37,7 @@ jobs:
             ${{ runner.os }}-yarn-
 
       - name: Bootstrap
-        run: yarn; yarn install; yarn build:packages;
+        run: yarn -v; yarn; yarn install; yarn build:packages;
 
       - name: Lint
         run: yarn eslint \"**/*.{js,jsx,ts,tsx,mdx}\"
