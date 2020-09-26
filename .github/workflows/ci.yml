@@ -40,10 +40,10 @@ jobs:
             ${{ runner.os }}-yarn-
 
       - name: Bootstrap
-        run: node -v; echo ${{ steps.yarn-cache-dir-path.outputs.dir }}; yarn -v; yarn bootstrap;
+        run: yarn bootstrap;
 
       - name: Lint
-        run: yarn eslint \"**/*.{js,jsx,ts,tsx,mdx}\"
+        run: yarn lint
 
       - name: Test & publish code coverage
         uses: paambaati/codeclimate-action@v2.6.0
