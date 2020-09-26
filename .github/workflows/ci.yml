@@ -25,7 +25,7 @@ jobs:
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
+        run: echo "::set-output name=dir::.yarn/cache"
 
       - name: Use cached node_modules
         uses: actions/cache@v2
@@ -37,7 +37,7 @@ jobs:
             ${{ runner.os }}-yarn-
 
       - name: Bootstrap
-        run: yarn -v; yarn; yarn install; yarn build:packages;
+        run: echo ${{ steps.yarn-cache-dir-path.outputs.dir }}; yarn -v; yarn; yarn install; yarn build:packages;
 
       - name: Lint
         run: yarn eslint \"**/*.{js,jsx,ts,tsx,mdx}\"
