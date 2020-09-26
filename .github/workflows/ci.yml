@@ -37,7 +37,7 @@ jobs:
             ${{ runner.os }}-yarn-
 
       - name: Bootstrap
-        run: echo ${{ steps.yarn-cache-dir-path.outputs.dir }}; yarn -v; yarn; yarn install; yarn build:packages;
+        run: echo ${{ steps.yarn-cache-dir-path.outputs.dir }}; yarn -v; yarn bootstrap;
 
       - name: Lint
         run: yarn eslint \"**/*.{js,jsx,ts,tsx,mdx}\"
