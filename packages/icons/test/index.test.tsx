@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { theme } from '@air/zephyr';
+import { theme } from '../../zephyr/src';
 import Icon from '../dist';
 
 describe('Icons', () => {

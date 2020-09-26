@@ -56,7 +56,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@air/icons@workspace:packages/icons"
   dependencies:
-    "@air/zephyr": "workspace:packages/zephyr"
     "@testing-library/react": ^11.0.4
     react: ^16.13.1
     react-native: ^0.63.2

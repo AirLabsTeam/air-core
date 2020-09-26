@@ -41,11 +41,10 @@
     "lint": "tsdx lint"
   },
   "dependencies": {
-    "@air/zephyr": "workspace:packages/zephyr",
-    "@testing-library/react": "^11.0.4",
     "svgs": "^3.2.1"
   },
   "devDependencies": {
+    "@testing-library/react": "^11.0.4",
     "react": "^16.13.1",
     "react-native": "^0.63.2",
     "react-native-svg": "^9.3.6"
