@@ -49,7 +49,6 @@ jspm_packages/
 .yarn/*
 !.yarn/releases
 !.yarn/plugins
-.pnp.*
 
 # TypeScript v1 declaration files
 typings/
