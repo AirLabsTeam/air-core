@@ -33,7 +33,10 @@
     "lint": "tsdx lint"
   },
   "devDependencies": {
-    "moment": "^2.28.0"
+    "@types/moment": "^2.13.0",
+    "moment": "^2.28.0",
+    "tsdx": "^0.14.0",
+    "tslib": "^2.0.1"
   },
   "peerDependencies": {
     "moment": "^2.27.0"

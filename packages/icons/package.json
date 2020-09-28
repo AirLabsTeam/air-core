@@ -45,9 +45,13 @@
   },
   "devDependencies": {
     "@testing-library/react": "^11.0.4",
+    "@types/react": "^16.9.49",
     "react": "^16.13.1",
     "react-native": "^0.63.2",
-    "react-native-svg": "^9.3.6"
+    "react-native-svg": "^9.3.6",
+    "ts-jest": "^26.4.0",
+    "tsdx": "^0.14.0",
+    "tslib": "^2.0.1"
   },
   "peerDependencies": {
     "react": ">=16",

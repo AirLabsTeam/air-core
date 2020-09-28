@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { theme } from '../../zephyr/src';
+// import { theme } from '../../zephyr/src';
 import Icon from '../dist';
 
 describe('Icons', () => {
@@ -18,12 +18,6 @@ describe('Icons', () => {
 
   it('uses Edit icon with a red background', () => {
     const component = render(<Icon name="Edit" backgroundColor="red" />);
-    const tree = component.container.firstChild;
-    expect(tree).toMatchSnapshot();
-  });
-
-  it('uses Edit icon and is filled black', () => {
-    const component = render(<Icon name="Edit" fill={theme.colors.black} />);
     const tree = component.container.firstChild;
     expect(tree).toMatchSnapshot();
   });
