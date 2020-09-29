@@ -18,8 +18,6 @@ export const formatDuration = (seconds: number): string => {
   return `${hoursString}${prependZero(minutes, !!hours)}:${prependZero(Math.trunc(seconds % 60))}`;
 };
 
-export const formatMilliseconds = (milliseconds: number) => formatDuration(milliseconds / 1000);
-
 export const formatDateForm = (date: any) => format(date, 'YYYY-MM-DD');
 
 export const formatDateVerbose = (date: any) => format(date, 'LL');
@@ -31,25 +29,3 @@ export const formatUpdatedAt = (date: Parameters<typeof distanceInWordsToNow>[0]
     return distanceInWordsToNow(date);
   }
 };
-
-export const updateLocale = () =>
-  moment.updateLocale('en', {
-    relativeTime: {
-      future: 'in %s',
-      past: '%s',
-      s: 'just now',
-      ss: '%ds',
-      m: '1m',
-      mm: '%dm',
-      h: '1h',
-      hh: '%dh',
-      d: '1d',
-      dd: '%dd',
-      M: '1mo',
-      MM: '%dmo',
-      y: '1yr',
-      yy: '%dyr',
-    },
-  });
-
-export const normalizeDateString = (dateString: string) => moment(dateString).toDate();
