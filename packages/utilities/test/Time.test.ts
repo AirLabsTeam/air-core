@@ -1,39 +1,4 @@
-import {
-  formatDate,
-  formatDateForm,
-  formatDateVerbose,
-  formatDuration,
-  formatMilliseconds,
-  formatUpdatedAt,
-  updateLocale,
-} from '../src';
-
-describe('formatMilliseconds', () => {
-  it('returns a "hh:mm:ss" format', () => {
-    expect(formatMilliseconds(5350000)).toBe('1:29:10');
-    expect(formatMilliseconds(143036000)).toBe('39:43:56');
-    expect(formatMilliseconds(60000)).toBe('1:00');
-  });
-
-  it(`will show a double digit seconds even if there are only single seconds`, () => {
-    expect(formatMilliseconds(724000)).toBe('12:04');
-  });
-
-  it(`will show single-digit 0 (not 00) when there are just seconds`, () => {
-    expect(formatMilliseconds(4000)).toBe('0:04');
-  });
-
-  it(`will only show double digit minutes only when there are hours and single digit minutes`, () => {
-    expect(formatMilliseconds(7202000)).toBe('2:00:02');
-    expect(formatMilliseconds(7682000)).toBe('2:08:02');
-  });
-
-  it(`doesn't show hours if there are none`, () => {
-    expect(formatMilliseconds(124000)).toBe('2:04');
-    expect(formatMilliseconds(479000)).toBe('7:59');
-    expect(formatMilliseconds(779900)).toBe('12:59');
-  });
-});
+import { formatDateForm, formatDateVerbose, formatDuration, formatUpdatedAt } from '../src';
 
 describe('formatDuration', () => {
   it('returns a "hh:mm:ss" format', () => {
@@ -63,7 +28,6 @@ describe('formatDuration', () => {
 });
 
 describe('formatUpdatedAt', () => {
-  beforeAll(updateLocale);
   const offsetDate = (offset: number) => new Date(Date.now() - offset * 1000);
   const minute = 60;
   const hour = minute * 60;
@@ -88,14 +52,6 @@ describe('formatUpdatedAt', () => {
 });
 
 describe('formatDate', () => {
-  it(`formatDate`, () => {
-    expect(formatDate('2018-09-14 20:39:19.496+00')).toBe('09/14/2018');
-    expect(formatDate('2035-02-13 20:39:19.496+00')).toBe('02/13/2035');
-    expect(formatDate('1984-12-25 03:39:19.496+00')).toBe('12/25/1984');
-    expect(formatDate('2015-04-28 20:39:19.496+00')).toBe('04/28/2015');
-    expect(formatDate('2019-11-22 20:39:19.496+00')).toBe('11/22/2019');
-  });
-
   it(`formatDateVerbose`, () => {
     expect(formatDateVerbose('2018-09-14 20:39:19.496+00')).toBe('September 14, 2018');
     expect(formatDateVerbose('2035-02-13 20:39:19.496+00')).toBe('February 13, 2035');
