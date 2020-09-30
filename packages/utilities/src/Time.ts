@@ -17,6 +17,8 @@ export const formatDuration = (seconds: number): string => {
   return `${hoursString}${prependZero(minutes, !!hours)}:${prependZero(Math.trunc(seconds % 60))}`;
 };
 
+export const formatMilliseconds = (milliseconds: number) => formatDuration(milliseconds / 1000);
+
 export const parseAirDateString = (date: string): Date => {
   const strippedDate = date.split('+')[0].split('.')[0].replace('T', ' ').replace('Z', '');
 

@@ -1,4 +1,37 @@
-import { formatDateForm, formatDateVerbose, formatDuration, formatUpdatedAt } from '../src';
+import {
+  formatDateForm,
+  formatDateVerbose,
+  formatDuration,
+  formatMilliseconds,
+  formatUpdatedAt,
+} from '../src';
+
+describe('formatMilliseconds', () => {
+  it('returns a "hh:mm:ss" format', () => {
+    expect(formatMilliseconds(5350000)).toBe('1:29:10');
+    expect(formatMilliseconds(143036000)).toBe('39:43:56');
+    expect(formatMilliseconds(60000)).toBe('1:00');
+  });
+
+  it(`will show a double digit seconds even if there are only single seconds`, () => {
+    expect(formatMilliseconds(724000)).toBe('12:04');
+  });
+
+  it(`will show single-digit 0 (not 00) when there are just seconds`, () => {
+    expect(formatMilliseconds(4000)).toBe('0:04');
+  });
+
+  it(`will only show double digit minutes only when there are hours and single digit minutes`, () => {
+    expect(formatMilliseconds(7202000)).toBe('2:00:02');
+    expect(formatMilliseconds(7682000)).toBe('2:08:02');
+  });
+
+  it(`doesn't show hours if there are none`, () => {
+    expect(formatMilliseconds(124000)).toBe('2:04');
+    expect(formatMilliseconds(479000)).toBe('7:59');
+    expect(formatMilliseconds(779900)).toBe('12:59');
+  });
+});
 
 describe('formatDuration', () => {
   it('returns a "hh:mm:ss" format', () => {
