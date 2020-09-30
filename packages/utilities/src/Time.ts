@@ -1,11 +1,10 @@
-import moment from 'moment';
+import { format, formatDistanceToNow, differenceInDays, parse } from 'date-fns';
 
 // Why doesn't JS have stringf? Just the worst really
 const prependZero = (val: number, override = true) => (override && val < 10 ? `0${val}` : val);
 
 /**
  * Takes a number of milliseconds (like the current or remaining seconds in a video clip) and returns a pretty timestamp
- * Moment format gets janky beyond 24h & Dan had already written this code
  * @example
  * // return '7:02'
  * formatDuration(422)
@@ -20,34 +19,64 @@ export const formatDuration = (seconds: number): string => {
 
 export const formatMilliseconds = (milliseconds: number) => formatDuration(milliseconds / 1000);
 
-// https://momentjs.com/docs/#/parsing/string-format/ and https://devhints.io/moment
-export const formatDate = (date: any, format = 'L') =>
-  date ? moment.utc(date).format(format) : '';
+export const parseAirDateString = (date: string): Date => {
+  const strippedDate = date.split('+')[0].split('.')[0].replace('T', ' ').replace('Z', '');
 
-export const formatDateForm = (date: any) => formatDate(date, 'YYYY-MM-DD');
+  return parse(strippedDate, 'yyyy-MM-dd HH:mm:ss', new Date());
+};
 
-export const formatDateVerbose = (date: any) => formatDate(date, 'LL');
+export const formatDateForm = (date: string) => format(parseAirDateString(date), 'yyyy-MM-dd');
 
-export const formatUpdatedAt = (updatedAt: any) => moment(updatedAt).fromNow();
+export const formatDateVerbose = (date: string) =>
+  format(parseAirDateString(date), 'MMMM dd, yyyy');
 
-export const updateLocale = () =>
-  moment.updateLocale('en', {
-    relativeTime: {
-      future: 'in %s',
-      past: '%s',
-      s: 'just now',
-      ss: '%ds',
-      m: '1m',
-      mm: '%dm',
-      h: '1h',
-      hh: '%dh',
-      d: '1d',
-      dd: '%dd',
-      M: '1mo',
-      MM: '%dmo',
-      y: '1yr',
-      yy: '%dyr',
-    },
-  });
+interface RelativeLocale {
+  lessThanXSeconds: string;
+  xSeconds: string;
+  halfAMinute: string;
+  lessThanXMinutes: string;
+  xMinutes: string;
+  aboutXHours: string;
+  xHours: string;
+  xDays: string;
+  aboutXWeeks: string;
+  xWeeks: string;
+  aboutXMonths: string;
+  xMonths: string;
+  aboutXYears: string;
+  xYears: string;
+  overXYears: string;
+  almostXYears: string;
+}
 
-export const normalizeDateString = (dateString: string) => moment(dateString).toDate();
+export const formatUpdatedAt = (date: Parameters<typeof formatDistanceToNow>[0]) => {
+  if (differenceInDays(date, new Date()) > 2) {
+    return format(date, 'M/DD/YYYY');
+  } else {
+    const formatRelativeLocale: RelativeLocale = {
+      lessThanXSeconds: 'just now',
+      xSeconds: 'just now',
+      halfAMinute: 'just now',
+      lessThanXMinutes: 'just now',
+      xMinutes: '{{count}}m',
+      aboutXHours: '{{count}}h',
+      xHours: '{{count}}h',
+      xDays: '{{count}}d',
+      aboutXWeeks: '{{count}}w',
+      xWeeks: '{{count}}w',
+      aboutXMonths: '{{count}}mo',
+      xMonths: '{{count}}mo',
+      aboutXYears: '{{count}}yr',
+      xYears: '{{count}}yr',
+      overXYears: '{{count}}yr',
+      almostXYears: '{{count}}yr',
+    };
+
+    return formatDistanceToNow(date, {
+      locale: {
+        formatDistance: (token: keyof RelativeLocale, count: number) =>
+          formatRelativeLocale[token].replace('{{count}}', `${count}`),
+      },
+    });
+  }
+};

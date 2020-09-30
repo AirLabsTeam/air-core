@@ -1,11 +1,9 @@
 import {
-  formatDate,
   formatDateForm,
   formatDateVerbose,
   formatDuration,
   formatMilliseconds,
   formatUpdatedAt,
-  updateLocale,
 } from '../src';
 
 describe('formatMilliseconds', () => {
@@ -63,7 +61,6 @@ describe('formatDuration', () => {
 });
 
 describe('formatUpdatedAt', () => {
-  beforeAll(updateLocale);
   const offsetDate = (offset: number) => new Date(Date.now() - offset * 1000);
   const minute = 60;
   const hour = minute * 60;
@@ -88,14 +85,6 @@ describe('formatUpdatedAt', () => {
 });
 
 describe('formatDate', () => {
-  it(`formatDate`, () => {
-    expect(formatDate('2018-09-14 20:39:19.496+00')).toBe('09/14/2018');
-    expect(formatDate('2035-02-13 20:39:19.496+00')).toBe('02/13/2035');
-    expect(formatDate('1984-12-25 03:39:19.496+00')).toBe('12/25/1984');
-    expect(formatDate('2015-04-28 20:39:19.496+00')).toBe('04/28/2015');
-    expect(formatDate('2019-11-22 20:39:19.496+00')).toBe('11/22/2019');
-  });
-
   it(`formatDateVerbose`, () => {
     expect(formatDateVerbose('2018-09-14 20:39:19.496+00')).toBe('September 14, 2018');
     expect(formatDateVerbose('2035-02-13 20:39:19.496+00')).toBe('February 13, 2035');
