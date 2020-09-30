@@ -32,6 +32,10 @@
     "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint"
   },
-  "devDependencies": {},
-  "peerDependencies": {}
+  "devDependencies": {
+    "date-fns": "^2.16.1"
+  },
+  "peerDependencies": {
+    "date-fns": "^2.16.1"
+  }
 }
