@@ -129,6 +129,7 @@ const config = {
         groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
       },
     ],
+    'import/no-extraneous-dependencies': 'error',
     'import/no-default-export': 'error',
     'import/default': 'off', // doesn't seem to work
     'import/no-unresolved': 'error',
