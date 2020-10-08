@@ -26,6 +26,14 @@ export const theme = {
   variants,
 };
 
+export { colors };
+export { fonts };
+export { fontSizes };
+export { fontWeights };
+export { radii };
+export { space };
+export { variants };
+
 /** @description Gets the theme object */
 export type ThemeObject = typeof theme;
 
