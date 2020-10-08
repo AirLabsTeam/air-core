@@ -1,6 +1,7 @@
 import css, { get } from '@styled-system/css';
 import React from 'react';
-import styled from 'styled-components';
+import { variant } from 'styled-system';
+import styled, { DefaultTheme } from 'styled-components';
 
 import { SXProp, TXProp } from './theme';
 
@@ -44,9 +45,16 @@ const inlineStyles = ({ sx, tx, theme }: BoxInlineStyleProps & { theme: any }) =
 /** @description `__baseStyles` are spread into each style object so that they cannot be overridden. */
 const baseStyles = (props: BoxProps & { theme: any }) => css(props.__baseStyles)(props.theme);
 
-const variant = ({ theme, variant = '', __themeKey = '' }: BoxVariantProps & { theme: any }) => {
-  return css(get(theme, __themeKey + '.' + variant, get(theme, variant)))(theme);
-};
+const variants = ({
+  theme,
+  __themeKey = 'variants',
+  ...restOfProps
+}: BoxVariantProps & { theme: DefaultTheme }) =>
+  variant({
+    prop: 'variant',
+    scale: __themeKey,
+    variants: get(theme, __themeKey),
+  })({ theme, ...restOfProps });
 
 export const Box = styled('div')<BoxProps>(
   {
@@ -55,7 +63,7 @@ export const Box = styled('div')<BoxProps>(
     boxSizing: 'border-box',
   },
   baseStyles,
-  variant,
+  variants,
   inlineStyles,
   // @ts-ignore
   (props) => props.css,
