@@ -11,11 +11,11 @@ export type ButtonVariantName = 'auxiliary' | 'ghost' | 'primary' | 'secondary';
 
 export interface ButtonProps
   extends Omit<BoxProps<HTMLButtonElement>, 'onClick' | 'size' | '__baseStyles'> {
-  disabled: boolean;
+  disabled?: boolean;
   onClick: (event: ReactMouseEvent<HTMLButtonElement, MouseEvent>) => void;
-  size: ButtonSize;
-  variant: ButtonVariantName;
-  theme: DefaultTheme;
+  size?: ButtonSize;
+  variant?: ButtonVariantName;
+  theme?: DefaultTheme;
 }
 
 export const Button = forwardRef(
