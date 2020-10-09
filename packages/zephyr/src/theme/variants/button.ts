@@ -19,7 +19,6 @@ export const button: { [key in VariantName]: {} } = {
     },
   },
   ghost: {
-    backgroundColor: 'transparent',
     color: 'pigeon6',
     '&:hover': {
       backgroundColor: 'pigeon0',
@@ -35,7 +34,6 @@ export const button: { [key in VariantName]: {} } = {
     },
   },
   'ghost-blue': {
-    backgroundColor: 'transparent',
     color: 'jay5',
     '&:hover': {
       backgroundColor: 'jay0',
@@ -51,7 +49,6 @@ export const button: { [key in VariantName]: {} } = {
     },
   },
   outline: {
-    backgroundColor: 'transparent',
     border: '1px solid',
     borderColor: 'pigeon2',
     color: 'pigeon6',
@@ -72,7 +69,6 @@ export const button: { [key in VariantName]: {} } = {
     },
   },
   'outline-blue': {
-    backgroundColor: 'transparent',
     border: '1px solid',
     borderColor: 'jay2',
     color: 'jay5',
