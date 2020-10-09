@@ -1,4 +1,11 @@
-export type VariantName = 'auxiliary' | 'ghost' | 'primary' | 'secondary';
+export type VariantName =
+  | 'auxiliary'
+  | 'ghost'
+  | 'ghost-blue'
+  | 'outline'
+  | 'outline-blue'
+  | 'primary'
+  | 'secondary';
 
 export const button: { [key in VariantName]: {} } = {
   auxiliary: {
@@ -11,7 +18,79 @@ export const button: { [key in VariantName]: {} } = {
       backgroundColor: 'flamingo8',
     },
   },
-  ghost: {},
+  ghost: {
+    backgroundColor: 'transparent',
+    color: 'pigeon6',
+    '&:hover': {
+      backgroundColor: 'pigeon0',
+      color: 'pigeon7',
+    },
+    '&:active': {
+      backgroundColor: 'pigeon1',
+      color: 'pigeon7',
+    },
+    '&:disabled': {
+      backgroundColor: 'transparent',
+      color: 'pigeon3',
+    },
+  },
+  'ghost-blue': {
+    backgroundColor: 'transparent',
+    color: 'jay5',
+    '&:hover': {
+      backgroundColor: 'jay0',
+      color: 'jay7',
+    },
+    '&:active': {
+      backgroundColor: 'jay1',
+      color: 'jay9',
+    },
+    '&:disabled': {
+      backgroundColor: 'transparent',
+      color: 'pigeon3',
+    },
+  },
+  outline: {
+    backgroundColor: 'transparent',
+    border: '1px solid',
+    borderColor: 'pigeon2',
+    color: 'pigeon6',
+    '&:hover': {
+      backgroundColor: 'pigeon0',
+      borderColor: 'transparent',
+      color: 'pigeon7',
+    },
+    '&:active': {
+      backgroundColor: 'pigeon1',
+      borderColor: 'transparent',
+      color: 'pigeon7',
+    },
+    '&:disabled': {
+      backgroundColor: 'transparent',
+      color: 'pigeon3',
+      borderColor: 'pigeon1',
+    },
+  },
+  'outline-blue': {
+    backgroundColor: 'transparent',
+    border: '1px solid',
+    borderColor: 'jay2',
+    color: 'jay5',
+    '&:hover': {
+      backgroundColor: 'jay1',
+      borderColor: 'transparent',
+      color: 'jay6',
+    },
+    '&:active': {
+      backgroundColor: 'jay2',
+      borderColor: 'transparent',
+      color: 'jay7',
+    },
+    '&:disabled': {
+      color: 'pigeon3',
+      borderColor: 'pigeon1',
+    },
+  },
   primary: {
     backgroundColor: 'jay5',
     color: 'white',
@@ -27,14 +106,14 @@ export const button: { [key in VariantName]: {} } = {
     },
   },
   secondary: {
-    backgroundColor: 'transparent',
+    backgroundColor: 'pigeon0',
     color: 'pigeon6',
     '&:hover': {
-      backgroundColor: 'pigeon0',
+      backgroundColor: 'pigeon1',
       color: 'pigeon7',
     },
     '&:active': {
-      backgroundColor: 'pigeon1',
+      backgroundColor: 'pigeon2',
       color: 'pigeon7',
     },
     '&:disabled': {

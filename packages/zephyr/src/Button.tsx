@@ -7,7 +7,14 @@ import { Box, BoxProps } from './Box';
 
 export type ButtonSize = 'large' | 'medium' | 'small';
 
-export type ButtonVariantName = 'auxiliary' | 'ghost' | 'primary' | 'secondary';
+export type ButtonVariantName =
+  | 'auxiliary'
+  | 'ghost'
+  | 'ghost-blue'
+  | 'outline'
+  | 'outline-blue'
+  | 'primary'
+  | 'secondary';
 
 export interface ButtonProps
   extends Omit<BoxProps<HTMLButtonElement>, 'onClick' | 'size' | '__baseStyles'> {
@@ -52,6 +59,7 @@ export const Button = forwardRef(
           fontWeight: 'semibold',
           textDecoration: 'none',
           cursor: 'pointer',
+          lineHeight: 1,
           ...transitions(['background-color', 'color'], '0.2s ease'),
           ...styledSystemVariant({
             prop: 'size',

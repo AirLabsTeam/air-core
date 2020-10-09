@@ -60,6 +60,74 @@ SecondaryButton.parameters = {
   },
 };
 
+export const GhostButton = Template.bind({});
+
+GhostButton.args = {
+  children: 'Ghost button',
+  size: 'medium',
+  variant: 'ghost',
+};
+
+GhostButton.parameters = {
+  docs: {
+    description: {
+      story:
+        'Text focused secondary buttons. Basically a ghost without the outline around it. Reccomended sizes Extra Small to Medium.',
+    },
+  },
+};
+
+export const GhostBlueButton = Template.bind({});
+
+GhostBlueButton.args = {
+  children: 'Ghost blue button',
+  size: 'medium',
+  variant: 'ghost-blue',
+};
+
+GhostBlueButton.parameters = {
+  docs: {
+    description: {
+      story:
+        'Text focused secondary buttons. Basically a ghost without the outline around it. Reccomended sizes Extra Small to Medium.',
+    },
+  },
+};
+
+export const OutlineButton = Template.bind({});
+
+OutlineButton.args = {
+  children: 'Outline button',
+  size: 'medium',
+  variant: 'outline',
+};
+
+OutlineButton.parameters = {
+  docs: {
+    description: {
+      story:
+        'Text focused secondary buttons. Basically a Outline without the outline around it. Reccomended sizes Extra Small to Medium.',
+    },
+  },
+};
+
+export const OutlineBlueButton = Template.bind({});
+
+OutlineBlueButton.args = {
+  children: 'Outline blue button',
+  size: 'medium',
+  variant: 'outline-blue',
+};
+
+OutlineBlueButton.parameters = {
+  docs: {
+    description: {
+      story:
+        'Text focused secondary buttons. Basically a Outline without the outline around it. Reccomended sizes Extra Small to Medium.',
+    },
+  },
+};
+
 export const AuxiliaryButton = Template.bind({});
 
 AuxiliaryButton.args = {
