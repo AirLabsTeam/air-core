@@ -50,37 +50,39 @@ export const Icon = ({
   style,
   className,
 }: IconProps) => {
-  const iconPadding = padding ?? border ? size / 8 : 0;
-  const iconBorderWidth = borderWidth ?? border ? size / 16 : 0;
-  const divBorderColor = borderColor ?? border ? stroke : 'transparent';
-  const divBorderRadius = borderRadius ?? border ? 512 : 0;
+  const getWidth = width ?? size;
+  const getHeight = height ?? size;
+  const getPadding = padding ?? (border ? size / 8 : 0);
+  const getBorderWidth = borderWidth ?? (border ? size / 16 : 0);
+  const getBorderColor = borderColor ?? (border ? stroke : 'transparent');
+  const getBorderRadius = borderRadius ?? (border ? 512 : 0);
 
-  const iconWidth = (width ?? size) - (iconPadding + iconBorderWidth) * 2;
-  const iconHeight = (height ?? size) - (iconPadding + iconBorderWidth) * 2;
+  const iconWidth = getWidth - (getPadding + getBorderWidth) * 2;
+  const iconHeight = getHeight - (getPadding + getBorderWidth) * 2;
 
-  const baseStyle: object = {
+  const divBaseStyle: object = {
     boxSizing: 'border-box',
     display: 'inline-block',
     verticalAlign: 'middle',
     lineHeight: 0,
-    width,
-    height,
-    borderWidth,
+    width: getWidth,
+    height: getHeight,
+    borderWidth: getBorderWidth,
     borderStyle,
-    borderColor: divBorderColor,
-    borderRadius: divBorderRadius,
-    padding,
+    borderColor: getBorderColor,
+    borderRadius: getBorderRadius,
+    padding: getPadding,
     backgroundColor,
   };
 
   return (
-    <div className={className} style={{ ...baseStyle, ...style }}>
+    <div className={className} style={{ ...divBaseStyle, ...style }}>
       <Svg width={iconWidth} height={iconHeight} viewBox={viewBox} title={title ?? name}>
         <Path
           d={d ?? Icons[name]}
           fill={fill}
           stroke={stroke}
-          strokeWidth={strokeWidth ?? border ? 2 * 1.5 : 2}
+          strokeWidth={strokeWidth ?? (border ? 2 * 1.5 : 2)}
           strokeLinecap={strokeLinecap}
           strokeLinejoin={strokeLinejoin}
         />
