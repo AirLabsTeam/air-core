@@ -1,5 +1,4 @@
 import React from 'react';
-// @ts-ignore
 import Svg, { Path } from 'svgs';
 import { Icons, IconName } from './Icons';
 
