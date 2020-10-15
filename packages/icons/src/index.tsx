@@ -24,7 +24,6 @@ export interface IconProps {
   backgroundColor?: string;
   strokeWidth?: number;
   style?: object;
-  className?: string;
 }
 
 export const Icon = ({
@@ -48,7 +47,7 @@ export const Icon = ({
   backgroundColor = 'transparent',
   strokeWidth,
   style,
-  className,
+  ...restOfProps
 }: IconProps) => {
   const getWidth = width ?? size;
   const getHeight = height ?? size;
@@ -76,7 +75,7 @@ export const Icon = ({
   };
 
   return (
-    <div className={className} style={{ ...divBaseStyle, ...style }}>
+    <div {...restOfProps} style={{ ...divBaseStyle, ...style }}>
       <Svg width={iconWidth} height={iconHeight} viewBox={viewBox} title={title ?? name}>
         <Path
           d={d ?? Icons[name]}
