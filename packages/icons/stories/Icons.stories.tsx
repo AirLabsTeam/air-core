@@ -9,7 +9,7 @@ const meta: Meta<IconProps> = {
     docs: {
       description: {
         component:
-          'All the Icons in the library, and their props further below. The icons in the grid are rendered in fallback default styling.',
+          "Each `Icon` in the Air Icon System, and component props below. They are rendered in the component's fallback styling, which may not be the default styling for each icon. The `ClassName` prop is missing from this list but accessible to the component.",
       },
     },
   },
