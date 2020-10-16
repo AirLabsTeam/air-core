@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { theme } from '@air/zephyr';
-import Icon from '../dist';
+import { theme } from '@air/zephyr/src/theme';
+import Icon from '../src/index';
 
 describe('Icons', () => {
   it('uses Edit icon', () => {

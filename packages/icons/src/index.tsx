@@ -1,9 +1,6 @@
 import React from 'react';
-// @ts-ignore
 import Svg, { Path } from 'svgs';
-import Icons, { IconName } from './Icons';
-
-export { IconName };
+import { Icons, IconName } from './Icons';
 
 export interface IconProps {
   viewBox?: string;
@@ -26,57 +23,71 @@ export interface IconProps {
   backgroundColor?: string;
   strokeWidth?: number;
   style?: object;
-  className?: string;
 }
 
-const Icon = ({
+export const Icon = ({
   viewBox = '0 0 32 32',
   size = 32,
-  width = size,
-  height = size,
+  width,
+  height,
   name = 'Info',
-  title = name,
-  d = Icons[name],
+  title,
+  d,
   fill = 'none',
   stroke = '#000000',
   strokeLinecap = 'round',
   strokeLinejoin = 'round',
   border = false,
-  borderWidth = border ? size / 16 : 0,
+  borderWidth,
   borderStyle = 'solid',
-  borderColor = border ? stroke : 'transparent',
-  borderRadius = border ? 512 : 0,
-  padding = border ? size / 8 : 0,
+  borderColor,
+  borderRadius,
+  padding,
   backgroundColor = 'transparent',
-  strokeWidth = border ? 2 * 1.5 : 2,
-  style = {
+  strokeWidth,
+  style,
+  ...restOfProps
+}: IconProps) => {
+  const getWidth = width ?? size;
+  const getHeight = height ?? size;
+  const getPadding = padding ?? (border ? size / 8 : 0);
+  const getBorderWidth = borderWidth ?? (border ? size / 16 : 0);
+  const getBorderColor = borderColor ?? (border ? stroke : 'transparent');
+  const getBorderRadius = borderRadius ?? (border ? 512 : 0);
+
+  const iconWidth = getWidth - (getPadding + getBorderWidth) * 2;
+  const iconHeight = getHeight - (getPadding + getBorderWidth) * 2;
+
+  const divBaseStyle: object = {
     boxSizing: 'border-box',
     display: 'inline-block',
     verticalAlign: 'middle',
     lineHeight: 0,
-    width,
-    height,
-    borderWidth,
+    width: getWidth,
+    height: getHeight,
+    borderWidth: getBorderWidth,
     borderStyle,
-    borderColor,
-    borderRadius,
-    padding,
+    borderColor: getBorderColor,
+    borderRadius: getBorderRadius,
+    padding: getPadding,
     backgroundColor,
-  },
-  className,
-}: Partial<IconProps>) => {
-  const iconWidth = width - (padding + borderWidth) * 2;
-  const iconHeight = height - (padding + borderWidth) * 2;
+  };
+
   return (
-    <div {...{ style, className }}>
-      <Svg {...{ width: iconWidth, height: iconHeight, viewBox, title }}>
-        <Path {...{ d, fill, stroke, strokeWidth, strokeLinecap, strokeLinejoin }} />
+    <div {...restOfProps} style={{ ...divBaseStyle, ...style }}>
+      <Svg width={iconWidth} height={iconHeight} viewBox={viewBox} title={title ?? name}>
+        <Path
+          d={d ?? Icons[name]}
+          fill={fill}
+          stroke={stroke}
+          strokeWidth={strokeWidth ?? (border ? 2 * 1.5 : 2)}
+          strokeLinecap={strokeLinecap}
+          strokeLinejoin={strokeLinejoin}
+        />
       </Svg>
     </div>
   );
 };
 
-export { Icons };
-
 // eslint-disable-next-line import/no-default-export
-export default Icon;
+export { Icon as default, Icons, IconName };
