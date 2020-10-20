@@ -11,6 +11,11 @@ module.exports = {
   // A list of reporter names that Jest uses when writing coverage reports
   coverageReporters: ['json', 'lcov'],
 
+  // A set of global variables that need to be available in all test environments
+  globals: {
+    __DEV__: true,
+  },
+
   // A list of paths to modules that run some code to configure or set up the testing framework before each test.
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
 };
