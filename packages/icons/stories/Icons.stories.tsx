@@ -1,25 +1,32 @@
 import React from 'react';
-import { Meta } from '@storybook/react';
-import { Icon, IconProps, Icons, IconName } from '../src/index';
+import { Meta, Story } from '@storybook/react';
+import { BoxProps } from '@air/zephyr';
 
-const meta: Meta<IconProps> = {
-  title: 'Icons/Icon',
-  component: Icon,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          "Each `Icon` in the Air Icon System, and component props below. They are rendered in the component's fallback styling, which may not be the default styling for each icon. The `ClassName` prop is missing from this list but accessible to the component.",
-      },
-    },
-  },
+/*
+ * We don't want to import the src modules lest we need to maintain a development environment via a
+ * custom webpack configuration for Storybook. This will more closely emulate the manner with which
+ * our consumers will use our components, also.
+ */
+import * as ProductionBundleIconsMap from '../dist/icons.esm';
+// import data from '../src/IconPathData.json'; // used to get folder names and the stories in those folders
+
+const iconNames = Object.keys(ProductionBundleIconsMap);
+const icons = Object.values(ProductionBundleIconsMap);
+
+const meta: Meta<BoxProps<SVGElement>> = {
+  title: 'Icon',
+  component: ProductionBundleIconsMap.Air as any,
 };
 
 export default meta;
 
-const icons = Object.keys(Icons);
+const Template: Story<BoxProps<SVGElement>> = (args) => (
+  <ProductionBundleIconsMap.Air {...args} width="200" />
+);
 
-export const GridOfAllIcons = (args: IconProps) => {
+export const Icon = Template.bind({});
+
+export const GridOfAllIcons: Story<BoxProps<SVGElement>> = (args) => {
   return (
     <div
       style={{
@@ -29,7 +36,9 @@ export const GridOfAllIcons = (args: IconProps) => {
         margin: '40px 0 40px 0',
       }}
     >
-      {icons.map((icon: IconName) => {
+      {icons.map((Icon: any, index) => {
+        const iconName = iconNames[index];
+
         return (
           <div
             style={{
@@ -38,7 +47,7 @@ export const GridOfAllIcons = (args: IconProps) => {
               alignItems: 'center',
               justifyContent: 'center',
             }}
-            key={icon}
+            key={iconName}
           >
             <h6
               style={{
@@ -48,9 +57,9 @@ export const GridOfAllIcons = (args: IconProps) => {
                 textAlign: 'center',
               }}
             >
-              {icon}
+              {iconName}
             </h6>
-            <Icon {...args} name={icon} />
+            <Icon {...args} tx={{ width: '150px' }} />
           </div>
         );
       })}
