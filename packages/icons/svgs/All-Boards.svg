@@ -1,4 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 32 32" >
-    <title>At</title>
-    <path d="M21,27A12,12,0,1,1,17,4C23,4.42,28,9,28,16.56c0,2.3-1.53,4.87-4.1,5h0A3.65,3.65,0,0,1,20.3,18V13c.07-1.8-3.4-2.5-5.6-1.61A5.61,5.61,0,0,0,11,16.6c-.11,3.4,2.52,4.8,4.3,4.7,5.4-.23,5-8.5,5-8.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 32 32">
+  <title>At</title>
+  <path
+    d="M4,28H24V8H4ZM24,16.3H4.19M17.3,28V16.7M24,24.2h4V4H8V8"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  ></path>
 </svg>

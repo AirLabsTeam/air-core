@@ -1,4 +1,11 @@
 <svg role="img" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" viewBox="0 0 32 32">
-    <title>Filters</title>
-    <path d="M17.67,10.48H4m24,0H24.67m-11.3,11H28m-24,0H6.4M21.17,7a3.5,3.5,0,1,0,3.5,3.5A3.5,3.5,0,0,0,21.2,7ZM9.9,18a3.5,3.5,0,1,0,3.5,3.5A3.5,3.5,0,0,0,9.9,18Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <title>Filters</title>
+  <path
+    d="M17.67,10.48H4m24,0H24.67m-11.3,11H28m-24,0H6.4M21.17,7a3.5,3.5,0,1,0,3.5,3.5A3.5,3.5,0,0,0,21.2,7ZM9.9,18a3.5,3.5,0,1,0,3.5,3.5A3.5,3.5,0,0,0,9.9,18Z"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  ></path>
 </svg>
