@@ -84,6 +84,13 @@ export const BaseModal = ({
 }: BaseModalProps) => {
   const labelId = useId('modal-label');
   const descriptionId = useId('modal-description');
+  const overlayStyles = {
+    __baseStyles: {
+      backgroundColor: 'pigeon8',
+      opacity: 0.92,
+      zIndex,
+    },
+  };
 
   if (isAlertModal) {
     const hasDescription = !!modalDescription;
@@ -96,10 +103,7 @@ export const BaseModal = ({
         data-testid={ALERT_MODAL_OVERLAY}
         isOpen={isOpen}
         leastDestructiveRef={leastDestructiveRef}
-        __baseStyles={{
-          backgroundColor: 'pigeon8',
-          zIndex,
-        }}
+        {...overlayStyles}
         {...rest}
       >
         <AlertDialogContent className={className}>
@@ -121,11 +125,7 @@ export const BaseModal = ({
       data-testid={MODAL_OVERLAY}
       isOpen={isOpen}
       onDismiss={onDismiss}
-      __baseStyles={{
-        backgroundColor: 'pigeon8',
-        opacity: 0.92,
-        zIndex,
-      }}
+      {...overlayStyles}
       {...rest}
     >
       <DialogContent
