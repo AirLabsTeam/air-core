@@ -82,3 +82,6 @@ out
 
 # File system stuff
 **/.DS_Store
+
+# Icon Scripts
+packages/icons/src/IconPathData.json
