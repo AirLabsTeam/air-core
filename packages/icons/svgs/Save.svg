@@ -1,0 +1,11 @@
+<svg role="img" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" viewBox="0 0 32 32">
+  <title>Save</title>
+  <path
+    d="M25.86,10V25.9H6.06V6.1H21.94ZM10.06,25.9V18.18H21.94V25.9M21.05,6.1v6.76H10.87V6.1M12.61,21h3.94"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  ></path>
+</svg>

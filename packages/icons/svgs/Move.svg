@@ -1,0 +1,11 @@
+<svg role="img" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" viewBox="0 0 32 32">
+  <title>Move</title>
+  <path
+    d="M4,28H24V8H4Zm24-6.81v3H24m4-8v-4M28,7V4H25M20,4H15M11,4H8V8"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  ></path>
+</svg>

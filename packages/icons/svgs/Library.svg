@@ -1,0 +1,11 @@
+<svg role="img" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" viewBox="0 0 32 32">
+  <title>Library</title>
+  <path
+    d="M16,14.5m7.1,4-7.1,4-7.1-4L4,21,16,28l12-6.7-5-2.76L28,15.8l-4.5-2.54L28,10.6,16,4,4,10.7l4.5,2.54L4,16,9,18.5m14.5-5.3L16,17.42l-8.5-4.8,12-6.7"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  ></path>
+</svg>

@@ -1,0 +1,11 @@
+<svg role="img" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" viewBox="0 0 32 32">
+  <title>Padlock</title>
+  <path
+    d="M16,20.1A1,1,0,0,1,16,18a1,1,0,0,1,0,2v4M26,12H6V28H26Zm-4,0V10a6,6,0,0,0-6-6h0a6,6,0,0,0-6,6v2"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  ></path>
+</svg>
