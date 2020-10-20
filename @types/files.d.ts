@@ -4,6 +4,9 @@ declare module '*.mdx' {
 }
 
 declare module '*.svg' {
-  const content: string;
-  export default content;
+  import { SVGProps, ReactSVGElement } from 'react';
+
+  const component: (props?: SVGProps<SVGElement>) => ReactSVGElement;
+
+  export default component;
 }
