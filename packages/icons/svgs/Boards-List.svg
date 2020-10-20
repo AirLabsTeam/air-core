@@ -1,4 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 32 32">
-    <title>Boards list</title>
-    <path d="M28,21H17m11.13,5.06H17M12,20H4v8h8ZM28,5H17M28,10H17M12,4H4v8h8Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <title>Boards list</title>
+  <path
+    d="M28,21H17m11.13,5.06H17M12,20H4v8h8ZM28,5H17M28,10H17M12,4H4v8h8Z"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  ></path>
 </svg>

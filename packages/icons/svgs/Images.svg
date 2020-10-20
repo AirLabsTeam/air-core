@@ -1,4 +1,11 @@
 <svg role="img" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" viewBox="0 0 32 32">
-    <title>Images</title>
-    <path d="M5.83 28h20.34A1.83 1.83 0 0028 26.17V5.83A1.83 1.83 0 0026.17 4H5.83A1.83 1.83 0 004 5.83v20.34A1.83 1.83 0 005.83 28zm10.36-8l3.88-2.57a2 2 0 012.38.14l5.44 4.6M4 21l5.06-5.47a2 2 0 012.89 0L23.82 28m-1-18.14H24a1.1 1.1 0 110-.16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <title>Images</title>
+  <path
+    d="M5.83 28h20.34A1.83 1.83 0 0028 26.17V5.83A1.83 1.83 0 0026.17 4H5.83A1.83 1.83 0 004 5.83v20.34A1.83 1.83 0 005.83 28zm10.36-8l3.88-2.57a2 2 0 012.38.14l5.44 4.6M4 21l5.06-5.47a2 2 0 012.89 0L23.82 28m-1-18.14H24a1.1 1.1 0 110-.16"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  ></path>
 </svg>

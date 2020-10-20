@@ -1,4 +1,11 @@
 <svg role="img" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" viewBox="0 0 32 32">
-    <title>Hide</title>
-    <path d="M28,28H4V4H28Zm-5-4.92H9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <title>Hide</title>
+  <path
+    d="M28,28H4V4H28Zm-5-4.92H9"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  ></path>
 </svg>

@@ -1,4 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 32 32">
-    <title>Boards grid</title>
-    <path d="M28,14H18V4H28Zm0,4H18V28H28ZM14,4H4V14H14Zm0,14H4V28H14Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <title>Boards grid</title>
+  <path
+    d="M28,14H18V4H28Zm0,4H18V28H28ZM14,4H4V14H14Zm0,14H4V28H14Z"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  ></path>
 </svg>

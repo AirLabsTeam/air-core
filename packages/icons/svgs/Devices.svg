@@ -1,4 +1,11 @@
 <svg role="img" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" viewBox="0 0 32 32">
-    <title>Devices</title>
-    <path d="M16,8V16.5m3.2-5L16,8l-3.2,3.3M7,21.1H25M11,24.6h0m3.6,0H21M7,28V4H25V28Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <title>Devices</title>
+  <path
+    d="M16,8V16.5m3.2-5L16,8l-3.2,3.3M7,21.1H25M11,24.6h0m3.6,0H21M7,28V4H25V28Z"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  ></path>
 </svg>

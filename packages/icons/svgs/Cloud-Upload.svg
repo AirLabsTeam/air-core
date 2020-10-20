@@ -1,4 +1,11 @@
 <svg role="img" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" viewBox="0 0 32 32">
-    <title>Cloud upload</title>
-    <path d="M24,24.22H8a6,6,0,0,1-6-6H2a6,6,0,0,1,6-6h.17V12a7.8,7.8,0,0,1,7.8-7.8h0a7.8,7.8,0,0,1,7.8,7.8v.26H24a6,6,0,0,1,6,6h0A6,6,0,0,1,24,24.22Zm-8.26-12.7v8.61m3.11-5.41-3.12-3.2-3.09,3.2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <title>Cloud upload</title>
+  <path
+    d="M24,24.22H8a6,6,0,0,1-6-6H2a6,6,0,0,1,6-6h.17V12a7.8,7.8,0,0,1,7.8-7.8h0a7.8,7.8,0,0,1,7.8,7.8v.26H24a6,6,0,0,1,6,6h0A6,6,0,0,1,24,24.22Zm-8.26-12.7v8.61m3.11-5.41-3.12-3.2-3.09,3.2"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  ></path>
 </svg>

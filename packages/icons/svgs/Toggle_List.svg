@@ -1,4 +1,11 @@
 <svg role="img" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" viewBox="0 0 32 32">
-    <title>Toggle list</title>
-    <path d="M12.09,15.83H28M12.09,7.43H28M11.89,24.22H27.81M4,7.71a1,1,0,0,0,1,.84,1,1,0,1,0-1-1H5m1,8.23a1,1,0,0,0-1-.84,1,1,0,1,0,1,1H5m1,8.36a1.12,1.12,0,1,0,0,.19H5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <title>Toggle list</title>
+  <path
+    d="M12.09,15.83H28M12.09,7.43H28M11.89,24.22H27.81M4,7.71a1,1,0,0,0,1,.84,1,1,0,1,0-1-1H5m1,8.23a1,1,0,0,0-1-.84,1,1,0,1,0,1,1H5m1,8.36a1.12,1.12,0,1,0,0,.19H5"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  ></path>
 </svg>

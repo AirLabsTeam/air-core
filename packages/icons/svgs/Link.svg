@@ -1,4 +1,11 @@
 <svg role="img" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" viewBox="0 0 32 32">
-    <title>Link</title>
-    <path d="M14.56,17.43h0a5.77,5.77,0,0,1,0-8.17l2.53-2.54a5.79,5.79,0,0,1,8.17,0h0a5.79,5.79,0,0,1,0,8.17l-2.6,2.6m-13.29-3-2.6,2.6a5.76,5.76,0,0,0,0,8.16h0a5.77,5.77,0,0,0,8.17,0l2.53-2.53a5.77,5.77,0,0,0,0-8.17h0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <title>Link</title>
+  <path
+    d="M14.56,17.43h0a5.77,5.77,0,0,1,0-8.17l2.53-2.54a5.79,5.79,0,0,1,8.17,0h0a5.79,5.79,0,0,1,0,8.17l-2.6,2.6m-13.29-3-2.6,2.6a5.76,5.76,0,0,0,0,8.16h0a5.77,5.77,0,0,0,8.17,0l2.53-2.53a5.77,5.77,0,0,0,0-8.17h0"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  ></path>
 </svg>

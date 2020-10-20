@@ -1,4 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 32 32">
-    <title>Audio</title>
-    <path d="M12.35 20.49V8.19L28 4.5v12.66M12.87 12.4l14.61-3.69M8 27.5h.35a4 4 0 004-4v-4.22a.13.13 0 00-.13-.13H8a4 4 0 00-4 4v.35a4 4 0 004 4zm15.65-2.13H24a4 4 0 004-4v-4.22a.13.13 0 00-.13-.13h-4.22a4 4 0 00-4 4v.35a4 4 0 004 4z" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <title>Audio</title>
+  <path
+    d="M12.35 20.49V8.19L28 4.5v12.66M12.87 12.4l14.61-3.69M8 27.5h.35a4 4 0 004-4v-4.22a.13.13 0 00-.13-.13H8a4 4 0 00-4 4v.35a4 4 0 004 4zm15.65-2.13H24a4 4 0 004-4v-4.22a.13.13 0 00-.13-.13h-4.22a4 4 0 00-4 4v.35a4 4 0 004 4z"
+    fill="none"
+    stroke="#000000"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  ></path>
 </svg>

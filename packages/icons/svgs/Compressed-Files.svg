@@ -1,4 +1,11 @@
 <svg role="img" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" viewBox="0 0 32 32">
-    <title>Compressed files</title>
-    <path d="M5.83 28h20.34A1.83 1.83 0 0028 26.17V5.83A1.83 1.83 0 0026.17 4H5.83A1.83 1.83 0 004 5.83v20.34A1.83 1.83 0 005.83 28zm7.75-20.14h4.17m-4.17 4h4.17m-2.08 5.43a1.61 1.61 0 011.56 1.31L17 16.87a1.35 1.35 0 00-1.34-1.19h0a1.36 1.36 0 00-1.35 1.19l-.21 1.71a1.53 1.53 0 011.57-1.29zm1.59 1.59a1.59 1.59 0 11-1.59-1.59 1.59 1.59 0 011.59 1.59z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <title>Compressed files</title>
+  <path
+    d="M5.83 28h20.34A1.83 1.83 0 0028 26.17V5.83A1.83 1.83 0 0026.17 4H5.83A1.83 1.83 0 004 5.83v20.34A1.83 1.83 0 005.83 28zm7.75-20.14h4.17m-4.17 4h4.17m-2.08 5.43a1.61 1.61 0 011.56 1.31L17 16.87a1.35 1.35 0 00-1.34-1.19h0a1.36 1.36 0 00-1.35 1.19l-.21 1.71a1.53 1.53 0 011.57-1.29zm1.59 1.59a1.59 1.59 0 11-1.59-1.59 1.59 1.59 0 011.59 1.59z"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  ></path>
 </svg>
