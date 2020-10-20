@@ -1,11 +1,6 @@
-<svg role="img" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" viewBox="0 0 32 32">
-  <title>Clock</title>
-  <path
-    d="M16,4.24A11.76,11.76,0,1,0,27.8,16,11.76,11.76,0,0,0,16,4.24Zm7.05,15.6L16,16l.09-6.38"
-    fill="none"
-    stroke="currentColor"
-    stroke-width="2"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-  ></path>
+<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" viewBox="0 0 32 32">
+    <title>
+        Clock
+    </title>
+    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 4.24A11.76 11.76 0 1027.8 16 11.76 11.76 0 0016 4.24zm7.05 15.6L16 16l.09-6.38"/>
 </svg>

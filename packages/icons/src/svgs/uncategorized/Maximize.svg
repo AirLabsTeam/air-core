@@ -1,11 +1,6 @@
-<svg role="img" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" viewBox="0 0 32 32">
-  <title>Maximize</title>
-  <path
-    d="M4,28H28V4H4ZM28,10H4"
-    fill="none"
-    stroke="currentColor"
-    stroke-width="2"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-  ></path>
+<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" viewBox="0 0 32 32">
+    <title>
+        Maximize
+    </title>
+    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 28h24V4H4zm24-18H4"/>
 </svg>

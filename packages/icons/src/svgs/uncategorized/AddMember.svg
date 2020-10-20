@@ -1,11 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 32 32">
-  <title>Add member</title>
-  <path
-    d="M20,9.7c0,3.72-2.51,6.8-5.6,6.8s-5.6-2.9-5.6-6.8A5.7,5.7,0,0,1,14.4,4,5.7,5.7,0,0,1,20,9.7ZM24.8,28a11,11,0,0,0-10.42-7.7A11,11,0,0,0,4,28H14.42M24.7,13V19.5M28,16.2H21.5"
-    fill="none"
-    stroke="currentColor"
-    stroke-width="2"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-  ></path>
+<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" viewBox="0 0 32 32">
+    <title>
+        Add member
+    </title>
+    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 9.7c0 3.72-2.51 6.8-5.6 6.8s-5.6-2.9-5.6-6.8A5.7 5.7 0 0114.4 4 5.7 5.7 0 0120 9.7zM24.8 28a11 11 0 00-10.42-7.7A11 11 0 004 28h10.42M24.7 13v6.5m3.3-3.3h-6.5"/>
 </svg>

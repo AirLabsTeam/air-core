@@ -1,11 +1,6 @@
-<svg role="img" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" viewBox="0 0 32 32">
-  <title>Dashed plus</title>
-  <path
-    d="M16,11V21m5-5H11M4,13v6m24-6v6M19,4H13m6,24H13M8.4,28H4V24.5m24,0V28H23.64m0-24H28V7.5M4,7.5V4H8.4"
-    fill="none"
-    stroke="currentColor"
-    stroke-width="2"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-  ></path>
+<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" viewBox="0 0 32 32">
+    <title>
+        Dashed plus
+    </title>
+    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11v10m5-5H11m-7-3v6m24-6v6M19 4h-6m6 24h-6m-4.6 0H4v-3.5m24 0V28h-4.36m0-24H28v3.5m-24 0V4h4.4"/>
 </svg>

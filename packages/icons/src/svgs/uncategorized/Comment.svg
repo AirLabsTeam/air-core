@@ -1,11 +1,6 @@
-<svg role="img" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" viewBox="0 0 32 32">
-  <title>Comment</title>
-  <path
-    d="M19,28C25,23,28,20,28,14.7v-.3A10.31,10.31,0,0,0,17.7,4H14.4A10.4,10.4,0,0,0,4,14.4c0,6,5,9,10.4,9.1h4.2Z"
-    fill="none"
-    stroke="currentColor"
-    stroke-width="2"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-  ></path>
+<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" viewBox="0 0 32 32">
+    <title>
+        Comment
+    </title>
+    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 28c6-5 9-8 9-13.3v-.3A10.31 10.31 0 0017.7 4h-3.3A10.4 10.4 0 004 14.4c0 6 5 9 10.4 9.1h4.2z"/>
 </svg>
