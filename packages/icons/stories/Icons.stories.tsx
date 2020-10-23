@@ -7,14 +7,14 @@ import { BoxProps } from '@air/zephyr';
  * custom webpack configuration for Storybook. This will more closely emulate the manner with which
  * our consumers will use our components, also.
  */
-// eslint-disable-next-line import/extensions
-import * as ProductionBundleIconsMap from '../dist/icons.esm.js';
+
+import * as ProductionBundleIconsMap from '../dist/icons.esm';
 
 const iconNames = Object.keys(ProductionBundleIconsMap);
 const icons = Object.values(ProductionBundleIconsMap);
 
 export default {
-  title: 'Icons',
+  title: 'Icons/Icon/All (Grid View)',
   component: ProductionBundleIconsMap.Air as any,
   parameters: {
     docs: {
@@ -50,5 +50,3 @@ export const GridOfAllIcons: Story<BoxProps<SVGElement>> = (args) => {
     </div>
   );
 };
-
-GridOfAllIcons.storyName = 'All (Grid View)';
