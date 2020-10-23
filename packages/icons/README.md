@@ -2,8 +2,6 @@
 
 Source of truth for SVG icons used at Air. Published as an NPM library for React consumers.
 
-<!-- React Native. -->
-
 ## Installation
 
 `yarn add @air/icons`
@@ -58,3 +56,5 @@ There are many situations where this repository won't help, as outlined above. I
 1. Render SVGs inline - nothing wrong with that! Consider still using SVGO to optimize your SVG.
 
 2. Integrate [svgr](https://github.com/gregberge/svgr) into your application, steal [our SVGO "format" config](./svgo.config.format.js), and simply manage the implementation yourself. Why the "format" config in a webpack tool? In this repo, we use the format config to minify IDs because it has the context of the filename for prefixing the IDs and keeping them unique. Our bundle config doesn't minify IDs because it assumes they've already been prefixed properly to ensure there are no ID collisions for consumption of multiple SVGs on one page.
+
+3. Using React Native? Import the SVG files inside your components using a package like [react-native-svg-transformer](https://github.com/kristerkari/react-native-svg-transformer).
