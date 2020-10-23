@@ -9,12 +9,13 @@ import {
   AlertDialogProps,
 } from '@reach/alert-dialog';
 import invariant from 'tiny-invariant';
+import { rgba } from 'polished';
 import { MODAL_OVERLAY, ALERT_MODAL_OVERLAY } from '../testIDs';
 import { Box, BoxStyleProps } from '../Box';
 
 export type BaseModalProps = Pick<
   DialogProps,
-  'allowPinchZoom' | 'initialFocusRef' | 'isOpen' | 'onDismiss' | 'className'
+  'allowPinchZoom' | 'initialFocusRef' | 'isOpen' | 'onDismiss'
 > &
   Pick<AlertDialogProps, 'leastDestructiveRef'> &
   BoxStyleProps & {
@@ -67,29 +68,35 @@ export type BaseModalProps = Pick<
      */
     children?: React.ReactNode;
 
+    /**
+     * Note that these styles get applied to the modal container itself as opposed to the overlay which is the true
+     * top-level element in this component. See `props.overlayClassName` to apply styles there.
+     */
+    className?: string;
+
+    overlayClassName?: string;
+
     zIndex?: number;
   };
 
 export const BaseModal = ({
   children,
   className,
-  modalDescription,
-  modalLabel,
   isAlertModal,
   isOpen = false,
-  onDismiss,
   leastDestructiveRef,
+  modalDescription,
+  modalLabel,
+  onDismiss,
+  overlayClassName,
   zIndex = 10,
   ...rest
 }: BaseModalProps) => {
   const labelId = useId('modal-label');
   const descriptionId = useId('modal-description');
   const overlayStyles = {
-    __baseStyles: {
-      backgroundColor: 'pigeon8',
-      opacity: 0.92,
-      zIndex,
-    },
+    backgroundColor: rgba('pigeon8', 0.92),
+    zIndex,
   };
 
   if (isAlertModal) {
@@ -100,10 +107,11 @@ export const BaseModal = ({
     return (
       <Box
         as={AlertDialogOverlay}
+        className={overlayClassName}
         data-testid={ALERT_MODAL_OVERLAY}
         isOpen={isOpen}
         leastDestructiveRef={leastDestructiveRef}
-        {...overlayStyles}
+        __baseStyles={overlayStyles}
         {...rest}
       >
         <AlertDialogContent className={className}>
@@ -122,10 +130,11 @@ export const BaseModal = ({
   return (
     <Box
       as={DialogOverlay}
+      className={overlayClassName}
       data-testid={MODAL_OVERLAY}
       isOpen={isOpen}
       onDismiss={onDismiss}
-      {...overlayStyles}
+      __baseStyles={overlayStyles}
       {...rest}
     >
       <DialogContent
