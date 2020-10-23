@@ -10,7 +10,7 @@ Source of truth for SVG icons used at Air. Published as an NPM library for React
 
 ## How do I add new icons to this collection?
 
-- Put your SVG icon into a folder in `src/svgs` (probably `src/svgs/uncategorized` unless otherwise stated by design)
+- Put your SVG icon into a folder in `src/svgs` (`src/svgs/uncategorized` unless otherwise stated by design)
 - Run `yarn build` to map the newly added icons
 - `yarn storybook` to go and see the result of your work in Storybook.
 
