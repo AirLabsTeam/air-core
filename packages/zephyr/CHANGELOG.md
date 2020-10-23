@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@1.3.1...@air/zephyr@1.4.0) (2020-10-23)
+
+### Bug Fixes
+
+- hardcode color ([1cd3abe](https://github.com/AirLabsTeam/web-core/commit/1cd3abee7f3dc230356002778cef3b8d920a8c39))
+- resolve issue with missing theme context ([ae730a0](https://github.com/AirLabsTeam/web-core/commit/ae730a0927bc5c2bd8c1ead481908e8faacaa635))
+- unify overlay styles in BaseModal and fix mistake ([d9e6d2d](https://github.com/AirLabsTeam/web-core/commit/d9e6d2df44502805346de7c1ad4dc2d0c83be2df))
+
+### Features
+
+- resolve feedback from [#30](https://github.com/AirLabsTeam/web-core/issues/30) ([745f5c4](https://github.com/AirLabsTeam/web-core/commit/745f5c431ac7edb3e1975f356a7d6d2685da84ae))
+- **basemodal:** add new component (BaseModal) ([ec9ab55](https://github.com/AirLabsTeam/web-core/commit/ec9ab55db9fdf2c3c65ccceeda00f57b1e4160e5))
+- **box:** reorder types, add data-testid as optional prop, and export new type ([f85d8a0](https://github.com/AirLabsTeam/web-core/commit/f85d8a06347239a782c6deff7c15b0d7d062d21e))
+
 ## [1.3.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@1.3.0...@air/zephyr@1.3.1) (2020-09-23)
 
 ### Bug Fixes
