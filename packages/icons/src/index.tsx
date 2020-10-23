@@ -150,15 +150,9 @@ const Database = (props?: BoxProps<SVGElement>) => <Box as={_Database} {...props
 const Delete = (props?: BoxProps<SVGElement>) => <Box as={_Delete} {...props} />;
 const Devices = (props?: BoxProps<SVGElement>) => <Box as={_Devices} {...props} />;
 const Document = (props?: BoxProps<SVGElement>) => <Box as={_Document} {...props} />;
-const DoubleChevronDown = (props?: BoxProps<SVGElement>) => (
-  <Box as={_DoubleChevronDown} {...props} />
-);
-const DoubleChevronLeft = (props?: BoxProps<SVGElement>) => (
-  <Box as={_DoubleChevronLeft} {...props} />
-);
-const DoubleChevronRight = (props?: BoxProps<SVGElement>) => (
-  <Box as={_DoubleChevronRight} {...props} />
-);
+const DoubleChevronDown = (props?: BoxProps<SVGElement>) => <Box as={_DoubleChevronDown} {...props} />;
+const DoubleChevronLeft = (props?: BoxProps<SVGElement>) => <Box as={_DoubleChevronLeft} {...props} />;
+const DoubleChevronRight = (props?: BoxProps<SVGElement>) => <Box as={_DoubleChevronRight} {...props} />;
 const DoubleChevronUp = (props?: BoxProps<SVGElement>) => <Box as={_DoubleChevronUp} {...props} />;
 const Download = (props?: BoxProps<SVGElement>) => <Box as={_Download} {...props} />;
 const Downtick = (props?: BoxProps<SVGElement>) => <Box as={_Downtick} {...props} />;
