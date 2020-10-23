@@ -43,7 +43,9 @@ const generateTemplatesForFile = (fileName, relativePath) => {
  * Creates three statements per icon and stores them in the appropriate array
  * Afterwards, they are combined into one array that is written as a file
  */
-let importLines = ["import React from 'react';\nimport { Box, BoxProps } from '@air/zephyr';\n"];
+let importLines = [
+  "/* eslint-disable prettier/prettier */\nimport React from 'react';\nimport { Box, BoxProps } from '@air/zephyr';\n",
+];
 let typeMapLines = [];
 let exportLines = ['\nexport {\n'];
 
