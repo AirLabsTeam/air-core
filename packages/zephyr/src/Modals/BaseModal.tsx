@@ -10,6 +10,7 @@ import {
 } from '@reach/alert-dialog';
 import invariant from 'tiny-invariant';
 import { rgba } from 'polished';
+import { useTheme } from 'styled-components';
 import { MODAL_OVERLAY, ALERT_MODAL_OVERLAY } from '../testIDs';
 import { Box, BoxStyleProps } from '../Box';
 
@@ -92,10 +93,11 @@ export const BaseModal = ({
   zIndex = 10,
   ...rest
 }: BaseModalProps) => {
+  const theme = useTheme();
   const labelId = useId('modal-label');
   const descriptionId = useId('modal-description');
   const overlayStyles = {
-    backgroundColor: rgba('pigeon8', 0.92),
+    backgroundColor: rgba(theme.colors.pigeon8, 0.92),
     zIndex,
   };
 
