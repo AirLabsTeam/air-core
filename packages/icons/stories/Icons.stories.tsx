@@ -1,56 +1,49 @@
 import React from 'react';
-import { Meta } from '@storybook/react';
-import { Icon, IconProps, Icons, IconName } from '../src/index';
+import { Story } from '@storybook/react';
+import { BoxProps } from '@air/zephyr';
 
-const meta: Meta<IconProps> = {
-  title: 'Icons/Icon',
-  component: Icon,
+/*
+ * We don't want to import the src modules lest we need to maintain a development environment via a
+ * custom webpack configuration for Storybook. This will more closely emulate the manner with which
+ * our consumers will use our components, also.
+ */
+
+import * as ProductionBundleIconsMap from '../dist/icons.esm';
+
+const iconNames = Object.keys(ProductionBundleIconsMap);
+const icons = Object.values(ProductionBundleIconsMap);
+
+export default {
+  title: 'Icons/Icon/All (Grid View)',
+  component: ProductionBundleIconsMap.Air as any,
   parameters: {
     docs: {
       description: {
         component:
-          "Each `Icon` in the Air Icon System, and component props below. They are rendered in the component's fallback styling, which may not be the default styling for each icon. The `ClassName` prop is missing from this list but accessible to the component.",
+          'Air icons are clear and simple. Each one of them sets the tone and language for our platform and help the user understand the concept it represents.',
       },
     },
   },
 };
 
-export default meta;
-
-const icons = Object.keys(Icons);
-
-export const GridOfAllIcons = (args: IconProps) => {
+export const GridOfAllIcons: Story<BoxProps<SVGElement>> = (args) => {
   return (
     <div
       style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(5, 1fr)',
-        gap: '5rem 2rem',
+        gridTemplateColumns: 'repeat(7, 1fr)',
+        gap: '3rem 0.5rem',
         margin: '40px 0 40px 0',
+        textAlign: 'center',
       }}
     >
-      {icons.map((icon: IconName) => {
+      {icons.map((Icon: any, index) => {
+        const iconName = iconNames[index];
+
         return (
-          <div
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-            key={icon}
-          >
-            <h6
-              style={{
-                fontSize: '14px',
-                fontFamily: 'sans-serif',
-                margin: '0 0 0.75rem 0',
-                textAlign: 'center',
-              }}
-            >
-              {icon}
-            </h6>
-            <Icon {...args} name={icon} />
+          <div key={iconName}>
+            <h6 style={{ fontFamily: 'sans-serif' }}>{iconName}</h6>
+            <Icon {...args} tx={{ width: '24px' }} />
           </div>
         );
       })}
