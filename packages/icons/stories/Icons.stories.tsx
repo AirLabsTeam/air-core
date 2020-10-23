@@ -7,7 +7,8 @@ import { BoxProps } from '@air/zephyr';
  * custom webpack configuration for Storybook. This will more closely emulate the manner with which
  * our consumers will use our components, also.
  */
-import * as ProductionBundleIconsMap from '../dist/icons.esm';
+// eslint-disable-next-line import/extensions
+import * as ProductionBundleIconsMap from '../dist/icons.esm.js';
 
 const iconNames = Object.keys(ProductionBundleIconsMap);
 const icons = Object.values(ProductionBundleIconsMap);
