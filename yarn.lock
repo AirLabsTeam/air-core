@@ -2,10 +2,8 @@
 # yarn lockfile v1
 
 
-"@air/zephyr@latest":
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/@air/zephyr/-/zephyr-1.3.1.tgz#e7555983e53a8f87e331d2cfce0af670b235cfaa"
-  integrity sha512-MKxBipiGZaLM895sGUoHkQ/OWlO3ai9/vyzEGC7FUbsO/Jw5Zy/E7VC8yrfE40lliLirWJEN/9wsBOsmivYY9g==
+"@air/zephyr@link:packages/zephyr":
+  version "1.4.0"
 
 "@babel/cli@^7.12.1":
   version "7.12.1"

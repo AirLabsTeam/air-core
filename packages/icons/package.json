@@ -49,7 +49,7 @@
     "react-native": ">=0.58"
   },
   "devDependencies": {
-    "@air/zephyr": "latest",
+    "@air/zephyr": "link:../zephyr",
     "@babel/cli": "^7.12.1",
     "@babel/plugin-proposal-object-rest-spread": "^7.9.0",
     "@babel/plugin-transform-arrow-functions": "^7.10.1",
