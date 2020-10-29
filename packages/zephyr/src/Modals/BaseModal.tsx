@@ -9,7 +9,8 @@ import {
   AlertDialogProps,
 } from '@reach/alert-dialog';
 import invariant from 'tiny-invariant';
-// import { rgba } from 'polished';
+import { rgba } from 'polished';
+import { useTheme } from 'styled-components';
 import { MODAL_OVERLAY, ALERT_MODAL_OVERLAY } from '../testIDs';
 import { Box, BoxStylingProps } from '../Box';
 
@@ -74,7 +75,10 @@ export type BaseModalProps = Pick<
      */
     className?: string;
 
-    overlayStyle?: BoxStylingProps['tx'];
+    /**
+     * If provided, this destroys the default stylings for the modal's overlay.
+     */
+    overlayStylesOverride?: BoxStylingProps['tx'];
 
     zIndex?: number;
   };
@@ -88,19 +92,21 @@ export const BaseModal = ({
   modalDescription,
   modalLabel,
   onDismiss,
-  overlayStyle = {} as BoxStylingProps['tx'],
+  overlayStylesOverride,
   tx,
   zIndex = 10,
   ...rest
 }: BaseModalProps) => {
   const labelId = useId('modal-label');
   const descriptionId = useId('modal-description');
-  const overlayStyles: BoxStylingProps['tx'] = {
-    // TODO: Flesh out final default
-    // backgroundColor: (theme) => rgba(theme.colors.pigeon0, 0.92),
-    zIndex,
-    ...overlayStyle,
-  };
+  const theme = useTheme();
+
+  const overlayStyles: BoxStylingProps['tx'] = !overlayStylesOverride
+    ? {
+        backgroundColor: rgba(theme.colors.pigeon0, 0.92),
+        zIndex,
+      }
+    : overlayStylesOverride;
 
   if (isAlertModal) {
     const hasDescription = !!modalDescription;
@@ -114,11 +120,6 @@ export const BaseModal = ({
         isOpen={isOpen}
         leastDestructiveRef={leastDestructiveRef}
         __baseStyles={overlayStyles}
-        // __baseStyles={{
-        //   '&:hover': {
-        //     backgroundColor: (theme) => theme.colors.pigeon0,
-        //   },
-        // }}
         {...rest}
       >
         <Box as={AlertDialogContent} tx={tx} className={className}>
