@@ -1,10 +1,4 @@
-import {
-  BorderProps,
-  BorderRadiusProps,
-  ColorProps,
-  SpaceProps,
-  TypographyProps,
-} from 'styled-system';
+import { ColorProps, SpaceProps, TypographyProps } from 'styled-system';
 import * as CSS from 'csstype';
 
 import { colors } from './colors';
@@ -31,9 +25,7 @@ export type ThemeWithoutCustomKeys = Omit<ThemeObject, 'variants'>;
 
 /** @description Styled-system props without custom theme keys */
 export interface StyledSystemProps
-  extends BorderProps<ThemeWithoutCustomKeys>,
-    BorderRadiusProps<ThemeWithoutCustomKeys>,
-    ColorProps<ThemeWithoutCustomKeys>,
+  extends ColorProps<ThemeWithoutCustomKeys>,
     SpaceProps<ThemeWithoutCustomKeys>,
     TypographyProps<ThemeWithoutCustomKeys> {}
 
