@@ -9,16 +9,16 @@ import {
   AlertDialogProps,
 } from '@reach/alert-dialog';
 import invariant from 'tiny-invariant';
-import { rgba } from 'polished';
+// import { rgba } from 'polished';
 import { MODAL_OVERLAY, ALERT_MODAL_OVERLAY } from '../testIDs';
-import { Box, BoxStyleProps } from '../Box';
+import { Box, BoxStylingProps } from '../Box';
 
 export type BaseModalProps = Pick<
   DialogProps,
   'allowPinchZoom' | 'initialFocusRef' | 'isOpen' | 'onDismiss'
 > &
   Pick<AlertDialogProps, 'leastDestructiveRef'> &
-  BoxStyleProps & {
+  BoxStylingProps & {
     /**
      * This should act as the title of the modal. Required for the sake of accessibility. If you want the
      * label invisible, please render the node within [@reach/visually-hidden](https://reach.tech/visually-hidden).
@@ -70,11 +70,11 @@ export type BaseModalProps = Pick<
 
     /**
      * Note that these styles get applied to the modal container itself as opposed to the overlay which is the true
-     * top-level element in this component. See `props.overlayClassName` to apply styles there.
+     * top-level element in this component. See `props.overlayStyle` to apply inline styles there.
      */
     className?: string;
 
-    overlayClassName?: string;
+    overlayStyle?: BoxStylingProps['tx'];
 
     zIndex?: number;
   };
@@ -88,15 +88,18 @@ export const BaseModal = ({
   modalDescription,
   modalLabel,
   onDismiss,
-  overlayClassName,
+  overlayStyle = {} as BoxStylingProps['tx'],
+  tx,
   zIndex = 10,
   ...rest
 }: BaseModalProps) => {
   const labelId = useId('modal-label');
   const descriptionId = useId('modal-description');
-  const overlayStyles = {
-    backgroundColor: rgba('#0f0f0f', 0.92),
+  const overlayStyles: BoxStylingProps['tx'] = {
+    // TODO: Flesh out final default
+    // backgroundColor: (theme) => rgba(theme.colors.pigeon0, 0.92),
     zIndex,
+    ...overlayStyle,
   };
 
   if (isAlertModal) {
@@ -107,20 +110,24 @@ export const BaseModal = ({
     return (
       <Box
         as={AlertDialogOverlay}
-        className={overlayClassName}
         data-testid={ALERT_MODAL_OVERLAY}
         isOpen={isOpen}
         leastDestructiveRef={leastDestructiveRef}
         __baseStyles={overlayStyles}
+        // __baseStyles={{
+        //   '&:hover': {
+        //     backgroundColor: (theme) => theme.colors.pigeon0,
+        //   },
+        // }}
         {...rest}
       >
-        <AlertDialogContent className={className}>
+        <Box as={AlertDialogContent} tx={tx} className={className}>
           <AlertDialogLabel>{modalLabel}</AlertDialogLabel>
 
           <AlertDialogDescription>{modalDescription}</AlertDialogDescription>
 
           {children}
-        </AlertDialogContent>
+        </Box>
       </Box>
     );
   }
@@ -130,14 +137,15 @@ export const BaseModal = ({
   return (
     <Box
       as={DialogOverlay}
-      className={overlayClassName}
       data-testid={MODAL_OVERLAY}
       isOpen={isOpen}
       onDismiss={onDismiss}
       __baseStyles={overlayStyles}
       {...rest}
     >
-      <DialogContent
+      <Box
+        as={DialogContent}
+        tx={tx}
         className={className}
         aria-labelledby={labelId}
         aria-describedby={!modalDescription ? undefined : descriptionId}
@@ -147,7 +155,7 @@ export const BaseModal = ({
         <span id={descriptionId}>{modalDescription}</span>
 
         {children}
-      </DialogContent>
+      </Box>
     </Box>
   );
 };
