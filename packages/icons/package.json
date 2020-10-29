@@ -56,7 +56,7 @@
     "@babel/plugin-transform-react-display-name": "^7.8.3",
     "@innocuous/svgo": "2.1.2",
     "glob": "^7.1.6",
-    "react-native-svg": "^12.1.0",
+    "react-native-svg": "^9.3.6",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-react-svg": "^3.0.3"
   }
