@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@1.4.0...@air/zephyr@2.0.0) (2020-10-30)
+
+### Bug Fixes
+
+- **@air/zephyr:** change color system to be in the hundreds ([6aa96a8](https://github.com/AirLabsTeam/web-core/commit/6aa96a8b44c7b0dcaf3a9c6bb2701cf84e8ed123))
+
+### BREAKING CHANGES
+
+- **@air/zephyr:** We are changing the key names of the color system. i.e. `pigeon0.5` -> `pigeon50`,
+  `pigeon1` -> `pigeon100`
+
 # [1.4.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@1.3.1...@air/zephyr@1.4.0) (2020-10-23)
 
 ### Bug Fixes
