@@ -1,14 +1,29 @@
 export type VariantName =
-  | 'auxiliary'
-  | 'ghost'
+  | 'filled-blue'
+  | 'filled-destructive'
+  | 'filled-grey'
   | 'ghost-blue'
-  | 'outline'
+  | 'ghost-destructive'
+  | 'ghost-grey'
   | 'outline-blue'
-  | 'primary'
-  | 'secondary';
+  | 'outline-grey';
 
 export const button: { [key in VariantName]: {} } = {
-  auxiliary: {
+  'filled-blue': {
+    backgroundColor: 'jay5',
+    color: 'white',
+    '&:hover': {
+      backgroundColor: 'jay6',
+    },
+    '&:active': {
+      backgroundColor: 'jay7',
+    },
+    '&:disabled': {
+      backgroundColor: 'pigeon0',
+      color: 'pigeon4',
+    },
+  },
+  'filled-destructive': {
     backgroundColor: 'flamingo6',
     color: 'white',
     '&:hover': {
@@ -18,14 +33,15 @@ export const button: { [key in VariantName]: {} } = {
       backgroundColor: 'flamingo8',
     },
   },
-  ghost: {
+  'filled-grey': {
+    backgroundColor: 'pigeon0',
     color: 'pigeon6',
     '&:hover': {
-      backgroundColor: 'pigeon0',
+      backgroundColor: 'pigeon1',
       color: 'pigeon7',
     },
     '&:active': {
-      backgroundColor: 'pigeon1',
+      backgroundColor: 'pigeon2',
       color: 'pigeon7',
     },
     '&:disabled': {
@@ -48,24 +64,33 @@ export const button: { [key in VariantName]: {} } = {
       color: 'pigeon3',
     },
   },
-  outline: {
-    border: '1px solid',
-    borderColor: 'pigeon2',
+  'ghost-destructive': {
+    color: 'flamingo7',
+    '&:hover': {
+      backgroundColor: 'flamingo0',
+    },
+    '&:active': {
+      color: 'flamingo8',
+      backgroundColor: 'flamingo0',
+    },
+    '&:disabled': {
+      backgroundColor: 'transparent',
+      color: 'pigeon3',
+    },
+  },
+  'ghost-grey': {
     color: 'pigeon6',
     '&:hover': {
       backgroundColor: 'pigeon0',
-      borderColor: 'transparent',
       color: 'pigeon7',
     },
     '&:active': {
       backgroundColor: 'pigeon1',
-      borderColor: 'transparent',
       color: 'pigeon7',
     },
     '&:disabled': {
       backgroundColor: 'transparent',
       color: 'pigeon3',
-      borderColor: 'pigeon1',
     },
   },
   'outline-blue': {
@@ -87,34 +112,24 @@ export const button: { [key in VariantName]: {} } = {
       borderColor: 'pigeon1',
     },
   },
-  primary: {
-    backgroundColor: 'jay5',
-    color: 'white',
-    '&:hover': {
-      backgroundColor: 'jay6',
-    },
-    '&:active': {
-      backgroundColor: 'jay7',
-    },
-    '&:disabled': {
-      backgroundColor: 'pigeon0',
-      color: 'pigeon4',
-    },
-  },
-  secondary: {
-    backgroundColor: 'pigeon0',
+  'outline-grey': {
+    border: '1px solid',
+    borderColor: 'pigeon2',
     color: 'pigeon6',
     '&:hover': {
-      backgroundColor: 'pigeon1',
+      backgroundColor: 'pigeon0',
+      borderColor: 'transparent',
       color: 'pigeon7',
     },
     '&:active': {
-      backgroundColor: 'pigeon2',
+      backgroundColor: 'pigeon1',
+      borderColor: 'transparent',
       color: 'pigeon7',
     },
     '&:disabled': {
       backgroundColor: 'transparent',
       color: 'pigeon3',
+      borderColor: 'pigeon1',
     },
   },
 };

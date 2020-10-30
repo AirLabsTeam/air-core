@@ -1,25 +1,15 @@
 import { transitions } from 'polished';
-import React, { MouseEvent as ReactMouseEvent, forwardRef } from 'react';
+import React, { forwardRef } from 'react';
 import { variant as styledSystemVariant } from 'styled-system';
 import { DefaultTheme } from 'styled-components';
 
 import { Box, BoxProps } from './Box';
+import { ButtonVariantName } from './theme/variants/button';
 
 export type ButtonSize = 'large' | 'medium' | 'small';
 
-export type ButtonVariantName =
-  | 'auxiliary'
-  | 'ghost'
-  | 'ghost-blue'
-  | 'outline'
-  | 'outline-blue'
-  | 'primary'
-  | 'secondary';
-
-export interface ButtonProps
-  extends Omit<BoxProps<HTMLButtonElement>, 'onClick' | 'size' | '__baseStyles'> {
+export interface ButtonProps extends Omit<BoxProps<HTMLButtonElement>, 'size' | '__baseStyles'> {
   disabled?: boolean;
-  onClick: (event: ReactMouseEvent<HTMLButtonElement, MouseEvent>) => void;
   size?: ButtonSize;
   variant?: ButtonVariantName;
   theme?: DefaultTheme;
@@ -32,7 +22,7 @@ export const Button = forwardRef(
       size = 'medium',
       theme,
       type = 'button',
-      variant = 'primary',
+      variant = 'filled-blue',
       ...restOfProps
     }: ButtonProps,
     ref,
