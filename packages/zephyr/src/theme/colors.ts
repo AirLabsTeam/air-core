@@ -1,101 +1,101 @@
 export type ColorName =
   | 'black'
   | 'canary0'
-  | 'canary1'
-  | 'canary2'
-  | 'canary3'
-  | 'canary4'
-  | 'canary5'
-  | 'canary6'
-  | 'canary7'
-  | 'canary8'
-  | 'canary9'
+  | 'canary100'
+  | 'canary200'
+  | 'canary300'
+  | 'canary400'
+  | 'canary500'
+  | 'canary600'
+  | 'canary700'
+  | 'canary800'
+  | 'canary900'
   | 'cuckoo0'
-  | 'cuckoo1'
-  | 'cuckoo2'
-  | 'cuckoo3'
-  | 'cuckoo4'
+  | 'cuckoo100'
+  | 'cuckoo200'
+  | 'cuckoo300'
+  | 'cuckoo400'
   | 'dropbox'
   | 'flamingo0'
-  | 'flamingo1'
-  | 'flamingo2'
-  | 'flamingo3'
-  | 'flamingo4'
-  | 'flamingo5'
-  | 'flamingo6'
-  | 'flamingo7'
-  | 'flamingo8'
-  | 'flamingo9'
+  | 'flamingo100'
+  | 'flamingo200'
+  | 'flamingo300'
+  | 'flamingo400'
+  | 'flamingo500'
+  | 'flamingo600'
+  | 'flamingo700'
+  | 'flamingo800'
+  | 'flamingo900'
   | 'focus'
   | 'googleDrive'
   | 'jay0'
-  | 'jay1'
-  | 'jay2'
-  | 'jay3'
-  | 'jay4'
-  | 'jay5'
-  | 'jay6'
-  | 'jay7'
-  | 'jay8'
-  | 'jay9'
+  | 'jay100'
+  | 'jay200'
+  | 'jay300'
+  | 'jay400'
+  | 'jay500'
+  | 'jay600'
+  | 'jay700'
+  | 'jay800'
+  | 'jay900'
   | 'macaw0'
-  | 'macaw1'
-  | 'macaw2'
-  | 'macaw3'
-  | 'macaw4'
+  | 'macaw100'
+  | 'macaw200'
+  | 'macaw300'
+  | 'macaw400'
   | 'parrot0'
-  | 'parrot1'
-  | 'parrot2'
-  | 'parrot3'
-  | 'parrot4'
+  | 'parrot100'
+  | 'parrot200'
+  | 'parrot300'
+  | 'parrot400'
   | 'peacock0'
-  | 'peacock1'
-  | 'peacock2'
-  | 'peacock3'
-  | 'peacock4'
-  | 'peacock5'
-  | 'peacock6'
-  | 'peacock7'
-  | 'peacock8'
-  | 'peacock9'
+  | 'peacock100'
+  | 'peacock200'
+  | 'peacock300'
+  | 'peacock400'
+  | 'peacock500'
+  | 'peacock600'
+  | 'peacock700'
+  | 'peacock800'
+  | 'peacock900'
   | 'pigeon0'
-  | 'pigeon1'
-  | 'pigeon2'
-  | 'pigeon3'
-  | 'pigeon4'
-  | 'pigeon5'
-  | 'pigeon6'
-  | 'pigeon7'
-  | 'pigeon8'
-  | 'pigeon9'
-  | 'pigeonLighter0'
+  | 'pigeon50'
+  | 'pigeon100'
+  | 'pigeon200'
+  | 'pigeon300'
+  | 'pigeon400'
+  | 'pigeon500'
+  | 'pigeon600'
+  | 'pigeon700'
+  | 'pigeon800'
+  | 'pigeon900'
   | 'robin0'
-  | 'robin1'
-  | 'robin2'
-  | 'robin3'
-  | 'robin4'
+  | 'robin100'
+  | 'robin200'
+  | 'robin300'
+  | 'robin400'
   | 'transparent'
   | 'white';
 
 const canaries = {
   canary0: '#fff1b9',
-  canary1: '#ffe784',
-  canary2: '#fdd778',
-  canary3: '#ffbe3c',
-  canary4: '#ffac00',
-  canary5: '#ff9d00',
-  canary6: '#ef7600',
-  canary7: '#ce4d13',
-  canary8: '#833602',
-  canary9: '#4c2103',
+  canary100: '#ffe784',
+  canary200: '#fdd778',
+  canary300: '#ffbe3c',
+  canary400: '#ffac00',
+  canary500: '#ff9d00',
+  canary600: '#ef7600',
+  canary700: '#ce4d13',
+  canary800: '#833602',
+  canary900: '#4c2103',
 };
 
 const cuckoos = {
   cuckoo0: '#C6A9FF',
-  cuckoo1: '#B088FF',
-  cuckoo2: '#A072F8',
-  cuckoo3: '#945EEA',
-  cuckoo4: '#7E41E0',
+  cuckoo100: '#B088FF',
+  cuckoo200: '#A072F8',
+  cuckoo300: '#945EEA',
+  cuckoo400: '#7E41E0',
 };
 
 const darks = {
@@ -104,15 +104,15 @@ const darks = {
 
 const flamingos = {
   flamingo0: '#fcf0f0',
-  flamingo1: '#ffd9d9',
-  flamingo2: '#ff8383',
-  flamingo3: '#ff6969',
-  flamingo4: '#ff5050',
-  flamingo5: '#ed3b3b',
-  flamingo6: '#d23939',
-  flamingo7: '#a1222f',
-  flamingo8: '#841328',
-  flamingo9: '#511421',
+  flamingo100: '#ffd9d9',
+  flamingo200: '#ff8383',
+  flamingo300: '#ff6969',
+  flamingo400: '#ff5050',
+  flamingo500: '#ed3b3b',
+  flamingo600: '#d23939',
+  flamingo700: '#a1222f',
+  flamingo800: '#841328',
+  flamingo900: '#511421',
 };
 
 const integrations = {
@@ -122,19 +122,19 @@ const integrations = {
 
 const jays = {
   jay0: '#deeefc',
-  jay1: '#bfdbf9',
-  jay2: '#9bc1ef',
-  jay3: '#7ea6e0',
-  jay4: '#4c85d8',
-  jay5: '#2954af',
-  jay6: '#1b3889',
-  jay7: '#142a72',
-  jay8: '#102261',
-  jay9: '#0b1953',
+  jay100: '#bfdbf9',
+  jay200: '#9bc1ef',
+  jay300: '#7ea6e0',
+  jay400: '#4c85d8',
+  jay500: '#2954af',
+  jay600: '#1b3889',
+  jay700: '#142a72',
+  jay800: '#102261',
+  jay900: '#0b1953',
 };
 
 const accessibility = {
-  focus: jays.jay4,
+  focus: jays.jay400,
 };
 
 const lights = {
@@ -143,56 +143,53 @@ const lights = {
 
 const macaws = {
   macaw0: '#90B8FF',
-  macaw1: '#6FA2FF',
-  macaw2: '#448AFF',
-  macaw3: '#2979FF',
-  macaw4: '#2962FF',
+  macaw100: '#6FA2FF',
+  macaw200: '#448AFF',
+  macaw300: '#2979FF',
+  macaw400: '#2962FF',
 };
 
 const parrots = {
   parrot0: '#A9F482',
-  parrot1: '#8CEA65',
-  parrot2: '#5EE92A',
-  parrot3: '#3AD202',
-  parrot4: '#50B83C',
+  parrot100: '#8CEA65',
+  parrot200: '#5EE92A',
+  parrot300: '#3AD202',
+  parrot400: '#50B83C',
 };
 
 const peacocks = {
   peacock0: '#ccfdea',
-  peacock1: '#9bfbdf',
-  peacock2: '#68f4d8',
-  peacock3: '#42ead7',
-  peacock4: '#0addd7',
-  peacock5: '#07b3be',
-  peacock6: '#05889f',
-  peacock7: '#036280',
-  peacock8: '#01486a',
-  peacock9: '#033b51',
-};
-
-const pigeonLighters = {
-  pigeonLighter0: '#F7F7F7',
+  peacock100: '#9bfbdf',
+  peacock200: '#68f4d8',
+  peacock300: '#42ead7',
+  peacock400: '#0addd7',
+  peacock500: '#07b3be',
+  peacock600: '#05889f',
+  peacock700: '#036280',
+  peacock800: '#01486a',
+  peacock900: '#033b51',
 };
 
 const pigeons = {
   pigeon0: '#f1f1f1',
-  pigeon1: '#dcdcdc',
-  pigeon2: '#c1c1c1',
-  pigeon3: '#a4a4a4',
-  pigeon4: '#808080',
-  pigeon5: '#666666',
-  pigeon6: '#4d4d4d',
-  pigeon7: '#333333',
-  pigeon8: '#262626',
-  pigeon9: '#0f0f0f',
+  pigeon50: 'F7F7F7',
+  pigeon100: '#dcdcdc',
+  pigeon200: '#c1c1c1',
+  pigeon300: '#a4a4a4',
+  pigeon400: '#808080',
+  pigeon500: '#666666',
+  pigeon600: '#4d4d4d',
+  pigeon700: '#333333',
+  pigeon800: '#262626',
+  pigeon900: '#0f0f0f',
 };
 
 const robins = {
   robin0: '#FFAA3B',
-  robin1: '#FF9800',
-  robin2: '#FB8800',
-  robin3: '#FB7D00',
-  robin4: '#FF6D00',
+  robin100: '#FF9800',
+  robin200: '#FB8800',
+  robin300: '#FB7D00',
+  robin400: '#FF6D00',
 };
 
 const miscellaneous = {
@@ -212,7 +209,6 @@ export const colors: { [key in ColorName]: string } = {
   ...macaws,
   ...parrots,
   ...peacocks,
-  ...pigeonLighters,
   ...pigeons,
   ...robins,
   ...miscellaneous,
