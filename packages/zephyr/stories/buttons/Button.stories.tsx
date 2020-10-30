@@ -5,13 +5,6 @@ import { Button, ButtonProps } from '../../src/Button';
 const meta: Meta<ButtonProps> = {
   title: 'Zephyr/Button',
   component: Button,
-  parameters: {
-    docs: {
-      description: {
-        component: '',
-      },
-    },
-  },
 };
 
 export default meta;
