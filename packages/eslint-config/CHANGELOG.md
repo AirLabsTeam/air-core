@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.9](https://github.com/AirLabsTeam/web-core/compare/@air/eslint-config@1.1.8...@air/eslint-config@1.1.9) (2020-10-23)
+
+### Bug Fixes
+
+- add lint rule to prevent extaneous imports ([541fa3f](https://github.com/AirLabsTeam/web-core/commit/541fa3f24451c0d8176af3ca70608290dbcb87c1))
+
 ## [1.1.8](https://github.com/AirLabsTeam/web-core/compare/@air/eslint-config@1.1.7...@air/eslint-config@1.1.8) (2020-09-23)
 
 ### Bug Fixes

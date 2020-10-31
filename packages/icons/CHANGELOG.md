@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@1.4.1...@air/icons@2.0.0) (2020-10-23)
+
+### Bug Fixes
+
+- **icons:** fix dist/icons.esm.js path ([476d66c](https://github.com/AirLabsTeam/web-core/commit/476d66c3cabb1d1e62d6898d34e2fe06bf1f80f9))
+- **icons:** fix path for dist/icons.esm.js ([33c8d8d](https://github.com/AirLabsTeam/web-core/commit/33c8d8ddfaa9cf0ecaf92d8fd42a677469c3d2d5))
+- **icons:** format with prettier ([bd7e749](https://github.com/AirLabsTeam/web-core/commit/bd7e749e5acf9e2e47c0d02904ed7ec040bf5592))
+- **icons:** move `IconPathData.json` from gitignore ([23b739c](https://github.com/AirLabsTeam/web-core/commit/23b739ccc046babcfca9133ff2c729d2c5cc9014))
+- **icons:** remove all icons list view ([f8705b9](https://github.com/AirLabsTeam/web-core/commit/f8705b90b0297ba23c6db9c0d14277e0433e7a60))
+- declare empty type module for svgs ([845ebe6](https://github.com/AirLabsTeam/web-core/commit/845ebe6e3eb4f8e5ed63674fde7a9313b171e2c7))
+- fix typo in audio.svg ([bb8aea9](https://github.com/AirLabsTeam/web-core/commit/bb8aea984de412585a13d6c13de6b244ca4c2a12))
+- **icons:** rename icons ([b6cef09](https://github.com/AirLabsTeam/web-core/commit/b6cef094575c037287693d33e17739d907d4e272))
+- refactor Icon fallback styles, use named export for storybook argstable ([365e5f1](https://github.com/AirLabsTeam/web-core/commit/365e5f10af403344a64a957370b49383e20b4da8))
+- remove destructured className prop ([4b2e38a](https://github.com/AirLabsTeam/web-core/commit/4b2e38abfc2aee03bf0321974bfcf599706dbbf0))
+
+### Features
+
+- **@air/icons:** new icon components and storybook file ([86aaba3](https://github.com/AirLabsTeam/web-core/commit/86aaba3a8ebbe41a10404b055117fd4a72fab84c))
+- **icons:** add At svg and add fill to Send-Filled svg ([575c06c](https://github.com/AirLabsTeam/web-core/commit/575c06c208c4dda3b85bcdc59854c09b4fc109cc))
+- **icons:** add grid view and list view stories for all icons in storybook ([9f6827b](https://github.com/AirLabsTeam/web-core/commit/9f6827b8fd6c8dfb8f2011940eda267da74f5374))
+- **icons:** add icons as svg files with pared down styles ([6b921e6](https://github.com/AirLabsTeam/web-core/commit/6b921e6a43238eef039c8b293d3099e53ed24cf9))
+- **icons:** add icons as svgs with pared down style ([dc9b307](https://github.com/AirLabsTeam/web-core/commit/dc9b307cc778a669c9eef7f767ce16ac340f3916))
+- add grid view of all Icons to storybook ([ed48eec](https://github.com/AirLabsTeam/web-core/commit/ed48eec95ee2622a4fe87d9e03139a4320c82270))
+- add icons grid to storybook, update test ([03e4d33](https://github.com/AirLabsTeam/web-core/commit/03e4d33ddfb6414ecd2dc33bd13a1596953b4f10))
+- add storybook for Icon with ArgsTable of props ([3dd7c66](https://github.com/AirLabsTeam/web-core/commit/3dd7c66d3b065810df6b82660a08f56246aa839d))
+
+### BREAKING CHANGES
+
+- **@air/icons:** Completely different API for icon components
+
 ## [1.4.1](https://github.com/AirLabsTeam/web-core/compare/@air/icons@1.4.0...@air/icons@1.4.1) (2020-09-09)
 
 ### Bug Fixes
