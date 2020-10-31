@@ -1,4 +1,4 @@
-export type VariantName =
+export type ButtonVariantName =
   | 'filled-blue'
   | 'filled-destructive'
   | 'filled-grey'
@@ -8,7 +8,7 @@ export type VariantName =
   | 'outline-blue'
   | 'outline-grey';
 
-export const button: { [key in VariantName]: {} } = {
+export const button: { [key in ButtonVariantName]: {} } = {
   'filled-blue': {
     backgroundColor: 'jay5',
     color: 'white',
