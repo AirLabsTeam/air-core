@@ -14,6 +14,7 @@ import { fontSizes } from './fontSizes';
 import { fontWeights } from './fontWeights';
 import { radii } from './radii';
 import { space } from './space';
+import { variants } from './variants';
 
 export const theme = {
   colors,
@@ -22,6 +23,7 @@ export const theme = {
   fontWeights,
   radii,
   space,
+  variants,
 };
 
 /** @description Gets the theme object */
