@@ -3,6 +3,43 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@2.0.0...@air/zephyr@3.0.0) (2020-11-02)
+
+### Bug Fixes
+
+- **@air/zephyr:** add in disabled state for destructive filled ([4af262e](https://github.com/AirLabsTeam/web-core/commit/4af262e17d2ff577107130d38cef7be9131402ba))
+- **@air/zephyr:** add in theme exports ([a4851fd](https://github.com/AirLabsTeam/web-core/commit/a4851fdd5e739af3d245c20b91593e2fb75d6575))
+- **@air/zephyr:** fix button import in test ([7ed1319](https://github.com/AirLabsTeam/web-core/commit/7ed1319e372c1f423069551483bbbfaf362dcd6a))
+- **@air/zephyr:** fix button variant name ([7baa767](https://github.com/AirLabsTeam/web-core/commit/7baa7674c7355f93bc34bf90b51faa30b8dd4aef))
+- **@air/zephyr:** flatten button variant theme ([88f04c5](https://github.com/AirLabsTeam/web-core/commit/88f04c5cfff527a5b8b17047a8955f31d4330c9a))
+- **@air/zephyr:** flatten text variants ([02b0212](https://github.com/AirLabsTeam/web-core/commit/02b021233cfdd0f7740d4eba321c9dd7205000aa))
+- **@air/zephyr:** move rest of props to bottom ([dd05954](https://github.com/AirLabsTeam/web-core/commit/dd05954b3e69f8569c6cf7b1db9674a901e841e7))
+- **@air/zephyr:** readd onClick as required for button component ([b9c9d4d](https://github.com/AirLabsTeam/web-core/commit/b9c9d4d8328709ab6e35f4aa50be9bfc4a2bea2e))
+- **@air/zephyr:** remove unnecessary unit test ([9bf5760](https://github.com/AirLabsTeam/web-core/commit/9bf5760f7b254bb5eb4682b75eb28396fd89db90))
+- **@air/zephyr:** remove unused parameters in button stories ([8eb8466](https://github.com/AirLabsTeam/web-core/commit/8eb8466e21cbeef1ac8e89f7a955c6f686fcb3f2))
+- **@air/zephyr:** update button colors to match our new system ([59399da](https://github.com/AirLabsTeam/web-core/commit/59399dac036fe7725f6c0f964794d39913d1a5f0))
+- **@air/zephyr:** update to useTheme hook and use theme value for focus state ([90ac645](https://github.com/AirLabsTeam/web-core/commit/90ac645b8c74f7f47c224fb1945da959bf8d42e0))
+- final change to TX prop ([2a1e8cd](https://github.com/AirLabsTeam/web-core/commit/2a1e8cdb83b44fe8f9734219b540900102c2d04f))
+- finalize box component API ([908d2b7](https://github.com/AirLabsTeam/web-core/commit/908d2b77ab3bf1a224aba96f2b3cb4014d5d8907))
+- in-progress commit for updating basemodal ([5a077f3](https://github.com/AirLabsTeam/web-core/commit/5a077f358f59e236a80c02d5e36f732ea993a4cb))
+- include global type defs for @air/zephyr ([f693d81](https://github.com/AirLabsTeam/web-core/commit/f693d81b3dcb17e1bda7332acf7368688f8d397a))
+- simplify theme typings ([87f68d6](https://github.com/AirLabsTeam/web-core/commit/87f68d62aa65b138f978347acaaf4996044b6359))
+- update dependencies and a typedef override ([060cd75](https://github.com/AirLabsTeam/web-core/commit/060cd7502d90cf687b1dac1cba0895e457539b18))
+- **zephyr:** add in individual theme exports ([a6a9682](https://github.com/AirLabsTeam/web-core/commit/a6a968263980de5fcd0837e0a890b0ffc322f33f))
+- **zephyr:** add in remaining button variants ([7efd138](https://github.com/AirLabsTeam/web-core/commit/7efd138aa5a6b43b1c55a7ae720bbb9029fa84de))
+- **zephyr:** fix button test ([40e7522](https://github.com/AirLabsTeam/web-core/commit/40e75228d413b6ea9900c5614048ba195626589d))
+- **zephyr:** remove duplicate background property ghost and outline variants ([35eafd6](https://github.com/AirLabsTeam/web-core/commit/35eafd69ddd39b100c43044311db84ea33129251))
+
+### Features
+
+- **@air/zephyr:** add in text component ([ade9425](https://github.com/AirLabsTeam/web-core/commit/ade94256a3da79dd7dc9aeef05bca3112dd91b84))
+- **basemodal:** rename and change behavior of overlay override prop ([94e9999](https://github.com/AirLabsTeam/web-core/commit/94e9999bce43ce8e0aaf520840b06304a98879be))
+- **zephyr:** add in initial button component ([9f93789](https://github.com/AirLabsTeam/web-core/commit/9f937891e4a39e43bf768fa367c8b4d05acc0dac))
+
+### BREAKING CHANGES
+
+- **basemodal:** Rename "overlayStyle" to "overlayStylesOverride"
+
 # [2.0.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@1.4.0...@air/zephyr@2.0.0) (2020-10-30)
 
 ### Bug Fixes
