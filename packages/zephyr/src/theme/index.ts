@@ -25,6 +25,7 @@ export * from './fontSizes';
 export * from './fontWeights';
 export * from './radii';
 export * from './space';
+export * from './variants';
 
 /** @description Gets the theme object */
 export type ThemeObject = typeof theme;
