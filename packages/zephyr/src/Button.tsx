@@ -32,7 +32,6 @@ export const Button = forwardRef(
     return (
       <Box
         as="button"
-        {...restOfProps}
         disabled={disabled}
         type={type}
         ref={ref}
@@ -82,6 +81,7 @@ export const Button = forwardRef(
             cursor: 'not-allowed',
           },
         }}
+        {...restOfProps}
       />
     );
   },
