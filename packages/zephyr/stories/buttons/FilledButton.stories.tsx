@@ -29,7 +29,7 @@ export default meta;
 
 const Template: Story<ButtonProps> = (args) => <Button {...args} data-testid={meta.title} />;
 
-export const FilledBlueButton = Template.bind({});
+export const FilledBlueButton = Template.bind({}) as typeof Template;
 
 FilledBlueButton.args = {
   children: 'Filled blue button',
@@ -47,7 +47,7 @@ FilledBlueButton.parameters = {
 
 FilledBlueButton.storyName = 'Filled (Blue)';
 
-export const FilledGreyButton = Template.bind({});
+export const FilledGreyButton = Template.bind({}) as typeof Template;
 
 FilledGreyButton.args = {
   children: 'Filled grey button',
@@ -65,7 +65,7 @@ FilledGreyButton.parameters = {
 
 FilledGreyButton.storyName = 'Filled (Grey)';
 
-export const FilledDestructiveButton = Template.bind({});
+export const FilledDestructiveButton = Template.bind({}) as typeof Template;
 
 FilledDestructiveButton.args = {
   children: 'Destructive button',

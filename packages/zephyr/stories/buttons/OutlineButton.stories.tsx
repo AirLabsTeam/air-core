@@ -29,7 +29,7 @@ export default meta;
 
 const Template: Story<ButtonProps> = (args) => <Button {...args} data-testid={meta.title} />;
 
-export const OutlineBlueButton = Template.bind({});
+export const OutlineBlueButton = Template.bind({}) as typeof Template;
 
 OutlineBlueButton.args = {
   children: 'Outline blue button',
@@ -48,7 +48,7 @@ OutlineBlueButton.parameters = {
 
 OutlineBlueButton.storyName = 'Outline (Blue)';
 
-export const OutlineGreyButton = Template.bind({});
+export const OutlineGreyButton = Template.bind({}) as typeof Template;
 
 OutlineGreyButton.args = {
   children: 'Outline grey button',

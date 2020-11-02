@@ -29,7 +29,7 @@ export default meta;
 
 const Template: Story<ButtonProps> = (args) => <Button {...args} data-testid={meta.title} />;
 
-export const GhostBlueButton = Template.bind({});
+export const GhostBlueButton = Template.bind({}) as typeof Template;
 
 GhostBlueButton.args = {
   children: 'Ghost blue button',
@@ -48,7 +48,7 @@ GhostBlueButton.parameters = {
 
 GhostBlueButton.storyName = 'Ghost (Blue)';
 
-export const GhostGreyButton = Template.bind({});
+export const GhostGreyButton = Template.bind({}) as typeof Template;
 
 GhostGreyButton.storyName = 'Ghost (Grey)';
 
@@ -67,7 +67,7 @@ GhostGreyButton.parameters = {
   },
 };
 
-export const GhostDestructiveButton = Template.bind({});
+export const GhostDestructiveButton = Template.bind({}) as typeof Template;
 
 GhostDestructiveButton.storyName = 'Ghost (Destructive)';
 
