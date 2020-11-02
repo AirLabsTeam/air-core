@@ -1,13 +1,35 @@
-import css, { get } from '@styled-system/css';
 import React from 'react';
-import { variant } from 'styled-system';
-import styled, { DefaultTheme } from 'styled-components';
+import { color, compose, space, variant } from 'styled-system';
+import css, { get } from '@styled-system/css';
+import styled from 'styled-components';
 
-import { SXProp, TXProp } from './theme';
+import { ThemeObject, TXProp } from './theme';
 
-type BoxVariantProps = {
-  variant?: string | string[];
+export type BoxStylingProps = {
+  /**
+   * The `tx` prop is essentially styled-system + every remaining CSS property within an object. This resolves one
+   * drawback with styled-system... We can now leverage selectors and pseudoselectors, and we can use them with
+   * responsive values. If you need to access a theme value (like for polished methods), use a `useTheme` hook.
+   */
+  tx?: TXProp;
+
+  /**
+   * Used to define base styles for the component. These cannot/will not be overridden by `tx` and should only be
+   * leveraged on "primitave" components. Ask if you're uncertain about distinguishing "primitave" versus not.
+   */
+  __baseStyles?: TXProp;
+
+  /**
+   * This is used to place a component's potential `variant` usage in the correct object.
+   * TODO: Suggest removing this and flattening variants object using long key names
+   */
   __themeKey?: string;
+
+  /**
+   * Used to apply predefined styles.
+   * TODO: Define merging behavior for tx and __baseStyles.
+   */
+  variant?: string | string[];
 };
 
 type Attributes<TElement = HTMLDivElement> = TElement extends
@@ -17,41 +39,23 @@ type Attributes<TElement = HTMLDivElement> = TElement extends
   ? React.SVGProps<TElement>
   : React.HTMLProps<TElement>;
 
-type BoxInlineStyleProps = {
-  /** @description The `sx` prop lets you define inline style using the theme value. This prop __does not__ check against the theme object and will be spread into the style objects and will overwrite the `tx` prop values. */
-  sx?: SXProp;
-  /** @description The `tx` prop lets you style elements inline using the theme values. This prop type checks against the theme object. */
-  tx?: TXProp;
-};
-
-type ProtectedStylings = {
-  /** @description Used to define base styles for the component. These cannot/will not be overridden by `sx` or `tx`. */
-  __baseStyles?: SXProp;
-};
-
-export type BoxStyleProps = BoxInlineStyleProps & ProtectedStylings;
-
 export type BoxProps<TElement = HTMLDivElement> = Omit<Attributes<TElement>, 'as' | 'key' | 'ref'> &
-  BoxVariantProps &
-  BoxStyleProps & {
-    'data-testid'?: string;
+  BoxStylingProps & {
     as?:
       | keyof JSX.IntrinsicElements
       | React.ComponentType<any>
       | React.ForwardRefExoticComponent<any>;
   };
 
-const inlineStyles = ({ sx, tx, theme }: BoxInlineStyleProps & { theme: any }) =>
-  css({ ...tx, ...sx })(theme);
+const inlineStyles = ({ tx, theme }: any) => css({ ...tx })(theme);
 
-/** @description `__baseStyles` are spread into each style object so that they cannot be overridden. */
-const baseStyles = (props: BoxProps & { theme: any }) => css(props.__baseStyles)(props.theme);
+const baseStyles = (props: any) => css(props.__baseStyles)(props.theme);
 
 const variants = ({
   theme,
   __themeKey = 'variants',
   ...restOfProps
-}: BoxVariantProps & { theme: DefaultTheme }) =>
+}: BoxStylingProps & { theme: ThemeObject }) =>
   variant({
     prop: 'variant',
     scale: __themeKey,
@@ -67,6 +71,6 @@ export const Box = styled('div')<BoxProps>(
   baseStyles,
   variants,
   inlineStyles,
-  // @ts-ignore
   (props) => props.css,
+  compose(color, space),
 );
