@@ -1,7 +1,7 @@
 import { transitions } from 'polished';
 import React, { MouseEvent as ReactMouseEvent, forwardRef } from 'react';
 import { variant as styledSystemVariant } from 'styled-system';
-import { DefaultTheme } from 'styled-components';
+import { useTheme } from 'styled-components';
 
 import { Box, BoxProps } from './Box';
 import { ButtonVariantName } from './theme/variants/button';
@@ -14,7 +14,6 @@ export interface ButtonProps
   size?: ButtonSize;
   onClick: (event: ReactMouseEvent<HTMLButtonElement, MouseEvent>) => void;
   variant?: ButtonVariantName;
-  theme?: DefaultTheme;
 }
 
 export const Button = forwardRef(
@@ -22,13 +21,14 @@ export const Button = forwardRef(
     {
       disabled = false,
       size = 'medium',
-      theme,
       type = 'button',
       variant = 'button-filled-blue',
       ...restOfProps
     }: ButtonProps,
     ref,
   ) => {
+    const theme = useTheme();
+
     return (
       <Box
         as="button"
@@ -75,7 +75,7 @@ export const Button = forwardRef(
             textDecoration: 'none',
           },
           '&:focus': {
-            boxShadow: '0 0 0 2px #5B9CFB',
+            boxShadow: `0 0 0 2px ${theme.colors.focus}`,
           },
           '&:disabled': {
             cursor: 'not-allowed',
