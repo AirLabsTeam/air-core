@@ -1,6 +1,6 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
 
+import { render, fireEvent } from '../test-utils';
 import ButtonMeta, * as Button from '../stories/buttons/Button.stories';
 
 describe('Button', () => {
