@@ -1,4 +1,0 @@
-exclude_patterns:
-  # We ignore the variants because variants will usually have
-  # duplicate keys that will get flagged by Code Climate.
-  - 'packages/zephyr/src/theme/variants'
