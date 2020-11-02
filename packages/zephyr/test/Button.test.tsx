@@ -12,10 +12,4 @@ describe('Button', () => {
     fireEvent.click(getByTestId(ButtonMeta.title));
     expect(onClick).toHaveBeenCalledTimes(1);
   });
-
-  it('should contain text', () => {
-    const { getByTestId } = render(<Button.Default>Button</Button.Default>);
-
-    expect(getByTestId(ButtonMeta.title)).toHaveTextContent('Button');
-  });
 });
