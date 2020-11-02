@@ -34,7 +34,7 @@ export const OutlineBlueButton = Template.bind({});
 OutlineBlueButton.args = {
   children: 'Outline blue button',
   size: 'medium',
-  variant: 'outline-blue',
+  variant: 'button-outline-blue',
 };
 
 OutlineBlueButton.parameters = {
@@ -53,7 +53,7 @@ export const OutlineGreyButton = Template.bind({});
 OutlineGreyButton.args = {
   children: 'Outline grey button',
   size: 'medium',
-  variant: 'outline-grey',
+  variant: 'button-outline-grey',
 };
 
 OutlineGreyButton.parameters = {

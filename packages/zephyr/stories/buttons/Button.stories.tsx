@@ -16,7 +16,7 @@ export const Default = Template.bind({});
 Default.args = {
   children: 'Button',
   size: 'medium',
-  variant: 'filled-blue',
+  variant: 'button-filled-blue',
 };
 
 Default.parameters = {

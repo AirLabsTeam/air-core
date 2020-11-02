@@ -1,7 +1,7 @@
 import { button } from './button';
 
 export const variants = {
-  button,
+  ...button,
 };
 
 export { button };

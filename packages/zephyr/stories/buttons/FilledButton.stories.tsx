@@ -34,7 +34,7 @@ export const FilledBlueButton = Template.bind({});
 FilledBlueButton.args = {
   children: 'Filled blue button',
   size: 'medium',
-  variant: 'filled-blue',
+  variant: 'button-filled-blue',
 };
 
 FilledBlueButton.parameters = {
@@ -52,7 +52,7 @@ export const FilledGreyButton = Template.bind({});
 FilledGreyButton.args = {
   children: 'Filled grey button',
   size: 'medium',
-  variant: 'filled-grey',
+  variant: 'button-filled-grey',
 };
 
 FilledGreyButton.parameters = {
@@ -70,7 +70,7 @@ export const FilledDestructiveButton = Template.bind({});
 FilledDestructiveButton.args = {
   children: 'Destructive button',
   size: 'medium',
-  variant: 'filled-destructive',
+  variant: 'button-filled-destructive',
 };
 
 FilledDestructiveButton.parameters = {

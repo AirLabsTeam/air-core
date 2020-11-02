@@ -1,15 +1,5 @@
-export type ButtonVariantName =
-  | 'filled-blue'
-  | 'filled-destructive'
-  | 'filled-grey'
-  | 'ghost-blue'
-  | 'ghost-destructive'
-  | 'ghost-grey'
-  | 'outline-blue'
-  | 'outline-grey';
-
-export const button: { [key in ButtonVariantName]: {} } = {
-  'filled-blue': {
+export const button = {
+  'button-filled-blue': {
     backgroundColor: 'jay500',
     color: 'white',
     '&:hover': {
@@ -23,7 +13,7 @@ export const button: { [key in ButtonVariantName]: {} } = {
       color: 'pigeon400',
     },
   },
-  'filled-destructive': {
+  'button-filled-destructive': {
     backgroundColor: 'flamingo600',
     color: 'white',
     '&:hover': {
@@ -37,7 +27,7 @@ export const button: { [key in ButtonVariantName]: {} } = {
       color: 'pigeon300',
     },
   },
-  'filled-grey': {
+  'button-filled-grey': {
     backgroundColor: 'pigeon0',
     color: 'pigeon600',
     '&:hover': {
@@ -53,7 +43,7 @@ export const button: { [key in ButtonVariantName]: {} } = {
       color: 'pigeon300',
     },
   },
-  'ghost-blue': {
+  'button-ghost-blue': {
     color: 'jay500',
     '&:hover': {
       backgroundColor: 'jay0',
@@ -68,7 +58,7 @@ export const button: { [key in ButtonVariantName]: {} } = {
       color: 'pigeon300',
     },
   },
-  'ghost-destructive': {
+  'button-ghost-destructive': {
     color: 'flamingo700',
     '&:hover': {
       backgroundColor: 'flamingo0',
@@ -82,7 +72,7 @@ export const button: { [key in ButtonVariantName]: {} } = {
       color: 'pigeon300',
     },
   },
-  'ghost-grey': {
+  'button-ghost-grey': {
     color: 'pigeon600',
     '&:hover': {
       backgroundColor: 'pigeon0',
@@ -97,7 +87,7 @@ export const button: { [key in ButtonVariantName]: {} } = {
       color: 'pigeon300',
     },
   },
-  'outline-blue': {
+  'button-outline-blue': {
     border: '1px solid',
     borderColor: 'jay200',
     color: 'jay500',
@@ -116,7 +106,7 @@ export const button: { [key in ButtonVariantName]: {} } = {
       borderColor: 'pigeon100',
     },
   },
-  'outline-grey': {
+  'button-outline-grey': {
     border: '1px solid',
     borderColor: 'pigeon200',
     color: 'pigeon600',
@@ -137,3 +127,5 @@ export const button: { [key in ButtonVariantName]: {} } = {
     },
   },
 };
+
+export type ButtonVariantName = keyof typeof button;

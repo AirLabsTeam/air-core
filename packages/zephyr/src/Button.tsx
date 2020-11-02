@@ -24,14 +24,13 @@ export const Button = forwardRef(
       size = 'medium',
       theme,
       type = 'button',
-      variant = 'filled-blue',
+      variant = 'button-filled-blue',
       ...restOfProps
     }: ButtonProps,
     ref,
   ) => {
     return (
       <Box
-        __themeKey="variants.button"
         as="button"
         {...restOfProps}
         disabled={disabled}

@@ -34,7 +34,7 @@ export const GhostBlueButton = Template.bind({});
 GhostBlueButton.args = {
   children: 'Ghost blue button',
   size: 'medium',
-  variant: 'ghost-blue',
+  variant: 'button-ghost-blue',
 };
 
 GhostBlueButton.parameters = {
@@ -55,7 +55,7 @@ GhostGreyButton.storyName = 'Ghost (Grey)';
 GhostGreyButton.args = {
   children: 'Ghost grey button',
   size: 'medium',
-  variant: 'ghost-grey',
+  variant: 'button-ghost-grey',
 };
 
 GhostGreyButton.parameters = {
@@ -74,7 +74,7 @@ GhostDestructiveButton.storyName = 'Ghost (Destructive)';
 GhostDestructiveButton.args = {
   children: 'Ghost destructive button',
   size: 'medium',
-  variant: 'ghost-destructive',
+  variant: 'button-ghost-destructive',
 };
 
 GhostDestructiveButton.parameters = {
