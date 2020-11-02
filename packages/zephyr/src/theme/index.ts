@@ -7,6 +7,7 @@ import { fontSizes } from './fontSizes';
 import { fontWeights } from './fontWeights';
 import { radii } from './radii';
 import { space } from './space';
+import { variants } from './variants';
 
 export const theme = {
   colors,
@@ -15,6 +16,7 @@ export const theme = {
   fontWeights,
   radii,
   space,
+  variants,
 };
 
 export * from './colors';
@@ -23,6 +25,7 @@ export * from './fontSizes';
 export * from './fontWeights';
 export * from './radii';
 export * from './space';
+export * from './variants';
 
 /** @description Gets the theme object */
 export type ThemeObject = typeof theme;

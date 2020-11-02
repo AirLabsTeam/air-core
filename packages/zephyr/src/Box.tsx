@@ -2,7 +2,8 @@ import React from 'react';
 import { color, compose, space, variant } from 'styled-system';
 import css, { get } from '@styled-system/css';
 import styled from 'styled-components';
-import { TXProp } from './theme';
+
+import { ThemeObject, TXProp } from './theme';
 
 export type BoxStylingProps = {
   /**
@@ -50,7 +51,11 @@ const inlineStyles = ({ tx, theme }: any) => css({ ...tx })(theme);
 
 const baseStyles = (props: any) => css(props.__baseStyles)(props.theme);
 
-const variants = ({ theme, __themeKey = 'variants', ...restOfProps }: any) =>
+const variants = ({
+  theme,
+  __themeKey = 'variants',
+  ...restOfProps
+}: BoxStylingProps & { theme: ThemeObject }) =>
   variant({
     prop: 'variant',
     scale: __themeKey,
