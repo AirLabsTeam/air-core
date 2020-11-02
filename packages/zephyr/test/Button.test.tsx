@@ -6,7 +6,7 @@ import ButtonMeta, * as Button from '../stories/Button.stories';
 describe('Button', () => {
   it('should fire callback onclick', () => {
     const onClick = jest.fn();
-    const { getByTestId } = render(<Button.Simple {...{ onClick }} />);
+    const { getByTestId } = render(<Button.Simple onClick={onClick} />);
 
     expect(onClick).not.toHaveBeenCalled();
     fireEvent.click(getByTestId(ButtonMeta.title));

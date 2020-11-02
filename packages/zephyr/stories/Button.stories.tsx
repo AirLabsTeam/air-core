@@ -11,7 +11,7 @@ export default meta;
 
 const Template: Story<ButtonProps> = (args) => <Button {...args} data-testid={meta.title} />;
 
-export const Simple = Template.bind({});
+export const Simple = Template.bind({}) as typeof Template;
 
 Simple.args = {
   children: 'Button',

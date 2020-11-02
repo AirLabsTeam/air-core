@@ -1,0 +1,2 @@
+# Remove emotion typings which conflict with our own styled-system + styled-components setup.
+@emotion/core/types
