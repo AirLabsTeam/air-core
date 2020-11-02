@@ -1,12 +1,5 @@
-import { SystemStyleObject } from '@styled-system/css';
-import {
-  BorderProps,
-  BorderRadiusProps,
-  BoxShadowProps,
-  ColorProps,
-  SpaceProps,
-  TypographyProps,
-} from 'styled-system';
+import { ColorProps, SpaceProps, TypographyProps } from 'styled-system';
+import * as CSS from 'csstype';
 
 import { colors } from './colors';
 import { fonts } from './fonts';
@@ -38,14 +31,14 @@ export type ThemeObject = typeof theme;
 export type ThemeWithoutCustomKeys = Omit<ThemeObject, 'variants'>;
 
 /** @description Styled-system props without custom theme keys */
-export type StyledSystemProps =
-  | BorderProps<ThemeWithoutCustomKeys>
-  | BorderRadiusProps<ThemeWithoutCustomKeys>
-  | BoxShadowProps<ThemeWithoutCustomKeys>
-  | ColorProps<ThemeWithoutCustomKeys>
-  | SpaceProps<ThemeWithoutCustomKeys>
-  | TypographyProps<ThemeWithoutCustomKeys>;
+export interface StyledSystemProps
+  extends ColorProps<ThemeWithoutCustomKeys>,
+    SpaceProps<ThemeWithoutCustomKeys>,
+    TypographyProps<ThemeWithoutCustomKeys> {}
 
-export type TXProp = Omit<SystemStyleObject, keyof StyledSystemProps> & StyledSystemProps;
-
-export type SXProp = TXProp | SystemStyleObject;
+export type TXProp =
+  | (StyledSystemProps & Omit<CSS.StandardLonghandProperties, keyof StyledSystemProps>)
+  | {
+      /** Typically meant for CSS keys where we have no prescribed theme values or pseudoselectors */
+      [whateverTheHellYouWant: string]: TXProp | string | number | (string | number)[];
+    };
