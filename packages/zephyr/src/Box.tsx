@@ -8,7 +8,7 @@ export type BoxStylingProps = {
   /**
    * The `tx` prop is essentially styled-system + every remaining CSS property within an object. This resolves one
    * drawback with styled-system... We can now leverage selectors and pseudoselectors, and we can use them with
-   * responsive values.
+   * responsive values. If you need to access a theme value (like for polished methods), use a `useTheme` hook.
    */
   tx?: TXProp;
 

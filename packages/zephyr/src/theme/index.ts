@@ -29,15 +29,9 @@ export interface StyledSystemProps
     SpaceProps<ThemeWithoutCustomKeys>,
     TypographyProps<ThemeWithoutCustomKeys> {}
 
-/** @description TXProp checks against only the theme object */
 export type TXProp =
   | (StyledSystemProps & Omit<CSS.StandardLonghandProperties, keyof StyledSystemProps>)
   | {
       /** Typically meant for CSS keys where we have no prescribed theme values or pseudoselectors */
-      [whateverTheHellYouWant: string]:
-        | TXProp
-        | string
-        | number
-        | (string | number)[]
-        | ((_theme: ThemeObject) => string | number | (string | number)[]);
+      [whateverTheHellYouWant: string]: TXProp | string | number | (string | number)[];
     };
