@@ -32,6 +32,10 @@ export const button: { [key in ButtonVariantName]: {} } = {
     '&:active': {
       backgroundColor: 'flamingo800',
     },
+    '&:disabled': {
+      backgroundColor: 'transparent',
+      color: 'pigeon300',
+    },
   },
   'filled-grey': {
     backgroundColor: 'pigeon0',
