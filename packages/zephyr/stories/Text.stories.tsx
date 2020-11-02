@@ -11,18 +11,11 @@ const meta: Meta<TextProps> = {
 
 export default meta;
 
-const Template: Story<TextProps> = (args) => <Text {...args} data-testid={meta.title} />;
+interface PreviewRowProps extends Pick<TextProps, 'children' | 'variant'> {}
 
-export const Default = Template.bind({});
-
-Default.args = {
-  children: 'Text',
-};
-
-const TextRow = ({ children, variant = 'ui-14' }: Pick<TextProps, 'children' | 'variant'>) => {
+const PreviewRow = ({ children, variant = 'ui-14' }: PreviewRowProps) => {
   return (
     <Box
-      // @ts-ignore
       tx={{
         display: 'flex',
         alignItems: 'center',
@@ -35,14 +28,14 @@ const TextRow = ({ children, variant = 'ui-14' }: Pick<TextProps, 'children' | '
       }}
     >
       <Text
-        sx={{ minWidth: 96, mr: 12, fontWeight: 'semibold', textTransform: 'uppercase' }}
+        tx={{ minWidth: 96, mr: 12, fontWeight: 'semibold', textTransform: 'uppercase' }}
         variant="ui-12"
       >
         {variant}
       </Text>
       <Text
         data-testid={meta.title}
-        sx={{ overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis' }}
+        tx={{ overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis' }}
         variant={variant}
       >
         {children}
@@ -51,19 +44,27 @@ const TextRow = ({ children, variant = 'ui-14' }: Pick<TextProps, 'children' | '
   );
 };
 
+const Template: Story<TextProps> = (args) => <Text {...args} data-testid={meta.title} />;
+
+export const Default = Template.bind({});
+
+Default.args = {
+  children: 'Text',
+};
+
 export const Heading: Story<TextProps> = (args) => {
   return (
     <>
-      <TextRow {...args} variant="heading-72" />
-      <TextRow {...args} variant="heading-64" />
-      <TextRow {...args} variant="heading-56" />
-      <TextRow {...args} variant="heading-48" />
-      <TextRow {...args} variant="heading-40" />
-      <TextRow {...args} variant="heading-32" />
-      <TextRow {...args} variant="heading-24" />
-      <TextRow {...args} variant="heading-20" />
-      <TextRow {...args} variant="heading-18" />
-      <TextRow {...args} variant="heading-16" />
+      <PreviewRow {...args} variant="heading-72" />
+      <PreviewRow {...args} variant="heading-64" />
+      <PreviewRow {...args} variant="heading-56" />
+      <PreviewRow {...args} variant="heading-48" />
+      <PreviewRow {...args} variant="heading-40" />
+      <PreviewRow {...args} variant="heading-32" />
+      <PreviewRow {...args} variant="heading-24" />
+      <PreviewRow {...args} variant="heading-20" />
+      <PreviewRow {...args} variant="heading-18" />
+      <PreviewRow {...args} variant="heading-16" />
     </>
   );
 };
@@ -72,22 +73,46 @@ Heading.args = {
   children: 'Almost before we knew it, we had left the ground.',
 };
 
+Heading.parameters = {
+  docs: {
+    description: {
+      story: `
+**Font**: Gelica
+
+**Weights**: 400 (Regular), 500 (Medium), 600 (Semibold)
+      `,
+    },
+  },
+};
+
 export const UI: Story<TextProps> = (args) => {
   return (
     <>
-      <TextRow {...args} variant="ui-36" />
-      <TextRow {...args} variant="ui-32" />
-      <TextRow {...args} variant="ui-24" />
-      <TextRow {...args} variant="ui-20" />
-      <TextRow {...args} variant="ui-18" />
-      <TextRow {...args} variant="ui-16" />
-      <TextRow {...args} variant="ui-14" />
-      <TextRow {...args} variant="ui-12" />
-      <TextRow {...args} variant="ui-10" />
+      <PreviewRow {...args} variant="ui-36" />
+      <PreviewRow {...args} variant="ui-32" />
+      <PreviewRow {...args} variant="ui-24" />
+      <PreviewRow {...args} variant="ui-20" />
+      <PreviewRow {...args} variant="ui-18" />
+      <PreviewRow {...args} variant="ui-16" />
+      <PreviewRow {...args} variant="ui-14" />
+      <PreviewRow {...args} variant="ui-12" />
+      <PreviewRow {...args} variant="ui-10" />
     </>
   );
 };
 
 UI.args = {
   children: 'Almost before we knew it, we had left the ground.',
+};
+
+UI.parameters = {
+  docs: {
+    description: {
+      story: `
+**Font**: SF Text Pro
+
+**Weights**: 400 (Regular), 500 (Medium), 600 (Semibold), 700 (Bold)
+      `,
+    },
+  },
 };
