@@ -1,5 +1,5 @@
 import { transitions } from 'polished';
-import React, { forwardRef } from 'react';
+import React, { MouseEvent as ReactMouseEvent, forwardRef } from 'react';
 import { variant as styledSystemVariant } from 'styled-system';
 import { DefaultTheme } from 'styled-components';
 
@@ -8,9 +8,11 @@ import { ButtonVariantName } from './theme/variants/button';
 
 export type ButtonSize = 'large' | 'medium' | 'small';
 
-export interface ButtonProps extends Omit<BoxProps<HTMLButtonElement>, 'size' | '__baseStyles'> {
+export interface ButtonProps
+  extends Omit<BoxProps<HTMLButtonElement>, 'onClick' | 'size' | '__baseStyles'> {
   disabled?: boolean;
   size?: ButtonSize;
+  onClick: (event: ReactMouseEvent<HTMLButtonElement, MouseEvent>) => void;
   variant?: ButtonVariantName;
   theme?: DefaultTheme;
 }
