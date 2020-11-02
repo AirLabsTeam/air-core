@@ -13,7 +13,7 @@ export default meta;
 
 interface PreviewRowProps extends Pick<TextProps, 'children' | 'variant'> {}
 
-const PreviewRow = ({ children, variant = 'ui-14' }: PreviewRowProps) => {
+const PreviewRow = ({ children, variant = 'text-ui-14' }: PreviewRowProps) => {
   return (
     <Box
       tx={{
@@ -28,8 +28,8 @@ const PreviewRow = ({ children, variant = 'ui-14' }: PreviewRowProps) => {
       }}
     >
       <Text
-        tx={{ minWidth: 96, mr: 12, fontWeight: 'semibold', textTransform: 'uppercase' }}
-        variant="ui-12"
+        tx={{ minWidth: 128, mr: 12, fontWeight: 'semibold', textTransform: 'uppercase' }}
+        variant="text-ui-12"
       >
         {variant}
       </Text>
@@ -55,16 +55,16 @@ Default.args = {
 export const Heading: Story<TextProps> = (args) => {
   return (
     <>
-      <PreviewRow {...args} variant="heading-72" />
-      <PreviewRow {...args} variant="heading-64" />
-      <PreviewRow {...args} variant="heading-56" />
-      <PreviewRow {...args} variant="heading-48" />
-      <PreviewRow {...args} variant="heading-40" />
-      <PreviewRow {...args} variant="heading-32" />
-      <PreviewRow {...args} variant="heading-24" />
-      <PreviewRow {...args} variant="heading-20" />
-      <PreviewRow {...args} variant="heading-18" />
-      <PreviewRow {...args} variant="heading-16" />
+      <PreviewRow {...args} variant="text-heading-72" />
+      <PreviewRow {...args} variant="text-heading-64" />
+      <PreviewRow {...args} variant="text-heading-56" />
+      <PreviewRow {...args} variant="text-heading-48" />
+      <PreviewRow {...args} variant="text-heading-40" />
+      <PreviewRow {...args} variant="text-heading-32" />
+      <PreviewRow {...args} variant="text-heading-24" />
+      <PreviewRow {...args} variant="text-heading-20" />
+      <PreviewRow {...args} variant="text-heading-18" />
+      <PreviewRow {...args} variant="text-heading-16" />
     </>
   );
 };
@@ -88,15 +88,15 @@ Heading.parameters = {
 export const UI: Story<TextProps> = (args) => {
   return (
     <>
-      <PreviewRow {...args} variant="ui-36" />
-      <PreviewRow {...args} variant="ui-32" />
-      <PreviewRow {...args} variant="ui-24" />
-      <PreviewRow {...args} variant="ui-20" />
-      <PreviewRow {...args} variant="ui-18" />
-      <PreviewRow {...args} variant="ui-16" />
-      <PreviewRow {...args} variant="ui-14" />
-      <PreviewRow {...args} variant="ui-12" />
-      <PreviewRow {...args} variant="ui-10" />
+      <PreviewRow {...args} variant="text-ui-36" />
+      <PreviewRow {...args} variant="text-ui-32" />
+      <PreviewRow {...args} variant="text-ui-24" />
+      <PreviewRow {...args} variant="text-ui-20" />
+      <PreviewRow {...args} variant="text-ui-18" />
+      <PreviewRow {...args} variant="text-ui-16" />
+      <PreviewRow {...args} variant="text-ui-14" />
+      <PreviewRow {...args} variant="text-ui-12" />
+      <PreviewRow {...args} variant="text-ui-10" />
     </>
   );
 };

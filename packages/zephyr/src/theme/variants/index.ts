@@ -1,7 +1,7 @@
 import { text } from './text';
 
 export const variants = {
-  text,
+  ...text,
 };
 
 export { text };

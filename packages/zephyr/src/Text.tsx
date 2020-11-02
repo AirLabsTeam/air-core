@@ -7,13 +7,6 @@ export interface TextProps extends Omit<BoxProps, '__baseStyles' | 'variant'> {
   variant?: TextVariantName | TextVariantName[];
 }
 
-export const Text = ({ variant = 'ui-16', ...restOfProps }: TextProps) => {
-  return (
-    <Box
-      __themeKey="variants.text"
-      variant={variant}
-      {...restOfProps}
-      __baseStyles={{ color: 'pigeon700' }}
-    />
-  );
+export const Text = ({ variant = 'text-ui-16', ...restOfProps }: TextProps) => {
+  return <Box variant={variant} {...restOfProps} __baseStyles={{ color: 'pigeon700' }} />;
 };
