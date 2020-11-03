@@ -33,7 +33,7 @@
     "url": "https://github.com/AirLabsTeam/web-core/issues"
   },
   "scripts": {
-    "start": "tsdx watch --verbose --noClean",
+    "start": "tsdx watch --verbose --noClean --tsconfig tsconfig.build.json",
     "build": "tsdx build --tsconfig tsconfig.build.json",
     "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint"
