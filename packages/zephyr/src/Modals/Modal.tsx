@@ -14,7 +14,7 @@ import { useTheme } from 'styled-components';
 import { MODAL_OVERLAY, ALERT_MODAL_OVERLAY } from '../testIDs';
 import { Box, BoxStylingProps } from '../Box';
 
-export type BaseModalProps = Pick<
+export type ModalProps = Pick<
   DialogProps,
   'allowPinchZoom' | 'initialFocusRef' | 'isOpen' | 'onDismiss'
 > &
@@ -83,7 +83,7 @@ export type BaseModalProps = Pick<
     zIndex?: number;
   };
 
-export const BaseModal = ({
+export const Modal = ({
   children,
   className,
   isAlertModal,
@@ -96,7 +96,7 @@ export const BaseModal = ({
   tx,
   zIndex = 10,
   ...rest
-}: BaseModalProps) => {
+}: ModalProps) => {
   const labelId = useId('modal-label');
   const descriptionId = useId('modal-description');
   const theme = useTheme();

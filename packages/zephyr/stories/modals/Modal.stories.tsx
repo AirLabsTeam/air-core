@@ -1,15 +1,15 @@
 import React, { useRef, useState } from 'react';
 import { Meta, Story } from '@storybook/react';
-import { BaseModal, BaseModalProps } from '../../src/Modals';
+import { Modal, ModalProps } from '../../src/Modals';
 
-const meta: Meta<BaseModalProps> = {
-  title: 'Zephyr/Modals/BaseModal',
-  component: BaseModal,
+const meta: Meta<ModalProps> = {
+  title: 'Zephyr/Modals/Modal',
+  component: Modal,
 };
 
 export default meta;
 
-const Template: Story<BaseModalProps> = (args) => {
+const Template: Story<ModalProps> = (args) => {
   const [isModalOpen, setIsModalOpen] = useState(args.isOpen);
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
@@ -21,7 +21,7 @@ const Template: Story<BaseModalProps> = (args) => {
         Open Modal
       </button>
 
-      <BaseModal
+      <Modal
         data-testid={meta.title}
         isOpen={isModalOpen}
         onDismiss={args.onDismiss ?? closeModal}
@@ -33,7 +33,7 @@ const Template: Story<BaseModalProps> = (args) => {
         <button type="button" onClick={closeModal} ref={leastDestructiveRef}>
           Okay
         </button>
-      </BaseModal>
+      </Modal>
     </div>
   );
 };
