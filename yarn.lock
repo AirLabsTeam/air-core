@@ -3,7 +3,7 @@
 
 
 "@air/zephyr@link:packages/zephyr":
-  version "1.4.0"
+  version "3.0.0"
 
 "@babel/cli@^7.12.1":
   version "7.12.1"
