@@ -171,17 +171,17 @@ const peacocks = {
 };
 
 const pigeons = {
-  pigeon0: '#f1f1f1',
-  pigeon50: 'F7F7F7',
-  pigeon100: '#dcdcdc',
-  pigeon200: '#c1c1c1',
-  pigeon300: '#a4a4a4',
+  pigeon0: '#F1F1F1',
+  pigeon50: '#F7F7F7',
+  pigeon100: '#DCDCDC',
+  pigeon200: '#C1C1C1',
+  pigeon300: '#A4A4A4',
   pigeon400: '#808080',
   pigeon500: '#666666',
-  pigeon600: '#4d4d4d',
+  pigeon600: '#4D4D4D',
   pigeon700: '#333333',
   pigeon800: '#262626',
-  pigeon900: '#0f0f0f',
+  pigeon900: '#0F0F0F',
 };
 
 const robins = {
