@@ -342,6 +342,7 @@ const config = {
       files: ['**/*.stories.*'],
       rules: {
         'import/no-default-export': 'off',
+        '@typescript-eslint/no-unnecessary-type-assertion': 'off', // .bind() returns any - casting a Story as typeof Template is a good workaround that the lint rule complains about
       },
     },
     {

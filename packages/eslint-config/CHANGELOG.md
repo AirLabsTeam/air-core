@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.10](https://github.com/AirLabsTeam/web-core/compare/@air/eslint-config@1.1.9...@air/eslint-config@1.1.10) (2020-11-02)
+
+### Bug Fixes
+
+- adjust lint config for storybook ([0fa4ef7](https://github.com/AirLabsTeam/web-core/commit/0fa4ef7774eef0b3bd11f3acb975ccbe366faf5f))
+
 ## [1.1.9](https://github.com/AirLabsTeam/web-core/compare/@air/eslint-config@1.1.8...@air/eslint-config@1.1.9) (2020-10-23)
 
 ### Bug Fixes

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/AirLabsTeam/web-core/compare/@air/icons@2.0.0...@air/icons@2.0.1) (2020-11-02)
+
+### Bug Fixes
+
+- update dependencies and a typedef override ([060cd75](https://github.com/AirLabsTeam/web-core/commit/060cd7502d90cf687b1dac1cba0895e457539b18))
+
 # [2.0.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@1.4.1...@air/icons@2.0.0) (2020-10-23)
 
 ### Bug Fixes
