@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@2.0.1...@air/icons@3.0.0) (2020-11-03)
+
+### Bug Fixes
+
+- fix bundle targets and build script ([06175e6](https://github.com/AirLabsTeam/web-core/commit/06175e6c68e9debf4b5d5c8fffd5cff35b54a5df))
+- include .svg import type definitions ([d6a9888](https://github.com/AirLabsTeam/web-core/commit/d6a98886892f1c982ba58b29d017956d9444c786))
+- revert react-native-svg update ([36977ca](https://github.com/AirLabsTeam/web-core/commit/36977ca227ce8124fb2661d3d9055900d092ee29))
+
+### Features
+
+- **icons:** update react-native-svg to 12.1.0 and dependencies ([2de3613](https://github.com/AirLabsTeam/web-core/commit/2de361315bc355f6c68e0cd5efd35f452fb2d3ef))
+- add new RawDoc icon ([deba586](https://github.com/AirLabsTeam/web-core/commit/deba5861958eb46f892840e237be87684ae81026))
+
+### BREAKING CHANGES
+
+- **icons:** Update dependencies
+
 ## [2.0.1](https://github.com/AirLabsTeam/web-core/compare/@air/icons@2.0.0...@air/icons@2.0.1) (2020-11-02)
 
 ### Bug Fixes
