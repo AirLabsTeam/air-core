@@ -40,7 +40,9 @@ export interface StyledSystemProps
     TypographyProps<ThemeWithoutCustomKeys> {}
 
 export type TXProp =
-  | (StyledSystemProps & Omit<CSS.StandardLonghandProperties, keyof StyledSystemProps>)
+  | (StyledSystemProps &
+      Omit<CSS.StandardLonghandProperties, keyof StyledSystemProps> &
+      Omit<CSS.StandardShorthandProperties, keyof StyledSystemProps>)
   | {
       /** Typically meant for CSS keys where we have no prescribed theme values or pseudoselectors */
       [whateverTheHellYouWant: string]: TXProp | string | number | (string | number)[];

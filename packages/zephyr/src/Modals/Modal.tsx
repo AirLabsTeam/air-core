@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { useId } from '@reach/auto-id';
 import { DialogOverlay, DialogContent, DialogProps } from '@reach/dialog';
+import VisuallyHidden from '@reach/visually-hidden';
 import {
   AlertDialogContent,
   AlertDialogDescription,
@@ -10,9 +11,11 @@ import {
 } from '@reach/alert-dialog';
 import invariant from 'tiny-invariant';
 import { rgba } from 'polished';
+import { Close } from '@air/icons';
 import { useTheme } from 'styled-components';
 import { MODAL_OVERLAY, ALERT_MODAL_OVERLAY } from '../testIDs';
 import { Box, BoxStylingProps } from '../Box';
+import { Button } from '../Button';
 
 export type ModalProps = Pick<
   DialogProps,
@@ -42,11 +45,10 @@ export type ModalProps = Pick<
     modalDescription?: React.ReactNode;
 
     /**
-     * When true, this modal will leverage the "alertdialog" role, making the description required. A trap
-     * modal is valid when a modal demands the user's attention, such as when confirming or denying an action. This
+     * When true, this modal will leverage the "alertdialog" role, making the description required. This
      * prop could have a default value, but it's worth truly understanding when to use which because the experience for
-     * ALL users differs. For example, more attention is demanded from users leveraging screen readers and visually
-     * unimpaired users wont be able to use the escape key or click the modal's overlay to leave the modal.
+     * ALL users differs. Please read MDN and Reach documentation on the differences between the two modals to understand
+     * what yours should be.
      *
      * Note: When true, `leastDestructiveRef` and `modalDescription` become required props.
      *
@@ -80,7 +82,10 @@ export type ModalProps = Pick<
      */
     overlayStylesOverride?: BoxStylingProps['tx'];
 
-    zIndex?: number;
+    /**
+     * Determines whether or not an "X" close button renders in the upper-right corner of the modal.
+     */
+    withCloseButton?: boolean;
   };
 
 export const Modal = ({
@@ -94,35 +99,79 @@ export const Modal = ({
   onDismiss,
   overlayStylesOverride,
   tx,
-  zIndex = 10,
+  withCloseButton = false,
   ...rest
 }: ModalProps) => {
+  const theme = useTheme();
   const labelId = useId('modal-label');
   const descriptionId = useId('modal-description');
-  const theme = useTheme();
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const hasDismissHandler = !!onDismiss;
+
+  /**
+   * Basically, the only time we can pass a noop or undefined to `onDismiss` is if it's an AlertModal where a decision is
+   * required. For example, when merging two records and a survivor must be chosen.
+   */
+  invariant(
+    !withCloseButton || (withCloseButton && hasDismissHandler),
+    'If "withCloseButton" is true, an "onDismiss" callback must also be passed. It should not be a no-op.',
+  );
+
+  const CloseButton = () => (
+    <Button
+      type="button"
+      ref={closeButtonRef}
+      onClick={onDismiss!}
+      variant="button-unstyled"
+      tx={{ position: 'absolute', top: '1.25rem', right: '1.25rem' }}
+    >
+      <VisuallyHidden>Close Modal</VisuallyHidden>
+      <Close tx={{ width: 32, color: 'pigeon400' }} />
+    </Button>
+  );
 
   const overlayStyles: BoxStylingProps['tx'] = !overlayStylesOverride
     ? {
         backgroundColor: rgba(theme.colors.pigeon0, 0.92),
-        zIndex,
+        position: 'fixed',
+        top: 0,
+        right: 0,
+        bottom: 0,
+        left: 0,
+        overflow: 'auto',
+        zIndex: 1,
+        // The actual modal
+        '& > div': {
+          // Ensures <CloseButton /> is rendered inside the modal itself
+          position: 'relative',
+        },
       }
     : overlayStylesOverride;
 
   if (isAlertModal) {
-    const hasDescription = !!modalDescription;
+    const hasNecessaryRef =
+      (!withCloseButton && !!leastDestructiveRef) || (withCloseButton && !leastDestructiveRef);
 
-    invariant(isAlertModal && hasDescription, 'Alert Modal require the "modalDescription" prop');
+    invariant(
+      hasNecessaryRef,
+      'On an AlertModal, "leastDestructiveRef" is required, unless "withCloseButton" is true. In that case, you must not pass a ref to "leastDestructiveRef".',
+    );
+
+    const hasDescription = !!modalDescription;
+    invariant(hasDescription, 'AlertModal requires a "modalDescription"');
 
     return (
       <Box
         as={AlertDialogOverlay}
         data-testid={ALERT_MODAL_OVERLAY}
         isOpen={isOpen}
-        leastDestructiveRef={leastDestructiveRef}
+        leastDestructiveRef={withCloseButton ? closeButtonRef : leastDestructiveRef}
         __baseStyles={overlayStyles}
         {...rest}
       >
         <Box as={AlertDialogContent} tx={tx} className={className}>
+          {withCloseButton && <CloseButton />}
+
           <AlertDialogLabel>{modalLabel}</AlertDialogLabel>
 
           <AlertDialogDescription>{modalDescription}</AlertDialogDescription>
@@ -133,7 +182,11 @@ export const Modal = ({
     );
   }
 
-  invariant(!isAlertModal && !!onDismiss, 'Non-Alert Modals require the "onDismiss" prop');
+  /**
+   * We can only force users to making a decision in an AlertModal. In regular modals, they should always have the ability
+   * to close the modal with the escape key.
+   */
+  invariant(hasDismissHandler, 'Modals (not AlertModals) require the "onDismiss" prop.');
 
   return (
     <Box
@@ -151,6 +204,8 @@ export const Modal = ({
         aria-labelledby={labelId}
         aria-describedby={!modalDescription ? undefined : descriptionId}
       >
+        {withCloseButton && <CloseButton />}
+
         <span id={labelId}>{modalLabel}</span>
 
         <span id={descriptionId}>{modalDescription}</span>
