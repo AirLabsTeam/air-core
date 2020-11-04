@@ -11,6 +11,7 @@ import {
 } from '@reach/alert-dialog';
 import invariant from 'tiny-invariant';
 import { rgba } from 'polished';
+// @ts-ignore - Sharing dependencies in a monorepo isn't going well 🙃
 import { Close } from '@air/icons';
 import { useTheme } from 'styled-components';
 import { MODAL_OVERLAY, ALERT_MODAL_OVERLAY } from '../testIDs';
