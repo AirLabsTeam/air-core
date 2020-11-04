@@ -45,5 +45,10 @@ export type TXProp =
       Omit<CSS.StandardShorthandProperties, keyof StyledSystemProps>)
   | {
       /** Typically meant for CSS keys where we have no prescribed theme values or pseudoselectors */
-      [whateverTheHellYouWant: string]: TXProp | string | number | (string | number)[];
+      [whateverTheHellYouWant: string]:
+        | TXProp
+        | string
+        | number
+        | (string | number)[]
+        | ((_theme: ThemeObject) => string | number | (string | number)[]);
     };
