@@ -13,10 +13,10 @@ import invariant from 'tiny-invariant';
 import { rgba } from 'polished';
 // @ts-ignore - Sharing dependencies in a monorepo isn't going well 🙃
 import { Close } from '@air/icons';
+import { isString } from 'lodash';
 import { useTheme } from 'styled-components';
 import { MODAL_OVERLAY, ALERT_MODAL_OVERLAY } from '../testIDs';
-import { Box, BoxStylingProps } from '../Box';
-import { Button } from '../Button';
+import { Box, BoxStylingProps, Button, Text } from '..';
 
 export type ModalProps = Pick<
   DialogProps,
@@ -25,12 +25,10 @@ export type ModalProps = Pick<
   Pick<AlertDialogProps, 'leastDestructiveRef'> &
   BoxStylingProps & {
     /**
-     * This should act as the title of the modal. Required for the sake of accessibility. If you want the
-     * label invisible, please render the node within [@reach/visually-hidden](https://reach.tech/visually-hidden).
+     * This should act as the title of the modal. Required for the sake of accessibility. If passed as a string, it will
+     * render within:
      *
-     * -Example: `<VisuallyHidden>Delete Asset</VisuallyHidden>`
-     *
-     * -Example: `<h2>Delete Asset</h2>`
+     * `<Text variant="text-ui-24" tx={{ color: 'pigeon700', fontWeight: 500 }}>`
      */
     modalLabel: React.ReactNode;
 
@@ -49,7 +47,11 @@ export type ModalProps = Pick<
      * When true, this modal will leverage the "alertdialog" role, making the description required. This
      * prop could have a default value, but it's worth truly understanding when to use which because the experience for
      * ALL users differs. Please read MDN and Reach documentation on the differences between the two modals to understand
-     * what yours should be.
+     * what yours should be, but here's a quick summary:
+     *
+     * The "alertdialog" role should only used when an alert, error, or warning occurs. In other words, when a modal's
+     * information and controls require the user's immediate attention, this prop should be true. It is up to the
+     * developer to make this distinction though.
      *
      * Note: When true, `leastDestructiveRef` and `modalDescription` become required props.
      *
@@ -108,6 +110,7 @@ export const Modal = ({
   const descriptionId = useId('modal-description');
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const hasDismissHandler = !!onDismiss;
+  const isModalLabelString = isString(modalLabel);
 
   /**
    * Basically, the only time we can pass a noop or undefined to `onDismiss` is if it's an AlertModal where a decision is
@@ -120,7 +123,6 @@ export const Modal = ({
 
   const CloseButton = () => (
     <Button
-      type="button"
       ref={closeButtonRef}
       onClick={onDismiss!}
       variant="button-unstyled"
@@ -133,7 +135,7 @@ export const Modal = ({
 
   const overlayStyles: BoxStylingProps['tx'] = !overlayStylesOverride
     ? {
-        backgroundColor: rgba(theme.colors.pigeon0, 0.92),
+        backgroundColor: rgba(theme.colors.pigeon700, 0.75),
         position: 'fixed',
         top: 0,
         right: 0,
@@ -141,13 +143,32 @@ export const Modal = ({
         left: 0,
         overflow: 'auto',
         zIndex: 1,
-        // The actual modal
-        '& > div': {
-          // Ensures <CloseButton /> is rendered inside the modal itself
-          position: 'relative',
-        },
+        // TODO: Should I do regular CSS animations or will conditional rendering require a JS animation library?
       }
     : overlayStylesOverride;
+
+  const cardStyles: BoxStylingProps['tx'] = {
+    position: 'relative', // Ensures <CloseButton /> is rendered inside the modal itself
+    backgroundColor: 'white',
+    borderRadius: '6px',
+    px: 32,
+    pt: 32,
+    pb: 28,
+    mx: 'auto',
+    mt: [32, '8vw'],
+    mb: [128, 16], // 8rem needed to account for bottom areas on iOS browsers.
+    width: '496px', // TODO: Add modal variants for the 3 different widths
+    minHeight: '100px',
+    maxWidth: '100vw',
+    '&:focus:not(:focus-visible)': {
+      outline: 'none',
+    },
+  };
+
+  const modalLabelLayoutStyles: BoxStylingProps['tx'] = {
+    maxWidth: '90%', // to keep header out of the way of the closing "X" button.
+    marginBottom: 16,
+  };
 
   if (isAlertModal) {
     const hasNecessaryRef =
@@ -170,12 +191,20 @@ export const Modal = ({
         __baseStyles={overlayStyles}
         {...rest}
       >
-        <Box as={AlertDialogContent} tx={tx} className={className}>
+        <Box as={AlertDialogContent} __baseStyles={cardStyles} tx={tx} className={className}>
           {withCloseButton && <CloseButton />}
 
-          <AlertDialogLabel>{modalLabel}</AlertDialogLabel>
+          <Box as={AlertDialogLabel} tx={modalLabelLayoutStyles}>
+            {isModalLabelString ? (
+              <Text variant="text-ui-24" tx={{ color: 'pigeon700', fontWeight: 500 }}>
+                {modalLabel}
+              </Text>
+            ) : (
+              modalLabel
+            )}
+          </Box>
 
-          <AlertDialogDescription>{modalDescription}</AlertDialogDescription>
+          <Box as={AlertDialogDescription}>{modalDescription}</Box>
 
           {children}
         </Box>
@@ -202,14 +231,23 @@ export const Modal = ({
         as={DialogContent}
         tx={tx}
         className={className}
+        __baseStyles={cardStyles}
         aria-labelledby={labelId}
         aria-describedby={!modalDescription ? undefined : descriptionId}
       >
         {withCloseButton && <CloseButton />}
 
-        <span id={labelId}>{modalLabel}</span>
+        <Box id={labelId} tx={modalLabelLayoutStyles}>
+          {isModalLabelString ? (
+            <Text variant="text-ui-24" tx={{ color: 'pigeon700', fontWeight: 500 }}>
+              {modalLabel}
+            </Text>
+          ) : (
+            modalLabel
+          )}
+        </Box>
 
-        <span id={descriptionId}>{modalDescription}</span>
+        <Box id={descriptionId}>{modalDescription}</Box>
 
         {children}
       </Box>

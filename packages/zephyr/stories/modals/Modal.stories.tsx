@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Meta, Story } from '@storybook/react';
 import {
   Title,
@@ -8,7 +8,7 @@ import {
   Stories,
   PRIMARY_STORY,
 } from '@storybook/addon-docs/blocks';
-import { Box, Button, Modal, ModalProps } from '../../src';
+import { Box, Button, Modal, ModalProps, Text } from '../../src';
 
 const meta: Meta<ModalProps> = {
   title: 'Zephyr/Modals/Modal',
@@ -61,8 +61,8 @@ Default.parameters = {
   },
 };
 
-export const TypicalModal: Story<ModalProps> = (args) => {
-  const [isModalOpen, setIsModalOpen] = useState(args.isOpen);
+export const TypicalModal: Story<ModalProps> = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
@@ -75,26 +75,62 @@ export const TypicalModal: Story<ModalProps> = (args) => {
       <Modal
         isOpen={isModalOpen}
         onDismiss={closeModal}
-        modalLabel={<h2>Do you believe in life after love?</h2>}
-        modalDescription={
-          <p>
-            I can hear something inside me say: {"I really don't think you're strong enough, no!"}
-          </p>
-        }
         isAlertModal={false}
+        modalLabel="Do you believe in life after love?"
+        modalDescription={`I can hear something inside me say: "I really don't think you're strong enough, no!"`}
         withCloseButton
-        tx={{
-          backgroundColor: 'white',
-          borderRadius: '6px',
-          boxShadow: '0 0 1px 1px #AAAAAA',
-          margin: '1rem auto',
-          padding: '1rem',
-          maxWidth: '750px',
-        }}
+      />
+    </div>
+  );
+};
+
+TypicalModal.parameters = {
+  docs: {
+    description: {
+      story: 'Just to prove that the modal can open and close when integrated properly!',
+    },
+  },
+};
+
+export const AlertModal: Story<ModalProps> = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const dismissButtonRef = useRef<HTMLButtonElement>(null);
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+
+  return (
+    <div>
+      <Button type="button" onClick={openModal} variant="button-filled-blue">
+        Open Alert Modal
+      </Button>
+
+      <Modal
+        isOpen={isModalOpen}
+        onDismiss={closeModal}
+        isAlertModal
+        leastDestructiveRef={dismissButtonRef}
+        modalLabel="Warning!"
+        modalDescription={
+          <Text variant="text-ui-16">
+            You are about to delete everything you know and love... Are you sure about this?
+          </Text>
+        }
       >
-        <Box tx={{ display: 'flex', justifyContent: 'flex-end' }}>
-          <Button type="button" onClick={closeModal} variant="button-filled-blue">
-            Okay
+        <Box tx={{ display: 'flex', justifyContent: 'flex-end', mt: 32 }}>
+          <Button
+            onClick={closeModal}
+            ref={dismissButtonRef}
+            variant="button-ghost-grey"
+            tx={{ mr: 12 }}
+          >
+            Nevermind
+          </Button>
+
+          <Button
+            onClick={() => window.alert(`I can't believe you've done this...`)}
+            variant="button-filled-destructive"
+          >
+            Delete Everything
           </Button>
         </Box>
       </Modal>
@@ -102,12 +138,12 @@ export const TypicalModal: Story<ModalProps> = (args) => {
   );
 };
 
-TypicalModal.args = {};
-
-TypicalModal.parameters = {
+AlertModal.parameters = {
   docs: {
     description: {
-      story: 'Just to prove that the modal can open and close when integrated properly!',
+      story: `Notice how the implementation details differ slightly when using an "Alert" Modal. Firstly, the escape
+      key (nor clicking on the overlay) does not dismiss the modal. Secondly, you are forced to provide a ref to the
+      least destructive action to initilize focus once the modal mounts.`,
     },
   },
 };
