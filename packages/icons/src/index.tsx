@@ -146,26 +146,16 @@ export const Close = (props?: BoxProps<SVGElement>) => <Box as={_Close} {...prop
 export const CloudOffline = (props?: BoxProps<SVGElement>) => <Box as={_CloudOffline} {...props} />;
 export const CloudUpload = (props?: BoxProps<SVGElement>) => <Box as={_CloudUpload} {...props} />;
 export const Comment = (props?: BoxProps<SVGElement>) => <Box as={_Comment} {...props} />;
-export const CompressedFiles = (props?: BoxProps<SVGElement>) => (
-  <Box as={_CompressedFiles} {...props} />
-);
+export const CompressedFiles = (props?: BoxProps<SVGElement>) => <Box as={_CompressedFiles} {...props} />;
 export const DashedPlus = (props?: BoxProps<SVGElement>) => <Box as={_DashedPlus} {...props} />;
 export const Database = (props?: BoxProps<SVGElement>) => <Box as={_Database} {...props} />;
 export const Delete = (props?: BoxProps<SVGElement>) => <Box as={_Delete} {...props} />;
 export const Devices = (props?: BoxProps<SVGElement>) => <Box as={_Devices} {...props} />;
 export const Document = (props?: BoxProps<SVGElement>) => <Box as={_Document} {...props} />;
-export const DoubleChevronDown = (props?: BoxProps<SVGElement>) => (
-  <Box as={_DoubleChevronDown} {...props} />
-);
-export const DoubleChevronLeft = (props?: BoxProps<SVGElement>) => (
-  <Box as={_DoubleChevronLeft} {...props} />
-);
-export const DoubleChevronRight = (props?: BoxProps<SVGElement>) => (
-  <Box as={_DoubleChevronRight} {...props} />
-);
-export const DoubleChevronUp = (props?: BoxProps<SVGElement>) => (
-  <Box as={_DoubleChevronUp} {...props} />
-);
+export const DoubleChevronDown = (props?: BoxProps<SVGElement>) => <Box as={_DoubleChevronDown} {...props} />;
+export const DoubleChevronLeft = (props?: BoxProps<SVGElement>) => <Box as={_DoubleChevronLeft} {...props} />;
+export const DoubleChevronRight = (props?: BoxProps<SVGElement>) => <Box as={_DoubleChevronRight} {...props} />;
+export const DoubleChevronUp = (props?: BoxProps<SVGElement>) => <Box as={_DoubleChevronUp} {...props} />;
 export const Download = (props?: BoxProps<SVGElement>) => <Box as={_Download} {...props} />;
 export const Downtick = (props?: BoxProps<SVGElement>) => <Box as={_Downtick} {...props} />;
 export const Dropbox = (props?: BoxProps<SVGElement>) => <Box as={_Dropbox} {...props} />;
@@ -179,12 +169,8 @@ export const Filters = (props?: BoxProps<SVGElement>) => <Box as={_Filters} {...
 export const Flash = (props?: BoxProps<SVGElement>) => <Box as={_Flash} {...props} />;
 export const FolderOpen = (props?: BoxProps<SVGElement>) => <Box as={_FolderOpen} {...props} />;
 export const Folder = (props?: BoxProps<SVGElement>) => <Box as={_Folder} {...props} />;
-export const FullScreenEnter = (props?: BoxProps<SVGElement>) => (
-  <Box as={_FullScreenEnter} {...props} />
-);
-export const FullScreenExit = (props?: BoxProps<SVGElement>) => (
-  <Box as={_FullScreenExit} {...props} />
-);
+export const FullScreenEnter = (props?: BoxProps<SVGElement>) => <Box as={_FullScreenEnter} {...props} />;
+export const FullScreenExit = (props?: BoxProps<SVGElement>) => <Box as={_FullScreenExit} {...props} />;
 export const Gear = (props?: BoxProps<SVGElement>) => <Box as={_Gear} {...props} />;
 export const Github = (props?: BoxProps<SVGElement>) => <Box as={_Github} {...props} />;
 export const GoogleDrive = (props?: BoxProps<SVGElement>) => <Box as={_GoogleDrive} {...props} />;
@@ -214,9 +200,7 @@ export const Photos = (props?: BoxProps<SVGElement>) => <Box as={_Photos} {...pr
 export const Play = (props?: BoxProps<SVGElement>) => <Box as={_Play} {...props} />;
 export const PlayPause = (props?: BoxProps<SVGElement>) => <Box as={_PlayPause} {...props} />;
 export const Plus = (props?: BoxProps<SVGElement>) => <Box as={_Plus} {...props} />;
-export const Presentations = (props?: BoxProps<SVGElement>) => (
-  <Box as={_Presentations} {...props} />
-);
+export const Presentations = (props?: BoxProps<SVGElement>) => <Box as={_Presentations} {...props} />;
 export const Radar = (props?: BoxProps<SVGElement>) => <Box as={_Radar} {...props} />;
 export const Refresh = (props?: BoxProps<SVGElement>) => <Box as={_Refresh} {...props} />;
 export const Remove = (props?: BoxProps<SVGElement>) => <Box as={_Remove} {...props} />;
@@ -229,12 +213,8 @@ export const Send = (props?: BoxProps<SVGElement>) => <Box as={_Send} {...props}
 export const Share = (props?: BoxProps<SVGElement>) => <Box as={_Share} {...props} />;
 export const Show = (props?: BoxProps<SVGElement>) => <Box as={_Show} {...props} />;
 export const Skip = (props?: BoxProps<SVGElement>) => <Box as={_Skip} {...props} />;
-export const SortAscending = (props?: BoxProps<SVGElement>) => (
-  <Box as={_SortAscending} {...props} />
-);
-export const SortDescending = (props?: BoxProps<SVGElement>) => (
-  <Box as={_SortDescending} {...props} />
-);
+export const SortAscending = (props?: BoxProps<SVGElement>) => <Box as={_SortAscending} {...props} />;
+export const SortDescending = (props?: BoxProps<SVGElement>) => <Box as={_SortDescending} {...props} />;
 export const Star = (props?: BoxProps<SVGElement>) => <Box as={_Star} {...props} />;
 export const Swap = (props?: BoxProps<SVGElement>) => <Box as={_Swap} {...props} />;
 export const Tag = (props?: BoxProps<SVGElement>) => <Box as={_Tag} {...props} />;
@@ -245,9 +225,7 @@ export const ToggleGrid = (props?: BoxProps<SVGElement>) => <Box as={_ToggleGrid
 export const ToggleList = (props?: BoxProps<SVGElement>) => <Box as={_ToggleList} {...props} />;
 export const TriangleDown = (props?: BoxProps<SVGElement>) => <Box as={_TriangleDown} {...props} />;
 export const TriangleLeft = (props?: BoxProps<SVGElement>) => <Box as={_TriangleLeft} {...props} />;
-export const TriangleRight = (props?: BoxProps<SVGElement>) => (
-  <Box as={_TriangleRight} {...props} />
-);
+export const TriangleRight = (props?: BoxProps<SVGElement>) => <Box as={_TriangleRight} {...props} />;
 export const TriangleUp = (props?: BoxProps<SVGElement>) => <Box as={_TriangleUp} {...props} />;
 export const Twitter = (props?: BoxProps<SVGElement>) => <Box as={_Twitter} {...props} />;
 export const Uploads = (props?: BoxProps<SVGElement>) => <Box as={_Uploads} {...props} />;
