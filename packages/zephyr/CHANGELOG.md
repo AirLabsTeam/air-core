@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@3.0.0...@air/zephyr@3.0.1) (2020-11-06)
+
+### Bug Fixes
+
+- **@air/zephyr:** add in missing # to the pigeon50 value ([c38e44d](https://github.com/AirLabsTeam/web-core/commit/c38e44d3e6926fe0fadd8a390661e86c09c4ed97))
+
 # [3.0.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@2.0.0...@air/zephyr@3.0.0) (2020-11-02)
 
 ### Bug Fixes
