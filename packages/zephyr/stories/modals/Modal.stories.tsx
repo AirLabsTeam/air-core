@@ -8,6 +8,7 @@ import {
   Stories,
   PRIMARY_STORY,
 } from '@storybook/addon-docs/blocks';
+import isChromatic from 'chromatic/isChromatic';
 import { Box, Button, Modal, ModalProps, Text } from '../../src';
 
 const meta: Meta<ModalProps> = {
@@ -62,7 +63,7 @@ Default.parameters = {
 };
 
 export const TypicalModal: Story<ModalProps> = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(isChromatic());
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
@@ -77,7 +78,11 @@ export const TypicalModal: Story<ModalProps> = () => {
         onDismiss={closeModal}
         isAlertModal={false}
         modalLabel="Do you believe in life after love?"
-        modalDescription={`I can hear something inside me say: "I really don't think you're strong enough, no!"`}
+        modalDescription={
+          <Text variant="text-ui-16">
+            {`I can hear something inside me say: "I really don't think you're strong enough, no!"`}
+          </Text>
+        }
         withCloseButton
       />
     </div>
@@ -112,7 +117,9 @@ export const AlertModal: Story<ModalProps> = () => {
         modalLabel="Warning!"
         modalDescription={
           <Text variant="text-ui-16">
-            You are about to delete everything you know and love... Are you sure about this?
+            You are about to delete everything you know and love...
+            <br />
+            Are you sure about this?
           </Text>
         }
       >
