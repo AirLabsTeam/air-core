@@ -81,9 +81,9 @@ export const TypicalModal: Story<ModalProps> = () => {
     <div {...modalCanvasForChromatic}>
       <Button
         type="button"
-        className="chromatic-ignore"
         onClick={openModal}
         variant="button-filled-blue"
+        data-chromatic="ignore"
       >
         Open Modal
       </Button>
@@ -127,9 +127,9 @@ export const AlertModal: Story<ModalProps> = () => {
     <div {...modalCanvasForChromatic}>
       <Button
         type="button"
-        className="chromatic-ignore"
         onClick={openModal}
         variant="button-filled-blue"
+        data-chromatic="ignore"
       >
         Open Alert Modal
       </Button>
