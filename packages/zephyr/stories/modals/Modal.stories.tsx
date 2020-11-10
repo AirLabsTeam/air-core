@@ -65,23 +65,13 @@ Default.parameters = {
   },
 };
 
-const adjustModalCanvasForChromatic = () =>
-  isChromatic()
-    ? {
-        style: {
-          width: '100vw',
-          height: '100vh',
-        },
-      }
-    : {};
-
 export const TypicalModal: Story<ModalProps> = () => {
   const [isModalOpen, setIsModalOpen] = useState(isChromatic());
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
   return (
-    <div {...adjustModalCanvasForChromatic()}>
+    <div style={isChromatic() ? { width: '100vw', height: '100vh' } : {}}>
       <Button
         type="button"
         className="chromatic-ignore"
@@ -127,7 +117,7 @@ export const AlertModal: Story<ModalProps> = () => {
   };
 
   return (
-    <div {...adjustModalCanvasForChromatic()}>
+    <div>
       <Button
         type="button"
         className="chromatic-ignore"
