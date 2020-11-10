@@ -18,10 +18,7 @@ import { useTheme } from 'styled-components';
 import { MODAL_OVERLAY, ALERT_MODAL_OVERLAY } from '../testIDs';
 import { Box, BoxStylingProps, Button, Text } from '..';
 
-export type ModalProps = Pick<
-  DialogProps,
-  'allowPinchZoom' | 'initialFocusRef' | 'isOpen' | 'onDismiss'
-> &
+export type ModalProps = Pick<DialogProps, 'allowPinchZoom' | 'initialFocusRef' | 'isOpen'> &
   Pick<AlertDialogProps, 'leastDestructiveRef'> &
   BoxStylingProps & {
     /**
@@ -62,6 +59,20 @@ export type ModalProps = Pick<
      * - [role="alertdialog"](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_alertdialog_role)
      */
     isAlertModal: boolean;
+
+    /**
+     * This function is called whenever the user hits "Escape" or clicks outside the dialog. _It's important to close the
+     * dialog onDismiss_.
+     *
+     * The only time you shouldn't close the dialog on dismiss is when the dialog requires a choice and none of them are
+     * "cancel". For example, perhaps two records need to be merged and the user needs to pick the surviving record.
+     * Neither choice is less destructive than the other, so in these cases you may want to alert the user they need to a
+     * make a choice on dismiss instead of closing the dialog. In this case, "isAlertModal" should also be true. As an
+     * extreme last resort, you can pass a noop.
+     *
+     * [See more: https://reach.tech/dialog#dialog-ondismiss](https://reach.tech/dialog#dialog-ondismiss)
+     */
+    onDismiss: (event?: React.SyntheticEvent) => void;
 
     /**
      * Accepts any renderable content.
@@ -109,22 +120,12 @@ export const Modal = ({
   const labelId = useId('modal-label');
   const descriptionId = useId('modal-description');
   const closeButtonRef = useRef<HTMLButtonElement>(null);
-  const hasDismissHandler = !!onDismiss;
   const isModalLabelString = isString(modalLabel);
-
-  /**
-   * Basically, the only time we can pass a noop or undefined to `onDismiss` is if it's an AlertModal where a decision is
-   * required. For example, when merging two records and a survivor must be chosen.
-   */
-  invariant(
-    !withCloseButton || (withCloseButton && hasDismissHandler),
-    'If "withCloseButton" is true, an "onDismiss" callback must also be passed. It should not be a no-op.',
-  );
 
   const CloseButton = () => (
     <Button
       ref={closeButtonRef}
-      onClick={onDismiss!}
+      onClick={onDismiss}
       variant="button-unstyled"
       tx={{ position: 'absolute', top: '1.25rem', right: '1.25rem' }}
     >
@@ -177,12 +178,12 @@ export const Modal = ({
       (!withCloseButton && !!leastDestructiveRef) || (withCloseButton && !leastDestructiveRef);
 
     invariant(
-      hasNecessaryRef,
+      isAlertModal && hasNecessaryRef,
       'On an AlertModal, "leastDestructiveRef" is required, unless "withCloseButton" is true. In that case, you must not pass a ref to "leastDestructiveRef".',
     );
 
     const hasDescription = !!modalDescription;
-    invariant(hasDescription, 'AlertModal requires a "modalDescription"');
+    invariant(isAlertModal && hasDescription, 'AlertModal requires a "modalDescription"');
 
     return (
       <Box
@@ -207,12 +208,6 @@ export const Modal = ({
       </Box>
     );
   }
-
-  /**
-   * We can only force users to making a decision in an AlertModal. In regular modals, they should always have the ability
-   * to close the modal with the escape key.
-   */
-  invariant(hasDismissHandler, 'Modals (not AlertModals) require the "onDismiss" prop.');
 
   return (
     <Box
