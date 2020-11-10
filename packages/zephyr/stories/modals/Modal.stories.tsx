@@ -60,10 +60,17 @@ Default.parameters = {
       required props, and resolve errors as they throw during development.`,
     },
   },
-  parameters: {
-    chromatic: { disable: true },
-  },
+  chromatic: { disable: true },
 };
+
+const modalCanvasForChromatic = isChromatic()
+  ? {
+      style: {
+        width: '100vw',
+        height: '100vh',
+      },
+    }
+  : {};
 
 export const TypicalModal: Story<ModalProps> = () => {
   const [isModalOpen, setIsModalOpen] = useState(isChromatic());
@@ -71,7 +78,7 @@ export const TypicalModal: Story<ModalProps> = () => {
   const closeModal = () => setIsModalOpen(false);
 
   return (
-    <div style={isChromatic() ? { width: '100vw', height: '100vh' } : {}}>
+    <div {...modalCanvasForChromatic}>
       <Button
         type="button"
         className="chromatic-ignore"
@@ -117,7 +124,7 @@ export const AlertModal: Story<ModalProps> = () => {
   };
 
   return (
-    <div>
+    <div {...modalCanvasForChromatic}>
       <Button
         type="button"
         className="chromatic-ignore"
