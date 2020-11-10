@@ -14,9 +14,6 @@ import { Box, Button, Modal, ModalProps, Text } from '../../src';
 const meta: Meta<ModalProps> = {
   title: 'Zephyr/Modals/Modal',
   component: Modal,
-  parameters: {
-    chromatic: { disable: true },
-  },
 };
 
 export default meta;
@@ -62,6 +59,9 @@ Default.parameters = {
       errors for incorrect prop combinations. Focus on understanding what type of modal you're rendering, pass the
       required props, and resolve errors as they throw during development.`,
     },
+  },
+  parameters: {
+    chromatic: { disable: true },
   },
 };
 
