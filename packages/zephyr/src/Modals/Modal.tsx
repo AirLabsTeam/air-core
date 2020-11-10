@@ -121,6 +121,7 @@ export const Modal = ({
   const descriptionId = useId('modal-description');
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const isModalLabelString = isString(modalLabel);
+  const hasDescription = !!modalDescription;
 
   const CloseButton = () => (
     <Button
@@ -175,14 +176,11 @@ export const Modal = ({
 
   if (isAlertModal) {
     const hasNecessaryRef =
-      (!withCloseButton && !!leastDestructiveRef) || (withCloseButton && !leastDestructiveRef);
-
+      (!withCloseButton && !!leastDestructiveRef) || (!!withCloseButton && !leastDestructiveRef);
     invariant(
       isAlertModal && hasNecessaryRef,
-      'On an AlertModal, "leastDestructiveRef" is required, unless "withCloseButton" is true. In that case, you must not pass a ref to "leastDestructiveRef".',
+      'AlertModal requires "leastDestructiveRef", unless "withCloseButton" is true. In that case, you must leave "leastDestructiveRef" undefined.',
     );
-
-    const hasDescription = !!modalDescription;
     invariant(isAlertModal && hasDescription, 'AlertModal requires a "modalDescription"');
 
     return (
@@ -224,7 +222,7 @@ export const Modal = ({
         className={className}
         __baseStyles={cardStyles}
         aria-labelledby={labelId}
-        aria-describedby={!modalDescription ? undefined : descriptionId}
+        aria-describedby={hasDescription ? descriptionId : undefined}
       >
         {withCloseButton && <CloseButton />}
 
@@ -232,7 +230,7 @@ export const Modal = ({
           {isModalLabelString ? <Text variant="text-ui-24">{modalLabel}</Text> : modalLabel}
         </Box>
 
-        <Box id={descriptionId}>{modalDescription}</Box>
+        {hasDescription && <Box id={descriptionId}>{modalDescription}</Box>}
 
         {children}
       </Box>
