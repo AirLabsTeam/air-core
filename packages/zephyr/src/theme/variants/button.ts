@@ -126,6 +126,26 @@ export const button = {
       borderColor: 'pigeon100',
     },
   },
+  'button-unstyled': {
+    border: 'none',
+    padding: '0',
+    height: 'unset',
+    '&:hover': {
+      backgroundColor: 'pigeon0',
+      borderColor: 'transparent',
+      color: 'pigeon700',
+    },
+    '&:active': {
+      backgroundColor: 'pigeon100',
+      borderColor: 'transparent',
+      color: 'pigeon700',
+    },
+    '&:disabled': {
+      backgroundColor: 'transparent',
+      color: 'pigeon300',
+      borderColor: 'pigeon100',
+    },
+  },
 };
 
 export type ButtonVariantName = keyof typeof button;

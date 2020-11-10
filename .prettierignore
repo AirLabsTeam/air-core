@@ -1,11 +1,10 @@
 # Keep in sync with .eslintignore + .gitignore
 **/node_modules
 **/dist
-packages/icons/native
 **/.cache
 **/coverage
 storybook-static
-
+packages/icons/src/index.tsx
 
 # Others to be ignored
 **/__snapshots__
