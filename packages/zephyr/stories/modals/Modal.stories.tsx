@@ -14,6 +14,8 @@ import { Box, Button, Modal, ModalProps, Text } from '../../src';
 const meta: Meta<ModalProps> = {
   title: 'Zephyr/Modals/Modal',
   component: Modal,
+  // @ts-ignore
+  chromatic: { disable: true },
 };
 
 export default meta;
@@ -69,7 +71,12 @@ export const TypicalModal: Story<ModalProps> = () => {
 
   return (
     <div>
-      <Button type="button" onClick={openModal} variant="button-filled-blue">
+      <Button
+        type="button"
+        className="chromatic-ignore"
+        onClick={openModal}
+        variant="button-filled-blue"
+      >
         Open Modal
       </Button>
 
@@ -98,14 +105,24 @@ TypicalModal.parameters = {
 };
 
 export const AlertModal: Story<ModalProps> = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(isChromatic());
   const dismissButtonRef = useRef<HTMLButtonElement>(null);
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
+  const deleteEverything = () => {
+    window.alert(`I can't believe you've done this...`);
+    closeModal();
+  };
+
   return (
     <div>
-      <Button type="button" onClick={openModal} variant="button-filled-blue">
+      <Button
+        type="button"
+        className="chromatic-ignore"
+        onClick={openModal}
+        variant="button-filled-blue"
+      >
         Open Alert Modal
       </Button>
 
@@ -133,10 +150,7 @@ export const AlertModal: Story<ModalProps> = () => {
             Nevermind
           </Button>
 
-          <Button
-            onClick={() => window.alert(`I can't believe you've done this...`)}
-            variant="button-filled-destructive"
-          >
+          <Button onClick={deleteEverything} variant="button-filled-destructive">
             Delete Everything
           </Button>
         </Box>
