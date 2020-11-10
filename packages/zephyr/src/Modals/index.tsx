@@ -1,3 +1,1 @@
-import { BaseModal, BaseModalProps } from './BaseModal';
-
-export { BaseModal, BaseModalProps };
+export * from './Modal';

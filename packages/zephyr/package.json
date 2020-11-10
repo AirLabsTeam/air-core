@@ -33,25 +33,27 @@
     "url": "https://github.com/AirLabsTeam/web-core/issues"
   },
   "scripts": {
-    "start": "tsdx watch --verbose --noClean",
+    "start": "tsdx watch --verbose --noClean --tsconfig tsconfig.build.json",
     "build": "tsdx build --tsconfig tsconfig.build.json",
     "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint"
   },
   "peerDependencies": {
-    "@reach/alert-dialog": "^0.11.2",
-    "@reach/auto-id": "^0.11.2",
-    "@reach/dialog": "^0.11.2",
+    "@air/icons": "*",
     "react": ">=16"
   },
   "devDependencies": {
-    "@reach/alert-dialog": "^0.11.2",
-    "@reach/auto-id": "^0.11.2",
-    "@reach/dialog": "^0.11.2",
+    "@air/icons": "link:../icons",
     "@styled-system/css": "^5.1.5",
     "@types/styled-system": "^5.1.10",
     "@types/styled-system__css": "^5.0.14",
     "babel-plugin-polished": "^1.1.0",
     "polished": "^3.6.7"
+  },
+  "dependencies": {
+    "@reach/alert-dialog": "^0.11.2",
+    "@reach/auto-id": "^0.11.2",
+    "@reach/dialog": "^0.11.2",
+    "@reach/visually-hidden": "^0.11.1"
   }
 }
