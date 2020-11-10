@@ -28,7 +28,7 @@ export type ModalProps = Pick<
      * This should act as the title of the modal. Required for the sake of accessibility. If passed as a string, it will
      * render within:
      *
-     * `<Text variant="text-ui-24" tx={{ color: 'pigeon700', fontWeight: 500 }}>`
+     * `<Text variant="text-ui-24">`
      */
     modalLabel: React.ReactNode;
 
@@ -160,6 +160,8 @@ export const Modal = ({
     width: '496px', // TODO: Add modal variants for the 3 different widths
     minHeight: '100px',
     maxWidth: '100vw',
+    color: 'pigeon700',
+    fontWeight: 'semibold',
     '&:focus:not(:focus-visible)': {
       outline: 'none',
     },
@@ -195,13 +197,7 @@ export const Modal = ({
           {withCloseButton && <CloseButton />}
 
           <Box as={AlertDialogLabel} tx={modalLabelLayoutStyles}>
-            {isModalLabelString ? (
-              <Text variant="text-ui-24" tx={{ color: 'pigeon700', fontWeight: 500 }}>
-                {modalLabel}
-              </Text>
-            ) : (
-              modalLabel
-            )}
+            {isModalLabelString ? <Text variant="text-ui-24">{modalLabel}</Text> : modalLabel}
           </Box>
 
           <Box as={AlertDialogDescription}>{modalDescription}</Box>
@@ -238,13 +234,7 @@ export const Modal = ({
         {withCloseButton && <CloseButton />}
 
         <Box id={labelId} tx={modalLabelLayoutStyles}>
-          {isModalLabelString ? (
-            <Text variant="text-ui-24" tx={{ color: 'pigeon700', fontWeight: 500 }}>
-              {modalLabel}
-            </Text>
-          ) : (
-            modalLabel
-          )}
+          {isModalLabelString ? <Text variant="text-ui-24">{modalLabel}</Text> : modalLabel}
         </Box>
 
         <Box id={descriptionId}>{modalDescription}</Box>
