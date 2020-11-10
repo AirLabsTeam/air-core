@@ -14,8 +14,9 @@ import { Box, Button, Modal, ModalProps, Text } from '../../src';
 const meta: Meta<ModalProps> = {
   title: 'Zephyr/Modals/Modal',
   component: Modal,
-  // @ts-ignore
-  chromatic: { disable: true },
+  parameters: {
+    chromatic: { disable: true },
+  },
 };
 
 export default meta;
