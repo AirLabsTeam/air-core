@@ -20,10 +20,11 @@ import { MODAL_OVERLAY, ALERT_MODAL_OVERLAY } from '../testIDs';
 import { Box, BoxStylingProps } from '../Box';
 import { Button } from '../Button';
 import { Text } from '../Text';
+import { ModalVariantName } from '../theme/variants/modal';
 
 export type ModalProps = Pick<DialogProps, 'allowPinchZoom' | 'initialFocusRef' | 'isOpen'> &
   Pick<AlertDialogProps, 'leastDestructiveRef'> &
-  BoxStylingProps & {
+  Omit<BoxStylingProps, 'variant'> & {
     /**
      * This should act as the title of the modal. Required for the sake of accessibility. If passed as a string, it will
      * render within:
@@ -90,7 +91,7 @@ export type ModalProps = Pick<DialogProps, 'allowPinchZoom' | 'initialFocusRef' 
 
     /**
      * Note that these styles get applied to the modal container itself as opposed to the overlay which is the true
-     * top-level element in this component. See `props.overlayStyle` to apply inline styles there.
+     * top-level element in this component.
      */
     className?: string;
 
@@ -98,6 +99,20 @@ export type ModalProps = Pick<DialogProps, 'allowPinchZoom' | 'initialFocusRef' 
      * Determines whether or not an "X" close button renders in the upper-right corner of the modal.
      */
     withCloseButton?: boolean;
+
+    /**
+     * There are 3 modal sizes in Zephyr.
+     *
+     * Small [400px width] - For confirming a destructive action, showing error states, and
+     * notifying the user of an action (such as being logged out after an amount of inactivity).
+     *
+     * Medium [498px width] - Primarily for multi-step actions (such as rendering a form or encouraging the user to
+     * copy a share link after defining the link's permissions).
+     *
+     * Large [600px width] - Often used on marketing pages. Also used when working with a prolonged action (like uploading
+     * an asset or approving a new version of an asset). Can also be used to cue a fork in the road for multi-step forms.
+     */
+    variant?: ModalVariantName;
   };
 
 export const Modal = ({
@@ -110,6 +125,7 @@ export const Modal = ({
   modalLabel,
   onDismiss,
   tx,
+  variant = 'modal-medium',
   withCloseButton = false,
   ...rest
 }: ModalProps) => {
@@ -153,7 +169,6 @@ export const Modal = ({
     mx: 'auto',
     mt: [32, '8vw'],
     mb: [128, 16], // 8rem needed to account for bottom areas on iOS browsers.
-    width: '496px', // TODO: Add modal variants for the 3 different widths
     minHeight: '100px',
     maxWidth: '100vw',
     color: 'pigeon700',
@@ -211,9 +226,10 @@ export const Modal = ({
             <Box
               as={motion.custom(AlertDialogContent)}
               {...motionStyles.content}
+              className={className}
               __baseStyles={cardStyles}
               tx={tx}
-              className={className}
+              variant={variant}
             >
               {withCloseButton && <CloseButton />}
 
@@ -245,9 +261,10 @@ export const Modal = ({
           <Box
             as={motion.custom(DialogContent)}
             {...motionStyles.content}
-            tx={tx}
             className={className}
             __baseStyles={cardStyles}
+            tx={tx}
+            variant={variant}
             aria-labelledby={labelId}
             aria-describedby={hasDescription ? descriptionId : undefined}
           >
