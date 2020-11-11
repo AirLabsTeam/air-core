@@ -12,8 +12,7 @@ import isChromatic from 'chromatic/isChromatic';
 import { Box, Button, Modal, ModalProps, Text } from '../../src';
 
 /**
- * @see https://www.chromatic.com/docs/viewports under FAQ "Why is my content being cut off vertically?
-"
+ * @see https://www.chromatic.com/docs/viewports under FAQ "Why is my content being cut off vertically?"
  */
 const modalCanvasForChromatic = {
   style: {
