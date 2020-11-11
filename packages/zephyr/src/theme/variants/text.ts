@@ -1,4 +1,27 @@
-export const text = {
+import { TXProp } from '..';
+
+export type TextVariantName =
+  | 'text-heading-72'
+  | 'text-heading-64'
+  | 'text-heading-56'
+  | 'text-heading-48'
+  | 'text-heading-40'
+  | 'text-heading-32'
+  | 'text-heading-24'
+  | 'text-heading-20'
+  | 'text-heading-18'
+  | 'text-heading-16'
+  | 'text-ui-36'
+  | 'text-ui-32'
+  | 'text-ui-24'
+  | 'text-ui-20'
+  | 'text-ui-18'
+  | 'text-ui-16'
+  | 'text-ui-14'
+  | 'text-ui-12'
+  | 'text-ui-10';
+
+const _text: { [key in TextVariantName]: TXProp } = {
   'text-heading-72': {
     fontFamily: 'display',
     fontFeatureSettings: `'ss03' on, 'ss02' on`,
@@ -137,4 +160,5 @@ export const text = {
   },
 };
 
-export type TextVariantName = keyof typeof text;
+// cast as any to avoid circular reference to theme via TXProp
+export const text = _text as any;

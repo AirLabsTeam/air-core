@@ -1,4 +1,17 @@
-export const button = {
+import { TXProp } from '..';
+
+export type ButtonVariantName =
+  | 'button-filled-blue'
+  | 'button-filled-destructive'
+  | 'button-filled-grey'
+  | 'button-ghost-blue'
+  | 'button-ghost-destructive'
+  | 'button-ghost-grey'
+  | 'button-outline-blue'
+  | 'button-outline-grey'
+  | 'button-unstyled';
+
+const _button: { [key in ButtonVariantName]: TXProp } = {
   'button-filled-blue': {
     backgroundColor: 'jay500',
     color: 'white',
@@ -148,4 +161,5 @@ export const button = {
   },
 };
 
-export type ButtonVariantName = keyof typeof button;
+// cast as any to avoid circular reference to theme via TXProp
+export const button = _button as any;
