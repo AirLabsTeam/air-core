@@ -11,9 +11,23 @@ import {
 import isChromatic from 'chromatic/isChromatic';
 import { Box, Button, Modal, ModalProps, Text } from '../../src';
 
+/**
+ * @see https://www.chromatic.com/docs/viewports under FAQ "Why is my content being cut off vertically?
+"
+ */
+const modalCanvasForChromatic = {
+  style: {
+    width: '100vw',
+    height: '100vh',
+  },
+};
+
 const meta: Meta<ModalProps> = {
   title: 'Zephyr/Modals/Modal',
   component: Modal,
+  decorators: [
+    (storyFn) => (isChromatic() ? <div {...modalCanvasForChromatic}>{storyFn()}</div> : storyFn()),
+  ],
 };
 
 export default meta;
@@ -63,22 +77,13 @@ Default.parameters = {
   chromatic: { disable: true },
 };
 
-const modalCanvasForChromatic = isChromatic()
-  ? {
-      style: {
-        width: '100vw',
-        height: '100vh',
-      },
-    }
-  : {};
-
 export const TypicalModal: Story<ModalProps> = () => {
   const [isModalOpen, setIsModalOpen] = useState(isChromatic());
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
   return (
-    <div {...modalCanvasForChromatic}>
+    <>
       <Button
         type="button"
         onClick={openModal}
@@ -100,7 +105,7 @@ export const TypicalModal: Story<ModalProps> = () => {
         }
         withCloseButton
       />
-    </div>
+    </>
   );
 };
 
@@ -124,7 +129,7 @@ export const AlertModal: Story<ModalProps> = () => {
   };
 
   return (
-    <div {...modalCanvasForChromatic}>
+    <>
       <Button
         type="button"
         onClick={openModal}
@@ -163,7 +168,7 @@ export const AlertModal: Story<ModalProps> = () => {
           </Button>
         </Box>
       </Modal>
-    </div>
+    </>
   );
 };
 
