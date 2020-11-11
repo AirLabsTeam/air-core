@@ -16,7 +16,9 @@ import { Close } from '@air/icons';
 import { isString } from 'lodash';
 import { useTheme } from 'styled-components';
 import { MODAL_OVERLAY, ALERT_MODAL_OVERLAY } from '../testIDs';
-import { Box, BoxStylingProps, Button, Text } from '..';
+import { Box, BoxStylingProps } from '../Box';
+import { Button } from '../Button';
+import { Text } from '../Text';
 
 export type ModalProps = Pick<DialogProps, 'allowPinchZoom' | 'initialFocusRef' | 'isOpen'> &
   Pick<AlertDialogProps, 'leastDestructiveRef'> &
