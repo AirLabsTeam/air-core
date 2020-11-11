@@ -26,8 +26,9 @@ export type ModalProps = Pick<DialogProps, 'allowPinchZoom' | 'initialFocusRef' 
   Pick<AlertDialogProps, 'leastDestructiveRef'> &
   Omit<BoxStylingProps, 'variant'> & {
     /**
-     * This should act as the title of the modal. Required for the sake of accessibility. If passed as a string, it will
-     * render within:
+     * This should act as the title of the modal. Required for the sake of accessibility.
+     *
+     * If passed as a string, it will render within:
      *
      * `<Text variant="text-ui-24">`
      */
@@ -41,6 +42,10 @@ export type ModalProps = Pick<DialogProps, 'allowPinchZoom' | 'initialFocusRef' 
      * - Example: `<VisuallyHidden>This action is permanent, are you sure?</VisuallyHidden>`
      *
      * - Example: `<p>This action is permanent, are you sure</p>`
+     *
+     * If passed as a string, it will render within:
+     *
+     * `<Text variant="text-ui-16">`
      */
     modalDescription?: React.ReactNode;
 
@@ -135,6 +140,7 @@ export const Modal = ({
   const descriptionId = useId('modal-description');
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const isModalLabelString = isString(modalLabel);
+  const isModalDescriptionString = isString(modalDescription);
   const hasDescription = !!modalDescription;
 
   const CloseButton = () => (
@@ -172,7 +178,6 @@ export const Modal = ({
     minHeight: '100px',
     maxWidth: '100vw',
     color: 'pigeon700',
-    fontWeight: 'semibold',
     '&:focus:not(:focus-visible)': {
       outline: 'none',
     },
@@ -234,10 +239,22 @@ export const Modal = ({
               {withCloseButton && <CloseButton />}
 
               <Box as={AlertDialogLabel} tx={modalLabelLayoutStyles}>
-                {isModalLabelString ? <Text variant="text-ui-24">{modalLabel}</Text> : modalLabel}
+                {isModalLabelString ? (
+                  <Text variant="text-ui-24" tx={{ fontWeight: 'semibold' }}>
+                    {modalLabel}
+                  </Text>
+                ) : (
+                  modalLabel
+                )}
               </Box>
 
-              <Box as={AlertDialogDescription}>{modalDescription}</Box>
+              <Box as={AlertDialogDescription}>
+                {isModalDescriptionString ? (
+                  <Text variant="text-ui-16">{modalDescription}</Text>
+                ) : (
+                  modalDescription
+                )}
+              </Box>
 
               {children}
             </Box>
@@ -271,10 +288,24 @@ export const Modal = ({
             {withCloseButton && <CloseButton />}
 
             <Box id={labelId} tx={modalLabelLayoutStyles}>
-              {isModalLabelString ? <Text variant="text-ui-24">{modalLabel}</Text> : modalLabel}
+              {isModalLabelString ? (
+                <Text variant="text-ui-24" tx={{ fontWeight: 'semibold' }}>
+                  {modalLabel}
+                </Text>
+              ) : (
+                modalLabel
+              )}
             </Box>
 
-            {hasDescription && <Box id={descriptionId}>{modalDescription}</Box>}
+            {hasDescription && (
+              <Box id={descriptionId}>
+                {isModalDescriptionString ? (
+                  <Text variant="text-ui-16">{modalDescription}</Text>
+                ) : (
+                  modalDescription
+                )}
+              </Box>
+            )}
 
             {children}
           </Box>
