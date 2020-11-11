@@ -40,6 +40,7 @@
   },
   "peerDependencies": {
     "@air/icons": "*",
+    "framer-motion": ">=2",
     "react": ">=16"
   },
   "devDependencies": {
@@ -48,6 +49,7 @@
     "@types/styled-system": "^5.1.10",
     "@types/styled-system__css": "^5.0.14",
     "babel-plugin-polished": "^1.1.0",
+    "framer-motion": "^2.9.4",
     "polished": "^3.6.7"
   },
   "dependencies": {
