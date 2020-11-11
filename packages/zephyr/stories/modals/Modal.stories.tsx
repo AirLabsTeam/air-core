@@ -11,9 +11,22 @@ import {
 import isChromatic from 'chromatic/isChromatic';
 import { Box, Button, Modal, ModalProps, Text } from '../../src';
 
+/**
+ * @see https://www.chromatic.com/docs/viewports under FAQ "Why is my content being cut off vertically?"
+ */
+const modalCanvasForChromatic = {
+  style: {
+    width: '100vw',
+    height: '100vh',
+  },
+};
+
 const meta: Meta<ModalProps> = {
   title: 'Zephyr/Modals/Modal',
   component: Modal,
+  decorators: [
+    (storyFn) => (isChromatic() ? <div {...modalCanvasForChromatic}>{storyFn()}</div> : storyFn()),
+  ],
 };
 
 export default meta;
@@ -63,28 +76,14 @@ Default.parameters = {
   chromatic: { disable: true },
 };
 
-const modalCanvasForChromatic = isChromatic()
-  ? {
-      style: {
-        width: '100vw',
-        height: '100vh',
-      },
-    }
-  : {};
-
 export const TypicalModal: Story<ModalProps> = () => {
   const [isModalOpen, setIsModalOpen] = useState(isChromatic());
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
   return (
-    <div {...modalCanvasForChromatic}>
-      <Button
-        type="button"
-        onClick={openModal}
-        variant="button-filled-blue"
-        data-chromatic="ignore"
-      >
+    <>
+      <Button type="button" onClick={openModal} variant="button-filled-blue">
         Open Modal
       </Button>
 
@@ -100,7 +99,7 @@ export const TypicalModal: Story<ModalProps> = () => {
         }
         withCloseButton
       />
-    </div>
+    </>
   );
 };
 
@@ -124,13 +123,8 @@ export const AlertModal: Story<ModalProps> = () => {
   };
 
   return (
-    <div {...modalCanvasForChromatic}>
-      <Button
-        type="button"
-        onClick={openModal}
-        variant="button-filled-blue"
-        data-chromatic="ignore"
-      >
+    <>
+      <Button type="button" onClick={openModal} variant="button-filled-blue">
         Open Alert Modal
       </Button>
 
@@ -140,13 +134,7 @@ export const AlertModal: Story<ModalProps> = () => {
         isAlertModal
         leastDestructiveRef={dismissButtonRef}
         modalLabel="Warning!"
-        modalDescription={
-          <Text variant="text-ui-16">
-            You are about to delete everything you know and love...
-            <br />
-            Are you sure about this?
-          </Text>
-        }
+        modalDescription="You are about to delete everything you know and love... 😰&nbsp; Are you sure about this?"
       >
         <Box tx={{ display: 'flex', justifyContent: 'flex-end', mt: 32 }}>
           <Button
@@ -163,7 +151,7 @@ export const AlertModal: Story<ModalProps> = () => {
           </Button>
         </Box>
       </Modal>
-    </div>
+    </>
   );
 };
 

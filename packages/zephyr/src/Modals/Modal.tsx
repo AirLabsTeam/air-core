@@ -10,20 +10,25 @@ import {
   AlertDialogProps,
 } from '@reach/alert-dialog';
 import invariant from 'tiny-invariant';
+import { AnimatePresence, motion, MotionProps, useReducedMotion } from 'framer-motion';
 import { rgba } from 'polished';
 // @ts-ignore - Sharing dependencies in a monorepo isn't going well 🙃
 import { Close } from '@air/icons';
 import { isString } from 'lodash';
 import { useTheme } from 'styled-components';
 import { MODAL_OVERLAY, ALERT_MODAL_OVERLAY } from '../testIDs';
-import { Box, BoxStylingProps, Button, Text } from '..';
+import { Box, BoxStylingProps } from '../Box';
+import { Button } from '../Button';
+import { Text } from '../Text';
+import { ModalVariantName } from '../theme/variants/modal';
 
 export type ModalProps = Pick<DialogProps, 'allowPinchZoom' | 'initialFocusRef' | 'isOpen'> &
   Pick<AlertDialogProps, 'leastDestructiveRef'> &
-  BoxStylingProps & {
+  Omit<BoxStylingProps, 'variant'> & {
     /**
-     * This should act as the title of the modal. Required for the sake of accessibility. If passed as a string, it will
-     * render within:
+     * This should act as the title of the modal. Required for the sake of accessibility.
+     *
+     * If passed as a string, it will render within:
      *
      * `<Text variant="text-ui-24">`
      */
@@ -37,6 +42,10 @@ export type ModalProps = Pick<DialogProps, 'allowPinchZoom' | 'initialFocusRef' 
      * - Example: `<VisuallyHidden>This action is permanent, are you sure?</VisuallyHidden>`
      *
      * - Example: `<p>This action is permanent, are you sure</p>`
+     *
+     * If passed as a string, it will render within:
+     *
+     * `<Text variant="text-ui-16">`
      */
     modalDescription?: React.ReactNode;
 
@@ -87,19 +96,28 @@ export type ModalProps = Pick<DialogProps, 'allowPinchZoom' | 'initialFocusRef' 
 
     /**
      * Note that these styles get applied to the modal container itself as opposed to the overlay which is the true
-     * top-level element in this component. See `props.overlayStyle` to apply inline styles there.
+     * top-level element in this component.
      */
     className?: string;
-
-    /**
-     * If provided, this destroys the default stylings for the modal's overlay.
-     */
-    overlayStylesOverride?: BoxStylingProps['tx'];
 
     /**
      * Determines whether or not an "X" close button renders in the upper-right corner of the modal.
      */
     withCloseButton?: boolean;
+
+    /**
+     * There are 3 modal sizes in Zephyr.
+     *
+     * Small [400px width] - For confirming a destructive action, showing error states, and
+     * notifying the user of an action (such as being logged out after an amount of inactivity).
+     *
+     * Medium [498px width] - Primarily for multi-step actions (such as rendering a form or encouraging the user to
+     * copy a share link after defining the link's permissions).
+     *
+     * Large [600px width] - Often used on marketing pages. Also used when working with a prolonged action (like uploading
+     * an asset or approving a new version of an asset). Can also be used to cue a fork in the road for multi-step forms.
+     */
+    variant?: ModalVariantName;
   };
 
 export const Modal = ({
@@ -111,16 +129,18 @@ export const Modal = ({
   modalDescription,
   modalLabel,
   onDismiss,
-  overlayStylesOverride,
   tx,
+  variant = 'modal-medium',
   withCloseButton = false,
   ...rest
 }: ModalProps) => {
   const theme = useTheme();
+  const shouldReduceMotion = useReducedMotion();
   const labelId = useId('modal-label');
   const descriptionId = useId('modal-description');
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const isModalLabelString = isString(modalLabel);
+  const isModalDescriptionString = isString(modalDescription);
   const hasDescription = !!modalDescription;
 
   const CloseButton = () => (
@@ -135,19 +155,15 @@ export const Modal = ({
     </Button>
   );
 
-  const overlayStyles: BoxStylingProps['tx'] = !overlayStylesOverride
-    ? {
-        backgroundColor: rgba(theme.colors.pigeon700, 0.75),
-        position: 'fixed',
-        top: 0,
-        right: 0,
-        bottom: 0,
-        left: 0,
-        overflow: 'auto',
-        zIndex: 1,
-        // TODO: Should I do regular CSS animations or will conditional rendering require a JS animation library?
-      }
-    : overlayStylesOverride;
+  const overlayStyles = {
+    position: 'fixed',
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0,
+    overflow: 'auto',
+    zIndex: 1,
+  };
 
   const cardStyles: BoxStylingProps['tx'] = {
     position: 'relative', // Ensures <CloseButton /> is rendered inside the modal itself
@@ -159,11 +175,9 @@ export const Modal = ({
     mx: 'auto',
     mt: [32, '8vw'],
     mb: [128, 16], // 8rem needed to account for bottom areas on iOS browsers.
-    width: '496px', // TODO: Add modal variants for the 3 different widths
     minHeight: '100px',
     maxWidth: '100vw',
     color: 'pigeon700',
-    fontWeight: 'semibold',
     '&:focus:not(:focus-visible)': {
       outline: 'none',
     },
@@ -172,6 +186,26 @@ export const Modal = ({
   const modalLabelLayoutStyles: BoxStylingProps['tx'] = {
     maxWidth: '90%', // to keep header out of the way of the closing "X" button.
     marginBottom: 16,
+  };
+
+  const transition: MotionProps['transition'] = {
+    duration: shouldReduceMotion ? 0 : 0.2,
+    type: 'tween',
+  };
+
+  const motionStyles = {
+    overlay: {
+      initial: { backgroundColor: theme.colors.transparent },
+      animate: { backgroundColor: rgba(theme.colors.pigeon700, 0.75) },
+      exit: { backgroundColor: theme.colors.transparent },
+      transition,
+    },
+    content: {
+      initial: { opacity: 0, scale: 0.7 },
+      animate: { opacity: 1, scale: 1 },
+      exit: { opacity: 0, scale: 0.7 },
+      transition,
+    },
   };
 
   if (isAlertModal) {
@@ -184,56 +218,99 @@ export const Modal = ({
     invariant(isAlertModal && hasDescription, 'AlertModal requires a "modalDescription"');
 
     return (
-      <Box
-        as={AlertDialogOverlay}
-        data-testid={ALERT_MODAL_OVERLAY}
-        isOpen={isOpen}
-        leastDestructiveRef={withCloseButton ? closeButtonRef : leastDestructiveRef}
-        __baseStyles={overlayStyles}
-        {...rest}
-      >
-        <Box as={AlertDialogContent} __baseStyles={cardStyles} tx={tx} className={className}>
-          {withCloseButton && <CloseButton />}
+      <AnimatePresence>
+        {isOpen && (
+          <Box
+            as={motion.custom(AlertDialogOverlay)}
+            {...motionStyles.overlay}
+            data-testid={ALERT_MODAL_OVERLAY}
+            leastDestructiveRef={withCloseButton ? closeButtonRef : leastDestructiveRef}
+            __baseStyles={overlayStyles}
+            {...rest}
+          >
+            <Box
+              as={motion.custom(AlertDialogContent)}
+              {...motionStyles.content}
+              className={className}
+              __baseStyles={cardStyles}
+              tx={tx}
+              variant={variant}
+            >
+              {withCloseButton && <CloseButton />}
 
-          <Box as={AlertDialogLabel} tx={modalLabelLayoutStyles}>
-            {isModalLabelString ? <Text variant="text-ui-24">{modalLabel}</Text> : modalLabel}
+              <Box as={AlertDialogLabel} tx={modalLabelLayoutStyles}>
+                {isModalLabelString ? (
+                  <Text variant="text-ui-24" tx={{ fontWeight: 'semibold' }}>
+                    {modalLabel}
+                  </Text>
+                ) : (
+                  modalLabel
+                )}
+              </Box>
+
+              <Box as={AlertDialogDescription}>
+                {isModalDescriptionString ? (
+                  <Text variant="text-ui-16">{modalDescription}</Text>
+                ) : (
+                  modalDescription
+                )}
+              </Box>
+
+              {children}
+            </Box>
           </Box>
-
-          <Box as={AlertDialogDescription}>{modalDescription}</Box>
-
-          {children}
-        </Box>
-      </Box>
+        )}
+      </AnimatePresence>
     );
   }
 
   return (
-    <Box
-      as={DialogOverlay}
-      data-testid={MODAL_OVERLAY}
-      isOpen={isOpen}
-      onDismiss={onDismiss}
-      __baseStyles={overlayStyles}
-      {...rest}
-    >
-      <Box
-        as={DialogContent}
-        tx={tx}
-        className={className}
-        __baseStyles={cardStyles}
-        aria-labelledby={labelId}
-        aria-describedby={hasDescription ? descriptionId : undefined}
-      >
-        {withCloseButton && <CloseButton />}
+    <AnimatePresence>
+      {isOpen && (
+        <Box
+          as={motion.custom(DialogOverlay)}
+          {...motionStyles.overlay}
+          data-testid={MODAL_OVERLAY}
+          onDismiss={onDismiss}
+          __baseStyles={overlayStyles}
+          {...rest}
+        >
+          <Box
+            as={motion.custom(DialogContent)}
+            {...motionStyles.content}
+            className={className}
+            __baseStyles={cardStyles}
+            tx={tx}
+            variant={variant}
+            aria-labelledby={labelId}
+            aria-describedby={hasDescription ? descriptionId : undefined}
+          >
+            {withCloseButton && <CloseButton />}
 
-        <Box id={labelId} tx={modalLabelLayoutStyles}>
-          {isModalLabelString ? <Text variant="text-ui-24">{modalLabel}</Text> : modalLabel}
+            <Box id={labelId} tx={modalLabelLayoutStyles}>
+              {isModalLabelString ? (
+                <Text variant="text-ui-24" tx={{ fontWeight: 'semibold' }}>
+                  {modalLabel}
+                </Text>
+              ) : (
+                modalLabel
+              )}
+            </Box>
+
+            {hasDescription && (
+              <Box id={descriptionId}>
+                {isModalDescriptionString ? (
+                  <Text variant="text-ui-16">{modalDescription}</Text>
+                ) : (
+                  modalDescription
+                )}
+              </Box>
+            )}
+
+            {children}
+          </Box>
         </Box>
-
-        {hasDescription && <Box id={descriptionId}>{modalDescription}</Box>}
-
-        {children}
-      </Box>
-    </Box>
+      )}
+    </AnimatePresence>
   );
 };

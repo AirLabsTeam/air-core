@@ -97,6 +97,7 @@ const config = {
     'no-duplicate-case': 'error',
     'no-extra-boolean-cast': 'off',
     'no-unreachable': 'error',
+    'no-unused-vars': ['error', { varsIgnorePattern: '^_' }],
     'valid-typeof': 'error',
     eqeqeq: 'error',
     'default-param-last': 'error',
@@ -229,7 +230,7 @@ const config = {
       files: ['**/*.{ts,tsx}'],
       rules: {
         // vanilla rule can get type variable usage incorrect
-        '@typescript-eslint/no-unused-vars': 'error',
+        '@typescript-eslint/no-unused-vars': ['error', { varsIgnorePattern: '^_' }],
         'no-unused-vars': 'off',
 
         '@typescript-eslint/no-unnecessary-type-assertion': 'error',
