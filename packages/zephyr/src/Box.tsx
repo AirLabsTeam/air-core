@@ -3,7 +3,7 @@ import { color, compose, space, variant } from 'styled-system';
 import css, { get } from '@styled-system/css';
 import styled from 'styled-components';
 
-import { ThemeObject, TXProp } from './theme';
+import { Theme, TXProp } from './theme';
 
 export type BoxStylingProps = {
   /**
@@ -55,7 +55,7 @@ const variants = ({
   theme,
   __themeKey = 'variants',
   ...restOfProps
-}: BoxStylingProps & { theme: ThemeObject }) =>
+}: BoxStylingProps & { theme: Theme }) =>
   variant({
     prop: 'variant',
     scale: __themeKey,
