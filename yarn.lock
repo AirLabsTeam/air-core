@@ -3,10 +3,10 @@
 
 
 "@air/icons@link:packages/icons":
-  version "3.0.1"
+  version "3.0.2"
 
 "@air/zephyr@link:packages/zephyr":
-  version "3.0.1"
+  version "4.0.0"
   dependencies:
     "@reach/alert-dialog" "^0.11.2"
     "@reach/auto-id" "^0.11.2"
