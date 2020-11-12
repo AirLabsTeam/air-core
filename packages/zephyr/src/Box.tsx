@@ -39,7 +39,7 @@ type Attributes<TElement = HTMLDivElement> = TElement extends
   ? React.SVGProps<TElement>
   : React.HTMLProps<TElement>;
 
-export type BoxProps<TElement = HTMLDivElement> = Omit<Attributes<TElement>, 'as' | 'key'> &
+export type BoxProps<TElement = HTMLDivElement> = Omit<Attributes<TElement>, 'as' | 'key' | 'ref'> &
   BoxStylingProps & {
     as?:
       | keyof JSX.IntrinsicElements
