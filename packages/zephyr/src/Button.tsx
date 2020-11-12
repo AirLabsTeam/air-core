@@ -16,7 +16,7 @@ export interface ButtonProps
   variant?: ButtonVariantName;
 }
 
-export const Button = forwardRef(
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
       disabled = false,
