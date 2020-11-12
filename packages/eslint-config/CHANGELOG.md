@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.11](https://github.com/AirLabsTeam/web-core/compare/@air/eslint-config@1.1.10...@air/eslint-config@1.1.11) (2020-11-12)
+
+### Bug Fixes
+
+- allow variables prefixed with an underscore to be unused ([d6013ff](https://github.com/AirLabsTeam/web-core/commit/d6013ffc47c2cebd3e1551ecbc1bc0fcfa9c671a))
+
 ## [1.1.10](https://github.com/AirLabsTeam/web-core/compare/@air/eslint-config@1.1.9...@air/eslint-config@1.1.10) (2020-11-02)
 
 ### Bug Fixes

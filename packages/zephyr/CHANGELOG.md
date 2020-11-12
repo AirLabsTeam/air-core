@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@3.0.1...@air/zephyr@4.0.0) (2020-11-12)
+
+### Bug Fixes
+
+- render nicely if string is passed to "modelDescription" ([2cc4a42](https://github.com/AirLabsTeam/web-core/commit/2cc4a42cc5bc92f51169fcf138b6e9d113d493e9))
+- simplify default modal ui ([2d37341](https://github.com/AirLabsTeam/web-core/commit/2d373417d9ffdf45e4ee7d615c992eddb6e25954))
+- **modal:** adjust styles, add stories, and edit comments/documentation ([fe20c7f](https://github.com/AirLabsTeam/web-core/commit/fe20c7f1751fd57443c6dd62b9ddf5a5babd621d))
+
+### Code Refactoring
+
+- require onDismiss prop ([bfe22db](https://github.com/AirLabsTeam/web-core/commit/bfe22db8983ceeeb5b11f81d3fe0cad9b4782b80))
+
+### Features
+
+- add modal variants ([c7b2e9d](https://github.com/AirLabsTeam/web-core/commit/c7b2e9d590e46183f263dd9a36841bbe5dff63b4))
+- adjust default styles, comments, stories, and add prop for rendering a close button ([32160be](https://github.com/AirLabsTeam/web-core/commit/32160bef30ccceb4abbdbe077d076497e45e6f10))
+- allow theme callback on tx prop ([58a1a18](https://github.com/AirLabsTeam/web-core/commit/58a1a187d91cfe23f03b5f7f498a2bcc12cf0e2d))
+- move peerDeps to deps and install @reach/visually-hidden + @air/icons ([26a6cdd](https://github.com/AirLabsTeam/web-core/commit/26a6cdd7f0d4e005cd0f7cacf029744925591ade))
+- use framer-motion to animate modal ([464ec94](https://github.com/AirLabsTeam/web-core/commit/464ec94c6530d9478163ab55c1dcc14bff1a337a))
+- wrap text in forwardRef ([e5a6ccd](https://github.com/AirLabsTeam/web-core/commit/e5a6ccd8b9d9d44e0b3b367242425028021acfd9))
+
+### BREAKING CHANGES
+
+- In adding animations, separation began to exist between styles in 2 places. Rather
+  than waste time DRYing things up, I removed a prop nobody asked for.
+- A prop went from optional, to required
+
 ## [3.0.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@3.0.0...@air/zephyr@3.0.1) (2020-11-06)
 
 ### Bug Fixes
