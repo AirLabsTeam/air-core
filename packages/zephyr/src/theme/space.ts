@@ -1,4 +1,5 @@
 export type SpaceName =
+  | string
   | -64
   | -60
   | -56
@@ -52,7 +53,7 @@ export type SpaceName =
   | 216
   | 224;
 
-export const space: { [key in SpaceName]: number } = {
+export const space: { [key in SpaceName]: number | string } = {
   [-64]: -64,
   [-60]: -60,
   [-56]: -56,
