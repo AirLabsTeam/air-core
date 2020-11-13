@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.1.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@4.0.2...@air/zephyr@4.1.0) (2020-11-13)
+
+### Features
+
+- expand valid options for "space" theme key ([48062bc](https://github.com/AirLabsTeam/web-core/commit/48062bc8f71ad6751dde831a6b2a5807e02e26a6))
+
 ## [4.0.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@4.0.1...@air/zephyr@4.0.2) (2020-11-13)
 
 ### Bug Fixes
