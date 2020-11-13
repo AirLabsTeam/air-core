@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@4.0.0...@air/zephyr@4.0.1) (2020-11-13)
+
+**Note:** Version bump only for package @air/zephyr
+
 # [4.0.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@3.0.1...@air/zephyr@4.0.0) (2020-11-12)
 
 ### Bug Fixes
