@@ -1,3 +1,4 @@
+import { CSSProperties } from 'react';
 import {
   ColorProps,
   ResponsiveValue,
@@ -5,7 +6,6 @@ import {
   TypographyProps,
   Theme as StyledSystemTheme,
 } from 'styled-system';
-import * as CSS from 'csstype';
 
 import { colors } from './colors';
 import { fonts } from './fonts';
@@ -69,8 +69,8 @@ interface StyledSystemProps
  */
 export type TXProp =
   | (StyledSystemProps &
-      Omit<CSS.StandardLonghandProperties, keyof StyledSystemProps> &
-      Omit<CSS.StandardShorthandProperties, keyof StyledSystemProps>)
+      Omit<CSSProperties, keyof StyledSystemProps> &
+      Omit<CSSProperties, keyof StyledSystemProps>)
   | {
       /** Typically meant for CSS keys where we have no prescribed theme values or pseudoselectors */
       [whateverTheHellYouWant: string]:
