@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.4](https://github.com/AirLabsTeam/web-core/compare/@air/icons@3.0.3...@air/icons@3.0.4) (2020-11-13)
+
+### Bug Fixes
+
+- pin cross-polluted dependencies and adjust peerDep ranges ([7f1dd06](https://github.com/AirLabsTeam/web-core/commit/7f1dd06117af404c116a40883b745a101bdd44e9))
+
+## [3.0.3](https://github.com/AirLabsTeam/web-core/compare/@air/icons@3.0.2...@air/icons@3.0.3) (2020-11-13)
+
+**Note:** Version bump only for package @air/icons
+
 ## [3.0.2](https://github.com/AirLabsTeam/web-core/compare/@air/icons@3.0.1...@air/icons@3.0.2) (2020-11-12)
 
 **Note:** Version bump only for package @air/icons

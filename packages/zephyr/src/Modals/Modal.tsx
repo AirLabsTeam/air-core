@@ -12,7 +12,6 @@ import {
 import invariant from 'tiny-invariant';
 import { AnimatePresence, motion, MotionProps, useReducedMotion } from 'framer-motion';
 import { rgba } from 'polished';
-// @ts-ignore - Sharing dependencies in a monorepo isn't going well 🙃
 import { Close } from '@air/icons';
 import { isString } from 'lodash';
 import { useTheme } from 'styled-components';

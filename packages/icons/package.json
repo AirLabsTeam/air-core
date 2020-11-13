@@ -1,6 +1,6 @@
 {
   "name": "@air/icons",
-  "version": "3.0.2",
+  "version": "3.0.4",
   "description": "Air's iconography",
   "keywords": [
     "react",
@@ -43,12 +43,12 @@
     "transpile": "babel --source-maps true --no-babelrc --presets=@babel/preset-env --plugins=@babel/plugin-proposal-object-rest-spread --plugins=@babel/plugin-transform-arrow-functions dist/icons.esm.js --out-file dist/icons.esm.js"
   },
   "peerDependencies": {
-    "@air/zephyr": "*",
+    "@air/zephyr": ">=3",
     "react": ">=16",
     "react-native": ">=0.58"
   },
   "devDependencies": {
-    "@air/zephyr": "link:../zephyr",
+    "@air/zephyr": "latest",
     "@babel/cli": "^7.12.1",
     "@babel/plugin-proposal-object-rest-spread": "^7.9.0",
     "@babel/plugin-transform-arrow-functions": "^7.10.1",

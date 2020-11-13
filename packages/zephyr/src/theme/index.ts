@@ -1,4 +1,10 @@
-import { ColorProps, SpaceProps, TypographyProps } from 'styled-system';
+import {
+  ColorProps,
+  ResponsiveValue,
+  SpaceProps,
+  TypographyProps,
+  Theme as StyledSystemTheme,
+} from 'styled-system';
 import * as CSS from 'csstype';
 
 import { colors } from './colors';
@@ -27,18 +33,40 @@ export * from './radii';
 export * from './space';
 export * from './variants';
 
-/** @description Gets the theme object */
-export type ThemeObject = typeof theme;
+export type Theme = typeof theme;
 
-/** @description Omits custom theme keys */
-export type ThemeWithoutCustomKeys = Omit<ThemeObject, 'variants'>;
+/**
+ * Our theme, but "variants" is stripped out since we don't want it defined in the "tx" prop.
+ * @see https://styled-system.com/theme-specification
+ */
+export type ThemeWithoutVariants = Omit<Theme, 'variants'>;
 
-/** @description Styled-system props without custom theme keys */
-export interface StyledSystemProps
-  extends ColorProps<ThemeWithoutCustomKeys>,
-    SpaceProps<ThemeWithoutCustomKeys>,
-    TypographyProps<ThemeWithoutCustomKeys> {}
+// Used as a catch-all for using styled-system's responsive styling paradigm on CSS properties with no ties to our theme.
+type ResponsiveValues = ResponsiveValue<string | number, ThemeWithoutVariants>;
 
+// styled-system lets you define these in your theme spec, but we don't.
+type UnusedStyledSystemThemeKeys = {
+  breakpoints: string[];
+  lineHeights: number[];
+  letterSpacings: (string | number)[];
+  borders: string[];
+  borderStyles: string[];
+  borderWidths: (string | number)[];
+  zIndices: number[];
+};
+
+// The types for styled-system requires types to be defined for every key in the spec though.
+type TypeSafeStyledSystemTheme = ThemeWithoutVariants & UnusedStyledSystemThemeKeys;
+
+interface StyledSystemProps
+  extends ColorProps<TypeSafeStyledSystemTheme>,
+    SpaceProps<TypeSafeStyledSystemTheme>,
+    TypographyProps<TypeSafeStyledSystemTheme> {}
+
+/**
+ * The theme prop. You'll be provided with intellisense for theme-relevant values, documentation for every CSS selector,
+ * and bare-minimum typesafety. Think of it as a theme-aware CSS and styled-system props, but in an object.
+ */
 export type TXProp =
   | (StyledSystemProps &
       Omit<CSS.StandardLonghandProperties, keyof StyledSystemProps> &
@@ -47,8 +75,6 @@ export type TXProp =
       /** Typically meant for CSS keys where we have no prescribed theme values or pseudoselectors */
       [whateverTheHellYouWant: string]:
         | TXProp
-        | string
-        | number
-        | (string | number)[]
-        | ((_theme: ThemeObject) => string | number | (string | number)[]);
+        | ResponsiveValues
+        | ((_theme: StyledSystemTheme) => ResponsiveValues);
     };

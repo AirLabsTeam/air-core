@@ -2,11 +2,10 @@
 # yarn lockfile v1
 
 
-"@air/icons@link:packages/icons":
-  version "3.0.1"
-
-"@air/zephyr@link:packages/zephyr":
-  version "3.0.1"
+"@air/zephyr@latest":
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/@air/zephyr/-/zephyr-4.0.1.tgz#c3b6fbf83a2d1ab720b36575fb495aac43f5c6d0"
+  integrity sha512-UAmyuXJbGS+af/YepcfrcAegMq8SbgzADcRd9PpMrDaGFE8A025Qx3xSUPSgovvwrlDLresp9D2A+df+LpInNQ==
   dependencies:
     "@reach/alert-dialog" "^0.11.2"
     "@reach/auto-id" "^0.11.2"

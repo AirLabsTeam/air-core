@@ -1,9 +1,9 @@
 import 'styled-components';
 import { CssFunctionReturnType } from '@styled-system/css';
-import { ThemeObject } from '../packages/zephyr/src/theme';
+import { Theme } from '../packages/zephyr/src/theme';
 
 declare module 'styled-components' {
-  export interface DefaultTheme extends ThemeObject {}
+  export interface DefaultTheme extends Theme {}
 }
 
 declare module 'react' {
