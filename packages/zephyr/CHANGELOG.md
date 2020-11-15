@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.2.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@4.2.0...@air/zephyr@4.2.1) (2020-11-15)
+
+### Bug Fixes
+
+- update intellisense space values ([72c45f0](https://github.com/AirLabsTeam/web-core/commit/72c45f01263386b61bfc98708906ba510ad12c38))
+
+# [4.2.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@4.1.0...@air/zephyr@4.2.0) (2020-11-15)
+
+### Features
+
+- tweak allowed CSS properties in TX prop ([d01d61c](https://github.com/AirLabsTeam/web-core/commit/d01d61cdab4222256290a5b8e44a834bb0794b0b))
+
+# [4.1.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@4.0.2...@air/zephyr@4.1.0) (2020-11-13)
+
+### Features
+
+- expand valid options for "space" theme key ([48062bc](https://github.com/AirLabsTeam/web-core/commit/48062bc8f71ad6751dde831a6b2a5807e02e26a6))
+
 ## [4.0.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@4.0.1...@air/zephyr@4.0.2) (2020-11-13)
 
 ### Bug Fixes
