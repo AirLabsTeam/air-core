@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.2.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@4.1.0...@air/zephyr@4.2.0) (2020-11-15)
+
+### Features
+
+- tweak allowed CSS properties in TX prop ([d01d61c](https://github.com/AirLabsTeam/web-core/commit/d01d61cdab4222256290a5b8e44a834bb0794b0b))
+
 # [4.1.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@4.0.2...@air/zephyr@4.1.0) (2020-11-13)
 
 ### Features
