@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.2.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@4.2.0...@air/zephyr@4.2.1) (2020-11-15)
+
+### Bug Fixes
+
+- update intellisense space values ([72c45f0](https://github.com/AirLabsTeam/web-core/commit/72c45f01263386b61bfc98708906ba510ad12c38))
+
 # [4.2.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@4.1.0...@air/zephyr@4.2.0) (2020-11-15)
 
 ### Features
