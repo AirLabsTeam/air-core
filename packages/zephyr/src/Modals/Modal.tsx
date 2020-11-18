@@ -21,9 +21,11 @@ import { Button } from '../Button';
 import { Text } from '../Text';
 import { ModalVariantName } from '../theme/variants/modal';
 
+export const MODAL_CLOSE_BUTTON = 'MODAL_CLOSE_BUTTON';
+
 export type ModalProps = Pick<DialogProps, 'allowPinchZoom' | 'initialFocusRef' | 'isOpen'> &
   Pick<AlertDialogProps, 'leastDestructiveRef'> &
-  Omit<BoxStylingProps, 'variant'> & {
+  Pick<BoxStylingProps, 'tx'> & {
     /**
      * This should act as the title of the modal. Required for the sake of accessibility.
      *
@@ -34,8 +36,8 @@ export type ModalProps = Pick<DialogProps, 'allowPinchZoom' | 'initialFocusRef' 
     modalLabel: React.ReactNode;
 
     /**
-     * This will be used to go into further detail regarding the modal. Optional, but required if leveraging a
-     * trap modal. If you want the description invisible, please render the node within
+     * This will be used to go into further detail regarding the modal. Optional, but required if leveraging an
+     * alert modal. If you want the description invisible, please render the node within
      * [@reach/visually-hidden](https://reach.tech/visually-hidden).
      *
      * - Example: `<VisuallyHidden>This action is permanent, are you sure?</VisuallyHidden>`
@@ -87,9 +89,9 @@ export type ModalProps = Pick<DialogProps, 'allowPinchZoom' | 'initialFocusRef' 
      *
      * Documentation:
      *
-     * [When isTrapModal=false](https://reach.tech/dialog#dialogcontent-children)
+     * [When isAlertModal=false](https://reach.tech/dialog#dialogcontent-children)
      *
-     * [When isTrapModal=true](https://reach.tech/alert-dialog/#alertdialogcontent-element-props)
+     * [When isAlertModal=true](https://reach.tech/alert-dialog/#alertdialogcontent-element-props)
      */
     children?: React.ReactNode;
 
@@ -130,7 +132,7 @@ export const Modal = ({
   onDismiss,
   tx,
   variant = 'modal-medium',
-  withCloseButton = false,
+  withCloseButton = true,
   ...rest
 }: ModalProps) => {
   const theme = useTheme();
@@ -144,10 +146,11 @@ export const Modal = ({
 
   const CloseButton = () => (
     <Button
-      ref={closeButtonRef}
       onClick={onDismiss}
+      ref={closeButtonRef}
+      tx={{ position: 'absolute', top: '1.25rem', right: '1.5rem' }}
       variant="button-unstyled"
-      tx={{ position: 'absolute', top: '1.25rem', right: '1.25rem' }}
+      data-testid={MODAL_CLOSE_BUTTON}
     >
       <VisuallyHidden>Close Modal</VisuallyHidden>
       <Close tx={{ width: 32, color: 'pigeon400' }} />
@@ -172,8 +175,7 @@ export const Modal = ({
     pt: 32,
     pb: 28,
     mx: 'auto',
-    mt: [32, '8vw'],
-    mb: [128, 16], // 8rem needed to account for bottom areas on iOS browsers.
+    mt: [32, '10vw'],
     minHeight: '100px',
     maxWidth: '100vw',
     color: 'pigeon700',
@@ -237,25 +239,25 @@ export const Modal = ({
             >
               {withCloseButton && <CloseButton />}
 
-              <Box as={AlertDialogLabel} tx={modalLabelLayoutStyles}>
-                {isModalLabelString ? (
+              {isModalLabelString ? (
+                <Box as={AlertDialogLabel} tx={modalLabelLayoutStyles}>
                   <Text variant="text-ui-24" tx={{ fontWeight: 'semibold' }}>
                     {modalLabel}
                   </Text>
-                ) : (
-                  modalLabel
-                )}
-              </Box>
+                </Box>
+              ) : (
+                <Box as={AlertDialogLabel}>{modalLabel}</Box>
+              )}
 
-              <Box as={AlertDialogDescription}>
-                {isModalDescriptionString ? (
+              {isModalDescriptionString ? (
+                <Box as={AlertDialogDescription}>
                   <Text variant="text-ui-16">{modalDescription}</Text>
-                ) : (
-                  modalDescription
-                )}
-              </Box>
+                </Box>
+              ) : (
+                <Box as={AlertDialogDescription}>{modalDescription}</Box>
+              )}
 
-              {children}
+              <Text variant="text-ui-16">{children}</Text>
             </Box>
           </Box>
         )}
@@ -286,15 +288,15 @@ export const Modal = ({
           >
             {withCloseButton && <CloseButton />}
 
-            <Box id={labelId} tx={modalLabelLayoutStyles}>
-              {isModalLabelString ? (
+            {isModalLabelString ? (
+              <Box id={labelId} tx={modalLabelLayoutStyles}>
                 <Text variant="text-ui-24" tx={{ fontWeight: 'semibold' }}>
                   {modalLabel}
                 </Text>
-              ) : (
-                modalLabel
-              )}
-            </Box>
+              </Box>
+            ) : (
+              <Box id={labelId}>{modalLabel}</Box>
+            )}
 
             {hasDescription && (
               <Box id={descriptionId}>
@@ -306,7 +308,7 @@ export const Modal = ({
               </Box>
             )}
 
-            {children}
+            <Text variant="text-ui-16">{children}</Text>
           </Box>
         </Box>
       )}

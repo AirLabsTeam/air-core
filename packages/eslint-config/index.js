@@ -230,9 +230,31 @@ const config = {
       files: ['**/*.{ts,tsx}'],
       rules: {
         // vanilla rule can get type variable usage incorrect
-        '@typescript-eslint/no-unused-vars': ['error', { varsIgnorePattern: '^_' }],
+        // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/src/configs/eslint-recommended.ts
         'no-unused-vars': 'off',
+        'constructor-super': 'off', // ts(2335) & ts(2377)
+        'getter-return': 'off', // ts(2378)
+        'no-const-assign': 'off', // ts(2588)
+        'no-dupe-args': 'off', // ts(2300)
+        'no-dupe-class-members': 'off', // ts(2393) & ts(2300)
+        'no-dupe-keys': 'off', // ts(1117)
+        'no-func-assign': 'off', // ts(2539)
+        'no-import-assign': 'off', // ts(2539) & ts(2540)
+        'no-new-symbol': 'off', // ts(2588)
+        'no-obj-calls': 'off', // ts(2349)
+        'no-redeclare': 'off', // ts(2451)
+        'no-setter-return': 'off', // ts(2408)
+        'no-this-before-super': 'off', // ts(2376)
+        'no-undef': 'off', // ts(2304)
+        'no-unreachable': 'off', // ts(7027)
+        'no-unsafe-negation': 'off', // ts(2365) & ts(2360) & ts(2358)
+        'no-var': 'error', // ts transpiles let/const to var, so no need for vars any more
+        'prefer-const': 'error', // ts provides better types with const
+        'prefer-rest-params': 'error', // ts provides better types with rest args over arguments
+        'prefer-spread': 'error', // ts transpiles spread to apply, so no need for manual apply
+        'valid-typeof': 'off', // ts(2367)
 
+        '@typescript-eslint/no-unused-vars': ['error', { varsIgnorePattern: '^_' }],
         '@typescript-eslint/no-unnecessary-type-assertion': 'error',
         '@typescript-eslint/prefer-nullish-coalescing': 'error',
         '@typescript-eslint/no-non-null-asserted-optional-chain': 'error',
@@ -333,7 +355,6 @@ const config = {
     {
       files: ['**/*.d.ts'],
       rules: {
-        'no-undef': 'off',
         'import/no-default-export': 'off',
         '@typescript-eslint/naming-convention': 'off', // cuz we dont control other peoples' naming
         '@typescript-eslint/no-unused-vars': 'off', // may be some sort of implicit override
@@ -344,6 +365,8 @@ const config = {
       rules: {
         'import/no-default-export': 'off',
         '@typescript-eslint/no-unnecessary-type-assertion': 'off', // .bind() returns any - casting a Story as typeof Template is a good workaround that the lint rule complains about
+        'react/prop-types': 'off', // for default stories when args table controls are hidden, default prop values will need to be defined and we run into a false negative
+        'react/display-name': 'off', // its okay if we dont have a pretty call-stack for Storybook
       },
     },
     {

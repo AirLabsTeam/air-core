@@ -1,24 +1,25 @@
+import React from 'react';
 import { transitions } from 'polished';
-import React, { MouseEvent as ReactMouseEvent, forwardRef } from 'react';
 import { variant as styledSystemVariant } from 'styled-system';
+import { forwardRefWithAs, PropsWithAs } from '@reach/utils';
 import { useTheme } from 'styled-components';
-
-import { Box, BoxProps } from './Box';
+import { Box, BoxStylingProps } from './Box';
 import { ButtonVariantName } from './theme/variants/button';
 
 export type ButtonSize = 'large' | 'medium' | 'small';
 
-export interface ButtonProps
-  extends Omit<BoxProps<HTMLButtonElement>, 'onClick' | 'size' | '__baseStyles'> {
-  disabled?: boolean;
+/** These represent props not readily available on a plain, HTML button */
+export type NonSemanticButtonProps = Pick<BoxStylingProps, 'tx'> & {
   size?: ButtonSize;
-  onClick: (event: ReactMouseEvent<HTMLButtonElement, MouseEvent>) => void;
   variant?: ButtonVariantName;
-}
+};
 
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+export interface ButtonProps extends PropsWithAs<'button', NonSemanticButtonProps> {}
+
+const Button = forwardRefWithAs<NonSemanticButtonProps, 'button'>(
   (
     {
+      as = 'button',
       disabled = false,
       size = 'medium',
       type = 'button',
@@ -31,7 +32,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
     return (
       <Box
-        as="button"
+        as={as}
         disabled={disabled}
         type={type}
         ref={ref}
@@ -74,7 +75,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           '&:hover': {
             textDecoration: 'none',
           },
-          '&:focus': {
+          '&:focus-visible': {
             boxShadow: `0 0 0 2px ${theme.colors.focus}`,
           },
           '&:disabled': {
@@ -88,3 +89,5 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 );
 
 Button.displayName = 'Button';
+
+export { Button };

@@ -10,34 +10,23 @@ import {
 } from '@storybook/addon-docs/blocks';
 import isChromatic from 'chromatic/isChromatic';
 import { Box, Button, Modal, ModalProps, Text } from '../../src';
-
-/**
- * @see https://www.chromatic.com/docs/viewports under FAQ "Why is my content being cut off vertically?"
- */
-const modalCanvasForChromatic = {
-  style: {
-    width: '100vw',
-    height: '100vh',
-  },
-};
+import { modalStoryDecorator } from './shared';
 
 const meta: Meta<ModalProps> = {
   title: 'Zephyr/Modals/Modal',
   component: Modal,
-  decorators: [
-    (storyFn) => (isChromatic() ? <div {...modalCanvasForChromatic}>{storyFn()}</div> : storyFn()),
-  ],
+  decorators: [modalStoryDecorator],
 };
 
 export default meta;
 
-const Template: Story<ModalProps> = (args) => <Modal {...args} data-testid={meta.title} />;
-
-export const Default = Template.bind({}) as typeof Template;
+export const Default: Story<ModalProps> = (args) => <Modal {...args} data-testid={meta.title} />;
 
 Default.parameters = {
+  description: {
+    component: 'Please see examples below the documentation table.',
+  },
   docs: {
-    // eslint-disable-next-line react/display-name
     page: () => (
       <>
         {/* Because the modal is a portal that spans the content of the page, we want to not make the args table
@@ -135,6 +124,7 @@ export const AlertModal: Story<ModalProps> = () => {
         leastDestructiveRef={dismissButtonRef}
         modalLabel="Warning!"
         modalDescription="You are about to delete everything you know and love... 😰&nbsp; Are you sure about this?"
+        withCloseButton={false}
       >
         <Box tx={{ display: 'flex', justifyContent: 'flex-end', mt: 32 }}>
           <Button
@@ -161,6 +151,105 @@ AlertModal.parameters = {
       story: `Notice how the implementation details differ slightly when using an "Alert" Modal. Firstly, the escape
       key (nor clicking on the overlay) does not dismiss the modal. Secondly, you are forced to provide a ref to the
       least destructive action to initilize focus once the modal mounts.`,
+    },
+  },
+};
+
+export const LargeModalWithBigContent: Story<ModalProps> = () => {
+  const [isModalOpen, setIsModalOpen] = useState(isChromatic());
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+
+  return (
+    <>
+      <Button type="button" onClick={openModal} variant="button-filled-blue">
+        Open Modal
+      </Button>
+
+      <Modal
+        isOpen={isModalOpen}
+        onDismiss={closeModal}
+        isAlertModal={false}
+        variant="modal-large"
+        modalLabel="This is huge"
+        modalDescription={
+          <Text variant="text-ui-16">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut semper vitae lacus vel
+              condimentum. Morbi vitae nibh congue urna porttitor finibus. Ut sed eros nulla.
+              Phasellus sodales quam condimentum ligula volutpat feugiat ut non nibh. Suspendisse
+              maximus quis dolor eget dignissim.
+            </p>
+
+            <p>
+              Donec porta arcu sit amet sagittis sollicitudin. Aenean lobortis dui non suscipit
+              hendrerit. Praesent vel justo velit. Praesent rhoncus rhoncus sapien, et maximus lorem
+              tristique at. Proin consequat eleifend cursus. Pellentesque sed nibh vitae lacus
+              dictum laoreet aliquet in velit. In hac habitasse platea dictumst. Cras maximus quis
+              lectus in commodo. Donec dictum ante vitae aliquam dignissim. Curabitur ac lectus ac
+              purus bibendum efficitur. Ut ut sapien vitae nulla egestas ultricies eu quis massa.
+              Maecenas sit amet lectus id ante dapibus dictum. Integer eget congue mi. Pellentesque
+              magna metus, dapibus hendrerit feugiat vitae, porttitor sit amet leo. Nulla sit amet
+              massa quis eros sodales imperdiet quis laoreet lorem. Curabitur elementum ligula
+              turpis, eget commodo enim interdum eu. Vestibulum id augue a nibh malesuada suscipit
+              sit amet sed diam. Fusce gravida volutpat orci, quis gravida augue condimentum vitae.
+              Ut interdum velit posuere enim ultrices venenatis at id nibh.
+            </p>
+
+            <p>
+              Praesent sed egestas est, lacinia facilisis lectus. Class aptent taciti sociosqu ad
+              litora torquent per conubia nostra, per inceptos himenaeos. Aenean a iaculis enim.
+              Quisque quis fermentum mauris. Nulla volutpat placerat tellus id elementum. Cras felis
+              tellus, elementum quis faucibus eu, dictum at odio. Nunc suscipit tortor eros,
+              vestibulum ultrices metus vehicula in. Morbi tempus euismod metus, id vulputate dui
+              vehicula a. Donec laoreet tempus diam, id suscipit dolor dictum non. Proin libero
+              nibh, faucibus accumsan lectus ac, ultricies consectetur leo. Nunc at ante tortor. Nam
+              accumsan tincidunt velit a auctor. Nam imperdiet, diam eget egestas sodales, neque
+              risus mollis mauris, in laoreet odio eros volutpat odio. Pellentesque sollicitudin nec
+              odio vitae porttitor. Cras congue mauris est, at ultricies ipsum ornare in. Phasellus
+              egestas facilisis vulputate. Nunc tempor libero turpis. Proin nulla nulla, porta in
+              molestie quis, malesuada eget leo. Nam purus lectus, interdum sit amet feugiat a,
+              pretium quis ipsum. Donec elementum ultricies odio, in laoreet ex faucibus in. Nam
+              posuere, quam quis facilisis porta, sem ipsum aliquet magna, nec viverra purus velit
+              at augue. Phasellus non tempus nibh. Nulla et massa interdum, dignissim orci ac,
+              blandit dui. Suspendisse nec eros sit amet quam consequat faucibus. Sed et ex tempor,
+              dignissim magna ut, venenatis leo. Nulla mollis blandit tortor. Donec a placerat
+              neque, in pharetra est.
+            </p>
+
+            <p>
+              Etiam nec metus sapien. Mauris ut sapien sem. Nullam fermentum vestibulum velit.
+              Aenean enim nisl, sagittis non massa sed, luctus egestas nisl. Donec ut dolor
+              pellentesque, aliquet tellus ac, porta purus. Phasellus gravida imperdiet leo eu
+              lacinia. Maecenas vel neque vel lorem fermentum blandit. Quisque non nunc ac odio
+              sollicitudin accumsan dapibus at turpis. Donec interdum ante sed arcu eleifend cursus.
+              Pellentesque semper ante venenatis risus lobortis, ullamcorper suscipit turpis tempus.
+              Aenean ut vulputate enim. Nulla facilisi. Suspendisse facilisis, felis congue ornare
+              auctor, lacus lacus ultrices leo, nec rutrum purus ipsum vitae metus.
+            </p>
+
+            <p>
+              Etiam nec metus sapien. Mauris ut sapien sem. Nullam fermentum vestibulum velit.
+              Aenean enim nisl, sagittis non massa sed, luctus egestas nisl. Donec ut dolor
+              pellentesque, aliquet tellus ac, porta purus. Phasellus gravida imperdiet leo eu
+              lacinia. Maecenas vel neque vel lorem fermentum blandit. Quisque non nunc ac odio
+              sollicitudin accumsan dapibus at turpis. Donec interdum ante sed arcu eleifend cursus.
+              Pellentesque semper ante venenatis risus lobortis, ullamcorper suscipit turpis tempus.
+              Aenean ut vulputate enim. Nulla facilisi. Suspendisse facilisis, felis congue ornare
+              auctor, lacus lacus ultrices leo, nec rutrum purus ipsum vitae metus.
+            </p>
+          </Text>
+        }
+        withCloseButton
+      />
+    </>
+  );
+};
+
+LargeModalWithBigContent.parameters = {
+  docs: {
+    description: {
+      story: 'This represents an example that takes up a large amount of space vertically.',
     },
   },
 };

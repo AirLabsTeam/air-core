@@ -1,6 +1,6 @@
-import React from 'react';
 import { color, compose, space, variant } from 'styled-system';
 import css, { get } from '@styled-system/css';
+import { As, PropsWithAs, ComponentWithAs } from '@reach/utils';
 import styled from 'styled-components';
 
 import { Theme, TXProp } from './theme';
@@ -32,20 +32,10 @@ export type BoxStylingProps = {
   variant?: string | string[];
 };
 
-type Attributes<TElement = HTMLDivElement> = TElement extends
-  | SVGElement
-  | SVGSVGElement
-  | SVGPathElement
-  ? React.SVGProps<TElement>
-  : React.HTMLProps<TElement>;
-
-export type BoxProps<TElement = HTMLDivElement> = Omit<Attributes<TElement>, 'as' | 'key' | 'ref'> &
-  BoxStylingProps & {
-    as?:
-      | keyof JSX.IntrinsicElements
-      | React.ComponentType<any>
-      | React.ForwardRefExoticComponent<any>;
-  };
+export type BoxProps<TDefaultElement extends As = 'div'> = PropsWithAs<
+  TDefaultElement,
+  BoxStylingProps
+>;
 
 const inlineStyles = ({ tx, theme }: any) => css({ ...tx })(theme);
 
@@ -62,7 +52,7 @@ const variants = ({
     variants: get(theme, __themeKey),
   })({ theme, ...restOfProps });
 
-export const Box = styled('div')<BoxProps>(
+export const Box: ComponentWithAs<'div', BoxStylingProps> = styled('div')<BoxProps>(
   {
     minWidth: 0,
     margin: 0,
