@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.2.4](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@4.2.3...@air/zephyr@4.2.4) (2020-11-18)
+
+**Note:** Version bump only for package @air/zephyr
+
+## [4.2.3](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@4.2.2...@air/zephyr@4.2.3) (2020-11-18)
+
+**Note:** Version bump only for package @air/zephyr
+
+## [4.2.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@4.2.1...@air/zephyr@4.2.2) (2020-11-16)
+
+### Bug Fixes
+
+- keep non-theme number values as invalid ([2697e11](https://github.com/AirLabsTeam/web-core/commit/2697e115fed75a380c8f04de26af6d1f8fd84cf7))
+
 ## [4.2.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@4.2.0...@air/zephyr@4.2.1) (2020-11-15)
 
 ### Bug Fixes

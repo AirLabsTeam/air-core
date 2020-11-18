@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.1](https://github.com/AirLabsTeam/web-core/compare/@air/icons@3.1.0...@air/icons@3.1.1) (2020-11-18)
+
+### Bug Fixes
+
+- **icons:** fix Dribbble spelling ([6ce597e](https://github.com/AirLabsTeam/web-core/commit/6ce597e215e101986177628c3d49a221db7610a8))
+
+# [3.1.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@3.0.4...@air/icons@3.1.0) (2020-11-18)
+
+### Features
+
+- **icons:** add behance and dribble icons to library ([f429056](https://github.com/AirLabsTeam/web-core/commit/f429056982700662038e7c80dfe036e19c01df19))
+
 ## [3.0.4](https://github.com/AirLabsTeam/web-core/compare/@air/icons@3.0.3...@air/icons@3.0.4) (2020-11-13)
 
 ### Bug Fixes

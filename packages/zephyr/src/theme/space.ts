@@ -1,6 +1,5 @@
 export type SpaceName =
   | string
-  | number
   | -64
   | -60
   | -56
