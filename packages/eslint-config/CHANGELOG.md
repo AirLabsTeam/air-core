@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.12](https://github.com/AirLabsTeam/web-core/compare/@air/eslint-config@1.1.11...@air/eslint-config@1.1.12) (2020-11-18)
+
+### Bug Fixes
+
+- adjust lint config to match recommended settings from typescript-eslint ([1d691fc](https://github.com/AirLabsTeam/web-core/commit/1d691fc3097ee568c5d2c68ceb4f9505e9cd83d0))
+
 ## [1.1.11](https://github.com/AirLabsTeam/web-core/compare/@air/eslint-config@1.1.10...@air/eslint-config@1.1.11) (2020-11-12)
 
 ### Bug Fixes

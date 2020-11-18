@@ -3,6 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@4.2.4...@air/zephyr@5.0.0) (2020-11-18)
+
+### Bug Fixes
+
+- **@air/zephyr/button:** apply focus styles via focus-visible selector instead of focus selector ([5a808a8](https://github.com/AirLabsTeam/web-core/commit/5a808a80bf8f81c12e6fc052d0b2efe72768e696))
+- **@air/zephyr/modal:** ensure modal children renders with correct font stylings ([01a3072](https://github.com/AirLabsTeam/web-core/commit/01a307254dcd6469d82e0111b51c036342bb9cb9))
+- **@air/zephyr/modal:** fix label id matching in dialog modal, tweak styles, and small refactor ([a068e83](https://github.com/AirLabsTeam/web-core/commit/a068e839d4c07508312069b0dcf98cdbb413c10d))
+- **@air/zephyr/modal:** tweak styles for large content and add an edge case story ([99786fd](https://github.com/AirLabsTeam/web-core/commit/99786fdf99517eaf9aecbe91e910c6e022935377))
+- **@air/zephyr/theme:** remove dupe style ([2a80555](https://github.com/AirLabsTeam/web-core/commit/2a80555fd49059954461cd95c0a8f5fdd7046b1a))
+- **@air/zephyr/transactionmodal:** remove third cta prop ([8b98c12](https://github.com/AirLabsTeam/web-core/commit/8b98c12e45d175f4a7e6669b3dd75257b55d65a9))
+
+### Features
+
+- **@air/zephyr/announcementmodal:** create AnnouncementModal component ([262e7e3](https://github.com/AirLabsTeam/web-core/commit/262e7e3489e6e0cb351bfe09dffd7ffdacdae2e6))
+- **@air/zephyr/box:** correctly implement "as" prop and inferred typing ([ef37e92](https://github.com/AirLabsTeam/web-core/commit/ef37e92214428f7ad3e500a77f389281dfc5161e))
+- **@air/zephyr/button:** correctly implement "as" prop and inferred typing ([0734bd8](https://github.com/AirLabsTeam/web-core/commit/0734bd8d352aaa12e4bf05cd266ca33b23eae80c))
+- **@air/zephyr/modal:** default "withCloseButton" to true and expose <CloseButton> testid ([9d987fb](https://github.com/AirLabsTeam/web-core/commit/9d987fbe97a86b00f089ea3d13ab26eb6b748a8b))
+- **@air/zephyr/transactionmodal:** create TransactionModal component ([5dfe0f3](https://github.com/AirLabsTeam/web-core/commit/5dfe0f32f05ebda897ea50c6eaacc4016276d16f))
+- create initial draft of CTAModal ([a2b0bfb](https://github.com/AirLabsTeam/web-core/commit/a2b0bfb659b6f8cf581d24b3fcdca0781e63c53e))
+
+### BREAKING CHANGES
+
+- **@air/zephyr/transactionmodal:** Remove "tertiaryCTA" prop
+- **@air/zephyr/modal:** "withCloseButton"'s default value has changed
+- **@air/zephyr/button:** This may expose typing issues that we were previously allowing in environments with
+  a tsconfig that allowed implicit any.
+- **@air/zephyr/box:** This may expose typing issues that we were previously allowing in environments with
+  a tsconfig that allowed implicit any.
+
 ## [4.2.4](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@4.2.3...@air/zephyr@4.2.4) (2020-11-18)
 
 **Note:** Version bump only for package @air/zephyr
