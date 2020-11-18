@@ -124,6 +124,7 @@ export const AlertModal: Story<ModalProps> = () => {
         leastDestructiveRef={dismissButtonRef}
         modalLabel="Warning!"
         modalDescription="You are about to delete everything you know and love... 😰&nbsp; Are you sure about this?"
+        withCloseButton={false}
       >
         <Box tx={{ display: 'flex', justifyContent: 'flex-end', mt: 32 }}>
           <Button

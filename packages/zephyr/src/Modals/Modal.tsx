@@ -21,6 +21,8 @@ import { Button } from '../Button';
 import { Text } from '../Text';
 import { ModalVariantName } from '../theme/variants/modal';
 
+export const MODAL_CLOSE_BUTTON = 'MODAL_CLOSE_BUTTON';
+
 export type ModalProps = Pick<DialogProps, 'allowPinchZoom' | 'initialFocusRef' | 'isOpen'> &
   Pick<AlertDialogProps, 'leastDestructiveRef'> &
   Pick<BoxStylingProps, 'tx'> & {
@@ -130,7 +132,7 @@ export const Modal = ({
   onDismiss,
   tx,
   variant = 'modal-medium',
-  withCloseButton = false,
+  withCloseButton = true,
   ...rest
 }: ModalProps) => {
   const theme = useTheme();
@@ -144,10 +146,11 @@ export const Modal = ({
 
   const CloseButton = () => (
     <Button
-      ref={closeButtonRef}
       onClick={onDismiss}
-      variant="button-unstyled"
+      ref={closeButtonRef}
       tx={{ position: 'absolute', top: '1.25rem', right: '1.5rem' }}
+      variant="button-unstyled"
+      data-testid={MODAL_CLOSE_BUTTON}
     >
       <VisuallyHidden>Close Modal</VisuallyHidden>
       <Close tx={{ width: 32, color: 'pigeon400' }} />
