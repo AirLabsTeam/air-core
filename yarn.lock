@@ -2,11 +2,6 @@
 # yarn lockfile v1
 
 
-"@air/icons@^3.1.1":
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/@air/icons/-/icons-3.1.1.tgz#d2ac356ad5bed9ec10921586314416e406dfd1bc"
-  integrity sha512-6DhzF7yI5IIWqwBueW3QPnzg41ElZ5DtF0LKIEIAktvkE1SJaN8RrB4pYbhL5QEkhFEZbSAMBzdjMFtoEoI/lQ==
-
 "@air/zephyr@latest":
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/@air/zephyr/-/zephyr-4.0.1.tgz#c3b6fbf83a2d1ab720b36575fb495aac43f5c6d0"
