@@ -75,7 +75,7 @@ const Button = forwardRefWithAs<NonSemanticButtonProps, 'button'>(
           '&:hover': {
             textDecoration: 'none',
           },
-          '&:focus': {
+          '&:focus-visible': {
             boxShadow: `0 0 0 2px ${theme.colors.focus}`,
           },
           '&:disabled': {
