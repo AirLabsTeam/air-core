@@ -10,34 +10,23 @@ import {
 } from '@storybook/addon-docs/blocks';
 import isChromatic from 'chromatic/isChromatic';
 import { Box, Button, Modal, ModalProps, Text } from '../../src';
-
-/**
- * @see https://www.chromatic.com/docs/viewports under FAQ "Why is my content being cut off vertically?"
- */
-const modalCanvasForChromatic = {
-  style: {
-    width: '100vw',
-    height: '100vh',
-  },
-};
+import { modalStoryDecorator } from './shared';
 
 const meta: Meta<ModalProps> = {
   title: 'Zephyr/Modals/Modal',
   component: Modal,
-  decorators: [
-    (storyFn) => (isChromatic() ? <div {...modalCanvasForChromatic}>{storyFn()}</div> : storyFn()),
-  ],
+  decorators: [modalStoryDecorator],
 };
 
 export default meta;
 
-const Template: Story<ModalProps> = (args) => <Modal {...args} data-testid={meta.title} />;
-
-export const Default = Template.bind({}) as typeof Template;
+export const Default: Story<ModalProps> = (args) => <Modal {...args} data-testid={meta.title} />;
 
 Default.parameters = {
+  description: {
+    component: 'Please see examples below the documentation table.',
+  },
   docs: {
-    // eslint-disable-next-line react/display-name
     page: () => (
       <>
         {/* Because the modal is a portal that spans the content of the page, we want to not make the args table
