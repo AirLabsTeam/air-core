@@ -1,6 +1,7 @@
 import React from 'react';
 import { color, compose, space, variant } from 'styled-system';
 import css, { get } from '@styled-system/css';
+import { As } from '@reach/utils';
 import styled from 'styled-components';
 
 import { Theme, TXProp } from './theme';
@@ -41,10 +42,7 @@ type Attributes<TElement = HTMLDivElement> = TElement extends
 
 export type BoxProps<TElement = HTMLDivElement> = Omit<Attributes<TElement>, 'as' | 'key' | 'ref'> &
   BoxStylingProps & {
-    as?:
-      | keyof JSX.IntrinsicElements
-      | React.ComponentType<any>
-      | React.ForwardRefExoticComponent<any>;
+    as?: As;
   };
 
 const inlineStyles = ({ tx, theme }: any) => css({ ...tx })(theme);
