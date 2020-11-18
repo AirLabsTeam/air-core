@@ -255,7 +255,7 @@ export const Modal = ({
                 <Box as={AlertDialogDescription}>{modalDescription}</Box>
               )}
 
-              {children}
+              <Text variant="text-ui-16">{children}</Text>
             </Box>
           </Box>
         )}
@@ -306,7 +306,7 @@ export const Modal = ({
               </Box>
             )}
 
-            {children}
+            <Text variant="text-ui-16">{children}</Text>
           </Box>
         </Box>
       )}
