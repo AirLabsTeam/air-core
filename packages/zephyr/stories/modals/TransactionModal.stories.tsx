@@ -9,7 +9,6 @@ import {
   Stories,
   PRIMARY_STORY,
 } from '@storybook/addon-docs/blocks';
-import { Box } from '../../src/Box';
 import { Button } from '../../src/Button';
 import { TransactionModal, TransactionModalProps } from '../../src/Modals/TransactionModal';
 import { modalStoryDecorator } from './shared';
@@ -117,57 +116,6 @@ export const DestructiveActionModal: Story<TransactionModalProps> = () => {
         }}
         secondaryCTA={{ children: 'Nevermind', onClick: closeModal }}
       />
-    </>
-  );
-};
-
-DestructiveActionModal.parameters = {
-  docs: {
-    description: {
-      story: `While we can manually dictate if the modal renders as an alert modal with the "isAlertModal" prop, there's
-        also one scenario where the decision is made automatically... when the primary CTA is of the variant:
-        "button-filled-destructive".`,
-    },
-  },
-};
-
-export const TransactionModalWithThreeActions: Story<TransactionModalProps> = () => {
-  const [isModalOpen, setIsModalOpen] = useState(isChromatic());
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
-
-  const saveItem = () => {
-    window.alert(`Saved!`);
-    closeModal();
-  };
-
-  const deleteItem = () => {
-    window.alert(`Deleted!`);
-    closeModal();
-  };
-
-  return (
-    <>
-      <Button type="button" onClick={openModal} variant="button-filled-blue">
-        Open Transaction Modal
-      </Button>
-
-      <TransactionModal
-        isOpen={isModalOpen}
-        onDismiss={closeModal}
-        modalLabel="Edit Thing"
-        modalDescription="Fill out this form to edit the thing."
-        primaryCTA={{ children: 'Save', onClick: saveItem, type: 'submit' }}
-        secondaryCTA={{ children: 'Cancel', onClick: closeModal }}
-        tertiaryCTA={{ children: 'Delete', onClick: deleteItem }}
-      >
-        <Box
-          as="p"
-          tx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', my: 32 }}
-        >
-          {`Pretend there's a form here 🤷‍♂️`}
-        </Box>
-      </TransactionModal>
     </>
   );
 };
