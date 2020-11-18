@@ -3,6 +3,10 @@ import { Box } from '../Box';
 import { Button, ButtonProps } from '../Button';
 import { Modal, ModalProps } from './Modal';
 
+export const TRANSACTION_MODAL_PRIMARY_CTA = 'TRANSACTION_MODAL_PRIMARY_CTA';
+export const TRANSACTION_MODAL_SECONDARY_CTA = 'TRANSACTION_MODAL_SECONDARY_CTA';
+export const TRANSACTION_MODAL_TERTIARY_CTA = 'TRANSACTION_MODAL_TERTIARY_CTA';
+
 export type TransactionModalButton = Pick<ButtonProps, 'children' | 'onClick' | 'type' | 'variant'>;
 
 export interface TransactionModalProps
@@ -51,19 +55,31 @@ export const TransactionModal = ({
   );
 
   const primaryCTAElement = isUsingButtonSchema(primaryCTA) ? (
-    <Button variant="button-filled-blue" {...primaryCTA} />
+    <Button
+      variant="button-filled-blue"
+      data-testid={TRANSACTION_MODAL_PRIMARY_CTA}
+      {...primaryCTA}
+    />
   ) : (
     primaryCTA
   );
 
   const secondaryCTAElement = !secondaryCTA ? null : isUsingButtonSchema(secondaryCTA) ? (
-    <Button variant="button-ghost-grey" {...secondaryCTA} />
+    <Button
+      variant="button-ghost-grey"
+      data-testid={TRANSACTION_MODAL_SECONDARY_CTA}
+      {...secondaryCTA}
+    />
   ) : (
     secondaryCTA
   );
 
   const tertiaryCTAElement = !tertiaryCTA ? null : isUsingButtonSchema(tertiaryCTA) ? (
-    <Button variant="button-ghost-destructive" {...tertiaryCTA} />
+    <Button
+      variant="button-ghost-destructive"
+      data-testid={TRANSACTION_MODAL_TERTIARY_CTA}
+      {...tertiaryCTA}
+    />
   ) : (
     tertiaryCTA
   );

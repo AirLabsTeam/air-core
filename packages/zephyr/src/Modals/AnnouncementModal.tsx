@@ -6,6 +6,8 @@ import { Button } from '../Button';
 import { Text } from '../Text';
 import { Modal, ModalProps } from './Modal';
 
+export const ANNOUNCEMENT_MODAL_CTA = 'ANNOUNCEMENT_MODAL_CTA';
+
 /** A callback that requires the usage of onDismiss and ref to keep things accessible! */
 export type AnnouncementModalCTARenderProp = ({
   onDismiss,
@@ -43,7 +45,7 @@ export const AnnouncementModal = ({
   /* eslint-disable react/display-name */
   const CTAElement = isString(cta)
     ? React.forwardRef((props, ref) => (
-        <Button onClick={onDismiss} {...props} ref={ref}>
+        <Button onClick={onDismiss} data-testid={ANNOUNCEMENT_MODAL_CTA} {...props} ref={ref}>
           {cta}
         </Button>
       ))
