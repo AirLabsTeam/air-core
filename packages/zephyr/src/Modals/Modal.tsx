@@ -175,9 +175,8 @@ export const Modal = ({
     pt: 32,
     pb: 28,
     mx: 'auto',
-    mt: [32, '8vw'],
-    mb: [128, 16], // 8rem needed to account for bottom areas on iOS browsers.
-    minHeight: ['calc(100vh - 64px)', '100px'], // margin-top * 2 = 64px
+    mt: [32, '10vw'],
+    minHeight: '100px',
     maxWidth: '100vw',
     color: 'pigeon700',
     '&:focus:not(:focus-visible)': {
