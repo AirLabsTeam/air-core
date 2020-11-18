@@ -1,5 +1,5 @@
 {
-  "exclude": ["**/node_modules", "**/dist", "**/stories", "**/test"],
+  "exclude": ["**/node_modules", "**/dist", "**/test"],
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig.json to read more about this file */
     "allowJs": false,
