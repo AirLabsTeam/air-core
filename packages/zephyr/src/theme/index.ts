@@ -68,9 +68,7 @@ interface StyledSystemProps
  * and bare-minimum typesafety. Think of it as a theme-aware CSS and styled-system props, but in an object.
  */
 export type TXProp =
-  | (StyledSystemProps &
-      Omit<CSSProperties, keyof StyledSystemProps> &
-      Omit<CSSProperties, keyof StyledSystemProps>)
+  | (StyledSystemProps & Omit<CSSProperties, keyof StyledSystemProps>)
   | {
       /** Typically meant for CSS keys where we have no prescribed theme values or pseudoselectors */
       [whateverTheHellYouWant: string]:
