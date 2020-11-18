@@ -41,7 +41,7 @@ import _DoubleChevronRight from './svgs/uncategorized/DoubleChevron-Right.svg';
 import _DoubleChevronUp from './svgs/uncategorized/DoubleChevron-Up.svg';
 import _Download from './svgs/uncategorized/Download.svg';
 import _Downtick from './svgs/uncategorized/Downtick.svg';
-import _Dribble from './svgs/uncategorized/Dribble.svg';
+import _Dribbble from './svgs/uncategorized/Dribbble.svg';
 import _Dropbox from './svgs/uncategorized/Dropbox.svg';
 import _Edit from './svgs/uncategorized/Edit.svg';
 import _Ellipsis from './svgs/uncategorized/Ellipsis.svg';
@@ -159,7 +159,7 @@ export const DoubleChevronRight = (props?: BoxProps<SVGElement>) => <Box as={_Do
 export const DoubleChevronUp = (props?: BoxProps<SVGElement>) => <Box as={_DoubleChevronUp} {...props} />;
 export const Download = (props?: BoxProps<SVGElement>) => <Box as={_Download} {...props} />;
 export const Downtick = (props?: BoxProps<SVGElement>) => <Box as={_Downtick} {...props} />;
-export const Dribble = (props?: BoxProps<SVGElement>) => <Box as={_Dribble} {...props} />;
+export const Dribbble = (props?: BoxProps<SVGElement>) => <Box as={_Dribbble} {...props} />;
 export const Dropbox = (props?: BoxProps<SVGElement>) => <Box as={_Dropbox} {...props} />;
 export const Edit = (props?: BoxProps<SVGElement>) => <Box as={_Edit} {...props} />;
 export const Ellipsis = (props?: BoxProps<SVGElement>) => <Box as={_Ellipsis} {...props} />;
