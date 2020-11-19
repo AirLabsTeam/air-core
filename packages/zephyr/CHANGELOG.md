@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.1.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@5.0.1...@air/zephyr@5.1.0) (2020-11-19)
+
+### Features
+
+- **@air/zephyr/text:** resolve type discrepancies on <Text> component when using "as" prop ([ab92a98](https://github.com/AirLabsTeam/web-core/commit/ab92a98afb5fcb7f37f290a62a6af5db78f5390e))
+
 ## [5.0.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@5.0.0...@air/zephyr@5.0.1) (2020-11-19)
 
 ### Bug Fixes
