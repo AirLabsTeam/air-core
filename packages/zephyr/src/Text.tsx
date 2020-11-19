@@ -1,9 +1,9 @@
 import React from 'react';
 import { forwardRefWithAs, PropsWithAs } from '@reach/utils';
-import { Box } from './Box';
+import { Box, BoxStylingProps } from './Box';
 import { TextVariantName } from './theme/variants/text';
 
-export type NonSemanticTextProps = {
+export type NonSemanticTextProps = Pick<BoxStylingProps, 'tx'> & {
   variant?: TextVariantName | TextVariantName[];
 };
 
