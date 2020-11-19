@@ -17,7 +17,7 @@ import { isString } from 'lodash';
 import { useTheme } from 'styled-components';
 import { MODAL_OVERLAY, ALERT_MODAL_OVERLAY } from '../testIDs';
 import { Box, BoxStylingProps } from '../Box';
-import { Button } from '../Button';
+import { Button, ButtonProps } from '../Button';
 import { Text } from '../Text';
 import { ModalVariantName } from '../theme/variants/modal';
 
@@ -144,18 +144,21 @@ export const Modal = ({
   const isModalDescriptionString = isString(modalDescription);
   const hasDescription = !!modalDescription;
 
-  const CloseButton = () => (
+  const CloseButton = React.forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => (
     <Button
       onClick={onDismiss}
-      ref={closeButtonRef}
       tx={{ position: 'absolute', top: '1.25rem', right: '1.5rem' }}
       variant="button-unstyled"
       data-testid={MODAL_CLOSE_BUTTON}
+      {...props}
+      ref={ref}
     >
       <VisuallyHidden>Close Modal</VisuallyHidden>
       <Close tx={{ width: 32, color: 'pigeon400' }} />
     </Button>
-  );
+  ));
+
+  CloseButton.displayName = 'CloseButton';
 
   const overlayStyles = {
     position: 'fixed',
@@ -237,7 +240,7 @@ export const Modal = ({
               tx={tx}
               variant={variant}
             >
-              {withCloseButton && <CloseButton />}
+              {withCloseButton && <CloseButton ref={closeButtonRef} />}
 
               {isModalLabelString ? (
                 <Box as={AlertDialogLabel} tx={modalLabelLayoutStyles}>
@@ -286,7 +289,7 @@ export const Modal = ({
             aria-labelledby={labelId}
             aria-describedby={hasDescription ? descriptionId : undefined}
           >
-            {withCloseButton && <CloseButton />}
+            {withCloseButton && <CloseButton ref={closeButtonRef} />}
 
             {isModalLabelString ? (
               <Box id={labelId} tx={modalLabelLayoutStyles}>
