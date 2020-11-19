@@ -42,7 +42,7 @@ export const GridOfAllIcons: Story<SVGProps<SVGElement>> = (args) => {
         return (
           <div key={iconName}>
             <h6 style={{ fontFamily: 'sans-serif' }}>{iconName}</h6>
-            <Icon {...args} tx={{ width: '24px' }} />
+            <Icon {...args} width="32" />
           </div>
         );
       })}
