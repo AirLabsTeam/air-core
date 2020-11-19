@@ -9,6 +9,7 @@ import {
   AlertDialogOverlay,
   AlertDialogProps,
 } from '@reach/alert-dialog';
+import { Close } from '@air/icons';
 import invariant from 'tiny-invariant';
 import { AnimatePresence, motion, MotionProps, useReducedMotion } from 'framer-motion';
 import { rgba } from 'polished';
@@ -153,23 +154,7 @@ export const Modal = ({
       ref={ref}
     >
       <VisuallyHidden>Close Modal</VisuallyHidden>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        aria-hidden="true"
-        viewBox="0 0 32 32"
-        width="32"
-        color={theme.colors.pigeon400}
-      >
-        <title>Close</title>
-        <path
-          fill="none"
-          stroke="currentColor"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth="2"
-          d="M10 10l12 12m0-12L10 22"
-        />
-      </svg>
+      <Close color={theme.colors.pigeon400} width="32" />
     </Button>
   ));
 

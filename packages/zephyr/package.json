@@ -39,10 +39,12 @@
     "lint": "tsdx lint"
   },
   "peerDependencies": {
+    "@air/icons": ">=4",
     "framer-motion": ">=2",
     "react": ">=16"
   },
   "devDependencies": {
+    "@air/icons": "^4.0.0",
     "@styled-system/css": "^5.1.5",
     "@types/styled-system": "^5.1.10",
     "@types/styled-system__css": "^5.0.14",
