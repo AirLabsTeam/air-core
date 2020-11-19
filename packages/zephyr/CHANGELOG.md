@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.1.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@5.1.1...@air/zephyr@5.1.2) (2020-11-19)
+
+### Bug Fixes
+
+- target correct file for ESM file ([a6346bd](https://github.com/AirLabsTeam/web-core/commit/a6346bdd3c13f13308e20bbb8e7596c73da9b484))
+
 ## [5.1.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@5.1.0...@air/zephyr@5.1.1) (2020-11-19)
 
 ### Bug Fixes

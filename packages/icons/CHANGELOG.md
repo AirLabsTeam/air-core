@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@3.1.1...@air/icons@4.0.0) (2020-11-19)
+
+### Bug Fixes
+
+- discontinue the wrapping of icons in @air/zephyr/Box ([c5f89c1](https://github.com/AirLabsTeam/web-core/commit/c5f89c142b2c287425046ffd886ad97b84c4f9bd))
+
+### BREAKING CHANGES
+
+- We're now exporting React.SVGElements vs. Box components in @air/icons
+
 ## [3.1.1](https://github.com/AirLabsTeam/web-core/compare/@air/icons@3.1.0...@air/icons@3.1.1) (2020-11-18)
 
 ### Bug Fixes
