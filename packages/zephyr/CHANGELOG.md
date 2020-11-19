@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.1.3](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@5.1.2...@air/zephyr@5.1.3) (2020-11-19)
+
+### Bug Fixes
+
+- use v4 @air/icons in @air/zephyr ([06726a3](https://github.com/AirLabsTeam/web-core/commit/06726a36f90f4e160efaa9b2dc016b02f35b95cc))
+
 ## [5.1.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@5.1.1...@air/zephyr@5.1.2) (2020-11-19)
 
 ### Bug Fixes
