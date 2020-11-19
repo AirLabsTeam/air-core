@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.1.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@5.1.0...@air/zephyr@5.1.1) (2020-11-19)
+
+### Bug Fixes
+
+- **@air/zephyr/text:** fix missing tx prop ([acfb7b5](https://github.com/AirLabsTeam/web-core/commit/acfb7b5548f0adb35d0e58b9dd3a26ccac0a964f))
+
 # [5.1.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@5.0.1...@air/zephyr@5.1.0) (2020-11-19)
 
 ### Features
