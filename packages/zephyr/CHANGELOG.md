@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@5.0.0...@air/zephyr@5.0.1) (2020-11-19)
+
+### Bug Fixes
+
+- resolve issue with ref on close button ([4f28dd0](https://github.com/AirLabsTeam/web-core/commit/4f28dd0e57eff54418f4012bda086903b235463a))
+
 # [5.0.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@4.2.4...@air/zephyr@5.0.0) (2020-11-18)
 
 ### Bug Fixes
