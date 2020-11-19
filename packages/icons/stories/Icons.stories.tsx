@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { SVGProps } from 'react';
 import { Story } from '@storybook/react';
-import { BoxProps } from '@air/zephyr';
 
 /*
  * We don't want to import the src modules lest we need to maintain a development environment via a
@@ -26,7 +25,7 @@ export default {
   },
 };
 
-export const GridOfAllIcons: Story<BoxProps<SVGElement>> = (args) => {
+export const GridOfAllIcons: Story<SVGProps<SVGElement>> = (args) => {
   return (
     <div
       style={{
