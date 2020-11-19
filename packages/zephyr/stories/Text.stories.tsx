@@ -116,3 +116,10 @@ UI.parameters = {
     },
   },
 };
+
+export const TextAs: Story<TextProps> = (args) => (
+  <Text {...args} as="span" variant="text-ui-16">
+    This story acts as an integration test asserting that we can render the item as another semantic
+    element.
+  </Text>
+);
