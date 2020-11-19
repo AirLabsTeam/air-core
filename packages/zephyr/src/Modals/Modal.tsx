@@ -12,7 +12,6 @@ import {
 import invariant from 'tiny-invariant';
 import { AnimatePresence, motion, MotionProps, useReducedMotion } from 'framer-motion';
 import { rgba } from 'polished';
-import { Close } from '@air/icons';
 import { isString } from 'lodash';
 import { useTheme } from 'styled-components';
 import { MODAL_OVERLAY, ALERT_MODAL_OVERLAY } from '../testIDs';
@@ -154,7 +153,23 @@ export const Modal = ({
       ref={ref}
     >
       <VisuallyHidden>Close Modal</VisuallyHidden>
-      <Close tx={{ width: 32, color: 'pigeon400' }} />
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+        viewBox="0 0 32 32"
+        width="32"
+        color={theme.colors.pigeon400}
+      >
+        <title>Close</title>
+        <path
+          fill="none"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
+          d="M10 10l12 12m0-12L10 22"
+        />
+      </svg>
     </Button>
   ));
 
