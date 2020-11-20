@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.0.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@5.1.3...@air/zephyr@6.0.0) (2020-11-20)
+
+### Bug Fixes
+
+- remove "ref" from the prop typings for both Button and Text ([400e3bb](https://github.com/AirLabsTeam/web-core/commit/400e3bbe3eeed3bfb118189306d1d14378c2a08b))
+
+### BREAKING CHANGES
+
+- Remove "ref" from ButtonProps and TextProps
+
 ## [5.1.3](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@5.1.2...@air/zephyr@5.1.3) (2020-11-19)
 
 ### Bug Fixes
