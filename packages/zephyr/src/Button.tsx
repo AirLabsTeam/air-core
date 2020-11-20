@@ -14,7 +14,7 @@ export type NonSemanticButtonProps = Pick<BoxStylingProps, 'tx'> & {
   variant?: ButtonVariantName;
 };
 
-export interface ButtonProps extends PropsWithAs<'button', NonSemanticButtonProps> {}
+export interface ButtonProps extends Omit<PropsWithAs<'button', NonSemanticButtonProps>, 'ref'> {}
 
 const Button = forwardRefWithAs<NonSemanticButtonProps, 'button'>(
   (
