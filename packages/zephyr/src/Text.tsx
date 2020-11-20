@@ -7,7 +7,7 @@ export type NonSemanticTextProps = Pick<BoxStylingProps, 'tx'> & {
   variant?: TextVariantName | TextVariantName[];
 };
 
-export interface TextProps extends PropsWithAs<'div', NonSemanticTextProps> {}
+export interface TextProps extends Omit<PropsWithAs<'div', NonSemanticTextProps>, 'ref'> {}
 
 export const Text = forwardRefWithAs<NonSemanticTextProps, 'div'>(
   ({ variant = 'text-ui-16', ...restOfProps }: TextProps, ref) => {
