@@ -19,10 +19,10 @@ export default {
     docs: {
       description: {
         component:
-          "Icon svgs can now be imported directly inside a React component\
-          `import { Air as AirIcon } from '@air/icons';`\
-          Then you can use the icon as a component and it's stroke and fill color should match the current color of the element or container.\
-          `<AirIcon width="65" color={theme.colors.jay500} />`  ",
+          'Icon svgs can now be imported directly inside a React component\
+          `import { Air as AirIcon } from \'@air/icons\';`\
+          Then you can use the icon as a component and its stroke and fill color should match the current color of the element or container.\
+          `<AirIcon width="65" color={theme.colors.jay500} />`  ',
       },
     },
   },
