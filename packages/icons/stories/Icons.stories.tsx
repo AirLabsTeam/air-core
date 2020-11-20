@@ -19,7 +19,10 @@ export default {
     docs: {
       description: {
         component:
-          'Air icons are clear and simple. Each one of them sets the tone and language for our platform and help the user understand the concept it represents.',
+          'Icon svgs can now be imported directly inside a React component\
+          `import { Air as AirIcon } from \'@air/icons\';`\
+          Then you can use the icon as a component and its stroke and fill color should match the current color of the element or container.\
+          `<AirIcon width="65" color={theme.colors.jay500} />`  ',
       },
     },
   },
