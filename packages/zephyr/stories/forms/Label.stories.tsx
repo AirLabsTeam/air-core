@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react';
 import { Label, LabelProps } from '../../src/Forms/Label';
 
 const meta: Meta<LabelProps> = {
-  title: 'Zephyr/Forms/Label',
+  title: 'Zephyr/🚧 Under Construction/Forms/Label',
   component: Label,
 };
 
