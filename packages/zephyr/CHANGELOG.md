@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.1.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@6.0.0...@air/zephyr@6.1.0) (2020-12-02)
+
+### Features
+
+- **zephyr/text:** update fontFeatureSettings for text heading variants ([6b5ca9d](https://github.com/AirLabsTeam/web-core/commit/6b5ca9d3097e26312ae124d481bd6d8d582ea336))
+
 # [6.0.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@5.1.3...@air/zephyr@6.0.0) (2020-11-20)
 
 ### Bug Fixes
