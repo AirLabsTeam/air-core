@@ -24,7 +24,8 @@ export type TextVariantName =
 const _text: { [key in TextVariantName]: TXProp } = {
   'text-heading-72': {
     fontFamily: 'display',
-    fontFeatureSettings: `'ss03' on, 'ss02' on`,
+    // fontFeatureSettings are for an alternate character set available to the Gelica font
+    fontFeatureSettings: `'salt' on, 'ss01' on`,
     fontSize: 72,
     fontWeight: 'medium',
     letterSpacing: '0.03em',
@@ -32,7 +33,7 @@ const _text: { [key in TextVariantName]: TXProp } = {
   },
   'text-heading-64': {
     fontFamily: 'display',
-    fontFeatureSettings: `'ss03' on, 'ss02' on`,
+    fontFeatureSettings: `'salt' on, 'ss01' on`,
     fontSize: 64,
     fontWeight: 'medium',
     letterSpacing: '0.02em',
@@ -40,7 +41,7 @@ const _text: { [key in TextVariantName]: TXProp } = {
   },
   'text-heading-56': {
     fontFamily: 'display',
-    fontFeatureSettings: `'ss03' on, 'ss02' on`,
+    fontFeatureSettings: `'salt' on, 'ss01' on`,
     fontSize: 56,
     fontWeight: 'medium',
     letterSpacing: '0.03em',
@@ -48,7 +49,7 @@ const _text: { [key in TextVariantName]: TXProp } = {
   },
   'text-heading-48': {
     fontFamily: 'display',
-    fontFeatureSettings: `'ss03' on, 'ss02' on`,
+    fontFeatureSettings: `'salt' on, 'ss01' on`,
     fontSize: 48,
     fontWeight: 'medium',
     letterSpacing: '0.03em',
@@ -56,7 +57,7 @@ const _text: { [key in TextVariantName]: TXProp } = {
   },
   'text-heading-40': {
     fontFamily: 'display',
-    fontFeatureSettings: `'ss03' on, 'ss02' on`,
+    fontFeatureSettings: `'salt' on, 'ss01' on`,
     fontSize: 40,
     fontWeight: 'medium',
     letterSpacing: '0.03em',
@@ -64,7 +65,7 @@ const _text: { [key in TextVariantName]: TXProp } = {
   },
   'text-heading-32': {
     fontFamily: 'display',
-    fontFeatureSettings: `'ss03' on, 'ss02' on`,
+    fontFeatureSettings: `'salt' on, 'ss01' on`,
     fontSize: 32,
     fontWeight: 'medium',
     letterSpacing: '0.03em',
@@ -72,7 +73,7 @@ const _text: { [key in TextVariantName]: TXProp } = {
   },
   'text-heading-24': {
     fontFamily: 'display',
-    fontFeatureSettings: `'ss03' on, 'ss02' on`,
+    fontFeatureSettings: `'salt' on, 'ss01' on`,
     fontSize: 24,
     fontWeight: 'medium',
     letterSpacing: '0.03em',
@@ -80,7 +81,7 @@ const _text: { [key in TextVariantName]: TXProp } = {
   },
   'text-heading-20': {
     fontFamily: 'display',
-    fontFeatureSettings: `'ss03' on, 'ss02' on`,
+    fontFeatureSettings: `'salt' on, 'ss01' on`,
     fontSize: 20,
     fontWeight: 'medium',
     letterSpacing: '0.03em',
@@ -88,7 +89,7 @@ const _text: { [key in TextVariantName]: TXProp } = {
   },
   'text-heading-18': {
     fontFamily: 'display',
-    fontFeatureSettings: `'ss03' on, 'ss02' on`,
+    fontFeatureSettings: `'salt' on, 'ss01' on`,
     fontSize: 18,
     fontWeight: 'medium',
     letterSpacing: '0.03em',
@@ -96,7 +97,7 @@ const _text: { [key in TextVariantName]: TXProp } = {
   },
   'text-heading-16': {
     fontFamily: 'display',
-    fontFeatureSettings: `'ss03' on, 'ss02' on`,
+    fontFeatureSettings: `'salt' on, 'ss01' on`,
     fontSize: 16,
     fontWeight: 'medium',
     letterSpacing: '0.03em',
