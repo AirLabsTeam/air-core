@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.0.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@6.1.0...@air/zephyr@7.0.0) (2020-12-03)
+
+### Features
+
+- **@air/zephyr/theme:** rename, remove, and add colors to Zephyr ([4c7b485](https://github.com/AirLabsTeam/web-core/commit/4c7b4852bbec80a3831b5295c4dd7d234c26688c))
+
+### BREAKING CHANGES
+
+- **@air/zephyr/theme:** Some color names were removed or renamed.
+
 # [6.1.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@6.0.0...@air/zephyr@6.1.0) (2020-12-02)
 
 ### Features
