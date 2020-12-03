@@ -19,8 +19,7 @@ export type TextVariantName =
   | 'text-ui-16'
   | 'text-ui-14'
   | 'text-ui-12'
-  | 'text-ui-10'
-  | 'text-error-12';
+  | 'text-ui-10';
 
 const _text: { [key in TextVariantName]: TXProp } = {
   'text-heading-72': {
@@ -159,13 +158,6 @@ const _text: { [key in TextVariantName]: TXProp } = {
     fontFamily: 'copy',
     fontSize: 10,
     lineHeight: '12px',
-  },
-  'text-error-12': {
-    fontFamily: 'copy',
-    fontSize: 12,
-    fontWeight: 'semibold',
-    lineHeight: 1.5,
-    color: 'flamingo600',
   },
 };
 

@@ -185,7 +185,13 @@ const Input = ({
 
       {/* Could use Formik's ErrorMessage component, but already defined `hasError` for aria-invalid */}
       {hasError && (
-        <Text as="span" id={errorIdentifier} role="alert" variant="text-error-12" tx={{ mt: 8 }}>
+        <Text
+          as="span"
+          id={errorIdentifier}
+          role="alert"
+          variant="text-ui-12"
+          tx={{ mt: 8, fontWeight: 'semibold', color: 'flamingo600' }}
+        >
           {capitalize(meta.error)}
         </Text>
       )}
