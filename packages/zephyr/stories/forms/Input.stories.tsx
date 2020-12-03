@@ -60,7 +60,7 @@ const Template: Story<InputProps> = (args) => (
   <Input {...args} label="Some Input" name={fieldName} data-testid={meta.title} />
 );
 
-export const Default = Template.bind({}) as typeof Template;
+export const Default = Template.bind({});
 
 Default.args = {
   autoComplete: 'off',
