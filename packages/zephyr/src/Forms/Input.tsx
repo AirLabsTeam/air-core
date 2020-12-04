@@ -162,7 +162,7 @@ const sharedAdornmentStyles: BoxStylingProps['tx'] = {
 
 const sharedBottomTextStyles: BoxStylingProps['tx'] = {
   position: 'absolute',
-  bottom: -26, // text is 18px high + 8px space between bottom input border and top of text
+  bottom: -24, // text is 18px high + 6px space between bottom input border and top of text
 };
 
 const Input = ({

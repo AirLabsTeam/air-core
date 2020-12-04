@@ -204,6 +204,17 @@ export const Disabled: Story<InputProps> = () => (
 
 Disabled.decorators = [FormikDecorator];
 
+export const WithPlaceholder: Story<InputProps> = () => (
+  <Input
+    label="Placeholder"
+    placeholder="This is a placeholder..."
+    name="nonRequired"
+    required={false}
+  />
+);
+
+WithPlaceholder.decorators = [FormikDecorator];
+
 export const FilledInputs: Story<InputProps> = () => {
   const validationSchema = object({
     email: string().default('kyle-test@air.inc'),

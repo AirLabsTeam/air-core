@@ -16,21 +16,25 @@ const commonStyles: TXProp = {
   py: 10,
   px: 12,
   outline: 'none',
-  '&:focus:not(:disabled), &:focus:not([aria-invalid="true"])': {
-    borderColor: 'jay400',
-    boxShadow: (theme: any) => `${theme.colors.jay400} 0 0 0 1px`,
-  },
-  '&:hover:not(:disabled), &:hover:not([aria-invalid="true"])': {
-    borderColor: 'pigeon400',
-  },
   '&:disabled': {
     opacity: 0.75,
+  },
+
+  // hover states
+  '&:hover:not(:disabled):not(:focus):not([aria-invalid="true"])': {
+    borderColor: 'pigeon400',
+  },
+  '&[aria-invalid="true"], &[aria-invalid="true"]:hover': {
+    borderColor: 'flamingo600',
   },
   '&:disabled:hover': {
     cursor: 'not-allowed',
   },
-  '&[aria-invalid="true"], &[aria-invalid="true"]:hover': {
-    borderColor: 'flamingo600',
+
+  // focus states
+  '&:focus:not(:disabled), &:focus:not([aria-invalid="true"])': {
+    borderColor: 'macaw200',
+    boxShadow: (theme: any) => `${theme.colors.macaw200} 0 0 0 1px`,
   },
   '&[aria-invalid="true"]:focus': {
     borderColor: 'flamingo600',
