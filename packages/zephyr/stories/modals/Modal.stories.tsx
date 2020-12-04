@@ -23,9 +23,6 @@ export default meta;
 export const Default: Story<ModalProps> = (args) => <Modal {...args} data-testid={meta.title} />;
 
 Default.parameters = {
-  description: {
-    component: 'Please see examples below the documentation table.',
-  },
   docs: {
     page: () => (
       <>
