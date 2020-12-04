@@ -3,7 +3,8 @@ import { Story, Meta } from '@storybook/react';
 import { Formik, Form } from 'formik';
 import { object, string } from 'yup';
 import { StoryFnReactReturnType } from '@storybook/react/dist/client/preview/types';
-import { Search, EyeClosed } from '@air/icons';
+import { Search, EyeClosed, Eye } from '@air/icons';
+import VisuallyHidden from '@reach/visually-hidden';
 import { noop } from 'lodash';
 import { Box } from '../../src/Box';
 import { Button } from '../../src/Button';
@@ -25,13 +26,22 @@ const FormikDecorator = (Story: () => StoryFnReactReturnType) => {
           as={Form}
           tx={{
             display: 'flex',
-            alignItems: 'flex-end',
-            pb: 12, // only here so that input error messages don't look crammed
+            flexDirection: 'column',
+            width: 300,
           }}
+          noValidate // hides HTML5 default validations on submit
         >
           <Story />
 
-          <Button type="submit" variant="button-filled-blue" tx={{ ml: 8 }}>
+          <br />
+
+          <Button
+            type="submit"
+            variant="button-filled-blue"
+            tx={{
+              my: 16, // only here so that input error messages don't look crammed
+            }}
+          >
             Validate
           </Button>
         </Box>
@@ -71,10 +81,11 @@ Default.parameters = {
     source: {
       code: `
 () => {
+  // This validation schema supplies every input in this story page.
   const validationSchema = object({
     required: string().required('Required').default(''),
     nonRequired: string().default(''),
-    disabled: string().default('Nobody'),
+    disabled: string().required('Required').default('Nobody'),
   });
 
   const initialValues = validationSchema.cast({})!;
@@ -86,13 +97,22 @@ Default.parameters = {
           as={Form}
           tx={{
             display: 'flex',
-            alignItems: 'flex-end',
-            pb: 12, // only here so that input error messages don't look crammed
+            flexDirection: 'column',
           }}
         >
+          {/* "args" represents values passed via "args table" */}
           {(args) => <Input {...args} name="required" />}
 
-          <Button type="submit" variant="button-filled-blue" tx={{ ml: 8 }}>
+          <br />
+
+          <Button
+            type="submit"
+            variant="button-filled-blue"
+            tx={{
+              my: 12, // only here so that input error messages don't look crammed
+              width: '100%',
+            }}
+          >
             Validate
           </Button>
         </Box>
@@ -126,34 +146,53 @@ WithLeftAdornment.parameters = {
   },
 };
 
-export const WithRightAdornment: Story<InputProps> = () => (
-  <Input
-    label="Password"
-    type="password"
-    required={true}
-    name="required"
-    id="WithRightAdornment"
-    adornment={{
-      location: 'right',
-      component: <EyeClosed />,
-    }}
-  />
-);
+export const PasswordField: Story<InputProps> = () => {
+  const [isValueVisible, setIsValueVisible] = React.useState(false);
+  const fieldID = 'Password';
+  const showValue = () => setIsValueVisible(true);
+  const hideValue = () => setIsValueVisible(false);
+  const toggleValueVisibility = () => (isValueVisible ? hideValue() : showValue());
 
-WithRightAdornment.parameters = {
-  docs: {
-    description: {
-      story: 'Often used to build a password input as rendered below:',
-    },
-  },
+  return (
+    <>
+      <Input
+        label="Password"
+        type={isValueVisible ? 'text' : 'password'}
+        required
+        description={{
+          isHidden: false,
+          component: (
+            <>
+              Password must be 10 characters long.{' '}
+              <VisuallyHidden>Password visibility control exists after input.</VisuallyHidden>
+            </>
+          ),
+        }}
+        name="required"
+        id={fieldID}
+        adornment={{
+          location: 'right',
+          component: (
+            <Button
+              onClick={toggleValueVisibility}
+              aria-controls={fieldID}
+              aria-expanded={isValueVisible}
+              variant="button-unstyled"
+              tx={{
+                color: 'inherit',
+                '> svg': { width: '100%' },
+              }}
+            >
+              <VisuallyHidden>{isValueVisible ? 'Hide password' : 'Show password'}</VisuallyHidden>
+              {isValueVisible ? <Eye /> : <EyeClosed />}
+            </Button>
+          ),
+        }}
+      />
+    </>
+  );
 };
 
 export const Disabled: Story<InputProps> = () => (
-  <Input
-    label="Who is cooler than Kyle?"
-    disabled={true}
-    name="disabled"
-    id="Disabled"
-    required={true}
-  />
+  <Input label="Who is cooler than Kyle?" disabled name="disabled" required />
 );
