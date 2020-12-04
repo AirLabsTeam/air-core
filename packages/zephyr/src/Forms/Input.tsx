@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { useField } from 'formik';
 import { capitalize } from 'lodash';
+import VisuallyHidden from '@reach/visually-hidden';
 import { Box, BoxStylingProps } from '../Box';
 import { Text } from '../Text';
 import { Label } from './Label';
@@ -73,7 +74,7 @@ export interface InputProps extends Pick<BoxStylingProps, 'tx'> {
   /**
    * The content of the label. No need for * when required - it's added automatically.
    */
-  label: React.ReactNode;
+  label: string;
 
   /**
    * Should match the relevant key name inside the Formik schema.
@@ -86,7 +87,7 @@ export interface InputProps extends Pick<BoxStylingProps, 'tx'> {
   isLabelHidden?: boolean;
 
   /**
-   * Maximum value for numeric type
+   * Maximum value for numeric type.
    */
   max?: number | string;
 
@@ -96,12 +97,12 @@ export interface InputProps extends Pick<BoxStylingProps, 'tx'> {
   min?: number | string;
 
   /**
-   * Max number of characters in the value of the input
+   * Max number of characters in the value of the input.
    */
   maxLength?: number;
 
   /**
-   * Min number of characters in the value of the input
+   * Min number of characters in the value of the input.
    */
   minLength?: number;
 
@@ -111,7 +112,7 @@ export interface InputProps extends Pick<BoxStylingProps, 'tx'> {
   multiple?: boolean;
 
   /**
-   * Text that appears in the form control when it has no value set
+   * Text that appears in the form control when it has no value set.
    */
   placeholder?: string;
 
@@ -121,6 +122,14 @@ export interface InputProps extends Pick<BoxStylingProps, 'tx'> {
    */
   step?: number | string;
 
+  /**
+   * Typically used to render an icon on the left or right side of the input.
+   */
+  adornment?: {
+    location: 'left' | 'right';
+    component: React.ReactNode;
+  };
+
   className?: string;
   id?: string;
   disabled?: boolean;
@@ -128,14 +137,23 @@ export interface InputProps extends Pick<BoxStylingProps, 'tx'> {
   readOnly?: boolean;
 }
 
+const sharedAdornmentStyles: BoxStylingProps['tx'] = {
+  position: 'absolute',
+  width: '16px',
+  height: '16px',
+  color: 'pigeon500',
+  top: '12px',
+};
+
 const Input = ({
+  adornment,
   autoComplete = 'off',
   className,
   id,
   isLabelHidden = false,
   label,
-  placeholder,
   name,
+  placeholder,
   required = false,
   tx,
   type = 'text',
@@ -150,6 +168,7 @@ const Input = ({
     <Box
       className={className}
       tx={{
+        position: 'relative',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'flex-start',
@@ -167,21 +186,35 @@ const Input = ({
         {required ? ' *' : ''}
       </Label>
 
-      <Box
-        as="input"
-        __baseStyles={{ borderRadius: 4 }}
-        aria-describedby={errorIdentifier}
-        aria-invalid={hasError}
-        autoComplete={autoComplete}
-        className={hasError ? 'invalid' : undefined}
-        id={inputIdentifier}
-        placeholder={placeholder}
-        required={required}
-        variant="field-input"
-        type={type}
-        {...field}
-        {...restOfProps}
-      />
+      <Box tx={{ position: 'relative', width: '100%' }}>
+        {adornment?.location === 'left' && (
+          <Box tx={{ ...sharedAdornmentStyles, left: '12px' }}>{adornment.component}</Box>
+        )}
+
+        <Box
+          as="input"
+          __baseStyles={{ borderRadius: 4 }}
+          aria-describedby={errorIdentifier}
+          aria-invalid={hasError}
+          autoComplete={autoComplete}
+          className={hasError ? 'invalid' : undefined}
+          id={inputIdentifier}
+          placeholder={placeholder}
+          required={required}
+          variant="field-input"
+          type={type}
+          tx={{
+            pl: adornment?.location === 'left' ? 36 : 12,
+            pr: adornment?.location === 'right' ? 36 : 12,
+          }}
+          {...field}
+          {...restOfProps}
+        />
+
+        {adornment?.location === 'right' && (
+          <Box tx={{ ...sharedAdornmentStyles, right: '12px' }}>{adornment.component}</Box>
+        )}
+      </Box>
 
       {/* Could use Formik's ErrorMessage component, but already defined `hasError` for aria-invalid */}
       {hasError && (
@@ -190,8 +223,18 @@ const Input = ({
           id={errorIdentifier}
           role="alert"
           variant="text-ui-12"
-          tx={{ mt: 8, fontWeight: 'semibold', color: 'flamingo600' }}
+          tx={{
+            position: 'absolute',
+            bottom: -26, // text is 18px high + 8px space between bottom input border and top of text
+            fontWeight: 'semibold',
+            color: 'flamingo600',
+          }}
         >
+          {/* For screen reader users: If the label is not provided in the error as context, do so automatically. */}
+          {meta.error && !meta.error.includes(label) && (
+            <VisuallyHidden>{`${label}: `}</VisuallyHidden>
+          )}
+
           {capitalize(meta.error)}
         </Text>
       )}

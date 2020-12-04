@@ -3,34 +3,36 @@ import { Story, Meta } from '@storybook/react';
 import { Formik, Form } from 'formik';
 import { object, string } from 'yup';
 import { StoryFnReactReturnType } from '@storybook/react/dist/client/preview/types';
+import { Search, EyeClosed } from '@air/icons';
+import { noop } from 'lodash';
 import { Box } from '../../src/Box';
 import { Button } from '../../src/Button';
 import { Input, InputProps } from '../../src/Forms/Input';
 
-const fieldName = 'test';
-
 const FormikDecorator = (Story: () => StoryFnReactReturnType) => {
-  const validationSchema = object({ [fieldName]: string().required('Required').default('') });
+  const validationSchema = object({
+    required: string().required('Required').default(''),
+    nonRequired: string().default(''),
+  });
   const initialValues = validationSchema.cast({})!;
 
   return (
-    <Formik
-      validationSchema={validationSchema}
-      initialValues={initialValues}
-      onSubmit={() => window.location.reload()}
-    >
+    <Formik validationSchema={validationSchema} initialValues={initialValues} onSubmit={noop}>
       {() => (
-        <Form>
-          <Box tx={{ width: '256px' }}>
-            <Story />
-          </Box>
+        <Box
+          as={Form}
+          tx={{
+            display: 'flex',
+            alignItems: 'flex-end',
+            pb: 12, // only here so that input error messages don't look crammed
+          }}
+        >
+          <Story />
 
-          <br />
-
-          <Button type="submit" variant="button-filled-blue">
-            Submit (Will Reload Canvas)
+          <Button type="submit" variant="button-filled-blue" tx={{ ml: 8 }}>
+            Validate
           </Button>
-        </Form>
+        </Box>
       )}
     </Formik>
   );
@@ -40,40 +42,53 @@ const meta: Meta<InputProps> = {
   title: 'Zephyr/🚧 Under Construction/Forms/Input',
   component: Input,
   decorators: [FormikDecorator],
-
-  /**
-   * It appears that source code generation won't work for any form primitives, unless we hand-write them...
-   * @see https://github.com/storybookjs/storybook/issues/12022#issuecomment-737093581
-   */
-  parameters: {
-    docs: {
-      source: {
-        type: 'off', // not an actual handled value, but kills source code generation
-      },
-    },
-  },
 };
 
 export default meta;
 
-const Template: Story<InputProps> = (args) => (
-  <Input {...args} label="Some Input" name={fieldName} data-testid={meta.title} />
+export const Default: Story<InputProps> = (args) => (
+  <Input {...args} data-testid={meta.title} name="required" />
 );
 
-export const Default = Template.bind({});
-
 Default.args = {
+  label: 'Test',
   autoComplete: 'off',
   disabled: false,
   isLabelHidden: false,
-  required: false,
+  required: true,
   type: 'text',
+  id: 'Default',
 };
 
 Default.parameters = {
   docs: {
-    description: {
-      story: 'An input!',
+    source: {
+      code: 'This specific example does not have copy-pasteable code.',
     },
   },
 };
+
+export const WithLeftAdornment: Story<InputProps> = () => (
+  <Input
+    name="nonRequired"
+    label="Search"
+    id="WithLeftAdornment"
+    adornment={{
+      location: 'left',
+      component: <Search />,
+    }}
+  />
+);
+
+export const WithRightAdornment: Story<InputProps> = () => (
+  <Input
+    name="required"
+    label="Password"
+    type="password"
+    id="WithRightAdornment"
+    adornment={{
+      location: 'right',
+      component: <EyeClosed />,
+    }}
+  />
+);
