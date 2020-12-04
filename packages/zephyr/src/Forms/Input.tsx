@@ -77,6 +77,15 @@ export interface InputProps extends Pick<BoxStylingProps, 'tx'> {
   label: string;
 
   /**
+   * Used to offer a "subtitle" to a label, where you can expand on an input's needs. You can also use this to provide
+   * helpful context to people using screen readers.
+   */
+  description?: {
+    isHidden: boolean;
+    component: React.ReactNode;
+  };
+
+  /**
    * Should match the relevant key name inside the Formik schema.
    */
   name: string;
@@ -151,10 +160,16 @@ const sharedAdornmentStyles: BoxStylingProps['tx'] = {
   width: '16px',
 };
 
+const sharedBottomTextStyles: BoxStylingProps['tx'] = {
+  position: 'absolute',
+  bottom: -26, // text is 18px high + 8px space between bottom input border and top of text
+};
+
 const Input = ({
   adornment,
   autoComplete = 'off',
   className,
+  description,
   id,
   isLabelHidden = false,
   label,
@@ -168,7 +183,8 @@ const Input = ({
 }: InputProps) => {
   const [field, meta] = useField(name);
   const inputIdentifier = id ?? name;
-  const errorIdentifier = `${name}_error`;
+  const errorIdentifier = `${inputIdentifier}_error`;
+  const descriptionIdentifier = `${inputIdentifier}_description`;
   const hasError = meta.touched && !!meta.error;
 
   const testID = React.useMemo(() => {
@@ -208,7 +224,9 @@ const Input = ({
         )}
 
         <Box
-          aria-describedby={errorIdentifier}
+          aria-describedby={
+            !!description ? `${descriptionIdentifier} ${errorIdentifier}` : errorIdentifier
+          }
           aria-invalid={hasError}
           as="input"
           autoComplete={autoComplete}
@@ -231,28 +249,41 @@ const Input = ({
         )}
       </Box>
 
-      {/* Could use Formik's ErrorMessage component, but already defined `hasError` for aria-invalid */}
-      {hasError && (
-        <Text
-          as="span"
-          id={errorIdentifier}
-          role="alert"
-          variant="text-ui-12"
-          tx={{
-            position: 'absolute',
-            bottom: -26, // text is 18px high + 8px space between bottom input border and top of text
-            fontWeight: 'semibold',
-            color: 'flamingo600',
-          }}
-        >
-          {/* For screen reader users: If the label is not provided in the error as context, do so automatically. */}
-          {meta.error && !meta.error.includes(label) && (
-            <VisuallyHidden>{`${label}: `}</VisuallyHidden>
-          )}
+      {/* Only render description while no error for field exists. */}
+      <Text
+        as="span"
+        id={descriptionIdentifier}
+        variant="text-ui-12"
+        tx={{
+          ...sharedBottomTextStyles,
+          display: hasError ? 'none' : 'block',
+          color: 'pigeon500',
+        }}
+      >
+        {description?.isHidden ? (
+          <VisuallyHidden>{description.component}</VisuallyHidden>
+        ) : (
+          description?.component
+        )}
+      </Text>
 
-          {capitalize(meta.error)}
-        </Text>
-      )}
+      {/* Could use Formik's ErrorMessage component, but already defined `hasError` for aria-invalid */}
+      <Text
+        as="span"
+        id={errorIdentifier}
+        role="alert"
+        variant="text-ui-12"
+        tx={{
+          ...sharedBottomTextStyles,
+          fontWeight: 'semibold',
+          color: 'flamingo600',
+        }}
+      >
+        {/* For screen reader users, provide context as to which field is erroring */}
+        {meta.error && <VisuallyHidden>{`Error on ${label} input: `}</VisuallyHidden>}
+
+        {capitalize(meta.error)}
+      </Text>
     </Box>
   );
 };
