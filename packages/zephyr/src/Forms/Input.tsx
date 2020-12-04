@@ -96,6 +96,14 @@ export interface InputProps extends Pick<BoxStylingProps, 'tx'> {
   isLabelHidden?: boolean;
 
   /**
+   * Typically used to render an icon on the left or right side of the input.
+   */
+  adornment?: {
+    location: 'left' | 'right';
+    component: React.ReactNode;
+  };
+
+  /**
    * Maximum value for numeric type.
    */
   max?: number;
@@ -130,14 +138,6 @@ export interface InputProps extends Pick<BoxStylingProps, 'tx'> {
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefstep
    */
   step?: number;
-
-  /**
-   * Typically used to render an icon on the left or right side of the input.
-   */
-  adornment?: {
-    location: 'left' | 'right';
-    component: React.ReactNode;
-  };
 
   /**
    * This will eventually be an optional parameter, but must be required until [this Formikissue]
