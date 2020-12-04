@@ -9,10 +9,12 @@ import { Box } from '../../src/Box';
 import { Button } from '../../src/Button';
 import { Input, InputProps } from '../../src/Forms/Input';
 
+// NOTE: If this changes, please change the hard-coded code sample in the Default story's doc source code parameter.
 const FormikDecorator = (Story: () => StoryFnReactReturnType) => {
   const validationSchema = object({
     required: string().required('Required').default(''),
     nonRequired: string().default(''),
+    disabled: string().required('Required').default('Nobody'),
   });
   const initialValues = validationSchema.cast({})!;
 
@@ -60,8 +62,43 @@ Default.args = {
 
 Default.parameters = {
   docs: {
+    description: {
+      component: `This component requires Formik context and any initial value to be defined via a validation schema.
+      \nSee source code below for example.`,
+    },
     source: {
-      code: 'This specific example does not have copy-pasteable code.',
+      code: `
+() => {
+  const validationSchema = object({
+    required: string().required('Required').default(''),
+    nonRequired: string().default(''),
+    disabled: string().default('Nobody'),
+  });
+
+  const initialValues = validationSchema.cast({})!;
+
+  return (
+    <Formik validationSchema={validationSchema} initialValues={initialValues} onSubmit={noop}>
+      {() => (
+        <Box
+          as={Form}
+          tx={{
+            display: 'flex',
+            alignItems: 'flex-end',
+            pb: 12, // only here so that input error messages don't look crammed
+          }}
+        >
+          {(args) => <Input {...args} name="required" />}
+
+          <Button type="submit" variant="button-filled-blue" tx={{ ml: 8 }}>
+            Validate
+          </Button>
+        </Box>
+      )}
+    </Formik>
+  );
+}
+      `,
     },
   },
 };
@@ -108,3 +145,13 @@ WithRightAdornment.parameters = {
     },
   },
 };
+
+export const Disabled: Story<InputProps> = () => (
+  <Input
+    label="Who is cooler than Kyle?"
+    disabled={true}
+    name="disabled"
+    id="Disabled"
+    required={true}
+  />
+);
