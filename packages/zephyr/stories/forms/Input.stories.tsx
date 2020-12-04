@@ -64,7 +64,9 @@ Default.parameters = {
   docs: {
     description: {
       component: `This component requires Formik context and any initial value to be defined via a validation schema.
-      \nSee source code below for example.`,
+      This is important to understand when viewing source code examples below the "args table" in this story, as "value"
+      isn't passed to the JSX.
+      \nSee source code below for example. Entire implementation is provided.`,
     },
     source: {
       code: `
