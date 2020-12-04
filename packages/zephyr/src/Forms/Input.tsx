@@ -195,11 +195,11 @@ const Input = ({
     >
       <Label
         for={inputIdentifier}
+        isFieldRequired={required}
         isVisuallyHidden={isLabelHidden}
         tx={isLabelHidden ? undefined : { mb: 6 }}
       >
         {label}
-        {required ? ' *' : ''}
       </Label>
 
       <Box tx={{ position: 'relative', width: '100%' }}>
