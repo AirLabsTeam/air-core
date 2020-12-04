@@ -140,8 +140,8 @@ export interface InputProps extends Pick<BoxStylingProps, 'tx'> {
   step?: number;
 
   /**
-   * This will eventually be an optional parameter, but must be required until [this Formikissue]
-   * (https://github.com/formium/formik/issues/2092#issuecomment-738606844) is resolved.
+   * This will eventually be an optional parameter, but must be required until [this Formik issue](https://github.com/formium/formik/issues/2092#issuecomment-738606844)
+   * is resolved.
    */
   required: boolean;
 
@@ -267,7 +267,6 @@ const Input = ({
         )}
       </Text>
 
-      {/* Could use Formik's ErrorMessage component, but already defined `hasError` for aria-invalid */}
       <Text
         as="span"
         id={errorIdentifier}
@@ -275,6 +274,7 @@ const Input = ({
         variant="text-ui-12"
         tx={{
           ...sharedBottomTextStyles,
+          display: hasError ? 'block' : 'none',
           fontWeight: 'semibold',
           color: 'flamingo600',
         }}
