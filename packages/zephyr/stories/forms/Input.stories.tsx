@@ -1,11 +1,11 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
 import { Formik, Form } from 'formik';
-import { object, string } from 'yup';
+import { number, object, string } from 'yup';
 import { StoryFnReactReturnType } from '@storybook/react/dist/client/preview/types';
 import { Search, EyeClosed, Eye } from '@air/icons';
 import VisuallyHidden from '@reach/visually-hidden';
-import { noop } from 'lodash';
+import { capitalize, noop } from 'lodash';
 import { Box } from '../../src/Box';
 import { Button } from '../../src/Button';
 import { Input, InputProps } from '../../src/Forms/Input';
@@ -17,7 +17,7 @@ const FormikDecorator = (Story: () => StoryFnReactReturnType) => {
     nonRequired: string().default(''),
     disabled: string().required('Required').default('Nobody'),
   });
-  const initialValues = validationSchema.cast({})!;
+  const initialValues = validationSchema.cast()!;
 
   return (
     <Formik validationSchema={validationSchema} initialValues={initialValues} onSubmit={noop}>
@@ -53,12 +53,13 @@ const FormikDecorator = (Story: () => StoryFnReactReturnType) => {
 const meta: Meta<InputProps> = {
   title: 'Zephyr/🚧 Under Construction/Forms/Input',
   component: Input,
-  decorators: [FormikDecorator],
 };
 
 export default meta;
 
 export const Default: Story<InputProps> = (args) => <Input {...args} name="required" />;
+
+Default.decorators = [FormikDecorator];
 
 Default.args = {
   autoComplete: 'off',
@@ -138,6 +139,8 @@ export const WithLeftAdornment: Story<InputProps> = () => (
   />
 );
 
+WithLeftAdornment.decorators = [FormikDecorator];
+
 WithLeftAdornment.parameters = {
   docs: {
     description: {
@@ -193,6 +196,76 @@ export const PasswordField: Story<InputProps> = () => {
   );
 };
 
+PasswordField.decorators = [FormikDecorator];
+
 export const Disabled: Story<InputProps> = () => (
   <Input label="Who is cooler than Kyle?" disabled name="disabled" required />
 );
+
+Disabled.decorators = [FormikDecorator];
+
+export const FilledInputs: Story<InputProps> = () => {
+  const validationSchema = object({
+    email: string().default('kyle-test@air.inc'),
+    number: number().default(10),
+    password: string().default('@&NAAs!tAGDz1b2'),
+    tel: string().default('8008008000'),
+    text: string().default('Demo text!'),
+    url: string().default('https://air.inc'),
+  });
+
+  const initialValues = validationSchema.cast()!;
+
+  const inputTypes = Object.keys(validationSchema.describe().fields) as NonNullable<
+    InputProps['type']
+  >[];
+
+  return (
+    <Formik validationSchema={validationSchema} initialValues={initialValues} onSubmit={noop}>
+      {() => (
+        <Box
+          as={Form}
+          tx={{
+            display: 'flex',
+            flexDirection: 'column',
+            width: 300,
+          }}
+          noValidate // hides HTML5 default validations on submit
+        >
+          {inputTypes.map((type) => (
+            <Input
+              label={capitalize(type)}
+              type={type}
+              name={type}
+              key={type}
+              required
+              readOnly
+              tx={{ mb: 36 }}
+            />
+          ))}
+
+          <br />
+
+          <Button
+            type="submit"
+            variant="button-filled-blue"
+            tx={{
+              my: 16, // only here so that input error messages don't look crammed
+            }}
+          >
+            Validate
+          </Button>
+        </Box>
+      )}
+    </Formik>
+  );
+};
+
+FilledInputs.parameters = {
+  docs: {
+    description: {
+      story:
+        'All of these inputs are read-only, and serve purely as a visual regression diff test target for Chromatic.',
+    },
+  },
+};
