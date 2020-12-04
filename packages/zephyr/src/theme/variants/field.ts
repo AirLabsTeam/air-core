@@ -10,6 +10,7 @@ const commonStyles: TXProp = {
   lineHeight: 1.5,
   border: '1px solid',
   borderColor: 'pigeon200',
+  borderRadius: 4,
   width: '100%',
   color: 'pigeon700',
   py: 10,

@@ -89,12 +89,12 @@ export interface InputProps extends Pick<BoxStylingProps, 'tx'> {
   /**
    * Maximum value for numeric type.
    */
-  max?: number | string;
+  max?: number;
 
   /**
    * Minimum value for numeric type
    */
-  min?: number | string;
+  min?: number;
 
   /**
    * Max number of characters in the value of the input.
@@ -120,7 +120,7 @@ export interface InputProps extends Pick<BoxStylingProps, 'tx'> {
    * Incremental values that are valid for numeric type inputs.
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefstep
    */
-  step?: number | string;
+  step?: number;
 
   /**
    * Typically used to render an icon on the left or right side of the input.
@@ -130,19 +130,25 @@ export interface InputProps extends Pick<BoxStylingProps, 'tx'> {
     component: React.ReactNode;
   };
 
+  /**
+   * This will eventually be an optional parameter, but must be required until [this Formikissue]
+   * (https://github.com/formium/formik/issues/2092#issuecomment-738606844) is resolved.
+   */
+  required: boolean;
+
   className?: string;
   id?: string;
   disabled?: boolean;
-  required?: boolean;
   readOnly?: boolean;
+  'data-testid'?: string;
 }
 
 const sharedAdornmentStyles: BoxStylingProps['tx'] = {
-  position: 'absolute',
-  width: '16px',
-  height: '16px',
   color: 'pigeon500',
+  height: '16px',
+  position: 'absolute',
   top: '12px',
+  width: '16px',
 };
 
 const Input = ({
@@ -154,9 +160,10 @@ const Input = ({
   label,
   name,
   placeholder,
-  required = false,
+  required,
   tx,
   type = 'text',
+  'data-testid': topLevelTestID,
   ...restOfProps
 }: InputProps) => {
   const [field, meta] = useField(name);
@@ -164,18 +171,27 @@ const Input = ({
   const errorIdentifier = `${name}_error`;
   const hasError = meta.touched && !!meta.error;
 
+  const testID = React.useMemo(() => {
+    const prefix = `input_${name}`;
+
+    if (!meta.touched) return `${prefix}_untouched`;
+    if (hasError) return `${prefix}_invalid`;
+    return `${prefix}_valid`;
+  }, [hasError]); // eslint-disable-line react-hooks/exhaustive-deps
+
   return (
     <Box
       className={className}
       tx={{
-        position: 'relative',
+        alignItems: 'flex-start',
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'flex-start',
         justifyContent: 'center',
         minWidth: '256px',
+        position: 'relative',
         ...tx,
       }}
+      data-testid={topLevelTestID}
     >
       <Label
         for={inputIdentifier}
@@ -192,21 +208,20 @@ const Input = ({
         )}
 
         <Box
-          as="input"
-          __baseStyles={{ borderRadius: 4 }}
           aria-describedby={errorIdentifier}
           aria-invalid={hasError}
+          as="input"
           autoComplete={autoComplete}
-          className={hasError ? 'invalid' : undefined}
+          data-testid={testID}
           id={inputIdentifier}
           placeholder={placeholder}
           required={required}
-          variant="field-input"
-          type={type}
           tx={{
             pl: adornment?.location === 'left' ? 36 : 12,
             pr: adornment?.location === 'right' ? 36 : 12,
           }}
+          type={type}
+          variant="field-input"
           {...field}
           {...restOfProps}
         />

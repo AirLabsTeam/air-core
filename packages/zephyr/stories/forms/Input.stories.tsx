@@ -46,18 +46,16 @@ const meta: Meta<InputProps> = {
 
 export default meta;
 
-export const Default: Story<InputProps> = (args) => (
-  <Input {...args} data-testid={meta.title} name="required" />
-);
+export const Default: Story<InputProps> = (args) => <Input {...args} name="required" />;
 
 Default.args = {
-  label: 'Test',
   autoComplete: 'off',
   disabled: false,
+  id: 'Default',
   isLabelHidden: false,
+  label: 'Test',
   required: true,
   type: 'text',
-  id: 'Default',
 };
 
 Default.parameters = {
@@ -70,8 +68,9 @@ Default.parameters = {
 
 export const WithLeftAdornment: Story<InputProps> = () => (
   <Input
-    name="nonRequired"
     label="Search"
+    required={false}
+    name="nonRequired"
     id="WithLeftAdornment"
     adornment={{
       location: 'left',
@@ -80,11 +79,20 @@ export const WithLeftAdornment: Story<InputProps> = () => (
   />
 );
 
+WithLeftAdornment.parameters = {
+  docs: {
+    description: {
+      story: 'Often used to build a search input as rendered below:',
+    },
+  },
+};
+
 export const WithRightAdornment: Story<InputProps> = () => (
   <Input
-    name="required"
     label="Password"
     type="password"
+    required={true}
+    name="required"
     id="WithRightAdornment"
     adornment={{
       location: 'right',
@@ -92,3 +100,11 @@ export const WithRightAdornment: Story<InputProps> = () => (
     }}
   />
 );
+
+WithRightAdornment.parameters = {
+  docs: {
+    description: {
+      story: 'Often used to build a password input as rendered below:',
+    },
+  },
+};
