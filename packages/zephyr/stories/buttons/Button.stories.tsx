@@ -9,14 +9,10 @@ const meta: Meta<ButtonProps> = {
 
 export default meta;
 
-const Template: Story<ButtonProps> = (args) => <Button {...args} data-testid={meta.title} />;
-
-export const Default = Template.bind({}) as typeof Template;
+export const Default: Story<ButtonProps> = (args) => <Button {...args} data-testid={meta.title} />;
 
 Default.args = {
   children: 'Button',
-  size: 'medium',
-  variant: 'button-filled-blue',
 };
 
 Default.parameters = {
