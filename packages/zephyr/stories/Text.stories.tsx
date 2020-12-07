@@ -3,13 +3,46 @@ import { Story, Meta } from '@storybook/react';
 
 import { Box } from '../src/Box';
 import { Text, TextProps } from '../src/Text';
+import { text } from '../src/theme';
 
 const meta: Meta<TextProps> = {
   title: 'Zephyr/Text',
   component: Text,
+  argTypes: {
+    /**
+     * react-docgen-typescript fails us here.
+     * @see https://github.com/storybookjs/storybook/issues/12641#issuecomment-708603353
+     */
+    variant: {
+      control: {
+        type: 'select',
+        options: Object.keys(text),
+      },
+      defaultValue: 'text-ui-16',
+    },
+    /**
+     * react-docgen-typescript fails us here.
+     * @see https://github.com/storybookjs/storybook/issues/12641#issuecomment-708603353
+     */
+    as: {
+      control: {
+        type: 'select',
+        options: ['div', 'h1', 'span', 'p'],
+      },
+      defaultValue: 'div',
+      description: 'Can be any HTML element, but can also be any component.',
+    },
+  },
 };
 
 export default meta;
+
+export const Default: Story<TextProps> = (args) => <Text {...args} data-testid={meta.title} />;
+
+Default.args = {
+  children: 'Text',
+  as: 'div',
+};
 
 interface PreviewRowProps extends Pick<TextProps, 'children' | 'variant'> {}
 
@@ -42,14 +75,6 @@ const PreviewRow = ({ children, variant = 'text-ui-14' }: PreviewRowProps) => {
       </Text>
     </Box>
   );
-};
-
-const Template: Story<TextProps> = (args) => <Text {...args} data-testid={meta.title} />;
-
-export const Default = Template.bind({});
-
-Default.args = {
-  children: 'Text',
 };
 
 export const Heading: Story<TextProps> = (args) => {
@@ -117,8 +142,8 @@ UI.parameters = {
   },
 };
 
-export const TextAs: Story<TextProps> = (args) => (
-  <Text {...args} as="span" variant="text-ui-16">
+export const TextAs: Story<TextProps> = () => (
+  <Text as="span" variant="text-ui-16">
     This story acts as an integration test asserting that we can render the item as another semantic
     element.
   </Text>
