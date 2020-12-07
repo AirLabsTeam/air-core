@@ -23,3 +23,10 @@ Default.parameters = {
     },
   },
 };
+
+export const ButtonAs: Story<ButtonProps> = () => (
+  <Button as="a" href="https://google.com" target="_blank">
+    This story acts as an integration test asserting that we can render the item as another semantic
+    element.
+  </Button>
+);
