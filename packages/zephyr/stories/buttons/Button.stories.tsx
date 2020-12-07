@@ -1,6 +1,6 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import { ButtonWithoutForwardRef as Button, ButtonProps } from '../../src/Button';
+import { Button, ButtonProps } from '../../src/Button';
 
 const meta: Meta<ButtonProps> = {
   title: 'Zephyr/Button',
