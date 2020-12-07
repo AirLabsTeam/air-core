@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import VisuallyHidden from '@reach/visually-hidden';
 import { isString } from 'lodash';
 import { Box } from '../Box';
-import { Button } from '../Button';
+import { Button, ButtonProps } from '../Button';
 import { Text } from '../Text';
 import { Modal, ModalProps } from './Modal';
 
@@ -44,8 +44,8 @@ export const AnnouncementModal = ({
 
   /* eslint-disable react/display-name */
   const CTAElement = isString(cta)
-    ? React.forwardRef((props, ref) => (
-        <Button onClick={onDismiss} data-testid={ANNOUNCEMENT_MODAL_CTA} {...props} ref={ref}>
+    ? React.forwardRef((props: { ref: ButtonProps['ref'] }, ref: ButtonProps['ref']) => (
+        <Button {...props} onClick={onDismiss} data-testid={ANNOUNCEMENT_MODAL_CTA} ref={ref}>
           {cta}
         </Button>
       ))
