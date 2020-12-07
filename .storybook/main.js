@@ -3,7 +3,6 @@ module.exports = {
   addons: ['@storybook/addon-links', '@storybook/addon-actions', '@storybook/addon-essentials'],
   typescript: {
     check: false,
-    checkOptions: {},
     reactDocgen: 'react-docgen-typescript',
     reactDocgenTypescriptOptions: {
       shouldExtractLiteralValuesFromEnum: true,
