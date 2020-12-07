@@ -1,9 +1,9 @@
+import { As } from '@reach/utils';
 import { color, compose, space, variant } from 'styled-system';
 import css, { get } from '@styled-system/css';
-import { As, PropsWithAs, ComponentWithAs } from '@reach/utils';
 import styled from 'styled-components';
-
 import { Theme, TXProp } from './theme';
+import { ComponentWithAs, PropsWithAs } from './utils/forwardRefWithAs';
 
 export type BoxStylingProps = {
   /**
@@ -52,7 +52,7 @@ const variants = ({
     variants: get(theme, __themeKey),
   })({ theme, ...restOfProps });
 
-export const Box: ComponentWithAs<'div', BoxStylingProps> = styled('div')<BoxProps>(
+export const Box: ComponentWithAs<'div', BoxStylingProps, never> = styled('div')<BoxProps>(
   {
     minWidth: 0,
     margin: 0,

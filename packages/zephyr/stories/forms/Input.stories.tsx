@@ -51,7 +51,7 @@ const FormikDecorator = (Story: () => StoryFnReactReturnType) => {
 };
 
 const meta: Meta<InputProps> = {
-  title: 'Zephyr/🚧 Under Construction/Forms/Input',
+  title: 'Zephyr/Forms/Input',
   component: Input,
 };
 

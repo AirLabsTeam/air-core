@@ -1,22 +1,24 @@
 import React from 'react';
 import { transitions } from 'polished';
 import { variant as styledSystemVariant } from 'styled-system';
-import { forwardRefWithAs, PropsWithAs } from '@reach/utils';
 import { useTheme } from 'styled-components';
 import { Box, BoxStylingProps } from './Box';
 import { ButtonVariantName } from './theme/variants/button';
+import { forwardRefWithAs, PropsWithAs } from './utils/forwardRefWithAs';
 
 export type ButtonSize = 'large' | 'medium' | 'small';
 
-/** These represent props not readily available on a plain, HTML button */
-export type NonSemanticButtonProps = Pick<BoxStylingProps, 'tx'> & {
+/**
+ * These represent props that are not already available via React.HTMLAttributes
+ */
+export interface NonSemanticButtonProps extends Pick<BoxStylingProps, 'tx'> {
   size?: ButtonSize;
   variant?: ButtonVariantName;
-};
+}
 
-export interface ButtonProps extends Omit<PropsWithAs<'button', NonSemanticButtonProps>, 'ref'> {}
+export interface ButtonProps extends PropsWithAs<'button', NonSemanticButtonProps> {}
 
-const Button = forwardRefWithAs<NonSemanticButtonProps, 'button'>(
+export const Button = forwardRefWithAs<'button', NonSemanticButtonProps>(
   (
     {
       as = 'button',
@@ -24,9 +26,10 @@ const Button = forwardRefWithAs<NonSemanticButtonProps, 'button'>(
       size = 'medium',
       type = 'button',
       variant = 'button-filled-blue',
+      ref: _ref, // eslint-disable-line @typescript-eslint/no-unused-vars
       ...restOfProps
     }: ButtonProps,
-    ref,
+    ref: React.Ref<HTMLButtonElement>,
   ) => {
     const theme = useTheme();
 
@@ -35,9 +38,9 @@ const Button = forwardRefWithAs<NonSemanticButtonProps, 'button'>(
         as={as}
         disabled={disabled}
         type={type}
-        ref={ref}
         variant={variant}
         __baseStyles={{
+          appearance: 'none',
           outline: 'none',
           display: 'inline-flex',
           alignItems: 'center',
@@ -83,11 +86,10 @@ const Button = forwardRefWithAs<NonSemanticButtonProps, 'button'>(
           },
         }}
         {...restOfProps}
+        ref={ref}
       />
     );
   },
 );
 
 Button.displayName = 'Button';
-
-export { Button };

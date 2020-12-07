@@ -12,7 +12,6 @@ const meta: Meta<ButtonProps> = {
         component:
           'Filled buttons are the most widely used button style. They can be used as calls to action, in modals, and in many other places that have important actions. When using **blue** or **red** filled buttons, there should only be one on the page or in the modal at a time, this will be the most important action, but this button can be paired with either grey filled buttons or ghost buttons to maintain hierarchy between the actions. When buttons appear in the same row as other buttons they should all be the same size/height, but buttons in different areas can be different sizes. Filled buttons are best used at sizes **small** to **large.**',
       },
-      // eslint-disable-next-line react/display-name
       page: () => (
         <>
           <Title />
@@ -29,7 +28,7 @@ export default meta;
 
 const Template: Story<ButtonProps> = (args) => <Button {...args} data-testid={meta.title} />;
 
-export const FilledBlueButton = Template.bind({}) as typeof Template;
+export const FilledBlueButton = Template.bind({});
 
 FilledBlueButton.args = {
   children: 'Filled blue button',
@@ -47,7 +46,7 @@ FilledBlueButton.parameters = {
 
 FilledBlueButton.storyName = 'Filled (Blue)';
 
-export const FilledGreyButton = Template.bind({}) as typeof Template;
+export const FilledGreyButton = Template.bind({});
 
 FilledGreyButton.args = {
   children: 'Filled grey button',
@@ -65,7 +64,7 @@ FilledGreyButton.parameters = {
 
 FilledGreyButton.storyName = 'Filled (Grey)';
 
-export const FilledDestructiveButton = Template.bind({}) as typeof Template;
+export const FilledDestructiveButton = Template.bind({});
 
 FilledDestructiveButton.args = {
   children: 'Destructive button',

@@ -9,14 +9,10 @@ const meta: Meta<ButtonProps> = {
 
 export default meta;
 
-const Template: Story<ButtonProps> = (args) => <Button {...args} data-testid={meta.title} />;
-
-export const Default = Template.bind({}) as typeof Template;
+export const Default: Story<ButtonProps> = (args) => <Button {...args} data-testid={meta.title} />;
 
 Default.args = {
   children: 'Button',
-  size: 'medium',
-  variant: 'button-filled-blue',
 };
 
 Default.parameters = {
@@ -27,3 +23,10 @@ Default.parameters = {
     },
   },
 };
+
+export const ButtonAs: Story<ButtonProps> = () => (
+  <Button as="a" href="https://google.com" target="_blank">
+    This story acts as an integration test asserting that we can render the item as another semantic
+    element.
+  </Button>
+);

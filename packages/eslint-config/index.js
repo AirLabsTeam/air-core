@@ -364,7 +364,6 @@ const config = {
       files: ['**/*.stories.*'],
       rules: {
         'import/no-default-export': 'off',
-        '@typescript-eslint/no-unnecessary-type-assertion': 'off', // .bind() returns any - casting a Story as typeof Template is a good workaround that the lint rule complains about
         'react/prop-types': 'off', // for default stories when args table controls are hidden, default prop values will need to be defined and we run into a false negative
         'react/display-name': 'off', // its okay if we dont have a pretty call-stack for Storybook
       },
