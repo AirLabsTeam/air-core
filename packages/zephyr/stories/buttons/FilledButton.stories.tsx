@@ -1,6 +1,6 @@
 import { Title, Subtitle, Description, Stories } from '@storybook/addon-docs/blocks';
 import React from 'react';
-import { Story, Meta } from '@storybook/react';
+import { Meta } from '@storybook/react';
 import { Button, ButtonProps } from '../../src/Button';
 
 const meta: Meta<ButtonProps> = {
@@ -26,15 +26,18 @@ const meta: Meta<ButtonProps> = {
 
 export default meta;
 
-const Template: Story<ButtonProps> = (args) => <Button {...args} data-testid={meta.title} />;
-
-export const FilledBlueButton = Template.bind({});
-
-FilledBlueButton.args = {
-  children: 'Filled blue button',
-  size: 'medium',
-  variant: 'button-filled-blue',
-};
+export const FilledBlueButton = () => (
+  <>
+    <Button size="medium" variant="button-filled-blue">
+      Blue button
+    </Button>
+    <br />
+    <br />
+    <Button size="medium" disabled variant="button-filled-blue">
+      Disabled blue button
+    </Button>
+  </>
+);
 
 FilledBlueButton.parameters = {
   docs: {
@@ -46,13 +49,18 @@ FilledBlueButton.parameters = {
 
 FilledBlueButton.storyName = 'Filled (Blue)';
 
-export const FilledGreyButton = Template.bind({});
-
-FilledGreyButton.args = {
-  children: 'Filled grey button',
-  size: 'medium',
-  variant: 'button-filled-grey',
-};
+export const FilledGreyButton = () => (
+  <>
+    <Button size="medium" variant="button-filled-grey">
+      Grey button
+    </Button>
+    <br />
+    <br />
+    <Button size="medium" disabled variant="button-filled-grey">
+      Disabled grey button
+    </Button>
+  </>
+);
 
 FilledGreyButton.parameters = {
   docs: {
@@ -64,13 +72,18 @@ FilledGreyButton.parameters = {
 
 FilledGreyButton.storyName = 'Filled (Grey)';
 
-export const FilledDestructiveButton = Template.bind({});
-
-FilledDestructiveButton.args = {
-  children: 'Destructive button',
-  size: 'medium',
-  variant: 'button-filled-destructive',
-};
+export const FilledDestructiveButton = () => (
+  <>
+    <Button size="medium" variant="button-filled-destructive">
+      Destructive button
+    </Button>
+    <br />
+    <br />
+    <Button size="medium" disabled variant="button-filled-destructive">
+      Disabled destructive button
+    </Button>
+  </>
+);
 
 FilledDestructiveButton.parameters = {
   docs: {
