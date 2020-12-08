@@ -8,8 +8,8 @@ import { Label } from './Label';
 
 export interface InputProps extends Pick<BoxStylingProps, 'tx'> {
   /**
-   * Autocomplete helps to fill an input with device-remembered values. Here's MDN's documentation on the attribute and
-   * their values: [LINK](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete#Values)
+   * Autocomplete helps to fill an input with device-remembered values. See MDN's documentation on the [attribute and
+   * its values](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete#Values).
    */
   autoComplete?:
     | 'on'
