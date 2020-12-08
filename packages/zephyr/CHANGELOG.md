@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.0.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@7.0.0...@air/zephyr@8.0.0) (2020-12-08)
+
+### Bug Fixes
+
+- **@air/zephyr/button:** add disabled filled button states and update color names ([d55f9b3](https://github.com/AirLabsTeam/web-core/commit/d55f9b386572dc7b12ddf2a1d4402ba849609624))
+
+### Features
+
+- **@air/zephyr:** add new variants ("field-input" and "text-error-12") ([e5bbd08](https://github.com/AirLabsTeam/web-core/commit/e5bbd087ab2b34b0ee0cf009bbd982be2fe50533))
+- **@air/zephyr/colors:** edit some names and values for colors, also add a story for colors ([cfef509](https://github.com/AirLabsTeam/web-core/commit/cfef509fe8be06f2461de5e4924d0b77c5c96f05))
+- **@air/zephyr/input:** add ability to adorn input and limit label to only be string type ([22121b1](https://github.com/AirLabsTeam/web-core/commit/22121b1fcd6f1a8b3c88c090b95ed7058e44e0b8))
+- **@air/zephyr/input:** add input component ([1d7ff03](https://github.com/AirLabsTeam/web-core/commit/1d7ff0349db607748875ac23bbe521c815faf4dc))
+- **@air/zephyr/input:** allow input descriptions ([0640b70](https://github.com/AirLabsTeam/web-core/commit/0640b708b62488692eeb72bfb4fdcebf5a5d789f))
+- **@air/zephyr/label:** automatically suffix labels with an asterisk when required ([43c31c6](https://github.com/AirLabsTeam/web-core/commit/43c31c6c9f164a00655b2b05a3b422edee4ba876))
+- **@air/zephyr/label:** create a label component ([0d09994](https://github.com/AirLabsTeam/web-core/commit/0d099949aa2a003a7aab2be985e4c16850f73c59))
+
+### BREAKING CHANGES
+
+- **@air/zephyr/input:** `label` prop went from React.ReactNode --> string
+
+Adorn an input component with any JSX on the left or right side (typically meant for iconography).
+Additionally, constrain label to type string and improve error message accessibility.
+
 # [7.0.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@6.1.0...@air/zephyr@7.0.0) (2020-12-03)
 
 ### Features

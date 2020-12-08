@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.13](https://github.com/AirLabsTeam/web-core/compare/@air/eslint-config@1.1.12...@air/eslint-config@1.1.13) (2020-12-08)
+
+### Bug Fixes
+
+- **@air/eslint-config:** remove unnecessary lint config ([269f497](https://github.com/AirLabsTeam/web-core/commit/269f4976185a5843c67a6724d75b29254933e2a9))
+
 ## [1.1.12](https://github.com/AirLabsTeam/web-core/compare/@air/eslint-config@1.1.11...@air/eslint-config@1.1.12) (2020-11-18)
 
 ### Bug Fixes
