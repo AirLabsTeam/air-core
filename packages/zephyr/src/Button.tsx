@@ -1,24 +1,24 @@
 import React from 'react';
 import { transitions } from 'polished';
+import { forwardRefWithAs, PropsWithAs } from '@reach/utils';
 import { variant as styledSystemVariant } from 'styled-system';
 import { useTheme } from 'styled-components';
 import { Box, BoxStylingProps } from './Box';
 import { ButtonVariantName } from './theme/variants/button';
-import { forwardRefWithAs, PropsWithAs } from './utils/forwardRefWithAs';
 
 export type ButtonSize = 'large' | 'medium' | 'small';
 
 /**
  * These represent props that are not already available via React.HTMLAttributes
  */
-export interface NonSemanticButtonProps extends Pick<BoxStylingProps, 'tx'> {
+export type NonSemanticButtonProps = Pick<BoxStylingProps, 'tx'> & {
   size?: ButtonSize;
   variant?: ButtonVariantName;
-}
+};
 
 export interface ButtonProps extends PropsWithAs<'button', NonSemanticButtonProps> {}
 
-export const Button = forwardRefWithAs<'button', NonSemanticButtonProps>(
+export const Button = forwardRefWithAs<NonSemanticButtonProps, 'button'>(
   (
     {
       as = 'button',
@@ -91,5 +91,3 @@ export const Button = forwardRefWithAs<'button', NonSemanticButtonProps>(
     );
   },
 );
-
-Button.displayName = 'Button';

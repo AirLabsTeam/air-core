@@ -41,7 +41,6 @@ export const Default: Story<TextProps> = (args) => <Text {...args} data-testid={
 
 Default.args = {
   children: 'Text',
-  as: 'div',
 };
 
 interface PreviewRowProps extends Pick<TextProps, 'children' | 'variant'> {}
