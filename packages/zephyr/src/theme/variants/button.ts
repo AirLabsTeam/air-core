@@ -22,7 +22,7 @@ const _button: { [key in ButtonVariantName]: TXProp } = {
       backgroundColor: 'jay700',
     },
     '&:disabled': {
-      backgroundColor: 'pigeon0',
+      backgroundColor: 'pigeon050',
       color: 'pigeon400',
     },
   },
@@ -41,7 +41,7 @@ const _button: { [key in ButtonVariantName]: TXProp } = {
     },
   },
   'button-filled-grey': {
-    backgroundColor: 'pigeon0',
+    backgroundColor: 'pigeon050',
     color: 'pigeon600',
     '&:hover': {
       backgroundColor: 'pigeon100',
@@ -59,7 +59,7 @@ const _button: { [key in ButtonVariantName]: TXProp } = {
   'button-ghost-blue': {
     color: 'jay500',
     '&:hover': {
-      backgroundColor: 'jay0',
+      backgroundColor: 'jay050',
       color: 'jay700',
     },
     '&:active': {
@@ -74,11 +74,11 @@ const _button: { [key in ButtonVariantName]: TXProp } = {
   'button-ghost-destructive': {
     color: 'flamingo700',
     '&:hover': {
-      backgroundColor: 'flamingo0',
+      backgroundColor: 'flamingo050',
     },
     '&:active': {
       color: 'flamingo800',
-      backgroundColor: 'flamingo0',
+      backgroundColor: 'flamingo050',
     },
     '&:disabled': {
       backgroundColor: 'transparent',
@@ -88,11 +88,11 @@ const _button: { [key in ButtonVariantName]: TXProp } = {
   'button-ghost-grey': {
     color: 'pigeon600',
     '&:hover': {
-      backgroundColor: 'pigeon0',
+      backgroundColor: 'pigeon050',
       color: 'pigeon700',
     },
     '&:active': {
-      backgroundColor: 'pigeon1',
+      backgroundColor: 'pigeon100',
       color: 'pigeon700',
     },
     '&:disabled': {
@@ -124,7 +124,7 @@ const _button: { [key in ButtonVariantName]: TXProp } = {
     borderColor: 'pigeon200',
     color: 'pigeon600',
     '&:hover': {
-      backgroundColor: 'pigeon0',
+      backgroundColor: 'pigeon050',
       borderColor: 'transparent',
       color: 'pigeon700',
     },
@@ -144,7 +144,7 @@ const _button: { [key in ButtonVariantName]: TXProp } = {
     padding: '0',
     height: 'unset',
     '&:hover': {
-      backgroundColor: 'pigeon0',
+      backgroundColor: 'pigeon050',
       borderColor: 'transparent',
       color: 'pigeon700',
     },
