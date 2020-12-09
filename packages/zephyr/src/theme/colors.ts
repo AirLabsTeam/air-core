@@ -168,16 +168,16 @@ const parrots = {
 };
 
 const peacocks = {
-  peacock050: '#ccfdea',
-  peacock100: '#9bfbdf',
-  peacock200: '#68f4d8',
-  peacock300: '#42ead7',
-  peacock400: '#0addd7',
-  peacock500: '#07b3be',
-  peacock600: '#05889f',
+  peacock050: '#E6F4F6',
+  peacock100: '#CEEDEF',
+  peacock200: '#B2ECED',
+  peacock300: '#70E7E7',
+  peacock400: '#33DBDB',
+  peacock500: '#07B3BE',
+  peacock600: '#05889F',
   peacock700: '#036280',
-  peacock800: '#01486a',
-  peacock900: '#033b51',
+  peacock800: '#01486A',
+  peacock900: '#033B51',
 };
 
 const pigeons = {
