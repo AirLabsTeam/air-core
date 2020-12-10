@@ -127,10 +127,6 @@ Default.parameters = {
   },
 };
 
-// TODO: Add async example
-// TODO: Add grouped options example
-// TODO: Work with design to constrain shape of options array to avoid devs needing to create custom option components?
-
 export const Disabled: Story<SelectProps> = () => (
   <Select label="Disabled" disabled name="disabled" required={false} options={options} />
 );
