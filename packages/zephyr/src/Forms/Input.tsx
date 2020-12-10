@@ -165,7 +165,7 @@ const sharedBottomTextStyles: BoxStylingProps['tx'] = {
   bottom: -24, // text is 18px high + 6px space between bottom input border and top of text
 };
 
-const Input = ({
+export const Input = ({
   adornment,
   autoComplete = 'off',
   className,
@@ -289,5 +289,3 @@ const Input = ({
 };
 
 Input.displayName = 'Input';
-
-export { Input };
