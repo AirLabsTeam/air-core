@@ -144,7 +144,11 @@ export type SelectOption = {
 
 type CanHaveMultipleSelections = false;
 
-/** We don't want form control props since those come from the Formik hooks. */
+/**
+ * We don't want all of the props that react-select provides. Firstly, wee don't want form control props since those come
+ * from the Formik hooks. Other props, like `isClearable` are not an option we want to allow in our design system for this
+ * component.
+ */
 type DesiredReactSelectProps =
   | 'className'
   | 'classNamePrefix'
@@ -184,7 +188,7 @@ export interface SelectProps
   extends Pick<ReactSelectProps<SelectOption, CanHaveMultipleSelections>, DesiredReactSelectProps>,
     Pick<BoxStylingProps, 'tx'> {
   /**
-   * TODO: Maybe not yet best to allow, given limited functionality.
+   * TODO: Not yet best to allow, given limited functionality.
    * @see https://github.com/JedWatson/react-select/issues/1397
    */
   // autoComplete?: string;
@@ -249,7 +253,9 @@ const SelectDevErrors = {
     `On <Select name="${fieldName}">: You failed to pass any options.`,
 };
 
-const AirReactSelectDropdownIndicator = (props: IndicatorProps<SelectOption, false>) => (
+const AirReactSelectDropdownIndicator = (
+  props: IndicatorProps<SelectOption, CanHaveMultipleSelections>,
+) => (
   <defaultReactSelectComponents.DropdownIndicator {...props}>
     <Box
       as={TriangleDown}
@@ -262,7 +268,10 @@ const AirReactSelectDropdownIndicator = (props: IndicatorProps<SelectOption, fal
   </defaultReactSelectComponents.DropdownIndicator>
 );
 
-const AirReactSelectOption = ({ children, ...props }: OptionProps<SelectOption, false>) => (
+const AirReactSelectOption = ({
+  children,
+  ...props
+}: OptionProps<SelectOption, CanHaveMultipleSelections>) => (
   <defaultReactSelectComponents.Option {...props}>
     {props.isSelected ? (
       <Box tx={{ display: 'flex', justifyContent: 'space-between', fontWeight: 'medium' }}>
@@ -275,7 +284,10 @@ const AirReactSelectOption = ({ children, ...props }: OptionProps<SelectOption, 
   </defaultReactSelectComponents.Option>
 );
 
-export const AirReactSelectComponents: SelectComponentsConfig<SelectOption, false> = {
+export const AirReactSelectComponents: SelectComponentsConfig<
+  SelectOption,
+  CanHaveMultipleSelections
+> = {
   DropdownIndicator: AirReactSelectDropdownIndicator,
   Option: AirReactSelectOption,
 };
