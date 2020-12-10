@@ -6,11 +6,12 @@ import { StoryFnReactReturnType } from '@storybook/react/dist/client/preview/typ
 import { noop } from 'lodash';
 import { Box } from '../../src/Box';
 import { Button } from '../../src/Button';
-import { Select, SelectProps } from '../../src/Forms/Select';
+import { Select, SelectOption, SelectProps } from '../../src/Forms/Select';
 
-const options = [
+const options: SelectOption[] = [
   { label: 'Red Fish', value: 'rf' },
   { label: 'Blue Fish', value: 'bf' },
+  { label: 'Green Fish', value: 'gf' },
 ];
 
 // NOTE: If this changes, please change the hard-coded code sample in the Default story's doc source code parameter.
@@ -32,7 +33,11 @@ const FormikDecorator = (Story: () => StoryFnReactReturnType, withValidationButt
       {() => (
         <Box
           as={Form}
-          tx={{ display: 'flex', alignItems: 'flex-end', mb: 112 }}
+          tx={{
+            display: 'flex',
+            alignItems: 'flex-end',
+            mb: 124, // so that eveything can fit inside the canvas
+          }}
           autoComplete="off"
           noValidate // hides HTML5 default validations on submit
         >
@@ -104,7 +109,11 @@ Default.parameters = {
       {() => (
         <Box
           as={Form}
-          tx={{ display: 'flex', alignItems: 'flex-end', mb: 112 }}
+          tx={{
+            display: 'flex',
+            alignItems: 'flex-end',
+            mb: 124, // so that eveything can fit inside the canvas
+          }}
           autoComplete="off"
           noValidate // hides HTML5 default validations on submit
         >
@@ -128,7 +137,14 @@ Default.parameters = {
 };
 
 export const Disabled: Story<SelectProps> = () => (
-  <Select label="Disabled" disabled name="disabled" required={false} options={options} />
+  <Select
+    label="Disabled"
+    disabled
+    name="disabled"
+    id="Disabled"
+    required={false}
+    options={options}
+  />
 );
 
 Disabled.decorators = [(story) => FormikDecorator(story, true)];

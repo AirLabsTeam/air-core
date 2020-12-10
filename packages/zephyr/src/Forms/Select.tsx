@@ -2,15 +2,13 @@ import * as React from 'react';
 import { useField } from 'formik';
 import ReactSelect, {
   components as defaultReactSelectComponents,
-  GroupedOptionsType,
   IndicatorProps,
   OptionProps,
-  OptionsType,
   SelectComponentsConfig,
   Styles,
 } from 'react-select';
 import { NamedProps as ReactSelectProps } from 'react-select/src/Select';
-import { capitalize, flatten } from 'lodash';
+import { capitalize } from 'lodash';
 import VisuallyHidden from '@reach/visually-hidden';
 import { Check, TriangleDown } from '@air/icons';
 import invariant from 'tiny-invariant';
@@ -79,8 +77,18 @@ export const getBaseSelectStylesWithTheme = ({
       color: props.isDisabled ? 'currentColor' : theme.colors.pigeon500,
     },
   }),
-  group: (base) => ({ ...base, paddingTop: 0, paddingBottom: 0 }),
-  groupHeading: (base) => ({ ...base, display: 'none' }),
+  group: (base) => ({
+    ...base,
+    paddingTop: 0,
+    paddingBottom: 0,
+    '&:not(:last-child)': { marginBottom: 12 },
+    '&:not(:first-of-type)': { marginTop: 12 },
+  }),
+  groupHeading: (base) => ({
+    ...base,
+    color: theme.colors.pigeon200,
+    textTransform: 'none',
+  }),
   indicatorSeparator: (base) => ({ ...base, display: 'none' }),
   input: (base) => ({ ...base, backgroundColor: theme.colors.white }),
   loadingIndicator: (base) => ({ ...base, marginRight: '-4px', color: theme.colors.pigeon300 }),
@@ -139,7 +147,6 @@ export const getBaseSelectStylesWithTheme = ({
 export type SelectOption = {
   label: string;
   value: string;
-  options?: OptionsType<{ label: string; value: string }>;
 } & { [key in string]: any };
 
 type CanHaveMultipleSelections = false;
@@ -179,7 +186,6 @@ type DesiredReactSelectProps =
   | 'onMenuClose'
   | 'onMenuScrollToTop'
   | 'onMenuScrollToBottom'
-  | 'options'
   | 'placeholder'
   | 'styles'
   | 'theme';
@@ -218,6 +224,11 @@ export interface SelectProps
   name: string;
 
   /**
+   * The items rendered in the menu list
+   */
+  options?: SelectOption[];
+
+  /**
    * We want developers to be conscious of many things when dealing with asynchronously loaded options. It's not as
    * simple as: "is it loading?""
    */
@@ -244,13 +255,6 @@ export interface SelectProps
 const sharedBottomTextStyles: BoxStylingProps['tx'] = {
   position: 'absolute',
   bottom: -24, // text is 18px high + 6px space between bottom select border and top of text
-};
-
-const SelectDevErrors = {
-  getNoEmptyStringOptionLabelError: (fieldName: string) =>
-    `On <Select name="${fieldName}">: One of the passed options has an empty string label. We have a requirement in our design system that disallows this. Please confer with your designer on an acceptable replacement before moving forward.`,
-  getNoOptionsError: (fieldName: string) =>
-    `On <Select name="${fieldName}">: You failed to pass any options.`,
 };
 
 const AirReactSelectDropdownIndicator = (
@@ -327,44 +331,23 @@ export const Select = ({
     return `${prefix}_valid`;
   }, [hasError]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  const checkIfGroupedOptions = React.useCallback(
-    (_options: NonNullable<typeof options>): _options is GroupedOptionsType<SelectOption> => {
-      const hasGroupedOptions = !!_options[0]?.options;
-
-      return hasGroupedOptions;
-    },
-    [],
-  );
-
   const value = React.useMemo(() => {
     const isLoading = loadingState?.isLoading ?? false;
     if (isLoading) return undefined;
 
-    invariant(!!options, SelectDevErrors.getNoOptionsError(field.name));
-
-    if (checkIfGroupedOptions(options)) {
-      const groupedOptions = options;
-
-      const flattenedOptions = flatten(groupedOptions.map((grouping) => grouping.options));
-      invariant(
-        !flattenedOptions.some(({ label }) => label === ''),
-        SelectDevErrors.getNoEmptyStringOptionLabelError(field.name),
-      );
-
-      const matchingOption = flattenedOptions.find(({ value }) => value === field.value);
-
-      return matchingOption;
-    }
+    invariant(
+      !!options,
+      `On <Select name="${field.name}">: One of the passed options has an empty string label. We have a requirement in our design system that disallows this. Please confer with your designer on an acceptable replacement before moving forward.`,
+    );
 
     invariant(
       !options.some(({ label }) => label === ''),
-      SelectDevErrors.getNoEmptyStringOptionLabelError(field.name),
+      `On <Select name="${field.name}">: You failed to pass any options.`,
     );
 
     const matchingOption = options.find(({ value }) => value === field.value);
-
     return matchingOption;
-  }, [checkIfGroupedOptions, field, loadingState, options]);
+  }, [field, loadingState, options]);
 
   const onBlur = React.useCallback(() => helpers.setTouched(true), [helpers]);
   const onChange = React.useCallback((option) => helpers.setValue(option.value), [helpers]);
