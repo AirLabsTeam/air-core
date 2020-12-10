@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.0.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@8.0.0...@air/zephyr@8.0.1) (2020-12-09)
+
+### Bug Fixes
+
+- **@air/zephyr:** fix incorrect peacock050 - peacock400 HEX values ([8c39395](https://github.com/AirLabsTeam/web-core/commit/8c39395eb193f33b939bd119f34ee3d527c6534c))
+
 # [8.0.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@7.0.0...@air/zephyr@8.0.0) (2020-12-08)
 
 ### Bug Fixes
