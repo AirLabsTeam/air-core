@@ -12,6 +12,7 @@ import { Input, InputProps } from '../../src/Forms/Input';
 
 // NOTE: If this changes, please change the hard-coded code sample in the Default story's doc source code parameter.
 const FormikDecorator = (Story: () => StoryFnReactReturnType) => {
+  // This validation schema supplies every input in this story page.
   const validationSchema = object({
     required: string().required('Required').default(''),
     nonRequired: string().default(''),
