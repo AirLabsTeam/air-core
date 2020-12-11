@@ -36,3 +36,23 @@ export const ButtonAs: Story<ButtonProps> = () => (
     element.
   </Button>
 );
+
+export const ButtonLoading: Story<ButtonProps> = () => (
+  <>
+    <Button isLoading={true} size="small">
+      Save
+    </Button>
+    <br />
+    <br />
+    <Button isLoading={true} size="medium">
+      Save
+    </Button>
+    <br />
+    <br />
+    <Button isLoading={true} size="large">
+      Save
+    </Button>
+    <br />
+    <br />
+  </>
+);
