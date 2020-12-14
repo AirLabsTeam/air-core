@@ -15,6 +15,9 @@ export type ButtonSize = 'large' | 'medium' | 'small';
 export type NonSemanticButtonProps = Pick<BoxStylingProps, 'tx'> & {
   size?: ButtonSize;
   variant?: ButtonVariantName;
+  /**
+   * `isLoading` can only be true for buttons with filled variants.
+   */
   isLoading?: boolean;
 };
 
@@ -33,7 +36,7 @@ const Dot = ({ size }: { size: ButtonSize }) => (
   <Box
     tx={{
       display: 'inline-block',
-      backgroundColor: 'currentColor', //get base color, not disabled
+      backgroundColor: 'currentColor',
       borderRadius: '100%',
       height: sizeMap[size],
       width: sizeMap[size],
@@ -85,10 +88,11 @@ export const Button = forwardRefWithAs<NonSemanticButtonProps, 'button'>(
     ref: React.Ref<HTMLButtonElement>,
   ) => {
     invariant(
-      isLoading &&
+      (isLoading &&
         (variant === 'button-filled-blue' ||
           variant === 'button-filled-grey' ||
-          variant === 'button-filled-destructive'),
+          variant === 'button-filled-destructive')) ||
+        !isLoading,
       'Button can only have loading state if it is a filled variant',
     );
 
