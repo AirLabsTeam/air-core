@@ -82,7 +82,7 @@ export const Button = forwardRefWithAs<NonSemanticButtonProps, 'button'>(
   ) => {
     const theme = useTheme();
 
-    const isValidLoading = variant.includes('filled-') ? isLoading : false;
+    const isValidLoading = variant.includes('button-filled-') ? isLoading : false;
 
     return (
       <Box

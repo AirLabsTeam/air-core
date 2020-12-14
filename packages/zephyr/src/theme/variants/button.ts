@@ -11,6 +11,8 @@ export type ButtonVariantName =
   | 'button-outline-grey'
   | 'button-unstyled';
 
+const isLoading = true;
+
 const _button: { [key in ButtonVariantName]: TXProp } = {
   'button-filled-blue': {
     backgroundColor: 'jay500',
@@ -21,10 +23,12 @@ const _button: { [key in ButtonVariantName]: TXProp } = {
     '&:active': {
       backgroundColor: 'jay700',
     },
-    '&:disabled': {
-      backgroundColor: 'pigeon050',
-      color: 'pigeon400',
-    },
+    '&:disabled': !isLoading
+      ? {
+          backgroundColor: 'pigeon050',
+          color: 'pigeon400',
+        }
+      : {},
   },
   'button-filled-destructive': {
     backgroundColor: 'flamingo600',
@@ -35,10 +39,12 @@ const _button: { [key in ButtonVariantName]: TXProp } = {
     '&:active': {
       backgroundColor: 'flamingo800',
     },
-    '&:disabled': {
-      backgroundColor: 'transparent',
-      color: 'pigeon300',
-    },
+    '&:disabled': !isLoading
+      ? {
+          backgroundColor: 'transparent',
+          color: 'pigeon300',
+        }
+      : {},
   },
   'button-filled-grey': {
     backgroundColor: 'pigeon050',
@@ -51,10 +57,12 @@ const _button: { [key in ButtonVariantName]: TXProp } = {
       backgroundColor: 'pigeon200',
       color: 'pigeon700',
     },
-    '&:disabled': {
-      backgroundColor: 'transparent',
-      color: 'pigeon300',
-    },
+    '&:disabled': !isLoading
+      ? {
+          backgroundColor: 'transparent',
+          color: 'pigeon300',
+        }
+      : {},
   },
   'button-ghost-blue': {
     color: 'jay500',
