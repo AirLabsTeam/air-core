@@ -23,7 +23,7 @@ const Dot = () => (
   <Box
     tx={{
       display: 'inline-block',
-      backgroundColor: 'currentColor',
+      backgroundColor: 'currentColor', //get active color, not disabled
       borderRadius: '100%',
       height: 4, // refactor size & margin to match size variant
       width: 4,
@@ -38,7 +38,7 @@ const wave = keyframes`
   100% {transform: translate(0,0)}
 `;
 
-const Loader = styled.div<{ isLoading: boolean }>`
+const Loader = styled(Box)<{ isLoading: boolean }>`
   visibility: ${({ isLoading }) => (isLoading ? `visible` : `hidden`)};
   position: absolute;
   left: 50%;
@@ -46,15 +46,15 @@ const Loader = styled.div<{ isLoading: boolean }>`
   transform: translate(-50%, -50%);
   display: flex;
   div:nth-child(1) {
-    animation: ${wave} 0.6s 0.3s linear infinite;
+    animation: ${wave} 0.98s 0s ease-in-out infinite;
     margin-right: 4px;
   }
   div:nth-child(2) {
-    animation: ${wave} 0.6s 0.2s linear infinite;
+    animation: ${wave} 0.98s 0.14s ease-in-out infinite;
     margin-right: 4px;
   }
   div:nth-child(3) {
-    animation: ${wave} 0.6s 0.1s linear infinite;
+    animation: ${wave} 0.98s 0.28s ease-in-out infinite;
   }
 `;
 
@@ -75,10 +75,12 @@ export const Button = forwardRefWithAs<NonSemanticButtonProps, 'button'>(
   ) => {
     const theme = useTheme();
 
+    const isValidLoading = variant.includes('filled-') ? isLoading : false;
+
     return (
       <Box
         as={as}
-        disabled={disabled}
+        disabled={disabled || isValidLoading}
         type={type}
         variant={variant}
         __baseStyles={{
@@ -133,24 +135,18 @@ export const Button = forwardRefWithAs<NonSemanticButtonProps, 'button'>(
         {...restOfProps}
         ref={ref}
       >
-        <Box role={isLoading ? 'status' : undefined} tx={{ position: 'relative' }}>
-          {/* <Box
-            tx={{
-              visibility: isLoading ? `visible` : `hidden`,
-              position: 'absolute',
-              left: '50%',
-              top: '50%',
-              transform: 'translate(-50%, -50%)',
-              display: 'flex',
-            }}
-          > */}
-          <Loader isLoading={isLoading}>
+        <Box role={isValidLoading ? 'status' : undefined} tx={{ position: 'relative' }}>
+          <Loader isLoading={isValidLoading}>
             <Dot />
             <Dot />
             <Dot />
           </Loader>
-          {/* </Box> */}
-          <Box tx={{ opacity: isLoading ? 0 : 1, visibility: isLoading ? 'hidden' : 'visible' }}>
+          <Box
+            tx={{
+              opacity: isValidLoading ? 0 : 1,
+              visibility: isValidLoading ? 'hidden' : 'visible',
+            }}
+          >
             {children}
           </Box>
         </Box>
