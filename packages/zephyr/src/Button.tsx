@@ -14,12 +14,17 @@ export type ButtonSize = 'large' | 'medium' | 'small';
 export type NonSemanticButtonProps = Pick<BoxStylingProps, 'tx'> & {
   size?: ButtonSize;
   variant?: ButtonVariantName;
+  /**
+   * isLoading is only assignable to `button-filled` variants
+   */
   isLoading?: boolean;
 };
 
 export interface ButtonProps extends PropsWithAs<'button', NonSemanticButtonProps> {}
 
-/** Diameter and space between Loader Dots are the same number of pixels*/
+/**
+ * Diameter and space between Loader Dots are the same number of pixels
+ */
 const sizeMap: { [key in ButtonSize]: 4 | 5 } = {
   small: 4,
   medium: 4,
@@ -135,9 +140,6 @@ export const Button = forwardRefWithAs<NonSemanticButtonProps, 'button'>(
             boxShadow: `0 0 0 2px ${theme.colors.focus}`,
           },
           '&:disabled': {
-            cursor: 'not-allowed',
-          },
-          '&:isLoading': {
             cursor: 'not-allowed',
           },
         }}
