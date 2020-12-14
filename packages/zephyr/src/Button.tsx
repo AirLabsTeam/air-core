@@ -19,14 +19,21 @@ export type NonSemanticButtonProps = Pick<BoxStylingProps, 'tx'> & {
 
 export interface ButtonProps extends PropsWithAs<'button', NonSemanticButtonProps> {}
 
-const Dot = () => (
+/** Diameter and space between Loader Dots are the same number of pixels*/
+const sizeMap: { [key in ButtonSize]: 4 | 5 } = {
+  small: 4,
+  medium: 4,
+  large: 5,
+};
+
+const Dot = ({ size }: { size: ButtonSize }) => (
   <Box
     tx={{
       display: 'inline-block',
-      backgroundColor: 'currentColor', //get active color, not disabled
+      backgroundColor: 'currentColor', //get base color, not disabled
       borderRadius: '100%',
-      height: 4, // refactor size & margin to match size variant
-      width: 4,
+      height: sizeMap[size],
+      width: sizeMap[size],
       animationFillMode: 'both',
     }}
   ></Box>
@@ -38,7 +45,7 @@ const wave = keyframes`
   100% {transform: translate(0,0)}
 `;
 
-const Loader = styled(Box)<{ isLoading: boolean }>`
+const Loader = styled(Box)<{ isLoading: boolean; size: ButtonSize }>`
   visibility: ${({ isLoading }) => (isLoading ? `visible` : `hidden`)};
   position: absolute;
   left: 50%;
@@ -47,11 +54,11 @@ const Loader = styled(Box)<{ isLoading: boolean }>`
   display: flex;
   div:nth-child(1) {
     animation: ${wave} 0.98s 0s ease-in-out infinite;
-    margin-right: 4px;
+    margin-right: ${({ size }) => sizeMap[size]}px;
   }
   div:nth-child(2) {
     animation: ${wave} 0.98s 0.14s ease-in-out infinite;
-    margin-right: 4px;
+    margin-right: ${({ size }) => sizeMap[size]}px;
   }
   div:nth-child(3) {
     animation: ${wave} 0.98s 0.28s ease-in-out infinite;
@@ -136,10 +143,10 @@ export const Button = forwardRefWithAs<NonSemanticButtonProps, 'button'>(
         ref={ref}
       >
         <Box role={isValidLoading ? 'status' : undefined} tx={{ position: 'relative' }}>
-          <Loader isLoading={isValidLoading}>
-            <Dot />
-            <Dot />
-            <Dot />
+          <Loader isLoading={isValidLoading} size={size}>
+            <Dot size={size} />
+            <Dot size={size} />
+            <Dot size={size} />
           </Loader>
           <Box
             tx={{
