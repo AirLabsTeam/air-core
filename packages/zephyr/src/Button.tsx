@@ -2,6 +2,7 @@ import React from 'react';
 import { transitions } from 'polished';
 import { forwardRefWithAs, PropsWithAs } from '@reach/utils';
 import { variant as styledSystemVariant } from 'styled-system';
+import invariant from 'tiny-invariant';
 import styled, { keyframes, useTheme } from 'styled-components';
 import { Box, BoxStylingProps } from './Box';
 import { ButtonVariantName } from './theme/variants/button';
@@ -14,9 +15,6 @@ export type ButtonSize = 'large' | 'medium' | 'small';
 export type NonSemanticButtonProps = Pick<BoxStylingProps, 'tx'> & {
   size?: ButtonSize;
   variant?: ButtonVariantName;
-  /**
-   * isLoading is only assignable to `button-filled` variants
-   */
   isLoading?: boolean;
 };
 
@@ -86,14 +84,20 @@ export const Button = forwardRefWithAs<NonSemanticButtonProps, 'button'>(
     }: ButtonProps,
     ref: React.Ref<HTMLButtonElement>,
   ) => {
-    const theme = useTheme();
+    invariant(
+      isLoading &&
+        (variant === 'button-filled-blue' ||
+          variant === 'button-filled-grey' ||
+          variant === 'button-filled-destructive'),
+      'Button can only have loading state if it is a filled variant',
+    );
 
-    const isValidLoading = variant.includes('button-filled-') ? isLoading : false;
+    const theme = useTheme();
 
     return (
       <Box
         as={as}
-        disabled={disabled || isValidLoading}
+        disabled={disabled || isLoading}
         type={type}
         variant={variant}
         className={isLoading ? `${className} isLoading` : `${className}`}
@@ -146,16 +150,16 @@ export const Button = forwardRefWithAs<NonSemanticButtonProps, 'button'>(
         {...restOfProps}
         ref={ref}
       >
-        <Box role={isValidLoading ? 'status' : undefined} tx={{ position: 'relative' }}>
-          <Loader isLoading={isValidLoading} size={size}>
+        <Box role={isLoading ? 'status' : undefined} tx={{ position: 'relative' }}>
+          <Loader isLoading={isLoading} size={size}>
             <Dot size={size} />
             <Dot size={size} />
             <Dot size={size} />
           </Loader>
           <Box
             tx={{
-              opacity: isValidLoading ? 0 : 1,
-              visibility: isValidLoading ? 'hidden' : 'visible',
+              opacity: isLoading ? 0 : 1,
+              visibility: isLoading ? 'hidden' : 'visible',
             }}
           >
             {children}
