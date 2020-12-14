@@ -41,7 +41,7 @@ const Dot = ({ size }: { size: ButtonSize }) => (
 
 const wave = keyframes`
   0% {transform: translate(0,0)}
-  50% {transform: translate(0,4px)}
+  50% {transform: translate(0,3px)}
   100% {transform: translate(0,0)}
 `;
 
