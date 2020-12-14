@@ -76,6 +76,7 @@ export const Button = forwardRefWithAs<NonSemanticButtonProps, 'button'>(
       isLoading = false,
       ref: _ref, // eslint-disable-line @typescript-eslint/no-unused-vars
       children,
+      className = '',
       ...restOfProps
     }: ButtonProps,
     ref: React.Ref<HTMLButtonElement>,
@@ -90,6 +91,7 @@ export const Button = forwardRefWithAs<NonSemanticButtonProps, 'button'>(
         disabled={disabled || isValidLoading}
         type={type}
         variant={variant}
+        className={isLoading ? `${className} isLoading` : `${className}`}
         __baseStyles={{
           appearance: 'none',
           outline: 'none',

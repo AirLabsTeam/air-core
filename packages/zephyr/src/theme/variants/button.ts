@@ -23,12 +23,10 @@ const _button: { [key in ButtonVariantName]: TXProp } = {
     '&:active': {
       backgroundColor: 'jay700',
     },
-    '&:disabled': !isLoading
-      ? {
-          backgroundColor: 'pigeon050',
-          color: 'pigeon400',
-        }
-      : {},
+    '&:not(.isLoading):disabled': {
+      backgroundColor: 'pigeon050',
+      color: 'pigeon400',
+    },
   },
   'button-filled-destructive': {
     backgroundColor: 'flamingo600',
