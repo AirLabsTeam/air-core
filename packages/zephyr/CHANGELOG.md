@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.0.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@8.0.1...@air/zephyr@9.0.0) (2020-12-15)
+
+### Bug Fixes
+
+- **zephyr/button:** disable hover styling on applicable disabled buttons ([572d6e6](https://github.com/AirLabsTeam/web-core/commit/572d6e6f1e52f21ab8c6b4e63df0b12f944a219a))
+
+### Features
+
+- **@air/zephyr:** update display and body fonts ([8f7d48f](https://github.com/AirLabsTeam/web-core/commit/8f7d48ff7712cad745e86fa0b7800c863b418fee))
+
+### BREAKING CHANGES
+
+- **@air/zephyr:** Update display font from `display` to `Gelica` and body font from `system-ui` to
+  `Inter`
+
 ## [8.0.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@8.0.0...@air/zephyr@8.0.1) (2020-12-09)
 
 ### Bug Fixes
