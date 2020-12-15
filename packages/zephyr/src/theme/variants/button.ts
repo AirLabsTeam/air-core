@@ -59,7 +59,7 @@ const _button: { [key in ButtonVariantName]: TXProp } = {
   },
   'button-ghost-blue': {
     color: 'jay500',
-    '&:hover': {
+    '&:hover:not(:disabled)': {
       backgroundColor: 'jay050',
       color: 'jay700',
     },
@@ -105,7 +105,7 @@ const _button: { [key in ButtonVariantName]: TXProp } = {
     border: '1px solid',
     borderColor: 'jay200',
     color: 'jay500',
-    '&:hover': {
+    '&:hover:not(:disabled)': {
       backgroundColor: 'jay100',
       borderColor: 'transparent',
       color: 'jay600',
