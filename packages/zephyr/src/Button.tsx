@@ -46,7 +46,7 @@ const Loader = styled(Box)<{ isLoading: boolean }>`
   visibility: ${({ isLoading }) => (isLoading ? `visible` : `hidden`)};
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: calc(50% - 1.5px);
   transform: translate(-50%, -50%);
   display: flex;
 
