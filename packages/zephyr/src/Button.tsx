@@ -3,6 +3,7 @@ import { transitions } from 'polished';
 import { forwardRefWithAs, PropsWithAs } from '@reach/utils';
 import { variant as styledSystemVariant } from 'styled-system';
 import invariant from 'tiny-invariant';
+import { useReducedMotion } from 'framer-motion';
 import styled, { keyframes, useTheme } from 'styled-components';
 import { Box, BoxStylingProps } from './Box';
 import { ButtonVariantName } from './theme/variants/button';
@@ -91,6 +92,7 @@ export const Button = forwardRefWithAs<NonSemanticButtonProps, 'button'>(
     );
 
     const theme = useTheme();
+    const shouldReduceMotion = useReducedMotion();
 
     return (
       <Box
@@ -149,19 +151,29 @@ export const Button = forwardRefWithAs<NonSemanticButtonProps, 'button'>(
         ref={ref}
       >
         <Box role={isLoading ? 'status' : undefined} tx={{ position: 'relative' }}>
-          <Loader isLoading={isLoading}>
-            <Dot />
-            <Dot />
-            <Dot />
-          </Loader>
-          <Box
-            tx={{
-              opacity: isLoading ? 0 : 1,
-              visibility: isLoading ? 'hidden' : 'visible',
-            }}
-          >
-            {children}
-          </Box>
+          {shouldReduceMotion ? (
+            isLoading ? (
+              <Box>Loading...</Box>
+            ) : (
+              <Box>{children}</Box>
+            )
+          ) : (
+            <>
+              <Loader isLoading={isLoading}>
+                <Dot />
+                <Dot />
+                <Dot />
+              </Loader>
+              <Box
+                tx={{
+                  opacity: isLoading ? 0 : 1,
+                  visibility: isLoading ? 'hidden' : 'visible',
+                }}
+              >
+                {children}
+              </Box>
+            </>
+          )}
         </Box>
       </Box>
     );
