@@ -4,6 +4,7 @@ import { forwardRefWithAs, PropsWithAs } from '@reach/utils';
 import { variant as styledSystemVariant } from 'styled-system';
 import invariant from 'tiny-invariant';
 import { useReducedMotion } from 'framer-motion';
+import VisuallyHidden from '@reach/visually-hidden';
 import styled, { keyframes, useTheme } from 'styled-components';
 import { Box, BoxStylingProps } from './Box';
 import { ButtonVariantName } from './theme/variants/button';
@@ -32,19 +33,17 @@ const Dot = () => (
       borderRadius: 999,
       height: 4,
       width: 4,
-      animationFillMode: 'both',
     }}
   />
 );
 
 const wave = keyframes`
-  0% {transform: translate(0,0);}
-  50% {transform: translate(0,3px);}
-  100% {transform: translate(0,0);}
+  0% { transform: translate(0,0); }
+  50% { transform: translate(0,3px); }
+  100% { transform: translate(0,0); }
 `;
 
-const Loader = styled(Box)<{ isLoading: boolean }>`
-  visibility: ${({ isLoading }) => (isLoading ? `visible` : `hidden`)};
+const Loader = styled(Box)`
   position: absolute;
   left: 50%;
   top: calc(50% - 1.5px);
@@ -54,15 +53,18 @@ const Loader = styled(Box)<{ isLoading: boolean }>`
   div:nth-child(1) {
     animation: ${wave} 0.98s 0s ease-in-out infinite;
     margin-right: 4px;
+    animation-fill-mode: both;
   }
 
   div:nth-child(2) {
     animation: ${wave} 0.98s 0.14s ease-in-out infinite;
     margin-right: 4px;
+    animation-fill-mode: both;
   }
 
   div:nth-child(3) {
     animation: ${wave} 0.98s 0.28s ease-in-out infinite;
+    animation-fill-mode: both;
   }
 `;
 
@@ -150,30 +152,46 @@ export const Button = forwardRefWithAs<NonSemanticButtonProps, 'button'>(
         {...restOfProps}
         ref={ref}
       >
-        <Box role={isLoading ? 'status' : undefined} tx={{ position: 'relative' }}>
-          {shouldReduceMotion ? (
-            isLoading ? (
-              <Box>Loading...</Box>
+        <Box role="status" tx={{ position: 'relative' }}>
+          {isLoading &&
+            (shouldReduceMotion ? (
+              <>
+                <VisuallyHidden>Loading...</VisuallyHidden>
+                <Box
+                  aria-hidden="true"
+                  tx={{
+                    position: 'absolute',
+                    left: '50%',
+                    top: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    display: 'flex',
+                    'div:nth-child(1)': { mr: 4 },
+                    'div:nth-child(2)': { mr: 4 },
+                  }}
+                >
+                  <Dot />
+                  <Dot />
+                  <Dot />
+                </Box>
+              </>
             ) : (
-              <Box>{children}</Box>
-            )
-          ) : (
-            <>
-              <Loader isLoading={isLoading}>
-                <Dot />
-                <Dot />
-                <Dot />
-              </Loader>
-              <Box
-                tx={{
-                  opacity: isLoading ? 0 : 1,
-                  visibility: isLoading ? 'hidden' : 'visible',
-                }}
-              >
-                {children}
-              </Box>
-            </>
-          )}
+              <>
+                <VisuallyHidden>Loading...</VisuallyHidden>
+                <Loader aria-hidden="true">
+                  <Dot />
+                  <Dot />
+                  <Dot />
+                </Loader>
+              </>
+            ))}
+          <Box
+            tx={{
+              opacity: isLoading ? 0 : 1,
+              visibility: isLoading ? 'hidden' : 'visible',
+            }}
+          >
+            {children}
+          </Box>
         </Box>
       </Box>
     );
