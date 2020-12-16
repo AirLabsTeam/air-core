@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Story, Meta } from '@storybook/react';
 import { Formik, Form } from 'formik';
 import { object, string } from 'yup';
 import { StoryFnReactReturnType } from '@storybook/react/dist/client/preview/types';
 import { noop } from 'lodash';
 import { Twitter } from '@air/icons';
+import { AsyncProps } from 'react-select/async';
 import { Box } from '../../src/Box';
 import { Button } from '../../src/Button';
 import { SingleSelect, SelectOption, SingleSelectProps } from '../../src/Forms/SingleSelect';
@@ -21,12 +22,13 @@ const FormikDecorator = (Story: () => StoryFnReactReturnType) => {
   const validationSchema = object({
     nonRequired: string().default(undefined),
     required: string().required('Required').default(undefined),
-    fancyOptions: string().default(undefined),
+    simpleAsync: string().default(undefined),
+    complexAsync: string().default(undefined),
     creatable: string().default(undefined),
     initialValue: string().default(options[0].value),
-    async: string().default(undefined),
     disabled: string().default(undefined),
     readOnly: string().default(options[0].value),
+    fancyOptions: string().default(undefined),
   });
 
   const initialValues = validationSchema.cast()!;
@@ -99,6 +101,92 @@ Default.parameters = {
   },
 };
 
+export const SimpleAsync: Story<SingleSelectProps> = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [asyncOptions, setOptions] = useState<typeof options>(options);
+
+  useEffect(() => {
+    setIsLoading(true);
+
+    setTimeout(() => {
+      setOptions([...options]);
+      setIsLoading(false);
+    }, 5000);
+  }, []);
+
+  return (
+    <SingleSelect
+      label="Simple Async"
+      name="simpleAsync"
+      id="SimpleAsync"
+      placeholder={isLoading ? 'Loading options...' : 'Select...'}
+      required={false}
+      initialLoadingState={{ isLoading, optionsListLoadingText: 'Loading...' }}
+      options={asyncOptions}
+    />
+  );
+};
+
+SimpleAsync.parameters = {
+  docs: {
+    description: {
+      story: `You may have a usecase where the initial set of options is asynchronously defined, yet remain static over one use. A prime example of this is a SingleSelect whose options are sent via a CMS).`,
+    },
+  },
+};
+
+export const ComplexAsync: Story<SingleSelectProps> = () => {
+  const [hasLoadedInitialOptions, setHasLoadedInitialOptions] = useState<boolean>(false);
+  const loadingText = 'Loading options...';
+
+  const colors: SelectOption[] = [
+    { value: 'ocean', label: 'Ocean' },
+    { value: 'blue', label: 'Blue' },
+    { value: 'purple', label: 'Purple' },
+  ];
+
+  const filterColors = (inputValue: string) => {
+    return colors.filter((color) => color.label.toLowerCase().includes(inputValue.toLowerCase()));
+  };
+
+  const loadOptions: AsyncProps<SelectOption>['loadOptions'] = (inputValue, callback) => {
+    setTimeout(
+      () => {
+        callback(filterColors(inputValue));
+        setHasLoadedInitialOptions(true); // changes from false to true only once
+      },
+      hasLoadedInitialOptions ? 1250 : 5000, // simulating initial load vs. type-ahead load
+    );
+  };
+
+  return (
+    <SingleSelect
+      label="Complex Async"
+      name="complexAsync"
+      id="ComplexAsync"
+      placeholder={hasLoadedInitialOptions ? 'Select...' : loadingText}
+      initialLoadingState={{
+        isLoading: !hasLoadedInitialOptions,
+        optionsListLoadingText: loadingText,
+      }}
+      required={false}
+      loadOptions={loadOptions}
+    />
+  );
+};
+
+ComplexAsync.parameters = {
+  docs: {
+    description: {
+      story: `In this situation, you have options which could potentially change WHILE a user is interacting with this
+element. For an example relevant to Air engineers, think no farther than a dropdown for boards: A teammate in a
+workspace could create a board while you are populating the workspace with assets. You would not want to reload the
+page to see the newly created board, so we provide this implementation to highlight how typeahead options can populate
+during one user's usage.`,
+    },
+  },
+};
+
 export const Creatable: Story<SingleSelectProps> = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [creatableStoryOptions, setOptions] = useState<typeof options>(options);
@@ -120,11 +208,20 @@ export const Creatable: Story<SingleSelectProps> = () => {
       name="creatable"
       id="Creatable"
       required={false}
-      loadingState={{ isLoading, optionsListLoadingText: 'Working...' }}
+      initialLoadingState={{ isLoading, optionsListLoadingText: 'Working...' }}
       options={creatableStoryOptions}
       creatableConfig={{ onCreateOption }}
     />
   );
+};
+
+Creatable.parameters = {
+  docs: {
+    description: {
+      story:
+        'Design does not currently have plans to allow for a SingleSelect where there will exist creatable options, but this ability was already safely provided before that determination was reached... So here you go.',
+    },
+  },
 };
 
 export const Disabled: Story<SingleSelectProps> = () => (
@@ -149,7 +246,7 @@ export const WithOpenMenuAndFancyOptions: Story<SingleSelectProps> = () => (
     label="With Open Menu And Fancy Options"
     name="fancyOptions"
     id="WithOpenMenuAndFancyOptions"
-    tx={{ mb: 128 }}
+    tx={{ mb: 180 }}
     menuIsOpen={true}
     required={false}
     options={[
@@ -201,13 +298,13 @@ export const WithOpenMenuAndRealValueSelected: Story<SingleSelectProps> = () => 
   />
 );
 
-export const WithOpenMenuAndAsynchronousOptionsLoading: Story<SingleSelectProps> = () => (
+export const WithOpenMenuAndAsynchronousOptionsLoadingEternally: Story<SingleSelectProps> = () => (
   <SingleSelect
     label="With Open Menu And Async"
     required={false}
     name="async"
-    id="WithOpenMenuAndAsynchronousOptionsLoading"
-    loadingState={{ isLoading: true, optionsListLoadingText: 'Loading...' }}
+    id="WithOpenMenuAndAsynchronousOptionsLoadingEternally"
+    initialLoadingState={{ isLoading: true, optionsListLoadingText: 'Loading...' }}
     options={undefined} // this would be resolved into a correct type asynchronously
     menuIsOpen={true}
   />

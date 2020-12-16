@@ -7,9 +7,12 @@ import ReactSelect, {
   SelectComponentsConfig,
   Styles,
 } from 'react-select';
+import ReactSelectAsync from 'react-select/async';
+import ReactSelectAsyncCreatable from 'react-select/async-creatable';
 import ReactSelectCreatable from 'react-select/creatable';
-import { NamedProps as ReactSelectProps } from 'react-select/src/Select';
+import { AsyncProps as ReactSelectAsyncProps } from 'react-select/src/Async';
 import { CreatableProps as ReactSelectCreatableProps } from 'react-select/src/Creatable';
+import { NamedProps as ReactSelectProps } from 'react-select/src/Select';
 import { capitalize, isNull } from 'lodash';
 import VisuallyHidden from '@reach/visually-hidden';
 import { Check, TriangleDown } from '@air/icons';
@@ -107,10 +110,12 @@ export interface SingleSelectProps
   options?: SelectOption[];
 
   /**
-   * We want developers to be conscious of many things when dealing with asynchronously loaded options. It's not as
-   * simple as: "is it loading?""
+   * We want developers to be conscious of many things when dealing with initially asynchronously loaded options. It's
+   * not as simple as: "is it loading?". For example, the component is not wholly in a loading state when leveraging a
+   * searchable, [async react-select](https://react-select.com/async) because the field should not be disabled and options
+   * may already be renderable.
    */
-  loadingState?: {
+  initialLoadingState?: {
     isLoading: boolean;
     optionsListLoadingText: string;
   };
@@ -118,13 +123,23 @@ export interface SingleSelectProps
   /**
    * Leverages a ["CreatableSelect"](https://react-select.com/creatable) from [`react-select`](https://react-select.com/)
    * if defined. `onCreateOption` is a required key if the object is defined, but other, optional properties are outlined
-   * [here](https://react-select.com/props#creatable-props).
+   * [here](https://react-select.com/props#creatable-props). Note: If both `creatableConfig` and `asyncConfig` are defined,
+   * `react-select/AsyncCreatable` will be used.
    */
   creatableConfig?: {
     onCreateOption: NonNullable<
       ReactSelectCreatableProps<SelectOption, CanHaveMultipleSelections>['onCreateOption']
     >;
   } & Omit<ReactSelectCreatableProps<SelectOption, CanHaveMultipleSelections>, 'onCreateOption'>;
+
+  /**
+   * Leverages an ["AsyncSelect"](https://react-select.com/async) from [`react-select`](https://react-select.com/)
+   * if defined. The optional properties for async react-select components are banned in favor of universal defaults.
+   * Note: If both `creatableConfig` and `loadOptions` are defined, `react-select/AsyncCreatable` will be used. Regardless
+   * of the initial set of options being asynchronously defined, this prop is NOT required if the available options remain
+   * static over one use (for example, a SingleSelect whose options are defined via a CMS).
+   */
+  loadOptions?: ReactSelectAsyncProps<SelectOption>['loadOptions'];
 
   /**
    * This will eventually be an optional parameter, but must be required until [this Formik issue](https://github.com/formium/formik/issues/2092#issuecomment-738606844)
@@ -380,7 +395,8 @@ export const SingleSelect = ({
   isLabelHidden = false,
   isSearchable = true,
   label,
-  loadingState,
+  loadOptions,
+  initialLoadingState,
   name,
   options,
   placeholder = 'Select...',
@@ -397,7 +413,7 @@ export const SingleSelect = ({
   const errorID = `${selectID}_error`;
   const descriptionID = `${selectID}_description`;
   const hasError = meta.touched && !!meta.error;
-  const isLoading = loadingState?.isLoading ?? false;
+  const isLoading = initialLoadingState?.isLoading ?? false;
   const isDisabled = disabled || readOnly || isLoading;
 
   const testID = React.useMemo(() => {
@@ -412,18 +428,18 @@ export const SingleSelect = ({
     if (isLoading) return undefined;
 
     invariant(
-      !!options,
-      `On <Select name="${field.name}">: One of the passed options has an empty string label. We have a requirement in our design system that disallows this. Please confer with your designer on an acceptable replacement before moving forward.`,
-    );
-
-    invariant(
-      !options.some(({ label }) => label === ''),
+      (!loadOptions && options) || (loadOptions && !options),
       `On <Select name="${field.name}">: You failed to pass any options.`,
     );
 
-    const matchingOption = options.find(({ value }) => value === field.value);
+    invariant(
+      (options && !options.some(({ label }) => label === '')) || !options,
+      `On <Select name="${field.name}">: One of the passed options has an empty string label. We have a requirement in our design system that disallows this. Please confer with your designer on an acceptable replacement before moving forward.`,
+    );
+
+    const matchingOption = options?.find(({ value }) => value === field.value);
     return matchingOption;
-  }, [field, isLoading, options]);
+  }, [field, isLoading, loadOptions, options]);
 
   const onBlur = React.useCallback(() => helpers.setTouched(true), [helpers]);
   const onChange = React.useCallback(
@@ -440,16 +456,16 @@ export const SingleSelect = ({
     'aria-describedby': !!description ? `${descriptionID} ${errorID}` : errorID,
     'aria-invalid': hasError,
     components: { ...AirReactSelectComponents, ...components },
-    creatableConfig,
     'data-testid': testID,
+    defaultOptions: true,
     id: selectID,
     instanceId: `${selectID}_instance`,
     isClearable: false,
     isDisabled,
     isLoading,
     isSearchable: isSearchable,
+    loadingMessage: () => initialLoadingState?.optionsListLoadingText ?? null,
     name: field.name,
-    loadingMessage: () => loadingState?.optionsListLoadingText ?? null,
     onBlur: onBlur,
     onChange: onChange,
     options,
@@ -499,7 +515,15 @@ export const SingleSelect = ({
           },
         }}
       >
-        {creatableConfig ? <ReactSelectCreatable {...props} /> : <ReactSelect {...props} />}
+        {creatableConfig && loadOptions ? (
+          <ReactSelectAsyncCreatable {...props} {...creatableConfig} loadOptions={loadOptions} />
+        ) : loadOptions && !creatableConfig ? (
+          <ReactSelectAsync {...props} loadOptions={loadOptions} />
+        ) : creatableConfig && !loadOptions ? (
+          <ReactSelectCreatable {...props} {...creatableConfig} />
+        ) : (
+          <ReactSelect {...props} />
+        )}
       </Box>
 
       {/* Only render description while no error for field exists. */}
