@@ -1,6 +1,6 @@
 import { Title, Subtitle, Description, Stories } from '@storybook/addon-docs/blocks';
 import React from 'react';
-import { Story, Meta } from '@storybook/react';
+import { Meta } from '@storybook/react';
 import { Button, ButtonProps } from '../../src/Button';
 
 const meta: Meta<ButtonProps> = {
@@ -26,15 +26,20 @@ const meta: Meta<ButtonProps> = {
 
 export default meta;
 
-const Template: Story<ButtonProps> = (args) => <Button {...args} data-testid={meta.title} />;
-
-export const OutlineBlueButton = Template.bind({});
-
-OutlineBlueButton.args = {
-  children: 'Outline blue button',
-  size: 'medium',
-  variant: 'button-outline-blue',
-};
+export const OutlineBlueButton = () => (
+  <>
+    <Button size="medium" variant="button-outline-blue">
+      Outline blue button
+    </Button>
+    <br />
+    <br />
+    <Button isLoading size="medium" variant="button-outline-blue">
+      Outline blue button
+    </Button>
+    <br />
+    <br />
+  </>
+);
 
 OutlineBlueButton.parameters = {
   docs: {
@@ -47,13 +52,20 @@ OutlineBlueButton.parameters = {
 
 OutlineBlueButton.storyName = 'Outline (Blue)';
 
-export const OutlineGreyButton = Template.bind({});
-
-OutlineGreyButton.args = {
-  children: 'Outline grey button',
-  size: 'medium',
-  variant: 'button-outline-grey',
-};
+export const OutlineGreyButton = () => (
+  <>
+    <Button size="medium" variant="button-outline-grey">
+      Outline grey button
+    </Button>
+    <br />
+    <br />
+    <Button isLoading size="medium" variant="button-outline-grey">
+      Outline grey button
+    </Button>
+    <br />
+    <br />
+  </>
+);
 
 OutlineGreyButton.parameters = {
   docs: {
