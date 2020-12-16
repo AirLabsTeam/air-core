@@ -180,7 +180,7 @@ type DesiredReactSelectProps =
   | 'styles'
   | 'theme';
 
-export interface SelectProps
+export interface SingleSelectProps
   extends Pick<ReactSelectProps<SelectOption, CanHaveMultipleSelections>, DesiredReactSelectProps>,
     Pick<BoxStylingProps, 'tx'> {
   /**
@@ -358,7 +358,7 @@ export const AirReactSelectComponents: SelectComponentsConfig<
   Option: AirReactSelectOption,
 };
 
-export const Select = ({
+export const SingleSelect = ({
   className,
   components,
   creatableConfig,
@@ -378,7 +378,7 @@ export const Select = ({
   tx,
   'data-testid': topLevelTestID,
   ...restOfProps
-}: SelectProps) => {
+}: SingleSelectProps) => {
   const [field, meta, helpers] = useField<string>(name);
   const theme = useTheme();
   const selectID = id ?? name;
@@ -512,4 +512,4 @@ export const Select = ({
   );
 };
 
-Select.displayName = 'Select';
+SingleSelect.displayName = 'SingleSelect';

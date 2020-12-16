@@ -7,7 +7,7 @@ import { noop } from 'lodash';
 import { Twitter } from '@air/icons';
 import { Box } from '../../src/Box';
 import { Button } from '../../src/Button';
-import { Select, SelectOption, SelectProps } from '../../src/Forms/Select';
+import { SingleSelect, SelectOption, SingleSelectProps } from '../../src/Forms/SingleSelect';
 
 const options: SelectOption[] = [
   { label: 'Red Fish', value: 'rf' },
@@ -51,17 +51,17 @@ const FormikDecorator = (Story: () => StoryFnReactReturnType) => {
   );
 };
 
-const meta: Meta<SelectProps> = {
+const meta: Meta<SingleSelectProps> = {
   title: 'Zephyr/Forms/Select',
-  component: Select,
+  component: SingleSelect,
   decorators: [FormikDecorator],
 };
 
 export default meta;
 
-export const Default: Story<SelectProps> = (args) => (
+export const Default: Story<SingleSelectProps> = (args) => (
   <>
-    <Select {...args} name={args.required ? 'required' : 'nonRequired'} />
+    <SingleSelect {...args} name={args.required ? 'required' : 'nonRequired'} />
 
     <Button type="submit" variant="button-ghost-blue" tx={{ ml: 12 }}>
       Validate
@@ -99,7 +99,7 @@ Default.parameters = {
   },
 };
 
-export const Creatable: Story<SelectProps> = () => {
+export const Creatable: Story<SingleSelectProps> = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [creatableStoryOptions, setOptions] = useState<typeof options>(options);
 
@@ -115,7 +115,7 @@ export const Creatable: Story<SelectProps> = () => {
   };
 
   return (
-    <Select
+    <SingleSelect
       label="Creatable"
       name="creatable"
       id="Creatable"
@@ -127,8 +127,8 @@ export const Creatable: Story<SelectProps> = () => {
   );
 };
 
-export const Disabled: Story<SelectProps> = () => (
-  <Select
+export const Disabled: Story<SingleSelectProps> = () => (
+  <SingleSelect
     label="Disabled"
     disabled
     name="disabled"
@@ -138,14 +138,14 @@ export const Disabled: Story<SelectProps> = () => (
   />
 );
 
-export const ReadOnly: Story<SelectProps> = () => (
-  <Select label="Read Only" readOnly name="readOnly" required={false} options={options} />
+export const ReadOnly: Story<SingleSelectProps> = () => (
+  <SingleSelect label="Read Only" readOnly name="readOnly" required={false} options={options} />
 );
 
 /** Visual Regression Diff Tests Below */
 
-export const WithOpenMenuAndFancyOptions: Story<SelectProps> = () => (
-  <Select
+export const WithOpenMenuAndFancyOptions: Story<SingleSelectProps> = () => (
+  <SingleSelect
     label="With Open Menu And Fancy Options"
     name="fancyOptions"
     id="WithOpenMenuAndFancyOptions"
@@ -179,8 +179,8 @@ WithOpenMenuAndFancyOptions.parameters = {
   },
 };
 
-export const WithOpenMenuAndEmptyValueSelected: Story<SelectProps> = () => (
-  <Select
+export const WithOpenMenuAndEmptyValueSelected: Story<SingleSelectProps> = () => (
+  <SingleSelect
     label="With Open Menu And No Value"
     required={false}
     name="nonRequired"
@@ -190,8 +190,8 @@ export const WithOpenMenuAndEmptyValueSelected: Story<SelectProps> = () => (
   />
 );
 
-export const WithOpenMenuAndRealValueSelected: Story<SelectProps> = () => (
-  <Select
+export const WithOpenMenuAndRealValueSelected: Story<SingleSelectProps> = () => (
+  <SingleSelect
     label="With Open Menu And Value"
     required={false}
     name="initialValue"
@@ -201,8 +201,8 @@ export const WithOpenMenuAndRealValueSelected: Story<SelectProps> = () => (
   />
 );
 
-export const WithOpenMenuAndAsynchronousOptionsLoading: Story<SelectProps> = () => (
-  <Select
+export const WithOpenMenuAndAsynchronousOptionsLoading: Story<SingleSelectProps> = () => (
+  <SingleSelect
     label="With Open Menu And Async"
     required={false}
     name="async"
