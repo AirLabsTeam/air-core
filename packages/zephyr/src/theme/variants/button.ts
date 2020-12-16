@@ -110,12 +110,12 @@ const _button: { [key in ButtonVariantName]: TXProp } = {
       borderColor: 'transparent',
       color: 'jay600',
     },
-    '&:active': {
+    '&:active:not(.is-loading)': {
       backgroundColor: 'jay200',
       borderColor: 'transparent',
       color: 'jay700',
     },
-    '&:disabled': {
+    '&:disabled:not(.is-loading)': {
       color: 'pigeon300',
       borderColor: 'pigeon100',
     },
@@ -124,17 +124,17 @@ const _button: { [key in ButtonVariantName]: TXProp } = {
     border: '1px solid',
     borderColor: 'pigeon200',
     color: 'pigeon600',
-    '&:hover': {
+    '&:hover:not(.is-loading)': {
       backgroundColor: 'pigeon050',
       borderColor: 'transparent',
       color: 'pigeon700',
     },
-    '&:active': {
+    '&:active:not(.is-loading)': {
       backgroundColor: 'pigeon100',
       borderColor: 'transparent',
       color: 'pigeon700',
     },
-    '&:disabled': {
+    '&:disabled:not(.is-loading)': {
       backgroundColor: 'transparent',
       color: 'pigeon300',
       borderColor: 'pigeon100',

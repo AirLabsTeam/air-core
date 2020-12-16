@@ -94,9 +94,11 @@ export const Button = forwardRefWithAs<NonSemanticButtonProps, 'button'>(
       (isLoading &&
         (variant === 'button-filled-blue' ||
           variant === 'button-filled-grey' ||
-          variant === 'button-filled-destructive')) ||
+          variant === 'button-filled-destructive' ||
+          variant === 'button-outline-blue' ||
+          variant === 'button-outline-grey')) ||
         !isLoading,
-      'Button can only have loading state if it is a filled variant',
+      'Button can only have loading state if it is a filled or outlined variant, please discuss deviations with Design.',
     );
 
     const theme = useTheme();
