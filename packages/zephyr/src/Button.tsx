@@ -46,7 +46,7 @@ const wave = keyframes`
 const Loader = styled(Box)<{ shouldReduceMotion: boolean }>`
   position: absolute;
   left: 50%;
-  top: calc(50%);
+  top: 50%;
   transform: translate(-50%, -50%);
   display: flex;
 
