@@ -118,20 +118,6 @@ export const getBaseSelectStylesWithTheme = ({
       cursor: 'pointer', // we dont want cursor to change between items in the menu
     },
   }),
-  option: (base, state) => ({
-    ...base,
-    backgroundColor: state.isFocused && theme.colors.pigeon050,
-    borderRadius: 4,
-    color: state.isSelected ? theme.colors.pigeon700 : theme.colors.pigeon500,
-    cursor: 'pointer',
-    padding: 6,
-    '&:active': {
-      backgroundColor: theme.colors.pigeon100,
-    },
-    '&:not(:last-child)': {
-      marginBottom: 8,
-    },
-  }),
   placeholder: (base) => ({
     ...base,
     color: theme.colors.pigeon300,
@@ -149,7 +135,9 @@ export const getBaseSelectStylesWithTheme = ({
 export type SelectOption = {
   label: string;
   value: string;
-} & { [key in string]: any };
+  leftAdornment?: React.ReactNode;
+  description?: string;
+};
 
 type CanHaveMultipleSelections = false;
 
@@ -278,7 +266,7 @@ const AirReactSelectDropdownIndicator = (
       as={TriangleDown}
       tx={{
         width: 16,
-        '& path': { fill: 'currentColor', shapeRendering: 'auto' }, // TODO: ask design about shapeRendering
+        '& path': { fill: 'currentColor', shapeRendering: 'crispEdges' },
         marginRight: -8,
       }}
     />
@@ -288,18 +276,79 @@ const AirReactSelectDropdownIndicator = (
 const AirReactSelectOption = ({
   children,
   ...props
-}: OptionProps<SelectOption, CanHaveMultipleSelections>) => (
-  <defaultReactSelectComponents.Option {...props}>
-    {props.isSelected ? (
-      <Box tx={{ display: 'flex', justifyContent: 'space-between', fontWeight: 'medium' }}>
-        {children}
-        <Box as={Check} tx={{ color: 'pigeon600', width: 16 }} />
+}: Omit<OptionProps<SelectOption, CanHaveMultipleSelections>, 'data'> & {
+  data: SelectOption;
+}) => {
+  const { leftAdornment: LeftAdornment, description } = props.data;
+
+  const propsWithoutStyleFn = {
+    ...props,
+    getStyles: (_base: any, _props: any) => ({ '&:not(:last-child)': { marginBottom: 8 } }),
+  };
+
+  return (
+    <defaultReactSelectComponents.Option {...propsWithoutStyleFn}>
+      <Box
+        tx={{
+          bg: props.isFocused ? 'pigeon050' : 'inherit',
+          borderRadius: 4,
+          color: props.isSelected ? 'pigeon700' : 'pigeon500',
+          cursor: 'pointer',
+          p: 6,
+          mb: 8,
+          '&:active': { bg: 'pigeon100' },
+          '&:last-of-type': { marginBottom: 0 },
+        }}
+      >
+        <Box
+          tx={{
+            display: 'flex',
+            alignItems: 'center',
+            fontWeight: props.isSelected ? 'medium' : 'regular',
+            width: '100%',
+          }}
+        >
+          {LeftAdornment && (
+            <Box
+              as={LeftAdornment as any}
+              tx={{ color: 'pigeon500', width: 16, minWidth: '16px', mr: 8 }}
+            />
+          )}
+
+          <Text
+            variant="text-ui-14"
+            tx={{
+              color: 'pigeon700',
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
+              whiteSpace: 'nowrap',
+            }}
+          >
+            {children}
+          </Text>
+
+          {props.isSelected && (
+            <Box as={Check} tx={{ color: 'pigeon600', width: 16, minWidth: '16px', ml: 'auto' }} />
+          )}
+        </Box>
+
+        {description && (
+          <Text
+            variant="text-ui-14"
+            tx={{
+              color: 'pigeon500',
+              display: 'flex',
+              ml: LeftAdornment ? 24 : 0,
+              textOverflow: 'ellipsis',
+            }}
+          >
+            {description}
+          </Text>
+        )}
       </Box>
-    ) : (
-      children
-    )}
-  </defaultReactSelectComponents.Option>
-);
+    </defaultReactSelectComponents.Option>
+  );
+};
 
 export const AirReactSelectComponents: SelectComponentsConfig<
   SelectOption,
