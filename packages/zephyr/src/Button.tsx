@@ -108,7 +108,6 @@ export const Button = forwardRefWithAs<NonSemanticButtonProps, 'button'>(
         disabled={disabled || isLoading}
         type={type}
         variant={variant}
-        // className={isLoading ? `${className} isLoading` : `${className}`}
         className={classNames({ 'is-loading': isLoading }, className)}
         __baseStyles={{
           appearance: 'none',
