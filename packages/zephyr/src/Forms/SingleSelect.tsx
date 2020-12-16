@@ -239,10 +239,9 @@ export const getBaseSelectStylesWithTheme = ({
   menu: (base) => ({
     ...base,
     border: 'none',
-    borderTop: `1px solid ${theme.colors.pigeon200}`,
     borderRadius: 4,
     // prettier-ignore
-    boxShadow: `0px 1px 4px ${rgba(theme.colors.black, 0.25)}, 0px 1px 8px ${rgba(theme.colors.black, 0.2)}`,
+    boxShadow: `${rgba(theme.colors.black, 0.15)} 0px 1px 3px, ${rgba(theme.colors.black, 0.25)} 0px 0px 2px, ${rgba(theme.colors.black, 0.2)} 0px 2px 8px`,
     padding: 6,
     '& > div': {
       padding: 0,
