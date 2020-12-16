@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Story, Meta } from '@storybook/react';
 import { Formik, Form } from 'formik';
 import { object, string } from 'yup';
 import { StoryFnReactReturnType } from '@storybook/react/dist/client/preview/types';
 import { noop } from 'lodash';
+import { Twitter } from '@air/icons';
 import { Box } from '../../src/Box';
 import { Button } from '../../src/Button';
 import { Select, SelectOption, SelectProps } from '../../src/Forms/Select';
@@ -15,11 +16,13 @@ const options: SelectOption[] = [
 ];
 
 // NOTE: If this changes, please change the hard-coded code sample in the Default story's doc source code parameter.
-const FormikDecorator = (Story: () => StoryFnReactReturnType, withValidationButton?: boolean) => {
+const FormikDecorator = (Story: () => StoryFnReactReturnType) => {
   // This validation schema supplies every input in this story page.
   const validationSchema = object({
     nonRequired: string().default(undefined),
     required: string().required('Required').default(undefined),
+    fancyOptions: string().default(undefined),
+    creatable: string().default(undefined),
     initialValue: string().default(options[0].value),
     async: string().default(undefined),
     disabled: string().default(undefined),
@@ -42,14 +45,6 @@ const FormikDecorator = (Story: () => StoryFnReactReturnType, withValidationButt
           noValidate // hides HTML5 default validations on submit
         >
           <Story />
-
-          <Button
-            type="submit"
-            variant="button-ghost-blue"
-            tx={{ ml: 12, display: withValidationButton ? 'block' : 'none' }}
-          >
-            Validate
-          </Button>
         </Box>
       )}
     </Formik>
@@ -59,21 +54,27 @@ const FormikDecorator = (Story: () => StoryFnReactReturnType, withValidationButt
 const meta: Meta<SelectProps> = {
   title: 'Zephyr/Forms/Select',
   component: Select,
+  decorators: [FormikDecorator],
 };
 
 export default meta;
 
 export const Default: Story<SelectProps> = (args) => (
-  <Select {...args} name={args.required ? 'required' : 'nonRequired'} />
-);
+  <>
+    <Select {...args} name={args.required ? 'required' : 'nonRequired'} />
 
-Default.decorators = [(story) => FormikDecorator(story, true)];
+    <Button type="submit" variant="button-ghost-blue" tx={{ ml: 12 }}>
+      Validate
+    </Button>
+  </>
+);
 
 Default.args = {
   disabled: false,
   id: 'Default',
   isLabelHidden: false,
   label: 'Test',
+  // name: 'default', purposefully not defined here (see story JSX)
   required: true,
   options,
 };
@@ -90,50 +91,40 @@ Default.parameters = {
       \nSee source code below for example. Entire implementation is provided.`,
     },
     source: {
-      code: `
-() => {
-  // This validation schema supplies every input in this story page.
-  const validationSchema = object({
-    nonRequired: string().default(undefined),
-    required: string().required('Required').default(undefined),
-    initialValue: string().default(options[0].value),
-    async: string().default(undefined),
-    disabled: string().default(undefined),
-    readOnly: string().default(options[0].value),
-  });
-
-  const initialValues = validationSchema.cast()!;
-
-  return (
-    <Formik validationSchema={validationSchema} initialValues={initialValues} onSubmit={noop}>
-      {() => (
-        <Box
-          as={Form}
-          tx={{
-            display: 'flex',
-            alignItems: 'flex-end',
-            mb: 124, // so that eveything can fit inside the canvas
-          }}
-          autoComplete="off"
-          noValidate // hides HTML5 default validations on submit
-        >
-          {(args) => <Select {...args} name={args.required ? 'required' : 'nonRequired'} />}
-
-          <Button
-            type="submit"
-            variant="button-ghost-blue"
-            tx={{ ml: 12, display: withValidationButton ? 'block' : 'none' }}
-          >
-            Validate
-          </Button>
-        </Box>
-      )}
-    </Formik>
-  );
-}
-      `,
+      code: `/**
+ * Unfortunately, we can't render source code correctly on the initial story.
+ * Please see https://github.com/storybookjs/storybook/issues/12022
+ */`,
     },
   },
+};
+
+export const Creatable: Story<SelectProps> = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [creatableStoryOptions, setOptions] = useState<typeof options>(options);
+
+  const onCreateOption = (inputValue: string) => {
+    setIsLoading(true);
+
+    // mimicking async nature
+    setTimeout(() => {
+      const newOption = { label: inputValue, value: inputValue.toLowerCase().replace(/\W/g, '') };
+      setOptions([...creatableStoryOptions, newOption]);
+      setIsLoading(false);
+    }, 2000);
+  };
+
+  return (
+    <Select
+      label="Creatable"
+      name="creatable"
+      id="Creatable"
+      required={false}
+      loadingState={{ isLoading, optionsListLoadingText: 'Working...' }}
+      options={creatableStoryOptions}
+      creatableConfig={{ onCreateOption }}
+    />
+  );
 };
 
 export const Disabled: Story<SelectProps> = () => (
@@ -147,15 +138,46 @@ export const Disabled: Story<SelectProps> = () => (
   />
 );
 
-Disabled.decorators = [(story) => FormikDecorator(story, true)];
-
 export const ReadOnly: Story<SelectProps> = () => (
   <Select label="Read Only" readOnly name="readOnly" required={false} options={options} />
 );
 
-ReadOnly.decorators = [(story) => FormikDecorator(story, true)];
-
 /** Visual Regression Diff Tests Below */
+
+export const WithOpenMenuAndFancyOptions: Story<SelectProps> = () => (
+  <Select
+    label="With Open Menu And Fancy Options"
+    name="fancyOptions"
+    id="WithOpenMenuAndFancyOptions"
+    tx={{ mb: 128 }}
+    menuIsOpen={true}
+    required={false}
+    options={[
+      { label: 'Label + Adornment', value: 'la', leftAdornment: Twitter },
+      {
+        label: 'Label + Adornment + Description',
+        value: 'lad',
+        leftAdornment: Twitter,
+        description: 'Small description here.',
+      },
+      {
+        label: 'Long Label + Long Description - Blah Blah Blah Filler.',
+        value: 'llld',
+        description:
+          'This description is long, but does not automatically ellipse. If you want an ellipse for a long description, you will have to manipulate the options per implementation.',
+      },
+    ]}
+  />
+);
+
+WithOpenMenuAndFancyOptions.parameters = {
+  docs: {
+    description: {
+      story:
+        'An option is required to have a string `label` and `value`; however, it can optionally have a `description` or a `leftAdornment` (typically an icon).',
+    },
+  },
+};
 
 export const WithOpenMenuAndEmptyValueSelected: Story<SelectProps> = () => (
   <Select
@@ -168,17 +190,6 @@ export const WithOpenMenuAndEmptyValueSelected: Story<SelectProps> = () => (
   />
 );
 
-WithOpenMenuAndEmptyValueSelected.decorators = [(story) => FormikDecorator(story, false)];
-
-WithOpenMenuAndEmptyValueSelected.parameters = {
-  docs: {
-    description: {
-      story:
-        'This story only exists to provide a visual regression diff test for the open menu appearance.',
-    },
-  },
-};
-
 export const WithOpenMenuAndRealValueSelected: Story<SelectProps> = () => (
   <Select
     label="With Open Menu And Value"
@@ -189,17 +200,6 @@ export const WithOpenMenuAndRealValueSelected: Story<SelectProps> = () => (
     menuIsOpen={true}
   />
 );
-
-WithOpenMenuAndRealValueSelected.decorators = [(story) => FormikDecorator(story, false)];
-
-WithOpenMenuAndRealValueSelected.parameters = {
-  docs: {
-    description: {
-      story:
-        'This story only exists to provide a visual regression diff test for the open menu appearance.',
-    },
-  },
-};
 
 export const WithOpenMenuAndAsynchronousOptionsLoading: Story<SelectProps> = () => (
   <Select
@@ -212,14 +212,3 @@ export const WithOpenMenuAndAsynchronousOptionsLoading: Story<SelectProps> = () 
     menuIsOpen={true}
   />
 );
-
-WithOpenMenuAndAsynchronousOptionsLoading.decorators = [(story) => FormikDecorator(story, false)];
-
-WithOpenMenuAndAsynchronousOptionsLoading.parameters = {
-  docs: {
-    description: {
-      story:
-        'This story only exists to provide a visual regression diff test for the open menu appearance.',
-    },
-  },
-};
