@@ -293,8 +293,11 @@ const AirReactSelectDropdownIndicator = (
         as={TriangleDown}
         tx={{
           width: 16,
-          '& path': { fill: 'currentColor', shapeRendering: 'crispEdges' },
-          marginRight: -8,
+          '& path': {
+            fill: 'currentColor',
+            shapeRendering: 'crispEdges',
+            marginBottom: '-3px', // needed to align vertically
+          },
         }}
       />
     </defaultReactSelectComponents.DropdownIndicator>
