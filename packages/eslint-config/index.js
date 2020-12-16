@@ -369,13 +369,21 @@ const config = {
       },
     },
     {
-      files: ['**/*.test.{js,jsx,ts,tsx}', '**/*.spec.{js,jsx,ts,tsx}'],
+      files: ['**/*.test.*', '**/*.spec.*'],
       rules: {
         'function-paren-newline': ['error', 'consistent'],
+        'react/prop-types': 'off',
+        'react/display-name': 'off',
       },
     },
     {
-      files: ['**/*.spec.{js,jsx,ts,tsx}'],
+      files: ['**/*.test.*'],
+      rules: {
+        'no-global-assign': 'off',
+      },
+    },
+    {
+      files: ['**/*.spec.*'],
       rules: {
         'no-unused-expressions': ['off'],
       },
