@@ -322,7 +322,7 @@ const AirReactSelectOption = ({
       <Box
         tx={{
           bg: props.isFocused ? 'pigeon050' : 'inherit',
-          borderRadius: 4,
+          borderRadius: 2,
           color: props.isSelected ? 'pigeon700' : 'pigeon500',
           cursor: 'pointer',
           p: 6,
