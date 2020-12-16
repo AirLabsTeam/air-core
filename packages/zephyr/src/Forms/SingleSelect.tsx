@@ -14,123 +14,11 @@ import { capitalize, isNull } from 'lodash';
 import VisuallyHidden from '@reach/visually-hidden';
 import { Check, TriangleDown } from '@air/icons';
 import invariant from 'tiny-invariant';
+import { rgba } from 'polished';
 import { DefaultTheme, useTheme } from 'styled-components';
 import { Box, BoxStylingProps } from '../Box';
 import { Text } from '../Text';
 import { Label } from './Label';
-
-export const getBaseSelectStylesWithTheme = ({
-  theme,
-  hasError,
-  isSearchable,
-}: {
-  theme: DefaultTheme;
-  hasError: boolean;
-  isSearchable: boolean;
-}): Partial<Styles> => ({
-  container: (base, props) => ({
-    ...base,
-    color: props.isDisabled ? theme.colors.pigeon200 : theme.colors.pigeon700,
-    fontFamily: theme.fonts.copy,
-    fontSize: 14,
-    letterSpacing: '-0.015em',
-    lineHeight: 1.5,
-  }),
-  control: (base, props) => {
-    let border: string;
-    let boxShadow: string;
-
-    if (hasError) {
-      border = `1px solid ${theme.colors.flamingo600}`;
-      boxShadow = `${theme.colors.flamingo600} 0 0 0 1px`;
-    } else if (props.isDisabled) {
-      border = `1px solid ${theme.colors.pigeon100}`;
-      boxShadow = 'none';
-    } else if (props.isFocused) {
-      border = `1px solid ${theme.colors.macaw200}`;
-      boxShadow = `${theme.colors.macaw200} 0 0 0 1px`;
-    } else {
-      border = `1px solid ${theme.colors.pigeon200}`;
-      boxShadow = 'none';
-    }
-
-    return {
-      ...base,
-      backgroundColor: theme.colors.transparent,
-      border,
-      borderRadius: 4,
-      boxShadow,
-      cursor: 'text',
-      outline: 'none',
-      padding: '1px 12px', // react-select has 4px py on some other element
-      width: '100%',
-      zIndex: 1,
-      '&:hover': {
-        borderColor:
-          hasError || props.isDisabled || props.isFocused ? undefined : theme.colors.pigeon400,
-        cursor: props.isDisabled ? 'not-allowed' : isSearchable ? 'text' : 'pointer',
-      },
-    };
-  },
-  dropdownIndicator: (base, props) => ({
-    ...base,
-    color: props.isDisabled ? 'currentColor' : theme.colors.pigeon500,
-    '&:hover': {
-      color: props.isDisabled ? 'currentColor' : theme.colors.pigeon500,
-    },
-  }),
-  group: (base) => ({
-    ...base,
-    paddingTop: 0,
-    paddingBottom: 0,
-    '&:not(:last-child)': { marginBottom: 12 },
-    '&:not(:first-of-type)': { marginTop: 12 },
-  }),
-  groupHeading: (base) => ({
-    ...base,
-    color: theme.colors.pigeon200,
-    textTransform: 'none',
-  }),
-  indicatorSeparator: (base) => ({ ...base, display: 'none' }),
-  input: (base) => ({ ...base, backgroundColor: theme.colors.white }),
-  loadingIndicator: (base) => ({ ...base, marginRight: '-4px', color: theme.colors.pigeon300 }),
-  loadingMessage: (base) => ({
-    ...base,
-    color: theme.colors.pigeon300,
-    '&:hover': {
-      cursor: 'progress',
-    },
-  }),
-  menu: (base) => ({
-    ...base,
-    border: 'none',
-    borderTop: `1px solid ${theme.colors.pigeon200}`,
-    borderRadius: 4,
-    boxShadow: `0px 1px 4px rgba(0, 0, 0, 0.25), 0px 1px 8px rgba(0, 0, 0, 0.2)`,
-    padding: 6,
-    '& > div': {
-      padding: 0,
-    },
-  }),
-  menuList: (base) => ({
-    ...base,
-    '&:hover': {
-      cursor: 'pointer', // we dont want cursor to change between items in the menu
-    },
-  }),
-  placeholder: (base) => ({
-    ...base,
-    color: theme.colors.pigeon300,
-  }),
-  singleValue: (base) => ({
-    ...base,
-    margin: 0,
-  }),
-  valueContainer: (base) => ({
-    ...base,
-    padding: 0,
-  }),
-});
 
 export type SelectOption = {
   label: string;
@@ -228,7 +116,7 @@ export interface SingleSelectProps
   };
 
   /**
-   * Leverages a ["CreatableSelect"](https://react-select.com/creatable) from [`react-selct`](https://react-select.com/)
+   * Leverages a ["CreatableSelect"](https://react-select.com/creatable) from [`react-select`](https://react-select.com/)
    * if defined. `onCreateOption` is a required key if the object is defined, but other, optional properties are outlined
    * [here](https://react-select.com/props#creatable-props).
    */
@@ -253,6 +141,118 @@ export interface SingleSelectProps
   'data-testid'?: string;
 }
 
+/**
+ * From Kyle, with love:
+ * Styling is defined in many places, and I am sorry for that. Most of the styles are defined in this exportable method
+ * which can be used to define the `style` prop in combination with custom stylings at an implementation level. There are
+ * two areas where stylings are not defined in this manner.
+ *
+ * 1. If a component is wholly custom, the styles are defined there.
+ * 2. Top-level `:hover` styles didn't work 🤷‍♂️, so they've been applied to the <Box> which wraps <ReactSelect />
+ */
+export const getBaseSelectStylesWithTheme = ({
+  theme,
+  hasError,
+}: {
+  theme: DefaultTheme;
+  hasError: boolean;
+}): Partial<Styles> => ({
+  container: (base, props) => ({
+    ...base,
+    color: props.isDisabled ? theme.colors.pigeon200 : theme.colors.pigeon700,
+    fontFamily: theme.fonts.copy,
+    fontSize: 14,
+    letterSpacing: '-0.015em',
+    lineHeight: 1.5,
+  }),
+  control: (base, props) => {
+    let border: string;
+    let boxShadow: string;
+
+    if (hasError) {
+      border = `1px solid ${theme.colors.flamingo600}`;
+      boxShadow = `${theme.colors.flamingo600} 0 0 0 1px`;
+    } else if (props.isDisabled) {
+      border = `1px solid ${theme.colors.pigeon100}`;
+      boxShadow = 'none';
+    } else if (props.isFocused) {
+      border = `1px solid ${theme.colors.macaw200}`;
+      boxShadow = `${theme.colors.macaw200} 0 0 0 1px`;
+    } else {
+      border = `1px solid ${theme.colors.pigeon200}`;
+      boxShadow = 'none';
+    }
+
+    return {
+      ...base,
+      backgroundColor: theme.colors.transparent,
+      border,
+      borderRadius: 4,
+      boxShadow,
+      cursor: 'text',
+      outline: 'none',
+      padding: '1px 12px', // react-select has 4px py on some other element
+      width: '100%',
+      zIndex: 1,
+      '&:hover': {
+        borderColor: hasError || props.isFocused ? undefined : theme.colors.pigeon400,
+      },
+    };
+  },
+  group: (base) => ({
+    ...base,
+    paddingTop: 0,
+    paddingBottom: 0,
+    '&:not(:last-child)': { marginBottom: 12 },
+    '&:not(:first-of-type)': { marginTop: 12 },
+  }),
+  groupHeading: (base) => ({
+    ...base,
+    color: theme.colors.pigeon200,
+    textTransform: 'none',
+  }),
+  indicatorSeparator: (base) => ({ ...base, display: 'none' }),
+  input: (base) => ({ ...base, backgroundColor: theme.colors.white }),
+  loadingIndicator: (base) => ({ ...base, marginRight: '-4px', color: theme.colors.pigeon300 }),
+  loadingMessage: (base) => ({
+    ...base,
+    color: theme.colors.pigeon300,
+    '&:hover': {
+      cursor: 'progress',
+    },
+  }),
+  menu: (base) => ({
+    ...base,
+    border: 'none',
+    borderTop: `1px solid ${theme.colors.pigeon200}`,
+    borderRadius: 4,
+    // prettier-ignore
+    boxShadow: `0px 1px 4px ${rgba(theme.colors.black, 0.25)}, 0px 1px 8px ${rgba(theme.colors.black, 0.2)}`,
+    padding: 6,
+    '& > div': {
+      padding: 0,
+    },
+  }),
+  menuList: (base) => ({
+    ...base,
+    '&:hover': {
+      cursor: 'pointer', // we dont want cursor to change between items in the menu
+    },
+  }),
+  placeholder: (base) => ({
+    ...base,
+    color: theme.colors.pigeon300,
+  }),
+  singleValue: (base) => ({
+    ...base,
+    margin: 0,
+  }),
+  valueContainer: (base) => ({
+    ...base,
+    padding: 0,
+  }),
+});
+
 const sharedBottomTextStyles: BoxStylingProps['tx'] = {
   position: 'absolute',
   bottom: -24, // text is 18px high + 6px space between bottom select border and top of text
@@ -260,18 +260,30 @@ const sharedBottomTextStyles: BoxStylingProps['tx'] = {
 
 const AirReactSelectDropdownIndicator = (
   props: IndicatorProps<SelectOption, CanHaveMultipleSelections>,
-) => (
-  <defaultReactSelectComponents.DropdownIndicator {...props}>
-    <Box
-      as={TriangleDown}
-      tx={{
-        width: 16,
-        '& path': { fill: 'currentColor', shapeRendering: 'crispEdges' },
-        marginRight: -8,
-      }}
-    />
-  </defaultReactSelectComponents.DropdownIndicator>
-);
+) => {
+  const theme = useTheme();
+
+  return (
+    <defaultReactSelectComponents.DropdownIndicator
+      {...props}
+      getStyles={() => ({
+        color: props.isDisabled ? 'currentColor' : theme.colors.pigeon500,
+        '&:hover': {
+          color: props.isDisabled ? 'currentColor' : theme.colors.pigeon500,
+        },
+      })}
+    >
+      <Box
+        as={TriangleDown}
+        tx={{
+          width: 16,
+          '& path': { fill: 'currentColor', shapeRendering: 'crispEdges' },
+          marginRight: -8,
+        }}
+      />
+    </defaultReactSelectComponents.DropdownIndicator>
+  );
+};
 
 const AirReactSelectOption = ({
   children,
@@ -385,6 +397,8 @@ export const SingleSelect = ({
   const errorID = `${selectID}_error`;
   const descriptionID = `${selectID}_description`;
   const hasError = meta.touched && !!meta.error;
+  const isLoading = loadingState?.isLoading ?? false;
+  const isDisabled = disabled || readOnly || isLoading;
 
   const testID = React.useMemo(() => {
     const prefix = `select_${name}`;
@@ -395,7 +409,6 @@ export const SingleSelect = ({
   }, [name, meta, hasError]);
 
   const value = React.useMemo(() => {
-    const isLoading = loadingState?.isLoading ?? false;
     if (isLoading) return undefined;
 
     invariant(
@@ -410,7 +423,7 @@ export const SingleSelect = ({
 
     const matchingOption = options.find(({ value }) => value === field.value);
     return matchingOption;
-  }, [field, loadingState, options]);
+  }, [field, isLoading, options]);
 
   const onBlur = React.useCallback(() => helpers.setTouched(true), [helpers]);
   const onChange = React.useCallback(
@@ -432,8 +445,8 @@ export const SingleSelect = ({
     id: selectID,
     instanceId: `${selectID}_instance`,
     isClearable: false,
-    isDisabled: disabled || readOnly || loadingState?.isLoading,
-    isLoading: loadingState?.isLoading ?? false,
+    isDisabled,
+    isLoading,
     isSearchable: isSearchable,
     name: field.name,
     loadingMessage: () => loadingState?.optionsListLoadingText ?? null,
@@ -441,7 +454,7 @@ export const SingleSelect = ({
     onChange: onChange,
     options,
     placeholder: placeholder,
-    styles: { ...getBaseSelectStylesWithTheme({ theme, hasError, isSearchable }), ...styles },
+    styles: { ...getBaseSelectStylesWithTheme({ theme, hasError }), ...styles },
     value: value,
     ...restOfProps,
   };
@@ -469,7 +482,23 @@ export const SingleSelect = ({
         {label}
       </Label>
 
-      <Box tx={{ position: 'relative', width: '100%' }}>
+      <Box
+        tx={{
+          position: 'relative',
+          width: '100%',
+
+          // Couldn't get top-level stylings
+          '&:hover': {
+            cursor: isLoading
+              ? 'progress'
+              : isDisabled
+              ? 'not-allowed'
+              : isSearchable
+              ? 'text'
+              : 'pointer',
+          },
+        }}
+      >
         {creatableConfig ? <ReactSelectCreatable {...props} /> : <ReactSelect {...props} />}
       </Box>
 
