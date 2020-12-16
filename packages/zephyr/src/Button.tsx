@@ -38,33 +38,39 @@ const Dot = () => (
 );
 
 const wave = keyframes`
-  0% { transform: translate(0,0); }
-  50% { transform: translate(0,3px); }
-  100% { transform: translate(0,0); }
+  0% { transform: translate(0, -1.5px); }
+  50% { transform: translate(0, 1.5px); }
+  100% { transform: translate(0,-1.5px); }
 `;
 
-const Loader = styled(Box)`
+const Loader = styled(Box)<{ shouldReduceMotion: boolean }>`
   position: absolute;
   left: 50%;
-  top: calc(50% - 1.5px);
+  top: calc(50%);
   transform: translate(-50%, -50%);
   display: flex;
 
-  div:nth-child(1) {
-    animation: ${wave} 0.98s 0s ease-in-out infinite;
-    margin-right: 4px;
+  div {
+    animation-name: ${({ shouldReduceMotion }) => (shouldReduceMotion ? 'none' : wave)};
+    animation-duration: 0.98s;
+    animation-timing-function: ease-in-out;
+    animation-delay: 0s;
     animation-fill-mode: both;
+    animation-iteration-count: infinite;
+  }
+
+  div:nth-child(1) {
+    animation-delay: 0s;
+    margin-right: 4px;
   }
 
   div:nth-child(2) {
-    animation: ${wave} 0.98s 0.14s ease-in-out infinite;
+    animation-delay: 0.14s;
     margin-right: 4px;
-    animation-fill-mode: both;
   }
 
   div:nth-child(3) {
-    animation: ${wave} 0.98s 0.28s ease-in-out infinite;
-    animation-fill-mode: both;
+    animation-delay: 0.28s;
   }
 `;
 
@@ -153,37 +159,16 @@ export const Button = forwardRefWithAs<NonSemanticButtonProps, 'button'>(
         ref={ref}
       >
         <Box role="status" tx={{ position: 'relative' }}>
-          {isLoading &&
-            (shouldReduceMotion ? (
-              <>
-                <VisuallyHidden>Loading...</VisuallyHidden>
-                <Box
-                  aria-hidden="true"
-                  tx={{
-                    position: 'absolute',
-                    left: '50%',
-                    top: '50%',
-                    transform: 'translate(-50%, -50%)',
-                    display: 'flex',
-                    'div:nth-child(1)': { mr: 4 },
-                    'div:nth-child(2)': { mr: 4 },
-                  }}
-                >
-                  <Dot />
-                  <Dot />
-                  <Dot />
-                </Box>
-              </>
-            ) : (
-              <>
-                <VisuallyHidden>Loading...</VisuallyHidden>
-                <Loader aria-hidden="true">
-                  <Dot />
-                  <Dot />
-                  <Dot />
-                </Loader>
-              </>
-            ))}
+          {isLoading && (
+            <>
+              <VisuallyHidden>Loading...</VisuallyHidden>
+              <Loader aria-hidden="true" shouldReduceMotion={shouldReduceMotion!}>
+                <Dot />
+                <Dot />
+                <Dot />
+              </Loader>
+            </>
+          )}
           <Box
             tx={{
               opacity: isLoading ? 0 : 1,
