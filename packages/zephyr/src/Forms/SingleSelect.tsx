@@ -257,6 +257,7 @@ export const getBaseSelectStylesWithTheme = ({
   placeholder: (base) => ({
     ...base,
     color: theme.colors.pigeon300,
+    margin: 0,
   }),
   singleValue: (base) => ({
     ...base,
