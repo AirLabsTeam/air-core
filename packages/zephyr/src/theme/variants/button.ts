@@ -11,17 +11,18 @@ export type ButtonVariantName =
   | 'button-outline-grey'
   | 'button-unstyled';
 
+// isLoading state should keep base styles on button-filled variants
 const _button: { [key in ButtonVariantName]: TXProp } = {
   'button-filled-blue': {
     backgroundColor: 'jay500',
     color: 'white',
-    '&:hover': {
+    '&:hover:not(.isLoading)': {
       backgroundColor: 'jay600',
     },
-    '&:active': {
+    '&:active:not(.isLoading)': {
       backgroundColor: 'jay700',
     },
-    '&:disabled': {
+    '&:disabled:not(.isLoading)': {
       backgroundColor: 'pigeon050',
       color: 'pigeon400',
     },
@@ -29,13 +30,13 @@ const _button: { [key in ButtonVariantName]: TXProp } = {
   'button-filled-destructive': {
     backgroundColor: 'flamingo600',
     color: 'white',
-    '&:hover': {
+    '&:hover:not(.isLoading)': {
       backgroundColor: 'flamingo700',
     },
-    '&:active': {
+    '&:active:not(.isLoading)': {
       backgroundColor: 'flamingo800',
     },
-    '&:disabled': {
+    '&:disabled:not(.isLoading)': {
       backgroundColor: 'transparent',
       color: 'pigeon300',
     },
@@ -43,15 +44,15 @@ const _button: { [key in ButtonVariantName]: TXProp } = {
   'button-filled-grey': {
     backgroundColor: 'pigeon050',
     color: 'pigeon600',
-    '&:hover': {
+    '&:hover:not(.isLoading)': {
       backgroundColor: 'pigeon100',
       color: 'pigeon700',
     },
-    '&:active': {
+    '&:active:not(.isLoading)': {
       backgroundColor: 'pigeon200',
       color: 'pigeon700',
     },
-    '&:disabled': {
+    '&:disabled:not(.isLoading)': {
       backgroundColor: 'transparent',
       color: 'pigeon300',
     },
