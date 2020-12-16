@@ -16,13 +16,13 @@ const _button: { [key in ButtonVariantName]: TXProp } = {
   'button-filled-blue': {
     backgroundColor: 'jay500',
     color: 'white',
-    '&:hover:not(.isLoading)': {
+    '&:hover:not(.is-loading)': {
       backgroundColor: 'jay600',
     },
-    '&:active:not(.isLoading)': {
+    '&:active:not(.is-loading)': {
       backgroundColor: 'jay700',
     },
-    '&:disabled:not(.isLoading)': {
+    '&:disabled:not(.is-loading)': {
       backgroundColor: 'pigeon050',
       color: 'pigeon400',
     },
@@ -30,13 +30,13 @@ const _button: { [key in ButtonVariantName]: TXProp } = {
   'button-filled-destructive': {
     backgroundColor: 'flamingo600',
     color: 'white',
-    '&:hover:not(.isLoading)': {
+    '&:hover:not(.is-loading)': {
       backgroundColor: 'flamingo700',
     },
-    '&:active:not(.isLoading)': {
+    '&:active:not(.is-loading)': {
       backgroundColor: 'flamingo800',
     },
-    '&:disabled:not(.isLoading)': {
+    '&:disabled:not(.is-loading)': {
       backgroundColor: 'transparent',
       color: 'pigeon300',
     },
@@ -44,15 +44,15 @@ const _button: { [key in ButtonVariantName]: TXProp } = {
   'button-filled-grey': {
     backgroundColor: 'pigeon050',
     color: 'pigeon600',
-    '&:hover:not(.isLoading)': {
+    '&:hover:not(.is-loading)': {
       backgroundColor: 'pigeon100',
       color: 'pigeon700',
     },
-    '&:active:not(.isLoading)': {
+    '&:active:not(.is-loading)': {
       backgroundColor: 'pigeon200',
       color: 'pigeon700',
     },
-    '&:disabled:not(.isLoading)': {
+    '&:disabled:not(.is-loading)': {
       backgroundColor: 'transparent',
       color: 'pigeon300',
     },

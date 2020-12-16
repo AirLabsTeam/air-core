@@ -5,6 +5,7 @@ import { variant as styledSystemVariant } from 'styled-system';
 import invariant from 'tiny-invariant';
 import { useReducedMotion } from 'framer-motion';
 import VisuallyHidden from '@reach/visually-hidden';
+import classNames from 'classnames';
 import styled, { keyframes, useTheme } from 'styled-components';
 import { Box, BoxStylingProps } from './Box';
 import { ButtonVariantName } from './theme/variants/button';
@@ -40,7 +41,7 @@ const Dot = () => (
 const wave = keyframes`
   0% { transform: translate(0, -1.5px); }
   50% { transform: translate(0, 1.5px); }
-  100% { transform: translate(0,-1.5px); }
+  100% { transform: translate(0, -1.5px); }
 `;
 
 const Loader = styled(Box)<{ shouldReduceMotion: boolean }>`
@@ -61,12 +62,11 @@ const Loader = styled(Box)<{ shouldReduceMotion: boolean }>`
 
   div:nth-child(1) {
     animation-delay: 0s;
-    margin-right: 4px;
   }
 
   div:nth-child(2) {
     animation-delay: 0.14s;
-    margin-right: 4px;
+    margin: 0 4px;
   }
 
   div:nth-child(3) {
@@ -85,7 +85,7 @@ export const Button = forwardRefWithAs<NonSemanticButtonProps, 'button'>(
       isLoading = false,
       ref: _ref, // eslint-disable-line @typescript-eslint/no-unused-vars
       children,
-      className = '',
+      className,
       ...restOfProps
     }: ButtonProps,
     ref: React.Ref<HTMLButtonElement>,
@@ -108,7 +108,8 @@ export const Button = forwardRefWithAs<NonSemanticButtonProps, 'button'>(
         disabled={disabled || isLoading}
         type={type}
         variant={variant}
-        className={isLoading ? `${className} isLoading` : `${className}`}
+        // className={isLoading ? `${className} isLoading` : `${className}`}
+        className={classNames({ 'is-loading': isLoading }, className)}
         __baseStyles={{
           appearance: 'none',
           outline: 'none',
@@ -153,6 +154,9 @@ export const Button = forwardRefWithAs<NonSemanticButtonProps, 'button'>(
           },
           '&:disabled': {
             cursor: 'not-allowed',
+          },
+          '&.isLoading': {
+            cursor: 'wait',
           },
         }}
         {...restOfProps}
