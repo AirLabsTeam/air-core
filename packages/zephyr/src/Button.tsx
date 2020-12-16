@@ -154,8 +154,8 @@ export const Button = forwardRefWithAs<NonSemanticButtonProps, 'button'>(
           '&:disabled': {
             cursor: 'not-allowed',
           },
-          '&.isLoading': {
-            cursor: 'wait',
+          '&.is-loading': {
+            cursor: 'progress',
           },
         }}
         {...restOfProps}
