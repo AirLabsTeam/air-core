@@ -7,8 +7,10 @@ import ReactSelect, {
   SelectComponentsConfig,
   Styles,
 } from 'react-select';
+import ReactSelectCreatable from 'react-select/creatable';
 import { NamedProps as ReactSelectProps } from 'react-select/src/Select';
-import { capitalize } from 'lodash';
+import { CreatableProps as ReactSelectCreatableProps } from 'react-select/src/Creatable';
+import { capitalize, isNull } from 'lodash';
 import VisuallyHidden from '@reach/visually-hidden';
 import { Check, TriangleDown } from '@air/icons';
 import invariant from 'tiny-invariant';
@@ -238,6 +240,17 @@ export interface SelectProps
   };
 
   /**
+   * Leverages a ["CreatableSelect"](https://react-select.com/creatable) from [`react-selct`](https://react-select.com/)
+   * if defined. `onCreateOption` is a required key if the object is defined, but other, optional properties are outlined
+   * [here](https://react-select.com/props#creatable-props).
+   */
+  creatableConfig?: {
+    onCreateOption: NonNullable<
+      ReactSelectCreatableProps<SelectOption, CanHaveMultipleSelections>['onCreateOption']
+    >;
+  } & Omit<ReactSelectCreatableProps<SelectOption, CanHaveMultipleSelections>, 'onCreateOption'>;
+
+  /**
    * This will eventually be an optional parameter, but must be required until [this Formik issue](https://github.com/formium/formik/issues/2092#issuecomment-738606844)
    * is resolved.
    */
@@ -299,6 +312,7 @@ export const AirReactSelectComponents: SelectComponentsConfig<
 export const Select = ({
   className,
   components,
+  creatableConfig,
   description,
   disabled = false,
   id,
@@ -329,7 +343,7 @@ export const Select = ({
     if (!meta.touched) return `${prefix}_untouched`;
     if (hasError) return `${prefix}_invalid`;
     return `${prefix}_valid`;
-  }, [hasError]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [name, meta, hasError]);
 
   const value = React.useMemo(() => {
     const isLoading = loadingState?.isLoading ?? false;
@@ -350,7 +364,38 @@ export const Select = ({
   }, [field, loadingState, options]);
 
   const onBlur = React.useCallback(() => helpers.setTouched(true), [helpers]);
-  const onChange = React.useCallback((option) => helpers.setValue(option.value), [helpers]);
+  const onChange = React.useCallback(
+    (option) => {
+      return isNull(option)
+        ? // @ts-ignore - undefined is a valid argument for `helpers.setValue`
+          helpers.setValue(undefined)
+        : helpers.setValue(option.value);
+    },
+    [helpers],
+  );
+
+  const props = {
+    'aria-describedby': !!description ? `${descriptionID} ${errorID}` : errorID,
+    'aria-invalid': hasError,
+    components: { ...AirReactSelectComponents, ...components },
+    creatableConfig,
+    'data-testid': testID,
+    id: selectID,
+    instanceId: `${selectID}_instance`,
+    isClearable: false,
+    isDisabled: disabled || readOnly || loadingState?.isLoading,
+    isLoading: loadingState?.isLoading ?? false,
+    isSearchable: isSearchable,
+    name: field.name,
+    loadingMessage: () => loadingState?.optionsListLoadingText ?? null,
+    onBlur: onBlur,
+    onChange: onChange,
+    options,
+    placeholder: placeholder,
+    styles: { ...getBaseSelectStylesWithTheme({ theme, hasError, isSearchable }), ...styles },
+    value: value,
+    ...restOfProps,
+  };
 
   return (
     <Box
@@ -376,27 +421,7 @@ export const Select = ({
       </Label>
 
       <Box tx={{ position: 'relative', width: '100%' }}>
-        <ReactSelect
-          aria-describedby={!!description ? `${descriptionID} ${errorID}` : errorID}
-          aria-invalid={hasError}
-          components={{ ...AirReactSelectComponents, ...components }}
-          data-testid={testID}
-          id={selectID}
-          instanceId={`${selectID}_instance`}
-          isClearable={false}
-          isDisabled={disabled || readOnly}
-          isLoading={loadingState?.isLoading ?? false}
-          isSearchable={isSearchable}
-          name={field.name}
-          loadingMessage={() => loadingState?.optionsListLoadingText ?? null}
-          onBlur={onBlur}
-          onChange={onChange}
-          options={options}
-          placeholder={placeholder}
-          styles={{ ...getBaseSelectStylesWithTheme({ theme, hasError, isSearchable }), ...styles }}
-          value={value}
-          {...restOfProps}
-        />
+        {creatableConfig ? <ReactSelectCreatable {...props} /> : <ReactSelect {...props} />}
       </Box>
 
       {/* Only render description while no error for field exists. */}
