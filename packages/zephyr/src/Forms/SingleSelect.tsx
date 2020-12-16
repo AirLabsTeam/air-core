@@ -283,6 +283,7 @@ const AirReactSelectDropdownIndicator = (
       {...props}
       getStyles={() => ({
         color: props.isDisabled ? 'currentColor' : theme.colors.pigeon500,
+        marginBottom: '-3px', // needed to align vertically
         '&:hover': {
           color: props.isDisabled ? 'currentColor' : theme.colors.pigeon500,
         },
@@ -295,7 +296,6 @@ const AirReactSelectDropdownIndicator = (
           '& path': {
             fill: 'currentColor',
             shapeRendering: 'crispEdges',
-            marginBottom: '-3px', // needed to align vertically
           },
         }}
       />
