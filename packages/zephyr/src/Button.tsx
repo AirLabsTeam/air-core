@@ -19,7 +19,7 @@ export type NonSemanticButtonProps = Pick<BoxStylingProps, 'tx'> & {
   size?: ButtonSize;
   variant?: ButtonVariantName;
   /**
-   * `isLoading` can only be true for buttons with filled variants.
+   * `isLoading` can only be true for buttons with boundaries (ie. filled and outline variants). Note: `button-outline-destructive` is not currently a variant.
    */
   isLoading?: boolean;
 };
