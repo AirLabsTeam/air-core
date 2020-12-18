@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.1.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@9.0.0...@air/zephyr@9.1.0) (2020-12-18)
+
+### Bug Fixes
+
+- fix new classname, switch to progress cursor so user can interact while waiting ([930900d](https://github.com/AirLabsTeam/web-core/commit/930900d03d3bd72a5d03f3c8fd4deafdab52fe7e))
+
+### Features
+
+- clarify invariant error regarding no current `button-outline-destructive` ([fb48956](https://github.com/AirLabsTeam/web-core/commit/fb48956137733b24ea71b042b9d4f46776e7f11a))
+- **stories/buttons:** add loading outline buttons stories, describe isLoading restriction for ghost ([8b4833b](https://github.com/AirLabsTeam/web-core/commit/8b4833bbf9a6134811c5a180219cd48e5895a23a))
+- **zephyr/button:** allow outline buttons to use isLoading prop, update outline loading styles ([efedcb2](https://github.com/AirLabsTeam/web-core/commit/efedcb2a4a95600bb137af0fd16dd9be5f136fd1))
+- add classnames package ([fb5a5c5](https://github.com/AirLabsTeam/web-core/commit/fb5a5c5cd775a7b957c13d6ca151946f700e3053))
+- use classnames pkg to conditionally join classNames, add wait cursor, fix style ([23bd24d](https://github.com/AirLabsTeam/web-core/commit/23bd24d18bc7174d5550410fb028cbcc8706de10))
+- **zephyr/button:** add loading state for filled buttons ([a649051](https://github.com/AirLabsTeam/web-core/commit/a64905189d448bb838921d1c0c540c251f0245f4))
+- **zephyr/button:** maintain base styles if isLoading, instead of disabled styles ([ceb77ec](https://github.com/AirLabsTeam/web-core/commit/ceb77ecb6a27544f529363197eb1bfb4b3e0e0d9))
+- **zephyr/stories:** add loading stories to filled buttons on storybook ([26636a7](https://github.com/AirLabsTeam/web-core/commit/26636a7802fb0be3d62ea0a5d472838f7de8094a))
+
 # [9.0.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@8.0.1...@air/zephyr@9.0.0) (2020-12-15)
 
 ### Bug Fixes

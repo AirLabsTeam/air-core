@@ -36,6 +36,11 @@ export const FilledBlueButton = () => (
     <Button size="medium" disabled variant="button-filled-blue">
       Disabled blue button
     </Button>
+    <br />
+    <br />
+    <Button size="medium" isLoading variant="button-filled-blue">
+      Blue button
+    </Button>
   </>
 );
 
@@ -59,6 +64,11 @@ export const FilledGreyButton = () => (
     <Button size="medium" disabled variant="button-filled-grey">
       Disabled grey button
     </Button>
+    <br />
+    <br />
+    <Button size="medium" isLoading variant="button-filled-grey">
+      Grey button
+    </Button>
   </>
 );
 
@@ -81,6 +91,11 @@ export const FilledDestructiveButton = () => (
     <br />
     <Button size="medium" disabled variant="button-filled-destructive">
       Disabled destructive button
+    </Button>
+    <br />
+    <br />
+    <Button size="medium" isLoading variant="button-filled-destructive">
+      Destructive button
     </Button>
   </>
 );

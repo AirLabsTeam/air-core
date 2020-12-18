@@ -10,7 +10,7 @@ const meta: Meta<ButtonProps> = {
     docs: {
       description: {
         component:
-          'Ghost buttons are a secondary type of button.  They are text-focused and useful when you need multiple buttons on a page at once. They are also are often used as subactions on a page such as "save" for a form field vs "share" for the modal. These buttons can always be paired with others, but generally, when using **red** ghost buttons, there should only be one on the page or in the modal at a time, which may be a secondary/optional destructive action. When buttons appear in the same row as other buttons they should all be the same size/height (even if they are different types), but buttons in different areas can be different sizes. Ghost buttons are best used at sizes **extra small** to **medium.**',
+          'Ghost buttons are a secondary type of button.  They are text-focused and useful when you need multiple buttons on a page at once. They are also are often used as subactions on a page such as "save" for a form field vs "share" for the modal. These buttons can always be paired with others, but generally, when using **red** ghost buttons, there should only be one on the page or in the modal at a time, which may be a secondary/optional destructive action. When buttons appear in the same row as other buttons they should all be the same size/height (even if they are different types), but buttons in different areas can be different sizes. Ghost buttons cannot have **isLoading** as true. Ghost buttons are best used at sizes **extra small** to **medium.**',
       },
       page: () => (
         <>
