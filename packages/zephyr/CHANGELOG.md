@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.2.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@9.1.0...@air/zephyr@9.2.0) (2020-12-18)
+
+### Bug Fixes
+
+- **@air/zephyr/modal:** resolve broken test and missed prop ([b8d1601](https://github.com/AirLabsTeam/web-core/commit/b8d16013a7dbf0835dd1b2a17a7f0473a2361396))
+
+### Features
+
+- **@air/zephyr/modals:** add missing props to all modals ([ae992f8](https://github.com/AirLabsTeam/web-core/commit/ae992f86745012f22353faee295dfc5470d50c5e))
+
 # [9.1.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@9.0.0...@air/zephyr@9.1.0) (2020-12-18)
 
 ### Bug Fixes
