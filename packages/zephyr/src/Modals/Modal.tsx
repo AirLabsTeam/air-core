@@ -286,8 +286,9 @@ export const Modal = ({
           <Box
             as={motion.custom(DialogContent)}
             {...motionStyles.content}
-            className={className}
             __baseStyles={cardStyles}
+            className={className}
+            data-testid={testID}
             tx={tx}
             variant={variant}
             aria-labelledby={labelId}
