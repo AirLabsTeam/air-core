@@ -25,6 +25,8 @@ export interface TransactionModalProps
    * entirely different element - or the available control is not satisfactory - you can pass any JSX.
    */
   secondaryCTA?: TransactionModalButton | JSX.Element;
+
+  ['data-testid']?: string;
 }
 
 export const TransactionModal = ({
@@ -37,6 +39,7 @@ export const TransactionModal = ({
   primaryCTA,
   secondaryCTA,
   variant,
+  ...rest
 }: TransactionModalProps) => {
   const isUsingButtonSchema = useCallback(
     (item: any): item is TransactionModalButton => 'onClick' in item,
@@ -65,14 +68,15 @@ export const TransactionModal = ({
 
   return (
     <Modal
-      isAlertModal={false}
       className={className}
+      isAlertModal={false}
       isOpen={isOpen}
       modalDescription={modalDescription}
       modalLabel={modalLabel}
       onDismiss={onDismiss}
       variant={variant}
       withCloseButton
+      {...rest}
     >
       {children}
 
