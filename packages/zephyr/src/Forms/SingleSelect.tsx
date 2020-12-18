@@ -227,7 +227,7 @@ export const getBaseSelectStylesWithTheme = ({
     textTransform: 'none',
   }),
   indicatorSeparator: (base) => ({ ...base, display: 'none' }),
-  input: (base) => ({ ...base, backgroundColor: theme.colors.white }),
+  input: (base) => ({ ...base, backgroundColor: theme.colors.white, margin: 0 }),
   loadingIndicator: (base) => ({ ...base, marginRight: '-4px', color: theme.colors.pigeon300 }),
   loadingMessage: (base) => ({
     ...base,
