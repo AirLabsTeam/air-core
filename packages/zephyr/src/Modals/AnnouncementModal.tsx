@@ -25,20 +25,20 @@ export interface AnnouncementModalProps
   imageSource?: string;
   modalDescription: string;
   modalLabel: string;
+  ['data-testid']?: string;
 }
 
 export const AnnouncementModal = ({
-  allowPinchZoom,
   className,
   cta,
   imageSource,
-  initialFocusRef,
   isOpen = false,
   modalDescription,
   modalLabel,
   onDismiss,
   variant = 'modal-medium',
   withCloseButton = true,
+  ...rest
 }: AnnouncementModalProps) => {
   const ctaRef = useRef<any>(null);
 
@@ -56,9 +56,7 @@ export const AnnouncementModal = ({
 
   return (
     <Modal
-      allowPinchZoom={allowPinchZoom}
       className={className}
-      initialFocusRef={initialFocusRef}
       isAlertModal={withCloseButton ? false : true}
       isOpen={isOpen}
       leastDestructiveRef={withCloseButton ? undefined : ctaRef}
@@ -67,6 +65,7 @@ export const AnnouncementModal = ({
       onDismiss={onDismiss}
       variant={variant}
       withCloseButton={withCloseButton}
+      {...rest}
     >
       {/**
        * Since the modal label and descripton must render first, they're visually hidden while the visible label and

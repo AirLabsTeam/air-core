@@ -119,6 +119,8 @@ export type ModalProps = Pick<DialogProps, 'allowPinchZoom' | 'initialFocusRef' 
      * an asset or approving a new version of an asset). Can also be used to cue a fork in the road for multi-step forms.
      */
     variant?: ModalVariantName;
+
+    ['data-testid']?: string;
   };
 
 export const Modal = ({
@@ -133,6 +135,7 @@ export const Modal = ({
   tx,
   variant = 'modal-medium',
   withCloseButton = true,
+  'data-testid': testID,
   ...rest
 }: ModalProps) => {
   const theme = useTheme();
@@ -235,8 +238,9 @@ export const Modal = ({
             <Box
               as={motion.custom(AlertDialogContent)}
               {...motionStyles.content}
-              className={className}
               __baseStyles={cardStyles}
+              className={className}
+              data-testid={testID}
               tx={tx}
               variant={variant}
             >
@@ -282,8 +286,9 @@ export const Modal = ({
           <Box
             as={motion.custom(DialogContent)}
             {...motionStyles.content}
-            className={className}
             __baseStyles={cardStyles}
+            className={className}
+            data-testid={testID}
             tx={tx}
             variant={variant}
             aria-labelledby={labelId}
