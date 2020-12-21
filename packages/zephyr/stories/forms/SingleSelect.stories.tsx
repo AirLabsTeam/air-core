@@ -54,7 +54,7 @@ const FormikDecorator = (Story: () => StoryFnReactReturnType) => {
 };
 
 const meta: Meta<SingleSelectProps> = {
-  title: 'Zephyr/Forms/Select',
+  title: 'Zephyr/Forms/SingleSelect',
   component: SingleSelect,
   decorators: [FormikDecorator],
 };
