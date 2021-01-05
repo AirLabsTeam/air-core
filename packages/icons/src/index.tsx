@@ -12,6 +12,7 @@ import _BoardsGrid from './svgs/uncategorized/Boards-Grid.svg';
 import _BoardsList from './svgs/uncategorized/Boards-List.svg';
 import _Boards from './svgs/uncategorized/Boards.svg';
 import _Bookmark from './svgs/uncategorized/Bookmark.svg';
+import _Box from './svgs/uncategorized/Box.svg';
 import _CameraFilled from './svgs/uncategorized/Camera-Filled.svg';
 import _Camera from './svgs/uncategorized/Camera.svg';
 import _Caution from './svgs/uncategorized/Caution.svg';
@@ -130,6 +131,7 @@ export const BoardsGrid = (props?: SVGProps<SVGElement>) => <_BoardsGrid {...pro
 export const BoardsList = (props?: SVGProps<SVGElement>) => <_BoardsList {...props} />;
 export const Boards = (props?: SVGProps<SVGElement>) => <_Boards {...props} />;
 export const Bookmark = (props?: SVGProps<SVGElement>) => <_Bookmark {...props} />;
+export const Box = (props?: SVGProps<SVGElement>) => <_Box {...props} />;
 export const CameraFilled = (props?: SVGProps<SVGElement>) => <_CameraFilled {...props} />;
 export const Camera = (props?: SVGProps<SVGElement>) => <_Camera {...props} />;
 export const Caution = (props?: SVGProps<SVGElement>) => <_Caution {...props} />;
