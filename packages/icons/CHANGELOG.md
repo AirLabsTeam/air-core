@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@4.1.0...@air/icons@5.0.0) (2021-01-05)
+
+### Features
+
+- **@air/icons:** rename new Box icon ([e7da9dd](https://github.com/AirLabsTeam/web-core/commit/e7da9dd818a193e1833c789081ab68a5bd7bb95b))
+
+### BREAKING CHANGES
+
+- **@air/icons:** Renaming of recently created icon
+
 # [4.1.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@4.0.0...@air/icons@4.1.0) (2021-01-05)
 
 ### Features
