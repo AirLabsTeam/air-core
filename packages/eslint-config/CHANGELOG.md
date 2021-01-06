@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.15](https://github.com/AirLabsTeam/web-core/compare/@air/eslint-config@1.1.14...@air/eslint-config@1.1.15) (2021-01-06)
+
+### Bug Fixes
+
+- **@air/eslint-config:** resolve issue with prefix unused args erroring ([90258ca](https://github.com/AirLabsTeam/web-core/commit/90258ca1a83a2e0f4ec037c84ae0481ebb1dd138))
+
 ## [1.1.14](https://github.com/AirLabsTeam/web-core/compare/@air/eslint-config@1.1.13...@air/eslint-config@1.1.14) (2020-12-18)
 
 ### Bug Fixes

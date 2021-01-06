@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.3.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@9.2.2...@air/zephyr@9.3.0) (2021-01-06)
+
+### Bug Fixes
+
+- **@air/zephyr/select:** resolve regression with hover cursor stylings ([77357b0](https://github.com/AirLabsTeam/web-core/commit/77357b0b3a43e3a9845c03f6a09de593051c193f))
+- **@air/zephyr/singleselect:** adjust box shadow and remove top border from menu ([61a17ed](https://github.com/AirLabsTeam/web-core/commit/61a17edcead9dd22e7dea05bec279a6774268f79))
+- **@air/zephyr/singleselect:** align dropdown indicator properly ([3ddf336](https://github.com/AirLabsTeam/web-core/commit/3ddf3367d6e2bf3fa051490aa73b33a887f46f1f))
+- **@air/zephyr/singleselect:** center align dropdown indicator vertically ([8ba23b9](https://github.com/AirLabsTeam/web-core/commit/8ba23b9138a2d341c70dc140bf5d0796b6737ac9))
+- **@air/zephyr/singleselect:** change option border radius ([4abe23d](https://github.com/AirLabsTeam/web-core/commit/4abe23dbcc0db1c390ad29f7b38b6686da657840))
+- **@air/zephyr/singleselect:** nudge dropdown indicator down by 1px ([907c3eb](https://github.com/AirLabsTeam/web-core/commit/907c3eb82456c1531b266bbf8aa743fab020e1e3))
+- **@air/zephyr/singleselect:** remove margin from placeholder ([ea717ab](https://github.com/AirLabsTeam/web-core/commit/ea717ab737bf52730db93f1abffb721d1eed4b66))
+- **@air/zephyr/singleselect:** resolve issue with text cursor being out of line ([17aba25](https://github.com/AirLabsTeam/web-core/commit/17aba253f0d9e6c9c13e70e067d8f167d97297c9))
+
+### Features
+
+- **@air/zephyr/select:** add select ([5927e99](https://github.com/AirLabsTeam/web-core/commit/5927e991fd76352466778eca7550a20eb41fa179))
+- **@air/zephyr/select:** allow for creatable options ([233f613](https://github.com/AirLabsTeam/web-core/commit/233f613b65b75a8493ffac53ac09af6e2fb81f66))
+- **@air/zephyr/select:** constrain options list to not allow grouped optionsBREAKING CHANGE: The type for `props.options` has changed in a breaking manner. Grouped options areno longer allowed. ([7b4dfaa](https://github.com/AirLabsTeam/web-core/commit/7b4dfaac2189ed909950a34ea9cbbe0d5cd59122))
+- **@air/zephyr/select:** expand properties allowed inside of a select option ([bd103fe](https://github.com/AirLabsTeam/web-core/commit/bd103fe8993958c40f5f9995264daed76a741b83))
+- **@air/zephyr/singleselect:** rename "loadingState" and add "loadOptions" props, add async stories ([3ae1f01](https://github.com/AirLabsTeam/web-core/commit/3ae1f01dd514036f0010e7d1064da0e7cbc0d8f9))
+
 ## [9.2.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@9.2.1...@air/zephyr@9.2.2) (2021-01-05)
 
 **Note:** Version bump only for package @air/zephyr
