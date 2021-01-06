@@ -12,6 +12,7 @@ import { Input, InputProps } from '../../src/Forms/Input';
 
 // NOTE: If this changes, please change the hard-coded code sample in the Default story's doc source code parameter.
 const FormikDecorator = (Story: () => StoryFnReactReturnType) => {
+  // This validation schema supplies every input in this story page.
   const validationSchema = object({
     required: string().required('Required').default(''),
     nonRequired: string().default(''),
@@ -80,48 +81,10 @@ Default.parameters = {
       \nSee source code below for example. Entire implementation is provided.`,
     },
     source: {
-      code: `
-() => {
-  // This validation schema supplies every input in this story page.
-  const validationSchema = object({
-    required: string().required('Required').default(''),
-    nonRequired: string().default(''),
-    disabled: string().required('Required').default('Nobody'),
-  });
-
-  const initialValues = validationSchema.cast({})!;
-
-  return (
-    <Formik validationSchema={validationSchema} initialValues={initialValues} onSubmit={noop}>
-      {() => (
-        <Box
-          as={Form}
-          tx={{
-            display: 'flex',
-            flexDirection: 'column',
-          }}
-        >
-          {/* "args" represents values passed via "args table" */}
-          {(args) => <Input {...args} name="required" />}
-
-          <br />
-
-          <Button
-            type="submit"
-            variant="button-filled-blue"
-            tx={{
-              my: 12, // only here so that input error messages don't look crammed
-              width: '100%',
-            }}
-          >
-            Validate
-          </Button>
-        </Box>
-      )}
-    </Formik>
-  );
-}
-      `,
+      code: `/**
+ * Unfortunately, we can't render source code correctly on the initial story.
+ * Please see https://github.com/storybookjs/storybook/issues/12022
+ */`,
     },
   },
 };

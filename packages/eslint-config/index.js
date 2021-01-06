@@ -97,7 +97,7 @@ const config = {
     'no-duplicate-case': 'error',
     'no-extra-boolean-cast': 'off',
     'no-unreachable': 'error',
-    'no-unused-vars': ['error', { varsIgnorePattern: '^_' }],
+    'no-unused-vars': ['error', { varsIgnorePattern: '^_', argsIgnorePattern: '^_' }],
     'valid-typeof': 'error',
     eqeqeq: 'error',
     'default-param-last': 'error',
@@ -254,16 +254,29 @@ const config = {
         'prefer-spread': 'error', // ts transpiles spread to apply, so no need for manual apply
         'valid-typeof': 'off', // ts(2367)
 
-        '@typescript-eslint/no-unused-vars': ['error', { varsIgnorePattern: '^_' }],
+        '@typescript-eslint/no-unused-vars': [
+          'error',
+          { varsIgnorePattern: '^_', argsIgnorePattern: '^_' },
+        ],
         '@typescript-eslint/no-unnecessary-type-assertion': 'error',
         '@typescript-eslint/prefer-nullish-coalescing': 'error',
         '@typescript-eslint/no-non-null-asserted-optional-chain': 'error',
         '@typescript-eslint/no-use-before-define': 'error',
         '@typescript-eslint/prefer-optional-chain': 'error',
+
         '@typescript-eslint/naming-convention': [
           'error',
           {
-            selector: 'variable',
+            // boolean naming
+            selector: [
+              'variable',
+              // 'parameter',
+              // 'enumMember',
+              // 'objectLiteralProperty',
+              // 'classProperty',
+              // 'typeProperty',
+              // 'parameterProperty',
+            ],
             types: ['boolean'],
             format: ['PascalCase'],
             prefix: [
@@ -281,6 +294,7 @@ const config = {
             ],
           },
           {
+            // ensuring type exports do not match the name of an exported module
             selector: 'typeParameter',
             format: ['PascalCase'],
             prefix: ['T'],
