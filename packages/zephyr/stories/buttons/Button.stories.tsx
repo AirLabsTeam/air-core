@@ -30,6 +30,12 @@ Default.args = {
   children: 'Button',
 };
 
+export const ButtonResponsiveVariants: Story<ButtonProps> = () => (
+  <Button variant={['button-filled-blue', 'button-outline-blue']}>
+    This button changes to a different variant based on the screen resolution
+  </Button>
+);
+
 export const ButtonAs: Story<ButtonProps> = () => (
   <Button as="a" href="https://google.com" target="_blank">
     This story acts as an integration test asserting that we can render the item as another semantic
