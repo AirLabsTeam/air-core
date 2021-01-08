@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.3.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@9.3.1...@air/zephyr@9.3.2) (2021-01-08)
+
+**Note:** Version bump only for package @air/zephyr
+
 ## [9.3.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@9.3.0...@air/zephyr@9.3.1) (2021-01-08)
 
 ### Bug Fixes

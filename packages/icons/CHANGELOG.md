@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.0.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@5.0.0...@air/icons@6.0.0) (2021-01-08)
+
+### Code Refactoring
+
+- **@air/icons:** rename Box to BoxLogo ([8f24589](https://github.com/AirLabsTeam/web-core/commit/8f245891dab92ada15f1d51479876d1009a0d379))
+
+### BREAKING CHANGES
+
+- **@air/icons:** Rename an export
+
 # [5.0.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@4.1.0...@air/icons@5.0.0) (2021-01-05)
 
 ### Features
