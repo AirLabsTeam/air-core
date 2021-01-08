@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.3.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@9.3.0...@air/zephyr@9.3.1) (2021-01-08)
+
+### Bug Fixes
+
+- **@air/zephyr:** fix button responsive variants and type defs ([2c0ad5a](https://github.com/AirLabsTeam/web-core/commit/2c0ad5a33ae1eaf652a24fad03e05a42f8fb69fa))
+
 # [9.3.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@9.2.2...@air/zephyr@9.3.0) (2021-01-06)
 
 ### Bug Fixes
