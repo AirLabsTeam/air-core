@@ -15,6 +15,7 @@ export type ButtonVariantName =
 const _button: { [key in ButtonVariantName]: TXProp } = {
   'button-filled-blue': {
     backgroundColor: 'jay500',
+    border: 'none',
     color: 'white',
     '&:hover:not(.is-loading)': {
       backgroundColor: 'jay600',
@@ -29,6 +30,7 @@ const _button: { [key in ButtonVariantName]: TXProp } = {
   },
   'button-filled-destructive': {
     backgroundColor: 'flamingo600',
+    border: 'none',
     color: 'white',
     '&:hover:not(.is-loading)': {
       backgroundColor: 'flamingo700',
@@ -43,6 +45,7 @@ const _button: { [key in ButtonVariantName]: TXProp } = {
   },
   'button-filled-grey': {
     backgroundColor: 'pigeon050',
+    border: 'none',
     color: 'pigeon600',
     '&:hover:not(.is-loading)': {
       backgroundColor: 'pigeon100',
@@ -102,6 +105,7 @@ const _button: { [key in ButtonVariantName]: TXProp } = {
     },
   },
   'button-outline-blue': {
+    backgroundColor: 'transparent',
     border: '1px solid',
     borderColor: 'jay200',
     color: 'jay500',
@@ -121,6 +125,7 @@ const _button: { [key in ButtonVariantName]: TXProp } = {
     },
   },
   'button-outline-grey': {
+    backgroundColor: 'transparent',
     border: '1px solid',
     borderColor: 'pigeon200',
     color: 'pigeon600',
