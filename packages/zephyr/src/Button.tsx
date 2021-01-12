@@ -16,7 +16,7 @@ export type ButtonSize = 'large' | 'medium' | 'small';
  * These represent props that are not already available via React.HTMLAttributes
  */
 export type NonSemanticButtonProps = Pick<BoxStylingProps, 'tx'> & {
-  size?: ButtonSize;
+  size?: ButtonSize | ButtonSize[];
   variant?: ButtonVariantName | ButtonVariantName[];
   /**
    * `isLoading` can only be true for buttons with boundaries (ie. filled and outline variants). Note: `button-outline-destructive` is not currently a variant.
