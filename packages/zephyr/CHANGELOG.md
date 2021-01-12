@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.3.3](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@9.3.2...@air/zephyr@9.3.3) (2021-01-12)
+
+### Bug Fixes
+
+- **@air/zephyr:** fix button size type ([fa0ef51](https://github.com/AirLabsTeam/web-core/commit/fa0ef513970f4b5d4a60ac140f18ef500163ff06))
+
 ## [9.3.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@9.3.1...@air/zephyr@9.3.2) (2021-01-08)
 
 **Note:** Version bump only for package @air/zephyr
