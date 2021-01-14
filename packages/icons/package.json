@@ -37,7 +37,7 @@
     "build": "NODE_ENV=production BABEL_ENV=production yarn add-icon && yarn create-storybook-directories && tsdx build --tsconfig tsconfig.build.json && yarn transpile",
     "create-storybook-directories": "node ./scripts/grabListOfIconPathData.js",
     "format:svgs": "yarn svgo --pretty --config=svgo.config.format.json",
-    "format:svgs:all": "yarn svgo -f src/svgs/ --pretty --config=svgo.config.format.json",
+    "format:svgs:all": "yarn svgo src/svgs/**/*.svg --pretty --config=svgo.config.format.json",
     "lint": "tsdx lint",
     "test": "tsdx test --passWithNoTests",
     "transpile": "babel --source-maps true --no-babelrc --presets=@babel/preset-env --plugins=@babel/plugin-proposal-object-rest-spread --plugins=@babel/plugin-transform-arrow-functions dist/icons.esm.js --out-file dist/icons.esm.js"
