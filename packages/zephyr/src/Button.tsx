@@ -163,26 +163,28 @@ export const Button = forwardRefWithAs<NonSemanticButtonProps, 'button'>(
         {...restOfProps}
         ref={ref}
       >
-        <Box role="status" tx={{ position: 'relative' }}>
-          {isLoading && (
-            <>
-              <VisuallyHidden>Loading...</VisuallyHidden>
-              <Loader aria-hidden="true" shouldReduceMotion={shouldReduceMotion!}>
-                <Dot />
-                <Dot />
-                <Dot />
-              </Loader>
-            </>
-          )}
-          <Box
-            tx={{
-              opacity: isLoading ? 0 : 1,
-              visibility: isLoading ? 'hidden' : 'visible',
-            }}
-          >
-            {children}
+        {isLoading ? (
+          <Box role="status" tx={{ position: 'relative' }}>
+            <VisuallyHidden>Loading...</VisuallyHidden>
+            <Loader aria-hidden="true" shouldReduceMotion={shouldReduceMotion!}>
+              <Dot />
+              <Dot />
+              <Dot />
+            </Loader>
+
+            <Box
+              aria-hidden="true"
+              tx={{
+                opacity: isLoading ? 0 : 1,
+                visibility: isLoading ? 'hidden' : 'visible',
+              }}
+            >
+              {children}
+            </Box>
           </Box>
-        </Box>
+        ) : (
+          children
+        )}
       </Box>
     );
   },
