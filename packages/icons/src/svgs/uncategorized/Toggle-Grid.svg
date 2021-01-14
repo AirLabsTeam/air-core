@@ -1,6 +1,3 @@
 <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" viewBox="0 0 32 32">
-    <title>
-        Toggle grid
-    </title>
     <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.16 4H4.54a.54.54 0 00-.54.54v8.62a.54.54 0 00.54.54h8.62a.54.54 0 00.54-.54V4.54a.54.54 0 00-.54-.54zm14.3 0h-8.62a.54.54 0 00-.54.54v8.62a.54.54 0 00.54.54h8.62a.54.54 0 00.54-.54V4.54a.54.54 0 00-.54-.54zm-14.3 14.3H4.54a.54.54 0 00-.54.54v8.62a.54.54 0 00.54.54h8.62a.54.54 0 00.54-.54v-8.62a.54.54 0 00-.54-.54zm14.3 0h-8.62a.54.54 0 00-.54.54v8.62a.54.54 0 00.54.54h8.62a.54.54 0 00.54-.54v-8.62a.54.54 0 00-.54-.54z"/>
 </svg>

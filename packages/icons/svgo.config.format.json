@@ -33,7 +33,7 @@
     { "removeEmptyContainers": true },
     { "removeEmptyText": true },
     { "removeNonInheritableGroupAttrs": true },
-    { "removeTitle": false },
+    { "removeTitle": true },
     { "removeUnknownsAndDefaults": true },
     { "removeUnusedNS": true },
     { "removeUselessDefs": true },
