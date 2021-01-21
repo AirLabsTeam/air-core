@@ -45,6 +45,7 @@ import _Dribbble from './svgs/uncategorized/Dribbble.svg';
 import _Dropbox from './svgs/uncategorized/Dropbox.svg';
 import _Edit from './svgs/uncategorized/Edit.svg';
 import _Ellipsis from './svgs/uncategorized/Ellipsis.svg';
+import _EllipsisVertical from './svgs/uncategorized/EllipsisVertical.svg';
 import _Email from './svgs/uncategorized/Email.svg';
 import _EyeClosed from './svgs/uncategorized/Eye-Closed.svg';
 import _Eye from './svgs/uncategorized/Eye.svg';
@@ -164,6 +165,7 @@ export const Dribbble = (props?: SVGProps<SVGElement>) => <_Dribbble {...props} 
 export const Dropbox = (props?: SVGProps<SVGElement>) => <_Dropbox {...props} />;
 export const Edit = (props?: SVGProps<SVGElement>) => <_Edit {...props} />;
 export const Ellipsis = (props?: SVGProps<SVGElement>) => <_Ellipsis {...props} />;
+export const EllipsisVertical = (props?: SVGProps<SVGElement>) => <_EllipsisVertical {...props} />;
 export const Email = (props?: SVGProps<SVGElement>) => <_Email {...props} />;
 export const EyeClosed = (props?: SVGProps<SVGElement>) => <_EyeClosed {...props} />;
 export const Eye = (props?: SVGProps<SVGElement>) => <_Eye {...props} />;
