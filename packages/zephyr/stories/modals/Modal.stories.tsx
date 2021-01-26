@@ -31,10 +31,10 @@ Default.parameters = {
         <style
           dangerouslySetInnerHTML={{
             __html: `
-              .docblock-argstable-head > tr > th:last-child > span {
-                color: transparent;
+              .docblock-argstable-head > tr > th:last-of-type {
+                display: none;
               }
-              .docblock-argstable-body > tr > td:last-child > *{
+              .docblock-argstable-body > tr > td:last-of-type > * {
                 display: none;
               }
             `,
