@@ -127,8 +127,8 @@ export const WithCustomCTA: Story<AnnouncementModalProps> = () => {
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
-  const customCTAForwardRefFunction: React.ForwardRefRenderFunction<any, any> = (props, ref) => (
-    <Button as="a" href={false} rel="noreferrer noopener" target="_blank" {...props} ref={ref}>
+  const customCTAForwardRefFunction = () => (
+    <Button as="a" href="#" rel="noreferrer noopener" target="_blank">
       Tell me now!
     </Button>
   );
@@ -146,6 +146,7 @@ export const WithCustomCTA: Story<AnnouncementModalProps> = () => {
         modalLabel="What is the meaning of life?"
         modalDescription="We have all wondered this question. After many hours of work, the engineers at Air have figured out the meaning of life"
         cta={customCTAForwardRefFunction}
+        withCloseButton={false}
       />
     </>
   );
