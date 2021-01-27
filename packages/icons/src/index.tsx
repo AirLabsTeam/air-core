@@ -21,6 +21,7 @@ import _ChevronDown from './svgs/uncategorized/Chevron-Down.svg';
 import _ChevronLeft from './svgs/uncategorized/Chevron-Left.svg';
 import _ChevronRight from './svgs/uncategorized/Chevron-Right.svg';
 import _ChevronUp from './svgs/uncategorized/Chevron-Up.svg';
+import _CircledInfo from './svgs/uncategorized/Circled-Info.svg';
 import _CircledMinus from './svgs/uncategorized/Circled-Minus.svg';
 import _CircledPlus from './svgs/uncategorized/Circled-Plus.svg';
 import _Clips from './svgs/uncategorized/Clips.svg';
@@ -141,6 +142,7 @@ export const ChevronDown = (props?: SVGProps<SVGElement>) => <_ChevronDown {...p
 export const ChevronLeft = (props?: SVGProps<SVGElement>) => <_ChevronLeft {...props} />;
 export const ChevronRight = (props?: SVGProps<SVGElement>) => <_ChevronRight {...props} />;
 export const ChevronUp = (props?: SVGProps<SVGElement>) => <_ChevronUp {...props} />;
+export const CircledInfo = (props?: SVGProps<SVGElement>) => <_CircledInfo {...props} />;
 export const CircledMinus = (props?: SVGProps<SVGElement>) => <_CircledMinus {...props} />;
 export const CircledPlus = (props?: SVGProps<SVGElement>) => <_CircledPlus {...props} />;
 export const Clips = (props?: SVGProps<SVGElement>) => <_Clips {...props} />;
