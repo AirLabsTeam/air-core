@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.3.5](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@9.3.4...@air/zephyr@9.3.5) (2021-01-21)
+
+**Note:** Version bump only for package @air/zephyr
+
+## [9.3.4](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@9.3.3...@air/zephyr@9.3.4) (2021-01-14)
+
+### Bug Fixes
+
+- **@air/zephyr/button:** resolve layout issue regarding loading state ([9a2fd11](https://github.com/AirLabsTeam/web-core/commit/9a2fd11b4213a787f3ca2ec9c087dc994750554c))
+
 ## [9.3.3](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@9.3.2...@air/zephyr@9.3.3) (2021-01-12)
 
 ### Bug Fixes

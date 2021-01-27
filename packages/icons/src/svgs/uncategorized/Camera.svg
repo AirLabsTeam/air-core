@@ -1,6 +1,3 @@
 <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" viewBox="0 0 32 32">
-    <title>
-        Camera
-    </title>
     <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M27.82 27.05H4.09A2.14 2.14 0 012 24.91V10.82a2.14 2.14 0 012.09-2.14H9a.6.6 0 00.5-.27L11.64 5a.6.6 0 01.5-.27H20a.6.6 0 01.51.29l2 3.35a.61.61 0 00.51.28H28a2 2 0 012 2v14.26a2.13 2.13 0 01-2.18 2.14zM16.13 11.28A5.86 5.86 0 1022 17.14a5.86 5.86 0 00-5.87-5.86zm9.45 1.18h.78m-.78 0h.78z"/>
 </svg>

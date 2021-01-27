@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.1.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@6.0.1...@air/icons@6.1.0) (2021-01-21)
+
+### Bug Fixes
+
+- fix Home icon proportions ([501d645](https://github.com/AirLabsTeam/web-core/commit/501d645f657f4bf4e55c08a9e5055043fa3b4907))
+
+### Features
+
+- add EllipsisVertical icon ([047295a](https://github.com/AirLabsTeam/web-core/commit/047295a062cf19dc660569190508d8d8fd46ab23))
+
+## [6.0.1](https://github.com/AirLabsTeam/web-core/compare/@air/icons@6.0.0...@air/icons@6.0.1) (2021-01-14)
+
+### Bug Fixes
+
+- **icons:** remove <title> from svgs ([d97b734](https://github.com/AirLabsTeam/web-core/commit/d97b7348318e616f4f6742a37dfc984e97a53440))
+- **workflow:** use recursive pattern for svg formatting script ([a22d329](https://github.com/AirLabsTeam/web-core/commit/a22d329c0e72748b0d916f74eb642db2aaf0b5b5))
+
 # [6.0.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@5.0.0...@air/icons@6.0.0) (2021-01-08)
 
 ### Code Refactoring

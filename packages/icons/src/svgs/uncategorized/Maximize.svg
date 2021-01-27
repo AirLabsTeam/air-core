@@ -1,6 +1,3 @@
 <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" viewBox="0 0 32 32">
-    <title>
-        Maximize
-    </title>
     <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 28h24V4H4zm24-18H4"/>
 </svg>
