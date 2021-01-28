@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.4.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@9.3.6...@air/zephyr@9.4.0) (2021-01-28)
+
+### Bug Fixes
+
+- **@air/zephyr/announcementmodal:** properly render custom cta ([ec4d47a](https://github.com/AirLabsTeam/web-core/commit/ec4d47a83d8470ede29c3e61246f3eb1ba2db416))
+- **@air/zephyr/modal:** apply key to each motion element ([e0e5504](https://github.com/AirLabsTeam/web-core/commit/e0e5504c9d1447fb48135cb0e292e9ee0b13e34e))
+- **@air/zephyr/modal:** define components outside of render ([a690ff3](https://github.com/AirLabsTeam/web-core/commit/a690ff3e855a78f5a367142cca5799b5de816a37))
+- remove unused file ([8f72cf3](https://github.com/AirLabsTeam/web-core/commit/8f72cf3591992ae62b5a4e4a4aeadf258715c05d))
+
+### Features
+
+- **@air/zephyr/announcementmodal:** expand possible values for cta prop, fix bugs, and docs ([348c1f3](https://github.com/AirLabsTeam/web-core/commit/348c1f3aeb460f590b01d78d8c8717d92ba34e1b))
+- **@air/zephyr/xbutton:** create XButton component ([f107cd0](https://github.com/AirLabsTeam/web-core/commit/f107cd0f2175fd35a5883ad8700abc8c090cd917))
+
 ## [9.3.6](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@9.3.5...@air/zephyr@9.3.6) (2021-01-27)
 
 **Note:** Version bump only for package @air/zephyr
