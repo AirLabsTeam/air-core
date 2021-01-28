@@ -1,7 +1,6 @@
 import React, { useRef } from 'react';
 import { useId } from '@reach/auto-id';
 import { DialogOverlay, DialogContent, DialogProps } from '@reach/dialog';
-import VisuallyHidden from '@reach/visually-hidden';
 import {
   AlertDialogContent,
   AlertDialogDescription,
@@ -9,7 +8,6 @@ import {
   AlertDialogOverlay,
   AlertDialogProps,
 } from '@reach/alert-dialog';
-import { Close } from '@air/icons';
 import invariant from 'tiny-invariant';
 import { AnimatePresence, motion, MotionProps, useReducedMotion } from 'framer-motion';
 import { rgba } from 'polished';
@@ -22,9 +20,9 @@ import {
   ALERT_MODAL_DIALOG_CONTENT,
 } from '../testIDs';
 import { Box, BoxStylingProps } from '../Box';
-import { Button, ButtonProps } from '../Button';
 import { Text } from '../Text';
 import { ModalVariantName } from '../theme/variants/modal';
+import { XButton } from '../XButton';
 
 export const MODAL_CLOSE_BUTTON = 'MODAL_CLOSE_BUTTON';
 
@@ -152,22 +150,6 @@ export const Modal = ({
   const isModalDescriptionString = isString(modalDescription);
   const hasDescription = !!modalDescription;
 
-  const CloseButton = React.forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => (
-    <Button
-      onClick={onDismiss}
-      tx={{ position: 'absolute', top: '1.25rem', right: '1.5rem' }}
-      variant="button-unstyled"
-      data-testid={MODAL_CLOSE_BUTTON}
-      {...props}
-      ref={ref}
-    >
-      <VisuallyHidden>Close Modal</VisuallyHidden>
-      <Close color={theme.colors.pigeon400} width="32" />
-    </Button>
-  ));
-
-  CloseButton.displayName = 'CloseButton';
-
   const overlayStyles = {
     position: 'fixed',
     top: 0,
@@ -251,7 +233,7 @@ export const Modal = ({
               tx={tx}
               variant={variant}
             >
-              {withCloseButton && <CloseButton ref={closeButtonRef} />}
+              {withCloseButton && <XButton onClick={onDismiss} ref={closeButtonRef} />}
 
               {isModalLabelString ? (
                 <Box as={AlertDialogLabel} tx={modalLabelLayoutStyles}>
@@ -303,7 +285,7 @@ export const Modal = ({
             aria-labelledby={labelId}
             aria-describedby={hasDescription ? descriptionId : undefined}
           >
-            {withCloseButton && <CloseButton ref={closeButtonRef} />}
+            {withCloseButton && <XButton onClick={onDismiss} ref={closeButtonRef} />}
 
             {isModalLabelString ? (
               <Box id={labelId} tx={modalLabelLayoutStyles}>
