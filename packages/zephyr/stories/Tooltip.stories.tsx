@@ -1,15 +1,15 @@
-import React from 'react';
-import { Meta } from '@storybook/react';
+import React, { useState } from 'react';
+import { Meta, Story } from '@storybook/react';
 import isChromatic from 'chromatic/isChromatic';
 import { StoryFnReactReturnType } from '@storybook/react/dist/client/preview/types';
 import { noop } from 'lodash';
 import { Text } from '../src/Text';
-import { Tooltip } from '../src/Tooltip';
+import { Tooltip, TooltipProps } from '../src/Tooltip';
 import { Box } from '../src/Box';
 import { Button } from '../src';
 
 const TooltipStoryDecorator = (Story: () => StoryFnReactReturnType) => (
-  <Box tx={{ display: 'grid', placeItems: 'center', width: '100%', height: 200 }}>
+  <Box tx={{ display: 'grid', placeItems: 'center', width: '100%', height: 300 }}>
     <Story />
   </Box>
 );
@@ -21,7 +21,7 @@ const meta: Meta = {
 
 export default meta;
 
-export const Default = () => {
+export const Default: Story<TooltipProps> = () => {
   return (
     <Tooltip
       label="Now you see me!"
@@ -64,62 +64,70 @@ Default.parameters = {
   },
 };
 
-export const AllSides = () => (
-  <Box
-    tx={{
-      display: 'grid',
-      gridTemplate: '50% 50% / 50% 50%',
-      width: '50%',
-      height: '50%',
-      gap: '1rem',
-    }}
-  >
-    <Tooltip
-      label="This is rendered above."
-      side="top"
-      manualControlProps={
-        isChromatic() ? { open: true, onOpenChange: noop, defaultOpen: true } : undefined
-      }
-    >
-      <Button onClick={noop} variant="button-filled-blue">
-        Top
-      </Button>
-    </Tooltip>
-    <Tooltip
-      label="This is rendered to the right."
-      side="right"
-      manualControlProps={
-        isChromatic() ? { open: true, onOpenChange: noop, defaultOpen: true } : undefined
-      }
-    >
-      <Button onClick={noop} variant="button-filled-blue">
-        Right
-      </Button>
-    </Tooltip>
-    <Tooltip
-      label="This is rendered to the left."
-      side="left"
-      manualControlProps={
-        isChromatic() ? { open: true, onOpenChange: noop, defaultOpen: true } : undefined
-      }
-    >
-      <Button onClick={noop} variant="button-filled-blue">
-        Left
-      </Button>
-    </Tooltip>
-    <Tooltip
-      label="This is rendered below."
-      side="bottom"
-      manualControlProps={
-        isChromatic() ? { open: true, onOpenChange: noop, defaultOpen: true } : undefined
-      }
-    >
-      <Button onClick={noop} variant="button-filled-blue">
-        Bottom
-      </Button>
-    </Tooltip>
-  </Box>
-);
+export const AllSides = () => {
+  const [areTooltipsVisible, setAreTooltipsVisible] = useState(false);
+  const hideTooltips = () => setAreTooltipsVisible(false);
+  const showTooltips = () => setAreTooltipsVisible(true);
+
+  const manualControlProps =
+    isChromatic() || areTooltipsVisible
+      ? { open: true, onOpenChange: noop, defaultOpen: true }
+      : undefined;
+
+  return (
+    <Box tx={{ height: 300, width: '100%' }}>
+      <Box tx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <Button onClick={areTooltipsVisible ? hideTooltips : showTooltips}>
+          {areTooltipsVisible ? 'Unpin Tooltips' : 'Pin Tooltips'}
+        </Button>
+      </Box>
+      <Box
+        tx={{
+          display: 'grid',
+          gridTemplate: '50% 50% / 50% 50%',
+          width: '50%',
+          height: '50%',
+          gap: '1rem',
+          mx: 'auto',
+          my: 64,
+        }}
+      >
+        <Tooltip label="This is rendered above." side="top" manualControlProps={manualControlProps}>
+          <Button onClick={noop} variant="button-filled-blue">
+            Top
+          </Button>
+        </Tooltip>
+        <Tooltip
+          label="This is rendered to the right."
+          side="right"
+          manualControlProps={manualControlProps}
+        >
+          <Button onClick={noop} variant="button-filled-blue">
+            Right
+          </Button>
+        </Tooltip>
+        <Tooltip
+          label="This is rendered to the left."
+          side="left"
+          manualControlProps={manualControlProps}
+        >
+          <Button onClick={noop} variant="button-filled-blue">
+            Left
+          </Button>
+        </Tooltip>
+        <Tooltip
+          label="This is rendered below."
+          side="bottom"
+          manualControlProps={manualControlProps}
+        >
+          <Button onClick={noop} variant="button-filled-blue">
+            Bottom
+          </Button>
+        </Tooltip>
+      </Box>
+    </Box>
+  );
+};
 
 export const WithoutBorder = () => (
   <Box
