@@ -127,7 +127,7 @@ export const WithCustomCTA: Story<AnnouncementModalProps> = () => {
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
-  const customCTAForwardRefFunction = () => (
+  const SomeCustomButton = () => (
     <Button as="a" href="#" rel="noreferrer noopener" target="_blank">
       Tell me now!
     </Button>
@@ -145,7 +145,7 @@ export const WithCustomCTA: Story<AnnouncementModalProps> = () => {
         onDismiss={closeModal}
         modalLabel="What is the meaning of life?"
         modalDescription="We have all wondered this question. After many hours of work, the engineers at Air have figured out the meaning of life"
-        cta={customCTAForwardRefFunction}
+        cta={SomeCustomButton}
         withCloseButton={false}
       />
     </>
