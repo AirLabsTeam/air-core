@@ -1,130 +1,117 @@
 import React, { useRef } from 'react';
 import { useId } from '@reach/auto-id';
-import { DialogOverlay, DialogContent, DialogProps } from '@reach/dialog';
-import {
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogLabel,
-  AlertDialogOverlay,
-  AlertDialogProps,
-} from '@reach/alert-dialog';
+import { DialogProps } from '@reach/dialog';
+import { AlertDialogDescription, AlertDialogLabel, AlertDialogProps } from '@reach/alert-dialog';
 import invariant from 'tiny-invariant';
-import { AnimatePresence, motion, MotionProps, useReducedMotion } from 'framer-motion';
-import { rgba } from 'polished';
+import { AnimatePresence, useReducedMotion } from 'framer-motion';
 import { isString } from 'lodash';
-import { useTheme } from 'styled-components';
-import {
-  MODAL_OVERLAY,
-  MODAL_DIALOG_CONTENT,
-  ALERT_MODAL_OVERLAY,
-  ALERT_MODAL_DIALOG_CONTENT,
-} from '../testIDs';
 import { Box, BoxStylingProps } from '../Box';
 import { Text } from '../Text';
 import { ModalVariantName } from '../theme/variants/modal';
 import { XButton } from '../XButton';
+import { ModalContent } from './ModalContent';
+import { ModalOverlay } from './ModalOverlay';
 
-export const MODAL_CLOSE_BUTTON = 'MODAL_CLOSE_BUTTON';
+export interface ModalProps
+  extends Pick<DialogProps, 'allowPinchZoom' | 'initialFocusRef' | 'isOpen'>,
+    Pick<AlertDialogProps, 'leastDestructiveRef'>,
+    Pick<BoxStylingProps, 'tx'> {
+  /**
+   * This should act as the title of the modal. Required for the sake of accessibility.
+   *
+   * If passed as a string, it will render within:
+   *
+   * `<Text variant="text-ui-24">`
+   */
+  modalLabel: React.ReactNode;
 
-export type ModalProps = Pick<DialogProps, 'allowPinchZoom' | 'initialFocusRef' | 'isOpen'> &
-  Pick<AlertDialogProps, 'leastDestructiveRef'> &
-  Pick<BoxStylingProps, 'tx'> & {
-    /**
-     * This should act as the title of the modal. Required for the sake of accessibility.
-     *
-     * If passed as a string, it will render within:
-     *
-     * `<Text variant="text-ui-24">`
-     */
-    modalLabel: React.ReactNode;
+  /**
+   * This will be used to go into further detail regarding the modal. Optional, but required if leveraging an
+   * alert modal. If you want the description invisible, please render the node within
+   * [@reach/visually-hidden](https://reach.tech/visually-hidden).
+   *
+   * - Example: `<VisuallyHidden>This action is permanent, are you sure?</VisuallyHidden>`
+   *
+   * - Example: `<p>This action is permanent, are you sure</p>`
+   *
+   * If passed as a string, it will render within:
+   *
+   * `<Text variant="text-ui-16">`
+   */
+  modalDescription?: React.ReactNode;
 
-    /**
-     * This will be used to go into further detail regarding the modal. Optional, but required if leveraging an
-     * alert modal. If you want the description invisible, please render the node within
-     * [@reach/visually-hidden](https://reach.tech/visually-hidden).
-     *
-     * - Example: `<VisuallyHidden>This action is permanent, are you sure?</VisuallyHidden>`
-     *
-     * - Example: `<p>This action is permanent, are you sure</p>`
-     *
-     * If passed as a string, it will render within:
-     *
-     * `<Text variant="text-ui-16">`
-     */
-    modalDescription?: React.ReactNode;
+  /**
+   * When true, this modal will leverage the "alertdialog" role, making the description required. This
+   * prop could have a default value, but it's worth truly understanding when to use which because the experience for
+   * ALL users differs. Please read MDN and Reach documentation on the differences between the two modals to understand
+   * what yours should be, but here's a quick summary:
+   *
+   * The "alertdialog" role should only used when an alert, error, or warning occurs. In other words, when a modal's
+   * information and controls require the user's immediate attention, this prop should be true. It is up to the
+   * developer to make this distinction though.
+   *
+   * Note: When true, `leastDestructiveRef` and `modalDescription` become required props.
+   *
+   * Links:
+   *
+   * - [@reach/alert-dialog](https://reach.tech/alert-dialog)
+   *
+   * - [role="alertdialog"](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_alertdialog_role)
+   */
+  isAlertModal: boolean;
 
-    /**
-     * When true, this modal will leverage the "alertdialog" role, making the description required. This
-     * prop could have a default value, but it's worth truly understanding when to use which because the experience for
-     * ALL users differs. Please read MDN and Reach documentation on the differences between the two modals to understand
-     * what yours should be, but here's a quick summary:
-     *
-     * The "alertdialog" role should only used when an alert, error, or warning occurs. In other words, when a modal's
-     * information and controls require the user's immediate attention, this prop should be true. It is up to the
-     * developer to make this distinction though.
-     *
-     * Note: When true, `leastDestructiveRef` and `modalDescription` become required props.
-     *
-     * Links:
-     *
-     * - [@reach/alert-dialog](https://reach.tech/alert-dialog)
-     *
-     * - [role="alertdialog"](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_alertdialog_role)
-     */
-    isAlertModal: boolean;
+  /**
+   * This function is called whenever the user hits "Escape" or clicks outside the dialog. _It's important to close the
+   * dialog onDismiss_.
+   *
+   * The only time you shouldn't close the dialog on dismiss is when the dialog requires a choice and none of them are
+   * "cancel". For example, perhaps two records need to be merged and the user needs to pick the surviving record.
+   * Neither choice is less destructive than the other, so in these cases you may want to alert the user they need to a
+   * make a choice on dismiss instead of closing the dialog. In this case, "isAlertModal" should also be true. As an
+   * extreme last resort, you can pass a noop.
+   *
+   * [See more: https://reach.tech/dialog#dialog-ondismiss](https://reach.tech/dialog#dialog-ondismiss)
+   */
+  onDismiss: (event?: React.SyntheticEvent) => void;
 
-    /**
-     * This function is called whenever the user hits "Escape" or clicks outside the dialog. _It's important to close the
-     * dialog onDismiss_.
-     *
-     * The only time you shouldn't close the dialog on dismiss is when the dialog requires a choice and none of them are
-     * "cancel". For example, perhaps two records need to be merged and the user needs to pick the surviving record.
-     * Neither choice is less destructive than the other, so in these cases you may want to alert the user they need to a
-     * make a choice on dismiss instead of closing the dialog. In this case, "isAlertModal" should also be true. As an
-     * extreme last resort, you can pass a noop.
-     *
-     * [See more: https://reach.tech/dialog#dialog-ondismiss](https://reach.tech/dialog#dialog-ondismiss)
-     */
-    onDismiss: (event?: React.SyntheticEvent) => void;
+  /**
+   * Accepts any renderable content.
+   *
+   * Documentation:
+   *
+   * [When isAlertModal=false](https://reach.tech/dialog#dialogcontent-children)
+   *
+   * [When isAlertModal=true](https://reach.tech/alert-dialog/#alertdialogcontent-element-props)
+   */
+  children?: React.ReactNode;
 
-    /**
-     * Accepts any renderable content.
-     *
-     * Documentation:
-     *
-     * [When isAlertModal=false](https://reach.tech/dialog#dialogcontent-children)
-     *
-     * [When isAlertModal=true](https://reach.tech/alert-dialog/#alertdialogcontent-element-props)
-     */
-    children?: React.ReactNode;
+  /**
+   * Note that these styles get applied to the modal container itself as opposed to the overlay which is the true
+   * top-level element in this component.
+   */
+  className?: string;
 
-    /**
-     * Note that these styles get applied to the modal container itself as opposed to the overlay which is the true
-     * top-level element in this component.
-     */
-    className?: string;
+  /**
+   * Determines whether or not an "X" close button renders in the upper-right corner of the modal.
+   */
+  withCloseButton?: boolean;
 
-    /**
-     * Determines whether or not an "X" close button renders in the upper-right corner of the modal.
-     */
-    withCloseButton?: boolean;
+  /**
+   * There are 3 modal sizes in Zephyr.
+   *
+   * Small [400px width] - For confirming a destructive action, showing error states, and
+   * notifying the user of an action (such as being logged out after an amount of inactivity).
+   *
+   * Medium [498px width] - Primarily for multi-step actions (such as rendering a form or encouraging the user to
+   * copy a share link after defining the link's permissions).
+   *
+   * Large [600px width] - Often used on marketing pages. Also used when working with a prolonged action (like uploading
+   * an asset or approving a new version of an asset). Can also be used to cue a fork in the road for multi-step forms.
+   */
+  variant?: ModalVariantName;
 
-    /**
-     * There are 3 modal sizes in Zephyr.
-     *
-     * Small [400px width] - For confirming a destructive action, showing error states, and
-     * notifying the user of an action (such as being logged out after an amount of inactivity).
-     *
-     * Medium [498px width] - Primarily for multi-step actions (such as rendering a form or encouraging the user to
-     * copy a share link after defining the link's permissions).
-     *
-     * Large [600px width] - Often used on marketing pages. Also used when working with a prolonged action (like uploading
-     * an asset or approving a new version of an asset). Can also be used to cue a fork in the road for multi-step forms.
-     */
-    variant?: ModalVariantName;
-
-    ['data-testid']?: string;
-  };
+  ['data-testid']?: string;
+}
 
 export const Modal = ({
   children,
@@ -141,65 +128,17 @@ export const Modal = ({
   'data-testid': testID,
   ...rest
 }: ModalProps) => {
-  const theme = useTheme();
-  const shouldReduceMotion = useReducedMotion();
-  const labelId = useId('modal-label');
-  const descriptionId = useId('modal-description');
+  const labelID = useId('modal-label')!;
+  const descriptionID = useId('modal-description')!;
   const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const shouldReduceMotion = !!useReducedMotion();
   const isModalLabelString = isString(modalLabel);
   const isModalDescriptionString = isString(modalDescription);
   const hasDescription = !!modalDescription;
 
-  const overlayStyles = {
-    position: 'fixed',
-    top: 0,
-    right: 0,
-    bottom: 0,
-    left: 0,
-    overflow: 'auto',
-    zIndex: 1,
-  };
-
-  const cardStyles: BoxStylingProps['tx'] = {
-    position: 'relative', // Ensures <CloseButton /> is rendered inside the modal itself
-    backgroundColor: 'white',
-    borderRadius: '6px',
-    px: 32,
-    pt: 32,
-    pb: 28,
-    mx: 'auto',
-    mt: [32, '10vw'],
-    minHeight: '100px',
-    maxWidth: '100vw',
-    color: 'pigeon700',
-    '&:focus:not(:focus-visible)': {
-      outline: 'none',
-    },
-  };
-
   const modalLabelLayoutStyles: BoxStylingProps['tx'] = {
     maxWidth: '90%', // to keep header out of the way of the closing "X" button.
     marginBottom: 16,
-  };
-
-  const transition: MotionProps['transition'] = {
-    duration: shouldReduceMotion ? 0 : 0.2,
-    type: 'tween',
-  };
-
-  const motionStyles = {
-    overlay: {
-      initial: { backgroundColor: theme.colors.transparent },
-      animate: { backgroundColor: rgba(theme.colors.pigeon700, 0.75) },
-      exit: { backgroundColor: theme.colors.transparent },
-      transition,
-    },
-    content: {
-      initial: { opacity: 0, scale: 0.7 },
-      animate: { opacity: 1, scale: 1 },
-      exit: { opacity: 0, scale: 0.7 },
-      transition,
-    },
   };
 
   if (isAlertModal) {
@@ -214,24 +153,22 @@ export const Modal = ({
     return (
       <AnimatePresence>
         {isOpen && (
-          <Box
-            as={motion.custom(AlertDialogOverlay)}
-            {...motionStyles.overlay}
-            __baseStyles={overlayStyles}
-            data-testid={ALERT_MODAL_OVERLAY}
-            key={ALERT_MODAL_OVERLAY}
+          <ModalOverlay
+            isAlertModal={true}
+            onDismiss={onDismiss}
             leastDestructiveRef={withCloseButton ? closeButtonRef : leastDestructiveRef}
+            shouldReduceMotion={shouldReduceMotion}
             {...rest}
           >
-            <Box
-              as={motion.custom(AlertDialogContent)}
-              {...motionStyles.content}
-              __baseStyles={cardStyles}
+            <ModalContent
+              isAlertModal={true}
               className={className}
               data-testid={testID}
-              key={testID ?? ALERT_MODAL_DIALOG_CONTENT}
               tx={tx}
               variant={variant}
+              shouldReduceMotion={shouldReduceMotion}
+              labelID={labelID}
+              descriptionID={descriptionID}
             >
               {withCloseButton && <XButton onClick={onDismiss} ref={closeButtonRef} />}
 
@@ -254,8 +191,8 @@ export const Modal = ({
               )}
 
               <Text variant="text-ui-16">{children}</Text>
-            </Box>
-          </Box>
+            </ModalContent>
+          </ModalOverlay>
         )}
       </AnimatePresence>
     );
@@ -264,41 +201,37 @@ export const Modal = ({
   return (
     <AnimatePresence>
       {isOpen && (
-        <Box
-          as={motion.custom(DialogOverlay)}
-          {...motionStyles.overlay}
-          data-testid={MODAL_OVERLAY}
-          key={MODAL_OVERLAY}
+        <ModalOverlay
+          isAlertModal={false}
+          leastDestructiveRef={withCloseButton ? closeButtonRef : leastDestructiveRef}
           onDismiss={onDismiss}
-          __baseStyles={overlayStyles}
+          shouldReduceMotion={shouldReduceMotion}
           {...rest}
         >
-          <Box
-            as={motion.custom(DialogContent)}
-            {...motionStyles.content}
-            __baseStyles={cardStyles}
+          <ModalContent
+            isAlertModal={false}
             className={className}
             data-testid={testID}
-            key={testID ?? MODAL_DIALOG_CONTENT}
             tx={tx}
             variant={variant}
-            aria-labelledby={labelId}
-            aria-describedby={hasDescription ? descriptionId : undefined}
+            shouldReduceMotion={shouldReduceMotion}
+            labelID={labelID}
+            descriptionID={descriptionID}
           >
             {withCloseButton && <XButton onClick={onDismiss} ref={closeButtonRef} />}
 
             {isModalLabelString ? (
-              <Box id={labelId} tx={modalLabelLayoutStyles}>
+              <Box id={labelID} tx={modalLabelLayoutStyles}>
                 <Text variant="text-ui-24" tx={{ fontWeight: 'semibold' }}>
                   {modalLabel}
                 </Text>
               </Box>
             ) : (
-              <Box id={labelId}>{modalLabel}</Box>
+              <Box id={labelID}>{modalLabel}</Box>
             )}
 
             {hasDescription && (
-              <Box id={descriptionId}>
+              <Box id={descriptionID}>
                 {isModalDescriptionString ? (
                   <Text variant="text-ui-16">{modalDescription}</Text>
                 ) : (
@@ -308,8 +241,8 @@ export const Modal = ({
             )}
 
             <Text variant="text-ui-16">{children}</Text>
-          </Box>
-        </Box>
+          </ModalContent>
+        </ModalOverlay>
       )}
     </AnimatePresence>
   );
