@@ -43,7 +43,7 @@ CTAButton.displayName = 'CTAButton';
 
 export const AnnouncementModal = ({
   className,
-  cta,
+  cta: CTA,
   imageSource,
   isOpen = false,
   modalDescription,
@@ -98,9 +98,9 @@ export const AnnouncementModal = ({
         </Box>
 
         <Box tx={{ display: 'flex', justifyContent: 'center' }}>
-          {isString(cta) ? (
+          {isString(CTA) ? (
             <CTAButton onDismiss={onDismiss} ref={ctaRef}>
-              {cta}
+              {CTA}
             </CTAButton>
           ) : (
             /**
@@ -110,7 +110,7 @@ export const AnnouncementModal = ({
              * annoy developers by forcing them to pass custom CTAs via forwardRef(), we'll just go "ref-less" and let
              * ReachUI save us.
              */
-            cta
+            <CTA />
           )}
         </Box>
       </Box>
