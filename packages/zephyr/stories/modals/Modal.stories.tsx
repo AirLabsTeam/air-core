@@ -120,7 +120,20 @@ export const AlertModal: Story<ModalProps> = () => {
         isAlertModal
         leastDestructiveRef={dismissButtonRef}
         modalLabel="Warning!"
-        modalDescription="You are about to delete everything you know and love... 😰&nbsp; Are you sure about this?"
+        modalDescription={
+          <Text variant="text-ui-16">
+            <p>
+              You are about to delete everything you know and love... <span aria-hidden>😰</span>
+              <br />
+              Are you sure about this?
+            </p>
+
+            <p>
+              <a href="/#">This link</a>
+              {` exists to prove that the first focusable item isn't focused. Instead, "Nevermind" button is focused!`}
+            </p>
+          </Text>
+        }
         withCloseButton={false}
       >
         <Box tx={{ display: 'flex', justifyContent: 'flex-end', mt: 32 }}>

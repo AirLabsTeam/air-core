@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.2.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@6.1.0...@air/icons@6.2.0) (2021-01-27)
+
+### Features
+
+- **@air/icons:** add in circled info icon ([b11070c](https://github.com/AirLabsTeam/web-core/commit/b11070cb1151e191c0f68571802275c94e4e8321))
+
 # [6.1.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@6.0.1...@air/icons@6.1.0) (2021-01-21)
 
 ### Bug Fixes
