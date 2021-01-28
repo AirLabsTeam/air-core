@@ -15,7 +15,12 @@ import { AnimatePresence, motion, MotionProps, useReducedMotion } from 'framer-m
 import { rgba } from 'polished';
 import { isString } from 'lodash';
 import { useTheme } from 'styled-components';
-import { MODAL_OVERLAY, ALERT_MODAL_OVERLAY } from '../testIDs';
+import {
+  MODAL_OVERLAY,
+  MODAL_DIALOG_CONTENT,
+  ALERT_MODAL_OVERLAY,
+  ALERT_MODAL_DIALOG_CONTENT,
+} from '../testIDs';
 import { Box, BoxStylingProps } from '../Box';
 import { Button, ButtonProps } from '../Button';
 import { Text } from '../Text';
@@ -230,9 +235,10 @@ export const Modal = ({
           <Box
             as={motion.custom(AlertDialogOverlay)}
             {...motionStyles.overlay}
-            data-testid={ALERT_MODAL_OVERLAY}
-            leastDestructiveRef={withCloseButton ? closeButtonRef : leastDestructiveRef}
             __baseStyles={overlayStyles}
+            data-testid={ALERT_MODAL_OVERLAY}
+            key={ALERT_MODAL_OVERLAY}
+            leastDestructiveRef={withCloseButton ? closeButtonRef : leastDestructiveRef}
             {...rest}
           >
             <Box
@@ -241,6 +247,7 @@ export const Modal = ({
               __baseStyles={cardStyles}
               className={className}
               data-testid={testID}
+              key={testID ?? ALERT_MODAL_DIALOG_CONTENT}
               tx={tx}
               variant={variant}
             >
@@ -279,6 +286,7 @@ export const Modal = ({
           as={motion.custom(DialogOverlay)}
           {...motionStyles.overlay}
           data-testid={MODAL_OVERLAY}
+          key={MODAL_OVERLAY}
           onDismiss={onDismiss}
           __baseStyles={overlayStyles}
           {...rest}
@@ -289,6 +297,7 @@ export const Modal = ({
             __baseStyles={cardStyles}
             className={className}
             data-testid={testID}
+            key={testID ?? MODAL_DIALOG_CONTENT}
             tx={tx}
             variant={variant}
             aria-labelledby={labelId}
