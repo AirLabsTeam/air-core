@@ -1,7 +1,7 @@
-import React, { forwardRef, FunctionComponent, useRef } from 'react';
+import React, { forwardRef, useRef } from 'react';
 import VisuallyHidden from '@reach/visually-hidden';
 import { isString } from 'lodash';
-import { Box } from '../Box';
+import { Box, BoxProps } from '../Box';
 import { Button, ButtonProps } from '../Button';
 import { Text } from '../Text';
 import { Modal, ModalProps } from './Modal';
@@ -16,12 +16,19 @@ export type AnnouncementModalCTARenderProp = ({
   ref: React.MutableRefObject<any>;
 }) => JSX.Element;
 
+interface LinkCTA extends BoxProps<'a'> {}
+interface ButtonCTA extends ButtonProps {}
+
 export interface AnnouncementModalProps
   extends Omit<
     ModalProps,
     'isAlertModal' | 'children' | 'modalDescription' | 'modalLabel' | 'leastDestructiveRef'
   > {
-  cta: string | FunctionComponent<any>;
+  /**
+   * Can either be a string or an object filled with props relevant to either a button component or a box component
+   * rendered as an anchor element.
+   */
+  cta: string | LinkCTA | ButtonCTA;
   imageSource?: string;
   modalDescription: string;
   modalLabel: string;
@@ -43,7 +50,7 @@ CTAButton.displayName = 'CTAButton';
 
 export const AnnouncementModal = ({
   className,
-  cta: CTA,
+  cta,
   imageSource,
   isOpen = false,
   modalDescription,
@@ -98,19 +105,13 @@ export const AnnouncementModal = ({
         </Box>
 
         <Box tx={{ display: 'flex', justifyContent: 'center' }}>
-          {isString(CTA) ? (
+          {isString(cta) ? (
             <CTAButton onDismiss={onDismiss} ref={ctaRef}>
-              {CTA}
+              {cta}
             </CTAButton>
           ) : (
-            /**
-             * NOTE: We aren't passing ref here. In this scenario, none of dev errors/warnings go off, because ReachUI
-             * automatically focuses on the first focusable element. This would only be problematic if - somehow - a
-             * user could render links or button within the label or description, but that's not allowed. Rather than
-             * annoy developers by forcing them to pass custom CTAs via forwardRef(), we'll just go "ref-less" and let
-             * ReachUI save us.
-             */
-            <CTA />
+            // @ts-ignore
+            <Button as={cta?.href ? 'a' : 'button'} {...cta} ref={ctaRef} />
           )}
         </Box>
       </Box>

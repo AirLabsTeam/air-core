@@ -127,12 +127,6 @@ export const WithCustomCTA: Story<AnnouncementModalProps> = () => {
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
-  const SomeCustomButton = () => (
-    <Button as="a" href="#" rel="noreferrer noopener" target="_blank">
-      Tell me now!
-    </Button>
-  );
-
   return (
     <>
       <Button type="button" onClick={openModal} variant="button-filled-blue">
@@ -145,7 +139,11 @@ export const WithCustomCTA: Story<AnnouncementModalProps> = () => {
         onDismiss={closeModal}
         modalLabel="What is the meaning of life?"
         modalDescription="We have all wondered this question. After many hours of work, the engineers at Air have figured out the meaning of life"
-        cta={SomeCustomButton}
+        cta={{
+          href: 'https://en.wikipedia.org/wiki/42_(number)',
+          children: 'Tell me now!',
+          target: '_blank',
+        }}
         withCloseButton={false}
       />
     </>
