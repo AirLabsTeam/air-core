@@ -15,12 +15,8 @@ export interface TooltipProps {
   /** The actual tooltip content. */
   label: string;
 
-  /**
-   * The function that guides the positioning of the tooltip. We export methods for top, bottom, left, and right. By
-   * default, we position the tooltip along the bottom of the rect of the wrapped element in a centered manner where the
-   * viewport borders will win in any collisions (moving the label off-center).
-   */
-  side?: Side;
+  /** Represents where the tooltip renders in relation to the wrapped component/element. */
+  side: Side;
 
   /**
    * The amount of pixels away the tooltip renders from the wrapped element's rect.
@@ -113,7 +109,7 @@ export const Tooltip = ({
   children,
   manualControlProps,
   label,
-  side = 'top',
+  side,
   sideOffset = 10,
   withBorder = true,
   'data-testid': testID,
