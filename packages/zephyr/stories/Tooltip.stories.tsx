@@ -75,9 +75,12 @@ export const AllSides = () => {
       : undefined;
 
   return (
-    <Box tx={{ height: 300, width: '100%' }}>
+    <Box tx={{ height: 320, width: '100%', bg: 'jay500', py: 24 }}>
       <Box tx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-        <Button onClick={areTooltipsVisible ? hideTooltips : showTooltips}>
+        <Button
+          onClick={areTooltipsVisible ? hideTooltips : showTooltips}
+          variant="button-filled-grey"
+        >
           {areTooltipsVisible ? 'Unpin Tooltips' : 'Pin Tooltips'}
         </Button>
       </Box>
@@ -93,7 +96,7 @@ export const AllSides = () => {
         }}
       >
         <Tooltip label="This is rendered above." side="top" manualControlProps={manualControlProps}>
-          <Button onClick={noop} variant="button-filled-blue">
+          <Button onClick={noop} variant="button-filled-grey">
             Top
           </Button>
         </Tooltip>
@@ -102,7 +105,7 @@ export const AllSides = () => {
           side="right"
           manualControlProps={manualControlProps}
         >
-          <Button onClick={noop} variant="button-filled-blue">
+          <Button onClick={noop} variant="button-filled-grey">
             Right
           </Button>
         </Tooltip>
@@ -111,7 +114,7 @@ export const AllSides = () => {
           side="left"
           manualControlProps={manualControlProps}
         >
-          <Button onClick={noop} variant="button-filled-blue">
+          <Button onClick={noop} variant="button-filled-grey">
             Left
           </Button>
         </Tooltip>
@@ -120,7 +123,7 @@ export const AllSides = () => {
           side="bottom"
           manualControlProps={manualControlProps}
         >
-          <Button onClick={noop} variant="button-filled-blue">
+          <Button onClick={noop} variant="button-filled-grey">
             Bottom
           </Button>
         </Tooltip>

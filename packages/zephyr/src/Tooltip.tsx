@@ -140,12 +140,13 @@ export const Tooltip = ({
         tx={{
           bg: 'black',
           color: 'white',
-          px: 7,
+          px: 10,
           py: 5,
+          height: 36,
           borderColor: withBorder ? 'white' : 'transparent',
           borderWidth: 2,
           borderStyle: 'solid',
-          borderRadius: 3,
+          borderRadius: 4,
           zIndex: baseZIndex + 1,
         }}
       >
@@ -156,14 +157,29 @@ export const Tooltip = ({
         {withBorder && (
           <Box
             as={RadixTooltip.Arrow}
-            tx={{ fill: 'white', zIndex: baseZIndex, ...triangleOffsetMapping['border'][side] }}
+            tx={{
+              fill: 'white',
+              zIndex: baseZIndex,
+              strokeLinejoin: 'round',
+              strokeLinecap: 'round',
+              stroke: 'white',
+              strokeWidth: 1,
+              ...triangleOffsetMapping['border'][side],
+            }}
             width={12}
             height={8}
           />
         )}
         <Box
           as={RadixTooltip.Arrow}
-          tx={{ zIndex: baseZIndex + 1, ...triangleOffsetMapping['base'][side] }}
+          tx={{
+            zIndex: baseZIndex + 1,
+            strokeLinejoin: 'round',
+            strokeLinecap: 'round',
+            stroke: 'black',
+            strokeWidth: 1,
+            ...triangleOffsetMapping['base'][side],
+          }}
           width={10}
           height={7}
         />
