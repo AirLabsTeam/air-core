@@ -1,6 +1,7 @@
 import { TXProp } from '..';
 
 export type TextVariantName =
+  | 'text-heading-80'
   | 'text-heading-72'
   | 'text-heading-64'
   | 'text-heading-56'
@@ -22,9 +23,17 @@ export type TextVariantName =
   | 'text-ui-10';
 
 const _text: { [key in TextVariantName]: TXProp } = {
-  'text-heading-72': {
+  'text-heading-80': {
     fontFamily: 'display',
     // fontFeatureSettings are for an alternate character set available to the Gelica font
+    fontFeatureSettings: `'salt' on, 'ss01' on`,
+    fontSize: 80,
+    fontWeight: 'medium',
+    letterSpacing: '0.02em',
+    lineHeight: 1.1,
+  },
+  'text-heading-72': {
+    fontFamily: 'display',
     fontFeatureSettings: `'salt' on, 'ss01' on`,
     fontSize: 72,
     fontWeight: 'medium',
