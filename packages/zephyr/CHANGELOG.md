@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [10.1.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@10.0.0...@air/zephyr@10.1.0) (2021-02-01)
+
+### Features
+
+- **@air/zephyr:** add in `text-variant-80` text variant ([aff4814](https://github.com/AirLabsTeam/web-core/commit/aff481473b3d834e34f98ead1ebc97796eb6da65))
+
 # [10.0.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@9.4.0...@air/zephyr@10.0.0) (2021-01-29)
 
 ### Features
