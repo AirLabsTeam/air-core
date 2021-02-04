@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [10.2.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@10.1.0...@air/zephyr@10.2.0) (2021-02-04)
+
+### Bug Fixes
+
+- **@air/zephyr/tooltip:** remove default param and adjust prop comment ([aa04d9f](https://github.com/AirLabsTeam/web-core/commit/aa04d9fb5a0d5152dc2e29af3047a581220aaf7f))
+- **@air/zephyr/tooltip:** style tweaks ([d38814b](https://github.com/AirLabsTeam/web-core/commit/d38814bb1c92538bf98665078a59bb584899fb2b))
+
+### Features
+
+- **@air/zephyr/tooltip:** create Tooltip component ([135cc3e](https://github.com/AirLabsTeam/web-core/commit/135cc3ed0672ad1394305f0844abfc1f196ea76c))
+
 # [10.1.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@10.0.0...@air/zephyr@10.1.0) (2021-02-01)
 
 ### Features

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.16](https://github.com/AirLabsTeam/web-core/compare/@air/eslint-config@1.1.15...@air/eslint-config@1.1.16) (2021-02-04)
+
+### Bug Fixes
+
+- **@air/eslint-config:** allow ^are prefixes in boolean types ([a26a8fa](https://github.com/AirLabsTeam/web-core/commit/a26a8fa289439bec266f667ecc6bf09d4ef94360))
+
 ## [1.1.15](https://github.com/AirLabsTeam/web-core/compare/@air/eslint-config@1.1.14...@air/eslint-config@1.1.15) (2021-01-06)
 
 ### Bug Fixes
