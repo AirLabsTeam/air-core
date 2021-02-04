@@ -5,8 +5,8 @@ import { StoryFnReactReturnType } from '@storybook/react/dist/client/preview/typ
 import { noop } from 'lodash';
 import { Text } from '../src/Text';
 import { Tooltip, TooltipProps } from '../src/Tooltip';
-import { Box } from '../src/Box';
-import { Button } from '../src';
+import { Box, BoxStylingProps } from '../src/Box';
+import { Button } from '../src/Button';
 
 const TooltipStoryDecorator = (Story: () => StoryFnReactReturnType) => (
   <Box tx={{ display: 'grid', placeItems: 'center', width: '100%', height: 300 }}>
@@ -156,3 +156,85 @@ export const WithoutBorder = () => (
     </Tooltip>
   </Box>
 );
+
+export const MultiColoredBackground = () => {
+  const avatarSize = 36;
+
+  const sharedButtonStyles: BoxStylingProps['tx'] = {
+    width: avatarSize + 4,
+    height: avatarSize + 4,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'transparent',
+    borderRadius: 8,
+    transitionProperty: 'background-color,box-shadow,border-radius',
+    transitionDelay: '0.1s',
+    transitionTimingFunction: 'ease',
+
+    '&:focus-visible > img': {
+      opacity: 1,
+    },
+
+    '&:hover': {
+      backgroundColor: 'transparent',
+    },
+
+    '&:not(:first-of-type)': {
+      mt: 14,
+    },
+  };
+
+  const sharedImageStyles: BoxStylingProps['tx'] = {
+    minWidth: avatarSize,
+    width: avatarSize,
+    height: avatarSize,
+    borderRadius: 6,
+    overflow: 'hidden',
+    objectFit: 'cover',
+    backgroundColor: 'rgb(0,0,0,0.4)',
+    border: '1px solid',
+    borderColor: 'inherit',
+    transition: 'opacity 0.2s ease-in-out',
+
+    '&:hover': {
+      opacity: 1,
+    },
+  };
+
+  const unselectedStyles: BoxStylingProps['tx'] = {
+    ...sharedImageStyles,
+    opacity: 0.6,
+    boxShadow: 'none',
+  };
+
+  const workspaceImages = [
+    'https://air-prod.imgix.net/workspace-avatars/44e32827-02c0-4e1a-be1e-90299adfb99d-1603934503731.jpeg?h=108&w=108=&fit=crop',
+    'https://assets.aircamera.com/avatars/avatar_yellow_2.png?h=108&w=108=&fit=crop',
+    'https://assets.aircamera.com/avatars/avatar_yellow_2.png?h=108&w=108=&fit=crop',
+  ];
+
+  return (
+    <Box tx={{ display: 'flex', width: '100%', height: '100%' }}>
+      <Box tx={{ display: 'flex', flexDirection: 'column', bg: 'jay900', p: 8 }}>
+        {workspaceImages.map((src, index) => (
+          <Tooltip
+            label={`Workspace ${index + 1}`}
+            manualControlProps={
+              isChromatic() ? { open: true, onOpenChange: noop, defaultOpen: true } : undefined
+            }
+            side="right"
+            sideOffset={4}
+            key={src}
+          >
+            <Button variant="button-unstyled" tx={sharedButtonStyles} key={src}>
+              <Box as="img" src={src} alt="" tx={unselectedStyles} />
+            </Button>
+          </Tooltip>
+        ))}
+      </Box>
+
+      <Box tx={{ flex: 1, bg: 'white' }} />
+    </Box>
+  );
+};
