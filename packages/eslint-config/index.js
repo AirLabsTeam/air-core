@@ -281,6 +281,7 @@ const config = {
             format: ['PascalCase'],
             prefix: [
               'is',
+              'are',
               'should',
               'has',
               'had',
