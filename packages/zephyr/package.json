@@ -1,6 +1,6 @@
 {
   "name": "@air/zephyr",
-  "version": "9.4.0",
+  "version": "10.1.0",
   "description": "Air's React component library",
   "keywords": [
     "react",
@@ -41,7 +41,7 @@
   "peerDependencies": {
     "@air/icons": ">=4",
     "formik": ">=2",
-    "framer-motion": ">=2",
+    "framer-motion": ">=3",
     "react": ">=16"
   },
   "devDependencies": {
@@ -54,7 +54,7 @@
     "@types/yup": "^0.29.9",
     "babel-plugin-polished": "^1.1.0",
     "formik": "^2.2.5",
-    "framer-motion": "^2.9.4",
+    "framer-motion": "^3.2.1",
     "polished": "^3.6.7",
     "yup": "^0.31.1"
   },
