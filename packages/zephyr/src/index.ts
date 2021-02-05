@@ -4,4 +4,5 @@ export * from './XButton';
 export * from './Forms';
 export * from './Modals';
 export * from './Text';
+export * from './Tooltip';
 export * from './theme';
