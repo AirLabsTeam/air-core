@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.2.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@10.2.0...@air/zephyr@10.2.1) (2021-02-05)
+
+### Bug Fixes
+
+- **@air/zephyr/tooltip:** actually export Tooltip ([132664a](https://github.com/AirLabsTeam/web-core/commit/132664a211abdea2a2ce43120a3aa4a72ed33bab))
+
 # [10.2.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@10.1.0...@air/zephyr@10.2.0) (2021-02-04)
 
 ### Bug Fixes
