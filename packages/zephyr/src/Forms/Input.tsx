@@ -254,6 +254,7 @@ export const Input = ({
         as="span"
         id={descriptionIdentifier}
         variant="text-ui-12"
+        data-testid={`${topLevelTestID}_description`}
         tx={{
           ...sharedBottomTextStyles,
           display: hasError ? 'none' : 'block',
@@ -272,6 +273,7 @@ export const Input = ({
         id={errorIdentifier}
         role="alert"
         variant="text-ui-12"
+        data-testid={`${topLevelTestID}_error`}
         tx={{
           ...sharedBottomTextStyles,
           display: hasError ? 'block' : 'none',

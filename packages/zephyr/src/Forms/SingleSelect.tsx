@@ -534,6 +534,7 @@ export const SingleSelect = ({
         as="span"
         id={descriptionID}
         variant="text-ui-12"
+        data-testid={`${testID}_description`}
         tx={{
           ...sharedBottomTextStyles,
           display: hasError ? 'none' : 'block',
@@ -552,6 +553,7 @@ export const SingleSelect = ({
         id={errorID}
         role="alert"
         variant="text-ui-12"
+        data-testid={`${testID}_error`}
         tx={{
           ...sharedBottomTextStyles,
           display: hasError ? 'block' : 'none',
