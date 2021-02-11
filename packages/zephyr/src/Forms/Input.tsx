@@ -254,6 +254,7 @@ export const Input = ({
         as="span"
         id={descriptionIdentifier}
         variant="text-ui-12"
+        data-testid={`${topLevelTestID}_description`}
         tx={{
           ...sharedBottomTextStyles,
           display: hasError ? 'none' : 'block',
@@ -272,6 +273,7 @@ export const Input = ({
         id={errorIdentifier}
         role="alert"
         variant="text-ui-12"
+        data-testid={`${topLevelTestID}_error`}
         tx={{
           ...sharedBottomTextStyles,
           display: hasError ? 'block' : 'none',
@@ -282,7 +284,7 @@ export const Input = ({
         {/* For screen reader users, provide context as to which field is erroring */}
         {meta.error && <VisuallyHidden>{`Error on ${label} input: `}</VisuallyHidden>}
 
-        {capitalize(meta.error)}
+        <span aria-hidden="true">{capitalize(meta.error)}</span>
       </Text>
     </Box>
   );

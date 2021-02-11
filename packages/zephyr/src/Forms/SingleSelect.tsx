@@ -534,6 +534,7 @@ export const SingleSelect = ({
         as="span"
         id={descriptionID}
         variant="text-ui-12"
+        data-testid={`${testID}_description`}
         tx={{
           ...sharedBottomTextStyles,
           display: hasError ? 'none' : 'block',
@@ -552,6 +553,7 @@ export const SingleSelect = ({
         id={errorID}
         role="alert"
         variant="text-ui-12"
+        data-testid={`${testID}_error`}
         tx={{
           ...sharedBottomTextStyles,
           display: hasError ? 'block' : 'none',
@@ -562,7 +564,7 @@ export const SingleSelect = ({
         {/* For screen reader users, provide context as to which field is erroring */}
         {meta.error && <VisuallyHidden>{`Error on ${label} input: `}</VisuallyHidden>}
 
-        {capitalize(meta.error)}
+        <span aria-hidden="true">{capitalize(meta.error)}</span>
       </Text>
     </Box>
   );
