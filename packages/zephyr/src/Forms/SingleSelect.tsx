@@ -564,7 +564,7 @@ export const SingleSelect = ({
         {/* For screen reader users, provide context as to which field is erroring */}
         {meta.error && <VisuallyHidden>{`Error on ${label} input: `}</VisuallyHidden>}
 
-        <span aria-hidden="true">{capitalize(meta.error)}</span>
+        {capitalize(meta.error)}
       </Text>
     </Box>
   );
