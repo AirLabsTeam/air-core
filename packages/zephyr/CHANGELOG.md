@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.2.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@10.2.1...@air/zephyr@10.2.2) (2021-02-11)
+
+### Bug Fixes
+
+- **@air/zephyr:** add testids to both descs and errors for inputs and single selects, plus a11y fix ([821959b](https://github.com/AirLabsTeam/web-core/commit/821959b27b5c755a26347e0dd2b4f3da28bdb474))
+
+### Reverts
+
+- remove span from error ([a1235ec](https://github.com/AirLabsTeam/web-core/commit/a1235ecb925dbc38201712cc108f288adbcaa494))
+
 ## [10.2.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@10.2.0...@air/zephyr@10.2.1) (2021-02-05)
 
 ### Bug Fixes
