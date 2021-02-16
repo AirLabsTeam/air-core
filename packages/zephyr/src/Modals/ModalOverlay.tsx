@@ -58,7 +58,6 @@ export const ModalOverlay = forwardRef<HTMLElement, ModalOverlayProps>(
           bottom: 0,
           left: 0,
           overflow: 'auto',
-          zIndex: 1,
         }}
         data-testid={testID}
         key={testID}
