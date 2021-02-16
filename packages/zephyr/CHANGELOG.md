@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.2.3](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@10.2.2...@air/zephyr@10.2.3) (2021-02-16)
+
+### Bug Fixes
+
+- **@air/zephyr/modal:** no set z-index on modal overlay ([b237774](https://github.com/AirLabsTeam/web-core/commit/b2377744a27c5e8608f4a31c465e540be8febb65))
+
 ## [10.2.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@10.2.1...@air/zephyr@10.2.2) (2021-02-11)
 
 ### Bug Fixes
