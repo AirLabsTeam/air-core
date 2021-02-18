@@ -1,3 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" viewBox="0 0 32 32">
-    <path fill="currentColor" d="M24 26.5H9.61l3.8-6.6H28zm-4.48-21h-7.29l7.6 13.3h7.5zM15 13.77l-3.79-6.64L4 19.9l3.9 6.6z"/>
+    <path d="M8.00024 26.5729L11.9999 19.9062H28L23.9999 26.5729H8.00024Z" fill="currentColor"/>
+    <path d="M20.0002 19.9063H28L20.0002 6.573H11.9999L20.0002 19.9063Z" fill="currentColor"/>
+    <path d="M4 19.9063L8.00025 26.5729L16 13.2397L11.9999 6.573L4 19.9063Z" fill="currentColor"/>
 </svg>
