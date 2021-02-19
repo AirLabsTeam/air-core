@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.2.3](https://github.com/AirLabsTeam/web-core/compare/@air/icons@6.2.2...@air/icons@6.2.3) (2021-02-19)
+
+### Bug Fixes
+
+- add class to GoogleDrive paths to avoid merging them ([e9b3756](https://github.com/AirLabsTeam/web-core/commit/e9b37560da119b8938b5ef284dd6b9dc1b492ac5))
+
 ## [6.2.2](https://github.com/AirLabsTeam/web-core/compare/@air/icons@6.2.1...@air/icons@6.2.2) (2021-02-18)
 
 **Note:** Version bump only for package @air/icons
