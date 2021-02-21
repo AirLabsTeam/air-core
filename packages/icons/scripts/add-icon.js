@@ -1,7 +1,7 @@
 const fs = require('fs');
 const _ = require('lodash'); // eslint-disable-line lodash/import-scope
 const absolutePath = process.cwd(); // icons package root
-const svgPath = absolutePath.concat('/src/svgs');
+const svgPath = `${absolutePath}/src/svgs`;
 
 /**
  * Grabs diretories where icons are stored
@@ -67,10 +67,10 @@ for (const allIcon of allIcons) {
 importLines.push('\n');
 typeMapLines.push('\n');
 
-const combinedLineArrays = importLines.concat(typeMapLines);
+const combinedLineArrays = [...importLines, ...typeMapLines];
 
 //Files is written/overwritten
-const writeStream = fs.createWriteStream(absolutePath.concat('/src/index.tsx'));
+const writeStream = fs.createWriteStream(`${absolutePath}/src/index.tsx`);
 // write each value of the array on the file breaking line
 combinedLineArrays.forEach((value) => writeStream.write(`${value}`));
 writeStream.end();
