@@ -51,12 +51,12 @@
     "@types/react-select": "^3.0.27",
     "@types/styled-system": "^5.1.10",
     "@types/styled-system__css": "^5.0.14",
-    "@types/yup": "^0.29.9",
+    "@types/yup": "^0.29.11",
     "babel-plugin-polished": "^1.1.0",
-    "formik": "^2.2.5",
-    "framer-motion": "^3.2.1",
+    "formik": "^2.2.6",
+    "framer-motion": "^3.6.2",
     "polished": "^3.6.7",
-    "yup": "^0.31.1"
+    "yup": "^0.32.9"
   },
   "dependencies": {
     "@radix-ui/react-tooltip": "^0.0.2",

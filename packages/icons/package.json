@@ -47,10 +47,10 @@
     "react-native": ">=0.58"
   },
   "devDependencies": {
-    "@babel/cli": "^7.12.10",
-    "@babel/plugin-proposal-object-rest-spread": "^7.9.0",
-    "@babel/plugin-transform-arrow-functions": "^7.10.1",
-    "@babel/plugin-transform-react-display-name": "^7.8.3",
+    "@babel/cli": "^7.12.17",
+    "@babel/plugin-proposal-object-rest-spread": "^7.12.13",
+    "@babel/plugin-transform-arrow-functions": "^7.12.13",
+    "@babel/plugin-transform-react-display-name": "^7.12.13",
     "@innocuous/svgo": "2.1.2",
     "glob": "^7.1.6",
     "rollup-plugin-peer-deps-external": "^2.2.4",
