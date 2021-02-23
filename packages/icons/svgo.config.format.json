@@ -7,7 +7,9 @@
     },
     {
       "prefixIds": {
-        "delim": "_"
+        "delim": "_",
+        "prefixIds": true,
+        "prefixClassNames": false
       }
     },
     {
