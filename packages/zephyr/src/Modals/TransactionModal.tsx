@@ -7,22 +7,24 @@ export const TRANSACTION_MODAL_PRIMARY_CTA = 'TRANSACTION_MODAL_PRIMARY_CTA';
 export const TRANSACTION_MODAL_SECONDARY_CTA = 'TRANSACTION_MODAL_SECONDARY_CTA';
 export const TRANSACTION_MODAL_TERTIARY_CTA = 'TRANSACTION_MODAL_TERTIARY_CTA';
 
-export type TransactionModalButton = Pick<ButtonProps, 'children' | 'onClick' | 'type' | 'variant'>;
+export type TransactionModalButton = Omit<ButtonProps, 'ref'>;
 
 export interface TransactionModalProps
   extends Omit<ModalProps, 'leastDestructiveRef' | 'withCloseButton' | 'isAlertModal'> {
   /**
    * This call-to-action (CTA) is required and will appear in the bottom-right corner. It renders a button
    * ("button-filled-blue" variant) by default, but can be overridden. If you need to render an entirely different
-   * element - or the available control is not satisfactory - you can pass any JSX. If this CTA uses the object syntax
-   * and has a variant of "button-filled-destructive", the modal will be rendered as an alert modal.
+   * element, deal with the CTA's ref, or the available control is not satisfactory - you can pass any JSX. If this CTA
+   * uses the object syntax and has a variant of "button-filled-destructive", the modal will be rendered as an alert
+   * modal.
    */
   primaryCTA: TransactionModalButton | JSX.Element;
 
   /**
    * This call-to-action (CTA) is optional and will appear in the bottom-right corner, slightly left of the primary CTA.
    * It renders a button ("button-ghost-grey" variant) by default, but can be overridden. If you need to render an
-   * entirely different element - or the available control is not satisfactory - you can pass any JSX.
+   * entirely different element, deal with the CTA's ref, or the available control is not satisfactory - you can pass any
+   * JSX.
    */
   secondaryCTA?: TransactionModalButton | JSX.Element;
 
