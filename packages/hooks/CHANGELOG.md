@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.2](https://github.com/AirLabsTeam/web-core/compare/@air/hooks@1.1.1...@air/hooks@1.1.2) (2021-02-25)
+
+**Note:** Version bump only for package @air/hooks
+
 ## [1.1.1](https://github.com/AirLabsTeam/web-core/compare/@air/hooks@1.1.0...@air/hooks@1.1.1) (2020-07-28)
 
 ### Bug Fixes

@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [10.3.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@10.2.6...@air/zephyr@10.3.0) (2021-02-25)
+
+### Bug Fixes
+
+- 🐛 mark react-select props as optional ([6427f3e](https://github.com/AirLabsTeam/web-core/commit/6427f3eb04695f2e23a977095c397c2779a14e36))
+
+### Features
+
+- ✨ expose all button props on cta props for TransactionModal ([e02d50c](https://github.com/AirLabsTeam/web-core/commit/e02d50c387bfc00e594f2ce1a7fc50f2b61e79d9))
+
 ## [10.2.6](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@10.2.5...@air/zephyr@10.2.6) (2021-02-19)
 
 **Note:** Version bump only for package @air/zephyr

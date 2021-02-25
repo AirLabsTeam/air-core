@@ -1,6 +1,6 @@
 {
   "name": "@air/utilities",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Universal set of utilities used in Air's suite of apps",
   "homepage": "https://github.com/AirLabsTeam/web-core/tree/master/packages/utilities#readme",
   "license": "MIT",

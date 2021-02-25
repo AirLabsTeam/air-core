@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.3](https://github.com/AirLabsTeam/web-core/compare/@air/utilities@2.0.2...@air/utilities@2.0.3) (2021-02-25)
+
+**Note:** Version bump only for package @air/utilities
+
 ## [2.0.2](https://github.com/AirLabsTeam/web-core/compare/@air/utilities@2.0.1...@air/utilities@2.0.2) (2020-09-30)
 
 **Note:** Version bump only for package @air/utilities
