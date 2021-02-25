@@ -72,7 +72,9 @@ type DesiredReactSelectProps =
   | 'theme';
 
 export interface SingleSelectProps
-  extends Pick<ReactSelectProps<SelectOption, CanHaveMultipleSelections>, DesiredReactSelectProps>,
+  extends Partial<
+      Pick<ReactSelectProps<SelectOption, CanHaveMultipleSelections>, DesiredReactSelectProps>
+    >,
     Pick<BoxStylingProps, 'tx'> {
   /**
    * TODO: Not yet best to allow, given limited functionality.
