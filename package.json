@@ -29,11 +29,13 @@
     "test:ci": "yarn test --ci --coverage --maxWorkers=2",
     "test:watch": "tsdx test --watch",
     "tsc": "sh ./scripts/tsc.sh",
-    "postinstall": "husky install"
+    "postinstall": "husky install && patch-package"
   },
   "dependencies": {
     "lodash": "^4.17.21",
     "lodash-es": "^4.17.21",
+    "patch-package": "^6.4.2",
+    "postinstall-postinstall": "^2.1.0",
     "tiny-invariant": "^1.1.0"
   },
   "devDependencies": {
