@@ -36,9 +36,9 @@ export const ModalOverlay = forwardRef<HTMLElement, ModalOverlayProps>(
     const testID = isAlertModal ? ALERT_MODAL_OVERLAY : MODAL_OVERLAY;
 
     const motionStyles: MotionProps = {
-      initial: { backgroundColor: theme.colors.transparent },
-      animate: { backgroundColor: rgba(theme.colors.pigeon700, 0.75) },
-      exit: { backgroundColor: theme.colors.transparent },
+      initial: { opacity: 0 },
+      animate: { opacity: 1 },
+      exit: { opacity: 0 },
       transition: {
         duration: shouldReduceMotion ? 0 : 0.2,
         type: 'tween',
@@ -50,6 +50,7 @@ export const ModalOverlay = forwardRef<HTMLElement, ModalOverlayProps>(
         as={motion.custom(isAlertModal ? AlertDialogOverlay : DialogOverlay)}
         {...(motionStyles as any)}
         __baseStyles={{
+          backgroundColor: rgba(theme.colors.pigeon700, 0.75),
           position: 'fixed',
           top: 0,
           right: 0,
