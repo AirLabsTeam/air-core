@@ -25,16 +25,14 @@ export const ModalContent = ({
   labelID,
   descriptionID,
 }: ModalContentProps) => {
-  const transition: MotionProps['transition'] = {
-    duration: shouldReduceMotion ? 0 : 0.2,
-    type: 'tween',
-  };
-
-  const motionStyles = {
-    initial: { opacity: 0, scale: 0.7 },
-    animate: { opacity: 1, scale: 1 },
-    exit: { opacity: 0, scale: 0.7 },
-    transition,
+  const motionStyles: MotionProps = {
+    initial: { opacity: 0, translateY: '50px' },
+    animate: { opacity: 1, translateY: '0px' },
+    exit: { opacity: 0, translateY: '50px' },
+    transition: {
+      duration: shouldReduceMotion ? 0 : 0.3,
+      type: 'tween',
+    },
   };
 
   // We don't want to define these attributes for alert modals. Passing undefined to the props explicitly yields warnings.
@@ -49,7 +47,7 @@ export const ModalContent = ({
   return (
     <Box
       as={motion.custom(isAlertModal ? AlertDialogContent : DialogContent)}
-      {...motionStyles}
+      {...(motionStyles as any)}
       __baseStyles={{
         position: 'relative', // Ensures <CloseButton /> is rendered inside the modal itself
         backgroundColor: 'white',
