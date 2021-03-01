@@ -30,7 +30,7 @@ export const ModalContent = ({
     animate: { opacity: 1, translateY: '0px' },
     exit: { opacity: 0, translateY: '50px' },
     transition: {
-      duration: shouldReduceMotion ? 0 : 0.3,
+      duration: shouldReduceMotion ? 0 : 0.2,
       type: 'tween',
     },
   };

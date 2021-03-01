@@ -40,7 +40,7 @@ export const ModalOverlay = forwardRef<HTMLElement, ModalOverlayProps>(
       animate: { backgroundColor: rgba(theme.colors.pigeon700, 0.75) },
       exit: { backgroundColor: theme.colors.transparent },
       transition: {
-        duration: shouldReduceMotion ? 0 : 0.3,
+        duration: shouldReduceMotion ? 0 : 0.2,
         type: 'tween',
       },
     };
