@@ -40,7 +40,7 @@ export const ModalOverlay = forwardRef<HTMLElement, ModalOverlayProps>(
       animate: { opacity: 1 },
       exit: { opacity: 0 },
       transition: {
-        duration: shouldReduceMotion ? 0 : 0.3,
+        duration: shouldReduceMotion ? 0 : 0.15,
         type: 'tween',
       },
     };

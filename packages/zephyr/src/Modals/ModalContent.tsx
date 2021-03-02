@@ -1,7 +1,7 @@
 import React from 'react';
 import { AlertDialogContent } from '@reach/alert-dialog';
 import { DialogContent } from '@reach/dialog';
-import { motion, MotionProps } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import { Box } from '../Box';
 import { ALERT_MODAL_DIALOG_CONTENT, MODAL_DIALOG_CONTENT } from '../testIDs';
 import { ModalProps } from './Modal';
@@ -25,14 +25,21 @@ export const ModalContent = ({
   labelID,
   descriptionID,
 }: ModalContentProps) => {
-  const motionStyles: MotionProps = {
-    initial: { opacity: 0, translateY: '50px' },
-    animate: { opacity: 1, translateY: '0px' },
-    exit: { opacity: 0, translateY: '50px' },
-    transition: {
-      duration: shouldReduceMotion ? 0 : 0.3,
-      type: 'tween',
+  const motionStyles: Variants = {
+    initial: {
+      opacity: 0,
+      translateY: '50px',
     },
+    animate: {
+      opacity: 1,
+      translateY: '0px',
+      transition: {
+        delay: 0.2,
+        duration: shouldReduceMotion ? 0 : 0.3,
+        type: 'tween',
+      },
+    },
+    exit: { opacity: 0, translateY: '50px' },
   };
 
   // We don't want to define these attributes for alert modals. Passing undefined to the props explicitly yields warnings.
