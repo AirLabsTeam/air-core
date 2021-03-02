@@ -35,7 +35,7 @@ export const ModalContent = ({
       translateY: '0px',
       transition: {
         delay: 0.2,
-        duration: shouldReduceMotion ? 0 : 0.3,
+        duration: shouldReduceMotion ? 0 : 0.2,
         type: 'tween',
       },
     },
