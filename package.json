@@ -11,7 +11,7 @@
   "homepage": "https://github.com/AirLabsTeam/air-core",
   "config": {
     "commitizen": {
-      "path": "cz-conventional-changelog"
+      "path": "./node_modules/cz-conventional-changelog"
     }
   },
   "scripts": {
@@ -29,7 +29,7 @@
     "test:ci": "yarn test --ci --coverage --maxWorkers=2",
     "test:watch": "tsdx test --watch",
     "tsc": "sh ./scripts/tsc.sh",
-    "postinstall": "husky install && patch-package"
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "lodash": "^4.17.21",
@@ -61,8 +61,7 @@
     "chromatic": "^5.6.3",
     "commitizen": "^4.2.3",
     "cz-conventional-changelog": "^3.3.0",
-    "git-cz": "^4.7.6",
-    "husky": "^5.0.9",
+    "husky": "^4.3.8",
     "hygen": "^6.0.4",
     "jest": "^26.6.3",
     "lerna": "^3.22.1",
