@@ -97,6 +97,50 @@ TypicalModal.parameters = {
   },
 };
 
+export const WithDynamicContentAndLocalState: Story<ModalProps> = () => {
+  const [isModalOpen, setIsModalOpen] = useState(isChromatic());
+  const [number, setNumber] = useState(0);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+  const resetCount = () => setNumber(0);
+  const increment = () => setNumber(number + 1);
+
+  const onDismiss = () => {
+    resetCount();
+    closeModal();
+  };
+
+  return (
+    <>
+      <Button type="button" onClick={openModal} variant="button-filled-blue">
+        Open Modal And Start Clicking Within
+      </Button>
+
+      <Modal
+        isOpen={isModalOpen}
+        onDismiss={onDismiss}
+        isAlertModal={false}
+        modalLabel="How high can you count?"
+        modalDescription={
+          <Button onClick={increment} tx={{ mt: 16 }}>
+            {`I am dynamically rendered content! Counter: ${number}`}
+          </Button>
+        }
+        withCloseButton
+      />
+    </>
+  );
+};
+
+WithDynamicContentAndLocalState.parameters = {
+  docs: {
+    description: {
+      story: 'Just to prove that the modal wont re-render when local state changes!',
+    },
+  },
+};
+
 export const AlertModal: Story<ModalProps> = () => {
   const [isModalOpen, setIsModalOpen] = useState(isChromatic());
   const dismissButtonRef = useRef<HTMLButtonElement>(null);
