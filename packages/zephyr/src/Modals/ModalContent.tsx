@@ -1,8 +1,8 @@
 import React from 'react';
 import { AlertDialogContent } from '@reach/alert-dialog';
 import { DialogContent } from '@reach/dialog';
-import { motion, Variants } from 'framer-motion';
-import { Box } from '../Box';
+import { motion, MotionProps } from 'framer-motion';
+import { Box, BoxProps } from '../Box';
 import { ALERT_MODAL_DIALOG_CONTENT, MODAL_DIALOG_CONTENT } from '../testIDs';
 import { ModalProps } from './Modal';
 
@@ -13,6 +13,9 @@ interface ModalContentProps
   descriptionID: string;
   shouldReduceMotion: boolean;
 }
+
+const MotionAlertDialogContent = motion.custom(AlertDialogContent);
+const MotionDialogContent = motion.custom(DialogContent);
 
 export const ModalContent = ({
   children,
@@ -25,7 +28,7 @@ export const ModalContent = ({
   labelID,
   descriptionID,
 }: ModalContentProps) => {
-  const motionStyles: Variants = {
+  const motionStyles: Pick<MotionProps, 'initial' | 'animate' | 'exit'> = {
     initial: {
       opacity: 0,
       translateY: '50px',
@@ -42,41 +45,48 @@ export const ModalContent = ({
     exit: { opacity: 0, translateY: '50px' },
   };
 
-  // We don't want to define these attributes for alert modals. Passing undefined to the props explicitly yields warnings.
-  // Those are auto-magically handled by <AlertDialogLabel /> and <AlertDialogDescription />
-  const dialogAriaAttributes = isAlertModal
-    ? undefined
-    : {
-        'aria-labelledby': labelID,
-        'aria-describedby': descriptionID,
-      };
+  const baseStyles: BoxProps['tx'] = {
+    position: 'relative', // Ensures <CloseButton /> is rendered inside the modal itself
+    backgroundColor: 'white',
+    borderRadius: '6px',
+    px: 32,
+    pt: 32,
+    pb: 28,
+    mx: 'auto',
+    mt: [32, '10vw'],
+    minHeight: '100px',
+    maxWidth: '100vw',
+    color: 'pigeon700',
+    '&:focus:not(:focus-visible)': {
+      outline: 'none',
+    },
+  };
 
-  return (
+  return isAlertModal ? (
     <Box
-      as={motion.custom(isAlertModal ? AlertDialogContent : DialogContent)}
-      {...(motionStyles as any)}
-      __baseStyles={{
-        position: 'relative', // Ensures <CloseButton /> is rendered inside the modal itself
-        backgroundColor: 'white',
-        borderRadius: '6px',
-        px: 32,
-        pt: 32,
-        pb: 28,
-        mx: 'auto',
-        mt: [32, '10vw'],
-        minHeight: '100px',
-        maxWidth: '100vw',
-        color: 'pigeon700',
-        '&:focus:not(:focus-visible)': {
-          outline: 'none',
-        },
-      }}
+      as={MotionAlertDialogContent}
+      {...motionStyles}
+      __baseStyles={baseStyles}
       className={className}
       data-testid={testID}
       key={testID ?? isAlertModal ? ALERT_MODAL_DIALOG_CONTENT : MODAL_DIALOG_CONTENT}
       tx={tx}
       variant={variant}
-      {...dialogAriaAttributes}
+      aria-labelledby={labelID}
+      aria-describedby={descriptionID}
+    >
+      {children}
+    </Box>
+  ) : (
+    <Box
+      as={MotionDialogContent}
+      {...motionStyles}
+      __baseStyles={baseStyles}
+      className={className}
+      data-testid={testID}
+      key={testID ?? isAlertModal ? ALERT_MODAL_DIALOG_CONTENT : MODAL_DIALOG_CONTENT}
+      tx={tx}
+      variant={variant}
     >
       {children}
     </Box>

@@ -4,7 +4,7 @@ import { DialogOverlay, DialogProps } from '@reach/dialog';
 import { motion, MotionProps } from 'framer-motion';
 import { rgba } from 'polished';
 import { useTheme } from 'styled-components';
-import { Box } from '../Box';
+import { Box, BoxProps } from '../Box';
 import { ALERT_MODAL_OVERLAY, MODAL_OVERLAY } from '../testIDs';
 import { ModalProps } from './Modal';
 
@@ -18,6 +18,9 @@ interface ModalOverlayProps
   shouldReduceMotion: boolean;
 }
 
+const MotionAlertDialogOverlay = motion.custom(AlertDialogOverlay);
+const MotionDialogOverlay = motion.custom(DialogOverlay);
+
 export const ModalOverlay = forwardRef<HTMLElement, ModalOverlayProps>(
   (
     {
@@ -26,7 +29,6 @@ export const ModalOverlay = forwardRef<HTMLElement, ModalOverlayProps>(
       leastDestructiveRef,
       onDismiss,
       shouldReduceMotion,
-      isOpen,
       initialFocusRef,
       allowPinchZoom,
     }: ModalOverlayProps,
@@ -35,7 +37,7 @@ export const ModalOverlay = forwardRef<HTMLElement, ModalOverlayProps>(
     const theme = useTheme();
     const testID = isAlertModal ? ALERT_MODAL_OVERLAY : MODAL_OVERLAY;
 
-    const motionStyles: MotionProps = {
+    const motionStyles: Pick<MotionProps, 'initial' | 'animate' | 'exit' | 'transition'> = {
       initial: { opacity: 0 },
       animate: { opacity: 1 },
       exit: { opacity: 0 },
@@ -45,24 +47,39 @@ export const ModalOverlay = forwardRef<HTMLElement, ModalOverlayProps>(
       },
     };
 
-    return (
+    const baseStyles: BoxProps['tx'] = {
+      backgroundColor: rgba(theme.colors.pigeon700, 0.75),
+      position: 'fixed',
+      top: 0,
+      right: 0,
+      bottom: 0,
+      left: 0,
+      overflow: 'auto',
+    };
+
+    return isAlertModal ? (
       <Box
-        as={motion.custom(isAlertModal ? AlertDialogOverlay : DialogOverlay)}
-        {...(motionStyles as any)}
-        __baseStyles={{
-          backgroundColor: rgba(theme.colors.pigeon700, 0.75),
-          position: 'fixed',
-          top: 0,
-          right: 0,
-          bottom: 0,
-          left: 0,
-          overflow: 'auto',
-        }}
+        as={MotionAlertDialogOverlay}
+        {...motionStyles}
+        transition={motionStyles.transition}
+        __baseStyles={baseStyles}
         data-testid={testID}
         key={testID}
-        onDismiss={isAlertModal ? undefined : onDismiss}
         leastDestructiveRef={leastDestructiveRef}
-        isOpen={isOpen}
+        initialFocusRef={initialFocusRef}
+        allowPinchZoom={allowPinchZoom}
+        ref={ref}
+      >
+        {children}
+      </Box>
+    ) : (
+      <Box
+        as={MotionDialogOverlay}
+        {...motionStyles}
+        __baseStyles={baseStyles}
+        data-testid={testID}
+        key={testID}
+        onDismiss={onDismiss}
         initialFocusRef={initialFocusRef}
         allowPinchZoom={allowPinchZoom}
         ref={ref}
