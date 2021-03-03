@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.3.3](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@10.3.2...@air/zephyr@10.3.3) (2021-03-03)
+
+### Bug Fixes
+
+- **modals:** resolve issue where modals would rerender when content was dynamic ([6f317df](https://github.com/AirLabsTeam/web-core/commit/6f317df02531a19595a51e04a45a3c8d3a971e50))
+
 ## [10.3.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@10.3.1...@air/zephyr@10.3.2) (2021-03-02)
 
 **Note:** Version bump only for package @air/zephyr
