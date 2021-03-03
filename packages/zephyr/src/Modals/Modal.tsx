@@ -114,8 +114,11 @@ export interface ModalProps
 }
 
 export const Modal = ({
+  allowPinchZoom,
   children,
   className,
+  'data-testid': testID,
+  initialFocusRef,
   isAlertModal,
   isOpen = false,
   leastDestructiveRef,
@@ -125,8 +128,6 @@ export const Modal = ({
   tx,
   variant = 'modal-medium',
   withCloseButton = true,
-  'data-testid': testID,
-  ...rest
 }: ModalProps) => {
   const labelID = useId('modal-label')!;
   const descriptionID = useId('modal-description')!;
@@ -151,14 +152,15 @@ export const Modal = ({
     invariant(isAlertModal && hasDescription, 'AlertModal requires a "modalDescription"');
 
     return (
-      <AnimatePresence>
+      <AnimatePresence key="modal">
         {isOpen && (
           <ModalOverlay
             isAlertModal={true}
             onDismiss={onDismiss}
             leastDestructiveRef={withCloseButton ? closeButtonRef : leastDestructiveRef}
             shouldReduceMotion={shouldReduceMotion}
-            {...rest}
+            allowPinchZoom={allowPinchZoom}
+            initialFocusRef={initialFocusRef}
           >
             <ModalContent
               isAlertModal={true}
@@ -206,7 +208,8 @@ export const Modal = ({
           leastDestructiveRef={withCloseButton ? closeButtonRef : leastDestructiveRef}
           onDismiss={onDismiss}
           shouldReduceMotion={shouldReduceMotion}
-          {...rest}
+          allowPinchZoom={allowPinchZoom}
+          initialFocusRef={initialFocusRef}
         >
           <ModalContent
             isAlertModal={false}
