@@ -133,9 +133,13 @@ export const Modal = ({
   const descriptionID = useId('modal-description')!;
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const shouldReduceMotion = !!useReducedMotion();
-  const isModalLabelString = isString(modalLabel);
   const isModalDescriptionString = isString(modalDescription);
   const hasDescription = !!modalDescription;
+
+  invariant(
+    !isString(modalLabel) || (isString(modalLabel) && modalLabel.length > 0),
+    `You cannot define a modal's label as an empty string. It's here for accessibility purposes! If design has no visible title/modal for the label, please use <VisuallyHidden> to render one for users that leverage assistive technologies.`,
+  );
 
   const modalLabelLayoutStyles: BoxStylingProps['tx'] = {
     maxWidth: '90%', // to keep header out of the way of the closing "X" button.
@@ -174,7 +178,7 @@ export const Modal = ({
             >
               {withCloseButton && <XButton onClick={onDismiss} ref={closeButtonRef} />}
 
-              {isModalLabelString ? (
+              {isString(modalLabel) ? (
                 <Box as={AlertDialogLabel} tx={modalLabelLayoutStyles}>
                   <Text variant="text-ui-24" tx={{ fontWeight: 'semibold' }}>
                     {modalLabel}
@@ -223,7 +227,7 @@ export const Modal = ({
           >
             {withCloseButton && <XButton onClick={onDismiss} ref={closeButtonRef} />}
 
-            {isModalLabelString ? (
+            {isString(modalLabel) ? (
               <Box id={labelID} tx={modalLabelLayoutStyles}>
                 <Text variant="text-ui-24" tx={{ fontWeight: 'semibold' }}>
                   {modalLabel}
