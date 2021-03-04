@@ -410,6 +410,7 @@ const AirReactSelectOption = ({
             tx={{
               color: 'pigeon500',
               display: 'flex',
+              mt: 2,
               ml: LeftAdornment ? 24 : 0,
               textOverflow: 'ellipsis',
             }}
