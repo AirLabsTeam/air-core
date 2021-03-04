@@ -72,9 +72,9 @@ export const Default: Story<InputProps> = (args) => (
       return (
         <Input
           {...args}
-          label={`Actual Label: ${args.label} | Variant: ${isChonky ? 'Chonk' : 'Smol'}`}
+          label={`Actual Label: ${args.label} | Variant: ${isChonky ? 'Chonky' : 'Smol'}`}
           name={args.required ? `required${isChonky ? 2 : ''}` : `nonRequired${isChonky ? 2 : ''}`}
-          id={`default_${isChonky ? 'chonk' : 'smol'}`}
+          id={`default_${isChonky ? 'Chonky' : 'smol'}`}
           variant={variant}
           key={variant}
         />
@@ -121,7 +121,7 @@ export const WithLeftAdornment: Story<InputProps> = () => (
       const isChonky = variant === 'field-input-chonky';
       return (
         <Input
-          label={`Search ${isChonky ? '(Chonk)' : '(Smol)'}`}
+          label={`Search ${isChonky ? '(Chonky)' : '(Smol)'}`}
           required={false}
           name={`nonRequired${isChonky ? 2 : ''}`}
           id={`withLeftAdornment${isChonky ? 2 : ''}`}
@@ -158,7 +158,7 @@ export const PasswordField: Story<InputProps> = () => {
     <>
       {variants.map((variant) => {
         const isChonky = variant === 'field-input-chonky';
-        const label = `Password ${isChonky ? '(Chonk)' : '(Smol)'}`;
+        const label = `Password ${isChonky ? '(Chonky)' : '(Smol)'}`;
         const fieldID = label;
 
         return (
@@ -214,7 +214,7 @@ export const Disabled: Story<InputProps> = () => (
       const isChonky = variant === 'field-input-chonky';
       return (
         <Input
-          label={`Who is cooler than Kyle? ${isChonky ? '(Chonk)' : '(Smol)'}`}
+          label={`Who is cooler than Kyle? ${isChonky ? '(Chonky)' : '(Smol)'}`}
           disabled
           name={`disabled${isChonky ? 2 : ''}`}
           required
@@ -235,7 +235,7 @@ export const WithPlaceholder: Story<InputProps> = () => (
 
       return (
         <Input
-          label={`Placeholder ${isChonky ? '(Chonk)' : '(Smol)'}`}
+          label={`Placeholder ${isChonky ? '(Chonky)' : '(Smol)'}`}
           placeholder="This is a placeholder..."
           name={`nonRequired${isChonky ? 2 : ''}`}
           required={false}
@@ -270,7 +270,7 @@ export const FilledInputs: Story<InputProps> = () => {
   const initialValues = filledInputsValidationSchema.clone().cast(undefined);
 
   return (
-    <Box tx={{ display: 'flex', justifyContent: 'space-around', mx: 'auto' }}>
+    <Box tx={{ display: 'flex', justifyContent: 'space-around', mx: 'auto', flexWrap: 'wrap' }}>
       {variants.map((variant) => {
         const isChonky = variant === 'field-input-chonky';
 
@@ -288,11 +288,12 @@ export const FilledInputs: Story<InputProps> = () => {
                   display: 'flex',
                   flexDirection: 'column',
                   width: 256,
+                  mb: 64,
                 }}
                 noValidate // hides HTML5 default validations on submit
               >
                 <Text variant="text-ui-24" tx={{ my: 16 }}>
-                  {`${isChonky ? 'Chonk' : 'Smol'} Variant`}
+                  {`${isChonky ? 'Chonky' : 'Smol'} Variant`}
                 </Text>
 
                 {inputTypes.map((type) => {

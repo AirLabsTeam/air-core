@@ -95,7 +95,7 @@ export const Default: Story<SingleSelectProps> = (args) => (
       return (
         <SingleSelect
           {...args}
-          label={`Actual Label: ${args.label} | Variant: ${isChonky ? 'Chonk' : 'Smol'}`}
+          label={`Actual Label: ${args.label} | Variant: ${isChonky ? 'Chonky' : 'Smol'}`}
           name={args.required ? `required${isChonky ? 2 : ''}` : `nonRequired${isChonky ? 2 : ''}`}
           variant={variant}
           key={variant}
@@ -381,8 +381,7 @@ export const WithFancyOptions: Story<SingleSelectProps> = () => (
           label={`With Open Menu And Fancy Options ${isChonky ? '(Chonky)' : '(Smol)'}`}
           name={`fancyOptions${isChonky ? 2 : ''}`}
           required={false}
-          menuIsOpen
-          // menuIsOpen={isChromatic() ? true : undefined}
+          menuIsOpen={isChromatic() ? true : undefined}
           options={[
             { label: 'Label + Adornment', value: 'la', leftAdornment: Twitter },
             {
