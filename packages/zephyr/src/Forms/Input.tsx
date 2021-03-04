@@ -2,9 +2,14 @@ import * as React from 'react';
 import { useField } from 'formik';
 import { capitalize } from 'lodash';
 import VisuallyHidden from '@reach/visually-hidden';
+import { variant as styledSystemVariant } from 'styled-system';
+import { useTheme } from 'styled-components';
 import { Box, BoxStylingProps } from '../Box';
 import { Text } from '../Text';
+import { FieldVariantName } from '../theme';
 import { Label } from './Label';
+
+type LeftRight = 'left' | 'right';
 
 export interface InputProps extends Pick<BoxStylingProps, 'tx'> {
   /**
@@ -99,7 +104,7 @@ export interface InputProps extends Pick<BoxStylingProps, 'tx'> {
    * Typically used to render an icon on the left or right side of the input.
    */
   adornment?: {
-    location: 'left' | 'right';
+    location: LeftRight;
     component: React.ReactNode;
   };
 
@@ -144,7 +149,7 @@ export interface InputProps extends Pick<BoxStylingProps, 'tx'> {
    * is resolved.
    */
   required: boolean;
-
+  variant?: FieldVariantName | FieldVariantName[];
   className?: string;
   id?: string;
   disabled?: boolean;
@@ -154,10 +159,7 @@ export interface InputProps extends Pick<BoxStylingProps, 'tx'> {
 
 const sharedAdornmentStyles: BoxStylingProps['tx'] = {
   color: 'pigeon500',
-  height: '16px',
   position: 'absolute',
-  top: '12px',
-  width: '16px',
 };
 
 const sharedBottomTextStyles: BoxStylingProps['tx'] = {
@@ -169,6 +171,7 @@ export const Input = ({
   adornment,
   autoComplete = 'off',
   className,
+  'data-testid': topLevelTestID,
   description,
   id,
   isLabelHidden = false,
@@ -178,9 +181,10 @@ export const Input = ({
   required,
   tx,
   type = 'text',
-  'data-testid': topLevelTestID,
+  variant = 'field-input-smol',
   ...restOfProps
 }: InputProps) => {
+  const theme = useTheme();
   const [field, meta] = useField(name);
   const inputIdentifier = id ?? name;
   const errorIdentifier = `${inputIdentifier}_error`;
@@ -194,6 +198,42 @@ export const Input = ({
     if (hasError) return `${prefix}_invalid`;
     return `${prefix}_valid`;
   }, [hasError]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const adornmentSideBuffer = React.useMemo(
+    () =>
+      styledSystemVariant({
+        prop: 'variant',
+        variants: {
+          'field-input-chonky': {
+            pl: 40,
+            pr: 40,
+          },
+          'field-input-smol': {
+            pl: 36,
+            pr: 36,
+          },
+        },
+      })({ theme, variant }) as { paddingLeft: number | number[]; paddingRight: number | number[] },
+    [theme, variant],
+  );
+
+  const nonAdornmentSideBuffer = React.useMemo(
+    () =>
+      styledSystemVariant({
+        prop: 'variant',
+        variants: {
+          'field-input-chonky': {
+            pl: 16,
+            pr: 16,
+          },
+          'field-input-smol': {
+            pl: 12,
+            pr: 12,
+          },
+        },
+      })({ theme, variant }) as { paddingLeft: number | number[]; paddingRight: number | number[] },
+    [theme, variant],
+  );
 
   return (
     <Box
@@ -220,7 +260,28 @@ export const Input = ({
 
       <Box tx={{ position: 'relative', width: '100%' }}>
         {adornment?.location === 'left' && (
-          <Box tx={{ ...sharedAdornmentStyles, left: '12px' }}>{adornment.component}</Box>
+          <Box
+            tx={{
+              ...sharedAdornmentStyles,
+              ...styledSystemVariant({
+                prop: 'variant',
+                variants: {
+                  'field-input-chonky': {
+                    top: 14,
+                    width: 20,
+                    left: 14,
+                  },
+                  'field-input-smol': {
+                    top: 12,
+                    width: 16,
+                    left: 12,
+                  },
+                },
+              })({ theme, variant }),
+            }}
+          >
+            {adornment.component}
+          </Box>
         )}
 
         <Box
@@ -235,17 +296,44 @@ export const Input = ({
           placeholder={placeholder}
           required={required}
           tx={{
-            pl: adornment?.location === 'left' ? 36 : 12,
-            pr: adornment?.location === 'right' ? 36 : 12,
+            pl:
+              adornment?.location === 'left'
+                ? adornmentSideBuffer['paddingLeft']
+                : nonAdornmentSideBuffer['paddingLeft'],
+            pr:
+              adornment?.location === 'right'
+                ? adornmentSideBuffer['paddingRight']
+                : nonAdornmentSideBuffer['paddingRight'],
           }}
           type={type}
-          variant="field-input"
+          variant={variant}
           {...field}
           {...restOfProps}
         />
 
         {adornment?.location === 'right' && (
-          <Box tx={{ ...sharedAdornmentStyles, right: '12px' }}>{adornment.component}</Box>
+          <Box
+            tx={{
+              ...sharedAdornmentStyles,
+              ...styledSystemVariant({
+                prop: 'variant',
+                variants: {
+                  'field-input-chonky': {
+                    top: 14,
+                    width: 20,
+                    right: 14,
+                  },
+                  'field-input-smol': {
+                    top: 12,
+                    width: 16,
+                    right: 12,
+                  },
+                },
+              })({ theme, variant }),
+            }}
+          >
+            {adornment.component}
+          </Box>
         )}
       </Box>
 
