@@ -6,9 +6,14 @@ import { StoryFnReactReturnType } from '@storybook/react/dist/client/preview/typ
 import { noop } from 'lodash';
 import { Twitter } from '@air/icons';
 import { AsyncProps } from 'react-select/async';
+import isChromatic from 'chromatic/isChromatic';
 import { Box } from '../../src/Box';
 import { Button } from '../../src/Button';
+import { Text } from '../../src/Text';
 import { SingleSelect, SelectOption, SingleSelectProps } from '../../src/Forms/SingleSelect';
+import { FieldVariantName, field } from '../../src/theme/variants/field';
+
+const variants = Object.keys(field) as FieldVariantName[];
 
 const options: SelectOption[] = [
   { label: 'Red Fish', value: 'rf' },
@@ -21,17 +26,28 @@ const FormikDecorator = (Story: () => StoryFnReactReturnType) => {
   // This validation schema supplies every input in this story page.
   const validationSchema = object({
     nonRequired: string().default(undefined),
+    nonRequired2: string().default(undefined),
     required: string().required('Required').default(undefined),
+    required2: string().required('Required').default(undefined),
     simpleAsync: string().default(undefined),
+    simpleAsync2: string().default(undefined),
     complexAsync: string().default(undefined),
+    complexAsync2: string().default(undefined),
     creatable: string().default(undefined),
+    creatable2: string().default(undefined),
     initialValue: string().default(options[0].value),
+    initialValue2: string().default(options[0].value),
     disabled: string().default(undefined),
+    disabled2: string().default(undefined),
     readOnly: string().default(options[0].value),
+    readOnly2: string().default(options[0].value),
+    manyOptions: string().default(undefined),
+    manyOptions2: string().default(undefined),
     fancyOptions: string().default(undefined),
+    fancyOptions2: string().default(undefined),
   });
 
-  const initialValues = validationSchema.cast()!;
+  const initialValues = validationSchema.cast(undefined);
 
   return (
     <Formik validationSchema={validationSchema} initialValues={initialValues} onSubmit={noop}>
@@ -40,8 +56,11 @@ const FormikDecorator = (Story: () => StoryFnReactReturnType) => {
           as={Form}
           tx={{
             display: 'flex',
-            alignItems: 'flex-end',
-            mb: 124, // so that eveything can fit inside the canvas
+            mx: 'auto',
+            flexWrap: 'wrap',
+            '& > div': {
+              mr: 32,
+            },
           }}
           autoComplete="off"
           noValidate // hides HTML5 default validations on submit
@@ -57,15 +76,35 @@ const meta: Meta<SingleSelectProps> = {
   title: 'Zephyr/Forms/SingleSelect',
   component: SingleSelect,
   decorators: [FormikDecorator],
+  argTypes: {
+    variant: {
+      control: {
+        disable: true,
+      },
+    },
+  },
 };
 
 export default meta;
 
 export const Default: Story<SingleSelectProps> = (args) => (
   <>
-    <SingleSelect {...args} name={args.required ? 'required' : 'nonRequired'} />
+    {variants.map((variant) => {
+      const isChonky = variant === 'field-input-chonky';
 
-    <Button type="submit" variant="button-ghost-blue" tx={{ ml: 12 }}>
+      return (
+        <SingleSelect
+          {...args}
+          label={`Actual Label: ${args.label} | Variant: ${isChonky ? 'Chonk' : 'Smol'}`}
+          name={args.required ? `required${isChonky ? 2 : ''}` : `nonRequired${isChonky ? 2 : ''}`}
+          variant={variant}
+          key={variant}
+          tx={{ mb: 148 }}
+        />
+      );
+    })}
+
+    <Button type="submit" variant="button-filled-blue" tx={{ mt: 28 }}>
       Validate
     </Button>
   </>
@@ -73,7 +112,6 @@ export const Default: Story<SingleSelectProps> = (args) => (
 
 Default.args = {
   disabled: false,
-  id: 'Default',
   isLabelHidden: false,
   label: 'Test',
   // name: 'default', purposefully not defined here (see story JSX)
@@ -105,32 +143,48 @@ export const SimpleAsync: Story<SingleSelectProps> = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [asyncOptions, setOptions] = useState<typeof options>(options);
 
+  const delayDuration = 5000;
+  const durationInSeconds = delayDuration / 1000;
+
   useEffect(() => {
     setIsLoading(true);
 
     setTimeout(() => {
       setOptions([...options]);
       setIsLoading(false);
-    }, 5000);
+    }, delayDuration);
   }, []);
 
   return (
-    <SingleSelect
-      label="Simple Async"
-      name="simpleAsync"
-      id="SimpleAsync"
-      placeholder={isLoading ? 'Loading options...' : 'Select...'}
-      required={false}
-      initialLoadingState={{ isLoading, optionsListLoadingText: 'Loading...' }}
-      options={asyncOptions}
-    />
+    <>
+      <Text variant="text-ui-14" tx={{ mb: 28, flex: '0 0 100%' }}>
+        {`Loading state will last for ${durationInSeconds} seconds.`}
+      </Text>
+
+      {variants.map((variant) => {
+        const isChonky = variant === 'field-input-chonky';
+        return (
+          <SingleSelect
+            label={`Simple Async ${isChonky ? '(Chonky)' : '(Smol)'}`}
+            name={`simpleAsync${isChonky ? 2 : ''}`}
+            placeholder={isLoading ? 'Loading options...' : 'Select...'}
+            required={false}
+            initialLoadingState={{ isLoading, optionsListLoadingText: 'Loading...' }}
+            options={asyncOptions}
+            variant={variant}
+            key={variant}
+            tx={{ mb: 148 }}
+          />
+        );
+      })}
+    </>
   );
 };
 
 SimpleAsync.parameters = {
   docs: {
     description: {
-      story: `You may have a usecase where the initial set of options is asynchronously defined, yet remain static over one use. A prime example of this is a SingleSelect whose options are sent via a CMS).`,
+      story: `You may have a use case where the initial set of options is asynchronously defined, yet remain static over one use. A prime example of this is a SingleSelect whose options are sent via a CMS).`,
     },
   },
 };
@@ -160,18 +214,27 @@ export const ComplexAsync: Story<SingleSelectProps> = () => {
   };
 
   return (
-    <SingleSelect
-      label="Complex Async"
-      name="complexAsync"
-      id="ComplexAsync"
-      placeholder={hasLoadedInitialOptions ? 'Select...' : loadingText}
-      initialLoadingState={{
-        isLoading: !hasLoadedInitialOptions,
-        optionsListLoadingText: loadingText,
-      }}
-      required={false}
-      loadOptions={loadOptions}
-    />
+    <>
+      {variants.map((variant) => {
+        const isChonky = variant === 'field-input-chonky';
+        return (
+          <SingleSelect
+            label={`Complex Async ${isChonky ? '(Chonky)' : '(Smol)'}`}
+            name={`complexAsync${isChonky ? 2 : ''}`}
+            placeholder={hasLoadedInitialOptions ? 'Select...' : loadingText}
+            initialLoadingState={{
+              isLoading: !hasLoadedInitialOptions,
+              optionsListLoadingText: loadingText,
+            }}
+            required={false}
+            loadOptions={loadOptions}
+            variant={variant}
+            key={variant}
+            tx={{ mb: 148 }}
+          />
+        );
+      })}
+    </>
   );
 };
 
@@ -203,15 +266,24 @@ export const Creatable: Story<SingleSelectProps> = () => {
   };
 
   return (
-    <SingleSelect
-      label="Creatable"
-      name="creatable"
-      id="Creatable"
-      required={false}
-      initialLoadingState={{ isLoading, optionsListLoadingText: 'Working...' }}
-      options={creatableStoryOptions}
-      creatableConfig={{ onCreateOption }}
-    />
+    <>
+      {variants.map((variant) => {
+        const isChonky = variant === 'field-input-chonky';
+        return (
+          <SingleSelect
+            label={`Creatable ${isChonky ? '(Chonky)' : '(Smol)'}`}
+            name={`creatable${isChonky ? 2 : ''}`}
+            required={false}
+            initialLoadingState={{ isLoading, optionsListLoadingText: 'Working...' }}
+            options={creatableStoryOptions}
+            creatableConfig={{ onCreateOption }}
+            variant={variant}
+            key={variant}
+            tx={{ mb: 148 }}
+          />
+        );
+      })}
+    </>
   );
 };
 
@@ -225,49 +297,117 @@ Creatable.parameters = {
 };
 
 export const Disabled: Story<SingleSelectProps> = () => (
-  <SingleSelect
-    label="Disabled"
-    disabled
-    name="disabled"
-    id="Disabled"
-    required={false}
-    options={options}
-  />
+  <>
+    {variants.map((variant) => {
+      const isChonky = variant === 'field-input-chonky';
+      return (
+        <SingleSelect
+          label={`Disabled ${isChonky ? '(Chonky)' : '(Smol)'}`}
+          disabled
+          name={`disabled${isChonky ? 2 : ''}`}
+          required={false}
+          options={options}
+          variant={variant}
+          key={variant}
+          tx={{ mb: 32 }}
+        />
+      );
+    })}
+  </>
 );
 
 export const ReadOnly: Story<SingleSelectProps> = () => (
-  <SingleSelect label="Read Only" readOnly name="readOnly" required={false} options={options} />
+  <>
+    {variants.map((variant) => {
+      const isChonky = variant === 'field-input-chonky';
+      return (
+        <SingleSelect
+          label={`Read Only ${isChonky ? '(Chonky)' : '(Smol)'}`}
+          readOnly
+          name={`readOnly${isChonky ? 2 : ''}`}
+          required={false}
+          options={options}
+          variant={variant}
+          key={variant}
+          tx={{ mb: 32 }}
+        />
+      );
+    })}
+  </>
 );
 
-/** Visual Regression Diff Tests Below */
-
-export const WithOpenMenuAndFancyOptions: Story<SingleSelectProps> = () => (
-  <SingleSelect
-    label="With Open Menu And Fancy Options"
-    name="fancyOptions"
-    id="WithOpenMenuAndFancyOptions"
-    tx={{ mb: 180 }}
-    menuIsOpen={true}
-    required={false}
-    options={[
-      { label: 'Label + Adornment', value: 'la', leftAdornment: Twitter },
-      {
-        label: 'Label + Adornment + Description',
-        value: 'lad',
-        leftAdornment: Twitter,
-        description: 'Small description here.',
-      },
-      {
-        label: 'Long Label + Long Description - Blah Blah Blah Filler.',
-        value: 'llld',
-        description:
-          'This description is long, but does not automatically ellipse. If you want an ellipse for a long description, you will have to manipulate the options per implementation.',
-      },
-    ]}
-  />
+export const WithManyOptions: Story<SingleSelectProps> = () => (
+  <>
+    {variants.map((variant) => {
+      const isChonky = variant === 'field-input-chonky';
+      return (
+        <SingleSelect
+          label={`With Many Options ${isChonky ? '(Chonky)' : '(Smol)'}`}
+          name={`manyOptions${isChonky ? 2 : ''}`}
+          required={false}
+          menuIsOpen={isChromatic() ? true : undefined}
+          options={[
+            { label: 'Teal Fish', value: 'Teal' },
+            { label: 'Orange Fish', value: 'Orange' },
+            { label: 'Perriwinkle Fish', value: 'Perriwinkle' },
+            { label: 'Fuschia Fish', value: 'Fuschia' },
+            { label: 'Pink Fish', value: 'Pink' },
+            { label: 'Rebeccapurple Fish', value: 'Rebeccapurple' },
+            ...options,
+          ]}
+          variant={variant}
+          key={variant}
+          tx={{ mb: 324 }}
+        />
+      );
+    })}
+  </>
 );
 
-WithOpenMenuAndFancyOptions.parameters = {
+WithManyOptions.parameters = {
+  docs: {
+    description: {
+      story: `It's important to see how the list's UI reacts to dealing with enough options to cause the menu to overflow. It happens very often with data-driven select fields.`,
+    },
+  },
+};
+
+export const WithFancyOptions: Story<SingleSelectProps> = () => (
+  <>
+    {variants.map((variant) => {
+      const isChonky = variant === 'field-input-chonky';
+      return (
+        <SingleSelect
+          label={`With Open Menu And Fancy Options ${isChonky ? '(Chonky)' : '(Smol)'}`}
+          name={`fancyOptions${isChonky ? 2 : ''}`}
+          required={false}
+          menuIsOpen
+          // menuIsOpen={isChromatic() ? true : undefined}
+          options={[
+            { label: 'Label + Adornment', value: 'la', leftAdornment: Twitter },
+            {
+              label: 'Label + Adornment + Description',
+              value: 'lad',
+              leftAdornment: Twitter,
+              description: 'Small description here.',
+            },
+            {
+              label: 'Long Label + Long Description - Blah Blah Blah Filler.',
+              value: 'llld',
+              description:
+                'This description is long, but does not automatically ellipse. If you want an ellipse for a long description, you will have to manipulate the options per implementation.',
+            },
+          ]}
+          variant={variant}
+          key={variant}
+          tx={{ mb: 300 }}
+        />
+      );
+    })}
+  </>
+);
+
+WithFancyOptions.parameters = {
   docs: {
     description: {
       story:
@@ -276,36 +416,64 @@ WithOpenMenuAndFancyOptions.parameters = {
   },
 };
 
+/** Visual Regression Diff Tests Below */
 export const WithOpenMenuAndEmptyValueSelected: Story<SingleSelectProps> = () => (
-  <SingleSelect
-    label="With Open Menu And No Value"
-    required={false}
-    name="nonRequired"
-    id="WithOpenMenuAndEmptyValueSelected"
-    options={options}
-    menuIsOpen={true}
-  />
+  <>
+    {variants.map((variant) => {
+      const isChonky = variant === 'field-input-chonky';
+      return (
+        <SingleSelect
+          label={`With Open Menu And No Value ${isChonky ? '(Chonky)' : '(Smol)'}`}
+          required={false}
+          name={`nonRequired${isChonky ? 2 : ''}`}
+          options={options}
+          menuIsOpen={true}
+          variant={variant}
+          key={variant}
+          tx={{ mb: 152 }}
+        />
+      );
+    })}
+  </>
 );
 
 export const WithOpenMenuAndRealValueSelected: Story<SingleSelectProps> = () => (
-  <SingleSelect
-    label="With Open Menu And Value"
-    required={false}
-    name="initialValue"
-    id="WithOpenMenuAndRealValueSelected"
-    options={options}
-    menuIsOpen={true}
-  />
+  <>
+    {variants.map((variant) => {
+      const isChonky = variant === 'field-input-chonky';
+      return (
+        <SingleSelect
+          label={`With Open Menu And Value ${isChonky ? '(Chonky)' : '(Smol)'}`}
+          required={false}
+          name={`initialValue${isChonky ? 2 : ''}`}
+          options={options}
+          menuIsOpen={true}
+          variant={variant}
+          key={variant}
+          tx={{ mb: 152 }}
+        />
+      );
+    })}
+  </>
 );
 
 export const WithOpenMenuAndAsynchronousOptionsLoadingEternally: Story<SingleSelectProps> = () => (
-  <SingleSelect
-    label="With Open Menu And Async"
-    required={false}
-    name="async"
-    id="WithOpenMenuAndAsynchronousOptionsLoadingEternally"
-    initialLoadingState={{ isLoading: true, optionsListLoadingText: 'Loading...' }}
-    options={undefined} // this would be resolved into a correct type asynchronously
-    menuIsOpen={true}
-  />
+  <>
+    {variants.map((variant) => {
+      const isChonky = variant === 'field-input-chonky';
+      return (
+        <SingleSelect
+          label={`With Open Menu And Async ${isChonky ? '(Chonky)' : '(Smol)'}`}
+          required={false}
+          name={`async${isChonky ? 2 : ''}`}
+          initialLoadingState={{ isLoading: true, optionsListLoadingText: 'Loading...' }}
+          options={undefined} // this would be resolved into a correct type asynchronously
+          menuIsOpen={true}
+          variant={variant}
+          key={variant}
+          tx={{ mb: 72 }}
+        />
+      );
+    })}
+  </>
 );
