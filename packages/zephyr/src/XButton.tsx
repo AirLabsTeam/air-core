@@ -23,6 +23,7 @@ export const XButton = React.forwardRef<HTMLButtonElement, XButtonProps>(
   ) => (
     <IconButton
       data-testid={X_BUTTON}
+      hasTooltip={false}
       hiddenLabel={hiddenLabel}
       icon={Close}
       onClick={onClick}
