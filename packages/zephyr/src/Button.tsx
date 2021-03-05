@@ -10,7 +10,7 @@ import styled, { keyframes, useTheme } from 'styled-components';
 import { Box, BoxStylingProps } from './Box';
 import { ButtonVariantName } from './theme/variants/button';
 
-export type ButtonSize = 'xs' | 'small' | 'medium' | 'large';
+export type ButtonSize = 'extra-small' | 'small' | 'medium' | 'large';
 
 /**
  * These represent props that are not already available via React.HTMLAttributes
@@ -145,7 +145,7 @@ export const Button = forwardRefWithAs<NonSemanticButtonProps, 'button'>(
                 px: 16,
                 fontSize: 12,
               },
-              xs: {
+              ['extra-small']: {
                 height: 24,
                 px: 12,
                 fontSize: 12,

@@ -62,7 +62,7 @@ export const IconButton = forwardRefWithAs<NonSemanticIconButtonProps, 'button'>
                 p: 8,
                 maxWidth: 32,
               },
-              xs: {
+              ['extra-small']: {
                 p: 4,
                 maxWidth: 24,
               },
@@ -92,7 +92,7 @@ export const IconButton = forwardRefWithAs<NonSemanticIconButtonProps, 'button'>
                 small: {
                   width: 16,
                 },
-                xs: {
+                ['extra-small']: {
                   width: 16,
                 },
               },

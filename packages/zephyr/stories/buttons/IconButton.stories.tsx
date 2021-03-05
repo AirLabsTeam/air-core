@@ -29,7 +29,7 @@ be "true" so that the assistive label is not read twice to users with assistive 
 
 export default meta;
 
-const sizes: ButtonSize[] = ['xs', 'small', 'medium', 'large'];
+const sizes: ButtonSize[] = ['extra-small', 'small', 'medium', 'large'];
 const variants: ButtonVariantName[] = [
   'button-filled-blue',
   'button-filled-destructive',
