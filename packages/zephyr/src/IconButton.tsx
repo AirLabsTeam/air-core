@@ -72,7 +72,7 @@ export const IconButton = forwardRefWithAs<NonSemanticIconButtonProps, 'button'>
         type={type}
         variant={variant}
       >
-        {/* If button is wrapped with tooltip */}
+        {/* If button is wrapped with tooltip, it doesn't require assistive text. It's already provided on focus via the tooltip. */}
         {!hasTooltip && <VisuallyHidden>{hiddenLabel}</VisuallyHidden>}
         <Box
           as={icon}
