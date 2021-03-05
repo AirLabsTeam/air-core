@@ -3,7 +3,7 @@ import { Meta, Story } from '@storybook/react';
 import { Title, Subtitle, Description, Stories } from '@storybook/addon-docs/blocks';
 import { Bell } from '@air/icons';
 import { capitalize } from 'lodash';
-import { Box, ButtonSize, ButtonVariantName, IconButton, IconButtonProps, Text } from '../src';
+import { Box, ButtonSize, ButtonVariantName, IconButton, IconButtonProps, Text } from '../../src';
 
 const meta: Meta<IconButtonProps> = {
   title: 'Zephyr/Button/IconButton',
@@ -11,15 +11,16 @@ const meta: Meta<IconButtonProps> = {
   parameters: {
     docs: {
       description: {
-        component:
-          '`<IconButton>` is meant for use when the only content within the button is an icon.',
+        component: `\`<IconButton>\` is meant for use when the only content within the button is an icon. Sometimes,
+an \`<IconButton>\` is rendered within a \`<Tooltip>\` component. In those instances, the \`hasTooltip\` prop should
+be "true" so that the assistive label is not read twice to users with assistive technology.`,
       },
       page: () => (
         <>
           <Title />
           <Subtitle />
           <Description />
-          <Stories includePrimary />
+          <Stories includePrimary title="" />
         </>
       ),
     },
@@ -41,7 +42,7 @@ const variants: ButtonVariantName[] = [
   'button-unstyled',
 ];
 
-export const Default: Story<IconButtonProps> = () => {
+export const AllPossibleIconButtons: Story<IconButtonProps> = () => {
   return (
     <Box tx={{ display: 'flex', justifyContent: 'space-evenly', flexWrap: 'wrap' }}>
       {variants.map((variant) => {
@@ -72,6 +73,7 @@ export const Default: Story<IconButtonProps> = () => {
                     </Text>
 
                     <IconButton
+                      hasTooltip={false}
                       hiddenLabel="See Notifications"
                       icon={Bell}
                       size={size}

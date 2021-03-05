@@ -4,7 +4,7 @@ import { Story, Meta } from '@storybook/react';
 import { Button, ButtonProps } from '../../src/Button';
 
 const meta: Meta<ButtonProps> = {
-  title: 'Zephyr/Button/Ghost Button',
+  title: 'Zephyr/Button/Variant: Ghost Button',
   component: Button,
   parameters: {
     docs: {
