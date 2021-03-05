@@ -3,7 +3,14 @@ import { Meta, Story } from '@storybook/react';
 import { Title, Subtitle, Description, Stories } from '@storybook/addon-docs/blocks';
 import { Bell } from '@air/icons';
 import { capitalize } from 'lodash';
-import { Box, ButtonSize, ButtonVariantName, IconButton, IconButtonProps, Text } from '../../src';
+import {
+  allButtonSizes,
+  allButtonVariants,
+  Box,
+  IconButton,
+  IconButtonProps,
+  Text,
+} from '../../src';
 
 const meta: Meta<IconButtonProps> = {
   title: 'Zephyr/Button/IconButton',
@@ -29,23 +36,10 @@ be "true" so that the assistive label is not read twice to users with assistive 
 
 export default meta;
 
-const sizes: ButtonSize[] = ['extra-small', 'small', 'medium', 'large'];
-const variants: ButtonVariantName[] = [
-  'button-filled-blue',
-  'button-filled-destructive',
-  'button-filled-grey',
-  'button-ghost-blue',
-  'button-ghost-destructive',
-  'button-ghost-grey',
-  'button-outline-blue',
-  'button-outline-grey',
-  'button-unstyled',
-];
-
 export const AllPossibleIconButtons: Story<IconButtonProps> = () => {
   return (
     <Box tx={{ display: 'flex', justifyContent: 'space-evenly', flexWrap: 'wrap' }}>
-      {variants.map((variant) => {
+      {allButtonVariants.map((variant) => {
         return (
           <Box tx={{ m: 16 }} key={variant}>
             <Text variant="text-ui-16" tx={{ mb: 12 }}>
@@ -53,7 +47,7 @@ export const AllPossibleIconButtons: Story<IconButtonProps> = () => {
             </Text>
 
             <Box tx={{ display: 'flex', alignItems: 'flex-start', mb: 24 }}>
-              {sizes.map((size) => {
+              {allButtonSizes.map((size) => {
                 const label = capitalize(size);
 
                 return (
