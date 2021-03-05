@@ -2,7 +2,7 @@ import React from 'react';
 import { AlertDialogContent } from '@reach/alert-dialog';
 import { DialogContent } from '@reach/dialog';
 import { motion, MotionProps } from 'framer-motion';
-import { Box, BoxProps } from '../Box';
+import { Box, BoxProps, BoxStylingProps } from '../Box';
 import { ALERT_MODAL_DIALOG_CONTENT, MODAL_DIALOG_CONTENT } from '../testIDs';
 import { ModalProps } from './Modal';
 
@@ -12,6 +12,15 @@ interface ModalContentProps
   labelID: string;
   descriptionID: string;
   shouldReduceMotion: boolean;
+}
+
+interface SharedContentComponentProps
+  extends Pick<
+      React.ComponentProps<typeof DialogContent>,
+      'aria-describedby' | 'aria-labelledby' | 'className'
+    >,
+    Pick<BoxStylingProps, 'tx' | '__baseStyles' | 'variant'> {
+  'data-testid'?: string;
 }
 
 const MotionAlertDialogContent = motion.custom(AlertDialogContent);
@@ -62,18 +71,22 @@ export const ModalContent = ({
     },
   };
 
+  const sharedProperties: SharedContentComponentProps = {
+    'aria-describedby': descriptionID,
+    'aria-labelledby': labelID,
+    'data-testid': testID,
+    __baseStyles: baseStyles,
+    className,
+    tx,
+    variant,
+  };
+
   return isAlertModal ? (
     <Box
       as={MotionAlertDialogContent}
       {...motionStyles}
-      __baseStyles={baseStyles}
-      className={className}
-      data-testid={testID}
       key={testID ?? isAlertModal ? ALERT_MODAL_DIALOG_CONTENT : MODAL_DIALOG_CONTENT}
-      tx={tx}
-      variant={variant}
-      aria-labelledby={labelID}
-      aria-describedby={descriptionID}
+      {...sharedProperties}
     >
       {children}
     </Box>
@@ -81,12 +94,8 @@ export const ModalContent = ({
     <Box
       as={MotionDialogContent}
       {...motionStyles}
-      __baseStyles={baseStyles}
-      className={className}
-      data-testid={testID}
       key={testID ?? isAlertModal ? ALERT_MODAL_DIALOG_CONTENT : MODAL_DIALOG_CONTENT}
-      tx={tx}
-      variant={variant}
+      {...sharedProperties}
     >
       {children}
     </Box>
