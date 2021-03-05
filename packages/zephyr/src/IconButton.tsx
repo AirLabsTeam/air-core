@@ -4,16 +4,16 @@ import VisuallyHidden from '@reach/visually-hidden';
 import { variant as styledSystemVariant } from 'styled-system';
 import { useTheme } from 'styled-components';
 import { Box } from './Box';
-import { Button, ButtonProps } from './Button';
+import { Button, ButtonProps, NonSemanticButtonProps } from './Button';
 
-export interface NonSemanticIconButtonProps {
+export interface NonSemanticIconButtonProps extends NonSemanticButtonProps {
   icon: (props?: React.SVGProps<SVGElement> | undefined) => JSX.Element;
-  hasTooltip?: boolean;
+  hasTooltip: boolean;
   hiddenLabel: string;
 }
 
 export interface IconButtonProps
-  extends Omit<ButtonProps, 'children'>,
+  extends Omit<ButtonProps, 'children' | keyof NonSemanticButtonProps>,
     NonSemanticIconButtonProps {}
 
 export const IconButton = forwardRefWithAs<NonSemanticIconButtonProps, 'button'>(
@@ -22,7 +22,7 @@ export const IconButton = forwardRefWithAs<NonSemanticIconButtonProps, 'button'>
       as = 'button',
       className,
       disabled = false,
-      hasTooltip = false,
+      hasTooltip,
       hiddenLabel,
       icon,
       isLoading = false,
