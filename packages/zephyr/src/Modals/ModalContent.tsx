@@ -21,6 +21,7 @@ interface SharedContentComponentProps
     >,
     Pick<BoxStylingProps, 'tx' | '__baseStyles' | 'variant'> {
   'data-testid'?: string;
+  key: string;
 }
 
 const MotionAlertDialogContent = motion.custom(AlertDialogContent);
@@ -79,24 +80,15 @@ export const ModalContent = ({
     className,
     tx,
     variant,
+    key: testID ?? isAlertModal ? ALERT_MODAL_DIALOG_CONTENT : MODAL_DIALOG_CONTENT,
   };
 
   return isAlertModal ? (
-    <Box
-      as={MotionAlertDialogContent}
-      {...motionStyles}
-      key={testID ?? isAlertModal ? ALERT_MODAL_DIALOG_CONTENT : MODAL_DIALOG_CONTENT}
-      {...sharedProperties}
-    >
+    <Box as={MotionAlertDialogContent} {...motionStyles} {...sharedProperties}>
       {children}
     </Box>
   ) : (
-    <Box
-      as={MotionDialogContent}
-      {...motionStyles}
-      key={testID ?? isAlertModal ? ALERT_MODAL_DIALOG_CONTENT : MODAL_DIALOG_CONTENT}
-      {...sharedProperties}
-    >
+    <Box as={MotionDialogContent} {...motionStyles} {...sharedProperties}>
       {children}
     </Box>
   );
