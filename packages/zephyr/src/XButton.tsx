@@ -15,7 +15,7 @@ export const XButton = React.forwardRef<HTMLButtonElement, XButtonProps>(
     {
       hiddenLabel = 'Close Modal',
       onClick,
-      size = 'medium',
+      size = 'extra-small',
       tx,
       variant = 'button-unstyled',
     }: XButtonProps,
@@ -29,7 +29,7 @@ export const XButton = React.forwardRef<HTMLButtonElement, XButtonProps>(
       onClick={onClick}
       ref={ref}
       size={size}
-      tx={{ position: 'absolute', color: 'pigeon400', top: 8, right: 8, ...tx }}
+      tx={{ position: 'absolute', color: 'pigeon400', top: 16, right: 24, ...tx }}
       variant={variant}
     />
   ),
