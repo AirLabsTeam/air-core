@@ -21,7 +21,18 @@ import { rgba } from 'polished';
 import { DefaultTheme, useTheme } from 'styled-components';
 import { Box, BoxStylingProps } from '../Box';
 import { Text } from '../Text';
+import { commonFieldStyles, FieldVariantName, variantStyles } from '../theme/variants/field';
 import { Label } from './Label';
+
+interface VariantProp {
+  /**
+   * Unfortunately, `react-select` leverages `emotion` so our tx prop doesn't function within it's context. For that
+   * reason alone, we cannot provide responsive variants.
+   *
+   * The control is disabled for this prop in this story. Instead, we map every story against every variation.
+   */
+  variant?: FieldVariantName;
+}
 
 export type SelectOption = {
   label: string;
@@ -75,7 +86,8 @@ export interface SingleSelectProps
   extends Partial<
       Pick<ReactSelectProps<SelectOption, CanHaveMultipleSelections>, DesiredReactSelectProps>
     >,
-    Pick<BoxStylingProps, 'tx'> {
+    Pick<BoxStylingProps, 'tx'>,
+    VariantProp {
   /**
    * TODO: Not yet best to allow, given limited functionality.
    * @see https://github.com/JedWatson/react-select/issues/1397
@@ -170,17 +182,21 @@ export interface SingleSelectProps
 export const getBaseSelectStylesWithTheme = ({
   theme,
   hasError,
+  variant,
 }: {
   theme: DefaultTheme;
   hasError: boolean;
-}): Partial<Styles> => ({
+} & Required<VariantProp>): Partial<Styles> => ({
   container: (base, props) => ({
     ...base,
     color: props.isDisabled ? theme.colors.pigeon200 : theme.colors.pigeon700,
     fontFamily: theme.fonts.copy,
-    fontSize: 14,
-    letterSpacing: '-0.015em',
-    lineHeight: 1.5,
+    fontSize:
+      variant === 'field-input-chonky'
+        ? variantStyles.chonky.fontSize
+        : variantStyles.smol.fontSize,
+    letterSpacing: commonFieldStyles.letterSpacing as string,
+    lineHeight: commonFieldStyles.lineHeight as string,
   }),
   control: (base, props) => {
     let border: string;
@@ -204,9 +220,11 @@ export const getBaseSelectStylesWithTheme = ({
       ...base,
       backgroundColor: theme.colors.transparent,
       border,
-      borderRadius: 4,
+      borderRadius: commonFieldStyles.borderRadius as number,
       boxShadow,
       cursor: 'text',
+      height:
+        variant === 'field-input-chonky' ? variantStyles.chonky.height : variantStyles.smol.height,
       outline: 'none',
       padding: '1px 12px', // react-select has 4px py on some other element
       width: '100%',
@@ -230,7 +248,12 @@ export const getBaseSelectStylesWithTheme = ({
   }),
   indicatorSeparator: (base) => ({ ...base, display: 'none' }),
   input: (base) => ({ ...base, backgroundColor: theme.colors.white, margin: 0 }),
-  loadingIndicator: (base) => ({ ...base, marginRight: '-4px', color: theme.colors.pigeon300 }),
+  loadingIndicator: (base) => ({
+    ...base,
+    marginRight: variant === 'field-input-chonky' ? 4 : -4,
+    marginTop: variant === 'field-input-chonky' ? -1 : undefined,
+    color: theme.colors.pigeon300,
+  }),
   loadingMessage: (base) => ({
     ...base,
     color: theme.colors.pigeon300,
@@ -245,6 +268,7 @@ export const getBaseSelectStylesWithTheme = ({
     // prettier-ignore
     boxShadow: `${rgba(theme.colors.black, 0.15)} 0px 1px 3px, ${rgba(theme.colors.black, 0.25)} 0px 0px 2px, ${rgba(theme.colors.black, 0.2)} 0px 2px 8px`,
     padding: 6,
+    zIndex: 2, // 1 + control's z-index
     '& > div': {
       padding: 0,
     },
@@ -275,10 +299,12 @@ const sharedBottomTextStyles: BoxStylingProps['tx'] = {
   bottom: -24, // text is 18px high + 6px space between bottom select border and top of text
 };
 
-const AirReactSelectDropdownIndicator = (
-  props: IndicatorProps<SelectOption, CanHaveMultipleSelections>,
-) => {
+interface AirReactSelectDropdownIndicatorProps
+  extends IndicatorProps<SelectOption, CanHaveMultipleSelections> {}
+
+const AirReactSelectDropdownIndicator = (props: AirReactSelectDropdownIndicatorProps) => {
   const theme = useTheme();
+  const variant = props.selectProps.variant as FieldVariantName;
 
   return (
     <defaultReactSelectComponents.DropdownIndicator
@@ -294,10 +320,9 @@ const AirReactSelectDropdownIndicator = (
       <Box
         as={TriangleDown}
         tx={{
-          width: 16,
+          width: variant === 'field-input-chonky' ? 18 : 16,
           '& path': {
             fill: 'currentColor',
-            shapeRendering: 'crispEdges',
           },
         }}
       />
@@ -311,6 +336,8 @@ const AirReactSelectOption = ({
 }: Omit<OptionProps<SelectOption, CanHaveMultipleSelections>, 'data'> & {
   data: SelectOption;
 }) => {
+  const variant = props.selectProps.variant as FieldVariantName;
+  const isChonky = variant === 'field-input-chonky';
   const { leftAdornment: LeftAdornment, description } = props.data;
 
   const propsWithoutStyleFn = {
@@ -326,7 +353,7 @@ const AirReactSelectOption = ({
           borderRadius: 2,
           color: props.isSelected ? 'pigeon700' : 'pigeon500',
           cursor: 'pointer',
-          p: 6,
+          p: isChonky ? 8 : 6,
           mb: 8,
           '&:active': { bg: 'pigeon100' },
           '&:last-of-type': { marginBottom: 0 },
@@ -343,12 +370,17 @@ const AirReactSelectOption = ({
           {LeftAdornment && (
             <Box
               as={LeftAdornment as any}
-              tx={{ color: 'pigeon500', width: 16, minWidth: '16px', mr: 8 }}
+              tx={{
+                color: 'pigeon500',
+                width: isChonky ? 18 : 16,
+                minWidth: isChonky ? 18 : 16,
+                mr: 8,
+              }}
             />
           )}
 
           <Text
-            variant="text-ui-14"
+            variant={isChonky ? 'text-ui-16' : 'text-ui-14'}
             tx={{
               color: 'pigeon700',
               overflow: 'hidden',
@@ -360,16 +392,25 @@ const AirReactSelectOption = ({
           </Text>
 
           {props.isSelected && (
-            <Box as={Check} tx={{ color: 'pigeon600', width: 16, minWidth: '16px', ml: 'auto' }} />
+            <Box
+              as={Check}
+              tx={{
+                color: 'pigeon600',
+                width: isChonky ? 18 : 16,
+                minWidth: isChonky ? 18 : 16,
+                ml: 'auto',
+              }}
+            />
           )}
         </Box>
 
         {description && (
           <Text
-            variant="text-ui-14"
+            variant={variant === 'field-input-chonky' ? 'text-ui-16' : 'text-ui-14'}
             tx={{
               color: 'pigeon500',
               display: 'flex',
+              mt: 2,
               ml: LeftAdornment ? 24 : 0,
               textOverflow: 'ellipsis',
             }}
@@ -395,6 +436,7 @@ export const SingleSelect = ({
   components,
   creatableConfig,
   description,
+  'data-testid': topLevelTestID,
   disabled = false,
   id,
   isLabelHidden = false,
@@ -409,11 +451,11 @@ export const SingleSelect = ({
   required,
   styles,
   tx,
-  'data-testid': topLevelTestID,
+  variant = 'field-input-smol',
   ...restOfProps
 }: SingleSelectProps) => {
-  const [field, meta, helpers] = useField<string>(name);
   const theme = useTheme();
+  const [field, meta, helpers] = useField<string>(name);
   const selectID = id ?? name;
   const errorID = `${selectID}_error`;
   const descriptionID = `${selectID}_description`;
@@ -457,11 +499,15 @@ export const SingleSelect = ({
     [helpers],
   );
 
-  const props = {
+  const props: ReactSelectProps<SelectOption, CanHaveMultipleSelections> & {
+    [key: string]: any;
+  } = {
     'aria-describedby': !!description ? `${descriptionID} ${errorID}` : errorID,
     'aria-invalid': hasError,
-    components: { ...AirReactSelectComponents, ...components },
-    'data-testid': testID,
+    components: {
+      ...components,
+      ...AirReactSelectComponents,
+    },
     defaultOptions: true,
     id: selectID,
     instanceId: `${selectID}_instance`,
@@ -475,8 +521,10 @@ export const SingleSelect = ({
     onChange: onChange,
     options,
     placeholder: placeholder,
-    styles: { ...getBaseSelectStylesWithTheme({ theme, hasError }), ...styles },
+    styles: { ...getBaseSelectStylesWithTheme({ theme, hasError, variant }), ...styles },
     value: value,
+    variant,
+    inputId: restOfProps.inputId ?? id ?? name,
     ...restOfProps,
   };
 

@@ -1,11 +1,10 @@
 import { TXProp } from '..';
 
-export type FieldVariantName = 'field-input';
+export type FieldVariantName = 'field-input-smol' | 'field-input-chonky';
 
 // Share the field "box" appearance for input, textarea, select, etc.
-const commonStyles: TXProp = {
+export const commonFieldStyles: TXProp = {
   fontFamily: 'copy',
-  fontSize: 14,
   letterSpacing: '-0.015em',
   lineHeight: 1.5,
   border: '1px solid',
@@ -42,10 +41,25 @@ const commonStyles: TXProp = {
   },
 };
 
+export const variantStyles = {
+  chonky: {
+    fontSize: 16,
+    height: 48,
+  },
+  smol: {
+    fontSize: 14,
+    height: 40,
+  },
+};
+
 const _field: { [key in FieldVariantName]: TXProp } = {
-  'field-input': {
-    ...commonStyles,
-    height: '40px',
+  'field-input-smol': {
+    ...commonFieldStyles,
+    ...variantStyles.smol,
+  },
+  'field-input-chonky': {
+    ...commonFieldStyles,
+    ...variantStyles.chonky,
   },
 };
 
