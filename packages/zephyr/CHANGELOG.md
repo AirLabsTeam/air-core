@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [11.0.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@11.0.0...@air/zephyr@11.0.1) (2021-03-06)
+
+### Bug Fixes
+
+- **@air/zephyr/iconbutton:** ensure tx prop beats out variant styles ([9c0cd74](https://github.com/AirLabsTeam/web-core/commit/9c0cd746f4e23e6d08eeec484d18f0371754784e))
+
 # [11.0.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@10.4.0...@air/zephyr@11.0.0) (2021-03-06)
 
 - refactor(@air/zephyr/iconbutton)!: rename "hiddenLabel" prop to "children" ([bc7c35f](https://github.com/AirLabsTeam/web-core/commit/bc7c35f912a52a4d53d663a9097e6dbf3730acc8))
