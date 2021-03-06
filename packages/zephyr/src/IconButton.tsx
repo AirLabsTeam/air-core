@@ -9,7 +9,15 @@ import { Button, ButtonProps, NonSemanticButtonProps } from './Button';
 export interface NonSemanticIconButtonProps extends NonSemanticButtonProps {
   icon: (props?: React.SVGProps<SVGElement> | undefined) => JSX.Element;
   hasTooltip: boolean;
-  hiddenLabel: string;
+
+  /**
+   * Unlike usual, this prop only accepts a string. It is also never visible. It represents an accessible label when the
+   * button is not wrapped by a Tooltip. You may ask: "Why not name this prop better, and not use 'children'"?. Many
+   * a11y-first libraries we consume like @reach-ui and @radix-ui have adopted this pattern of expecting required
+   * accessibility text as a 'children' prop. When we use the polymorphic 'as' prop for things like MenuButton, 'children'
+   * would be required.
+   */
+  children: string;
 }
 
 export interface IconButtonProps
@@ -20,10 +28,10 @@ export const IconButton = forwardRefWithAs<NonSemanticIconButtonProps, 'button'>
   (
     {
       as = 'button',
+      children,
       className,
       disabled = false,
       hasTooltip,
-      hiddenLabel,
       icon,
       isLoading = false,
       size = 'medium',
@@ -73,7 +81,7 @@ export const IconButton = forwardRefWithAs<NonSemanticIconButtonProps, 'button'>
         variant={variant}
       >
         {/* If button is wrapped with tooltip, it doesn't require assistive text. It's already provided on focus via the tooltip. */}
-        {!hasTooltip && <VisuallyHidden>{hiddenLabel}</VisuallyHidden>}
+        {!hasTooltip && <VisuallyHidden>{children}</VisuallyHidden>}
         <Box
           as={icon}
           tx={{
