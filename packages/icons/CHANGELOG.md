@@ -3,13 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.3.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@6.2.5...@air/icons@6.3.0) (2021-03-06)
+
+### Bug Fixes
+
+- **@air/icons:** 🤦‍♂️ typo ([ef28685](https://github.com/AirLabsTeam/web-core/commit/ef2868510477b39bee03fcb680fd4a76ca7ade23))
+- **@air/icons:** add color=currentColor on paths of updated icons ([ef26177](https://github.com/AirLabsTeam/web-core/commit/ef2617780dd315eb4bb844398308891a20de776b))
+
+### Features
+
+- **@air/icons:** add new "FilledPlay" icon ([3aa4618](https://github.com/AirLabsTeam/web-core/commit/3aa461830db6c2ec1e86ab5093fbfeeef66d7f0d))
+- **@air/icons:** add new "To-Go" icon ([45a4616](https://github.com/AirLabsTeam/web-core/commit/45a46167bdbe5c31aef0f9e9bc41290636aa3b0d))
+
 ## [6.2.5](https://github.com/AirLabsTeam/web-core/compare/@air/icons@6.2.4...@air/icons@6.2.5) (2021-03-01)
 
 **Note:** Version bump only for package @air/icons
-
-
-
-
 
 ## [6.2.4](https://github.com/AirLabsTeam/web-core/compare/@air/icons@6.2.3...@air/icons@6.2.4) (2021-02-25)
 

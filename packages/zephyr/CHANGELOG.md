@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [10.4.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@10.3.3...@air/zephyr@10.4.0) (2021-03-06)
+
+### Bug Fixes
+
+- export shared items ([ed90525](https://github.com/AirLabsTeam/web-core/commit/ed90525c3aa2d5a36f79b9255f7ab96f8d21220c))
+- **@air/zephyr/modal:** require modal label ([ca4ca0a](https://github.com/AirLabsTeam/web-core/commit/ca4ca0ae113af57f96443b4aa106b306d758a9a5))
+- **@air/zephyr/xbutton:** fix type error ([c7af8a9](https://github.com/AirLabsTeam/web-core/commit/c7af8a9c8928eca2c731052c73df01638851b37a))
+- **modals:** resolve accessibility bug where modal labels and descriptions werent properly connected ([e154fd5](https://github.com/AirLabsTeam/web-core/commit/e154fd5cc78af819fe8c23fb1a13420841f78592))
+
+### Features
+
+- **@air/zephyr/button:** add xs size ([ad68306](https://github.com/AirLabsTeam/web-core/commit/ad68306767e1d2ec499eaef165f930518aa3c84c))
+- **@air/zephyr/iconbutton:** add iconbutton component and stories ([8478f78](https://github.com/AirLabsTeam/web-core/commit/8478f78609f0da80afdaf076e5098eaf9c876ba8))
+- **@air/zephyr/input:** expose "variant" prop ([a598fc8](https://github.com/AirLabsTeam/web-core/commit/a598fc84b45cc19c19a956149da0bddefcea605b))
+- **@air/zephyr/singleselect:** expose "variant" prop ([0947b6e](https://github.com/AirLabsTeam/web-core/commit/0947b6e23816a6598b330074e90f04442702fd28))
+- **fields:** make multiple variants for form fields ([dd3b1b8](https://github.com/AirLabsTeam/web-core/commit/dd3b1b803d68c24d28a3e296be85370349f6e565))
+
 ## [10.3.3](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@10.3.2...@air/zephyr@10.3.3) (2021-03-03)
 
 ### Bug Fixes
