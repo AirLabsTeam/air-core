@@ -54,7 +54,6 @@ export const IconButton = forwardRefWithAs<NonSemanticIconButtonProps, 'button'>
         ref={ref}
         size={size}
         tx={{
-          ...tx,
           ...styledSystemVariant({
             prop: 'size',
             variants: {
@@ -76,6 +75,7 @@ export const IconButton = forwardRefWithAs<NonSemanticIconButtonProps, 'button'>
               },
             },
           })({ theme, size, ...restOfProps }),
+          ...tx,
         }}
         type={type}
         variant={variant}
