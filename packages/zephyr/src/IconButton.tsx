@@ -7,7 +7,8 @@ import { Box } from './Box';
 import { Button, ButtonProps, NonSemanticButtonProps } from './Button';
 import { SVGComponent } from './shared';
 
-export interface NonSemanticIconButtonProps extends NonSemanticButtonProps {
+export interface NonSemanticIconButtonProps
+  extends Omit<NonSemanticButtonProps, 'children' | 'adornmentLeft' | 'adornmentRight'> {
   icon: SVGComponent;
   hasTooltip: boolean;
   hiddenLabel: string;

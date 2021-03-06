@@ -1,8 +1,18 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
+import { capitalize, noop } from 'lodash';
+import { Close, Plus } from '@air/icons';
 import { useTheme } from 'styled-components';
-import { Box, BoxStylingProps } from '../../src/Box';
-import { Button, ButtonProps } from '../../src/Button';
+import {
+  allButtonSizes,
+  allButtonVariants,
+  AdornmentVariation,
+  Box,
+  BoxStylingProps,
+  Button,
+  ButtonProps,
+  Text,
+} from '../../src';
 
 const meta: Meta<ButtonProps> = {
   title: 'Zephyr/Button/Button',
@@ -30,6 +40,84 @@ export const Default: Story<ButtonProps> = (args) => <Button {...args} data-test
 
 Default.args = {
   children: 'Button',
+};
+
+const sharedProps = {
+  children: 'Click Me',
+  onClick: noop,
+};
+
+const adornmentVariationProps: {
+  [key in AdornmentVariation]: Pick<ButtonProps, 'adornmentLeft' | 'adornmentRight'>;
+} = {
+  none: {},
+  leftOnly: {
+    adornmentLeft: Plus,
+  },
+  rightOnly: {
+    adornmentRight: Close,
+  },
+  both: {
+    adornmentLeft: Plus,
+    adornmentRight: Close,
+  },
+};
+
+const adornmentVariations = Object.keys(adornmentVariationProps) as AdornmentVariation[];
+
+export const AllVariations: Story<ButtonProps> = () => {
+  return (
+    <Box
+      tx={{
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}
+    >
+      {allButtonVariants.map((variant) => {
+        return (
+          <Box tx={{ m: 16 }} key={variant}>
+            <Text
+              variant="text-ui-16"
+              tx={{ pb: 6, mb: 6, borderBottom: '1px solid', borderColor: 'pigeon500' }}
+            >
+              Variant:{' '}
+              <Box as="span" tx={{ fontWeight: 'semibold' }}>
+                {variant}
+              </Box>
+            </Text>
+
+            <Box tx={{ display: 'flex', alignItems: 'flex-start', mb: 24 }}>
+              {allButtonSizes.map((size) => {
+                const label = capitalize(size);
+                const variantAndSizeKey = `${variant}_${size}`;
+
+                return (
+                  <Box tx={{ mx: 8 }} key={variantAndSizeKey}>
+                    <Text variant="text-ui-16">{label}</Text>
+
+                    {adornmentVariations.map((adornmentVariant) => (
+                      <Button
+                        {...sharedProps}
+                        size={size}
+                        variant={variant}
+                        tx={{ display: 'block', my: 4 }}
+                        key={`${variantAndSizeKey}_${adornmentVariant}`}
+                        {...adornmentVariationProps[adornmentVariant]}
+                      >
+                        Label
+                      </Button>
+                    ))}
+                  </Box>
+                );
+              })}
+            </Box>
+          </Box>
+        );
+      })}
+    </Box>
+  );
 };
 
 export const WorkspaceButtons: Story<ButtonProps> = () => {
