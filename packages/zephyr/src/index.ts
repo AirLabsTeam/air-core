@@ -1,5 +1,7 @@
+export * from './shared';
 export * from './Box';
 export * from './Button';
+export * from './IconButton';
 export * from './XButton';
 export * from './Forms';
 export * from './Modals';

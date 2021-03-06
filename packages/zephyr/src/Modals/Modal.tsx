@@ -7,8 +7,8 @@ import { AnimatePresence, useReducedMotion } from 'framer-motion';
 import { isString } from 'lodash';
 import { Box, BoxStylingProps } from '../Box';
 import { Text } from '../Text';
-import { ModalVariantName } from '../theme/variants/modal';
 import { XButton } from '../XButton';
+import { ModalVariantName } from '../theme/variants/modal';
 import { ModalContent } from './ModalContent';
 import { ModalOverlay } from './ModalOverlay';
 

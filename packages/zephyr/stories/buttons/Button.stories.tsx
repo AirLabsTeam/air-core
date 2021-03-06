@@ -5,7 +5,7 @@ import { Box, BoxStylingProps } from '../../src/Box';
 import { Button, ButtonProps } from '../../src/Button';
 
 const meta: Meta<ButtonProps> = {
-  title: 'Zephyr/Button',
+  title: 'Zephyr/Button/Button',
   component: Button,
   argTypes: {
     /**

@@ -1,31 +1,37 @@
-import React, { forwardRef } from 'react';
-import VisuallyHidden from '@reach/visually-hidden';
+import React from 'react';
 import { Close } from '@air/icons';
-import { Box } from './Box';
-import { Button } from './Button';
 import { X_BUTTON } from './testIDs';
+import { IconButton, IconButtonProps, NonSemanticIconButtonProps } from './IconButton';
 
-export interface XButtonProps {
-  /** Control hidden button label for users with assistive technology. */
-  hiddenButtonLabel?: 'Close Modal' | 'Close Popover' | 'Close Alert';
-  onClick: NonNullable<React.HTMLAttributes<HTMLButtonElement>['onClick']>;
-}
+export interface XButtonProps
+  extends Optional<NonSemanticIconButtonProps, 'hiddenLabel'>,
+    Pick<IconButtonProps, 'onClick' | 'ref' | 'size' | 'variant' | 'tx'> {}
 
 /**
  * Used as the dismiss button in popovers, alerts, and modals.
  */
-export const XButton = forwardRef<HTMLButtonElement, XButtonProps>(
-  ({ onClick, hiddenButtonLabel = 'Close Modal' }: XButtonProps, ref) => (
-    <Button
-      tx={{ position: 'absolute', top: '1.25rem', right: '1.5rem' }}
-      variant="button-unstyled"
+export const XButton = React.forwardRef<HTMLButtonElement, XButtonProps>(
+  (
+    {
+      hiddenLabel = 'Close Modal',
+      onClick,
+      size = 'extra-small',
+      tx,
+      variant = 'button-unstyled',
+    }: XButtonProps,
+    ref,
+  ) => (
+    <IconButton
       data-testid={X_BUTTON}
+      hasTooltip={false}
+      hiddenLabel={hiddenLabel}
+      icon={Close}
       onClick={onClick}
       ref={ref}
-    >
-      <VisuallyHidden>{hiddenButtonLabel}</VisuallyHidden>
-      <Box as={Close as any} width="32" tx={{ color: 'pigeon400' }} />
-    </Button>
+      size={size}
+      tx={{ position: 'absolute', color: 'pigeon400', top: 16, right: 24, ...tx }}
+      variant={variant}
+    />
   ),
 );
 

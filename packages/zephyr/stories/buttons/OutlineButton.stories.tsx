@@ -4,7 +4,7 @@ import { Meta } from '@storybook/react';
 import { Button, ButtonProps } from '../../src/Button';
 
 const meta: Meta<ButtonProps> = {
-  title: 'Zephyr/Button/Outline Button',
+  title: 'Zephyr/Button/Variant: Outline Button',
   component: Button,
   parameters: {
     docs: {

@@ -4,12 +4,11 @@ import { capitalize } from 'lodash';
 import VisuallyHidden from '@reach/visually-hidden';
 import { variant as styledSystemVariant } from 'styled-system';
 import { useTheme } from 'styled-components';
+import { LeftRight } from '../shared';
 import { Box, BoxStylingProps } from '../Box';
 import { Text } from '../Text';
 import { FieldVariantName } from '../theme';
 import { Label } from './Label';
-
-type LeftRight = 'left' | 'right';
 
 export interface InputProps extends Pick<BoxStylingProps, 'tx'> {
   /**
