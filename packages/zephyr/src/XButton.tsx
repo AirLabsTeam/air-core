@@ -4,7 +4,7 @@ import { X_BUTTON } from './testIDs';
 import { IconButton, IconButtonProps, NonSemanticIconButtonProps } from './IconButton';
 
 export interface XButtonProps
-  extends Optional<NonSemanticIconButtonProps, 'hiddenLabel'>,
+  extends Optional<NonSemanticIconButtonProps, 'children'>,
     Pick<IconButtonProps, 'onClick' | 'ref' | 'size' | 'variant' | 'tx'> {}
 
 /**
@@ -13,7 +13,7 @@ export interface XButtonProps
 export const XButton = React.forwardRef<HTMLButtonElement, XButtonProps>(
   (
     {
-      hiddenLabel = 'Close Modal',
+      children = 'Close Modal',
       onClick,
       size = 'extra-small',
       tx,
@@ -24,14 +24,15 @@ export const XButton = React.forwardRef<HTMLButtonElement, XButtonProps>(
     <IconButton
       data-testid={X_BUTTON}
       hasTooltip={false}
-      hiddenLabel={hiddenLabel}
       icon={Close}
       onClick={onClick}
       ref={ref}
       size={size}
       tx={{ position: 'absolute', color: 'pigeon400', top: 16, right: 24, ...tx }}
       variant={variant}
-    />
+    >
+      {children}
+    </IconButton>
   ),
 );
 
