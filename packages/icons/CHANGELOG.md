@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.4.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@6.3.0...@air/icons@6.4.0) (2021-03-08)
+
+### Features
+
+- add new icons to index ([d40977a](https://github.com/AirLabsTeam/web-core/commit/d40977a697add4a2b8bb084d60117851d0721bf8))
+- format new icons ([4e714c6](https://github.com/AirLabsTeam/web-core/commit/4e714c6871648311d192258114750e4fa1284ab0))
+
 # [6.3.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@6.2.5...@air/icons@6.3.0) (2021-03-06)
 
 ### Bug Fixes

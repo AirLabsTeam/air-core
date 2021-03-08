@@ -44,7 +44,7 @@ export const TransactionModal = ({
   ...rest
 }: TransactionModalProps) => {
   const isUsingButtonSchema = useCallback(
-    (item: any): item is TransactionModalButton => 'onClick' in item,
+    (item: any): item is TransactionModalButton => 'children' in item,
     [],
   );
 
