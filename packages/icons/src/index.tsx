@@ -2,6 +2,7 @@
 import React, { SVGProps } from 'react';
 
 import _AddMember from './svgs/uncategorized/AddMember.svg';
+import _AddToBoard from './svgs/uncategorized/AddToBoard.svg';
 import _Air from './svgs/uncategorized/Air.svg';
 import _At from './svgs/uncategorized/At.svg';
 import _Audio from './svgs/uncategorized/Audio.svg';
@@ -67,6 +68,7 @@ import _Hide from './svgs/uncategorized/Hide.svg';
 import _Home from './svgs/uncategorized/Home.svg';
 import _Images from './svgs/uncategorized/Images.svg';
 import _Import from './svgs/uncategorized/Import.svg';
+import _ImportFrom from './svgs/uncategorized/ImportFrom.svg';
 import _Info from './svgs/uncategorized/Info.svg';
 import _Instagram from './svgs/uncategorized/Instagram.svg';
 import _Library from './svgs/uncategorized/Library.svg';
@@ -125,6 +127,7 @@ import _VolumeLow from './svgs/uncategorized/Volume-Low.svg';
 import _VolumeMuted from './svgs/uncategorized/Volume-Muted.svg';
 
 export const AddMember = (props?: SVGProps<SVGElement>) => <_AddMember {...props} />;
+export const AddToBoard = (props?: SVGProps<SVGElement>) => <_AddToBoard {...props} />;
 export const Air = (props?: SVGProps<SVGElement>) => <_Air {...props} />;
 export const At = (props?: SVGProps<SVGElement>) => <_At {...props} />;
 export const Audio = (props?: SVGProps<SVGElement>) => <_Audio {...props} />;
@@ -190,6 +193,7 @@ export const Hide = (props?: SVGProps<SVGElement>) => <_Hide {...props} />;
 export const Home = (props?: SVGProps<SVGElement>) => <_Home {...props} />;
 export const Images = (props?: SVGProps<SVGElement>) => <_Images {...props} />;
 export const Import = (props?: SVGProps<SVGElement>) => <_Import {...props} />;
+export const ImportFrom = (props?: SVGProps<SVGElement>) => <_ImportFrom {...props} />;
 export const Info = (props?: SVGProps<SVGElement>) => <_Info {...props} />;
 export const Instagram = (props?: SVGProps<SVGElement>) => <_Instagram {...props} />;
 export const Library = (props?: SVGProps<SVGElement>) => <_Library {...props} />;
