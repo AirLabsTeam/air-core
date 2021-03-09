@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [11.0.3](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@11.0.2...@air/zephyr@11.0.3) (2021-03-09)
+
+### Bug Fixes
+
+- **@air/zephyr/input:** add missing autocomplete values from types ([f1cef44](https://github.com/AirLabsTeam/web-core/commit/f1cef44eec1f0704a15bf38083cdd8224974cae0))
+- **@air/zephyr/transactionmodal:** allow any objects for CTAs ([768d281](https://github.com/AirLabsTeam/web-core/commit/768d2818f1a4f7e97182c6a717f2d46557c6acfc))
+
 ## [11.0.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@11.0.1...@air/zephyr@11.0.2) (2021-03-08)
 
 **Note:** Version bump only for package @air/zephyr
