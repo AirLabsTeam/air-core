@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.4.1](https://github.com/AirLabsTeam/web-core/compare/@air/icons@6.4.0...@air/icons@6.4.1) (2021-03-09)
+
+**Note:** Version bump only for package @air/icons
+
 # [6.4.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@6.3.0...@air/icons@6.4.0) (2021-03-08)
 
 ### Features
