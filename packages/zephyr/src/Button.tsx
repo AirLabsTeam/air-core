@@ -127,8 +127,8 @@ const ButtonAdornment = ({ component, side, size }: ButtonAdornmentProps) => {
               height: 24,
             },
             medium: {
-              width: 24,
-              height: 24,
+              width: 16,
+              height: 16,
             },
             small: {
               width: 16,
