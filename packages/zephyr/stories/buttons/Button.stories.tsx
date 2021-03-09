@@ -102,7 +102,7 @@ export const AllVariations: Story<ButtonProps> = () => {
                         {...sharedProps}
                         size={size}
                         variant={variant}
-                        tx={{ display: 'block', my: 4 }}
+                        tx={{ display: 'flex', my: 4 }}
                         key={`${variantAndSizeKey}_${adornmentVariant}`}
                         {...adornmentVariationProps[adornmentVariant]}
                       >
