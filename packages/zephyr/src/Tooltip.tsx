@@ -129,7 +129,14 @@ export const Tooltip = ({
 
   return (
     <RadixTooltip.Root {...manualControlProps}>
-      <RadixTooltip.Trigger as={Trigger} />
+      {/**
+       * We cast `Trigger` as a button but would only render as a button if you pass it a button
+       * We cast it this way to appease the TypeScript gods
+       * @see https://github.com/radix-ui/primitives/blob/main/packages/react/tooltip/src/Tooltip.tsx#L147
+       *
+       * We set `type={undefined}` so when Tooltip wraps non-button elements, Safari would not apply button styles
+       *  */}
+      <RadixTooltip.Trigger as={(Trigger as unknown) as 'button'} type={undefined} />
 
       <Box
         as={RadixTooltip.Content}
