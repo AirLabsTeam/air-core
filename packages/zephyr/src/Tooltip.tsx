@@ -1,11 +1,13 @@
 import React, { useMemo } from 'react';
+import { PopperOwnProps, PopperArrowOwnProps } from '@radix-ui/react-popper';
 import * as RadixTooltip from '@radix-ui/react-tooltip';
 import { Side } from '@radix-ui/utils';
 import { Box } from './Box';
 import { Text } from './Text';
 import { TXProp } from './theme';
-
-export interface TooltipProps {
+export interface TooltipProps
+  extends Omit<PopperOwnProps, 'anchorRef' | 'sideOffset' | 'side'>,
+    PopperArrowOwnProps {
   /**
    * Must be a real element to attach the tooltip to. This can either be a node, an element, or a component whose ref
    * is properly forwarded.
@@ -104,11 +106,16 @@ const triangleOffsetMapping: {
  * - If you want interactive content, you can use a Dialog (Modal) or a Popover.
  */
 export const Tooltip = ({
+  align,
+  alignOffset,
   ariaLabel,
+  avoidCollisions,
   baseZIndex = 10,
   children,
-  manualControlProps,
+  collisionTolerance,
   label,
+  manualControlProps,
+  offset = 10,
   side,
   sideOffset = 10,
   withBorder = true,
@@ -137,6 +144,10 @@ export const Tooltip = ({
         aria-label={ariaLabel}
         data-testid={testID}
         sideOffset={sideOffset}
+        align={align}
+        alignOffset={alignOffset}
+        collisionTolerance={collisionTolerance}
+        avoidCollisions={avoidCollisions}
         tx={{
           bg: 'black',
           color: 'white',
@@ -168,6 +179,7 @@ export const Tooltip = ({
             }}
             width={12}
             height={8}
+            offset={offset}
           />
         )}
         <Box
@@ -182,6 +194,7 @@ export const Tooltip = ({
           }}
           width={10}
           height={7}
+          offset={offset}
         />
       </Box>
     </RadixTooltip.Root>
