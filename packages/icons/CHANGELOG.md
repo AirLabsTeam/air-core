@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.4.2](https://github.com/AirLabsTeam/web-core/compare/@air/icons@6.4.1...@air/icons@6.4.2) (2021-03-12)
+
+### Bug Fixes
+
+- **@air/zephyr:** fix ellipsis icon path ([4db26d7](https://github.com/AirLabsTeam/web-core/commit/4db26d7c72d1cbc6b5cab8f931486821d820887c))
+- **@air/zepphyr:** remove fill=none from svg ([d263358](https://github.com/AirLabsTeam/web-core/commit/d263358eb1752f191bdf54b67eb0559274821ee4))
+
 ## [6.4.1](https://github.com/AirLabsTeam/web-core/compare/@air/icons@6.4.0...@air/icons@6.4.1) (2021-03-09)
 
 **Note:** Version bump only for package @air/icons

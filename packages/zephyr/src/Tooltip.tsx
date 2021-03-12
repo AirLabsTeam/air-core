@@ -1,10 +1,12 @@
-import React, { useMemo } from 'react';
-import { PopperOwnProps } from '@radix-ui/react-popper';
+import React from 'react';
 import * as RadixTooltip from '@radix-ui/react-tooltip';
-import { Side } from '@radix-ui/utils';
+import { PopperOwnProps } from '@radix-ui/react-popper';
+import { Slot } from '@radix-ui/react-slot';
+import { Side } from '@radix-ui/popper';
 import { Box } from './Box';
 import { Text } from './Text';
 import { TXProp } from './theme';
+
 export interface TooltipProps extends Omit<PopperOwnProps, 'anchorRef' | 'sideOffset' | 'side'> {
   /**
    * Must be a real element to attach the tooltip to. This can either be a node, an element, or a component whose ref
@@ -125,19 +127,6 @@ export const Tooltip = ({
   withBorder = true,
   'data-testid': testID,
 }: TooltipProps) => {
-  const Trigger = useMemo(() => {
-    const component = React.forwardRef((props, forwardedRef) =>
-      React.cloneElement(React.Children.only(children), {
-        ...props,
-        ref: forwardedRef,
-      }),
-    );
-
-    component.displayName = 'TooltipTrigger';
-
-    return component;
-  }, [children]);
-
   return (
     <RadixTooltip.Root {...manualControlProps}>
       {/**
@@ -147,7 +136,9 @@ export const Tooltip = ({
        *
        * We set `type={undefined}` so when Tooltip wraps non-button elements, Safari would not apply button styles
        *  */}
-      <RadixTooltip.Trigger as={(Trigger as unknown) as 'button'} type={undefined} />
+      <RadixTooltip.Trigger as={(Slot as unknown) as 'button'} type={undefined}>
+        {children}
+      </RadixTooltip.Trigger>
 
       <Box
         as={RadixTooltip.Content}
