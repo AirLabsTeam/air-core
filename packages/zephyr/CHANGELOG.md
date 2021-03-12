@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [11.0.4](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@11.0.3...@air/zephyr@11.0.4) (2021-03-12)
+
+### Bug Fixes
+
+- **tooltip:** set Trigger type as undefined ([e0afb37](https://github.com/AirLabsTeam/web-core/commit/e0afb3788b62b140ae82eee3db1af23386db693d))
+
 ## [11.0.3](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@11.0.2...@air/zephyr@11.0.3) (2021-03-09)
 
 ### Bug Fixes
