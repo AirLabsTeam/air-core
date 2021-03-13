@@ -1,11 +1,13 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import * as RadixTooltip from '@radix-ui/react-tooltip';
-import { Side } from '@radix-ui/utils';
+import { PopperOwnProps } from '@radix-ui/react-popper';
+import { Slot } from '@radix-ui/react-slot';
+import { Side } from '@radix-ui/popper';
 import { Box } from './Box';
 import { Text } from './Text';
 import { TXProp } from './theme';
 
-export interface TooltipProps {
+export interface TooltipProps extends Omit<PopperOwnProps, 'anchorRef' | 'sideOffset' | 'side'> {
   /**
    * Must be a real element to attach the tooltip to. This can either be a node, an element, or a component whose ref
    * is properly forwarded.
@@ -49,6 +51,12 @@ export interface TooltipProps {
    * spans across multiple, differently colored backgrounds.
    */
   withBorder?: boolean;
+
+  /**
+   * The distance in pixels to render the Tooltip.Arrow from the Tooltip.Content edge if it is pushed to the edge.
+   * @default 10
+   */
+  arrowOffset?: number;
 
   'data-testid'?: string;
 }
@@ -104,32 +112,33 @@ const triangleOffsetMapping: {
  * - If you want interactive content, you can use a Dialog (Modal) or a Popover.
  */
 export const Tooltip = ({
+  align,
+  alignOffset,
   ariaLabel,
+  arrowOffset = 10,
+  avoidCollisions,
   baseZIndex = 10,
   children,
-  manualControlProps,
+  collisionTolerance,
   label,
+  manualControlProps,
   side,
   sideOffset = 10,
   withBorder = true,
   'data-testid': testID,
 }: TooltipProps) => {
-  const Trigger = useMemo(() => {
-    const component = React.forwardRef((props, forwardedRef) =>
-      React.cloneElement(React.Children.only(children), {
-        ...props,
-        ref: forwardedRef,
-      }),
-    );
-
-    component.displayName = 'TooltipTrigger';
-
-    return component;
-  }, [children]);
-
   return (
     <RadixTooltip.Root {...manualControlProps}>
-      <RadixTooltip.Trigger as={Trigger} />
+      {/**
+       * We cast `Trigger` as a button but would only render as a button if you pass it a button
+       * We cast it this way to appease the TypeScript gods
+       * @see https://github.com/radix-ui/primitives/blob/main/packages/react/tooltip/src/Tooltip.tsx#L147
+       *
+       * We set `type={undefined}` so when Tooltip wraps non-button elements, Safari would not apply button styles
+       *  */}
+      <RadixTooltip.Trigger as={(Slot as unknown) as 'button'} type={undefined}>
+        {children}
+      </RadixTooltip.Trigger>
 
       <Box
         as={RadixTooltip.Content}
@@ -137,6 +146,10 @@ export const Tooltip = ({
         aria-label={ariaLabel}
         data-testid={testID}
         sideOffset={sideOffset}
+        align={align}
+        alignOffset={alignOffset}
+        collisionTolerance={collisionTolerance}
+        avoidCollisions={avoidCollisions}
         tx={{
           bg: 'black',
           color: 'white',
@@ -168,6 +181,7 @@ export const Tooltip = ({
             }}
             width={12}
             height={8}
+            offset={arrowOffset}
           />
         )}
         <Box
@@ -182,6 +196,7 @@ export const Tooltip = ({
           }}
           width={10}
           height={7}
+          offset={arrowOffset}
         />
       </Box>
     </RadixTooltip.Root>

@@ -22,6 +22,11 @@ const meta: Meta = {
 export default meta;
 
 export const Default: Story<TooltipProps> = () => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const setAsHovered = () => setIsHovered(true);
+  const setAsNotHovered = () => setIsHovered(false);
+
   return (
     <Tooltip
       label="Now you see me!"
@@ -33,6 +38,9 @@ export const Default: Story<TooltipProps> = () => {
     >
       <Text
         variant="text-ui-18"
+        as="div"
+        onMouseEnter={setAsHovered}
+        onMouseLeave={setAsNotHovered}
         tx={{
           bg: 'jay500',
           borderRadius: 4,
@@ -42,12 +50,20 @@ export const Default: Story<TooltipProps> = () => {
           py: 12,
           textAlign: 'center',
           verticalAlign: 'middle',
+          width: 200,
+          transition: 'all 0.3s linear',
           '&:hover': {
+            bg: 'macaw500',
             cursor: 'help',
+          },
+          '&:hover > span': {
+            transform: 'rotate(5deg)',
           },
         }}
       >
-        Hover over me
+        <Box as="span" tx={{ display: 'block', transition: 'all 0.3s linear' }}>
+          {isHovered ? 'Boo!' : 'Hover over me'}
+        </Box>
       </Text>
     </Tooltip>
   );
@@ -60,6 +76,26 @@ Default.parameters = {
   * Unfortunately, we can't render source code correctly on the initial story.
   * Please see https://github.com/storybookjs/storybook/issues/12022
   */`,
+    },
+  },
+};
+
+export const DisabledButton = () => (
+  <Tooltip label="You can still see me" side="bottom">
+    <Box>
+      <Button size="small" disabled>
+        Not Clear What This Disabled Button Does
+      </Button>
+    </Box>
+  </Tooltip>
+);
+
+DisabledButton.parameters = {
+  docs: {
+    description: {
+      story: `Disabled, interactive elements (like \`<button>\`) do not trigger user interactions so a Tooltip will not
+activate on normal events like hover. If you need to wrap a Tooltip in a Button that's potentially or always disabled,
+simply wrap the button in an element that has "block" or "flex" display.`,
     },
   },
 };

@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [11.1.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@11.0.4...@air/zephyr@11.1.0) (2021-03-12)
+
+### Bug Fixes
+
+- **@air/zephyr/tooltip:** prevent rerendering issues with children ([92762c2](https://github.com/AirLabsTeam/web-core/commit/92762c2827a2c2e36da8fe2bf0c6ff7136775d21))
+- **@air/zephyr/tooltip:** update dependencies ([8b02c6e](https://github.com/AirLabsTeam/web-core/commit/8b02c6e5f248c415d12db7012f6be3cff6927a56))
+- **tooltip:** name `arrowOffset` prop instead of extending it from `PopperArrowOwnProps` ([b86cd59](https://github.com/AirLabsTeam/web-core/commit/b86cd59b79f725dd4d2086cfa808748b02777549))
+
+### Features
+
+- **tooltip:** expose Radix popper and popperarrow props to zephyr tooltip users ([5cf5971](https://github.com/AirLabsTeam/web-core/commit/5cf5971f41f136400aa065a51db026d8c1302f3d))
+
+## [11.0.4](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@11.0.3...@air/zephyr@11.0.4) (2021-03-12)
+
+### Bug Fixes
+
+- **tooltip:** set Trigger type as undefined ([e0afb37](https://github.com/AirLabsTeam/web-core/commit/e0afb3788b62b140ae82eee3db1af23386db693d))
+
 ## [11.0.3](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@11.0.2...@air/zephyr@11.0.3) (2021-03-09)
 
 ### Bug Fixes
