@@ -80,6 +80,26 @@ Default.parameters = {
   },
 };
 
+export const DisabledButton = () => (
+  <Tooltip label="You can still see me" side="bottom">
+    <Box>
+      <Button size="small" disabled>
+        Not Clear What This Disabled Button Does
+      </Button>
+    </Box>
+  </Tooltip>
+);
+
+DisabledButton.parameters = {
+  docs: {
+    description: {
+      story: `Disabled, interactive elements (like \`<button>\`) do not trigger user interactions so a Tooltip will not
+activate on normal events like hover. If you need to wrap a Tooltip in a Button that's potentially or always disabled,
+simply wrap the button in an element that has "block" or "flex" display.`,
+    },
+  },
+};
+
 export const AllSides = () => {
   const [areTooltipsVisible, setAreTooltipsVisible] = useState(false);
   const hideTooltips = () => setAreTooltipsVisible(false);
