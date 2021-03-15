@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.5.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@6.4.2...@air/icons@6.5.0) (2021-03-15)
+
+### Bug Fixes
+
+- **@air/icons:** fix viewbox issues with icons commit ([7e51576](https://github.com/AirLabsTeam/web-core/commit/7e515768ff281f0ec0409a2f3c02372ec1409186))
+
+### Features
+
+- **@air/icons:** update and add icons ([b881539](https://github.com/AirLabsTeam/web-core/commit/b881539e209c0a0d53c718fdda9203fcd77db164))
+
 ## [6.4.2](https://github.com/AirLabsTeam/web-core/compare/@air/icons@6.4.1...@air/icons@6.4.2) (2021-03-12)
 
 ### Bug Fixes
