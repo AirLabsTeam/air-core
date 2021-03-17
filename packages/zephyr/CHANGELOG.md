@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [11.1.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@11.1.1...@air/zephyr@11.1.2) (2021-03-17)
+
+**Note:** Version bump only for package @air/zephyr
+
+## [11.1.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@11.1.0...@air/zephyr@11.1.1) (2021-03-15)
+
+### Bug Fixes
+
+- **@air/zephyr/button:** remove pointer styles on buttons when disabled ([af51d53](https://github.com/AirLabsTeam/web-core/commit/af51d5366fbcd4c8b00a880e8929a76752b54f0c))
+
 # [11.1.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@11.0.4...@air/zephyr@11.1.0) (2021-03-12)
 
 ### Bug Fixes

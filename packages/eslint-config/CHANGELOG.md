@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.18](https://github.com/AirLabsTeam/web-core/compare/@air/eslint-config@1.1.17...@air/eslint-config@1.1.18) (2021-03-15)
+
+### Bug Fixes
+
+- **@air/eslint-config:** disable lint rule that prettier hates ([8ef08ac](https://github.com/AirLabsTeam/web-core/commit/8ef08ac54ff6c23843080752d7518d1ec7ead1e1))
+
 ## [1.1.17](https://github.com/AirLabsTeam/web-core/compare/@air/eslint-config@1.1.16...@air/eslint-config@1.1.17) (2021-02-25)
 
 **Note:** Version bump only for package @air/eslint-config

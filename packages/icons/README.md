@@ -9,8 +9,16 @@ Source of truth for SVG icons used at Air. Published as an NPM library for React
 ## How do I add new icons to this collection?
 
 - Put your SVG icon into a folder in `src/svgs` (`src/svgs/uncategorized` unless otherwise stated by design)
+- Run `yarn workspace @air/icons run format:svgs:all` to format the source code. Unfortunately, currently this updates other SVGs ([see here for more context](https://github.com/svg/svgo/issues/1133)), so just ignore SVGs you're not working on.
+- Ensure that the value of either `stroke` or `fill` (there shouldn't be both on one icon) is `"currentColor"`
 - Run `yarn build` to map the newly added icons
 - `yarn storybook` to go and see the result of your work in Storybook.
+
+### How should I describe the commit via commitizen?
+
+- If you've added a new icon, that should be a "minor" version commit (usually "feature").
+- If you've edited an existing icon, that should be a "patch" version commit (usually "fix").
+- If you've removed an existing icon, that be a "major" version commit (usually "fix" and "breaking").
 
 ## How do I use the icons in my React application?
 

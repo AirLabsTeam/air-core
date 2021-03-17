@@ -77,6 +77,7 @@ const config = {
      * Vanilla ESLint Rules
      * @see https://eslint.org/docs/rules/
      * */
+    'function-paren-newline': ['off'],
     'no-restricted-imports': [
       'error',
       {
@@ -386,7 +387,6 @@ const config = {
     {
       files: ['**/*.test.*', '**/*.spec.*'],
       rules: {
-        'function-paren-newline': ['error', 'consistent'],
         'react/prop-types': 'off',
         'react/display-name': 'off',
       },
