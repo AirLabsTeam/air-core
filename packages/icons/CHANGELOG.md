@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.0.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@6.5.0...@air/icons@7.0.0) (2021-03-17)
+
+### Features
+
+- **breaking - remove and add icons:** remove library icon and add stack icon to replace it ([f813bbe](https://github.com/AirLabsTeam/web-core/commit/f813bbef7238d1fe6dc1f82baf2a6e125708b75b))
+
+### Reverts
+
+- **revert google drive icon class changes:** revert google drive icon class changes ([434c33d](https://github.com/AirLabsTeam/web-core/commit/434c33d4c4a8632c1c0c297954d123c9708ab204))
+- **undoes accidental class change for google drive icon:** undo class change for g drive icon ([74e9fad](https://github.com/AirLabsTeam/web-core/commit/74e9fad29e8f5ea8a3fa0635f3ebff7ca118b1cd))
+
+### BREAKING CHANGES
+
+- **breaking - remove and add icons:** removes the library icon, which could be a breaking change but the library icon is
+  not currently used in the next repo
+
 # [6.5.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@6.4.2...@air/icons@6.5.0) (2021-03-15)
 
 ### Bug Fixes
