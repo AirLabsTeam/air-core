@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [11.2.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@11.2.1...@air/zephyr@11.2.2) (2021-03-24)
+
+### Bug Fixes
+
+- **@air/zephyr:** update text variants ([8e6e6c1](https://github.com/AirLabsTeam/web-core/commit/8e6e6c16adf447783f1f958fe65b715c639af43d))
+
 ## [11.2.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@11.2.0...@air/zephyr@11.2.1) (2021-03-24)
 
 ### Bug Fixes
