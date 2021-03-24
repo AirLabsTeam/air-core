@@ -153,14 +153,14 @@ const compoundVariantMap: { [key in ButtonCompoundVariant]: NonNullable<BoxStyli
   },
   'extra-small_adorned-leftOnly': {
     height: 24,
-    pl: 6,
+    pl: 4,
     pr: 8,
     fontSize: 12,
   },
   'extra-small_adorned-rightOnly': {
     height: 24,
     pl: 8,
-    pr: 6,
+    pr: 4,
     fontSize: 12,
   },
   'extra-small_adorned-both': {
@@ -175,14 +175,14 @@ const compoundVariantMap: { [key in ButtonCompoundVariant]: NonNullable<BoxStyli
   },
   'small_adorned-leftOnly': {
     height: 32,
-    pl: 8,
+    pl: 6,
     pr: 10,
     fontSize: 12,
   },
   'small_adorned-rightOnly': {
     height: 32,
     pl: 10,
-    pr: 8,
+    pr: 6,
     fontSize: 12,
   },
   'small_adorned-both': {
@@ -219,14 +219,14 @@ const compoundVariantMap: { [key in ButtonCompoundVariant]: NonNullable<BoxStyli
   },
   'large_adorned-leftOnly': {
     height: 48,
-    pl: 16,
-    pr: 24,
+    pl: 12,
+    pr: 20,
     fontSize: 16,
   },
   'large_adorned-rightOnly': {
     height: 48,
-    pl: 24,
-    pr: 16,
+    pl: 20,
+    pr: 12,
     fontSize: 16,
   },
   'large_adorned-both': {
