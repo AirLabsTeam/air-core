@@ -1,6 +1,7 @@
 import { ButtonSize } from './Button';
 import { ButtonVariantName } from './theme';
 
+export type SVGComponent = (props?: React.SVGProps<SVGElement> | undefined) => JSX.Element;
 export type LeftRight = 'left' | 'right';
 
 export const allButtonSizes: ButtonSize[] = ['extra-small', 'small', 'medium', 'large'];

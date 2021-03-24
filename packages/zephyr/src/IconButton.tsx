@@ -5,9 +5,11 @@ import { variant as styledSystemVariant } from 'styled-system';
 import { useTheme } from 'styled-components';
 import { Box } from './Box';
 import { Button, ButtonProps, NonSemanticButtonProps } from './Button';
+import { SVGComponent } from './shared';
 
-export interface NonSemanticIconButtonProps extends NonSemanticButtonProps {
-  icon: (props?: React.SVGProps<SVGElement> | undefined) => JSX.Element;
+export interface NonSemanticIconButtonProps
+  extends Omit<NonSemanticButtonProps, 'children' | 'adornmentLeft' | 'adornmentRight'> {
+  icon: SVGComponent;
   hasTooltip: boolean;
 
   /**
