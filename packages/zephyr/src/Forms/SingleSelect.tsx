@@ -13,7 +13,7 @@ import ReactSelectCreatable from 'react-select/creatable';
 import { AsyncProps as ReactSelectAsyncProps } from 'react-select/src/Async';
 import { CreatableProps as ReactSelectCreatableProps } from 'react-select/src/Creatable';
 import { NamedProps as ReactSelectProps } from 'react-select/src/Select';
-import { capitalize, isNull } from 'lodash';
+import { isNull } from 'lodash';
 import VisuallyHidden from '@reach/visually-hidden';
 import { Check, TriangleDown } from '@air/icons';
 import invariant from 'tiny-invariant';
@@ -23,6 +23,7 @@ import { Box, BoxStylingProps } from '../Box';
 import { Text } from '../Text';
 import { commonFieldStyles, FieldVariantName, variantStyles } from '../theme/variants/field';
 import { Label } from './Label';
+import { Error } from './Error';
 
 interface VariantProp {
   /**
@@ -598,24 +599,13 @@ export const SingleSelect = ({
         )}
       </Text>
 
-      <Text
-        as="span"
+      <Error
+        errorText={meta.error}
+        isErrorVisible={hasError}
         id={errorID}
-        role="alert"
-        variant="text-ui-12"
+        tx={sharedBottomTextStyles}
         data-testid={`${testID}_error`}
-        tx={{
-          ...sharedBottomTextStyles,
-          display: hasError ? 'block' : 'none',
-          fontWeight: 'semibold',
-          color: 'flamingo600',
-        }}
-      >
-        {/* For screen reader users, provide context as to which field is erroring */}
-        {meta.error && <VisuallyHidden>{`Error on ${label} input: `}</VisuallyHidden>}
-
-        {capitalize(meta.error)}
-      </Text>
+      />
     </Box>
   );
 };

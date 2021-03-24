@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { useField } from 'formik';
-import { capitalize } from 'lodash';
 import VisuallyHidden from '@reach/visually-hidden';
 import { variant as styledSystemVariant } from 'styled-system';
 import { useTheme } from 'styled-components';
@@ -9,6 +8,7 @@ import { Box, BoxStylingProps } from '../Box';
 import { Text } from '../Text';
 import { FieldVariantName } from '../theme';
 import { Label } from './Label';
+import { Error } from './Error';
 
 export interface InputProps extends Pick<BoxStylingProps, 'tx'> {
   /**
@@ -361,24 +361,13 @@ export const Input = ({
         )}
       </Text>
 
-      <Text
-        as="span"
+      <Error
+        errorText={meta.error}
+        isErrorVisible={hasError}
         id={errorIdentifier}
-        role="alert"
-        variant="text-ui-12"
+        tx={sharedBottomTextStyles}
         data-testid={`${topLevelTestID}_error`}
-        tx={{
-          ...sharedBottomTextStyles,
-          display: hasError ? 'block' : 'none',
-          fontWeight: 'semibold',
-          color: 'flamingo600',
-        }}
-      >
-        {/* For screen reader users, provide context as to which field is erroring */}
-        {meta.error && <VisuallyHidden>{`Error on ${label} input: `}</VisuallyHidden>}
-
-        {capitalize(meta.error)}
-      </Text>
+      />
     </Box>
   );
 };
