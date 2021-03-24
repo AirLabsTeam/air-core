@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [11.2.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@11.1.2...@air/zephyr@11.2.0) (2021-03-24)
+
+### Bug Fixes
+
+- **@air/zephyr/button:** fix p inside of buttons w adornments ([e2f1ec0](https://github.com/AirLabsTeam/web-core/commit/e2f1ec0e897d0cbaa8e8e9aca0462a65c830cdfc))
+- **@air/zephyr/button:** use 16px icon for medium button adornment ([f89f31c](https://github.com/AirLabsTeam/web-core/commit/f89f31c3ba96ba082110fa10cbb0651a4632b8b1))
+
+### Features
+
+- **buttons:** allow for left or right icon adornments ([dbf605d](https://github.com/AirLabsTeam/web-core/commit/dbf605d2a458458786ba199704b4ec1a12dfa7e2))
+
 ## [11.1.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@11.1.1...@air/zephyr@11.1.2) (2021-03-17)
 
 **Note:** Version bump only for package @air/zephyr
