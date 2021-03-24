@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [11.2.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@11.2.0...@air/zephyr@11.2.1) (2021-03-24)
+
+### Bug Fixes
+
+- correct spacing for both variants ([b8204e9](https://github.com/AirLabsTeam/web-core/commit/b8204e9b7fc4d63ee8bc050de3e0a3231d51bd54))
+
 # [11.2.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@11.1.2...@air/zephyr@11.2.0) (2021-03-24)
 
 ### Bug Fixes
