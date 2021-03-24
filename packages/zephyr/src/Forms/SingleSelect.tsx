@@ -295,6 +295,11 @@ export const getBaseSelectStylesWithTheme = ({
   }),
 });
 
+const sharedBottomTextStyles: BoxStylingProps['tx'] = {
+  position: 'absolute',
+  bottom: -24, // text is 18px high + 6px space between bottom select border and top of text
+};
+
 interface AirReactSelectDropdownIndicatorProps
   extends IndicatorProps<SelectOption, CanHaveMultipleSelections> {}
 
@@ -582,8 +587,7 @@ export const SingleSelect = ({
         variant="text-ui-12"
         data-testid={`${testID}_description`}
         tx={{
-          position: 'absolute',
-          bottom: -24, // text is 18px high + 6px space between bottom select border and top of text
+          ...sharedBottomTextStyles,
           display: hasError ? 'none' : 'block',
           color: 'pigeon500',
         }}
@@ -597,9 +601,10 @@ export const SingleSelect = ({
 
       <Error
         errorText={meta.error}
-        id={errorID}
-        data-testid={`${testID}_error`}
         isErrorVisible={hasError}
+        id={errorID}
+        tx={sharedBottomTextStyles}
+        data-testid={`${testID}_error`}
       />
     </Box>
   );

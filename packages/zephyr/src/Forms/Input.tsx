@@ -167,6 +167,11 @@ const sharedAdornmentStyles: BoxStylingProps['tx'] = {
   position: 'absolute',
 };
 
+const sharedBottomTextStyles: BoxStylingProps['tx'] = {
+  position: 'absolute',
+  bottom: -24, // text is 18px high + 6px space between bottom input border and top of text
+};
+
 export const Input = ({
   adornment,
   autoComplete = 'off',
@@ -344,8 +349,7 @@ export const Input = ({
         variant="text-ui-12"
         data-testid={`${topLevelTestID}_description`}
         tx={{
-          position: 'absolute',
-          bottom: -24, // text is 18px high + 6px space between bottom input border and top of text
+          ...sharedBottomTextStyles,
           display: hasError ? 'none' : 'block',
           color: 'pigeon500',
         }}
@@ -361,6 +365,7 @@ export const Input = ({
         errorText={meta.error}
         isErrorVisible={hasError}
         id={errorIdentifier}
+        tx={sharedBottomTextStyles}
         data-testid={`${topLevelTestID}_error`}
       />
     </Box>

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { capitalize } from 'lodash';
+import { upperFirst } from 'lodash';
 import { BoxStylingProps } from '../Box';
 import { Text } from '../Text';
 
@@ -25,14 +25,12 @@ export const Error = ({ isErrorVisible, errorText, tx, ...restOfProps }: ErrorPr
     variant="text-ui-12"
     aria-hidden={!errorText}
     tx={{
-      position: 'absolute',
-      bottom: -24,
       display: isErrorVisible ? 'block' : 'none',
       color: 'flamingo600',
       ...tx,
     }}
     {...restOfProps}
   >
-    {capitalize(errorText)}
+    {upperFirst(errorText)}
   </Text>
 );
