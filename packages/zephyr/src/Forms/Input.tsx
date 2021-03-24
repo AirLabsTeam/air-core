@@ -167,11 +167,6 @@ const sharedAdornmentStyles: BoxStylingProps['tx'] = {
   position: 'absolute',
 };
 
-const sharedBottomTextStyles: BoxStylingProps['tx'] = {
-  position: 'absolute',
-  bottom: -22, // text is 18px high + 4px space between bottom input border and top of text
-};
-
 export const Input = ({
   adornment,
   autoComplete = 'off',
@@ -195,6 +190,7 @@ export const Input = ({
   const errorIdentifier = `${inputIdentifier}_error`;
   const descriptionIdentifier = `${inputIdentifier}_description`;
   const hasError = meta.touched && !!meta.error;
+  const isChonky = variant === 'field-input-chonky';
 
   const testID = React.useMemo(() => {
     const prefix = `input_${name}`;
@@ -349,7 +345,8 @@ export const Input = ({
         variant="text-ui-12"
         data-testid={`${topLevelTestID}_description`}
         tx={{
-          ...sharedBottomTextStyles,
+          position: 'absolute',
+          bottom: isChonky ? -22 : -18,
           display: hasError ? 'none' : 'block',
           color: 'pigeon500',
         }}
@@ -365,7 +362,7 @@ export const Input = ({
         errorText={meta.error}
         isErrorVisible={hasError}
         id={errorIdentifier}
-        tx={sharedBottomTextStyles}
+        tx={{ bottom: isChonky ? -22 : -18 }}
         data-testid={`${topLevelTestID}_error`}
       />
     </Box>

@@ -27,6 +27,7 @@ export const Error = ({ isErrorVisible, errorText, tx, ...restOfProps }: ErrorPr
     tx={{
       display: isErrorVisible ? 'block' : 'none',
       color: 'flamingo600',
+      position: 'absolute',
       ...tx,
     }}
     {...restOfProps}

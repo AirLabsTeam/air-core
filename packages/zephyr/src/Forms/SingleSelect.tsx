@@ -295,11 +295,6 @@ export const getBaseSelectStylesWithTheme = ({
   }),
 });
 
-const sharedBottomTextStyles: BoxStylingProps['tx'] = {
-  position: 'absolute',
-  bottom: -22, // text is 18px high + 4px space between bottom select border and top of text
-};
-
 interface AirReactSelectDropdownIndicatorProps
   extends IndicatorProps<SelectOption, CanHaveMultipleSelections> {}
 
@@ -463,6 +458,7 @@ export const SingleSelect = ({
   const hasError = meta.touched && !!meta.error;
   const isLoading = initialLoadingState?.isLoading ?? false;
   const isDisabled = disabled || readOnly || isLoading;
+  const isChonky = variant === 'field-input-chonky';
 
   const testID = React.useMemo(() => {
     const prefix = `select_${name}`;
@@ -587,7 +583,8 @@ export const SingleSelect = ({
         variant="text-ui-12"
         data-testid={`${testID}_description`}
         tx={{
-          ...sharedBottomTextStyles,
+          position: 'absolute',
+          bottom: isChonky ? -22 : -18,
           display: hasError ? 'none' : 'block',
           color: 'pigeon500',
         }}
@@ -603,7 +600,7 @@ export const SingleSelect = ({
         errorText={meta.error}
         isErrorVisible={hasError}
         id={errorID}
-        tx={sharedBottomTextStyles}
+        tx={{ bottom: isChonky ? -22 : -18 }}
         data-testid={`${testID}_error`}
       />
     </Box>
