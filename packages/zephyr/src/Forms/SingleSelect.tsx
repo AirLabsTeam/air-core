@@ -297,7 +297,7 @@ export const getBaseSelectStylesWithTheme = ({
 
 const sharedBottomTextStyles: BoxStylingProps['tx'] = {
   position: 'absolute',
-  bottom: -20, // text is 18px high + 2px space between bottom select border and top of text
+  bottom: -22, // text is 18px high + 4px space between bottom select border and top of text
 };
 
 interface AirReactSelectDropdownIndicatorProps
