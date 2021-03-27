@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [11.2.3](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@11.2.2...@air/zephyr@11.2.3) (2021-03-27)
+
+### Bug Fixes
+
+- **@air/zephyr:** prevent box from allowing any props when `as` is undefined ([f2ff294](https://github.com/AirLabsTeam/web-core/commit/f2ff294d4411a12347113cdb1abbca0e7af3f6ff))
+
 ## [11.2.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@11.2.1...@air/zephyr@11.2.2) (2021-03-24)
 
 ### Bug Fixes
