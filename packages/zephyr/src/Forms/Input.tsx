@@ -173,11 +173,13 @@ export const Input = ({
   className,
   'data-testid': topLevelTestID,
   description,
+  disabled = false,
   id,
   isLabelHidden = false,
   label,
   name,
   placeholder,
+  readOnly = false,
   required,
   tx,
   type = 'text',
@@ -293,8 +295,10 @@ export const Input = ({
           as="input"
           autoComplete={autoComplete}
           data-testid={testID}
+          disabled={disabled || readOnly}
           id={inputIdentifier}
           placeholder={placeholder}
+          readOnly={readOnly}
           required={required}
           tx={{
             pl:
