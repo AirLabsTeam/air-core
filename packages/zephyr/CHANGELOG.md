@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [11.2.4](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@11.2.3...@air/zephyr@11.2.4) (2021-03-31)
+
+### Bug Fixes
+
+- **@air/zephyr/input:** disable input if marked as readOnly ([4de1df0](https://github.com/AirLabsTeam/web-core/commit/4de1df014b5a4c762d9aa7a0baaf8eab6ee2228a))
+
 ## [11.2.3](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@11.2.2...@air/zephyr@11.2.3) (2021-03-27)
 
 ### Bug Fixes
