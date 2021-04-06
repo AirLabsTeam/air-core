@@ -18,6 +18,7 @@ export type TextVariantName =
   | 'text-ui-20'
   | 'text-ui-18'
   | 'text-ui-16'
+  | 'text-ui-16-uppercase'
   | 'text-ui-14'
   | 'text-ui-14-uppercase'
   | 'text-ui-12'
@@ -173,6 +174,14 @@ const _text: { [key in TextVariantName]: TXProp } = {
     letterSpacing: '-0.011em',
     lineHeight: 1.5,
     textTransform: 'none',
+  },
+  'text-ui-16-uppercase': {
+    fontFamily: 'copy',
+    fontFeatureSettings: `'pnum' on, 'lnum' on, 'ss01' on`,
+    fontSize: 16,
+    letterSpacing: '0.1em',
+    lineHeight: 1.5,
+    textTransform: 'uppercase',
   },
   'text-ui-14': {
     fontFamily: 'copy',

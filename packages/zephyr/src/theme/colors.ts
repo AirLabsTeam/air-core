@@ -45,6 +45,7 @@ export type ColorName =
   | 'macaw100'
   | 'macaw200'
   | 'macaw300'
+  | 'macaw350'
   | 'macaw400'
   | 'macaw500'
   | 'macaw600'
@@ -153,7 +154,8 @@ const macaws = {
   macaw080: '#90B8FF',
   macaw100: '#6FA2FF',
   macaw200: '#448AFF',
-  macaw300: '#2979FF',
+  macaw300: '#2D73FF',
+  macaw350: '#2943FF',
   macaw400: '#0044FF',
   macaw500: '#003ADA',
   macaw600: '#002CA4',
