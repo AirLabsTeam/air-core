@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [11.3.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@11.2.4...@air/zephyr@11.3.0) (2021-04-06)
+
+### Features
+
+- **@air/zephyr:** add new theme colors and new text variant ([c13ef4b](https://github.com/AirLabsTeam/web-core/commit/c13ef4baecf93a34049270a438fb2158a41e1bc2))
+
 ## [11.2.4](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@11.2.3...@air/zephyr@11.2.4) (2021-03-31)
 
 ### Bug Fixes
