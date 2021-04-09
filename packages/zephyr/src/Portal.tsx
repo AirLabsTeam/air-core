@@ -1,1 +1,2 @@
-export * as Portal from '@reach/portal';
+import ReachPortal from '@reach/portal';
+export const Portal = ReachPortal;
