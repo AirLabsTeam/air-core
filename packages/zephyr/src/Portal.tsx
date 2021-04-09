@@ -1,1 +1,1 @@
-export * as Portal from '@radix-ui/react-portal';
+export * as Portal from '@reach/portal';
