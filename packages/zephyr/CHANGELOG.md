@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [12.0.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@11.4.1...@air/zephyr@12.0.0) (2021-04-09)
+
+### Bug Fixes
+
+- **portal:** use correct export expression for Portal ([391201f](https://github.com/AirLabsTeam/web-core/commit/391201f2cdcca3c8a824211e58b1cce3d43ff1a4))
+
+### Reverts
+
+- Revert "chore(release): publish" ([2b021fd](https://github.com/AirLabsTeam/web-core/commit/2b021fd378a3b19c2a2718976a3a52c830c8251a))
+
+### BREAKING CHANGES
+
+- **portal:** If you used previous Portal component in its 2hr lifetime you’ll need to use
+  <Portal> instead of <Portal.Root> (from radix)
+
 ## [11.4.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@11.4.0...@air/zephyr@11.4.1) (2021-04-09)
 
 ### Bug Fixes
