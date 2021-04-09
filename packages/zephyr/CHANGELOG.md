@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [11.4.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@11.3.0...@air/zephyr@11.4.0) (2021-04-09)
+
+### Features
+
+- **portal:** export same Portal used by Modals ([4b0527e](https://github.com/AirLabsTeam/web-core/commit/4b0527ec6fcc72e87d726ae5314ac65b9f73953d))
+
+### Reverts
+
+- Revert "chore(release): publish" ([6f914a5](https://github.com/AirLabsTeam/web-core/commit/6f914a5026641397ff38bf116e84c835e321579d))
+
 # [11.3.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@11.2.4...@air/zephyr@11.3.0) (2021-04-06)
 
 ### Features
