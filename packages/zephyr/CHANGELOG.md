@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [11.4.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@11.4.0...@air/zephyr@11.4.1) (2021-04-09)
+
+### Bug Fixes
+
+- **portal:** use correct Portal export ([08036f1](https://github.com/AirLabsTeam/web-core/commit/08036f1d00555a7dcef56692b702ddfa14968ae0))
+
 # [11.4.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@11.3.0...@air/zephyr@11.4.0) (2021-04-09)
 
 ### Features
