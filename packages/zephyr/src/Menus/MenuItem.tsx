@@ -5,15 +5,46 @@ import { Box, BoxProps } from '../Box';
 import { Text } from '../Text';
 import { SVGComponent } from '../shared';
 
+export type MenuItemVariant = 'large' | 'small';
+
 export interface MenuItemProps
   extends Pick<ReachMenuItemProps, 'onSelect'>,
     Pick<BoxProps, 'children' | 'tx'> {
+  /**
+   * The icon that is rendered on the left of the menu option.
+   */
   icon?: SVGComponent;
+  /**
+   * The label for the menu item.
+   */
+  label?: string;
+  /**
+   * The description for the menu item.
+   */
+  description?: string;
+  /**
+   * This prop will show the shortcuts necessary to trigger this menu option action.
+   */
   shortcut?: string[];
+  /**
+   * The size variant for the menu item.
+   */
+  variant?: MenuItemVariant;
 }
 
-export const MenuItem = ({ children, icon, onSelect, shortcut, tx }: MenuItemProps) => {
+export const MenuItem = ({
+  children,
+  description,
+  icon,
+  label,
+  onSelect,
+  shortcut,
+  tx,
+  variant = 'small',
+}: MenuItemProps) => {
   const numberOfShortcutKeys = shortcut?.length ?? 0;
+  const hasDescription = !!description;
+  const isSmallVariant = variant === 'small';
 
   return (
     <Box
@@ -23,9 +54,10 @@ export const MenuItem = ({ children, icon, onSelect, shortcut, tx }: MenuItemPro
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        height: 32,
+        height: hasDescription ? 'auto' : isSmallVariant ? 32 : 36,
         mb: 8,
         px: 6,
+        py: hasDescription ? 6 : 0,
         borderRadius: 4,
         cursor: 'pointer',
 
@@ -40,19 +72,40 @@ export const MenuItem = ({ children, icon, onSelect, shortcut, tx }: MenuItemPro
         ...tx,
       }}
     >
-      <Box tx={{ display: 'flex', alignItems: 'center' }}>
-        {icon && <Box as={icon} tx={{ width: 16, mr: 8, color: 'pigeon500' }}></Box>}
-        <Text
-          tx={{
-            color: 'pigeon700',
-            whiteSpace: 'nowrap',
-            overflow: 'hidden',
-            textOverflow: 'ellipsis',
-          }}
-          variant="text-ui-14"
-        >
-          {children}
-        </Text>
+      <Box tx={{ display: 'flex', alignItems: hasDescription ? 'flex-start' : 'center' }}>
+        {icon && (
+          <Box
+            as={icon}
+            tx={{
+              flexShrink: 0,
+              width: 16,
+              mr: 8,
+              mt: hasDescription ? (isSmallVariant ? 3 : 4) : 0,
+              color: 'pigeon500',
+            }}
+          />
+        )}
+        {children ?? (
+          <Box>
+            <Text
+              tx={{
+                color: 'pigeon700',
+                whiteSpace: 'nowrap',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+              }}
+              variant={isSmallVariant ? 'text-ui-14' : 'text-ui-16'}
+            >
+              {label}
+            </Text>
+            <Text
+              tx={{ mt: 2, color: 'pigeon500' }}
+              variant={isSmallVariant ? 'text-ui-12' : 'text-ui-14'}
+            >
+              {description}
+            </Text>
+          </Box>
+        )}
       </Box>
 
       {shortcut && (

@@ -1,68 +1,62 @@
-import {
-  Menu as ReachMenu,
-  MenuProps as ReachMenuProps,
-  MenuButton as ReachMenuButton,
-  MenuButtonProps as ReachMenuButtonProps,
-  MenuList as ReachMenuList,
-} from '@reach/menu-button';
-import { rgba } from 'polished';
-import React, { FC, ReactNode } from 'react';
-import { useTheme } from 'styled-components';
+import { Menu as ReachMenu, MenuProps as ReachMenuProps } from '@reach/menu-button';
+import React, { ReactNode } from 'react';
 
 import { Box, BoxProps } from '../Box';
 import { MenuDivider } from './MenuDivider';
-import { MenuItem, MenuItemProps } from './MenuItem';
+import { MenuItem, MenuItemProps, MenuItemVariant } from './MenuItem';
+import { MenuList } from './MenuList';
 
 export type MenuProps = ReachMenuProps &
   Pick<BoxProps, 'tx'> & {
-    children: ReactNode;
-    options?: (Pick<MenuItemProps, 'icon' | 'onSelect' | 'shortcut'> & {
+    children?: ReactNode;
+    /**
+     * The options that are rendered in the menu list.
+     */
+    options?: (Pick<MenuItemProps, 'description' | 'icon' | 'label' | 'onSelect' | 'shortcut'> & {
+      /**
+       * Renders a divider below the menu item.
+       */
       divider?: boolean;
-      label: string;
     })[];
+    /**
+     * The trigger that toggles the opening and closing of the `Menu`. The component that is
+     * passed to this prop requires the usage of `MenuButton` exported by Zephyr.
+     *
+     * For example, if you were to use a Zephyr button, you will need to pass `MenuButton` to
+     * the as prop. `<Button as={MenuButton} />`.
+     */
     trigger: ReactNode;
+
+    /**
+     * The size variant for the menu item.
+     */
+    variant?: MenuItemVariant;
   };
 
-export const Menu = ({ children, options, trigger, tx }: MenuProps) => {
-  const theme = useTheme();
-
+export const Menu = ({ children, options, trigger, tx, variant = 'small' }: MenuProps) => {
   return (
     <Box as={ReachMenu}>
-      <Box as={ReachMenuButton as FC<Omit<ReachMenuButtonProps, 'as'>>}>{trigger}</Box>
-      <Box
-        as={ReachMenuList}
-        tx={{
-          backgroundColor: 'white',
-          width: 216,
-          p: 8,
-          outline: 'none',
-          borderRadius: 4,
-          boxShadow: `
-            0px 2px 8px ${rgba(theme.colors.black, 0.2)}, 
-            0px 1px 3px ${rgba(theme.colors.black, 0.15)}, 
-            0px 0px 2px ${rgba(theme.colors.black, 0.25)}
-          `,
-          ...tx,
-        }}
-      >
+      {trigger}
+      <MenuList tx={tx}>
         {options
           ? options.map((option, index) => {
               return (
                 <>
                   <MenuItem
+                    description={option.description}
                     icon={option.icon}
+                    label={option.label}
                     onSelect={option.onSelect}
                     key={index}
                     shortcut={option.shortcut}
-                  >
-                    {option.label}
-                  </MenuItem>
+                    variant={variant}
+                  />
                   {option.divider && <MenuDivider />}
                 </>
               );
             })
           : children}
-      </Box>
+      </MenuList>
     </Box>
   );
 };
