@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.1.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@7.0.0...@air/icons@7.1.0) (2021-04-15)
+
+### Features
+
+- **icons:** add Sync and Exclamation icons ([b105306](https://github.com/AirLabsTeam/web-core/commit/b1053065d5de3f373fae9152af7c4fdc9db138cc))
+
 # [7.0.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@6.5.0...@air/icons@7.0.0) (2021-03-17)
 
 ### Features
