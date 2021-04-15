@@ -41,6 +41,7 @@ export const MenuItem = ({
   shortcut,
   tx,
   variant = 'small',
+  ...restOfProps
 }: MenuItemProps) => {
   const numberOfShortcutKeys = shortcut?.length ?? 0;
   const hasDescription = !!description;
@@ -71,6 +72,7 @@ export const MenuItem = ({
 
         ...tx,
       }}
+      {...restOfProps}
     >
       <Box tx={{ display: 'flex', alignItems: hasDescription ? 'flex-start' : 'center' }}>
         {icon && (
