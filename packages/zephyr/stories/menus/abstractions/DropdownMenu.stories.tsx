@@ -4,7 +4,7 @@ import React from 'react';
 
 import { Box } from '../../../src/Box';
 import { Button } from '../../../src/Button';
-import { DropdownMenu, DropdownMenuProps } from '../../../src/Menus/DropdownMenu';
+import { DropdownMenu, DropdownMenuProps } from '../../../src/Menus/abstractions/DropdownMenu';
 
 const meta: Meta<DropdownMenuProps> = {
   title: 'Zephyr/Menus/Abstractions/DropdownMenu',

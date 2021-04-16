@@ -3,7 +3,7 @@ import { Meta, Story } from '@storybook/react';
 import React from 'react';
 
 import { Box } from '../../../src/Box';
-import { MenuItem, MenuItemProps } from '../../../src/Menus';
+import { MenuItem, MenuItemProps } from '../../../src/Menus/components/MenuItem';
 import { Text } from '../../../src/Text';
 
 export default {
@@ -93,8 +93,25 @@ withShortcut.args = {
 withShortcut.parameters = {
   docs: {
     description: {
+      story: 'The `divider` prop will append a divider to the bottom of the menu item.',
+    },
+  },
+};
+
+export const withDivider = Template.bind({});
+
+withDivider.args = {
+  divider: true,
+  label: 'Menu item',
+  shortcut: ['del', 's'],
+  tx: {},
+};
+
+withDivider.parameters = {
+  docs: {
+    description: {
       story:
-        'The `shortcut` will display on the right of the menu item with the proper key combination to trigger the same action as if the user were to click on the menu item.',
+        'We recommend against passing a custom child to the menu item unless it’s absolutely necessary to do so. ',
     },
   },
 };

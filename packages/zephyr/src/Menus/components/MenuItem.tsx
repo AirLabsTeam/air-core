@@ -1,73 +1,37 @@
-import { motion, useReducedMotion } from 'framer-motion';
-import { rgba } from 'polished';
 import React, { ReactNode } from 'react';
-import { useTheme } from 'styled-components';
 
-import { Box, BoxProps } from '../Box';
-import { Text } from '../Text';
-
-export interface MenuDividerProps extends BoxProps {}
-
-export const MenuDivider = ({ tx, ...restOfProps }: MenuDividerProps) => {
-  return (
-    <Box
-      as="hr"
-      tx={{ backgroundColor: 'pigeon100', height: 1, border: 0, my: 8, ...tx }}
-      {...restOfProps}
-    />
-  );
-};
-
-export type MenuListSize = 'small' | 'large';
-
-export interface MenuListProps extends Pick<BoxProps, 'children' | 'tx'> {
-  size?: MenuListSize;
-}
-
-export const MenuList = ({ children, tx, size = 'small', ...restOfProps }: MenuListProps) => {
-  const shouldReduceMotion = useReducedMotion();
-  const theme = useTheme();
-  const isSmallSize = size === 'small';
-
-  return (
-    <Box
-      as={motion.div}
-      initial={{ opacity: 0, y: shouldReduceMotion ? 0 : -12 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: shouldReduceMotion ? 0 : -12 }}
-      transition={{ type: 'tween', duration: 0.2, ease: 'easeInOut' }}
-      tx={{
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'stretch',
-        backgroundColor: 'white',
-        width: isSmallSize ? 216 : 240,
-        p: isSmallSize ? 6 : 8,
-        outline: 'none',
-        borderRadius: 4,
-        boxShadow: `
-          0px 2px 8px ${rgba(theme.colors.black, 0.2)}, 
-          0px 1px 3px ${rgba(theme.colors.black, 0.15)}, 
-          0px 0px 2px ${rgba(theme.colors.black, 0.25)}
-        `,
-        ...tx,
-      }}
-      {...restOfProps}
-    >
-      {children}
-    </Box>
-  );
-};
+import { Box, BoxProps } from '../../Box';
+import { Text } from '../../Text';
+import { MenuDivider } from './MenuDivider';
 
 export type MenuItemSize = 'small' | 'large';
 
 export type MenuItemRenderProps = { children: ReactNode } | { label: string; description?: string };
 
 export type MenuItemProps = Pick<BoxProps, 'tx'> & {
+  /**
+   * Renders `<MenuDivider />` below the menu item.
+   */
   divider?: boolean;
+
+  /**
+   * Displays an element on the left of `children` or `label.
+   */
   leftAdornment?: ReactNode;
+
+  /**
+   * Displays an element on the right of `children` or `label.
+   */
   rightAdornment?: ReactNode;
+
+  /**
+   * The `shortcut` prop will append the keys used to trigger the shortcut.
+   */
   shortcut?: string[];
+
+  /**
+   * The `size` prop determines the height of the menu item and the spacing of the adornments.
+   */
   size?: MenuItemSize;
 } & MenuItemRenderProps;
 

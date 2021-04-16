@@ -10,16 +10,19 @@ import {
 import { AnimatePresence } from 'framer-motion';
 import React, { cloneElement, FC, ReactElement, ReactNode } from 'react';
 
-import { Box, BoxProps } from '../Box';
-import { MenuItem, MenuItemProps, MenuItemRenderProps, MenuList } from './Menu';
+import { Box, BoxProps } from '../../Box';
+import { Menu } from '../components/Menu';
+import { MenuItem, MenuItemRenderProps, MenuItemProps } from '../components/MenuItem';
+
+export type DropdownMenuOption = Pick<
+  MenuItemProps,
+  'divider' | 'leftAdornment' | 'rightAdornment' | 'shortcut' | 'tx'
+> &
+  MenuItemRenderProps &
+  Omit<ReachMenuItemProps, 'children'>;
 
 export interface DropdownMenuProps extends Pick<BoxProps, 'tx'> {
-  options: (Pick<
-    MenuItemProps,
-    'divider' | 'leftAdornment' | 'rightAdornment' | 'shortcut' | 'tx'
-  > &
-    MenuItemRenderProps &
-    Omit<ReachMenuItemProps, 'children'>)[];
+  options: DropdownMenuOption[];
   size?: 'small' | 'large';
   trigger: ReactNode;
 }
@@ -39,7 +42,7 @@ export const DropdownMenu = ({ options, size = 'small', trigger, tx }: DropdownM
           >
             <AnimatePresence>
               {isExpanded && (
-                <MenuList size={size} tx={tx}>
+                <Menu size={size} tx={tx}>
                   <Box as={ReachMenuItems as FC<ReachMenuItemsProps>} tx={{ outline: 'none' }}>
                     {options.map((option, index) => {
                       return (
@@ -53,7 +56,7 @@ export const DropdownMenu = ({ options, size = 'small', trigger, tx }: DropdownM
                       );
                     })}
                   </Box>
-                </MenuList>
+                </Menu>
               )}
             </AnimatePresence>
           </Box>
