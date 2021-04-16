@@ -2,9 +2,8 @@ import React, { ReactNode } from 'react';
 
 import { Box, BoxProps } from '../../Box';
 import { Text } from '../../Text';
+import { MenuSize } from './Menu';
 import { MenuDivider } from './MenuDivider';
-
-export type MenuItemSize = 'small' | 'large';
 
 export type MenuItemRenderProps = { children: ReactNode } | { label: string; description?: string };
 
@@ -32,7 +31,7 @@ export type MenuItemProps = Pick<BoxProps, 'tx'> & {
   /**
    * The `size` prop determines the height of the menu item and the spacing of the adornments.
    */
-  size?: MenuItemSize;
+  size?: MenuSize;
 } & MenuItemRenderProps;
 
 export const MenuItem = ({

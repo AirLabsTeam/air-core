@@ -8,6 +8,9 @@ import { Box, BoxProps } from '../../Box';
 export type MenuSize = 'small' | 'large';
 
 export interface MenuProps extends Pick<BoxProps, 'children' | 'tx'> {
+  /**
+   * The `size` prop determines the padding and default width of the menu.
+   */
   size?: MenuSize;
 }
 
