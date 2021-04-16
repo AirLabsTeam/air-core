@@ -16,7 +16,7 @@ export default meta;
 
 const Container = ({ children, ...restOfProps }: BoxProps) => {
   return (
-    <Box tx={{ minHeight: 200 }} {...restOfProps}>
+    <Box tx={{ mt: 200, minHeight: 200 }} {...restOfProps}>
       <Box
         tx={{
           zIndex: 1,

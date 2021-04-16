@@ -7,12 +7,14 @@ import {
   MenuItems as ReachMenuItems,
   MenuItemsProps as ReachMenuItemsProps,
 } from '@reach/menu-button';
+import { PRect } from '@reach/rect';
 import { AnimatePresence } from 'framer-motion';
 import React, { cloneElement, FC, ReactElement, ReactNode } from 'react';
 
 import { Box, BoxProps } from '../../Box';
 import { Menu } from '../components/Menu';
 import { MenuItem, MenuItemRenderProps, MenuItemProps } from '../components/MenuItem';
+import { getPosition } from '../utils/getPosition';
 
 export type DropdownMenuOption = Pick<
   MenuItemProps,
@@ -22,12 +24,19 @@ export type DropdownMenuOption = Pick<
   Omit<ReachMenuItemProps, 'children'>;
 
 export interface DropdownMenuProps extends Pick<BoxProps, 'tx'> {
+  offset?: number;
   options: DropdownMenuOption[];
   size?: 'small' | 'large';
   trigger: ReactNode;
 }
 
-export const DropdownMenu = ({ options, size = 'small', trigger, tx }: DropdownMenuProps) => {
+export const DropdownMenu = ({
+  offset = 4,
+  options,
+  size = 'small',
+  trigger,
+  tx,
+}: DropdownMenuProps) => {
   return (
     <ReachMenu>
       {({ isExpanded }) => (
@@ -38,6 +47,9 @@ export const DropdownMenu = ({ options, size = 'small', trigger, tx }: DropdownM
             })}
           <Box
             as={ReachMenuPopover}
+            position={(targetRect?: PRect | null, popoverRect?: PRect | null) =>
+              getPosition(targetRect, popoverRect, offset)
+            }
             tx={{ zIndex: 9999, display: 'block', pointerEvents: isExpanded ? 'auto' : 'none' }}
           >
             <AnimatePresence>
