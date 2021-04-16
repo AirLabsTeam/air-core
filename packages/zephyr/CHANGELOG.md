@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.0.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.0.1...@air/zephyr@12.0.2) (2021-04-16)
+
+### Bug Fixes
+
+- **@air/zephyr/singleselect:** adjust ID values to improve querability and accessibility ([83d2522](https://github.com/AirLabsTeam/web-core/commit/83d2522c1145b9ce3cc6ea120aeeecaa89b7ea20))
+
 ## [12.0.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.0.0...@air/zephyr@12.0.1) (2021-04-15)
 
 **Note:** Version bump only for package @air/zephyr
