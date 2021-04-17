@@ -8,7 +8,7 @@ import {
 } from 'react-contexify';
 
 import { Box, BoxProps } from '../../Box';
-import { Menu } from '../components/Menu';
+import { Menu, MenuProps } from '../components/Menu';
 import { MenuItem, MenuItemRenderProps, MenuItemProps } from '../components/MenuItem';
 
 export type ContextMenuOption = Pick<
@@ -18,13 +18,21 @@ export type ContextMenuOption = Pick<
   MenuItemRenderProps &
   Omit<ContexifyItemProps, 'children' | 'onSelect'>;
 
-export interface ContextMenuProps extends Pick<BoxProps, 'tx'> {
+export interface ContextMenuProps extends Pick<BoxProps, 'tx'>, Pick<MenuProps, 'size'> {
+  /**
+   * The `id` is a unique identifier used to target the correct menu to open with
+   * the `useContextMenu` hook.
+   */
   id: string;
   options: (ContextMenuOption & {
     options?: ContextMenuOption[];
   })[];
+  /**
+   * The `showOverlay` props determines whether a transparent `div` is added to the DOM
+   * to prevent users from hovering / clicking with other elements on the page while
+   * the menu is opened.
+   */
   showOverlay?: boolean;
-  size?: 'small' | 'large';
 }
 
 export const ContextMenu = ({

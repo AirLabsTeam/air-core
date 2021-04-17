@@ -1,4 +1,12 @@
 import { AddMember as AddMemberIcon, Link as LinkIcon } from '@air/icons';
+import {
+  Title,
+  Subtitle,
+  Description,
+  ArgsTable,
+  Stories,
+  PRIMARY_STORY,
+} from '@storybook/addon-docs/blocks';
 import { Meta, Story } from '@storybook/react';
 import isChromatic from 'chromatic/isChromatic';
 import React from 'react';
@@ -10,13 +18,44 @@ import { DropdownMenu, DropdownMenuProps } from '../../../src/Menus/abstractions
 const meta: Meta<DropdownMenuProps> = {
   title: 'Zephyr/Menus/Abstractions/DropdownMenu',
   component: DropdownMenu,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'This is an abstraction of the Menu component that wraps around [@reach/menu-button](https://reach.tech/menu-button/). This component does not use any of the styles that are provided by `react-contexify/dist/ReactContexify.css` and **should not** be imported into the app.',
+      },
+      page: () => (
+        <>
+          {/* Because the modal is a portal that spans the content of the page, we want to not make the args table
+        interactive by hiding the contorls themselves. */}
+          <style
+            dangerouslySetInnerHTML={{
+              __html: `
+              .docblock-argstable-head > tr > th:last-child > span {
+                color: transparent;
+              }
+              .docblock-argstable-body > tr > td:last-child > *{
+                display: none;
+              }
+            `,
+            }}
+          />
+          <Title />
+          <Subtitle />
+          <Description />
+          <ArgsTable story={PRIMARY_STORY} />
+          <Stories includePrimary />
+        </>
+      ),
+    },
+  },
 };
 
 export default meta;
 
 const Container = ({ children, ...restOfProps }: BoxProps) => {
   return (
-    <Box tx={{ mt: 200, minHeight: 200 }} {...restOfProps}>
+    <Box {...restOfProps}>
       <Box
         tx={{
           zIndex: 1,
@@ -60,6 +99,30 @@ Default.args = {
       leftAdornment: <Box as={AddMemberIcon} tx={{ display: 'block', width: 16 }} />,
       label: 'Add members',
       description: 'Invite members or guests to collaborate on this board',
+      onSelect: () => {},
+    },
+  ],
+  trigger: <Button variant="button-filled-blue">Options</Button>,
+  tx: {
+    width: 240,
+  },
+};
+
+export const withCustomOffset = Template.bind({});
+
+withCustomOffset.args = {
+  offset: 24,
+  options: [
+    {
+      leftAdornment: <Box as={LinkIcon} tx={{ display: 'block', width: 16 }} />,
+      label: 'Share a link',
+      description: 'Generate a share link for public or private use',
+      onSelect: () => {},
+    },
+    {
+      leftAdornment: <Box as={AddMemberIcon} tx={{ display: 'block', width: 16 }} />,
+      label: 'Add members',
+      description: 'Invite members or guests to collaborate on this board',
       divider: true,
       onSelect: () => {},
     },
@@ -78,5 +141,14 @@ Default.args = {
   trigger: <Button variant="button-filled-blue">Options</Button>,
   tx: {
     width: 240,
+  },
+};
+
+withCustomOffset.parameters = {
+  docs: {
+    description: {
+      story:
+        'The `offset` prop allows you to control the distance between the menu and the trigger.',
+    },
   },
 };

@@ -12,7 +12,7 @@ import { AnimatePresence } from 'framer-motion';
 import React, { cloneElement, FC, ReactElement, ReactNode } from 'react';
 
 import { Box, BoxProps } from '../../Box';
-import { Menu } from '../components/Menu';
+import { Menu, MenuProps } from '../components/Menu';
 import { MenuItem, MenuItemRenderProps, MenuItemProps } from '../components/MenuItem';
 import { getPosition } from '../utils/getPosition';
 
@@ -23,10 +23,12 @@ export type DropdownMenuOption = Pick<
   MenuItemRenderProps &
   Omit<ReachMenuItemProps, 'children'>;
 
-export interface DropdownMenuProps extends Pick<BoxProps, 'tx'> {
+export interface DropdownMenuProps extends Pick<BoxProps, 'tx'>, Pick<MenuProps, 'size'> {
+  /**
+   * The `offset` allows you to control the distance between the menu and the trigger.
+   */
   offset?: number;
   options: DropdownMenuOption[];
-  size?: 'small' | 'large';
   trigger: ReactNode;
 }
 
