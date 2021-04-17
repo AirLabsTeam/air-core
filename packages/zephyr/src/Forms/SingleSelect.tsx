@@ -506,7 +506,7 @@ export const SingleSelect = ({
       ...AirReactSelectComponents,
     },
     defaultOptions: true,
-    id: selectID,
+    id: `react-select-${selectID}`,
     instanceId: `${selectID}_instance`,
     isClearable: false,
     isDisabled,

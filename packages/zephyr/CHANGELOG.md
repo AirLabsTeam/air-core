@@ -3,6 +3,48 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.0.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.0.1...@air/zephyr@12.0.2) (2021-04-16)
+
+### Bug Fixes
+
+- **@air/zephyr/singleselect:** adjust ID values to improve querability and accessibility ([83d2522](https://github.com/AirLabsTeam/web-core/commit/83d2522c1145b9ce3cc6ea120aeeecaa89b7ea20))
+
+## [12.0.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.0.0...@air/zephyr@12.0.1) (2021-04-15)
+
+**Note:** Version bump only for package @air/zephyr
+
+# [12.0.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@11.4.1...@air/zephyr@12.0.0) (2021-04-09)
+
+### Bug Fixes
+
+- **portal:** use correct export expression for Portal ([391201f](https://github.com/AirLabsTeam/web-core/commit/391201f2cdcca3c8a824211e58b1cce3d43ff1a4))
+
+### Reverts
+
+- Revert "chore(release): publish" ([7cac75f](https://github.com/AirLabsTeam/web-core/commit/7cac75fcc06b408d5ba2287f03768ed94ced40ed))
+- Revert "chore(release): publish" ([2b021fd](https://github.com/AirLabsTeam/web-core/commit/2b021fd378a3b19c2a2718976a3a52c830c8251a))
+
+### BREAKING CHANGES
+
+- **portal:** If you used previous Portal component in its 2hr lifetime you’ll need to use
+  <Portal> instead of <Portal.Root> (from radix)
+
+## [11.4.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@11.4.0...@air/zephyr@11.4.1) (2021-04-09)
+
+### Bug Fixes
+
+- **portal:** use correct Portal export ([08036f1](https://github.com/AirLabsTeam/web-core/commit/08036f1d00555a7dcef56692b702ddfa14968ae0))
+
+# [11.4.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@11.3.0...@air/zephyr@11.4.0) (2021-04-09)
+
+### Features
+
+- **portal:** export same Portal used by Modals ([4b0527e](https://github.com/AirLabsTeam/web-core/commit/4b0527ec6fcc72e87d726ae5314ac65b9f73953d))
+
+### Reverts
+
+- Revert "chore(release): publish" ([6f914a5](https://github.com/AirLabsTeam/web-core/commit/6f914a5026641397ff38bf116e84c835e321579d))
+
 # [11.3.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@11.2.4...@air/zephyr@11.3.0) (2021-04-06)
 
 ### Features

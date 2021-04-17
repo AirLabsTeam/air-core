@@ -7,4 +7,5 @@ export * from './Forms';
 export * from './Modals';
 export * from './Text';
 export * from './Tooltip';
+export * from './Portal';
 export * from './theme';
