@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [12.1.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.0.2...@air/zephyr@12.1.0) (2021-04-18)
+
+### Features
+
+- **@air/zephyr/input:** expose prop to access inner input's ref ([e7fdf5f](https://github.com/AirLabsTeam/web-core/commit/e7fdf5fc387a9d2b51ea39add30287430cc53453))
+
 ## [12.0.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.0.1...@air/zephyr@12.0.2) (2021-04-16)
 
 ### Bug Fixes
