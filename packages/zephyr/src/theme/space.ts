@@ -18,6 +18,7 @@ export type SpaceName =
   | -4
   | 0
   | 4
+  | 6
   | 8
   | 12
   | 16
@@ -93,6 +94,7 @@ export const space: { [key in SpaceName]: number | string } = {
   [-4]: -4,
   0: 0,
   4: 4,
+  6: 6,
   8: 8,
   12: 12,
   16: 16,
