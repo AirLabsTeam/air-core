@@ -40,7 +40,6 @@ export const MenuItem = ({
   rightAdornment,
   shortcut,
   size = 'small',
-  tx,
   ...restOfProps
 }: MenuItemProps) => {
   const hasDescription = 'description' in restOfProps;
@@ -50,7 +49,7 @@ export const MenuItem = ({
   return (
     <>
       <Box
-        tx={{
+        __baseStyles={{
           display: 'flex',
           alignItems: hasDescription ? 'flex-start' : 'center',
           justifyContent: 'space-between',
@@ -72,8 +71,6 @@ export const MenuItem = ({
           '&:focus': { outline: 'none', backgroundColor: 'pigeon050' },
 
           '&:last-child': { mb: 0 },
-
-          ...tx,
         }}
         {...restOfProps}
       >
