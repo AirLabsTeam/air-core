@@ -22,12 +22,10 @@ const meta: Meta<DropdownMenuProps> = {
     docs: {
       description: {
         component:
-          'This is an abstraction of the Menu component that wraps around [@reach/menu-button](https://reach.tech/menu-button/). This component does not use any of the styles that are provided by `react-contexify/dist/ReactContexify.css` and **should not** be imported into the app.',
+          'This is an abstraction of the Menu component that wraps around [@reach/menu-button](https://reach.tech/menu-button/).',
       },
       page: () => (
         <>
-          {/* Because the modal is a portal that spans the content of the page, we want to not make the args table
-        interactive by hiding the contorls themselves. */}
           <style
             dangerouslySetInnerHTML={{
               __html: `

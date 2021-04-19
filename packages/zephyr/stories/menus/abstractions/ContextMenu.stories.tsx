@@ -38,8 +38,6 @@ const meta: Meta<ContextMenuProps> = {
       },
       page: () => (
         <>
-          {/* Because the modal is a portal that spans the content of the page, we want to not make the args table
-        interactive by hiding the contorls themselves. */}
           <style
             dangerouslySetInnerHTML={{
               __html: `
