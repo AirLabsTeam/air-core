@@ -160,6 +160,7 @@ export interface InputProps extends Pick<BoxStylingProps, 'tx'> {
   disabled?: boolean;
   readOnly?: boolean;
   'data-testid'?: string;
+  innerInputRef?: React.MutableRefObject<HTMLInputElement | null>;
 }
 
 const sharedAdornmentStyles: BoxStylingProps['tx'] = {
@@ -175,6 +176,7 @@ export const Input = ({
   description,
   disabled = false,
   id,
+  innerInputRef,
   isLabelHidden = false,
   label,
   name,
@@ -288,11 +290,14 @@ export const Input = ({
         )}
 
         <Box
+          as="input"
+          ref={(instance: HTMLInputElement | null) =>
+            innerInputRef ? (innerInputRef.current = instance) : undefined
+          }
           aria-describedby={
-            !!description ? `${descriptionIdentifier} ${errorIdentifier}` : errorIdentifier
+            description ? `${descriptionIdentifier} ${errorIdentifier}` : errorIdentifier
           }
           aria-invalid={hasError}
-          as="input"
           autoComplete={autoComplete}
           data-testid={testID}
           disabled={disabled || readOnly}
