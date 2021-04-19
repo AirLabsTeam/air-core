@@ -121,7 +121,7 @@ withCustomOffset.args = {
       leftAdornment: <Box as={AddMemberIcon} tx={{ display: 'block', width: 16 }} />,
       label: 'Add members',
       description: 'Invite members or guests to collaborate on this board',
-      divider: true,
+      hasDivider: true,
       onSelect: () => {},
     },
     {
@@ -166,7 +166,7 @@ withChildrenTop.args = {
       leftAdornment: <Box as={AddMemberIcon} tx={{ display: 'block', width: 16 }} />,
       label: 'Add members',
       description: 'Invite members or guests to collaborate on this board',
-      divider: true,
+      hasDivider: true,
       onSelect: () => {},
     },
     {
@@ -211,7 +211,7 @@ withChildrenBottom.args = {
       leftAdornment: <Box as={AddMemberIcon} tx={{ display: 'block', width: 16 }} />,
       label: 'Add members',
       description: 'Invite members or guests to collaborate on this board',
-      divider: true,
+      hasDivider: true,
       onSelect: () => {},
     },
     {

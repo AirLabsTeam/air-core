@@ -35,7 +35,7 @@ export type MenuItemProps = Pick<BoxProps, 'tx'> & {
 } & MenuItemRenderProps;
 
 export const MenuItem = ({
-  divider,
+  hasDivider,
   leftAdornment,
   rightAdornment,
   shortcut,
@@ -55,7 +55,7 @@ export const MenuItem = ({
           justifyContent: 'space-between',
           backgroundColor: 'transparent',
           height: hasDescription ? 'auto' : isSmallSize ? 32 : 36,
-          mb: divider ? 0 : 8,
+          mb: hasDivider ? 0 : 8,
           px: 6,
           py: hasDescription ? 6 : 0,
           border: 0,
@@ -138,7 +138,7 @@ export const MenuItem = ({
           </Box>
         )}
       </Box>
-      {divider && <MenuDivider />}
+      {hasDivider && <MenuDivider />}
     </>
   );
 };

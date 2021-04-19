@@ -204,7 +204,7 @@ withSubMenu.args = {
           leftAdornment: <Box as={PauseIcon} tx={{ display: 'block', width: 16 }} />,
         },
         {
-          divider: true,
+          hasDivider: true,
           label: 'In review',
           leftAdornment: <Box as={EyeIcon} tx={{ display: 'block', width: 16 }} />,
         },
@@ -219,7 +219,7 @@ withSubMenu.args = {
       ],
     },
     {
-      divider: true,
+      hasDivider: true,
       label: 'Add to favorites',
       leftAdornment: <Box as={StarIcon} tx={{ display: 'block', width: 16 }} />,
     },

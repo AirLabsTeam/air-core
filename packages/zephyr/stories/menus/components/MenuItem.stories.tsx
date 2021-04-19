@@ -101,7 +101,7 @@ withShortcut.parameters = {
 export const withDivider = Template.bind({});
 
 withDivider.args = {
-  divider: true,
+  hasDivider: true,
   label: 'Menu item',
   shortcut: ['del', 's'],
   tx: {},

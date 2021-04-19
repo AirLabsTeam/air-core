@@ -19,7 +19,7 @@ import { getPosition } from '../utils/getPosition';
 
 export type DropdownMenuOption = Pick<
   MenuItemProps,
-  'divider' | 'leftAdornment' | 'rightAdornment' | 'shortcut' | 'tx'
+  'hasDivider' | 'leftAdornment' | 'rightAdornment' | 'shortcut' | 'tx'
 > &
   MenuItemRenderProps &
   Omit<ReachMenuItemProps, 'children'>;
