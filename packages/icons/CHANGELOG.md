@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.1.1](https://github.com/AirLabsTeam/web-core/compare/@air/icons@7.1.0...@air/icons@7.1.1) (2021-04-19)
+
+### Bug Fixes
+
+- **sync.svg:** fix angle/spacing between arrows ([5af6fbc](https://github.com/AirLabsTeam/web-core/commit/5af6fbcdc70a041617d2676d10b1ea1391176888))
+
 # [7.1.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@7.0.0...@air/icons@7.1.0) (2021-04-15)
 
 ### Features
