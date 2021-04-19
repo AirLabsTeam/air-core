@@ -25,7 +25,7 @@ export const Menu = ({ children, tx, size = 'small', ...restOfProps }: MenuProps
       initial={{ opacity: 0, y: shouldReduceMotion ? 0 : -12 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: shouldReduceMotion ? 0 : -12 }}
-      transition={{ type: 'spring', damping: 14, stiffness: 300 }}
+      transition={{ type: 'spring', damping: 20, stiffness: 300 }}
       tx={{
         display: 'flex',
         flexDirection: 'column',
