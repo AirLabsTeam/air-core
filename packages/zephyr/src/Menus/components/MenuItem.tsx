@@ -61,10 +61,11 @@ export const MenuItem = ({
           py: hasDescription ? 6 : 0,
           border: 0,
           borderRadius: 4,
+          color: 'pigeon700',
           textAlign: 'left',
           cursor: 'pointer',
 
-          '&[data-selected]': { backgroundColor: 'pigeon050' },
+          '&[data-selected]': { backgroundColor: 'pigeon050', color: 'pigeon700' },
 
           '&:hover': { backgroundColor: 'pigeon050' },
 
@@ -77,14 +78,7 @@ export const MenuItem = ({
         {...restOfProps}
       >
         {leftAdornment && (
-          <Box
-            tx={{
-              flexShrink: 0,
-              mr: 8,
-              mt: hasDescription ? (isSmallSize ? 2 : 4) : 0,
-              color: 'pigeon500',
-            }}
-          >
+          <Box tx={{ flexShrink: 0, mr: 8, mt: hasDescription ? (isSmallSize ? 2 : 4) : 0 }}>
             {leftAdornment}
           </Box>
         )}
@@ -96,7 +90,7 @@ export const MenuItem = ({
             <Box>
               <Text
                 tx={{
-                  color: 'pigeon700',
+                  color: 'inherit',
                   whiteSpace: 'nowrap',
                   overflow: 'hidden',
                   textOverflow: 'ellipsis',
@@ -116,14 +110,7 @@ export const MenuItem = ({
         </Box>
 
         {rightAdornment && (
-          <Box
-            tx={{
-              flexShrink: 0,
-              ml: 8,
-              mt: hasDescription ? (isSmallSize ? 2 : 4) : 0,
-              color: 'pigeon500',
-            }}
-          >
+          <Box tx={{ flexShrink: 0, ml: 8, mt: hasDescription ? (isSmallSize ? 2 : 4) : 0 }}>
             {rightAdornment}
           </Box>
         )}
