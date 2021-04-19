@@ -11,7 +11,7 @@ export type MenuItemProps = Pick<BoxProps, 'tx'> & {
   /**
    * Renders `<MenuDivider />` below the menu item.
    */
-  divider?: boolean;
+  hasDivider?: boolean;
 
   /**
    * Displays an element on the left of `children` or `label.
