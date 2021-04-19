@@ -61,7 +61,6 @@ export const MenuItem = ({
           py: hasDescription ? 6 : 0,
           border: 0,
           borderRadius: 4,
-          color: 'pigeon700',
           textAlign: 'left',
           cursor: 'pointer',
 
@@ -78,7 +77,14 @@ export const MenuItem = ({
         {...restOfProps}
       >
         {leftAdornment && (
-          <Box tx={{ flexShrink: 0, mr: 8, mt: hasDescription ? (isSmallSize ? 2 : 4) : 0 }}>
+          <Box
+            tx={{
+              flexShrink: 0,
+              mr: 8,
+              mt: hasDescription ? (isSmallSize ? 2 : 4) : 0,
+              color: 'pigeon500',
+            }}
+          >
             {leftAdornment}
           </Box>
         )}
@@ -90,7 +96,7 @@ export const MenuItem = ({
             <Box>
               <Text
                 tx={{
-                  color: 'inherit',
+                  color: 'pigeon700',
                   whiteSpace: 'nowrap',
                   overflow: 'hidden',
                   textOverflow: 'ellipsis',
@@ -110,7 +116,14 @@ export const MenuItem = ({
         </Box>
 
         {rightAdornment && (
-          <Box tx={{ flexShrink: 0, ml: 8, mt: hasDescription ? (isSmallSize ? 2 : 4) : 0 }}>
+          <Box
+            tx={{
+              flexShrink: 0,
+              ml: 8,
+              mt: hasDescription ? (isSmallSize ? 2 : 4) : 0,
+              color: 'pigeon500',
+            }}
+          >
             {rightAdornment}
           </Box>
         )}

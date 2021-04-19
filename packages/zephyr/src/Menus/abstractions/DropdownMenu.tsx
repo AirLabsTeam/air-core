@@ -7,6 +7,7 @@ import {
   MenuItems as ReachMenuItems,
   MenuItemsProps as ReachMenuItemsProps,
 } from '@reach/menu-button';
+
 import { PRect } from '@reach/rect';
 import { AnimatePresence } from 'framer-motion';
 import React, { cloneElement, FC, ReactElement, ReactNode } from 'react';
@@ -57,7 +58,18 @@ export const DropdownMenu = ({
             <AnimatePresence>
               {isExpanded && (
                 <Menu size={size} tx={tx}>
-                  <Box as={ReachMenuItems as FC<ReachMenuItemsProps>} tx={{ outline: 'none' }}>
+                  <Box
+                    as={ReachMenuItems as FC<ReachMenuItemsProps>}
+                    tx={{
+                      outline: 'none',
+                      p: 0,
+                      border: 0,
+                      fontSize: 'inherit',
+                      background: 'transparent',
+                      whiteSpace: 'initial',
+                      color: 'inherit',
+                    }}
+                  >
                     {options.map((option, index) => {
                       return (
                         <MenuItem
