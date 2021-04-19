@@ -26,14 +26,30 @@ export type DropdownMenuOption = Pick<
 
 export interface DropdownMenuProps extends Pick<BoxProps, 'tx'>, Pick<MenuProps, 'size'> {
   /**
+   * Children for the dropdown menu that is rendered below the options.
+   */
+  childrenBottom?: ReactNode;
+
+  /**
+   * Children for the dropdown menu that is rendered below the options.
+   */
+  childrenTop?: ReactNode;
+
+  /**
    * The `offset` allows you to control the distance between the menu and the trigger.
    */
   offset?: number;
   options: DropdownMenuOption[];
+
+  /**
+   * The trigger that will open the menu.
+   */
   trigger: ReactNode;
 }
 
 export const DropdownMenu = ({
+  childrenBottom,
+  childrenTop,
   offset = 4,
   options,
   size = 'small',
@@ -58,6 +74,7 @@ export const DropdownMenu = ({
             <AnimatePresence>
               {isExpanded && (
                 <Menu size={size} tx={tx}>
+                  {childrenTop}
                   <Box
                     as={ReachMenuItems as FC<ReachMenuItemsProps>}
                     tx={{
@@ -82,6 +99,7 @@ export const DropdownMenu = ({
                       );
                     })}
                   </Box>
+                  {childrenBottom}
                 </Menu>
               )}
             </AnimatePresence>
