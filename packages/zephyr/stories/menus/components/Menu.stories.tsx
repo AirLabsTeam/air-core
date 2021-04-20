@@ -30,3 +30,37 @@ export const Default = Template.bind({});
 Default.args = {};
 
 Default.parameters = {};
+
+export const withCustomAnimation = Template.bind({});
+
+withCustomAnimation.args = {
+  animation: {
+    hidden: {
+      opacity: 0,
+      rotate: 1000,
+      y: -1000,
+    },
+    visible: {
+      opacity: 1,
+      rotate: 0,
+      y: 0,
+      transition: {
+        delay: 3,
+      },
+    },
+    reducedHidden: {
+      opacity: 0,
+    },
+    reducedVisible: {
+      opacity: 1,
+    },
+  },
+};
+
+withCustomAnimation.parameters = {
+  docs: {
+    description: {
+      story: 'Using the `animation` prop, you can pass in custom animations to the menu.',
+    },
+  },
+};

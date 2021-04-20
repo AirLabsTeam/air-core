@@ -93,7 +93,16 @@ export const ContextMenu = ({
           />
         )}
 
-        <Menu size={size} tx={{ position: 'relative', zIndex: 9999 }}>
+        <Menu
+          animation={{
+            hidden: { opacity: 0 },
+            visible: { opacity: 1 },
+            reducedHidden: { opacity: 0 },
+            reducedVisible: { opacity: 1 },
+          }}
+          size={size}
+          tx={{ position: 'relative', zIndex: 9999 }}
+        >
           {options.map((option, index) => {
             const hasDescription = 'description' in option;
 

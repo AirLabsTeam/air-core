@@ -1,4 +1,4 @@
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion, useReducedMotion, Variant } from 'framer-motion';
 import { rgba } from 'polished';
 import React from 'react';
 import { useTheme } from 'styled-components';
@@ -9,12 +9,44 @@ export type MenuSize = 'small' | 'large';
 
 export interface MenuProps extends Pick<BoxProps, 'children' | 'tx'> {
   /**
+   * The `animation` prop allows you to define the animation for each of the 4 animation states.
+   */
+  animation?: {
+    hidden: Variant;
+    visible: Variant;
+    reducedHidden: Variant;
+    reducedVisible: Variant;
+  };
+  /**
    * The `size` prop determines the padding and default width of the menu.
    */
   size?: MenuSize;
 }
 
-export const Menu = ({ children, tx, size = 'small', ...restOfProps }: MenuProps) => {
+export const defaultMenuAnimation: MenuProps['animation'] = {
+  hidden: {
+    opacity: 0,
+    y: -12,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+  },
+  reducedHidden: {
+    opacity: 0,
+  },
+  reducedVisible: {
+    opacity: 1,
+  },
+};
+
+export const Menu = ({
+  animation = defaultMenuAnimation,
+  children,
+  tx,
+  size = 'small',
+  ...restOfProps
+}: MenuProps) => {
   const shouldReduceMotion = useReducedMotion();
   const theme = useTheme();
   const isSmallSize = size === 'small';
@@ -22,10 +54,11 @@ export const Menu = ({ children, tx, size = 'small', ...restOfProps }: MenuProps
   return (
     <Box
       as={motion.div}
-      initial={{ opacity: 0, y: shouldReduceMotion ? 0 : -12 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: shouldReduceMotion ? 0 : -12 }}
+      initial={shouldReduceMotion ? 'reducedHidden' : 'hidden'}
+      animate={shouldReduceMotion ? 'reducedVisible' : 'visible'}
+      exit={shouldReduceMotion ? 'reducedHidden' : 'hidden'}
       transition={{ type: 'spring', damping: 20, stiffness: 300 }}
+      variants={animation}
       tx={{
         display: 'flex',
         flexDirection: 'column',
