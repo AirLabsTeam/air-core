@@ -4,6 +4,7 @@ export * from './Button';
 export * from './IconButton';
 export * from './XButton';
 export * from './Forms';
+export * from './Menus';
 export * from './Modals';
 export * from './Text';
 export * from './Tooltip';
