@@ -174,14 +174,14 @@ withOverlay.args = {
       },
     },
   ],
-  showOverlay: true,
+  hasOverlay: true,
 };
 
 withOverlay.parameters = {
   docs: {
     description: {
       story:
-        'When `showOverlay` is enabled, a transparent `<div />` is applied above all the other content on the page and below the menu to prevent you from being able to interact with anything else until you have closed this menu.',
+        'When `hasOverlay` is enabled, a transparent `<div />` is applied above all the other content on the page and below the menu to prevent you from being able to interact with anything else until you have closed this menu.',
     },
   },
 };
@@ -194,27 +194,32 @@ withSubMenu.args = {
       label: 'Add status',
       leftAdornment: <Box as={LineGraphIcon} tx={{ display: 'block', width: 16 }} />,
       onClick: () => {},
-      options: [
+      subOptions: [
         {
           label: 'In progress',
           leftAdornment: <Box as={PlayIcon} tx={{ display: 'block', width: 16 }} />,
+          onClick: () => {},
         },
         {
           label: 'Pause',
           leftAdornment: <Box as={PauseIcon} tx={{ display: 'block', width: 16 }} />,
+          onClick: () => {},
         },
         {
           hasDivider: true,
           label: 'In review',
           leftAdornment: <Box as={EyeIcon} tx={{ display: 'block', width: 16 }} />,
+          onClick: () => {},
         },
         {
           label: 'Completed',
           leftAdornment: <Box as={CheckIcon} tx={{ display: 'block', width: 16 }} />,
+          onClick: () => {},
         },
         {
           label: 'Cancel',
           leftAdornment: <Box as={CloseIcon} tx={{ display: 'block', width: 16 }} />,
+          onClick: () => {},
         },
       ],
     },
@@ -222,6 +227,7 @@ withSubMenu.args = {
       hasDivider: true,
       label: 'Add to favorites',
       leftAdornment: <Box as={StarIcon} tx={{ display: 'block', width: 16 }} />,
+      onClick: () => {},
     },
     {
       leftAdornment: (
