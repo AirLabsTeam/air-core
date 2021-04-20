@@ -12,10 +12,9 @@ export interface MenuProps extends Pick<BoxProps, 'children' | 'tx'> {
    * The `animation` prop allows you to define the animation for each of the 4 animation states.
    */
   animation?: {
-    hidden: Variant;
-    visible: Variant;
-    reducedHidden: Variant;
-    reducedVisible: Variant;
+    animate: Variant;
+    exit: Variant;
+    initial: Variant;
   };
   /**
    * The `size` prop determines the padding and default width of the menu.
@@ -23,42 +22,34 @@ export interface MenuProps extends Pick<BoxProps, 'children' | 'tx'> {
   size?: MenuSize;
 }
 
-export const defaultMenuAnimation: MenuProps['animation'] = {
-  hidden: {
-    opacity: 0,
-    y: -12,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-  },
-  reducedHidden: {
-    opacity: 0,
-  },
-  reducedVisible: {
-    opacity: 1,
-  },
-};
-
-export const Menu = ({
-  animation = defaultMenuAnimation,
-  children,
-  tx,
-  size = 'small',
-  ...restOfProps
-}: MenuProps) => {
+export const Menu = ({ animation, children, tx, size = 'small', ...restOfProps }: MenuProps) => {
   const shouldReduceMotion = useReducedMotion();
   const theme = useTheme();
   const isSmallSize = size === 'small';
 
+  const defaultMenuAnimation: MenuProps['animation'] = {
+    animate: {
+      opacity: 1,
+      y: 0,
+    },
+    exit: {
+      opacity: 0,
+      y: shouldReduceMotion ? 0 : -12,
+    },
+    initial: {
+      opacity: 0,
+      y: shouldReduceMotion ? 0 : -12,
+    },
+  };
+
   return (
     <Box
       as={motion.div}
-      initial={shouldReduceMotion ? 'reducedHidden' : 'hidden'}
-      animate={shouldReduceMotion ? 'reducedVisible' : 'visible'}
-      exit={shouldReduceMotion ? 'reducedHidden' : 'hidden'}
+      initial="initial"
+      animate="animate"
+      exit="exit"
       transition={{ type: 'spring', damping: 20, stiffness: 300 }}
-      variants={animation}
+      variants={animation ?? defaultMenuAnimation}
       tx={{
         display: 'flex',
         flexDirection: 'column',

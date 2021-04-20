@@ -98,10 +98,9 @@ export const ContextMenu = ({
 
         <Menu
           animation={{
-            hidden: { opacity: 0 },
-            visible: { opacity: 1 },
-            reducedHidden: { opacity: 0 },
-            reducedVisible: { opacity: 1 },
+            animate: { opacity: 1 },
+            exit: { opacity: 0 },
+            initial: { opacity: 0 },
           }}
           size={size}
           tx={{ position: 'relative', zIndex: 9999 }}
