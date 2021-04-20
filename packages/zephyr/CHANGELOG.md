@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [12.2.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.1.1...@air/zephyr@12.2.0) (2021-04-20)
+
+### Bug Fixes
+
+- **@air/zephyr:** add in 6 to spacing cause this is the one value we appear to use a lot ([2bb75aa](https://github.com/AirLabsTeam/web-core/commit/2bb75aa16d0850f41105916ee839b42828a3b70b))
+- **@air/zephyr:** add in menu export ([7d5021b](https://github.com/AirLabsTeam/web-core/commit/7d5021b73d3a629fea240aff81c09a4191048015))
+- **@air/zephyr:** fix dropdown styles when importing reach/menu-button css ([d9c8cd5](https://github.com/AirLabsTeam/web-core/commit/d9c8cd566e281afcbfc3ce4cfaa86553f0b32a34))
+- **@air/zephyr:** fix menu styles when @reach/menu-button styles when imported ([38b9371](https://github.com/AirLabsTeam/web-core/commit/38b9371ad4a20073ad2f5defd20e5afcd7d8970b))
+- **@air/zephyr:** fix type error with hasDivider ([9fadc91](https://github.com/AirLabsTeam/web-core/commit/9fadc91799a9209288a4cea19ee4dd8b96afdf96))
+- **@air/zephyr:** replace tx with baseStyles for menu item due to padding, and tx only for divide ([c3d3ca9](https://github.com/AirLabsTeam/web-core/commit/c3d3ca98645cfa1bcd02de24afa0dc13de1b2a3b))
+- **@air/zephyr:** update animation damping ([21a634d](https://github.com/AirLabsTeam/web-core/commit/21a634d086efa05eb9b9cc460437fe41a82a7057))
+- **@air/zephyr:** update context menu types ([0df318a](https://github.com/AirLabsTeam/web-core/commit/0df318a963e987bf892ee0fa504d57cdb9cfe0a6))
+- **@air/zephyr:** updated animation ([dd5fd81](https://github.com/AirLabsTeam/web-core/commit/dd5fd818cf0e7bf0fe3e7ba5b874f1d878d9a2b2))
+- **@air/zephyr:** updated animation type ([f521930](https://github.com/AirLabsTeam/web-core/commit/f521930e2707755d46039209014742c192a1541b))
+
+### Features
+
+- **@air/zephyr:** add childrenTop and childrenBottom props to dropdown menu ([efe8578](https://github.com/AirLabsTeam/web-core/commit/efe8578ce7ba622bcbd9133c1334423c25f2c6b3))
+- **@air/zephyr:** add in context menu example ([ca3e8e8](https://github.com/AirLabsTeam/web-core/commit/ca3e8e8d9fc4c773b1ab4ef1d2d7f3d4248594f4))
+- **@air/zephyr:** add in custom animation prop to menu ([5ddb179](https://github.com/AirLabsTeam/web-core/commit/5ddb179b5504bdf21567d46ec2ff52fd9949e0c6))
+- **@air/zephyr:** add in menu component ([d2c9c76](https://github.com/AirLabsTeam/web-core/commit/d2c9c7655163062741f31910a0fa3495d6891abf))
+- **@air/zephyr:** add in positioning logic for dropdown menu ([442071d](https://github.com/AirLabsTeam/web-core/commit/442071d8ef3519ce9a88909e56073020b015b244))
+- **@air/zephyr:** allow additional use cases for the menu component ([428eeb3](https://github.com/AirLabsTeam/web-core/commit/428eeb39678979ae88b01710e0b8364b9e053608))
+- **@air/zephyr:** clean up menus component ([f00dc7b](https://github.com/AirLabsTeam/web-core/commit/f00dc7ba53c79036a2152e29c0b9ee8059755366))
+
 ## [12.1.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.1.0...@air/zephyr@12.1.1) (2021-04-19)
 
 **Note:** Version bump only for package @air/zephyr
