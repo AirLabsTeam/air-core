@@ -22,7 +22,9 @@ export type DropdownMenuOption = Pick<
   'hasDivider' | 'leftAdornment' | 'rightAdornment' | 'shortcut' | 'tx'
 > &
   MenuItemRenderProps &
-  Omit<ReachMenuItemProps, 'children'>;
+  Omit<ReachMenuItemProps, 'children'> & {
+    id?: string;
+  };
 
 export interface DropdownMenuProps extends Pick<BoxProps, 'tx'>, Pick<MenuProps, 'size'> {
   /**
@@ -92,6 +94,7 @@ export const DropdownMenu = ({
                         <MenuItem
                           // @ts-ignore
                           as={ReachMenuItem as FC<ReachMenuItemProps>}
+                          data-testid={option.id}
                           key={index}
                           size={size}
                           {...option}
