@@ -9,7 +9,7 @@ import {
 } from '@reach/menu-button';
 import { PRect } from '@reach/rect';
 import { AnimatePresence } from 'framer-motion';
-import { noop } from 'lodash';
+import { isUndefined, noop } from 'lodash';
 import React, { cloneElement, FC, ReactElement, ReactNode, useEffect } from 'react';
 import { usePrevious } from 'react-use';
 
@@ -35,7 +35,7 @@ const DropdownMenuStateManager = ({
   const isPreviouslyExpanded = usePrevious(isExpanded);
 
   useEffect(() => {
-    if (isExpanded !== isPreviouslyExpanded && typeof isPreviouslyExpanded !== 'undefined') {
+    if (isExpanded !== isPreviouslyExpanded && !isUndefined(isPreviouslyExpanded)) {
       onChange(isExpanded);
     }
   }, [isExpanded, onChange, isPreviouslyExpanded]);
