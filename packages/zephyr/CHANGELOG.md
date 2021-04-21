@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [12.3.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.2.0...@air/zephyr@12.3.0) (2021-04-21)
+
+### Bug Fixes
+
+- **@air/zephyr:** add in testid to dropdown menu items ([95378c9](https://github.com/AirLabsTeam/web-core/commit/95378c9d6eef765e3e7471cd1a22abea3332639e))
+- **@air/zephyr:** use isUndefined instead of typeof ([ce0015d](https://github.com/AirLabsTeam/web-core/commit/ce0015d4a81aece0fa5b6f55e4f7d44d6c16b018))
+
+### Features
+
+- **@air/zephyr:** add in menu state component to give access to the menu state ([1e38537](https://github.com/AirLabsTeam/web-core/commit/1e38537b98b20733f950ec6f29a75919201528fa))
+
 # [12.2.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.1.1...@air/zephyr@12.2.0) (2021-04-20)
 
 ### Bug Fixes
