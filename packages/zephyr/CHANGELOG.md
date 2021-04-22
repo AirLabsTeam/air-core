@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [12.4.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.3.0...@air/zephyr@12.4.0) (2021-04-22)
+
+### Features
+
+- **@air/zephyr:** allow the option to choose where the menu divider is displayed ([44d2c4e](https://github.com/AirLabsTeam/web-core/commit/44d2c4e65c39cccad242493a1a08fd1e21ebafa5))
+
 # [12.3.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.2.0...@air/zephyr@12.3.0) (2021-04-21)
 
 ### Bug Fixes
