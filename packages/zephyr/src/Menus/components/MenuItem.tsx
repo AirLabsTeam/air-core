@@ -63,7 +63,6 @@ export const MenuItem = ({
           backgroundColor: 'transparent',
           height: hasDescription ? 'auto' : isSmallSize ? 32 : 36,
           mb: hasDividerBottom ? 0 : 8,
-          mt: hasDividerTop ? 0 : 8,
           px: 6,
           py: hasDescription ? 6 : 0,
           border: 0,
