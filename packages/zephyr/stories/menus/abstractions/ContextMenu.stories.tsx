@@ -206,7 +206,7 @@ withSubMenu.args = {
           onClick: () => {},
         },
         {
-          hasDivider: true,
+          hasDividerBottom: true,
           label: 'In review',
           leftAdornment: <Box as={EyeIcon} tx={{ display: 'block', width: 16 }} />,
           onClick: () => {},
@@ -224,7 +224,7 @@ withSubMenu.args = {
       ],
     },
     {
-      hasDivider: true,
+      hasDividerBottom: true,
       label: 'Add to favorites',
       leftAdornment: <Box as={StarIcon} tx={{ display: 'block', width: 16 }} />,
       onClick: () => {},

@@ -14,7 +14,7 @@ import { MenuItem, MenuItemRenderProps, MenuItemProps } from '../components/Menu
 
 export type ContextMenuOption = Pick<
   MenuItemProps,
-  'hasDivider' | 'leftAdornment' | 'rightAdornment' | 'shortcut' | 'tx'
+  'hasDividerBottom' | 'hasDividerTop' | 'leftAdornment' | 'rightAdornment' | 'shortcut' | 'tx'
 > &
   MenuItemRenderProps &
   Omit<ContexifyItemProps, 'children' | 'onSelect' | 'onClick'> & {

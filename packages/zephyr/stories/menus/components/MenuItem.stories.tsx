@@ -93,25 +93,40 @@ withShortcut.args = {
 withShortcut.parameters = {
   docs: {
     description: {
-      story: 'The `divider` prop will append a divider to the bottom of the menu item.',
+      story: 'The `shotcuts` prop will display the shortcuts needed to trigger the menu item.',
     },
   },
 };
 
-export const withDivider = Template.bind({});
+export const withDividerBottom = Template.bind({});
 
-withDivider.args = {
-  hasDivider: true,
+withDividerBottom.args = {
+  hasDividerBottom: true,
   label: 'Menu item',
   shortcut: ['del', 's'],
   tx: {},
 };
 
-withDivider.parameters = {
+withDividerBottom.parameters = {
   docs: {
     description: {
-      story:
-        'We recommend against passing a custom child to the menu item unless it’s absolutely necessary to do so. ',
+      story: 'The `hasDividerBottom` prop will append a divider to the bottom of the menu item.',
+    },
+  },
+};
+export const withDividerTop = Template.bind({});
+
+withDividerTop.args = {
+  hasDividerTop: true,
+  label: 'Menu item',
+  shortcut: ['del', 's'],
+  tx: {},
+};
+
+withDividerTop.parameters = {
+  docs: {
+    description: {
+      story: 'The `hasDividerTop` prop will append a divider to the top of the menu item.',
     },
   },
 };
