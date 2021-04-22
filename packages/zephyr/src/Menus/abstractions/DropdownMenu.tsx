@@ -72,7 +72,7 @@ export interface DropdownMenuProps extends Pick<BoxProps, 'tx'>, Pick<MenuProps,
   /**
    * The `onChange` prop returns the new state of the dropdown menu.
    */
-  onChange: (isExpanded: boolean) => void;
+  onChange?: (isExpanded: boolean) => void;
 
   /**
    * The trigger that will open the menu.
