@@ -110,10 +110,11 @@ withDividerBottom.args = {
 withDividerBottom.parameters = {
   docs: {
     description: {
-      story: 'The `hasDividerBottom` prop will append a divider to the bottom of the menu item.',
+      story: 'The `hasDividerBottom` prop will add a divider to the bottom of the menu item.',
     },
   },
 };
+
 export const withDividerTop = Template.bind({});
 
 withDividerTop.args = {
@@ -126,7 +127,26 @@ withDividerTop.args = {
 withDividerTop.parameters = {
   docs: {
     description: {
-      story: 'The `hasDividerTop` prop will append a divider to the top of the menu item.',
+      story: 'The `hasDividerTop` prop will add a divider to the top of the menu item.',
+    },
+  },
+};
+
+export const withDividerTopAndBottom = Template.bind({});
+
+withDividerTopAndBottom.args = {
+  hasDividerBottom: true,
+  hasDividerTop: true,
+  label: 'Menu item',
+  shortcut: ['del', 's'],
+  tx: {},
+};
+
+withDividerTopAndBottom.parameters = {
+  docs: {
+    description: {
+      story:
+        'The `hasDividerTop` and `hasDividerBottom prop will add a divider to the top and bottom of the menu item.',
     },
   },
 };
