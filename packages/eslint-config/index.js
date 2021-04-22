@@ -407,7 +407,9 @@ const config = {
       files: ['**/cypress/**/*.{js,jsx,ts,tsx}'],
       rules: {
         'jest/expect-expect': 'off',
+        'jest/prefer-todo': 'off',
         'jest/valid-expect': 'off',
+        'jest/valid-expect-in-promise': 'off',
         'func-names': 'off',
       },
     },
