@@ -45,7 +45,7 @@ const DropdownMenuStateManager = ({
 
 export type DropdownMenuOption = Pick<
   MenuItemProps,
-  'hasDivider' | 'leftAdornment' | 'rightAdornment' | 'shortcut' | 'tx'
+  'hasDividerBottom' | 'hasDividerTop' | 'leftAdornment' | 'rightAdornment' | 'shortcut' | 'tx'
 > &
   MenuItemRenderProps &
   Omit<ReachMenuItemProps, 'children'> & {
