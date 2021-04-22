@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.4.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.4.0...@air/zephyr@12.4.1) (2021-04-22)
+
+### Bug Fixes
+
+- **@air/zephyr:** fix additional spacing above menu item ([d10133f](https://github.com/AirLabsTeam/web-core/commit/d10133f47d36bd9802b51c784cb256bfb3c3fc85))
+- **@air/zephyr:** make onChange optional for dropdown menu ([52671e0](https://github.com/AirLabsTeam/web-core/commit/52671e052c149829cae066394a3b4fc2092b021d))
+
 # [12.4.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.3.0...@air/zephyr@12.4.0) (2021-04-22)
 
 ### Features
