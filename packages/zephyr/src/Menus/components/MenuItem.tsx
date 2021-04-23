@@ -5,7 +5,9 @@ import { Text } from '../../Text';
 import { MenuSize } from './Menu';
 import { MenuDivider } from './MenuDivider';
 
-export type MenuItemRenderProps = { children: ReactNode } | { label: string; description?: string };
+export type MenuItemRenderProps =
+  | { children: ReactNode }
+  | { label: ReactNode; description?: ReactNode };
 
 export type MenuItemProps = Pick<BoxProps, 'tx'> & {
   /**

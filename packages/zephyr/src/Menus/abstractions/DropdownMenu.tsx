@@ -64,6 +64,11 @@ export interface DropdownMenuProps extends Pick<BoxProps, 'tx'>, Pick<MenuProps,
   childrenTop?: ReactNode;
 
   /**
+   * The test id for the dropdown menu list.
+   */
+  ['data-testid']?: string;
+
+  /**
    * The `offset` allows you to control the distance between the menu and the trigger.
    */
   offset?: number;
@@ -87,6 +92,7 @@ export const DropdownMenu = ({
   options,
   onChange = noop,
   size = 'small',
+  ['data-testid']: testId,
   trigger,
   tx,
 }: DropdownMenuProps) => {
@@ -107,7 +113,7 @@ export const DropdownMenu = ({
           >
             <AnimatePresence>
               {isExpanded && (
-                <Menu size={size} tx={tx}>
+                <Menu data-testid={testId} size={size} tx={tx}>
                   {childrenTop}
                   <Box
                     as={ReachMenuItems as FC<ReachMenuItemsProps>}
