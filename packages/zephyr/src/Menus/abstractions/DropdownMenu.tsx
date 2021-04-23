@@ -66,7 +66,7 @@ export interface DropdownMenuProps extends Pick<BoxProps, 'tx'>, Pick<MenuProps,
   /**
    * The test id for the dropdown menu list.
    */
-  testId?: string;
+  ['data-testid']?: string;
 
   /**
    * The `offset` allows you to control the distance between the menu and the trigger.
@@ -92,7 +92,7 @@ export const DropdownMenu = ({
   options,
   onChange = noop,
   size = 'small',
-  testId,
+  ['data-testid']: testId,
   trigger,
   tx,
 }: DropdownMenuProps) => {
