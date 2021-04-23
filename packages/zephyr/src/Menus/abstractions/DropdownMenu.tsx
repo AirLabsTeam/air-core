@@ -52,9 +52,7 @@ export type DropdownMenuOption = Pick<
     id?: string;
   };
 
-export interface DropdownMenuProps
-  extends Pick<BoxProps, 'data-testid' | 'tx'>,
-    Pick<MenuProps, 'size'> {
+export interface DropdownMenuProps extends Pick<BoxProps, 'tx'>, Pick<MenuProps, 'size'> {
   /**
    * Children for the dropdown menu that is rendered below the options.
    */
@@ -64,6 +62,11 @@ export interface DropdownMenuProps
    * Children for the dropdown menu that is rendered below the options.
    */
   childrenTop?: ReactNode;
+
+  /**
+   * The test id for the dropdown menu list.
+   */
+  testId?: string;
 
   /**
    * The `offset` allows you to control the distance between the menu and the trigger.
@@ -85,11 +88,11 @@ export interface DropdownMenuProps
 export const DropdownMenu = ({
   childrenBottom,
   childrenTop,
-  ['data-testid']: testId,
   offset = 4,
   options,
   onChange = noop,
   size = 'small',
+  testId,
   trigger,
   tx,
 }: DropdownMenuProps) => {
