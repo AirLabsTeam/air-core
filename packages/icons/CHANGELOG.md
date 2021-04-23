@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.2.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@7.1.1...@air/icons@7.2.0) (2021-04-23)
+
+### Features
+
+- added a new icon ([e606215](https://github.com/AirLabsTeam/web-core/commit/e606215b480c9ce979d964dd47303b721c706f21))
+- **pallete.svg:** added a new icon called Pallete ([c14c2d7](https://github.com/AirLabsTeam/web-core/commit/c14c2d7947143e62d43fd6b0d213efcf1e83af57))
+
 ## [7.1.1](https://github.com/AirLabsTeam/web-core/compare/@air/icons@7.1.0...@air/icons@7.1.1) (2021-04-19)
 
 ### Bug Fixes
