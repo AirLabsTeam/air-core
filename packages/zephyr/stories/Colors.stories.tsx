@@ -23,9 +23,9 @@ export const ZephyrColors: Story = () => {
     <Box>
       {Object.keys(colors).map((color) => {
         return (
-          <Box key={color}>
-            <Text variant="text-ui-16" as="h6">
-              {color}
+          <Box key={color} tx={{ mb: 24 }}>
+            <Text as="h6" tx={{ mb: 8, textTransform: 'uppercase' }} variant="text-ui-14">
+              {color} - {colors[color as keyof typeof colors]}
             </Text>
 
             <Box
@@ -34,13 +34,12 @@ export const ZephyrColors: Story = () => {
                 border: '1px solid rgba(0,0,0,0.10)',
                 width: '100%',
                 height: '50px',
+                borderRadius: 4,
               }}
               key={color}
             >
               &nbsp;
             </Box>
-
-            <br />
           </Box>
         );
       })}

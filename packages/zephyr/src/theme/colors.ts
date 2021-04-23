@@ -10,11 +10,16 @@ export type ColorName =
   | 'canary700'
   | 'canary800'
   | 'canary900'
+  | 'cuckoo025'
   | 'cuckoo050'
   | 'cuckoo100'
   | 'cuckoo200'
   | 'cuckoo300'
   | 'cuckoo400'
+  | 'cuckoo500'
+  | 'cuckoo600'
+  | 'cuckoo700'
+  | 'cuckoo800'
   | 'dropbox'
   | 'flamingo050'
   | 'flamingo100'
@@ -49,11 +54,16 @@ export type ColorName =
   | 'macaw400'
   | 'macaw500'
   | 'macaw600'
+  | 'parrot025'
   | 'parrot050'
   | 'parrot100'
   | 'parrot200'
   | 'parrot300'
   | 'parrot400'
+  | 'parrot500'
+  | 'parrot600'
+  | 'parrot700'
+  | 'parrot800'
   | 'peacock050'
   | 'peacock100'
   | 'peacock200'
@@ -97,11 +107,16 @@ const canaries = {
 };
 
 const cuckoos = {
-  cuckoo050: '#C6A9FF',
-  cuckoo100: '#B088FF',
-  cuckoo200: '#A072F8',
-  cuckoo300: '#945EEA',
-  cuckoo400: '#7E41E0',
+  cuckoo025: '#026802',
+  cuckoo050: '#FFAEF9',
+  cuckoo100: '#FF83F3',
+  cuckoo200: '#FF4AE6',
+  cuckoo300: '#FF00D5',
+  cuckoo400: '#E004BC',
+  cuckoo500: '#B702A0',
+  cuckoo600: '#86017C',
+  cuckoo700: '#5D034E',
+  cuckoo800: '#3E0234',
 };
 
 const darks = {
@@ -162,11 +177,16 @@ const macaws = {
 };
 
 const parrots = {
-  parrot050: '#A9F482',
-  parrot100: '#8CEA65',
-  parrot200: '#5EE92A',
-  parrot300: '#3AD202',
-  parrot400: '#50B83C',
+  parrot025: '#DEFABB',
+  parrot050: '#C6F68D',
+  parrot100: '#AAF255',
+  parrot200: '#90EE02',
+  parrot300: '#75E900',
+  parrot400: '#61D800',
+  parrot500: '#41C300',
+  parrot600: '#09AF00',
+  parrot700: '#008B00',
+  parrot800: '#026802',
 };
 
 const peacocks = {
