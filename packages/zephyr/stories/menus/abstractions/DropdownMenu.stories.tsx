@@ -121,7 +121,7 @@ withCustomOffset.args = {
       leftAdornment: <Box as={AddMemberIcon} tx={{ display: 'block', width: 16 }} />,
       label: 'Add members',
       description: 'Invite members or guests to collaborate on this board',
-      hasDivider: true,
+      hasDividerBottom: true,
       onSelect: () => {},
     },
     {
@@ -166,7 +166,7 @@ withChildrenTop.args = {
       leftAdornment: <Box as={AddMemberIcon} tx={{ display: 'block', width: 16 }} />,
       label: 'Add members',
       description: 'Invite members or guests to collaborate on this board',
-      hasDivider: true,
+      hasDividerBottom: true,
       onSelect: () => {},
     },
     {
@@ -211,7 +211,7 @@ withChildrenBottom.args = {
       leftAdornment: <Box as={AddMemberIcon} tx={{ display: 'block', width: 16 }} />,
       label: 'Add members',
       description: 'Invite members or guests to collaborate on this board',
-      hasDivider: true,
+      hasDividerBottom: true,
       onSelect: () => {},
     },
     {
@@ -237,6 +237,47 @@ withChildrenBottom.parameters = {
     description: {
       story:
         'The `childrenBottom` prop renders the children that you pass to it above the menu options.',
+    },
+  },
+};
+
+export const withChangeEvent = Template.bind({});
+
+withChangeEvent.args = {
+  onChange: (isExpanded) => console.log('Is the menu opened?', isExpanded),
+  options: [
+    {
+      leftAdornment: <Box as={LinkIcon} tx={{ display: 'block', width: 16 }} />,
+      label: 'Share a link',
+      description: 'Generate a share link for public or private use',
+      onSelect: () => {},
+    },
+    {
+      leftAdornment: <Box as={AddMemberIcon} tx={{ display: 'block', width: 16 }} />,
+      label: 'Add members',
+      description: 'Invite members or guests to collaborate on this board',
+      hasDividerBottom: true,
+      onSelect: () => {},
+    },
+    {
+      description: 'Noooooooooooooooooo, please don’t delete me 😢',
+      leftAdornment: (
+        <Box as={LinkIcon} tx={{ display: 'block', width: 16, color: 'flamingo500' }} />
+      ),
+      label: 'Delete',
+      onSelect: () => window.alert('You actually tried to....'),
+      tx: {
+        color: 'flamingo800',
+      },
+    },
+  ],
+  trigger: <Button variant="button-filled-blue">Options</Button>,
+};
+
+withChangeEvent.parameters = {
+  docs: {
+    description: {
+      story: 'The `onChange` prop returns the state of the menu everytime it is opened and closed.',
     },
   },
 };

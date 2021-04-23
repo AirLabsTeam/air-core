@@ -1,6 +1,6 @@
 {
   "name": "@air/zephyr",
-  "version": "12.2.0",
+  "version": "12.4.1",
   "description": "Air's React component library",
   "keywords": [
     "react",
@@ -69,6 +69,7 @@
     "@reach/visually-hidden": "^0.11.1",
     "classnames": "^2.2.6",
     "react-contexify": "^5.0.0",
-    "react-select": "^3.1.1"
+    "react-select": "^3.1.1",
+    "react-use": "^15.3.4"
   }
 }

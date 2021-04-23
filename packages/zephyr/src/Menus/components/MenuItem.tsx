@@ -11,7 +11,12 @@ export type MenuItemProps = Pick<BoxProps, 'tx'> & {
   /**
    * Renders `<MenuDivider />` below the menu item.
    */
-  hasDivider?: boolean;
+  hasDividerBottom?: boolean;
+
+  /**
+   * Renders `<MenuDivider />` above the menu item.
+   */
+  hasDividerTop?: boolean;
 
   /**
    * Displays an element on the left of `children` or `label.
@@ -35,7 +40,8 @@ export type MenuItemProps = Pick<BoxProps, 'tx'> & {
 } & MenuItemRenderProps;
 
 export const MenuItem = ({
-  hasDivider,
+  hasDividerBottom,
+  hasDividerTop,
   leftAdornment,
   rightAdornment,
   shortcut,
@@ -48,6 +54,7 @@ export const MenuItem = ({
 
   return (
     <>
+      {hasDividerTop && <MenuDivider />}
       <Box
         __baseStyles={{
           display: 'flex',
@@ -55,7 +62,7 @@ export const MenuItem = ({
           justifyContent: 'space-between',
           backgroundColor: 'transparent',
           height: hasDescription ? 'auto' : isSmallSize ? 32 : 36,
-          mb: hasDivider ? 0 : 8,
+          mb: hasDividerBottom ? 0 : 8,
           px: 6,
           py: hasDescription ? 6 : 0,
           border: 0,
@@ -138,7 +145,7 @@ export const MenuItem = ({
           </Box>
         )}
       </Box>
-      {hasDivider && <MenuDivider />}
+      {hasDividerBottom && <MenuDivider />}
     </>
   );
 };
