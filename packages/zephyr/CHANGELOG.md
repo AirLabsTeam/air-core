@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [12.5.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.4.2...@air/zephyr@12.5.0) (2021-04-23)
+
+### Bug Fixes
+
+- **@air/zephyr:** change data-testid to just testId ([7e23975](https://github.com/AirLabsTeam/web-core/commit/7e23975018fce5700c17efb648fbec84d13253a5))
+- **@air/zephyr:** change testId back to test-id ([40ed6e7](https://github.com/AirLabsTeam/web-core/commit/40ed6e7badd5d07cacb0af57312ab86e3182face))
+
+### Features
+
+- **@air/zephyr:** add in testid support to dropdown menu and update menuitem type to ReactNode ([ae2b0a7](https://github.com/AirLabsTeam/web-core/commit/ae2b0a726c9659b2345612fa187348857f257c6a))
+
 ## [12.4.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.4.1...@air/zephyr@12.4.2) (2021-04-23)
 
 **Note:** Version bump only for package @air/zephyr
