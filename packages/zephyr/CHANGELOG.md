@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.5.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.5.1...@air/zephyr@12.5.2) (2021-04-26)
+
+### Bug Fixes
+
+- **@air/zephyr:** make input onChange optional ([7576732](https://github.com/AirLabsTeam/web-core/commit/757673274ac7c13e34b5b5dfaf48be41b38e6bec))
+
+## [12.5.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.5.0...@air/zephyr@12.5.1) (2021-04-26)
+
+### Bug Fixes
+
+- **@air/zephyr:** add missing types to input ([2ad907d](https://github.com/AirLabsTeam/web-core/commit/2ad907dee2ff344e382bbbf1a119794e858de538))
+- **@air/zephyr:** prevent clicking on menu item from triggering a click event on parent ([b15a2cf](https://github.com/AirLabsTeam/web-core/commit/b15a2cf1484d0332b42ba5630977b8449260811d))
+
 # [12.5.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.4.2...@air/zephyr@12.5.0) (2021-04-23)
 
 ### Bug Fixes

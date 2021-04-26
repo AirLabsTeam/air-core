@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.3.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@7.2.0...@air/icons@7.3.0) (2021-04-26)
+
+### Features
+
+- **gizmo.svg:** added a new icon ([67a5f5c](https://github.com/AirLabsTeam/web-core/commit/67a5f5c8a47b8e9da6db0f3d09bf8cb7c7147736))
+
 # [7.2.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@7.1.1...@air/icons@7.2.0) (2021-04-23)
 
 ### Features

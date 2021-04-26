@@ -63,6 +63,7 @@ import _FullScreenEnter from './svgs/uncategorized/FullScreen-Enter.svg';
 import _FullScreenExit from './svgs/uncategorized/FullScreen-Exit.svg';
 import _Gear from './svgs/uncategorized/Gear.svg';
 import _Github from './svgs/uncategorized/Github.svg';
+import _Gizmo from './svgs/uncategorized/Gizmo.svg';
 import _GoogleDrive from './svgs/uncategorized/GoogleDrive.svg';
 import _Hamburger from './svgs/uncategorized/Hamburger.svg';
 import _Help from './svgs/uncategorized/Help.svg';
@@ -194,6 +195,7 @@ export const FullScreenEnter = (props?: SVGProps<SVGElement>) => <_FullScreenEnt
 export const FullScreenExit = (props?: SVGProps<SVGElement>) => <_FullScreenExit {...props} />;
 export const Gear = (props?: SVGProps<SVGElement>) => <_Gear {...props} />;
 export const Github = (props?: SVGProps<SVGElement>) => <_Github {...props} />;
+export const Gizmo = (props?: SVGProps<SVGElement>) => <_Gizmo {...props} />;
 export const GoogleDrive = (props?: SVGProps<SVGElement>) => <_GoogleDrive {...props} />;
 export const Hamburger = (props?: SVGProps<SVGElement>) => <_Hamburger {...props} />;
 export const Help = (props?: SVGProps<SVGElement>) => <_Help {...props} />;
