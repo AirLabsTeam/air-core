@@ -10,7 +10,7 @@ import {
 import { PRect } from '@reach/rect';
 import { AnimatePresence } from 'framer-motion';
 import { isUndefined, noop } from 'lodash';
-import React, { cloneElement, FC, ReactElement, ReactNode, useEffect } from 'react';
+import React, { cloneElement, FC, MouseEvent, ReactElement, ReactNode, useEffect } from 'react';
 import { usePrevious } from 'react-use';
 
 import { Box, BoxProps } from '../../Box';
@@ -133,6 +133,7 @@ export const DropdownMenu = ({
                           // @ts-ignore
                           as={ReachMenuItem as FC<ReachMenuItemProps>}
                           data-testid={option.id}
+                          onClick={(event: MouseEvent) => event.stopPropagation()}
                           key={index}
                           size={size}
                           {...option}
