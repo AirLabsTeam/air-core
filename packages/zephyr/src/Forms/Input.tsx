@@ -159,7 +159,7 @@ export interface InputProps extends Pick<BoxStylingProps, 'tx'> {
   className?: string;
   id?: string;
   disabled?: boolean;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   readOnly?: boolean;
   'data-testid'?: string;
   innerInputRef?: React.MutableRefObject<HTMLInputElement | null>;
