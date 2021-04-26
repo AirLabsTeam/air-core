@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.5.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.5.1...@air/zephyr@12.5.2) (2021-04-26)
+
+### Bug Fixes
+
+- **@air/zephyr:** make input onChange optional ([7576732](https://github.com/AirLabsTeam/web-core/commit/757673274ac7c13e34b5b5dfaf48be41b38e6bec))
+
 ## [12.5.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.5.0...@air/zephyr@12.5.1) (2021-04-26)
 
 ### Bug Fixes
