@@ -49,6 +49,7 @@ export const ContextMenu = ({
       <Box
         as={ContexifyMenu}
         animation={false}
+        data-context-menu
         id={id}
         tx={{
           zIndex: 9999,
