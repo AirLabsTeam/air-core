@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.0.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@7.3.0...@air/icons@8.0.0) (2021-04-27)
+
+### Features
+
+- **@air/zephyr:** add in new icons ([14a7bd9](https://github.com/AirLabsTeam/web-core/commit/14a7bd94b0e5cd8e82a4aa74e6771112d3712320))
+
+### BREAKING CHANGES
+
+- **@air/zephyr:** Renamed BoardsAll to BoardsDuplicate
+
 # [7.3.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@7.2.0...@air/icons@7.3.0) (2021-04-26)
 
 ### Features
