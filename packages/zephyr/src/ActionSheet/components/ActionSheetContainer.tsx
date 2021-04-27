@@ -21,7 +21,7 @@ export const ActionSheetContainer = ({ children, onClose = noop }: ActionSheetCo
       y: shouldReduceMotion ? 0 : 300,
     },
     initial: {
-      // opacity: 0,
+      opacity: 0,
       y: shouldReduceMotion ? 0 : 300,
     },
   };
