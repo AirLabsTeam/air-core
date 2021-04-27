@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.5.4](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.5.3...@air/zephyr@12.5.4) (2021-04-27)
+
+**Note:** Version bump only for package @air/zephyr
+
+## [12.5.3](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.5.2...@air/zephyr@12.5.3) (2021-04-26)
+
+### Bug Fixes
+
+- **@air/zephyr:** add in missing dataset to context menu ([70f3526](https://github.com/AirLabsTeam/web-core/commit/70f3526a58fe2d88d2b0e5b67cb5ef05c3491a54))
+
 ## [12.5.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.5.1...@air/zephyr@12.5.2) (2021-04-26)
 
 ### Bug Fixes
