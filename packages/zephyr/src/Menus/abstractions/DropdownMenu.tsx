@@ -52,7 +52,9 @@ export type DropdownMenuOption = Pick<
     id?: string;
   };
 
-export interface DropdownMenuProps extends Pick<BoxProps, 'tx'>, Pick<MenuProps, 'size'> {
+export interface DropdownMenuProps
+  extends Pick<BoxProps, 'tx'>,
+    Pick<MenuProps, 'animation' | 'size'> {
   /**
    * Children for the dropdown menu that is rendered below the options.
    */
@@ -86,6 +88,7 @@ export interface DropdownMenuProps extends Pick<BoxProps, 'tx'>, Pick<MenuProps,
 }
 
 export const DropdownMenu = ({
+  animation,
   childrenBottom,
   childrenTop,
   offset = 4,
@@ -113,7 +116,7 @@ export const DropdownMenu = ({
           >
             <AnimatePresence>
               {isExpanded && (
-                <Menu data-testid={testId} size={size} tx={tx}>
+                <Menu animation={animation} data-testid={testId} size={size} tx={tx}>
                   {childrenTop}
                   <Box
                     as={ReachMenuItems as FC<ReachMenuItemsProps>}
