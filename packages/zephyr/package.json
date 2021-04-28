@@ -1,6 +1,6 @@
 {
   "name": "@air/zephyr",
-  "version": "11.1.2",
+  "version": "12.5.4",
   "description": "Air's React component library",
   "keywords": [
     "react",
@@ -45,7 +45,7 @@
     "react": ">=16"
   },
   "devDependencies": {
-    "@air/icons": "^7.0.0",
+    "@air/icons": "^8.0.0",
     "@styled-system/css": "^5.1.5",
     "@types/classnames": "^2.2.11",
     "@types/react-select": "^3.0.27",
@@ -64,8 +64,12 @@
     "@reach/alert-dialog": "^0.11.2",
     "@reach/auto-id": "^0.11.2",
     "@reach/dialog": "^0.11.2",
+    "@reach/menu-button": "^0.11.2",
+    "@reach/rect": "^0.11.2",
     "@reach/visually-hidden": "^0.11.1",
     "classnames": "^2.2.6",
-    "react-select": "^3.1.1"
+    "react-contexify": "^5.0.0",
+    "react-select": "^3.1.1",
+    "react-use": "^15.3.4"
   }
 }

@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.0.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@7.3.0...@air/icons@8.0.0) (2021-04-27)
+
+### Features
+
+- **@air/zephyr:** add in new icons ([14a7bd9](https://github.com/AirLabsTeam/web-core/commit/14a7bd94b0e5cd8e82a4aa74e6771112d3712320))
+
+### BREAKING CHANGES
+
+- **@air/zephyr:** Renamed BoardsAll to BoardsDuplicate
+
+# [7.3.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@7.2.0...@air/icons@7.3.0) (2021-04-26)
+
+### Features
+
+- **gizmo.svg:** added a new icon ([67a5f5c](https://github.com/AirLabsTeam/web-core/commit/67a5f5c8a47b8e9da6db0f3d09bf8cb7c7147736))
+
+# [7.2.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@7.1.1...@air/icons@7.2.0) (2021-04-23)
+
+### Features
+
+- added a new icon ([e606215](https://github.com/AirLabsTeam/web-core/commit/e606215b480c9ce979d964dd47303b721c706f21))
+- **pallete.svg:** added a new icon called Pallete ([c14c2d7](https://github.com/AirLabsTeam/web-core/commit/c14c2d7947143e62d43fd6b0d213efcf1e83af57))
+
+## [7.1.1](https://github.com/AirLabsTeam/web-core/compare/@air/icons@7.1.0...@air/icons@7.1.1) (2021-04-19)
+
+### Bug Fixes
+
+- **sync.svg:** fix angle/spacing between arrows ([5af6fbc](https://github.com/AirLabsTeam/web-core/commit/5af6fbcdc70a041617d2676d10b1ea1391176888))
+
+# [7.1.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@7.0.0...@air/icons@7.1.0) (2021-04-15)
+
+### Features
+
+- **icons:** add Sync and Exclamation icons ([b105306](https://github.com/AirLabsTeam/web-core/commit/b1053065d5de3f373fae9152af7c4fdc9db138cc))
+
 # [7.0.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@6.5.0...@air/icons@7.0.0) (2021-03-17)
 
 ### Features

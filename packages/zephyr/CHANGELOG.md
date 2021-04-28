@@ -3,6 +3,186 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.5.4](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.5.3...@air/zephyr@12.5.4) (2021-04-27)
+
+**Note:** Version bump only for package @air/zephyr
+
+## [12.5.3](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.5.2...@air/zephyr@12.5.3) (2021-04-26)
+
+### Bug Fixes
+
+- **@air/zephyr:** add in missing dataset to context menu ([70f3526](https://github.com/AirLabsTeam/web-core/commit/70f3526a58fe2d88d2b0e5b67cb5ef05c3491a54))
+
+## [12.5.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.5.1...@air/zephyr@12.5.2) (2021-04-26)
+
+### Bug Fixes
+
+- **@air/zephyr:** make input onChange optional ([7576732](https://github.com/AirLabsTeam/web-core/commit/757673274ac7c13e34b5b5dfaf48be41b38e6bec))
+
+## [12.5.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.5.0...@air/zephyr@12.5.1) (2021-04-26)
+
+### Bug Fixes
+
+- **@air/zephyr:** add missing types to input ([2ad907d](https://github.com/AirLabsTeam/web-core/commit/2ad907dee2ff344e382bbbf1a119794e858de538))
+- **@air/zephyr:** prevent clicking on menu item from triggering a click event on parent ([b15a2cf](https://github.com/AirLabsTeam/web-core/commit/b15a2cf1484d0332b42ba5630977b8449260811d))
+
+# [12.5.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.4.2...@air/zephyr@12.5.0) (2021-04-23)
+
+### Bug Fixes
+
+- **@air/zephyr:** change data-testid to just testId ([7e23975](https://github.com/AirLabsTeam/web-core/commit/7e23975018fce5700c17efb648fbec84d13253a5))
+- **@air/zephyr:** change testId back to test-id ([40ed6e7](https://github.com/AirLabsTeam/web-core/commit/40ed6e7badd5d07cacb0af57312ab86e3182face))
+
+### Features
+
+- **@air/zephyr:** add in testid support to dropdown menu and update menuitem type to ReactNode ([ae2b0a7](https://github.com/AirLabsTeam/web-core/commit/ae2b0a726c9659b2345612fa187348857f257c6a))
+
+## [12.4.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.4.1...@air/zephyr@12.4.2) (2021-04-23)
+
+**Note:** Version bump only for package @air/zephyr
+
+## [12.4.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.4.0...@air/zephyr@12.4.1) (2021-04-22)
+
+### Bug Fixes
+
+- **@air/zephyr:** fix additional spacing above menu item ([d10133f](https://github.com/AirLabsTeam/web-core/commit/d10133f47d36bd9802b51c784cb256bfb3c3fc85))
+- **@air/zephyr:** make onChange optional for dropdown menu ([52671e0](https://github.com/AirLabsTeam/web-core/commit/52671e052c149829cae066394a3b4fc2092b021d))
+
+# [12.4.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.3.0...@air/zephyr@12.4.0) (2021-04-22)
+
+### Features
+
+- **@air/zephyr:** allow the option to choose where the menu divider is displayed ([44d2c4e](https://github.com/AirLabsTeam/web-core/commit/44d2c4e65c39cccad242493a1a08fd1e21ebafa5))
+
+# [12.3.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.2.0...@air/zephyr@12.3.0) (2021-04-21)
+
+### Bug Fixes
+
+- **@air/zephyr:** add in testid to dropdown menu items ([95378c9](https://github.com/AirLabsTeam/web-core/commit/95378c9d6eef765e3e7471cd1a22abea3332639e))
+- **@air/zephyr:** use isUndefined instead of typeof ([ce0015d](https://github.com/AirLabsTeam/web-core/commit/ce0015d4a81aece0fa5b6f55e4f7d44d6c16b018))
+
+### Features
+
+- **@air/zephyr:** add in menu state component to give access to the menu state ([1e38537](https://github.com/AirLabsTeam/web-core/commit/1e38537b98b20733f950ec6f29a75919201528fa))
+
+# [12.2.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.1.1...@air/zephyr@12.2.0) (2021-04-20)
+
+### Bug Fixes
+
+- **@air/zephyr:** add in 6 to spacing cause this is the one value we appear to use a lot ([2bb75aa](https://github.com/AirLabsTeam/web-core/commit/2bb75aa16d0850f41105916ee839b42828a3b70b))
+- **@air/zephyr:** add in menu export ([7d5021b](https://github.com/AirLabsTeam/web-core/commit/7d5021b73d3a629fea240aff81c09a4191048015))
+- **@air/zephyr:** fix dropdown styles when importing reach/menu-button css ([d9c8cd5](https://github.com/AirLabsTeam/web-core/commit/d9c8cd566e281afcbfc3ce4cfaa86553f0b32a34))
+- **@air/zephyr:** fix menu styles when @reach/menu-button styles when imported ([38b9371](https://github.com/AirLabsTeam/web-core/commit/38b9371ad4a20073ad2f5defd20e5afcd7d8970b))
+- **@air/zephyr:** fix type error with hasDivider ([9fadc91](https://github.com/AirLabsTeam/web-core/commit/9fadc91799a9209288a4cea19ee4dd8b96afdf96))
+- **@air/zephyr:** replace tx with baseStyles for menu item due to padding, and tx only for divide ([c3d3ca9](https://github.com/AirLabsTeam/web-core/commit/c3d3ca98645cfa1bcd02de24afa0dc13de1b2a3b))
+- **@air/zephyr:** update animation damping ([21a634d](https://github.com/AirLabsTeam/web-core/commit/21a634d086efa05eb9b9cc460437fe41a82a7057))
+- **@air/zephyr:** update context menu types ([0df318a](https://github.com/AirLabsTeam/web-core/commit/0df318a963e987bf892ee0fa504d57cdb9cfe0a6))
+- **@air/zephyr:** updated animation ([dd5fd81](https://github.com/AirLabsTeam/web-core/commit/dd5fd818cf0e7bf0fe3e7ba5b874f1d878d9a2b2))
+- **@air/zephyr:** updated animation type ([f521930](https://github.com/AirLabsTeam/web-core/commit/f521930e2707755d46039209014742c192a1541b))
+
+### Features
+
+- **@air/zephyr:** add childrenTop and childrenBottom props to dropdown menu ([efe8578](https://github.com/AirLabsTeam/web-core/commit/efe8578ce7ba622bcbd9133c1334423c25f2c6b3))
+- **@air/zephyr:** add in context menu example ([ca3e8e8](https://github.com/AirLabsTeam/web-core/commit/ca3e8e8d9fc4c773b1ab4ef1d2d7f3d4248594f4))
+- **@air/zephyr:** add in custom animation prop to menu ([5ddb179](https://github.com/AirLabsTeam/web-core/commit/5ddb179b5504bdf21567d46ec2ff52fd9949e0c6))
+- **@air/zephyr:** add in menu component ([d2c9c76](https://github.com/AirLabsTeam/web-core/commit/d2c9c7655163062741f31910a0fa3495d6891abf))
+- **@air/zephyr:** add in positioning logic for dropdown menu ([442071d](https://github.com/AirLabsTeam/web-core/commit/442071d8ef3519ce9a88909e56073020b015b244))
+- **@air/zephyr:** allow additional use cases for the menu component ([428eeb3](https://github.com/AirLabsTeam/web-core/commit/428eeb39678979ae88b01710e0b8364b9e053608))
+- **@air/zephyr:** clean up menus component ([f00dc7b](https://github.com/AirLabsTeam/web-core/commit/f00dc7ba53c79036a2152e29c0b9ee8059755366))
+
+## [12.1.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.1.0...@air/zephyr@12.1.1) (2021-04-19)
+
+**Note:** Version bump only for package @air/zephyr
+
+# [12.1.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.0.2...@air/zephyr@12.1.0) (2021-04-18)
+
+### Features
+
+- **@air/zephyr/input:** expose prop to access inner input's ref ([e7fdf5f](https://github.com/AirLabsTeam/web-core/commit/e7fdf5fc387a9d2b51ea39add30287430cc53453))
+
+## [12.0.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.0.1...@air/zephyr@12.0.2) (2021-04-16)
+
+### Bug Fixes
+
+- **@air/zephyr/singleselect:** adjust ID values to improve querability and accessibility ([83d2522](https://github.com/AirLabsTeam/web-core/commit/83d2522c1145b9ce3cc6ea120aeeecaa89b7ea20))
+
+## [12.0.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.0.0...@air/zephyr@12.0.1) (2021-04-15)
+
+**Note:** Version bump only for package @air/zephyr
+
+# [12.0.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@11.4.1...@air/zephyr@12.0.0) (2021-04-09)
+
+### Bug Fixes
+
+- **portal:** use correct export expression for Portal ([391201f](https://github.com/AirLabsTeam/web-core/commit/391201f2cdcca3c8a824211e58b1cce3d43ff1a4))
+
+### Reverts
+
+- Revert "chore(release): publish" ([7cac75f](https://github.com/AirLabsTeam/web-core/commit/7cac75fcc06b408d5ba2287f03768ed94ced40ed))
+- Revert "chore(release): publish" ([2b021fd](https://github.com/AirLabsTeam/web-core/commit/2b021fd378a3b19c2a2718976a3a52c830c8251a))
+
+### BREAKING CHANGES
+
+- **portal:** If you used previous Portal component in its 2hr lifetime you’ll need to use
+  <Portal> instead of <Portal.Root> (from radix)
+
+## [11.4.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@11.4.0...@air/zephyr@11.4.1) (2021-04-09)
+
+### Bug Fixes
+
+- **portal:** use correct Portal export ([08036f1](https://github.com/AirLabsTeam/web-core/commit/08036f1d00555a7dcef56692b702ddfa14968ae0))
+
+# [11.4.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@11.3.0...@air/zephyr@11.4.0) (2021-04-09)
+
+### Features
+
+- **portal:** export same Portal used by Modals ([4b0527e](https://github.com/AirLabsTeam/web-core/commit/4b0527ec6fcc72e87d726ae5314ac65b9f73953d))
+
+### Reverts
+
+- Revert "chore(release): publish" ([6f914a5](https://github.com/AirLabsTeam/web-core/commit/6f914a5026641397ff38bf116e84c835e321579d))
+
+# [11.3.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@11.2.4...@air/zephyr@11.3.0) (2021-04-06)
+
+### Features
+
+- **@air/zephyr:** add new theme colors and new text variant ([c13ef4b](https://github.com/AirLabsTeam/web-core/commit/c13ef4baecf93a34049270a438fb2158a41e1bc2))
+
+## [11.2.4](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@11.2.3...@air/zephyr@11.2.4) (2021-03-31)
+
+### Bug Fixes
+
+- **@air/zephyr/input:** disable input if marked as readOnly ([4de1df0](https://github.com/AirLabsTeam/web-core/commit/4de1df014b5a4c762d9aa7a0baaf8eab6ee2228a))
+
+## [11.2.3](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@11.2.2...@air/zephyr@11.2.3) (2021-03-27)
+
+### Bug Fixes
+
+- **@air/zephyr:** prevent box from allowing any props when `as` is undefined ([f2ff294](https://github.com/AirLabsTeam/web-core/commit/f2ff294d4411a12347113cdb1abbca0e7af3f6ff))
+
+## [11.2.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@11.2.1...@air/zephyr@11.2.2) (2021-03-24)
+
+### Bug Fixes
+
+- **@air/zephyr:** update text variants ([8e6e6c1](https://github.com/AirLabsTeam/web-core/commit/8e6e6c16adf447783f1f958fe65b715c639af43d))
+
+## [11.2.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@11.2.0...@air/zephyr@11.2.1) (2021-03-24)
+
+### Bug Fixes
+
+- correct spacing for both variants ([b8204e9](https://github.com/AirLabsTeam/web-core/commit/b8204e9b7fc4d63ee8bc050de3e0a3231d51bd54))
+
+# [11.2.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@11.1.2...@air/zephyr@11.2.0) (2021-03-24)
+
+### Bug Fixes
+
+- **@air/zephyr/button:** fix p inside of buttons w adornments ([e2f1ec0](https://github.com/AirLabsTeam/web-core/commit/e2f1ec0e897d0cbaa8e8e9aca0462a65c830cdfc))
+- **@air/zephyr/button:** use 16px icon for medium button adornment ([f89f31c](https://github.com/AirLabsTeam/web-core/commit/f89f31c3ba96ba082110fa10cbb0651a4632b8b1))
+
+### Features
+
+- **buttons:** allow for left or right icon adornments ([dbf605d](https://github.com/AirLabsTeam/web-core/commit/dbf605d2a458458786ba199704b4ec1a12dfa7e2))
+
 ## [11.1.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@11.1.1...@air/zephyr@11.1.2) (2021-03-17)
 
 **Note:** Version bump only for package @air/zephyr

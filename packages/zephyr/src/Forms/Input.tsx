@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { useField } from 'formik';
-import { capitalize } from 'lodash';
 import VisuallyHidden from '@reach/visually-hidden';
 import { variant as styledSystemVariant } from 'styled-system';
 import { useTheme } from 'styled-components';
@@ -9,6 +8,7 @@ import { Box, BoxStylingProps } from '../Box';
 import { Text } from '../Text';
 import { FieldVariantName } from '../theme';
 import { Label } from './Label';
+import { Error } from './Error';
 
 export interface InputProps extends Pick<BoxStylingProps, 'tx'> {
   /**
@@ -61,6 +61,7 @@ export interface InputProps extends Pick<BoxStylingProps, 'tx'> {
     | 'bday-month'
     | 'bday-year'
     | 'sex'
+    | 'search'
     | 'tel'
     | 'tel-country-code'
     | 'tel-national'
@@ -158,18 +159,15 @@ export interface InputProps extends Pick<BoxStylingProps, 'tx'> {
   className?: string;
   id?: string;
   disabled?: boolean;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   readOnly?: boolean;
   'data-testid'?: string;
+  innerInputRef?: React.MutableRefObject<HTMLInputElement | null>;
 }
 
 const sharedAdornmentStyles: BoxStylingProps['tx'] = {
   color: 'pigeon500',
   position: 'absolute',
-};
-
-const sharedBottomTextStyles: BoxStylingProps['tx'] = {
-  position: 'absolute',
-  bottom: -24, // text is 18px high + 6px space between bottom input border and top of text
 };
 
 export const Input = ({
@@ -178,11 +176,14 @@ export const Input = ({
   className,
   'data-testid': topLevelTestID,
   description,
+  disabled = false,
   id,
+  innerInputRef,
   isLabelHidden = false,
   label,
   name,
   placeholder,
+  readOnly = false,
   required,
   tx,
   type = 'text',
@@ -195,6 +196,7 @@ export const Input = ({
   const errorIdentifier = `${inputIdentifier}_error`;
   const descriptionIdentifier = `${inputIdentifier}_description`;
   const hasError = meta.touched && !!meta.error;
+  const isChonky = variant === 'field-input-chonky';
 
   const testID = React.useMemo(() => {
     const prefix = `input_${name}`;
@@ -290,15 +292,20 @@ export const Input = ({
         )}
 
         <Box
+          as="input"
+          ref={(instance: HTMLInputElement | null) =>
+            innerInputRef ? (innerInputRef.current = instance) : undefined
+          }
           aria-describedby={
-            !!description ? `${descriptionIdentifier} ${errorIdentifier}` : errorIdentifier
+            description ? `${descriptionIdentifier} ${errorIdentifier}` : errorIdentifier
           }
           aria-invalid={hasError}
-          as="input"
           autoComplete={autoComplete}
           data-testid={testID}
+          disabled={disabled || readOnly}
           id={inputIdentifier}
           placeholder={placeholder}
+          readOnly={readOnly}
           required={required}
           tx={{
             pl:
@@ -349,7 +356,8 @@ export const Input = ({
         variant="text-ui-12"
         data-testid={`${topLevelTestID}_description`}
         tx={{
-          ...sharedBottomTextStyles,
+          position: 'absolute',
+          bottom: isChonky ? -22 : -18,
           display: hasError ? 'none' : 'block',
           color: 'pigeon500',
         }}
@@ -361,24 +369,13 @@ export const Input = ({
         )}
       </Text>
 
-      <Text
-        as="span"
+      <Error
+        errorText={meta.error}
+        isErrorVisible={hasError}
         id={errorIdentifier}
-        role="alert"
-        variant="text-ui-12"
+        tx={{ bottom: isChonky ? -22 : -18 }}
         data-testid={`${topLevelTestID}_error`}
-        tx={{
-          ...sharedBottomTextStyles,
-          display: hasError ? 'block' : 'none',
-          fontWeight: 'semibold',
-          color: 'flamingo600',
-        }}
-      >
-        {/* For screen reader users, provide context as to which field is erroring */}
-        {meta.error && <VisuallyHidden>{`Error on ${label} input: `}</VisuallyHidden>}
-
-        {capitalize(meta.error)}
-      </Text>
+      />
     </Box>
   );
 };

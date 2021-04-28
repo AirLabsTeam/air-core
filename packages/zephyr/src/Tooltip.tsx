@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ComponentProps, FC } from 'react';
 import * as RadixTooltip from '@radix-ui/react-tooltip';
 import { PopperOwnProps } from '@radix-ui/react-popper';
 import { Slot } from '@radix-ui/react-slot';
@@ -141,7 +141,11 @@ export const Tooltip = ({
       </RadixTooltip.Trigger>
 
       <Box
-        as={RadixTooltip.Content}
+        as={
+          RadixTooltip.Content as FC<
+            Omit<ComponentProps<typeof RadixTooltip.Content>, 'as' | 'ref'>
+          >
+        }
         side={side}
         aria-label={ariaLabel}
         data-testid={testID}
@@ -169,7 +173,11 @@ export const Tooltip = ({
 
         {withBorder && (
           <Box
-            as={RadixTooltip.Arrow}
+            as={
+              RadixTooltip.Arrow as FC<
+                Omit<ComponentProps<typeof RadixTooltip.Arrow>, 'as' | 'ref'>
+              >
+            }
             tx={{
               fill: 'white',
               zIndex: baseZIndex,
@@ -185,7 +193,9 @@ export const Tooltip = ({
           />
         )}
         <Box
-          as={RadixTooltip.Arrow}
+          as={
+            RadixTooltip.Arrow as FC<Omit<ComponentProps<typeof RadixTooltip.Arrow>, 'as' | 'ref'>>
+          }
           tx={{
             zIndex: baseZIndex + 1,
             strokeLinejoin: 'round',

@@ -13,7 +13,7 @@ import ReactSelectCreatable from 'react-select/creatable';
 import { AsyncProps as ReactSelectAsyncProps } from 'react-select/src/Async';
 import { CreatableProps as ReactSelectCreatableProps } from 'react-select/src/Creatable';
 import { NamedProps as ReactSelectProps } from 'react-select/src/Select';
-import { capitalize, isNull } from 'lodash';
+import { isNull } from 'lodash';
 import VisuallyHidden from '@reach/visually-hidden';
 import { Check, TriangleDown } from '@air/icons';
 import invariant from 'tiny-invariant';
@@ -23,6 +23,7 @@ import { Box, BoxStylingProps } from '../Box';
 import { Text } from '../Text';
 import { commonFieldStyles, FieldVariantName, variantStyles } from '../theme/variants/field';
 import { Label } from './Label';
+import { Error } from './Error';
 
 interface VariantProp {
   /**
@@ -294,11 +295,6 @@ export const getBaseSelectStylesWithTheme = ({
   }),
 });
 
-const sharedBottomTextStyles: BoxStylingProps['tx'] = {
-  position: 'absolute',
-  bottom: -24, // text is 18px high + 6px space between bottom select border and top of text
-};
-
 interface AirReactSelectDropdownIndicatorProps
   extends IndicatorProps<SelectOption, CanHaveMultipleSelections> {}
 
@@ -462,6 +458,7 @@ export const SingleSelect = ({
   const hasError = meta.touched && !!meta.error;
   const isLoading = initialLoadingState?.isLoading ?? false;
   const isDisabled = disabled || readOnly || isLoading;
+  const isChonky = variant === 'field-input-chonky';
 
   const testID = React.useMemo(() => {
     const prefix = `select_${name}`;
@@ -509,7 +506,7 @@ export const SingleSelect = ({
       ...AirReactSelectComponents,
     },
     defaultOptions: true,
-    id: selectID,
+    id: `react-select-${selectID}`,
     instanceId: `${selectID}_instance`,
     isClearable: false,
     isDisabled,
@@ -586,7 +583,8 @@ export const SingleSelect = ({
         variant="text-ui-12"
         data-testid={`${testID}_description`}
         tx={{
-          ...sharedBottomTextStyles,
+          position: 'absolute',
+          bottom: isChonky ? -22 : -18,
           display: hasError ? 'none' : 'block',
           color: 'pigeon500',
         }}
@@ -598,24 +596,13 @@ export const SingleSelect = ({
         )}
       </Text>
 
-      <Text
-        as="span"
+      <Error
+        errorText={meta.error}
+        isErrorVisible={hasError}
         id={errorID}
-        role="alert"
-        variant="text-ui-12"
+        tx={{ bottom: isChonky ? -22 : -18 }}
         data-testid={`${testID}_error`}
-        tx={{
-          ...sharedBottomTextStyles,
-          display: hasError ? 'block' : 'none',
-          fontWeight: 'semibold',
-          color: 'flamingo600',
-        }}
-      >
-        {/* For screen reader users, provide context as to which field is erroring */}
-        {meta.error && <VisuallyHidden>{`Error on ${label} input: `}</VisuallyHidden>}
-
-        {capitalize(meta.error)}
-      </Text>
+      />
     </Box>
   );
 };

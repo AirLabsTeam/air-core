@@ -348,3 +348,50 @@ FilledInputs.parameters = {
     },
   },
 };
+
+export const WithError: Story<InputProps> = () => {
+  return (
+    <Formik
+      initialValues={{ withErrorSmol: '', withErrorChonky: '' }}
+      initialErrors={{ withErrorSmol: 'Some error! Oh no!', withErrorChonky: 'Some error! Oh no!' }}
+      initialTouched={{ withErrorSmol: true, withErrorChonky: true }}
+      isInitialValid={false}
+      onSubmit={noop}
+    >
+      {() => (
+        <Box
+          as={Form}
+          tx={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+          noValidate // hides HTML5 default validations on submit
+        >
+          <Box tx={{ display: 'flex', width: '100%', justifyContent: 'center' }}>
+            <Input
+              label="With Error"
+              type="text"
+              name="withErrorSmol"
+              required
+              variant="field-input-smol"
+              tx={{ mr: 16 }}
+            />
+
+            <Input
+              label="With Error"
+              type="text"
+              name="withErrorChonky"
+              required
+              variant="field-input-chonky"
+            />
+          </Box>
+
+          <Button type="submit" variant="button-filled-blue" tx={{ mt: 50, width: 256 }}>
+            Validate
+          </Button>
+        </Box>
+      )}
+    </Formik>
+  );
+};

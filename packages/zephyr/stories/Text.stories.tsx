@@ -119,8 +119,11 @@ export const UI: Story<TextProps> = (args) => {
       <PreviewRow {...args} variant="text-ui-18" />
       <PreviewRow {...args} variant="text-ui-16" />
       <PreviewRow {...args} variant="text-ui-14" />
+      <PreviewRow {...args} variant="text-ui-14-uppercase" />
       <PreviewRow {...args} variant="text-ui-12" />
+      <PreviewRow {...args} variant="text-ui-12-uppercase" />
       <PreviewRow {...args} variant="text-ui-10" />
+      <PreviewRow {...args} variant="text-ui-10-uppercase" />
     </>
   );
 };
