@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.1.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@8.0.0...@air/icons@8.1.0) (2021-04-28)
+
+### Features
+
+- **icons:** replace down left right and up triangles with filled svgs ([8fa31aa](https://github.com/AirLabsTeam/web-core/commit/8fa31aa554f3339f59c16551a62681b0713aa68e))
+
 # [8.0.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@7.3.0...@air/icons@8.0.0) (2021-04-27)
 
 ### Features
