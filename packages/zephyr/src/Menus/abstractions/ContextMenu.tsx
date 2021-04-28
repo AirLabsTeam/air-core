@@ -21,7 +21,9 @@ export type ContextMenuOption = Pick<
     onClick: (args: ContexifyItemParams) => void;
   };
 
-export interface ContextMenuProps extends Pick<BoxProps, 'tx'>, Pick<MenuProps, 'size'> {
+export interface ContextMenuProps
+  extends Pick<BoxProps, 'tx'>,
+    Pick<MenuProps, 'animation' | 'size'> {
   /**
    * The `hasOverlay` props determines whether a transparent `div` is added to the DOM
    * to prevent users from hovering / clicking with other elements on the page while
@@ -39,6 +41,11 @@ export interface ContextMenuProps extends Pick<BoxProps, 'tx'>, Pick<MenuProps, 
 }
 
 export const ContextMenu = ({
+  animation = {
+    animate: { opacity: 1 },
+    exit: { opacity: 0 },
+    initial: { opacity: 0 },
+  },
   id,
   hasOverlay = false,
   options,
@@ -97,15 +104,7 @@ export const ContextMenu = ({
           />
         )}
 
-        <Menu
-          animation={{
-            animate: { opacity: 1 },
-            exit: { opacity: 0 },
-            initial: { opacity: 0 },
-          }}
-          size={size}
-          tx={{ position: 'relative', zIndex: 9999 }}
-        >
+        <Menu animation={animation} size={size} tx={{ position: 'relative', zIndex: 9999 }}>
           {options.map((option, index) => {
             const hasDescription = 'description' in option;
 
