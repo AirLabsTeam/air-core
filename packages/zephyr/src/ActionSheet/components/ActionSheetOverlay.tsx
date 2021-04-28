@@ -35,6 +35,10 @@ export const ActionSheetOverlay = ({ children, onClose }: ActionSheetOverlayProp
         bottom: 0,
         backgroundColor: rgba(theme.colors.pigeon700, 0.75),
       }}
+      transition={{
+        type: 'tween',
+        duration: 0.2,
+      }}
       variants={animation}
     >
       {children}
