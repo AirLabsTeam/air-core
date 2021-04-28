@@ -30,8 +30,8 @@ export const ActionSheet = ({
     <>
       <AnimatePresence key="action-sheet">
         {isOpened && (
-          <ActionSheetOverlay onClose={onClose}>
-            <ActionSheetContainer onClose={onClose}>
+          <ActionSheetOverlay key="action-sheet-overlay" onClose={onClose}>
+            <ActionSheetContainer key="action-sheet-container" onClose={onClose}>
               <DialogContent aria-labelledby={title}>
                 <ActionSheetHeader isHidden={isTitleHidden} onClose={onClose} title={title} />
                 <Box tx={{ px: 12, py: 8 }}>

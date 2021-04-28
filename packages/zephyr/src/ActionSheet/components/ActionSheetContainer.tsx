@@ -32,7 +32,7 @@ export const ActionSheetContainer = ({ children, onClose = noop }: ActionSheetCo
       initial="initial"
       animate="animate"
       exit="exit"
-      transition={{ type: 'spring', damping: 20, stiffness: 140 }}
+      transition={{ type: 'spring', bounce: 0.3 }}
       variants={animation}
       drag="y"
       dragConstraints={{ top: 0, bottom: 0 }}
