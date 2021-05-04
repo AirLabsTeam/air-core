@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [12.6.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.5.5...@air/zephyr@12.6.0) (2021-04-28)
+
+### Features
+
+- **@air/zephyr:** allow control over menu animations ([bb8588c](https://github.com/AirLabsTeam/web-core/commit/bb8588c408fc280b9708c1f5241a9155de392abe))
+
 ## [12.5.5](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.5.4...@air/zephyr@12.5.5) (2021-04-28)
 
 **Note:** Version bump only for package @air/zephyr
