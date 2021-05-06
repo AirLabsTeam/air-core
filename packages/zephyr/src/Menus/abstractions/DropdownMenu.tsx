@@ -71,6 +71,12 @@ export interface DropdownMenuProps
   ['data-testid']?: string;
 
   /**
+   * The `hasAnimation` prop determines whether or not the menu will have an animation
+   * on open and close.
+   */
+  hasAnimation?: boolean;
+
+  /**
    * The `hasOverlay` props determines whether a transparent `div` is added to the DOM
    * to prevent users from hovering / clicking with other elements on the page while
    * the menu is opened.
@@ -98,6 +104,7 @@ export const DropdownMenu = ({
   animation,
   childrenBottom,
   childrenTop,
+  hasAnimation = true,
   hasOverlay = true,
   offset = 4,
   options,
@@ -140,7 +147,12 @@ export const DropdownMenu = ({
             >
               <AnimatePresence>
                 {isExpanded && (
-                  <Menu animation={animation} data-testid={testId} size={size} tx={tx}>
+                  <Menu
+                    animation={hasAnimation ? animation : undefined}
+                    data-testid={testId}
+                    size={size}
+                    tx={tx}
+                  >
                     {childrenTop}
                     <Box
                       as={ReachMenuItems as FC<ReachMenuItemsProps>}

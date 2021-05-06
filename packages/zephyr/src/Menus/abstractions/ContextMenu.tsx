@@ -25,6 +25,12 @@ export interface ContextMenuProps
   extends Pick<BoxProps, 'tx'>,
     Pick<MenuProps, 'animation' | 'size'> {
   /**
+   * The `hasAnimation` prop determines whether or not the menu will have an animation
+   * on open and close.
+   */
+  hasAnimation?: boolean;
+
+  /**
    * The `hasOverlay` props determines whether a transparent `div` is added to the DOM
    * to prevent users from hovering / clicking with other elements on the page while
    * the menu is opened.
@@ -47,6 +53,7 @@ export const ContextMenu = ({
     initial: { opacity: 0 },
   },
   id,
+  hasAnimation = true,
   hasOverlay = false,
   options,
   size = 'small',
@@ -104,7 +111,11 @@ export const ContextMenu = ({
           />
         )}
 
-        <Menu animation={animation} size={size} tx={{ position: 'relative', zIndex: 9999 }}>
+        <Menu
+          animation={hasAnimation ? animation : undefined}
+          size={size}
+          tx={{ position: 'relative', zIndex: 9999 }}
+        >
           {options.map((option, index) => {
             const hasDescription = 'description' in option;
 
