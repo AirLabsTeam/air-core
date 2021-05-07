@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [12.8.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.7.0...@air/zephyr@12.8.0) (2021-05-07)
+
+### Bug Fixes
+
+- **@air/zephyr:** remove `hasAnimation` and just add in a null check ([ca46d01](https://github.com/AirLabsTeam/web-core/commit/ca46d0120163a317fd76edf73c39010dfcebba9a))
+
+### Features
+
+- **@air/zephyr:** add in `hasAnimation` prop to dropdown and context menus ([7670be3](https://github.com/AirLabsTeam/web-core/commit/7670be3e48d71f253c34d7412b37ff96b0711280))
+
 # [12.7.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.6.0...@air/zephyr@12.7.0) (2021-05-05)
 
 ### Bug Fixes
