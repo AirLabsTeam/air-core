@@ -49,6 +49,7 @@ export const ModalOverlay = forwardRef<HTMLElement, ModalOverlayProps>(
 
     const baseStyles: BoxProps['tx'] = {
       backgroundColor: rgba(theme.colors.pigeon700, 0.75),
+      zIndex: 9999,
       position: 'fixed',
       top: 0,
       right: 0,
