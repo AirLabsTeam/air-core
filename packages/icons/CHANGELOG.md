@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.2.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@8.1.0...@air/icons@8.2.0) (2021-05-10)
+
+### Features
+
+- **icons:** add DesktopApp icon ([d07972a](https://github.com/AirLabsTeam/web-core/commit/d07972a5fe74ece087eac97e4c5e20924e21c681))
+
 # [8.1.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@8.0.0...@air/icons@8.1.0) (2021-04-28)
 
 ### Features
