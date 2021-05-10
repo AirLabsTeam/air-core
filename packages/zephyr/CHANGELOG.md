@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [12.9.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.8.0...@air/zephyr@12.9.0) (2021-05-10)
+
+### Features
+
+- **@air/zephyr:** add in children top and bottom props to context menu ([5eb2ccf](https://github.com/AirLabsTeam/web-core/commit/5eb2ccf8cade8cb8d614dcb2473083ec742ea9c3))
+
 # [12.8.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.7.0...@air/zephyr@12.8.0) (2021-05-07)
 
 ### Bug Fixes
