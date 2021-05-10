@@ -54,13 +54,14 @@ export const ActionSheetContainer = ({ children, onClose = noop }: ActionSheetCo
         backgroundColor: 'white',
         width: '100%',
         borderRadius: 4,
+        pt: 4,
 
         /**
          * This is a CSS hack to prevent the actionsheet from showing the
          * content below it when dragged upwards.
          */
         bottom: '-100vh',
-        pb: '100vh',
+        pb: 'calc(100vh + 4px)',
 
         '[data-reach-dialog-content]': {
           backgroundColor: 'transparent',

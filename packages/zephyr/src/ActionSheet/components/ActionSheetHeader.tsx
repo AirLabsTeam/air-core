@@ -29,6 +29,7 @@ export const ActionSheetHeader = ({ isHidden, onClose, title }: ActionSheetHeade
         borderBottomColor: 'pigeon100',
         pl: 20,
         pr: 12,
+        mt: -4,
       }}
     >
       <Text tx={{ color: 'pigeon700', fontWeight: 'medium' }} variant="text-ui-16">
