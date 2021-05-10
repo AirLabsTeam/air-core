@@ -1,5 +1,5 @@
 import { ChevronRight as ChevronRightIcon } from '@air/icons';
-import React from 'react';
+import React, { ReactNode } from 'react';
 import {
   Item as ContexifyItem,
   ItemParams as ContexifyItemParams,
@@ -25,6 +25,15 @@ export interface ContextMenuProps
   extends Pick<BoxProps, 'tx'>,
     Pick<MenuProps, 'animation' | 'size'> {
   /**
+   * Children for the dropdown menu that is rendered below the options.
+   */
+  childrenBottom?: ReactNode;
+
+  /**
+   * Children for the dropdown menu that is rendered below the options.
+   */
+  childrenTop?: ReactNode;
+  /**
    * The `hasOverlay` props determines whether a transparent `div` is added to the DOM
    * to prevent users from hovering / clicking with other elements on the page while
    * the menu is opened.
@@ -46,6 +55,8 @@ export const ContextMenu = ({
     exit: { opacity: 0 },
     initial: { opacity: 0 },
   },
+  childrenBottom,
+  childrenTop,
   id,
   hasOverlay = false,
   options,
@@ -105,6 +116,7 @@ export const ContextMenu = ({
         )}
 
         <Menu animation={animation} size={size} tx={{ position: 'relative', zIndex: 9999 }}>
+          {childrenTop}
           {options.map((option, index) => {
             const hasDescription = 'description' in option;
 
@@ -168,6 +180,7 @@ export const ContextMenu = ({
               />
             );
           })}
+          {childrenBottom}
         </Menu>
       </Box>
     </>
