@@ -16,10 +16,16 @@ export type ColorName =
   | 'cuckoo200'
   | 'cuckoo300'
   | 'cuckoo400'
-  | 'cuckoo500'
-  | 'cuckoo600'
-  | 'cuckoo700'
-  | 'cuckoo800'
+  | 'cockatoo025'
+  | 'cockatoo050'
+  | 'cockatoo100'
+  | 'cockatoo200'
+  | 'cockatoo300'
+  | 'cockatoo400'
+  | 'cockatoo500'
+  | 'cockatoo600'
+  | 'cockatoo700'
+  | 'cockatoo800'
   | 'dropbox'
   | 'flamingo050'
   | 'flamingo100'
@@ -106,17 +112,25 @@ const canaries = {
   canary900: '#4c2103',
 };
 
+const cockatoo = {
+  cockatoo025: '#026802',
+  cockatoo050: '#FFAEF9',
+  cockatoo100: '#FF83F3',
+  cockatoo200: '#FF4AE6',
+  cockatoo300: '#FF00D5',
+  cockatoo400: '#E004BC',
+  cockatoo500: '#B702A0',
+  cockatoo600: '#86017C',
+  cockatoo700: '#5D034E',
+  cockatoo800: '#3E0234',
+};
+
 const cuckoos = {
-  cuckoo025: '#026802',
-  cuckoo050: '#FFAEF9',
-  cuckoo100: '#FF83F3',
-  cuckoo200: '#FF4AE6',
-  cuckoo300: '#FF00D5',
-  cuckoo400: '#E004BC',
-  cuckoo500: '#B702A0',
-  cuckoo600: '#86017C',
-  cuckoo700: '#5D034E',
-  cuckoo800: '#3E0234',
+  cuckoo050: '#C6A9FF',
+  cuckoo100: '#B088FF',
+  cuckoo200: '#A072F8',
+  cuckoo300: '#945EEA',
+  cuckoo400: '#7E41E0',
 };
 
 const darks = {
@@ -231,6 +245,7 @@ const miscellaneous = {
 
 export const colors: { [key in ColorName]: string } = {
   ...canaries,
+  ...cockatoo,
   ...cuckoos,
   ...darks,
   ...flamingos,
