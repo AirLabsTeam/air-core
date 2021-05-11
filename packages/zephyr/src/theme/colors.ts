@@ -112,7 +112,7 @@ const canaries = {
 };
 
 const cockatoos = {
-  cockatoo025: '#026802',
+  cockatoo025: '#FDD2FF',
   cockatoo050: '#FFAEF9',
   cockatoo100: '#FF83F3',
   cockatoo200: '#FF4AE6',
