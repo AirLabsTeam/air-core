@@ -10,7 +10,7 @@ import {
 import { PRect } from '@reach/rect';
 import { AnimatePresence } from 'framer-motion';
 import { isUndefined, noop } from 'lodash';
-import React, { cloneElement, FC, ReactElement, ReactNode, useEffect } from 'react';
+import React, { cloneElement, FC, MouseEvent, ReactElement, ReactNode, useEffect } from 'react';
 import { usePrevious } from 'react-use';
 
 import { Box, BoxProps } from '../../Box';
@@ -52,7 +52,9 @@ export type DropdownMenuOption = Pick<
     id?: string;
   };
 
-export interface DropdownMenuProps extends Pick<BoxProps, 'tx'>, Pick<MenuProps, 'size'> {
+export interface DropdownMenuProps
+  extends Pick<BoxProps, 'tx'>,
+    Pick<MenuProps, 'animation' | 'size'> {
   /**
    * Children for the dropdown menu that is rendered below the options.
    */
@@ -67,6 +69,13 @@ export interface DropdownMenuProps extends Pick<BoxProps, 'tx'>, Pick<MenuProps,
    * The test id for the dropdown menu list.
    */
   ['data-testid']?: string;
+
+  /**
+   * The `hasOverlay` props determines whether a transparent `div` is added to the DOM
+   * to prevent users from hovering / clicking with other elements on the page while
+   * the menu is opened.
+   */
+  hasOverlay?: boolean;
 
   /**
    * The `offset` allows you to control the distance between the menu and the trigger.
@@ -86,8 +95,10 @@ export interface DropdownMenuProps extends Pick<BoxProps, 'tx'>, Pick<MenuProps,
 }
 
 export const DropdownMenu = ({
+  animation,
   childrenBottom,
   childrenTop,
+  hasOverlay = true,
   offset = 4,
   options,
   onChange = noop,
@@ -100,51 +111,69 @@ export const DropdownMenu = ({
     <ReachMenu>
       {({ isExpanded }) => (
         <DropdownMenuStateManager isExpanded={isExpanded} onChange={onChange}>
-          {trigger &&
-            cloneElement(trigger as ReactElement<any>, {
-              as: ReachMenuButton,
-            })}
-          <Box
-            as={ReachMenuPopover}
-            position={(targetRect?: PRect | null, popoverRect?: PRect | null) =>
-              getPosition(targetRect, popoverRect, offset)
-            }
-            tx={{ zIndex: 9999, display: 'block', pointerEvents: isExpanded ? 'auto' : 'none' }}
-          >
-            <AnimatePresence>
-              {isExpanded && (
-                <Menu data-testid={testId} size={size} tx={tx}>
-                  {childrenTop}
-                  <Box
-                    as={ReachMenuItems as FC<ReachMenuItemsProps>}
-                    tx={{
-                      outline: 'none',
-                      p: 0,
-                      border: 0,
-                      fontSize: 'inherit',
-                      background: 'transparent',
-                      whiteSpace: 'initial',
-                      color: 'inherit',
-                    }}
-                  >
-                    {options.map((option, index) => {
-                      return (
-                        <MenuItem
-                          // @ts-ignore
-                          as={ReachMenuItem as FC<ReachMenuItemProps>}
-                          data-testid={option.id}
-                          key={index}
-                          size={size}
-                          {...option}
-                        />
-                      );
-                    })}
-                  </Box>
-                  {childrenBottom}
-                </Menu>
-              )}
-            </AnimatePresence>
-          </Box>
+          <>
+            {/* This overlay is conditional rendered based on if `hasOverlay` prop is passed and it'll apply a transparent div over the entire screen to prevent the user from being able to right click on anything else while the menu is opened. */}
+            {hasOverlay && (
+              <Box
+                tx={{
+                  position: 'fixed',
+                  zIndex: 1,
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  display: isExpanded ? 'block' : 'none',
+                  backgroundColor: 'transparent',
+                }}
+              />
+            )}
+            {trigger &&
+              cloneElement(trigger as ReactElement<any>, {
+                as: ReachMenuButton,
+              })}
+            <Box
+              as={ReachMenuPopover}
+              position={(targetRect?: PRect | null, popoverRect?: PRect | null) =>
+                getPosition(targetRect, popoverRect, offset)
+              }
+              tx={{ zIndex: 9999, display: 'block', pointerEvents: isExpanded ? 'auto' : 'none' }}
+            >
+              <AnimatePresence>
+                {isExpanded && (
+                  <Menu animation={animation} data-testid={testId} size={size} tx={tx}>
+                    {childrenTop}
+                    <Box
+                      as={ReachMenuItems as FC<ReachMenuItemsProps>}
+                      tx={{
+                        outline: 'none',
+                        p: 0,
+                        border: 0,
+                        fontSize: 'inherit',
+                        background: 'transparent',
+                        whiteSpace: 'initial',
+                        color: 'inherit',
+                      }}
+                    >
+                      {options.map((option, index) => {
+                        return (
+                          <MenuItem
+                            // @ts-ignore
+                            as={ReachMenuItem as FC<ReachMenuItemProps>}
+                            data-testid={option.id}
+                            onClick={(event: MouseEvent) => event.stopPropagation()}
+                            key={index}
+                            size={size}
+                            {...option}
+                          />
+                        );
+                      })}
+                    </Box>
+                    {childrenBottom}
+                  </Menu>
+                )}
+              </AnimatePresence>
+            </Box>
+          </>
         </DropdownMenuStateManager>
       )}
     </ReachMenu>

@@ -189,6 +189,7 @@ withOverlay.parameters = {
 export const withSubMenu = Template.bind({});
 
 withSubMenu.args = {
+  id: 'with-submenu',
   options: [
     {
       label: 'Add status',
@@ -247,6 +248,82 @@ withSubMenu.parameters = {
     description: {
       story:
         'The submenu is determined if you pass `options` into `props.options` array. The position of the sub menu will conditional render on the left or right based on the amount of space that is available.',
+    },
+  },
+};
+
+export const withChildrenTop = Template.bind({});
+
+withChildrenTop.args = {
+  childrenTop: <Box tx={{ backgroundColor: 'macaw200', height: 80, borderRadius: 4, mb: 12 }} />,
+  id: 'children-top',
+  options: [
+    {
+      leftAdornment: <Box as={DownloadIcon} tx={{ display: 'block', width: 16 }} />,
+      label: 'Download',
+      onClick: () => {},
+    },
+    {
+      leftAdornment: <Box as={ShareIcon} tx={{ display: 'block', width: 16 }} />,
+      label: 'Share a link',
+      onClick: () => {},
+    },
+    {
+      leftAdornment: (
+        <Box as={LinkIcon} tx={{ display: 'block', width: 16, color: 'flamingo500' }} />
+      ),
+      label: 'Delete',
+      onClick: () => window.alert('You actually tried to....'),
+      tx: {
+        color: 'flamingo800',
+      },
+    },
+  ],
+};
+
+withChildrenTop.parameters = {
+  docs: {
+    description: {
+      story:
+        'The `childrenBottom` prop renders the children that you pass to it above the menu options.',
+    },
+  },
+};
+
+export const withChildrenBottom = Template.bind({});
+
+withChildrenBottom.args = {
+  childrenBottom: <Box tx={{ backgroundColor: 'macaw200', height: 80, borderRadius: 4, mt: 12 }} />,
+  id: 'children-bottom',
+  options: [
+    {
+      leftAdornment: <Box as={DownloadIcon} tx={{ display: 'block', width: 16 }} />,
+      label: 'Download',
+      onClick: () => {},
+    },
+    {
+      leftAdornment: <Box as={ShareIcon} tx={{ display: 'block', width: 16 }} />,
+      label: 'Share a link',
+      onClick: () => {},
+    },
+    {
+      leftAdornment: (
+        <Box as={LinkIcon} tx={{ display: 'block', width: 16, color: 'flamingo500' }} />
+      ),
+      label: 'Delete',
+      onClick: () => window.alert('You actually tried to....'),
+      tx: {
+        color: 'flamingo800',
+      },
+    },
+  ],
+};
+
+withChildrenBottom.parameters = {
+  docs: {
+    description: {
+      story:
+        'The `childrenBottom` prop renders the children that you pass to it above the menu options.',
     },
   },
 };

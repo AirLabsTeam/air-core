@@ -3,6 +3,69 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.9.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.9.0...@air/zephyr@12.9.1) (2021-05-10)
+
+**Note:** Version bump only for package @air/zephyr
+
+# [12.9.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.8.0...@air/zephyr@12.9.0) (2021-05-10)
+
+### Features
+
+- **@air/zephyr:** add in children top and bottom props to context menu ([5eb2ccf](https://github.com/AirLabsTeam/web-core/commit/5eb2ccf8cade8cb8d614dcb2473083ec742ea9c3))
+
+# [12.8.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.7.0...@air/zephyr@12.8.0) (2021-05-07)
+
+### Bug Fixes
+
+- **@air/zephyr:** remove `hasAnimation` and just add in a null check ([ca46d01](https://github.com/AirLabsTeam/web-core/commit/ca46d0120163a317fd76edf73c39010dfcebba9a))
+
+### Features
+
+- **@air/zephyr:** add in `hasAnimation` prop to dropdown and context menus ([7670be3](https://github.com/AirLabsTeam/web-core/commit/7670be3e48d71f253c34d7412b37ff96b0711280))
+
+# [12.7.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.6.0...@air/zephyr@12.7.0) (2021-05-05)
+
+### Bug Fixes
+
+- **@air/zephyr:** fix menu item having additional spacing when divider is present ([fd74b4e](https://github.com/AirLabsTeam/web-core/commit/fd74b4e3f7b548fa51f70ff7c64d20779f04b815))
+
+### Features
+
+- **@air/zephyr:** add in hidden overlay to dropdown menu to prevent other actions while opened ([5f5ebf4](https://github.com/AirLabsTeam/web-core/commit/5f5ebf4ce650574ac5047384e13cb561ae555583))
+
+# [12.6.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.5.5...@air/zephyr@12.6.0) (2021-04-28)
+
+### Features
+
+- **@air/zephyr:** allow control over menu animations ([bb8588c](https://github.com/AirLabsTeam/web-core/commit/bb8588c408fc280b9708c1f5241a9155de392abe))
+
+## [12.5.5](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.5.4...@air/zephyr@12.5.5) (2021-04-28)
+
+**Note:** Version bump only for package @air/zephyr
+
+## [12.5.4](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.5.3...@air/zephyr@12.5.4) (2021-04-27)
+
+**Note:** Version bump only for package @air/zephyr
+
+## [12.5.3](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.5.2...@air/zephyr@12.5.3) (2021-04-26)
+
+### Bug Fixes
+
+- **@air/zephyr:** add in missing dataset to context menu ([70f3526](https://github.com/AirLabsTeam/web-core/commit/70f3526a58fe2d88d2b0e5b67cb5ef05c3491a54))
+
+## [12.5.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.5.1...@air/zephyr@12.5.2) (2021-04-26)
+
+### Bug Fixes
+
+- **@air/zephyr:** make input onChange optional ([7576732](https://github.com/AirLabsTeam/web-core/commit/757673274ac7c13e34b5b5dfaf48be41b38e6bec))
+
+## [12.5.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.5.0...@air/zephyr@12.5.1) (2021-04-26)
+
+### Bug Fixes
+
+- **@air/zephyr:** add missing types to input ([2ad907d](https://github.com/AirLabsTeam/web-core/commit/2ad907dee2ff344e382bbbf1a119794e858de538))
+- **@air/zephyr:** prevent clicking on menu item from triggering a click event on parent ([b15a2cf](https://github.com/AirLabsTeam/web-core/commit/b15a2cf1484d0332b42ba5630977b8449260811d))
+
 # [12.5.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.4.2...@air/zephyr@12.5.0) (2021-04-23)
 
 ### Bug Fixes

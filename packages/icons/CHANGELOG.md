@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.2.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@8.1.0...@air/icons@8.2.0) (2021-05-10)
+
+### Features
+
+- **icons:** add DesktopApp icon ([d07972a](https://github.com/AirLabsTeam/web-core/commit/d07972a5fe74ece087eac97e4c5e20924e21c681))
+
+# [8.1.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@8.0.0...@air/icons@8.1.0) (2021-04-28)
+
+### Features
+
+- **icons:** replace down left right and up triangles with filled svgs ([8fa31aa](https://github.com/AirLabsTeam/web-core/commit/8fa31aa554f3339f59c16551a62681b0713aa68e))
+
+# [8.0.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@7.3.0...@air/icons@8.0.0) (2021-04-27)
+
+### Features
+
+- **@air/zephyr:** add in new icons ([14a7bd9](https://github.com/AirLabsTeam/web-core/commit/14a7bd94b0e5cd8e82a4aa74e6771112d3712320))
+
+### BREAKING CHANGES
+
+- **@air/zephyr:** Renamed BoardsAll to BoardsDuplicate
+
+# [7.3.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@7.2.0...@air/icons@7.3.0) (2021-04-26)
+
+### Features
+
+- **gizmo.svg:** added a new icon ([67a5f5c](https://github.com/AirLabsTeam/web-core/commit/67a5f5c8a47b8e9da6db0f3d09bf8cb7c7147736))
+
 # [7.2.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@7.1.1...@air/icons@7.2.0) (2021-04-23)
 
 ### Features
