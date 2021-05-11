@@ -3,6 +3,62 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [12.10.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.9.1...@air/zephyr@12.10.0) (2021-05-11)
+
+### Bug Fixes
+
+- **@air/zephyr:** add in actionsheet export ([84963a5](https://github.com/AirLabsTeam/web-core/commit/84963a56e42d34525120e33b85df21928fcaa058))
+- **@air/zephyr:** add in missing types for new colors' ([bf7d156](https://github.com/AirLabsTeam/web-core/commit/bf7d156b0c74149b6d07e6ab9f1e0f9bde599f3c))
+- **@air/zephyr:** decrease animation time ([cbd0d2a](https://github.com/AirLabsTeam/web-core/commit/cbd0d2a4aa4335cbd8f0d4f973cb244b5c8f06b1))
+- **@air/zephyr:** fix actionsheet spacing ([5063716](https://github.com/AirLabsTeam/web-core/commit/506371624a49f2e2f9517524d9a8c3239814b70b))
+- **@air/zephyr:** fix bounce not unmounting component ([4974f08](https://github.com/AirLabsTeam/web-core/commit/4974f0856940175cf31f4f141ea9ce7ad43e821b))
+- **@air/zephyr:** fix cockatoo025 color ([1e94c67](https://github.com/AirLabsTeam/web-core/commit/1e94c678251393f5f43c123fe1e99bab7b0af202))
+- **@air/zephyr:** fix missing aria-label, remove test code, and add in motion for overlay ([a65ac1d](https://github.com/AirLabsTeam/web-core/commit/a65ac1d7ca9d3dbb46fef0a018b75f3af58c1410))
+- **@air/zephyr:** revert removal of cuckoos and add in cockatoo colors ([28e406d](https://github.com/AirLabsTeam/web-core/commit/28e406d316caaa490345fb494d23fff4422cf784))
+- **@air/zephyr:** revert removal of cuckoos and add in cockatoo colors ([d87042a](https://github.com/AirLabsTeam/web-core/commit/d87042ae8bd3f802ebb2e53ce20fa23205a7ae7c))
+
+### Features
+
+- **@air/zephyr:** add in action sheet component ([9468229](https://github.com/AirLabsTeam/web-core/commit/9468229b591bbb6410021743ff709ede299a608b))
+- **@air/zephyr:** add in additional cuckoo colors ([52cad68](https://github.com/AirLabsTeam/web-core/commit/52cad686a8d7a6df565fdfecd72ffefabbcdf4d3))
+- **@air/zephyr:** add in new colors ([6f4edf7](https://github.com/AirLabsTeam/web-core/commit/6f4edf7e0c4631a798f102be75cd519707a23c1b))
+
+## [12.9.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.9.0...@air/zephyr@12.9.1) (2021-05-10)
+
+**Note:** Version bump only for package @air/zephyr
+
+# [12.9.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.8.0...@air/zephyr@12.9.0) (2021-05-10)
+
+### Features
+
+- **@air/zephyr:** add in children top and bottom props to context menu ([5eb2ccf](https://github.com/AirLabsTeam/web-core/commit/5eb2ccf8cade8cb8d614dcb2473083ec742ea9c3))
+
+# [12.8.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.7.0...@air/zephyr@12.8.0) (2021-05-07)
+
+### Bug Fixes
+
+- **@air/zephyr:** remove `hasAnimation` and just add in a null check ([ca46d01](https://github.com/AirLabsTeam/web-core/commit/ca46d0120163a317fd76edf73c39010dfcebba9a))
+
+### Features
+
+- **@air/zephyr:** add in `hasAnimation` prop to dropdown and context menus ([7670be3](https://github.com/AirLabsTeam/web-core/commit/7670be3e48d71f253c34d7412b37ff96b0711280))
+
+# [12.7.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.6.0...@air/zephyr@12.7.0) (2021-05-05)
+
+### Bug Fixes
+
+- **@air/zephyr:** fix menu item having additional spacing when divider is present ([fd74b4e](https://github.com/AirLabsTeam/web-core/commit/fd74b4e3f7b548fa51f70ff7c64d20779f04b815))
+
+### Features
+
+- **@air/zephyr:** add in hidden overlay to dropdown menu to prevent other actions while opened ([5f5ebf4](https://github.com/AirLabsTeam/web-core/commit/5f5ebf4ce650574ac5047384e13cb561ae555583))
+
+# [12.6.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.5.5...@air/zephyr@12.6.0) (2021-04-28)
+
+### Features
+
+- **@air/zephyr:** allow control over menu animations ([bb8588c](https://github.com/AirLabsTeam/web-core/commit/bb8588c408fc280b9708c1f5241a9155de392abe))
+
 ## [12.5.5](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.5.4...@air/zephyr@12.5.5) (2021-04-28)
 
 **Note:** Version bump only for package @air/zephyr
