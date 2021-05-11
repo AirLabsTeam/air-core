@@ -126,10 +126,15 @@ const cockatoos = {
 
 const cuckoos = {
   cuckoo050: '#C6A9FF',
-  cuckoo100: '#B088FF',
-  cuckoo200: '#A072F8',
-  cuckoo300: '#945EEA',
-  cuckoo400: '#7E41E0',
+  cuckoo100: '#EDE6FF',
+  cuckoo200: '#D7C6FF',
+  cuckoo300: '#C1A1FF',
+  cuckoo400: '#AC78FF',
+  cuckoo500: '#9F5CFF',
+  cuckoo600: '#9640FF',
+  cuckoo700: '#8029EF',
+  cuckoo800: '#5618B7',
+  cuckoo900: '#341078 ',
 };
 
 const darks = {
