@@ -10,7 +10,6 @@ export type ColorName =
   | 'canary700'
   | 'canary800'
   | 'canary900'
-  | 'cuckoo025'
   | 'cuckoo050'
   | 'cuckoo100'
   | 'cuckoo200'
@@ -112,7 +111,7 @@ const canaries = {
   canary900: '#4c2103',
 };
 
-const cockatoo = {
+const cockatoos = {
   cockatoo025: '#026802',
   cockatoo050: '#FFAEF9',
   cockatoo100: '#FF83F3',
@@ -245,7 +244,7 @@ const miscellaneous = {
 
 export const colors: { [key in ColorName]: string } = {
   ...canaries,
-  ...cockatoo,
+  ...cockatoos,
   ...cuckoos,
   ...darks,
   ...flamingos,
