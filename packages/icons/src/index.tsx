@@ -37,6 +37,7 @@ import _CompressedFiles from './svgs/uncategorized/CompressedFiles.svg';
 import _DashedPlus from './svgs/uncategorized/DashedPlus.svg';
 import _Database from './svgs/uncategorized/Database.svg';
 import _Delete from './svgs/uncategorized/Delete.svg';
+import _DesktopApp from './svgs/uncategorized/DesktopApp.svg';
 import _Devices from './svgs/uncategorized/Devices.svg';
 import _Document from './svgs/uncategorized/Document.svg';
 import _DoubleChevronDown from './svgs/uncategorized/DoubleChevron-Down.svg';
@@ -171,6 +172,7 @@ export const CompressedFiles = (props?: SVGProps<SVGElement>) => <_CompressedFil
 export const DashedPlus = (props?: SVGProps<SVGElement>) => <_DashedPlus {...props} />;
 export const Database = (props?: SVGProps<SVGElement>) => <_Database {...props} />;
 export const Delete = (props?: SVGProps<SVGElement>) => <_Delete {...props} />;
+export const DesktopApp = (props?: SVGProps<SVGElement>) => <_DesktopApp {...props} />;
 export const Devices = (props?: SVGProps<SVGElement>) => <_Devices {...props} />;
 export const Document = (props?: SVGProps<SVGElement>) => <_Document {...props} />;
 export const DoubleChevronDown = (props?: SVGProps<SVGElement>) => <_DoubleChevronDown {...props} />;

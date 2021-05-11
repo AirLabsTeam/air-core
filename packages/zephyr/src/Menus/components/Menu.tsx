@@ -1,4 +1,5 @@
 import { motion, useReducedMotion, Variant } from 'framer-motion';
+import { isNull } from 'lodash';
 import { rgba } from 'polished';
 import React from 'react';
 import { useTheme } from 'styled-components';
@@ -15,7 +16,7 @@ export interface MenuProps extends Pick<BoxProps, 'children' | 'tx'> {
     animate: Variant;
     exit: Variant;
     initial: Variant;
-  };
+  } | null;
   /**
    * The `size` prop determines the padding and default width of the menu.
    */
@@ -49,7 +50,7 @@ export const Menu = ({ animation, children, tx, size = 'small', ...restOfProps }
       animate="animate"
       exit="exit"
       transition={{ type: 'spring', damping: 20, stiffness: 300 }}
-      variants={animation ?? defaultMenuAnimation}
+      variants={isNull(animation) ? undefined : defaultMenuAnimation}
       tx={{
         display: 'flex',
         flexDirection: 'column',

@@ -56,7 +56,7 @@ export const MenuItem = ({
 
   return (
     <>
-      {hasDividerTop && <MenuDivider />}
+      {hasDividerTop && <MenuDivider tx={{ mt: 0 }} />}
       <Box
         __baseStyles={{
           display: 'flex',
@@ -147,7 +147,7 @@ export const MenuItem = ({
           </Box>
         )}
       </Box>
-      {hasDividerBottom && <MenuDivider />}
+      {hasDividerBottom && <MenuDivider tx={{ mb: 8 }} />}
     </>
   );
 };
