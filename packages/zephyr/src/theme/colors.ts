@@ -15,6 +15,21 @@ export type ColorName =
   | 'cuckoo200'
   | 'cuckoo300'
   | 'cuckoo400'
+  | 'cuckoo500'
+  | 'cuckoo600'
+  | 'cuckoo700'
+  | 'cuckoo800'
+  | 'cuckoo900'
+  | 'cockatoo025'
+  | 'cockatoo050'
+  | 'cockatoo100'
+  | 'cockatoo200'
+  | 'cockatoo300'
+  | 'cockatoo400'
+  | 'cockatoo500'
+  | 'cockatoo600'
+  | 'cockatoo700'
+  | 'cockatoo800'
   | 'dropbox'
   | 'flamingo050'
   | 'flamingo100'
@@ -49,11 +64,16 @@ export type ColorName =
   | 'macaw400'
   | 'macaw500'
   | 'macaw600'
+  | 'parrot025'
   | 'parrot050'
   | 'parrot100'
   | 'parrot200'
   | 'parrot300'
   | 'parrot400'
+  | 'parrot500'
+  | 'parrot600'
+  | 'parrot700'
+  | 'parrot800'
   | 'peacock050'
   | 'peacock100'
   | 'peacock200'
@@ -96,12 +116,30 @@ const canaries = {
   canary900: '#4c2103',
 };
 
+const cockatoos = {
+  cockatoo025: '#FDD2FF',
+  cockatoo050: '#FFAEF9',
+  cockatoo100: '#FF83F3',
+  cockatoo200: '#FF4AE6',
+  cockatoo300: '#FF00D5',
+  cockatoo400: '#E004BC',
+  cockatoo500: '#B702A0',
+  cockatoo600: '#86017C',
+  cockatoo700: '#5D034E',
+  cockatoo800: '#3E0234',
+};
+
 const cuckoos = {
   cuckoo050: '#C6A9FF',
-  cuckoo100: '#B088FF',
-  cuckoo200: '#A072F8',
-  cuckoo300: '#945EEA',
-  cuckoo400: '#7E41E0',
+  cuckoo100: '#EDE6FF',
+  cuckoo200: '#D7C6FF',
+  cuckoo300: '#C1A1FF',
+  cuckoo400: '#AC78FF',
+  cuckoo500: '#9F5CFF',
+  cuckoo600: '#9640FF',
+  cuckoo700: '#8029EF',
+  cuckoo800: '#5618B7',
+  cuckoo900: '#341078 ',
 };
 
 const darks = {
@@ -162,11 +200,16 @@ const macaws = {
 };
 
 const parrots = {
-  parrot050: '#A9F482',
-  parrot100: '#8CEA65',
-  parrot200: '#5EE92A',
-  parrot300: '#3AD202',
-  parrot400: '#50B83C',
+  parrot025: '#DEFABB',
+  parrot050: '#C6F68D',
+  parrot100: '#AAF255',
+  parrot200: '#90EE02',
+  parrot300: '#75E900',
+  parrot400: '#61D800',
+  parrot500: '#41C300',
+  parrot600: '#09AF00',
+  parrot700: '#008B00',
+  parrot800: '#026802',
 };
 
 const peacocks = {
@@ -211,6 +254,7 @@ const miscellaneous = {
 
 export const colors: { [key in ColorName]: string } = {
   ...canaries,
+  ...cockatoos,
   ...cuckoos,
   ...darks,
   ...flamingos,
