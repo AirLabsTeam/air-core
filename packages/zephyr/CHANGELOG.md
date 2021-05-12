@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.10.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.10.1...@air/zephyr@12.10.2) (2021-05-12)
+
+### Bug Fixes
+
+- **@air/zephyr:** fix actionsheet types, overflow, and add onClose when selecting item ([eac4390](https://github.com/AirLabsTeam/web-core/commit/eac4390bac416987816eef0596c03f5c54a195e0))
+
 ## [12.10.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.10.0...@air/zephyr@12.10.1) (2021-05-12)
 
 **Note:** Version bump only for package @air/zephyr
