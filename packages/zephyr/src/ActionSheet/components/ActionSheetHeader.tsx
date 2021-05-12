@@ -21,9 +21,12 @@ export const ActionSheetHeader = ({ isHidden, onClose, title }: ActionSheetHeade
     <Box
       as="header"
       tx={{
+        position: 'sticky',
+        top: -4,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
+        backgroundColor: 'white',
         height: 48,
         borderBottom: '1px solid',
         borderBottomColor: 'pigeon100',

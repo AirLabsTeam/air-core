@@ -1,18 +1,20 @@
 import React, { ReactNode } from 'react';
 
-import { Box, BoxProps } from '../../Box';
-import { Button } from '../../Button';
+import { Box } from '../../Box';
+import { Button, ButtonProps } from '../../Button';
 import { Text } from '../../Text';
 import { ActionSheetDivider } from './ActionSheetDivider';
 
-export type ActionSheetItemRenderProps =
-  | { children: ReactNode }
-  | { label: ReactNode; description?: ReactNode };
+export type ActionSheetItemChildrenProps = {
+  children: ReactNode;
+};
 
-export type ActionSheetItemProps = Pick<
-  BoxProps<'button'>,
-  'onClick' | 'onMouseEnter' | 'onMouseLeave' | 'tx'
-> & {
+export type ActionSheetItemOptionsProps = {
+  label: ReactNode;
+  description?: ReactNode;
+};
+
+export type ActionSheetItemProps = Pick<ButtonProps, 'tx'> & {
   /**
    * Renders `<MenuDivider />` below the menu item.
    */
@@ -32,12 +34,18 @@ export type ActionSheetItemProps = Pick<
    * Displays an element on the right of `children` or `label.
    */
   rightAdornment?: ReactNode;
-} & ActionSheetItemRenderProps;
+
+  /**
+   * `onSelect` event for when the user clicks on the button
+   */
+  onSelect: ButtonProps['onClick'];
+} & (ActionSheetItemChildrenProps | ActionSheetItemOptionsProps);
 
 export const ActionSheetItem = ({
   hasDividerBottom,
   hasDividerTop,
   leftAdornment,
+  onSelect,
   rightAdornment,
   tx,
   ...restOfProps
@@ -48,6 +56,7 @@ export const ActionSheetItem = ({
     <>
       {hasDividerTop && <ActionSheetDivider />}
       <Button
+        onClick={onSelect}
         tx={{
           display: 'flex',
           alignItems: hasDescription ? 'flex-start' : 'center',

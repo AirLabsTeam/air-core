@@ -46,15 +46,16 @@ export const ActionSheetContainer = ({ children, onClose = noop }: ActionSheetCo
         }
       }}
       tx={{
-        zIndex: 999,
         position: 'fixed',
         top: 'auto',
         left: 0,
         right: 0,
         backgroundColor: 'white',
+        maxHeight: 'calc(200vh - 24px)',
         width: '100%',
         borderRadius: 4,
         pt: 4,
+        overflowY: 'auto',
 
         /**
          * This is a CSS hack to prevent the actionsheet from showing the

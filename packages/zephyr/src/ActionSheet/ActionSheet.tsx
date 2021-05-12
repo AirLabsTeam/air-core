@@ -1,6 +1,7 @@
 import { DialogContent } from '@reach/dialog';
 import { AnimatePresence } from 'framer-motion';
-import React, { ReactNode } from 'react';
+import { noop } from 'lodash';
+import React, { MouseEvent, ReactNode } from 'react';
 
 import { Box } from '../Box';
 import { ActionSheetContainer } from './components/ActionSheetContainer';
@@ -8,21 +9,27 @@ import { ActionSheetHeader } from './components/ActionSheetHeader';
 import { ActionSheetItem, ActionSheetItemProps } from './components/ActionSheetItem';
 import { ActionSheetOverlay } from './components/ActionSheetOverlay';
 
-export type ActionSheetRendererProps =
-  | { children: ReactNode }
-  | { options: (ActionSheetItemProps & { id?: string })[] };
+export type ActionSheetChildrenProps = {
+  children: ReactNode;
+};
+
+export type ActionSheetOptionsProps = {
+  options: (ActionSheetItemProps & {
+    id?: string;
+  })[];
+};
 
 export type ActionSheetProps = {
   isOpened: boolean;
   isTitleHidden?: boolean;
   onClose: () => void;
   title: string;
-} & ActionSheetRendererProps;
+} & (ActionSheetChildrenProps | ActionSheetOptionsProps);
 
 export const ActionSheet = ({
   isOpened,
   isTitleHidden,
-  onClose,
+  onClose = noop,
   title,
   ...restOfProps
 }: ActionSheetProps) => {
@@ -38,7 +45,19 @@ export const ActionSheet = ({
                   {'children' in restOfProps
                     ? restOfProps.children
                     : restOfProps.options.map(({ id, ...option }, index) => {
-                        return <ActionSheetItem key={id ?? index} data-testid={id} {...option} />;
+                        return (
+                          <ActionSheetItem
+                            key={id ?? index}
+                            data-testid={id}
+                            {...option}
+                            onSelect={(event: MouseEvent<HTMLButtonElement>) => {
+                              if (option.onSelect) {
+                                option.onSelect(event);
+                              }
+                              onClose();
+                            }}
+                          />
+                        );
                       })}
                 </Box>
               </DialogContent>
