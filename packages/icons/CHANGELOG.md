@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.3.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@8.2.0...@air/icons@8.3.0) (2021-05-12)
+
+### Bug Fixes
+
+- **@air/icons:** fix icon fill color ([ab88c90](https://github.com/AirLabsTeam/web-core/commit/ab88c900c186577835589a15e466ae0377906a6d))
+
+### Features
+
+- **icons:** add CreditCard icon to library ([683dd44](https://github.com/AirLabsTeam/web-core/commit/683dd449d14a56de3f1d3dfea94f24cfdbbb5e92))
+- **icons:** update fill with currentColor ([363fa11](https://github.com/AirLabsTeam/web-core/commit/363fa1138af19ad230be29a14b6e1bd71bc1a4a4))
+
 # [8.2.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@8.1.0...@air/icons@8.2.0) (2021-05-10)
 
 ### Features
