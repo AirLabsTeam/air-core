@@ -34,16 +34,16 @@ Default.args = {
   options: [
     {
       label: 'Share a link',
-      onClick: () => {},
+      onSelect: () => {},
     },
     {
       label: 'Add members',
       hasDividerBottom: true,
-      onClick: () => {},
+      onSelect: () => {},
     },
     {
       label: 'Delete',
-      onClick: () => window.alert('You actually tried to....'),
+      onSelect: () => window.alert('You actually tried to....'),
       tx: {
         color: 'flamingo800',
       },
@@ -72,16 +72,16 @@ withHiddenTitle.args = {
   options: [
     {
       label: 'Share a link',
-      onClick: () => {},
+      onSelect: () => {},
     },
     {
       label: 'Add members',
       hasDividerBottom: true,
-      onClick: () => {},
+      onSelect: () => {},
     },
     {
       label: 'Delete',
-      onClick: () => window.alert('You actually tried to....'),
+      onSelect: () => window.alert('You actually tried to....'),
       tx: {
         color: 'flamingo800',
       },
