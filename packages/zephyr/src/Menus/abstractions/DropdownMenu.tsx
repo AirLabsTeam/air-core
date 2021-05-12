@@ -117,7 +117,6 @@ export const DropdownMenu = ({
               <Box
                 tx={{
                   position: 'fixed',
-                  zIndex: 1,
                   top: 0,
                   left: 0,
                   right: 0,
@@ -136,7 +135,7 @@ export const DropdownMenu = ({
               position={(targetRect?: PRect | null, popoverRect?: PRect | null) =>
                 getPosition(targetRect, popoverRect, offset)
               }
-              tx={{ zIndex: 9999, display: 'block', pointerEvents: isExpanded ? 'auto' : 'none' }}
+              tx={{ display: 'block', pointerEvents: isExpanded ? 'auto' : 'none' }}
             >
               <AnimatePresence>
                 {isExpanded && (
