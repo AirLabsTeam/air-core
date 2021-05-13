@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [12.11.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.10.2...@air/zephyr@12.11.0) (2021-05-13)
+
+### Features
+
+- **@air/zephyr:** remove zIndex from menus ([fd3c7ce](https://github.com/AirLabsTeam/web-core/commit/fd3c7ce74ffde998371c6bcad281928f8a462e34))
+
 ## [12.10.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.10.1...@air/zephyr@12.10.2) (2021-05-12)
 
 ### Bug Fixes
