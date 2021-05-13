@@ -81,7 +81,6 @@ const ClickArea = ({ children, ...restOfProps }: BoxProps) => {
     >
       <Box
         tx={{
-          zIndex: 1,
           position: 'absolute',
           top: 0,
           left: 0,
