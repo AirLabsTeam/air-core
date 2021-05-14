@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.11.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.11.0...@air/zephyr@12.11.1) (2021-05-14)
+
+### Bug Fixes
+
+- fix XButton size on Modal ([a6239a5](https://github.com/AirLabsTeam/web-core/commit/a6239a5da3f06451b5d502bc2ce5592f8a85949c))
+
 # [12.11.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.10.2...@air/zephyr@12.11.0) (2021-05-13)
 
 ### Features
