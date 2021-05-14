@@ -176,7 +176,9 @@ export const Modal = ({
               labelID={labelID}
               descriptionID={descriptionID}
             >
-              {withCloseButton && <XButton onClick={onDismiss} ref={closeButtonRef} />}
+              {withCloseButton && (
+                <XButton onClick={onDismiss} ref={closeButtonRef} size="medium" />
+              )}
 
               {isString(modalLabel) ? (
                 <Box as={AlertDialogLabel} tx={modalLabelLayoutStyles}>
@@ -225,7 +227,7 @@ export const Modal = ({
             labelID={labelID}
             descriptionID={descriptionID}
           >
-            {withCloseButton && <XButton onClick={onDismiss} ref={closeButtonRef} />}
+            {withCloseButton && <XButton onClick={onDismiss} ref={closeButtonRef} size="medium" />}
 
             {isString(modalLabel) ? (
               <Box id={labelID} tx={modalLabelLayoutStyles}>
