@@ -115,6 +115,7 @@ import _SortAscending from './svgs/uncategorized/Sort-Ascending.svg';
 import _SortDescending from './svgs/uncategorized/Sort-Descending.svg';
 import _Stack from './svgs/uncategorized/Stack.svg';
 import _Star from './svgs/uncategorized/Star.svg';
+import _StarFilled from './svgs/uncategorized/StarFilled.svg';
 import _Swap from './svgs/uncategorized/Swap.svg';
 import _Sync from './svgs/uncategorized/Sync.svg';
 import _Tag from './svgs/uncategorized/Tag.svg';
@@ -252,6 +253,7 @@ export const SortAscending = (props?: SVGProps<SVGElement>) => <_SortAscending {
 export const SortDescending = (props?: SVGProps<SVGElement>) => <_SortDescending {...props} />;
 export const Stack = (props?: SVGProps<SVGElement>) => <_Stack {...props} />;
 export const Star = (props?: SVGProps<SVGElement>) => <_Star {...props} />;
+export const StarFilled = (props?: SVGProps<SVGElement>) => <_StarFilled {...props} />;
 export const Swap = (props?: SVGProps<SVGElement>) => <_Swap {...props} />;
 export const Sync = (props?: SVGProps<SVGElement>) => <_Sync {...props} />;
 export const Tag = (props?: SVGProps<SVGElement>) => <_Tag {...props} />;
