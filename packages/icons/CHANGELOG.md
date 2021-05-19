@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.5.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@8.4.0...@air/icons@8.5.0) (2021-05-19)
+
+### Bug Fixes
+
+- add currentColor ([9bf43c0](https://github.com/AirLabsTeam/web-core/commit/9bf43c09e760b11a116ba0ceddc57d851c733745))
+
+### Features
+
+- update star icon, add star-filled ([40b1114](https://github.com/AirLabsTeam/web-core/commit/40b11146b405cc374dd0b958c2f33a48f1d5ea9d))
+
 # [8.4.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@8.3.0...@air/icons@8.4.0) (2021-05-19)
 
 ### Features
