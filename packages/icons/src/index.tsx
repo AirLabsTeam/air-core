@@ -58,6 +58,7 @@ import _Exclamation from './svgs/uncategorized/Exclamation.svg';
 import _EyeClosed from './svgs/uncategorized/Eye-Closed.svg';
 import _Eye from './svgs/uncategorized/Eye.svg';
 import _Facebook from './svgs/uncategorized/Facebook.svg';
+import _Fields from './svgs/uncategorized/Fields.svg';
 import _FilledPlay from './svgs/uncategorized/FilledPlay.svg';
 import _Filters from './svgs/uncategorized/Filters.svg';
 import _Flash from './svgs/uncategorized/Flash.svg';
@@ -194,6 +195,7 @@ export const Exclamation = (props?: SVGProps<SVGElement>) => <_Exclamation {...p
 export const EyeClosed = (props?: SVGProps<SVGElement>) => <_EyeClosed {...props} />;
 export const Eye = (props?: SVGProps<SVGElement>) => <_Eye {...props} />;
 export const Facebook = (props?: SVGProps<SVGElement>) => <_Facebook {...props} />;
+export const Fields = (props?: SVGProps<SVGElement>) => <_Fields {...props} />;
 export const FilledPlay = (props?: SVGProps<SVGElement>) => <_FilledPlay {...props} />;
 export const Filters = (props?: SVGProps<SVGElement>) => <_Filters {...props} />;
 export const Flash = (props?: SVGProps<SVGElement>) => <_Flash {...props} />;
