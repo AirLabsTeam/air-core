@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.4.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@8.3.0...@air/icons@8.4.0) (2021-05-19)
+
+### Features
+
+- **fields.svg:** added new icon ([e5256f3](https://github.com/AirLabsTeam/web-core/commit/e5256f3b593e0de30e98eaccf1c10cb41bca38f8))
+
 # [8.3.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@8.2.0...@air/icons@8.3.0) (2021-05-12)
 
 ### Bug Fixes
