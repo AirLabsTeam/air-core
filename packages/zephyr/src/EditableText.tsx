@@ -170,16 +170,16 @@ export const EditableText = ({
                   lineHeight: 'inherit',
                   textAlign: 'inherit',
                   whiteSpace: 'pre-wrap',
-                  opacity: isEditingState ? 0 : 1,
+                  opacity: isEditingState && values['editable-text-value'] !== '' ? 0 : 1,
 
                   '&:hover': {
                     backgroundColor: isEditingState ? 'transparent' : 'pigeon050',
-                    color: values['editable-text-value'] ? 'inherit' : 'pigeon300',
+                    color: values['editable-text-value'] !== '' ? 'inherit' : 'pigeon300',
                   },
 
                   '&:active': {
                     backgroundColor: isEditingState ? 'transparent' : 'pigeon050',
-                    color: values['editable-text-value'] ? 'inherit' : 'pigeon300',
+                    color: values['editable-text-value'] !== '' ? 'inherit' : 'pigeon300',
                   },
 
                   '&:focus-visible': {
