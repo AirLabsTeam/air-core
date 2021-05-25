@@ -62,7 +62,7 @@ const EditableTextTextarea = forwardRef<HTMLTextAreaElement, EditableTextTextare
           fontWeight: 'inherit',
           letterSpacing: 'inherit',
           lineHeight: 'inherit',
-          whiteSpace: 'pre',
+          whiteSpace: 'pre-wrap',
           resize: 'none',
         }}
         {...field}
@@ -169,7 +169,7 @@ export const EditableText = ({
                   letterSpacing: 'inherit',
                   lineHeight: 'inherit',
                   textAlign: 'inherit',
-                  whiteSpace: 'pre',
+                  whiteSpace: 'pre-wrap',
                   opacity: isEditingState ? 0 : 1,
 
                   '&:hover': {
