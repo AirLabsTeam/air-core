@@ -1,7 +1,6 @@
 import { Meta, Story } from '@storybook/react';
-import React from 'react';
+import React, { useState } from 'react';
 
-import { Formik } from 'formik';
 import { Text } from '../src/Text';
 import { EditableText, EditableTextProps } from '../src/EditableText';
 
@@ -12,20 +11,28 @@ export default {
     docs: {
       description: {
         component:
-          'The `ActionSheet` component is modal that that is styled to look like an ActionSheet on mobile. Under the hood, it uses [@reach/dialog](https://reach.tech/dialog) and [framer-motion](https://www.framer.com/api/motion/gestures) to handle gestures.',
+          'The `EditableText` component extends the `Text` component and contains both a `button` and `textarea` that gets conditionally rendered based on the `isEditing` state. Under the hood, it uses [formik](https://formik.org/) to manage the form state.',
       },
     },
   },
 } as Meta<EditableTextProps>;
 
 const Template: Story<EditableTextProps> = (args) => {
+  const [formValue, setFormValue] = useState(args?.value ?? '');
+
   return (
     <>
-      <Text variant="text-ui-12">Text</Text>
-      <Formik initialValues={{ value: '' }} onSubmit={() => {}} {...args}>
-        <EditableText name="value" placeholder="Click to add a description" />
-      </Formik>
-      <Text variant="text-ui-12">Text</Text>
+      <EditableText
+        placeholder="Click to add a description"
+        {...args}
+        onSubmit={(value) => setFormValue(value['editable-text-value'])}
+        value={formValue}
+      />
+      {formValue && (
+        <Text tx={{ mt: 24 }} variant={args.variant ?? 'text-ui-12'}>
+          {formValue}
+        </Text>
+      )}
     </>
   );
 };
@@ -33,3 +40,32 @@ const Template: Story<EditableTextProps> = (args) => {
 export const Default = Template.bind({});
 
 Default.args = {};
+
+export const ControlledState = Template.bind({});
+
+ControlledState.args = {
+  isEditing: true,
+};
+
+export const TextVariants = Template.bind({});
+
+TextVariants.args = {
+  variant: 'text-ui-24',
+};
+
+export const DefaultValue = Template.bind({});
+
+DefaultValue.args = {
+  value: 'Title',
+};
+
+export const CustomStyles = Template.bind({});
+
+CustomStyles.args = {
+  tx: {
+    display: 'flex',
+    width: '100%',
+    minHeight: 200,
+    fontWeight: 'medium',
+  },
+};
