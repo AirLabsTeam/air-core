@@ -64,6 +64,7 @@ const EditableTextTextarea = forwardRef<HTMLTextAreaElement, EditableTextTextare
           lineHeight: 'inherit',
           whiteSpace: 'pre-wrap',
           resize: 'none',
+          overflow: 'hidden',
         }}
         {...field}
         {...restOfProps}
