@@ -7,68 +7,76 @@ import { useTheme } from 'styled-components';
 
 import { Box, BoxProps } from './Box';
 import { Button } from './Button';
+import { Label } from './Forms/Label';
 import { Text, TextProps } from './Text';
 
 interface EditableTextTextareaProps extends BoxProps {
   name: string;
+  label: string;
   onReset: () => void;
   onSubmit: () => void;
 }
 
 const EditableTextTextarea = forwardRef<HTMLTextAreaElement, EditableTextTextareaProps>(
   (
-    { name, onReset = noop, onSubmit = noop, ...restOfProps }: EditableTextTextareaProps,
+    { label, name, onReset = noop, onSubmit = noop, ...restOfProps }: EditableTextTextareaProps,
     forwardedRef,
   ) => {
     const { handleReset, submitForm } = useFormikContext();
     const [field] = useField(name);
 
     return (
-      <Box
-        as="textarea"
-        onKeyUp={(event: KeyboardEvent<HTMLTextAreaElement>) => {
-          if (event.key === 'Escape') {
-            event.stopPropagation();
-            handleReset();
-            onReset();
-          }
-        }}
-        onKeyPress={(event: KeyboardEvent<HTMLTextAreaElement>) => {
-          if (event.key === 'Enter') {
-            event.stopPropagation();
-            submitForm();
-            onSubmit();
-          }
-        }}
-        ref={forwardedRef}
-        tx={{
-          outline: 'none',
-          position: 'absolute',
-          backgroundColor: 'transparent',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          width: '100%',
-          maxWidth: '100%',
-          height: '100%',
-          maxHeight: '100%',
-          p: 0,
-          border: 0,
-          color: 'inherit',
-          fontFamily: 'inherit',
-          fontFeatureSettings: 'inherit',
-          fontSize: 'inherit',
-          fontWeight: 'inherit',
-          letterSpacing: 'inherit',
-          lineHeight: 'inherit',
-          whiteSpace: 'pre-wrap',
-          resize: 'none',
-          overflow: 'hidden',
-        }}
-        {...field}
-        {...restOfProps}
-      />
+      <>
+        <Label for={`editable-text-${label.toLowerCase().split(' ').join('-')}`} isVisuallyHidden>
+          {label}
+        </Label>
+        <Box
+          as="textarea"
+          id={`editable-text-${label.toLowerCase().split(' ').join('-')}`}
+          onKeyUp={(event: KeyboardEvent<HTMLTextAreaElement>) => {
+            if (event.key === 'Escape') {
+              event.stopPropagation();
+              handleReset();
+              onReset();
+            }
+          }}
+          onKeyPress={(event: KeyboardEvent<HTMLTextAreaElement>) => {
+            if (event.key === 'Enter') {
+              event.stopPropagation();
+              submitForm();
+              onSubmit();
+            }
+          }}
+          ref={forwardedRef}
+          tx={{
+            outline: 'none',
+            position: 'absolute',
+            backgroundColor: 'transparent',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            width: '100%',
+            maxWidth: '100%',
+            height: '100%',
+            maxHeight: '100%',
+            p: 0,
+            border: 0,
+            color: 'inherit',
+            fontFamily: 'inherit',
+            fontFeatureSettings: 'inherit',
+            fontSize: 'inherit',
+            fontWeight: 'inherit',
+            letterSpacing: 'inherit',
+            lineHeight: 'inherit',
+            whiteSpace: 'pre-wrap',
+            resize: 'none',
+            overflow: 'hidden',
+          }}
+          {...field}
+          {...restOfProps}
+        />
+      </>
     );
   },
 );
@@ -87,6 +95,7 @@ export interface EditableTextProps
   extends Pick<TextProps, 'tx' | 'variant'>,
     Pick<FormikConfig<EditableTextFormValues>, 'onSubmit'> {
   isEditing?: boolean;
+  label: string;
   name: string;
   onEditingStateChange: (isEditingState: boolean) => void;
   onReset?: () => void;
@@ -96,6 +105,7 @@ export interface EditableTextProps
 
 export const EditableText = ({
   isEditing = false,
+  label,
   onEditingStateChange = noop,
   onReset = noop,
   onSubmit = noop,
@@ -196,6 +206,7 @@ export const EditableText = ({
               {isEditingState && (
                 <Box as={Form} tx={{ position: 'unset' }}>
                   <EditableTextTextarea
+                    label={label}
                     name="editable-text-value"
                     onReset={() => {
                       onReset();

@@ -23,6 +23,7 @@ const Template: Story<EditableTextProps> = (args) => {
   return (
     <>
       <EditableText
+        label="Editable text"
         placeholder="Click to add a description"
         {...args}
         onSubmit={(value) => setFormValue(value['editable-text-value'])}
@@ -39,29 +40,35 @@ const Template: Story<EditableTextProps> = (args) => {
 
 export const Default = Template.bind({});
 
-Default.args = {};
+Default.args = {
+  label: 'Editable text 1',
+};
 
 export const ControlledState = Template.bind({});
 
 ControlledState.args = {
   isEditing: true,
+  label: 'Editable text 2',
 };
 
 export const TextVariants = Template.bind({});
 
 TextVariants.args = {
+  label: 'Editable text 3',
   variant: 'text-ui-24',
 };
 
 export const DefaultValue = Template.bind({});
 
 DefaultValue.args = {
+  label: 'Editable text 4',
   value: 'Title',
 };
 
 export const CustomStyles = Template.bind({});
 
 CustomStyles.args = {
+  label: 'Editable text 5',
   tx: {
     display: 'flex',
     width: '100%',
