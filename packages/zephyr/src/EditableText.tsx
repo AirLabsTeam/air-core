@@ -1,41 +1,57 @@
-import { Check as CheckIcon, Close as CloseIcon } from '@air/icons';
 import { Form, Formik, FormikConfig, useField, useFormikContext } from 'formik';
 import { noop } from 'lodash';
 import React, { forwardRef, KeyboardEvent, useEffect, useRef, useState } from 'react';
 import { usePrevious } from 'react-use';
 import * as Yup from 'yup';
 import VisuallyHidden from '@reach/visually-hidden';
+import { useId } from '@reach/auto-id';
 import { useTheme } from 'styled-components';
 
 import { Box, BoxProps } from './Box';
 import { Button } from './Button';
 import { Label } from './Forms/Label';
-import { IconButton } from './IconButton';
 import { Text, TextProps } from './Text';
 
 interface EditableTextTextareaProps extends BoxProps {
-  name: string;
-  /** This label will not be visible. It's here for accessibility purposes. */
+  id: string;
+  /**
+   * This label will not be visible. It's here for accessibility purposes.
+   * */
   label: string;
+  name: string;
   onReset: () => void;
   onSubmit: () => void;
 }
 
 const EditableTextTextarea = forwardRef<HTMLTextAreaElement, EditableTextTextareaProps>(
   (
-    { label, name, onReset = noop, onSubmit = noop, tx, ...restOfProps }: EditableTextTextareaProps,
+    {
+      id,
+      label,
+      name,
+      onReset = noop,
+      onSubmit = noop,
+      tx,
+      ...restOfProps
+    }: EditableTextTextareaProps,
     forwardedRef,
   ) => {
     const { handleReset, submitForm } = useFormikContext();
+    const autoId = useId();
     const [field] = useField(name);
-    const id = `editable-text-${label.toLowerCase().split(' ').join('-')}`;
 
     return (
       <>
         <Label for={id} isVisuallyHidden>
           {label}
         </Label>
+        <VisuallyHidden>
+          <Box as="p" id={autoId}>
+            Press <kbd>Enter</kbd> to save changes and <kbd>ESC</kbd> to cancel changes.
+          </Box>
+        </VisuallyHidden>
         <Box
+          aria-describedby={autoId}
           as="textarea"
           id={id}
           onKeyUp={(event: KeyboardEvent<HTMLTextAreaElement>) => {
@@ -101,6 +117,7 @@ export interface EditableTextProps
   extends Pick<TextProps, 'tx' | 'variant'>,
     Pick<FormikConfig<EditableTextFormValues>, 'onSubmit'> {
   isEditing?: boolean;
+  id: string;
   label: string;
   name: string;
   onEditingStateChange: (isEditingState: boolean) => void;
@@ -111,6 +128,7 @@ export interface EditableTextProps
 
 export const EditableText = ({
   isEditing = false,
+  id,
   label,
   onEditingStateChange = noop,
   onReset = noop,
@@ -121,6 +139,7 @@ export const EditableText = ({
   variant = 'text-ui-16',
 }: EditableTextProps) => {
   const theme = useTheme();
+  const autoId = useId(id)!;
   const [isEditingState, setIsEditingState] = useState(isEditing);
   const isPreviousIsEditing = usePrevious(isEditingState);
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -147,7 +166,7 @@ export const EditableText = ({
       onSubmit={onSubmit}
       validationSchema={EditableTextSchema}
     >
-      {({ handleReset, values }) => (
+      {({ values }) => (
         <Box tx={{ display: 'inline-flex', verticalAlign: 'text-top', textAlign: 'left', ...tx }}>
           <Box
             tx={{
@@ -213,6 +232,7 @@ export const EditableText = ({
               {isEditingState && (
                 <Box as={Form} tx={{ position: 'unset' }}>
                   <EditableTextTextarea
+                    id={autoId}
                     label={label}
                     name="editable-text-value"
                     onReset={() => {
@@ -225,33 +245,6 @@ export const EditableText = ({
                     }}
                     ref={textareaRef}
                   />
-                  <VisuallyHidden>
-                    <IconButton
-                      hasTooltip={false}
-                      icon={CheckIcon}
-                      onClick={() => {
-                        setIsEditingState(false);
-                        onEditingStateChange(false);
-                      }}
-                      size="extra-small"
-                      variant="button-ghost-grey"
-                    >
-                      Save
-                    </IconButton>
-                    <IconButton
-                      hasTooltip={false}
-                      icon={CloseIcon}
-                      onClick={() => {
-                        handleReset();
-                        onReset();
-                        setIsEditingState(false);
-                      }}
-                      size="extra-small"
-                      variant="button-ghost-grey"
-                    >
-                      Cancel
-                    </IconButton>
-                  </VisuallyHidden>
                 </Box>
               )}
             </Text>
