@@ -7,12 +7,12 @@ import VisuallyHidden from '@reach/visually-hidden';
 import { useId } from '@reach/auto-id';
 import { useTheme } from 'styled-components';
 
-import { Box, BoxProps } from './Box';
+import { Box } from './Box';
 import { Button } from './Button';
 import { Label } from './Forms/Label';
 import { Text, TextProps } from './Text';
 
-interface EditableTextTextareaProps extends BoxProps {
+interface EditableTextTextareaProps {
   id: string;
   /**
    * This label will not be visible. It's here for accessibility purposes.
@@ -25,15 +25,7 @@ interface EditableTextTextareaProps extends BoxProps {
 
 const EditableTextTextarea = forwardRef<HTMLTextAreaElement, EditableTextTextareaProps>(
   (
-    {
-      id,
-      label,
-      name,
-      onReset = noop,
-      onSubmit = noop,
-      tx,
-      ...restOfProps
-    }: EditableTextTextareaProps,
+    { id, label, name, onReset = noop, onSubmit = noop }: EditableTextTextareaProps,
     forwardedRef,
   ) => {
     const { handleReset, submitForm } = useFormikContext();
@@ -93,10 +85,8 @@ const EditableTextTextarea = forwardRef<HTMLTextAreaElement, EditableTextTextare
             whiteSpace: 'pre-wrap',
             resize: 'none',
             overflow: 'hidden',
-            ...tx,
           }}
           {...field}
-          {...restOfProps}
         />
       </>
     );
