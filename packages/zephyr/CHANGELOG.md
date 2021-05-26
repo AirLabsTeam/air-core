@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [12.12.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.11.4...@air/zephyr@12.12.0) (2021-05-26)
+
+### Bug Fixes
+
+- **@air/zephyr:** fix editable not showing placeholder when there's no values present ([e312d51](https://github.com/AirLabsTeam/web-core/commit/e312d51d7511215d9864f66ba9a30ecbe4213e8d))
+- **@air/zephyr:** fix editable text not wrapping properly when theres whitespace ([c2c5bb0](https://github.com/AirLabsTeam/web-core/commit/c2c5bb0d049ba31bd34d960720963f923eb94ce3))
+- **@air/zephyr:** fix editabletext text not wrapping ([ec0f6da](https://github.com/AirLabsTeam/web-core/commit/ec0f6da6a93cabb61d528d57985b7795f0ca35a6))
+- **@air/zephyr:** fix scrollbar appearing in textarea for mouse users ([da6d4de](https://github.com/AirLabsTeam/web-core/commit/da6d4de9b0c527e00ac51b3e9c887815ad0aad44))
+- **@air/zephyr:** remove extending box props in textarea ([bd8977f](https://github.com/AirLabsTeam/web-core/commit/bd8977f43b9ba893de5bd5be3652fceb23927e2a))
+
+### Features
+
+- **@air/zephyr:** add in actionable buttons for non-seeing users ([430d6c2](https://github.com/AirLabsTeam/web-core/commit/430d6c2931e6bdbb175a8019830ea281aa4a50e0))
+- **@air/zephyr:** add in initial component for editable text component ([e111010](https://github.com/AirLabsTeam/web-core/commit/e111010c7faa2d5db2a704be3e6804cfb94aa075))
+- **@air/zephyr:** add in label to editable text input ([f403c56](https://github.com/AirLabsTeam/web-core/commit/f403c5623ed5e168af3c8c524f39cf770633ab58))
+- **@air/zephyr:** improve editabletext component and include formik ([3085a44](https://github.com/AirLabsTeam/web-core/commit/3085a4483051ea4aa94faf02b5a95a7219fdb906))
+- **@air/zephyr:** switch out hidden buttons with aria-describeby ([18e28af](https://github.com/AirLabsTeam/web-core/commit/18e28afe49f29986ee975190d9f4f0d2896c99ba))
+
 ## [12.11.4](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.11.3...@air/zephyr@12.11.4) (2021-05-26)
 
 **Note:** Version bump only for package @air/zephyr
