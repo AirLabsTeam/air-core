@@ -28,15 +28,16 @@ const EditableTextTextarea = forwardRef<HTMLTextAreaElement, EditableTextTextare
   ) => {
     const { handleReset, submitForm } = useFormikContext();
     const [field] = useField(name);
+    const id = `editable-text-${label.toLowerCase().split(' ').join('-')}`;
 
     return (
       <>
-        <Label for={`editable-text-${label.toLowerCase().split(' ').join('-')}`} isVisuallyHidden>
+        <Label for={id} isVisuallyHidden>
           {label}
         </Label>
         <Box
           as="textarea"
-          id={`editable-text-${label.toLowerCase().split(' ').join('-')}`}
+          id={id}
           onKeyUp={(event: KeyboardEvent<HTMLTextAreaElement>) => {
             if (event.key === 'Escape') {
               event.stopPropagation();
