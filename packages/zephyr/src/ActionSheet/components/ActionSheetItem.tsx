@@ -76,7 +76,7 @@ export const ActionSheetItem = ({
 
           '&:hover': { backgroundColor: 'pigeon050' },
 
-          '&:focus': { outline: 'none', backgroundColor: 'pigeon050' },
+          '&:focus-visible': { outline: 'none', backgroundColor: 'pigeon050' },
 
           '&:last-child': { mb: 0 },
 
