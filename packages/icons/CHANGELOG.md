@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.6.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@8.5.0...@air/icons@8.6.0) (2021-05-26)
+
+### Features
+
+- added upload files and upload folders icons ([a425924](https://github.com/AirLabsTeam/web-core/commit/a425924511cd067b75006ce23df36f4b9cd0f0d9))
+
 # [8.5.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@8.4.0...@air/icons@8.5.0) (2021-05-19)
 
 ### Bug Fixes
