@@ -9,7 +9,7 @@ Source of truth for SVG icons used at Air. Published as an NPM library for React
 ## How do I add new icons to this collection?
 
 1. Put your SVG icon into a folder in `src/svgs` (`src/svgs/uncategorized` unless otherwise stated by design)
-2. Run `yarn workspace @air/icons run format:svgs:all` to format the source code. Unfortunately, currently this updates other SVGs ([see here for more context](https://github.com/svg/svgo/issues/1133)), so just ignore SVGs you're not working on.
+2. Run `yarn workspace @air/icons run format:svgs:all` to format the source code. Unfortunately, currently this updates other SVGs ([see here for more context](https://github.com/svg/svgo/issues/1133)), so just discard the changes to the SVGs you're not working on.
 3. Open the SVG(s) in your code editor and add `fill="currentColor"` as a prop to the `path` tag if it's not there. Like so:
 
 ```JS
