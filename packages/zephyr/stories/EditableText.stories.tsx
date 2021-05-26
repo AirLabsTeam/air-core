@@ -23,7 +23,6 @@ const Template: Story<EditableTextProps> = (args) => {
   return (
     <>
       <EditableText
-        label="Editable text"
         placeholder="Click to add a description"
         {...args}
         onSubmit={(value) => setFormValue(value['editable-text-value'])}
@@ -51,6 +50,14 @@ ControlledState.args = {
   label: 'Editable text 2',
 };
 
+ControlledState.parameters = {
+  docs: {
+    description: {
+      story: 'You can control the edit state for the EditableText by using the `isEditing` prop.',
+    },
+  },
+};
+
 export const TextVariants = Template.bind({});
 
 TextVariants.args = {
@@ -58,11 +65,28 @@ TextVariants.args = {
   variant: 'text-ui-24',
 };
 
+TextVariants.parameters = {
+  docs: {
+    description: {
+      story:
+        'The `EditableText` component extends the `Text` component which allows you to control the font styles using the same variants.',
+    },
+  },
+};
+
 export const DefaultValue = Template.bind({});
 
 DefaultValue.args = {
   label: 'Editable text 4',
   value: 'Title',
+};
+
+DefaultValue.parameters = {
+  docs: {
+    description: {
+      story: 'Setting a default value will render it as a child inside the button.',
+    },
+  },
 };
 
 export const CustomStyles = Template.bind({});
@@ -74,5 +98,14 @@ CustomStyles.args = {
     width: '100%',
     minHeight: 200,
     fontWeight: 'medium',
+  },
+};
+
+CustomStyles.parameters = {
+  docs: {
+    description: {
+      story:
+        'When applying custom styles to the `EditableText` component, you should treat it as both a `textarea` and `button`. Since styles applied to this component will directly affect both.',
+    },
   },
 };
