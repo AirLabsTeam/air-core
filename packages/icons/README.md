@@ -10,7 +10,12 @@ Source of truth for SVG icons used at Air. Published as an NPM library for React
 
 1. Put your SVG icon into a folder in `src/svgs` (`src/svgs/uncategorized` unless otherwise stated by design)
 2. Run `yarn workspace @air/icons run format:svgs:all` to format the source code. Unfortunately, currently this updates other SVGs ([see here for more context](https://github.com/svg/svgo/issues/1133)), so just discard the changes to the SVGs you're not working on.
-3. Ensure that the value of either `stroke` or `fill` (there shouldn't be both on one icon) is `"currentColor"`
+3. Ensure that the value of either `stroke` or `fill` (there shouldn't be both on one icon) is `"currentColor"`.
+
+- If the `<path>` has no `stoke` or `fill`, you need to add `fill="currentColor"` to it.
+- If the `<path>` has a defined `fill` and it's value isn't `"currentColor"`, change it to that.
+- If the `<path>` has a defined `stroke` or other `stroke-*` properties, set `stroke`'s value to `"currentColor"`
+
 4. Run `yarn build` to map the newly added icons
 5. `yarn storybook` to go and see the result of your work in Storybook.
 
