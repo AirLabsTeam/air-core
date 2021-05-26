@@ -12,7 +12,7 @@ Source of truth for SVG icons used at Air. Published as an NPM library for React
 2. Run `yarn workspace @air/icons run format:svgs:all` to format the source code. Unfortunately, currently this updates other SVGs ([see here for more context](https://github.com/svg/svgo/issues/1133)), so just ignore SVGs you're not working on.
 3. Open the SVG(s) in your code editor and add `fill="currentColor"` as a prop to the `path` tag if it's not there. Like so:
 
-```
+```JS
  <path fill="currentColor" d="M26.22 28h-3.56a1 1 0 110-2h3..." />
 ```
 
