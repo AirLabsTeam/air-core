@@ -1,13 +1,16 @@
+import { Check as CheckIcon, Close as CloseIcon } from '@air/icons';
 import { Form, Formik, FormikConfig, useField, useFormikContext } from 'formik';
 import { noop } from 'lodash';
 import React, { forwardRef, KeyboardEvent, useEffect, useRef, useState } from 'react';
 import { usePrevious } from 'react-use';
 import * as Yup from 'yup';
+import VisuallyHidden from '@reach/visually-hidden';
 import { useTheme } from 'styled-components';
 
 import { Box, BoxProps } from './Box';
 import { Button } from './Button';
 import { Label } from './Forms/Label';
+import { IconButton } from './IconButton';
 import { Text, TextProps } from './Text';
 
 interface EditableTextTextareaProps extends BoxProps {
@@ -19,7 +22,7 @@ interface EditableTextTextareaProps extends BoxProps {
 
 const EditableTextTextarea = forwardRef<HTMLTextAreaElement, EditableTextTextareaProps>(
   (
-    { label, name, onReset = noop, onSubmit = noop, ...restOfProps }: EditableTextTextareaProps,
+    { label, name, onReset = noop, onSubmit = noop, tx, ...restOfProps }: EditableTextTextareaProps,
     forwardedRef,
   ) => {
     const { handleReset, submitForm } = useFormikContext();
@@ -72,6 +75,7 @@ const EditableTextTextarea = forwardRef<HTMLTextAreaElement, EditableTextTextare
             whiteSpace: 'pre-wrap',
             resize: 'none',
             overflow: 'hidden',
+            ...tx,
           }}
           {...field}
           {...restOfProps}
@@ -141,13 +145,9 @@ export const EditableText = ({
       onSubmit={onSubmit}
       validationSchema={EditableTextSchema}
     >
-      {({ values }) => (
+      {({ handleReset, values }) => (
         <Box tx={{ display: 'inline-flex', verticalAlign: 'text-top', textAlign: 'left', ...tx }}>
           <Box
-            onClick={() => {
-              setIsEditingState(true);
-              onEditingStateChange(true);
-            }}
             tx={{
               display: 'flex',
               flexGrow: 1,
@@ -162,7 +162,12 @@ export const EditableText = ({
           >
             <Text tx={{ display: 'flex', position: 'relative', flexGrow: 1 }} variant={variant}>
               <Button
+                onClick={() => {
+                  setIsEditingState(true);
+                  onEditingStateChange(true);
+                }}
                 ref={buttonRef}
+                tabIndex={isEditingState ? -1 : undefined}
                 tx={{
                   alignItems: 'flex-start',
                   flexGrow: 1,
@@ -218,6 +223,33 @@ export const EditableText = ({
                     }}
                     ref={textareaRef}
                   />
+                  <VisuallyHidden>
+                    <IconButton
+                      hasTooltip={false}
+                      icon={CheckIcon}
+                      onClick={() => {
+                        setIsEditingState(false);
+                        onEditingStateChange(false);
+                      }}
+                      size="extra-small"
+                      variant="button-ghost-grey"
+                    >
+                      Save
+                    </IconButton>
+                    <IconButton
+                      hasTooltip={false}
+                      icon={CloseIcon}
+                      onClick={() => {
+                        handleReset();
+                        onReset();
+                        setIsEditingState(false);
+                      }}
+                      size="extra-small"
+                      variant="button-ghost-grey"
+                    >
+                      Cancel
+                    </IconButton>
+                  </VisuallyHidden>
                 </Box>
               )}
             </Text>
