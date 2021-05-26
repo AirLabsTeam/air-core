@@ -131,6 +131,8 @@ import _TriangleRight from './svgs/uncategorized/Triangle-Right.svg';
 import _TriangleUp from './svgs/uncategorized/Triangle-Up.svg';
 import _Twitter from './svgs/uncategorized/Twitter.svg';
 import _UpArrow from './svgs/uncategorized/UpArrow.svg';
+import _UploadFile from './svgs/uncategorized/Upload-File.svg';
+import _UploadFolder from './svgs/uncategorized/Upload-Folder.svg';
 import _Uploads from './svgs/uncategorized/Uploads.svg';
 import _User from './svgs/uncategorized/User.svg';
 import _Vector from './svgs/uncategorized/Vector.svg';
@@ -269,6 +271,8 @@ export const TriangleRight = (props?: SVGProps<SVGElement>) => <_TriangleRight {
 export const TriangleUp = (props?: SVGProps<SVGElement>) => <_TriangleUp {...props} />;
 export const Twitter = (props?: SVGProps<SVGElement>) => <_Twitter {...props} />;
 export const UpArrow = (props?: SVGProps<SVGElement>) => <_UpArrow {...props} />;
+export const UploadFile = (props?: SVGProps<SVGElement>) => <_UploadFile {...props} />;
+export const UploadFolder = (props?: SVGProps<SVGElement>) => <_UploadFolder {...props} />;
 export const Uploads = (props?: SVGProps<SVGElement>) => <_Uploads {...props} />;
 export const User = (props?: SVGProps<SVGElement>) => <_User {...props} />;
 export const Vector = (props?: SVGProps<SVGElement>) => <_Vector {...props} />;
