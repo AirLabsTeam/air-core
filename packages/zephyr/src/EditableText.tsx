@@ -15,6 +15,7 @@ import { Text, TextProps } from './Text';
 
 interface EditableTextTextareaProps extends BoxProps {
   name: string;
+  /** This label will not be visible. It's here for accessibility purposes. */
   label: string;
   onReset: () => void;
   onSubmit: () => void;
