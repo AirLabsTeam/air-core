@@ -104,8 +104,9 @@ export type EditableTextFormValues = {
 };
 
 export interface EditableTextProps
-  extends Pick<TextProps, 'tx' | 'variant'>,
+  extends Pick<TextProps, 'as' | 'tx' | 'variant'>,
     Pick<FormikConfig<EditableTextFormValues>, 'onSubmit'> {
+  'data-testid': string;
   isEditing?: boolean;
   id: string;
   label: string;
@@ -117,6 +118,8 @@ export interface EditableTextProps
 }
 
 export const EditableText = ({
+  as,
+  ['data-testid']: testId,
   isEditing = false,
   id,
   label,
@@ -157,21 +160,28 @@ export const EditableText = ({
       validationSchema={EditableTextSchema}
     >
       {({ values }) => (
-        <Box tx={{ display: 'inline-flex', verticalAlign: 'text-top', textAlign: 'left', ...tx }}>
+        <Box
+          data-testid={testId}
+          tx={{ display: 'inline-flex', verticalAlign: 'text-top', textAlign: 'left', ...tx }}
+        >
           <Box
             tx={{
               display: 'flex',
               flexGrow: 1,
               mx: -8,
-              my: -4,
+              my: -6,
               px: 8,
-              py: 4,
+              py: 6,
               borderRadius: 4,
               cursor: 'pointer',
               boxShadow: isEditingState ? `0 0 0 2px ${theme.colors.focus}` : 'none',
             }}
           >
-            <Text tx={{ display: 'flex', position: 'relative', flexGrow: 1 }} variant={variant}>
+            <Text
+              as={as}
+              tx={{ display: 'flex', position: 'relative', flexGrow: 1 }}
+              variant={variant}
+            >
               <Button
                 onClick={() => {
                   setIsEditingState(true);
@@ -184,9 +194,9 @@ export const EditableText = ({
                   flexGrow: 1,
                   justifyContent: 'flex-start',
                   mx: -8,
-                  my: -4,
+                  my: -6,
                   px: 8,
-                  py: 4,
+                  py: 6,
                   borderRadius: 4,
                   color: values['editable-text-value'] ? 'inherit' : 'pigeon300',
                   fontFamily: 'inherit',
