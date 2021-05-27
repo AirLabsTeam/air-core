@@ -106,6 +106,7 @@ export type EditableTextFormValues = {
 export interface EditableTextProps
   extends Pick<TextProps, 'tx' | 'variant'>,
     Pick<FormikConfig<EditableTextFormValues>, 'onSubmit'> {
+  'data-testid': string;
   isEditing?: boolean;
   id: string;
   label: string;
@@ -117,6 +118,7 @@ export interface EditableTextProps
 }
 
 export const EditableText = ({
+  ['data-testid']: testId,
   isEditing = false,
   id,
   label,
@@ -157,7 +159,10 @@ export const EditableText = ({
       validationSchema={EditableTextSchema}
     >
       {({ values }) => (
-        <Box tx={{ display: 'inline-flex', verticalAlign: 'text-top', textAlign: 'left', ...tx }}>
+        <Box
+          data-testid={testId}
+          tx={{ display: 'inline-flex', verticalAlign: 'text-top', textAlign: 'left', ...tx }}
+        >
           <Box
             tx={{
               display: 'flex',
