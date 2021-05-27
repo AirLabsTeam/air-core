@@ -118,6 +118,7 @@ export interface EditableTextProps
 }
 
 export const EditableText = ({
+  as,
   ['data-testid']: testId,
   isEditing = false,
   id,
