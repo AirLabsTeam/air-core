@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.12.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.12.0...@air/zephyr@12.12.1) (2021-05-27)
+
+### Bug Fixes
+
+- **@air/zephyr:** add in as export to editable text ([cfdfb8a](https://github.com/AirLabsTeam/web-core/commit/cfdfb8a907a12dbbca7c44b04ae3d9ad5729fe95))
+- **@air/zephyr:** add in data-testid to editabletext component ([9c7af04](https://github.com/AirLabsTeam/web-core/commit/9c7af04833d70d820602fb2fd151841baf27343b))
+- **@air/zephyr:** fix as prop missing in prop destructure ([cc645e9](https://github.com/AirLabsTeam/web-core/commit/cc645e9a1fa5aeabe4839f625162fde41c3abf1b))
+- **@air/zephyr:** fix export for board title component ([83344aa](https://github.com/AirLabsTeam/web-core/commit/83344aa1bcc3a4fa80c2ae254b9ef60ffa9ff9e7))
+
 # [12.12.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.11.4...@air/zephyr@12.12.0) (2021-05-26)
 
 ### Bug Fixes
