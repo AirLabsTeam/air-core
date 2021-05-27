@@ -104,7 +104,7 @@ export type EditableTextFormValues = {
 };
 
 export interface EditableTextProps
-  extends Pick<TextProps, 'tx' | 'variant'>,
+  extends Pick<TextProps, 'as' | 'tx' | 'variant'>,
     Pick<FormikConfig<EditableTextFormValues>, 'onSubmit'> {
   'data-testid': string;
   isEditing?: boolean;
@@ -176,7 +176,11 @@ export const EditableText = ({
               boxShadow: isEditingState ? `0 0 0 2px ${theme.colors.focus}` : 'none',
             }}
           >
-            <Text tx={{ display: 'flex', position: 'relative', flexGrow: 1 }} variant={variant}>
+            <Text
+              as={as}
+              tx={{ display: 'flex', position: 'relative', flexGrow: 1 }}
+              variant={variant}
+            >
               <Button
                 onClick={() => {
                   setIsEditingState(true);
