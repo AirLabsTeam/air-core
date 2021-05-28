@@ -7,12 +7,13 @@ import VisuallyHidden from '@reach/visually-hidden';
 import { useId } from '@reach/auto-id';
 import { useTheme } from 'styled-components';
 
-import { Box, BoxProps } from './Box';
+import { TXProp } from './theme';
+import { Box } from './Box';
 import { Button } from './Button';
 import { Label } from './Forms/Label';
 import { Text, TextProps } from './Text';
 
-interface EditableTextTextareaProps extends Pick<BoxProps, 'tx'> {
+interface EditableTextTextareaProps {
   id: string;
   /**
    * This label will not be visible. It's here for accessibility purposes.
@@ -22,6 +23,7 @@ interface EditableTextTextareaProps extends Pick<BoxProps, 'tx'> {
   name: string;
   onReset: () => void;
   onSubmit: () => void;
+  tx?: TXProp;
 }
 
 const EditableTextTextarea = forwardRef<HTMLTextAreaElement, EditableTextTextareaProps>(
@@ -76,7 +78,7 @@ const EditableTextTextarea = forwardRef<HTMLTextAreaElement, EditableTextTextare
             height: '100%',
             maxHeight: '100%',
             p: 0,
-            border: 0,
+            border: 'none',
             color: 'inherit',
             fontFamily: 'inherit',
             fontFeatureSettings: 'inherit',
@@ -87,7 +89,10 @@ const EditableTextTextarea = forwardRef<HTMLTextAreaElement, EditableTextTextare
             whiteSpace: 'pre-wrap',
             resize: 'none',
             overflow: 'hidden',
-            ...tx,
+            /**
+             * @todo I will deal with this at a later date, already spent 1+ hours on this.
+             */
+            ...(tx as any),
           }}
           {...field}
         />
@@ -118,10 +123,10 @@ export interface EditableTextProps
   onEditingStateChange: (isEditingState: boolean) => void;
   onReset?: () => void;
   placeholder?: string;
-  tx?: BoxProps['tx'] & {
-    EditableTextButton?: BoxProps['tx'];
-    EditableTextText?: BoxProps['tx'];
-    EditableTextTextarea?: BoxProps['tx'];
+  tx?: TXProp & {
+    EditableTextButton?: TXProp;
+    EditableTextText?: TXProp;
+    EditableTextTextarea?: TXProp;
   };
   /**
    * This will set the max character length for the textarea.
@@ -206,7 +211,12 @@ export const EditableText = ({
           >
             <Text
               as={as}
-              tx={{ display: 'flex', position: 'relative', flexGrow: 1, ...textStyles }}
+              tx={{
+                display: 'flex',
+                position: 'relative',
+                flexGrow: 1,
+                ...textStyles,
+              }}
               variant={variant}
             >
               <Button
@@ -251,7 +261,10 @@ export const EditableText = ({
                     boxShadow: 'none',
                   },
 
-                  ...buttonStyles,
+                  /**
+                   * @todo I will deal with this at a later date, already spent 1+ hours on this.
+                   */
+                  ...(buttonStyles as any),
                 }}
                 variant="button-unstyled"
               >
