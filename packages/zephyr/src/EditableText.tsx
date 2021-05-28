@@ -7,7 +7,6 @@ import VisuallyHidden from '@reach/visually-hidden';
 import { useId } from '@reach/auto-id';
 import { useTheme } from 'styled-components';
 
-import { TXProp } from 'packages/zephyr/src/theme';
 import { Box, BoxProps } from './Box';
 import { Button } from './Button';
 import { Label } from './Forms/Label';
@@ -19,7 +18,7 @@ interface EditableTextTextareaProps extends Pick<BoxProps, 'tx'> {
    * This label will not be visible. It's here for accessibility purposes.
    * */
   label: string;
-  maxLength: number;
+  maxLength?: number;
   name: string;
   onReset: () => void;
   onSubmit: () => void;
@@ -119,15 +118,15 @@ export interface EditableTextProps
   onEditingStateChange: (isEditingState: boolean) => void;
   onReset?: () => void;
   placeholder?: string;
-  tx?: TXProp & {
-    EditableTextButton?: TXProp;
-    EditableTextText?: TXProp;
-    EditableTextTextarea?: TXProp;
+  tx?: BoxProps['tx'] & {
+    EditableTextButton?: BoxProps['tx'];
+    EditableTextText?: BoxProps['tx'];
+    EditableTextTextarea?: BoxProps['tx'];
   };
   /**
    * This will set the max character length for the textarea.
    */
-  maxLength: number;
+  maxLength?: number;
   value: string;
 }
 
