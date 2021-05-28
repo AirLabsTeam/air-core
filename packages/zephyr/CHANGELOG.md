@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [12.13.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.12.1...@air/zephyr@12.13.0) (2021-05-28)
+
+### Bug Fixes
+
+- **@air/zephyr:** fix typing for editable text ([b75fc9c](https://github.com/AirLabsTeam/web-core/commit/b75fc9c792b0596e286890047af1e30882824873))
+- **@air/zephyr:** temporary fix for tx error ([9a2a470](https://github.com/AirLabsTeam/web-core/commit/9a2a47022cbb1aa3f27fa85f20c8f282e2c53ae4))
+
+### Features
+
+- **@air/zephyr:** add in maxLength, behavior and child style keys to editable text ([ce5797f](https://github.com/AirLabsTeam/web-core/commit/ce5797f837f72ba94a02c3865f058b25c908c82a))
+
 ## [12.12.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.12.0...@air/zephyr@12.12.1) (2021-05-27)
 
 ### Bug Fixes
