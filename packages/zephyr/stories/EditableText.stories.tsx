@@ -43,11 +43,27 @@ Default.args = {
   label: 'Editable text 1',
 };
 
+export const TextBehavior = Template.bind({});
+
+TextBehavior.args = {
+  behavior: 'text',
+  label: 'Editable text 2',
+};
+
+TextBehavior.parameters = {
+  docs: {
+    description: {
+      story:
+        'You can change the behavior of the component to match that of a `Text` component by using the `behavior` prop and setting the value to `text`. When the behavior is `text`, there will be a negative margin that gets applied to the `div`.',
+    },
+  },
+};
+
 export const ControlledState = Template.bind({});
 
 ControlledState.args = {
   isEditing: true,
-  label: 'Editable text 2',
+  label: 'Editable text 3',
 };
 
 ControlledState.parameters = {
@@ -61,7 +77,7 @@ ControlledState.parameters = {
 export const TextVariants = Template.bind({});
 
 TextVariants.args = {
-  label: 'Editable text 3',
+  label: 'Editable text 4',
   variant: 'text-ui-24',
 };
 
@@ -77,7 +93,7 @@ TextVariants.parameters = {
 export const DefaultValue = Template.bind({});
 
 DefaultValue.args = {
-  label: 'Editable text 4',
+  label: 'Editable text 5',
   value: 'Title',
 };
 
@@ -89,15 +105,42 @@ DefaultValue.parameters = {
   },
 };
 
+export const MaxLength = Template.bind({});
+
+MaxLength.args = {
+  label: 'Editable text 6',
+  maxLength: 10,
+  value: 'Title',
+};
+
+MaxLength.parameters = {
+  docs: {
+    description: {
+      story: 'Setting a max length will prevent the user from inputting more than the set number.',
+    },
+  },
+};
+
 export const CustomStyles = Template.bind({});
 
 CustomStyles.args = {
-  label: 'Editable text 5',
+  label: 'Editable text 7',
   tx: {
     display: 'flex',
     width: '100%',
     minHeight: 200,
     fontWeight: 'medium',
+
+    EditableTextButton: {
+      '&:hover': {
+        backgroundColor: 'flamingo200',
+      },
+    },
+
+    EditableTextTextarea: {
+      backgroundColor: 'macaw400',
+      color: 'white',
+    },
   },
 };
 

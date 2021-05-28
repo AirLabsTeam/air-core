@@ -7,6 +7,7 @@ import VisuallyHidden from '@reach/visually-hidden';
 import { useId } from '@reach/auto-id';
 import { useTheme } from 'styled-components';
 
+import { TXProp } from './theme';
 import { Box } from './Box';
 import { Button } from './Button';
 import { Label } from './Forms/Label';
@@ -18,14 +19,16 @@ interface EditableTextTextareaProps {
    * This label will not be visible. It's here for accessibility purposes.
    * */
   label: string;
+  maxLength?: number;
   name: string;
   onReset: () => void;
   onSubmit: () => void;
+  tx?: TXProp;
 }
 
 const EditableTextTextarea = forwardRef<HTMLTextAreaElement, EditableTextTextareaProps>(
   (
-    { id, label, name, onReset = noop, onSubmit = noop }: EditableTextTextareaProps,
+    { id, label, maxLength, name, onReset = noop, onSubmit = noop, tx }: EditableTextTextareaProps,
     forwardedRef,
   ) => {
     const { handleReset, submitForm } = useFormikContext();
@@ -46,6 +49,7 @@ const EditableTextTextarea = forwardRef<HTMLTextAreaElement, EditableTextTextare
           aria-describedby={autoId}
           as="textarea"
           id={id}
+          maxLength={maxLength}
           onKeyUp={(event: KeyboardEvent<HTMLTextAreaElement>) => {
             if (event.key === 'Escape') {
               event.stopPropagation();
@@ -74,7 +78,7 @@ const EditableTextTextarea = forwardRef<HTMLTextAreaElement, EditableTextTextare
             height: '100%',
             maxHeight: '100%',
             p: 0,
-            border: 0,
+            border: 'none',
             color: 'inherit',
             fontFamily: 'inherit',
             fontFeatureSettings: 'inherit',
@@ -85,6 +89,10 @@ const EditableTextTextarea = forwardRef<HTMLTextAreaElement, EditableTextTextare
             whiteSpace: 'pre-wrap',
             resize: 'none',
             overflow: 'hidden',
+            /**
+             * @todo I will deal with this at a later date, already spent 1+ hours on this.
+             */
+            ...(tx as any),
           }}
           {...field}
         />
@@ -104,30 +112,42 @@ export type EditableTextFormValues = {
 };
 
 export interface EditableTextProps
-  extends Pick<TextProps, 'as' | 'tx' | 'variant'>,
+  extends Pick<TextProps, 'as' | 'variant'>,
     Pick<FormikConfig<EditableTextFormValues>, 'onSubmit'> {
-  'data-testid': string;
+  'data-testid'?: string;
+  behavior?: 'box' | 'text';
   isEditing?: boolean;
   id: string;
   label: string;
   name: string;
   onEditingStateChange: (isEditingState: boolean) => void;
   onReset?: () => void;
-  value: string;
   placeholder?: string;
+  tx?: TXProp & {
+    EditableTextButton?: TXProp;
+    EditableTextText?: TXProp;
+    EditableTextTextarea?: TXProp;
+  };
+  /**
+   * This will set the max character length for the textarea.
+   */
+  maxLength?: number;
+  value: string;
 }
 
 export const EditableText = ({
   as,
+  behavior = 'box',
   ['data-testid']: testId,
   isEditing = false,
   id,
   label,
+  maxLength,
   onEditingStateChange = noop,
   onReset = noop,
   onSubmit = noop,
   placeholder,
-  tx,
+  tx = {},
   value = '',
   variant = 'text-ui-16',
 }: EditableTextProps) => {
@@ -137,6 +157,13 @@ export const EditableText = ({
   const isPreviousIsEditing = usePrevious(isEditingState);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const isTextBehavior = behavior === 'text';
+  const {
+    EditableTextButton: buttonStyles,
+    EditableTextText: textStyles,
+    EditableTextTextarea: textareaStyles,
+    ...containerStyles
+  } = tx;
 
   useEffect(() => {
     if (isEditingState && textareaRef?.current) {
@@ -162,14 +189,19 @@ export const EditableText = ({
       {({ values }) => (
         <Box
           data-testid={testId}
-          tx={{ display: 'inline-flex', verticalAlign: 'text-top', textAlign: 'left', ...tx }}
+          tx={{
+            display: 'inline-flex',
+            verticalAlign: 'text-top',
+            textAlign: 'left',
+            ...containerStyles,
+          }}
         >
           <Box
             tx={{
               display: 'flex',
               flexGrow: 1,
-              mx: -8,
-              my: -6,
+              mx: isTextBehavior ? -8 : 0,
+              my: isTextBehavior ? -6 : 0,
               px: 8,
               py: 6,
               borderRadius: 4,
@@ -179,7 +211,12 @@ export const EditableText = ({
           >
             <Text
               as={as}
-              tx={{ display: 'flex', position: 'relative', flexGrow: 1 }}
+              tx={{
+                display: 'flex',
+                position: 'relative',
+                flexGrow: 1,
+                ...textStyles,
+              }}
               variant={variant}
             >
               <Button
@@ -223,6 +260,11 @@ export const EditableText = ({
                     backgroundColor: 'pigeon050',
                     boxShadow: 'none',
                   },
+
+                  /**
+                   * @todo I will deal with this at a later date, already spent 1+ hours on this.
+                   */
+                  ...(buttonStyles as any),
                 }}
                 variant="button-unstyled"
               >
@@ -234,6 +276,7 @@ export const EditableText = ({
                   <EditableTextTextarea
                     id={autoId}
                     label={label}
+                    maxLength={maxLength}
                     name="editable-text-value"
                     onReset={() => {
                       onReset();
@@ -244,6 +287,7 @@ export const EditableText = ({
                       onEditingStateChange(false);
                     }}
                     ref={textareaRef}
+                    tx={textareaStyles}
                   />
                 </Box>
               )}
