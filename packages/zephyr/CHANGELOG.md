@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [12.14.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.13.0...@air/zephyr@12.14.0) (2021-06-01)
+
+### Bug Fixes
+
+- **@air/zephyr:** fix editable text types ([a542c54](https://github.com/AirLabsTeam/web-core/commit/a542c541f84044053b6c0aa7ddd22f8aae10b256))
+
+### Features
+
+- **@air/zephyr:** add in format callback to editable text component ([2dc311a](https://github.com/AirLabsTeam/web-core/commit/2dc311a6b5c0af27c91c3518de1f74f2e4937291))
+
 # [12.13.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.12.1...@air/zephyr@12.13.0) (2021-05-28)
 
 ### Bug Fixes
