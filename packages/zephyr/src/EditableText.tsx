@@ -118,9 +118,8 @@ export interface EditableTextProps
   behavior?: 'box' | 'text';
   formatValue: (children: ReactNode) => ReactNode;
   isEditing?: boolean;
-  id: string;
+  id?: string;
   label: string;
-  name: string;
   onEditingStateChange: (isEditingState: boolean) => void;
   onReset?: () => void;
   placeholder?: string;
