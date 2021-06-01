@@ -35,6 +35,8 @@ export const Token = ({ children, size = 'medium', tx, ...restOfProps }: TokenPr
   return (
     <Box
       tx={{
+        display: 'inline-flex',
+        alignItems: 'center',
         backgroundColor: 'pigeon100',
         borderRadius: 4,
         color: 'pigeon700',
