@@ -120,7 +120,7 @@ export interface EditableTextProps
   isEditing?: boolean;
   id?: string;
   label: string;
-  onEditingStateChange: (isEditingState: boolean) => void;
+  onEditingStateChange?: (isEditingState: boolean) => void;
   onReset?: () => void;
   placeholder?: string;
   tx?: TXProp & {
