@@ -107,7 +107,8 @@ const config = {
      * React Plugin Rules
      * @see https://github.com/yannickcr/eslint-plugin-react#list-of-supported-rules
      * */
-    'react/jsx-uses-react': 'error',
+    'react/jsx-uses-react': 'off',
+    'react/react-in-jsx-scope': 'off', // Legacy rule made obsolete by React 17
     'react/jsx-uses-vars': 'error',
 
     /**
@@ -364,7 +365,6 @@ const config = {
       // assuming Next.js application
       files: '**/pages/**/*.tsx',
       rules: {
-        'react/react-in-jsx-scope': 'off', // react is a global in this folder
         'import/no-default-export': 'off', // pages have to have a default export
       },
     },

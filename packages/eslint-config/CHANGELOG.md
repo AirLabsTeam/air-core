@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.19](https://github.com/AirLabsTeam/web-core/compare/@air/eslint-config@1.1.17...@air/eslint-config@1.1.18) (2021-03-15)
+
+### Bug Fixes
+
+- **@air/eslint-config:** disables JSX rules made obsolete by React 17.
+
 ## [1.1.18](https://github.com/AirLabsTeam/web-core/compare/@air/eslint-config@1.1.17...@air/eslint-config@1.1.18) (2021-03-15)
 
 ### Bug Fixes
