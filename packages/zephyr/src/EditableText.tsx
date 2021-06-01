@@ -1,6 +1,6 @@
 import { Form, Formik, FormikConfig, useField, useFormikContext } from 'formik';
 import { noop } from 'lodash';
-import React, { forwardRef, KeyboardEvent, useEffect, useRef, useState } from 'react';
+import React, { forwardRef, KeyboardEvent, ReactNode, useEffect, useRef, useState } from 'react';
 import { usePrevious } from 'react-use';
 import * as Yup from 'yup';
 import VisuallyHidden from '@reach/visually-hidden';
@@ -116,6 +116,7 @@ export interface EditableTextProps
     Pick<FormikConfig<EditableTextFormValues>, 'onSubmit'> {
   'data-testid'?: string;
   behavior?: 'box' | 'text';
+  formatValue: (children: ReactNode) => ReactNode;
   isEditing?: boolean;
   id: string;
   label: string;
@@ -139,6 +140,7 @@ export const EditableText = ({
   as,
   behavior = 'box',
   ['data-testid']: testId,
+  formatValue = (value) => value,
   isEditing = false,
   id,
   label,
@@ -268,7 +270,7 @@ export const EditableText = ({
                 }}
                 variant="button-unstyled"
               >
-                {values['editable-text-value'] || placeholder}
+                {formatValue(values['editable-text-value'] || placeholder)}
               </Button>
 
               {isEditingState && (
