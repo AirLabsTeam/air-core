@@ -69,7 +69,7 @@ const EditableTextTextarea = forwardRef<HTMLTextAreaElement, EditableTextTextare
             }
           }}
           onKeyPress={(event: KeyboardEvent<HTMLTextAreaElement>) => {
-            if (event.key === 'Enter') {
+            if (event.key === 'Enter' && !event.shiftKey) {
               event.stopPropagation();
               submitForm();
               onSubmit();
@@ -107,6 +107,10 @@ const EditableTextTextarea = forwardRef<HTMLTextAreaElement, EditableTextTextare
             ...(tx as any),
           }}
           {...field}
+          onBlur={() => {
+            submitForm();
+            onSubmit();
+          }}
         />
       </>
     );
@@ -288,6 +292,11 @@ export const EditableText = ({
                 variant="button-unstyled"
               >
                 {formatValue(values['editable-text-value'] || placeholder)}
+                {/**
+                 * This is need to ensure that newlines will always show the proper spacing
+                 * when using the CSS property `white-space` with the value of `pre-wrap`.
+                 */}
+                {values['editable-text-value'].includes('\n') && <>&nbsp;</>}
               </Button>
 
               {isEditingState && (
