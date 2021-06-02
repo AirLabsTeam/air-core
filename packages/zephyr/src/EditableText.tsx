@@ -20,15 +20,26 @@ interface EditableTextTextareaProps {
    * */
   label: string;
   maxLength?: number;
+  minLength?: number;
   name: string;
   onReset: () => void;
   onSubmit: () => void;
+  required?: boolean;
   tx?: TXProp;
 }
 
 const EditableTextTextarea = forwardRef<HTMLTextAreaElement, EditableTextTextareaProps>(
   (
-    { id, label, maxLength, name, onReset = noop, onSubmit = noop, tx }: EditableTextTextareaProps,
+    {
+      id,
+      label,
+      maxLength,
+      name,
+      onReset = noop,
+      onSubmit = noop,
+      required,
+      tx,
+    }: EditableTextTextareaProps,
     forwardedRef,
   ) => {
     const { handleReset, submitForm } = useFormikContext();
@@ -65,6 +76,7 @@ const EditableTextTextarea = forwardRef<HTMLTextAreaElement, EditableTextTextare
             }
           }}
           ref={forwardedRef}
+          required={required}
           tx={{
             outline: 'none',
             position: 'absolute',
@@ -113,13 +125,21 @@ export type EditableTextFormValues = {
 
 export interface EditableTextProps
   extends Pick<TextProps, 'as' | 'variant'>,
-    Pick<FormikConfig<EditableTextFormValues>, 'onSubmit'> {
+    Pick<FormikConfig<EditableTextFormValues>, 'onSubmit' | 'validationSchema'> {
   'data-testid'?: string;
   behavior?: 'box' | 'text';
-  formatValue: (children: ReactNode) => ReactNode;
+  formatValue?: (children: ReactNode) => ReactNode;
   isEditing?: boolean;
   id?: string;
   label: string;
+  /**
+   * This will set the max character length for the textarea.
+   */
+  maxLength?: number;
+  /**
+   * This will set the min character length for the textarea.
+   */
+  minLength?: number;
   onEditingStateChange?: (isEditingState: boolean) => void;
   onReset?: () => void;
   placeholder?: string;
@@ -128,10 +148,6 @@ export interface EditableTextProps
     EditableTextText?: TXProp;
     EditableTextTextarea?: TXProp;
   };
-  /**
-   * This will set the max character length for the textarea.
-   */
-  maxLength?: number;
   value: string;
 }
 
@@ -144,11 +160,13 @@ export const EditableText = ({
   id,
   label,
   maxLength,
+  minLength,
   onEditingStateChange = noop,
   onReset = noop,
   onSubmit = noop,
   placeholder,
   tx = {},
+  validationSchema = EditableTextSchema,
   value = '',
   variant = 'text-ui-16',
 }: EditableTextProps) => {
@@ -185,7 +203,7 @@ export const EditableText = ({
       enableReinitialize
       initialValues={{ ['editable-text-value']: value }}
       onSubmit={onSubmit}
-      validationSchema={EditableTextSchema}
+      validationSchema={validationSchema}
     >
       {({ values }) => (
         <Box
@@ -278,6 +296,7 @@ export const EditableText = ({
                     id={autoId}
                     label={label}
                     maxLength={maxLength}
+                    minLength={minLength}
                     name="editable-text-value"
                     onReset={() => {
                       onReset();
@@ -288,6 +307,7 @@ export const EditableText = ({
                       onEditingStateChange(false);
                     }}
                     ref={textareaRef}
+                    required
                     tx={textareaStyles}
                   />
                 </Box>
