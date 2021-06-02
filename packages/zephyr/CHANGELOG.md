@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [12.15.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.14.2...@air/zephyr@12.15.0) (2021-06-02)
+
+### Bug Fixes
+
+- **@air/zephyr:** update `text-ui-14` line-height to be 20 instead of 21 ([4b2cb95](https://github.com/AirLabsTeam/web-core/commit/4b2cb954a3761888ec2bc4deba843d936f2cafd8))
+
+### Features
+
+- **@air/zephyr:** add in save on blur, and mutliline support ([3159415](https://github.com/AirLabsTeam/web-core/commit/31594150dd8b3f33cd1417f5ece3de25fcb961aa))
+
 ## [12.14.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.14.1...@air/zephyr@12.14.2) (2021-06-02)
 
 ### Bug Fixes
