@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.14.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.14.1...@air/zephyr@12.14.2) (2021-06-02)
+
+### Bug Fixes
+
+- **@air/zephyr:** updated typing for editable text and expose validationSchema and minLength prop ([fdc12e2](https://github.com/AirLabsTeam/web-core/commit/fdc12e205b5cdeeae31e0ee58f045c3e2967f047))
+
 ## [12.14.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.14.0...@air/zephyr@12.14.1) (2021-06-02)
 
 ### Bug Fixes
