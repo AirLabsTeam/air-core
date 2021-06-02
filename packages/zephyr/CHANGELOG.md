@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.14.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.14.0...@air/zephyr@12.14.1) (2021-06-02)
+
+### Bug Fixes
+
+- **@air/zephyr:** fix editable text onEditStateChange type to be optional ([4377070](https://github.com/AirLabsTeam/web-core/commit/437707096f17baea8ebb04d32bdc0f29cee029b3))
+
 # [12.14.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.13.0...@air/zephyr@12.14.0) (2021-06-01)
 
 ### Bug Fixes
