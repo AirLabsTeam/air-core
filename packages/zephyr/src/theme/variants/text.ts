@@ -188,7 +188,7 @@ const _text: { [key in TextVariantName]: TXProp } = {
     fontFeatureSettings: 'normal',
     fontSize: 14,
     letterSpacing: '-0.006em',
-    lineHeight: 1.5,
+    lineHeight: '20px',
     textTransform: 'none',
   },
   'text-ui-14-uppercase': {
@@ -196,7 +196,7 @@ const _text: { [key in TextVariantName]: TXProp } = {
     fontFeatureSettings: `'cpsp' on, 'case' on`,
     fontSize: 14,
     letterSpacing: '0.04em',
-    lineHeight: 1.5,
+    lineHeight: '20px',
     textTransform: 'uppercase',
   },
   'text-ui-12': {
