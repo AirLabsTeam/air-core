@@ -70,7 +70,6 @@ export const ContextMenu = ({
         data-context-menu
         id={id}
         tx={{
-          zIndex: 9999,
           position: 'fixed',
 
           '.react-contexify__item': {
@@ -105,7 +104,6 @@ export const ContextMenu = ({
           <Box
             tx={{
               position: 'fixed',
-              zIndex: 1,
               top: 0,
               left: 0,
               right: 0,
@@ -115,7 +113,7 @@ export const ContextMenu = ({
           />
         )}
 
-        <Menu animation={animation} size={size} tx={{ position: 'relative', zIndex: 9999 }}>
+        <Menu animation={animation} size={size} tx={{ position: 'relative' }}>
           {childrenTop}
           {options.map((option, index) => {
             const hasDescription = 'description' in option;

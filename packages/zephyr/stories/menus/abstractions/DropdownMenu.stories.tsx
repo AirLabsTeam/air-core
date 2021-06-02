@@ -56,7 +56,7 @@ const Container = ({ children, ...restOfProps }: BoxProps) => {
     <Box {...restOfProps}>
       <Box
         tx={{
-          zIndex: 1,
+          zIndex: -1,
           position: 'absolute',
           top: 0,
           left: 0,
@@ -70,7 +70,7 @@ const Container = ({ children, ...restOfProps }: BoxProps) => {
           opacity: 0.04,
         }}
       />
-      <Box tx={{ position: 'relative', zIndex: 2 }}>{children}</Box>
+      <Box tx={{ position: 'relative' }}>{children}</Box>
     </Box>
   );
 };

@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.6.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@8.5.0...@air/icons@8.6.0) (2021-05-26)
+
+### Features
+
+- added upload files and upload folders icons ([a425924](https://github.com/AirLabsTeam/web-core/commit/a425924511cd067b75006ce23df36f4b9cd0f0d9))
+
+# [8.5.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@8.4.0...@air/icons@8.5.0) (2021-05-19)
+
+### Bug Fixes
+
+- add currentColor ([9bf43c0](https://github.com/AirLabsTeam/web-core/commit/9bf43c09e760b11a116ba0ceddc57d851c733745))
+
+### Features
+
+- update star icon, add star-filled ([40b1114](https://github.com/AirLabsTeam/web-core/commit/40b11146b405cc374dd0b958c2f33a48f1d5ea9d))
+
+# [8.4.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@8.3.0...@air/icons@8.4.0) (2021-05-19)
+
+### Features
+
+- **fields.svg:** added new icon ([e5256f3](https://github.com/AirLabsTeam/web-core/commit/e5256f3b593e0de30e98eaccf1c10cb41bca38f8))
+
 # [8.3.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@8.2.0...@air/icons@8.3.0) (2021-05-12)
 
 ### Bug Fixes
