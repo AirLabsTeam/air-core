@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.7.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@8.6.0...@air/icons@8.7.0) (2021-06-03)
+
+### Bug Fixes
+
+- **icons:** fix some typo in Stack svg path ([df0c813](https://github.com/AirLabsTeam/web-core/commit/df0c81312a968a71e54dd0da5f06cb58b908eae3))
+
+### Features
+
+- **icons:** replace Comment and Stack icons with outlined svgs ([6cc9945](https://github.com/AirLabsTeam/web-core/commit/6cc99454a4310ff2c9712c0c111e5227a13cb3b4))
+
 # [8.6.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@8.5.0...@air/icons@8.6.0) (2021-05-26)
 
 ### Features
