@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.7.1](https://github.com/AirLabsTeam/web-core/compare/@air/icons@8.7.0...@air/icons@8.7.1) (2021-06-03)
+
+### Bug Fixes
+
+- **icons:** add currentColor to stack svg ([698e7b5](https://github.com/AirLabsTeam/web-core/commit/698e7b563172569f037538e81dfafa33d9b5293c))
+
 # [8.7.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@8.6.0...@air/icons@8.7.0) (2021-06-03)
 
 ### Bug Fixes
