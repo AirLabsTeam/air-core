@@ -11,7 +11,7 @@ export type MenuItemRenderProps =
   | { children: ReactNode }
   | { label: ReactNode; description?: ReactNode };
 
-export type MenuItemProps = Pick<BoxProps, 'tx'> & {
+export type MenuItemProps = Pick<BoxProps, 'onClick' | 'tx'> & {
   /**
    * Renders `<MenuDivider />` below the menu item.
    */

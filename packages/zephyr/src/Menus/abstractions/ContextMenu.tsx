@@ -119,7 +119,7 @@ export const ContextMenu = ({
             const hasDescription = 'description' in option;
 
             if (option.subOptions) {
-              const { subOptions, ...restOfOption } = option;
+              const { subOptions, onClick: _onClick, ...restOfOption } = option;
 
               return (
                 <ContexifySubmenu
