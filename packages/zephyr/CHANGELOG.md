@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [12.16.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.15.3...@air/zephyr@12.16.0) (2021-06-08)
+
+### Bug Fixes
+
+- **@air/zephyr:** export toggle component ([78f5692](https://github.com/AirLabsTeam/web-core/commit/78f569240feaec73555183b0b855a78c1456dda5))
+- **@air/zephyr:** expose onClick in menu items ([1297b7b](https://github.com/AirLabsTeam/web-core/commit/1297b7bdbb5a77f095d29807b12f2ac627d1c2ee))
+- **@air/zephyr:** fix ts error in context menu ([c3d4882](https://github.com/AirLabsTeam/web-core/commit/c3d4882237f2834564d578b406f48a9328aa616a))
+
+### Features
+
+- **@air/zephyr:** add in toggle component ([736c20b](https://github.com/AirLabsTeam/web-core/commit/736c20b2463aecea7c81b23b94072c66287cb5bf))
+
 ## [12.15.3](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.15.2...@air/zephyr@12.15.3) (2021-06-03)
 
 **Note:** Version bump only for package @air/zephyr
