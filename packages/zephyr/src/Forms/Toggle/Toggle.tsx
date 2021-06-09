@@ -1,17 +1,15 @@
 import { useId } from '@reach/auto-id';
 import VisuallyHidden from '@reach/visually-hidden';
-import { useField } from 'formik';
 import React from 'react';
 
-import { TXProp } from '../theme';
-import { Box } from '../Box';
-import { Label } from './Label';
+import { TXProp } from '../../theme';
+import { Box, BoxProps } from '../../Box';
+import { Label } from '../Label';
 
 export interface ToggleProps {
   ['data-testid']?: string;
   id?: string;
   label: string;
-  name: string;
   tx?: TXProp & {
     Toggle?: TXProp;
     ToggleActive?: TXProp;
@@ -19,11 +17,17 @@ export interface ToggleProps {
     ToggleHandleActive?: TXProp;
     ToggleInput?: TXProp;
   };
+  inputProps?: BoxProps<'input'>;
 }
 
-export const Toggle = ({ ['data-testid']: testId, id, label, name, tx = {} }: ToggleProps) => {
-  const autoId = useId(id)!;
-  const [field] = useField({ name, type: 'checkbox' });
+export const Toggle = ({
+  ['data-testid']: testId,
+  id,
+  inputProps,
+  label,
+  tx = {},
+}: ToggleProps) => {
+  const autoId = useId(id ?? inputProps?.id)!;
   const {
     Toggle: toggleStyles,
     ToggleActive: toggleActiveStyles,
@@ -38,7 +42,6 @@ export const Toggle = ({ ['data-testid']: testId, id, label, name, tx = {} }: To
       <Box
         as="input"
         data-testid={testId}
-        id={autoId}
         tx={{
           display: 'none',
 
@@ -54,8 +57,9 @@ export const Toggle = ({ ['data-testid']: testId, id, label, name, tx = {} }: To
 
           ...toggleInputStyles,
         }}
-        {...field}
         type="checkbox"
+        {...inputProps}
+        id={autoId}
       />
       <Box
         tx={{
