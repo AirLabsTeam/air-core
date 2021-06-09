@@ -3,18 +3,18 @@ import { Story, Meta } from '@storybook/react';
 import { Formik } from 'formik';
 import { noop } from 'lodash';
 
-import { Toggle, ToggleProps } from '../../src/Forms/Toggle';
+import { FormikToggle, FormikToggleProps } from '../../../src/Forms/Toggle/FormikToggle';
 
-const meta: Meta<ToggleProps> = {
-  title: 'Zephyr/Forms/Toggle',
-  component: Toggle,
+const meta: Meta<FormikToggleProps> = {
+  title: 'Zephyr/Forms/Toggle/FormikToggle',
+  component: FormikToggle,
 };
 
 export default meta;
 
-const Template: Story<ToggleProps> = (args) => (
+const Template: Story<FormikToggleProps> = (args) => (
   <Formik initialValues={{ toggle: false }} onSubmit={noop}>
-    <Toggle {...args} data-testid={meta.title} name="toggle" />
+    <FormikToggle {...args} data-testid={meta.title} name="toggle" />
   </Formik>
 );
 
