@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [12.17.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.16.0...@air/zephyr@12.17.0) (2021-06-09)
+
+### Features
+
+- **@air/zephyr:** split up toggle component ([74546b1](https://github.com/AirLabsTeam/web-core/commit/74546b10c6298d712c5237ea423aa17aef2b4abc))
+
 # [12.16.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.15.3...@air/zephyr@12.16.0) (2021-06-08)
 
 ### Bug Fixes
