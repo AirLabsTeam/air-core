@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.8.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@8.7.1...@air/icons@8.8.0) (2021-06-15)
+
+### Features
+
+- **@air/icons:** add in apple, cart, megaphone, nonprofit, popcorn, soccer icons ([314df40](https://github.com/AirLabsTeam/web-core/commit/314df4070dc7faf1641a5a8d6b982ebf512600c9))
+
 ## [8.7.1](https://github.com/AirLabsTeam/web-core/compare/@air/icons@8.7.0...@air/icons@8.7.1) (2021-06-03)
 
 ### Bug Fixes
