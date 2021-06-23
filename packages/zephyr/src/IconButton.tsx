@@ -56,27 +56,34 @@ export const IconButton = forwardRefWithAs<NonSemanticIconButtonProps, 'button'>
         ref={ref}
         size={size}
         tx={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          flexShrink: 0,
+          padding: 0,
+
           ...styledSystemVariant({
             prop: 'size',
             variants: {
               large: {
-                p: 12,
-                maxWidth: 48,
+                width: 48,
+                height: 48,
               },
               medium: {
-                p: 8,
-                maxWidth: 40,
+                width: 40,
+                height: 40,
               },
               small: {
-                p: 8,
-                maxWidth: 32,
+                width: 32,
+                height: 32,
               },
               ['extra-small']: {
-                p: 4,
-                maxWidth: 24,
+                width: 24,
+                height: 24,
               },
             },
           })({ theme, size, ...restOfProps }),
+
           ...tx,
         }}
         type={type}
