@@ -1,4 +1,4 @@
-import React, { ComponentProps, FC } from 'react';
+import React, { ComponentProps, FC, ReactNode } from 'react';
 import * as RadixTooltip from '@radix-ui/react-tooltip';
 import { PopperOwnProps } from '@radix-ui/react-popper';
 import { Slot } from '@radix-ui/react-slot';
@@ -15,7 +15,7 @@ export interface TooltipProps extends Omit<PopperOwnProps, 'anchorRef' | 'sideOf
   children: React.ReactElement;
 
   /** The actual tooltip content. */
-  label: string;
+  label: ReactNode;
 
   /** Represents where the tooltip renders in relation to the wrapped component/element. */
   side: Side;
