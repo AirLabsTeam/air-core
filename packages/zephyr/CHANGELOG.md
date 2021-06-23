@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.17.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.17.1...@air/zephyr@12.17.2) (2021-06-23)
+
+### Bug Fixes
+
+- **@air/zephyr:** update editable text box-shadow to be `inset` ([a91bc21](https://github.com/AirLabsTeam/web-core/commit/a91bc21b57cb1c1ff431bb7154799578427edf5c))
+
 ## [12.17.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.17.0...@air/zephyr@12.17.1) (2021-06-15)
 
 **Note:** Version bump only for package @air/zephyr

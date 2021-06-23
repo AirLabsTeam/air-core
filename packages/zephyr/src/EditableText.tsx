@@ -229,7 +229,7 @@ export const EditableText = ({
               py: 6,
               borderRadius: 4,
               cursor: 'pointer',
-              boxShadow: isEditingState ? `0 0 0 2px ${theme.colors.focus}` : 'none',
+              boxShadow: isEditingState ? `inset 0 0 0 2px ${theme.colors.focus}` : 'none',
             }}
           >
             <Text
