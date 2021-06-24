@@ -53,6 +53,12 @@ export interface TooltipProps extends Omit<PopperOwnProps, 'anchorRef' | 'sideOf
   withBorder?: boolean;
 
   /**
+   * This determines whether or not the arrow shows on the tooltip
+   * @default true
+   */
+  withArrow?: boolean;
+
+  /**
    * The distance in pixels to render the Tooltip.Arrow from the Tooltip.Content edge if it is pushed to the edge.
    * @default 10
    */
@@ -125,6 +131,7 @@ export const Tooltip = ({
   side,
   sideOffset = 10,
   withBorder = true,
+  withArrow = true,
   'data-testid': testID,
 }: TooltipProps) => {
   return (
@@ -192,22 +199,26 @@ export const Tooltip = ({
             offset={arrowOffset}
           />
         )}
-        <Box
-          as={
-            RadixTooltip.Arrow as FC<Omit<ComponentProps<typeof RadixTooltip.Arrow>, 'as' | 'ref'>>
-          }
-          tx={{
-            zIndex: baseZIndex + 1,
-            strokeLinejoin: 'round',
-            strokeLinecap: 'round',
-            stroke: 'black',
-            strokeWidth: 1,
-            ...triangleOffsetMapping['base'][side],
-          }}
-          width={10}
-          height={7}
-          offset={arrowOffset}
-        />
+        {withArrow && (
+          <Box
+            as={
+              RadixTooltip.Arrow as FC<
+                Omit<ComponentProps<typeof RadixTooltip.Arrow>, 'as' | 'ref'>
+              >
+            }
+            tx={{
+              zIndex: baseZIndex + 1,
+              strokeLinejoin: 'round',
+              strokeLinecap: 'round',
+              stroke: 'black',
+              strokeWidth: 1,
+              ...triangleOffsetMapping['base'][side],
+            }}
+            width={10}
+            height={7}
+            offset={arrowOffset}
+          />
+        )}
       </Box>
     </RadixTooltip.Root>
   );

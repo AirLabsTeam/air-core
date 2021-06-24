@@ -29,7 +29,8 @@ export const Default: Story<TooltipProps> = () => {
 
   return (
     <Tooltip
-      label="Now you see me!"
+      withArrow={false}
+      label={'Now you see me!'}
       data-testid={meta.title}
       side="right"
       manualControlProps={
