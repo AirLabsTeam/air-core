@@ -29,7 +29,8 @@ export const Default: Story<TooltipProps> = () => {
 
   return (
     <Tooltip
-      label="Now you see me!"
+      withArrow={true}
+      label={'Now you see me!'}
       data-testid={meta.title}
       side="right"
       manualControlProps={
@@ -192,6 +193,24 @@ export const WithoutBorder = () => (
     </Tooltip>
   </Box>
 );
+
+export const WithoutArrow = () => {
+  return (
+    <Tooltip
+      withArrow={false}
+      label={'Arrows are boring, be a rebel'}
+      data-testid={meta.title}
+      side="right"
+      manualControlProps={
+        isChromatic() ? { open: true, onOpenChange: noop, defaultOpen: true } : undefined
+      }
+    >
+      <Button onClick={noop} variant="button-filled-blue">
+        Hover over me to see a tooltip without an arrow
+      </Button>
+    </Tooltip>
+  );
+};
 
 export const MultiColoredBackground = () => {
   const avatarSize = 36;
