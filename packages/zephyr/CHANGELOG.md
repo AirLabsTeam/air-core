@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [12.18.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.17.2...@air/zephyr@12.18.0) (2021-06-24)
+
+### Bug Fixes
+
+- **@air/zephyr:** fix icon button to always be a fixed width ([f890b16](https://github.com/AirLabsTeam/web-core/commit/f890b16911c5b52970088289bbf4f21e067ee9ae))
+
+### Features
+
+- update tooltip to have boolean control of arrow ([21c0d68](https://github.com/AirLabsTeam/web-core/commit/21c0d682812fd2da527c254749cd4fe84b69bc61))
+- **@air/zephyr:** update existing 32 text style and add in 36/40/48 sizes ([297f373](https://github.com/AirLabsTeam/web-core/commit/297f373e836fad8cea8c9e159ae1d2bac0aa3681))
+- **@air/zephyr:** update tooltip label type to ReactNode ([9406b5f](https://github.com/AirLabsTeam/web-core/commit/9406b5fe5ab981bddfefbb802f027d26a8ebdcc3))
+
 ## [12.17.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.17.1...@air/zephyr@12.17.2) (2021-06-23)
 
 ### Bug Fixes
