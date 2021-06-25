@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [12.19.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.18.0...@air/zephyr@12.19.0) (2021-06-25)
+
+### Features
+
+- fix prop names ([0617020](https://github.com/AirLabsTeam/web-core/commit/06170200251a40c82ab7e917b16df5aa67bc6ca5))
+- for the tooltip - adds an optional tx prop to allow adding custom styles ([8e02444](https://github.com/AirLabsTeam/web-core/commit/8e02444b18343870e943c159c8f8400881c452a9))
+
+# [12.18.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.17.2...@air/zephyr@12.18.0) (2021-06-24)
+
+### Bug Fixes
+
+- **@air/zephyr:** fix icon button to always be a fixed width ([f890b16](https://github.com/AirLabsTeam/web-core/commit/f890b16911c5b52970088289bbf4f21e067ee9ae))
+
+### Features
+
+- update tooltip to have boolean control of arrow ([21c0d68](https://github.com/AirLabsTeam/web-core/commit/21c0d682812fd2da527c254749cd4fe84b69bc61))
+- **@air/zephyr:** update existing 32 text style and add in 36/40/48 sizes ([297f373](https://github.com/AirLabsTeam/web-core/commit/297f373e836fad8cea8c9e159ae1d2bac0aa3681))
+- **@air/zephyr:** update tooltip label type to ReactNode ([9406b5f](https://github.com/AirLabsTeam/web-core/commit/9406b5fe5ab981bddfefbb802f027d26a8ebdcc3))
+
+## [12.17.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.17.1...@air/zephyr@12.17.2) (2021-06-23)
+
+### Bug Fixes
+
+- **@air/zephyr:** update editable text box-shadow to be `inset` ([a91bc21](https://github.com/AirLabsTeam/web-core/commit/a91bc21b57cb1c1ff431bb7154799578427edf5c))
+
 ## [12.17.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.17.0...@air/zephyr@12.17.1) (2021-06-15)
 
 **Note:** Version bump only for package @air/zephyr
