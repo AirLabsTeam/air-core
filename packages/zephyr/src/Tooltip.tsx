@@ -41,6 +41,20 @@ export interface TooltipProps extends Omit<PopperOwnProps, 'anchorRef' | 'sideOf
   manualControlProps?: Required<RadixTooltip.TooltipOwnProps>;
 
   /**
+   * This prop can be used to pass custom styles to specific portions of the rendered tooltip. You can pass styles
+   * to the tx prop as normal, and the styles will be applied to the div containing the entire tooltip. However if you’d like
+   * to style a specific portion, there are 3 optional properties that you may use to style that section of the Tooltip. You should use`TooltipArrow` for
+   * specific arrow styles, `tooltipBorder` for the Tooltip's border styles, and the `TooltipContentBox` for the styles
+   * to be applied to the immediate div surrounding the label. Please note these styles do not override existing props (i.e. if
+   * `withBorder` is false, the styles in `TooltipBorder` will have no effect); these properties only supplement the styles.
+   */
+  tx?: TXProp & {
+    TooltipArrow?: TXProp;
+    TooltipBorder?: TXProp;
+    TooltipContent?: TXProp;
+  };
+
+  /**
    * Unfortunately, this component is prone to fighting the [z-index wars](https://joeist.com/2012/06/what-is-the-highest-possible-z-index-value/)
    * so we give you the power to control the underlying z-index number all of the primitives use in relation to eachother.
    */
@@ -130,10 +144,18 @@ export const Tooltip = ({
   manualControlProps,
   side,
   sideOffset = 10,
+  tx = {},
   withBorder = true,
   withArrow = true,
   'data-testid': testID,
 }: TooltipProps) => {
+  const {
+    TooltipArrow: arrowStyles,
+    TooltipBorder: borderStyles,
+    TooltipContent: textContentStyles,
+    ...containerStyles
+  } = tx;
+
   return (
     <RadixTooltip.Root {...manualControlProps}>
       {/**
@@ -172,9 +194,16 @@ export const Tooltip = ({
           borderStyle: 'solid',
           borderRadius: 4,
           zIndex: baseZIndex + 1,
+          ...(containerStyles as any),
         }}
       >
-        <Text variant="text-ui-14" tx={{ color: 'currentColor' }}>
+        <Text
+          variant="text-ui-14"
+          tx={{
+            color: 'currentColor',
+            ...(textContentStyles as any),
+          }}
+        >
           {label}
         </Text>
 
@@ -193,6 +222,7 @@ export const Tooltip = ({
               stroke: 'white',
               strokeWidth: 1,
               ...triangleOffsetMapping['border'][side],
+              ...(borderStyles as any),
             }}
             width={12}
             height={8}
@@ -213,6 +243,7 @@ export const Tooltip = ({
               stroke: 'black',
               strokeWidth: 1,
               ...triangleOffsetMapping['base'][side],
+              ...(arrowStyles as any),
             }}
             width={10}
             height={7}
