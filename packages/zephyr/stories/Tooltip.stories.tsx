@@ -198,11 +198,11 @@ export const WithCustomStyles = () => {
   return (
     <Tooltip
       tx={{
-        tooltipArrow: {
+        TooltipArrow: {
           fill: '#B4CFFF',
           stroke: '#B4CFFF',
         },
-        tooltipContentBox: {
+        TooltipContent: {
           color: '#0B1953',
         },
         bg: '#B4CFFF',
