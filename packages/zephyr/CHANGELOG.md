@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [12.19.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.18.0...@air/zephyr@12.19.0) (2021-06-25)
+
+### Features
+
+- fix prop names ([0617020](https://github.com/AirLabsTeam/web-core/commit/06170200251a40c82ab7e917b16df5aa67bc6ca5))
+- for the tooltip - adds an optional tx prop to allow adding custom styles ([8e02444](https://github.com/AirLabsTeam/web-core/commit/8e02444b18343870e943c159c8f8400881c452a9))
+
 # [12.18.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.17.2...@air/zephyr@12.18.0) (2021-06-24)
 
 ### Bug Fixes
