@@ -3,38 +3,32 @@ import { useId } from '@reach/auto-id';
 import VisuallyHidden from '@reach/visually-hidden';
 import React from 'react';
 
+import { SVGComponent } from '../shared';
 import { Box, BoxProps } from '../Box';
-import { TXProp } from '../theme';
 import { Label } from './Label';
 
 export interface CheckboxProps
-  extends Pick<BoxProps<'input'>, 'checked' | 'id' | 'name' | 'onChange' | 'value'> {
-  isLabelVisuallyHidden?: boolean;
+  extends Pick<BoxProps<'input'>, 'checked' | 'id' | 'name' | 'onChange' | 'tx' | 'value'> {
+  activeIcon: SVGComponent;
+  isLabelHidden?: boolean;
   label: string;
-  tx?: TXProp & {
-    Checkbox?: TXProp;
-    Input?: TXProp;
-  };
 }
 
 export const Checkbox = ({
+  activeIcon = Check,
   checked,
   id,
-  isLabelVisuallyHidden,
+  isLabelHidden,
   label,
   name,
   onChange,
   value,
-  tx = {},
+  tx,
 }: CheckboxProps) => {
   const autoId = useId(id)!;
-  const { Checkbox: checkboxStyles, Input: inputStyles, ...labelStyles } = tx;
 
   return (
-    <Label
-      for={autoId}
-      tx={{ display: 'flex', alignItems: 'center', color: 'pigeon500', ...labelStyles }}
-    >
+    <Label for={autoId} tx={{ display: 'flex', alignItems: 'center', color: 'pigeon500', ...tx }}>
       <Box
         as="input"
         checked={checked}
@@ -53,8 +47,6 @@ export const Checkbox = ({
               opacity: 1,
             },
           },
-
-          ...inputStyles,
         }}
         type="checkbox"
         value={value}
@@ -69,11 +61,10 @@ export const Checkbox = ({
           height: 16,
           border: '1px solid',
           borderRadius: 2,
-          ...checkboxStyles,
         }}
       >
         <Box
-          as={Check}
+          as={activeIcon}
           tx={{
             width: 12,
             color: 'white',
@@ -85,7 +76,7 @@ export const Checkbox = ({
           }}
         />
       </Box>
-      {isLabelVisuallyHidden ? (
+      {isLabelHidden ? (
         <VisuallyHidden>{label}</VisuallyHidden>
       ) : (
         <Box as="span" tx={{ my: -1, ml: 8 }}>
