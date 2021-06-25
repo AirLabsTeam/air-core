@@ -194,6 +194,36 @@ export const WithoutBorder = () => (
   </Box>
 );
 
+export const WithCustomStyles = () => {
+  return (
+    <Tooltip
+      tx={{
+        tooltipArrow: {
+          fill: '#B4CFFF',
+          stroke: '#B4CFFF',
+        },
+        tooltipContentBox: {
+          color: '#0B1953',
+        },
+        bg: '#B4CFFF',
+      }}
+      withArrow={true}
+      withBorder={false}
+      label={'Custom is cool'}
+      data-testid={meta.title}
+      side="bottom"
+      sideOffset={3}
+      manualControlProps={
+        isChromatic() ? { open: true, onOpenChange: noop, defaultOpen: true } : undefined
+      }
+    >
+      <Button onClick={noop} variant="button-filled-blue">
+        Hover to see a tooltip with custom styles
+      </Button>
+    </Tooltip>
+  );
+};
+
 export const WithoutArrow = () => {
   return (
     <Tooltip
