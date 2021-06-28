@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.20.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.20.1...@air/zephyr@12.20.2) (2021-06-28)
+
+### Bug Fixes
+
+- **@air/zephyr:** make checkbox active icon optional ([7e2b761](https://github.com/AirLabsTeam/web-core/commit/7e2b7616dd915b5111d68746025d4f3e8422f034))
+
 ## [12.20.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.20.0...@air/zephyr@12.20.1) (2021-06-28)
 
 ### Bug Fixes
