@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [12.20.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.19.0...@air/zephyr@12.20.0) (2021-06-28)
+
+### Bug Fixes
+
+- **@air/zephyr:** remove tx and rename props for checkbox component ([db666cb](https://github.com/AirLabsTeam/web-core/commit/db666cb41ef1996f68cfe14f3f23c22c712d04b1))
+
+### Features
+
+- **@air/zephyr:** add in checkbox component ([7c13852](https://github.com/AirLabsTeam/web-core/commit/7c13852c7fe8362e77b098d065b6059a19179de2))
+
 # [12.19.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.18.0...@air/zephyr@12.19.0) (2021-06-25)
 
 ### Features
