@@ -9,7 +9,7 @@ import { Label } from './Label';
 
 export interface CheckboxProps
   extends Pick<BoxProps<'input'>, 'checked' | 'id' | 'name' | 'onChange' | 'tx' | 'value'> {
-  activeIcon: SVGComponent;
+  activeIcon?: SVGComponent;
   isLabelHidden?: boolean;
   label: string;
 }
