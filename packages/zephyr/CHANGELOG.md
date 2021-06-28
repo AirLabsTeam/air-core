@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.20.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.20.0...@air/zephyr@12.20.1) (2021-06-28)
+
+### Bug Fixes
+
+- **@air/zephyr:** export checkbox component ([c33a81e](https://github.com/AirLabsTeam/web-core/commit/c33a81e05793393f897d438db36903f035e60bbf))
+
 # [12.20.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.19.0...@air/zephyr@12.20.0) (2021-06-28)
 
 ### Bug Fixes
