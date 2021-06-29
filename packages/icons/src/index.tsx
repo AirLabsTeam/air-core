@@ -49,6 +49,7 @@ import _DoubleChevronRight from './svgs/uncategorized/DoubleChevron-Right.svg';
 import _DoubleChevronUp from './svgs/uncategorized/DoubleChevron-Up.svg';
 import _DownArrow from './svgs/uncategorized/DownArrow.svg';
 import _Download from './svgs/uncategorized/Download.svg';
+import _DownloadAlt from './svgs/uncategorized/DownloadAlt.svg';
 import _Downtick from './svgs/uncategorized/Downtick.svg';
 import _Dribbble from './svgs/uncategorized/Dribbble.svg';
 import _Dropbox from './svgs/uncategorized/Dropbox.svg';
@@ -195,6 +196,7 @@ export const DoubleChevronRight = (props?: SVGProps<SVGElement>) => <_DoubleChev
 export const DoubleChevronUp = (props?: SVGProps<SVGElement>) => <_DoubleChevronUp {...props} />;
 export const DownArrow = (props?: SVGProps<SVGElement>) => <_DownArrow {...props} />;
 export const Download = (props?: SVGProps<SVGElement>) => <_Download {...props} />;
+export const DownloadAlt = (props?: SVGProps<SVGElement>) => <_DownloadAlt {...props} />;
 export const Downtick = (props?: SVGProps<SVGElement>) => <_Downtick {...props} />;
 export const Dribbble = (props?: SVGProps<SVGElement>) => <_Dribbble {...props} />;
 export const Dropbox = (props?: SVGProps<SVGElement>) => <_Dropbox {...props} />;
