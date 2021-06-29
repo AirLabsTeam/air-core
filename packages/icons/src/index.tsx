@@ -109,6 +109,7 @@ import _Refresh from './svgs/uncategorized/Refresh.svg';
 import _Remove from './svgs/uncategorized/Remove.svg';
 import _RightArrow from './svgs/uncategorized/RightArrow.svg';
 import _Save from './svgs/uncategorized/Save.svg';
+import _SaveToBin from './svgs/uncategorized/SaveToBin.svg';
 import _Search from './svgs/uncategorized/Search.svg';
 import _Selects from './svgs/uncategorized/Selects.svg';
 import _SendFilled from './svgs/uncategorized/Send-Filled.svg';
@@ -255,6 +256,7 @@ export const Refresh = (props?: SVGProps<SVGElement>) => <_Refresh {...props} />
 export const Remove = (props?: SVGProps<SVGElement>) => <_Remove {...props} />;
 export const RightArrow = (props?: SVGProps<SVGElement>) => <_RightArrow {...props} />;
 export const Save = (props?: SVGProps<SVGElement>) => <_Save {...props} />;
+export const SaveToBin = (props?: SVGProps<SVGElement>) => <_SaveToBin {...props} />;
 export const Search = (props?: SVGProps<SVGElement>) => <_Search {...props} />;
 export const Selects = (props?: SVGProps<SVGElement>) => <_Selects {...props} />;
 export const SendFilled = (props?: SVGProps<SVGElement>) => <_SendFilled {...props} />;
