@@ -12,6 +12,9 @@ import { ModalVariantName } from '../theme/variants/modal';
 import { ModalContent } from './ModalContent';
 import { ModalOverlay } from './ModalOverlay';
 
+export const MODAL_LABEL = 'MODAL_LABEL';
+export const MODAL_DESCRIPTION = 'MODAL_DESCRIPTION';
+
 export interface ModalProps
   extends Pick<DialogProps, 'allowPinchZoom' | 'initialFocusRef' | 'isOpen'>,
     Pick<AlertDialogProps, 'leastDestructiveRef'>,
@@ -182,7 +185,11 @@ export const Modal = ({
 
               {isString(modalLabel) ? (
                 <Box as={AlertDialogLabel} tx={modalLabelLayoutStyles}>
-                  <Text variant="text-ui-24" tx={{ fontWeight: 'semibold' }}>
+                  <Text
+                    data-testid={MODAL_LABEL}
+                    variant="text-ui-24"
+                    tx={{ fontWeight: 'semibold' }}
+                  >
                     {modalLabel}
                   </Text>
                 </Box>
@@ -242,7 +249,9 @@ export const Modal = ({
             {hasDescription && (
               <Box id={descriptionID}>
                 {isModalDescriptionString ? (
-                  <Text variant="text-ui-16">{modalDescription}</Text>
+                  <Text variant="text-ui-16" data-testid={MODAL_DESCRIPTION}>
+                    {modalDescription}
+                  </Text>
                 ) : (
                   modalDescription
                 )}
