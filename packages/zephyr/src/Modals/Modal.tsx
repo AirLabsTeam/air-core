@@ -186,23 +186,29 @@ export const Modal = ({
               {isString(modalLabel) ? (
                 <Box as={AlertDialogLabel} tx={modalLabelLayoutStyles}>
                   <Text
-                    data-testid={MODAL_LABEL}
                     variant="text-ui-24"
                     tx={{ fontWeight: 'semibold' }}
+                    data-testid={MODAL_LABEL}
                   >
                     {modalLabel}
                   </Text>
                 </Box>
               ) : (
-                <Box as={AlertDialogLabel}>{modalLabel}</Box>
+                <Box as={AlertDialogLabel} data-testid={MODAL_LABEL}>
+                  {modalLabel}
+                </Box>
               )}
 
               {isModalDescriptionString ? (
                 <Box as={AlertDialogDescription}>
-                  <Text variant="text-ui-16">{modalDescription}</Text>
+                  <Text variant="text-ui-16" data-testid={MODAL_DESCRIPTION}>
+                    {modalDescription}
+                  </Text>
                 </Box>
               ) : (
-                <Box as={AlertDialogDescription}>{modalDescription}</Box>
+                <Box as={AlertDialogDescription} data-testid={MODAL_DESCRIPTION}>
+                  {modalDescription}
+                </Box>
               )}
 
               <Text variant="text-ui-16">{children}</Text>
@@ -238,12 +244,18 @@ export const Modal = ({
 
             {isString(modalLabel) ? (
               <Box id={labelID} tx={modalLabelLayoutStyles}>
-                <Text variant="text-ui-24" tx={{ fontWeight: 'semibold' }}>
+                <Text
+                  variant="text-ui-24"
+                  tx={{ fontWeight: 'semibold' }}
+                  data-testid={MODAL_LABEL}
+                >
                   {modalLabel}
                 </Text>
               </Box>
             ) : (
-              <Box id={labelID}>{modalLabel}</Box>
+              <Box id={labelID} data-testid={MODAL_LABEL}>
+                {modalLabel}
+              </Box>
             )}
 
             {hasDescription && (
@@ -253,7 +265,7 @@ export const Modal = ({
                     {modalDescription}
                   </Text>
                 ) : (
-                  modalDescription
+                  <Box data-testid={MODAL_DESCRIPTION}>{modalDescription}</Box>
                 )}
               </Box>
             )}
