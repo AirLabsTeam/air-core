@@ -114,6 +114,8 @@ export interface ModalProps
   variant?: ModalVariantName;
 
   ['data-testid']?: string;
+
+  key?: string;
 }
 
 export const Modal = ({
@@ -131,6 +133,7 @@ export const Modal = ({
   tx,
   variant = 'modal-medium',
   withCloseButton = true,
+  key,
 }: ModalProps) => {
   const labelID = useId('modal-label')!;
   const descriptionID = useId('modal-description')!;
@@ -159,7 +162,7 @@ export const Modal = ({
     invariant(isAlertModal && hasDescription, 'AlertModal requires a "modalDescription"');
 
     return (
-      <AnimatePresence key="modal">
+      <AnimatePresence key={key}>
         {isOpen && (
           <ModalOverlay
             isAlertModal={true}
@@ -220,7 +223,7 @@ export const Modal = ({
   }
 
   return (
-    <AnimatePresence>
+    <AnimatePresence key={key}>
       {isOpen && (
         <ModalOverlay
           isAlertModal={false}
