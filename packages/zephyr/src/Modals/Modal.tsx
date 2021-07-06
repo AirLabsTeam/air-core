@@ -115,7 +115,7 @@ export interface ModalProps
 
   ['data-testid']?: string;
 
-  key?: string;
+  animatePresenceKey?: string;
 }
 
 export const Modal = ({
@@ -133,7 +133,7 @@ export const Modal = ({
   tx,
   variant = 'modal-medium',
   withCloseButton = true,
-  key,
+  animatePresenceKey,
 }: ModalProps) => {
   const labelID = useId('modal-label')!;
   const descriptionID = useId('modal-description')!;
@@ -162,7 +162,7 @@ export const Modal = ({
     invariant(isAlertModal && hasDescription, 'AlertModal requires a "modalDescription"');
 
     return (
-      <AnimatePresence key={key}>
+      <AnimatePresence key={animatePresenceKey}>
         {isOpen && (
           <ModalOverlay
             isAlertModal={true}
@@ -171,6 +171,7 @@ export const Modal = ({
             shouldReduceMotion={shouldReduceMotion}
             allowPinchZoom={allowPinchZoom}
             initialFocusRef={initialFocusRef}
+            key={`${animatePresenceKey}-overlay`}
           >
             <ModalContent
               isAlertModal={true}
@@ -223,7 +224,7 @@ export const Modal = ({
   }
 
   return (
-    <AnimatePresence key={key}>
+    <AnimatePresence key={animatePresenceKey}>
       {isOpen && (
         <ModalOverlay
           isAlertModal={false}
@@ -232,6 +233,7 @@ export const Modal = ({
           shouldReduceMotion={shouldReduceMotion}
           allowPinchZoom={allowPinchZoom}
           initialFocusRef={initialFocusRef}
+          key={`${animatePresenceKey}-overlay`}
         >
           <ModalContent
             isAlertModal={false}
