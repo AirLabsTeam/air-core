@@ -111,7 +111,12 @@ export const AnnouncementModal = ({
             </CTAButton>
           ) : (
             // @ts-ignore
-            <Button as={cta?.href ? 'a' : 'button'} {...cta} ref={ctaRef} />
+            <Button
+              as={cta?.href ? 'a' : 'button'}
+              {...cta}
+              data-testid={ANNOUNCEMENT_MODAL_CTA}
+              ref={ctaRef}
+            />
           )}
         </Box>
       </Box>
