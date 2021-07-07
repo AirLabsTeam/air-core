@@ -9,6 +9,7 @@ import {
   Stories,
   PRIMARY_STORY,
 } from '@storybook/addon-docs/blocks';
+import { AnimatePresence } from 'framer-motion';
 import { Button } from '../../src/Button';
 import { TransactionModal, TransactionModalProps } from '../../src/Modals/TransactionModal';
 import { modalStoryDecorator } from './shared';
@@ -67,14 +68,17 @@ export const TypicalTransactionModal: Story<TransactionModalProps> = () => {
         Open Transaction Modal
       </Button>
 
-      <TransactionModal
-        isOpen={isModalOpen}
-        onDismiss={closeModal}
-        modalLabel="Are you sure?"
-        modalDescription="This is a transaction! We want to confirm that you want to do this, before you do it."
-        primaryCTA={{ children: `I'm sure!`, onClick: closeModal }}
-        secondaryCTA={{ children: 'Nevermind', onClick: closeModal }}
-      />
+      <AnimatePresence>
+        {isModalOpen && (
+          <TransactionModal
+            onDismiss={closeModal}
+            modalLabel="Are you sure?"
+            modalDescription="This is a transaction! We want to confirm that you want to do this, before you do it."
+            primaryCTA={{ children: `I'm sure!`, onClick: closeModal }}
+            secondaryCTA={{ children: 'Nevermind', onClick: closeModal }}
+          />
+        )}
+      </AnimatePresence>
     </>
   );
 };
@@ -104,18 +108,21 @@ export const DestructiveActionModal: Story<TransactionModalProps> = () => {
         Open Transaction Modal
       </Button>
 
-      <TransactionModal
-        isOpen={isModalOpen}
-        onDismiss={closeModal}
-        modalLabel="Delete everything"
-        modalDescription={`This will permanently erase every good mememory you've ever had.`}
-        primaryCTA={{
-          children: `Delete`,
-          onClick: deleteEverything,
-          variant: 'button-filled-destructive',
-        }}
-        secondaryCTA={{ children: 'Nevermind', onClick: closeModal }}
-      />
+      <AnimatePresence>
+        {isModalOpen && (
+          <TransactionModal
+            onDismiss={closeModal}
+            modalLabel="Delete everything"
+            modalDescription={`This will permanently erase every good mememory you've ever had.`}
+            primaryCTA={{
+              children: `Delete`,
+              onClick: deleteEverything,
+              variant: 'button-filled-destructive',
+            }}
+            secondaryCTA={{ children: 'Nevermind', onClick: closeModal }}
+          />
+        )}
+      </AnimatePresence>
     </>
   );
 };

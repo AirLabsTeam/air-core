@@ -9,6 +9,7 @@ import {
   Stories,
   PRIMARY_STORY,
 } from '@storybook/addon-docs/blocks';
+import { AnimatePresence } from 'framer-motion';
 import { AnnouncementModal, AnnouncementModalProps } from '../../src/Modals/AnnouncementModal';
 import { Button } from '../../src/Button';
 import { modalStoryDecorator } from './shared';
@@ -67,14 +68,17 @@ export const TypicalAnnouncementModal: Story<AnnouncementModalProps> = () => {
         Open Announcement Modal
       </Button>
 
-      <AnnouncementModal
-        isOpen={isModalOpen}
-        imageSource="https://air.inc/_next/static/images/no-boards-or-assets-f8604f96572c26585d2040ebe7461a9e.png"
-        onDismiss={closeModal}
-        modalLabel="Acknowledge this!"
-        modalDescription="This is an announcement! There's some cool new thing you need to be aware of."
-        cta="Acknowledged!"
-      />
+      <AnimatePresence>
+        {isModalOpen && (
+          <AnnouncementModal
+            imageSource="https://air.inc/_next/static/images/no-boards-or-assets-f8604f96572c26585d2040ebe7461a9e.png"
+            onDismiss={closeModal}
+            modalLabel="Acknowledge this!"
+            modalDescription="This is an announcement! There's some cool new thing you need to be aware of."
+            cta="Acknowledged!"
+          />
+        )}
+      </AnimatePresence>
     </>
   );
 };
@@ -99,15 +103,18 @@ export const FeatureBlockModal: Story<AnnouncementModalProps> = () => {
         Try This
       </Button>
 
-      <AnnouncementModal
-        isOpen={isModalOpen}
-        imageSource="https://air.inc/_next/static/images/no-boards-or-assets-f8604f96572c26585d2040ebe7461a9e.png"
-        onDismiss={closeModal}
-        modalLabel="Pay up!"
-        modalDescription="To do this, you need to give us $1,000,000. Do so, or this little bird gets it!"
-        cta="Upgrade plan!"
-        withCloseButton={false}
-      />
+      <AnimatePresence>
+        {isModalOpen && (
+          <AnnouncementModal
+            imageSource="https://air.inc/_next/static/images/no-boards-or-assets-f8604f96572c26585d2040ebe7461a9e.png"
+            onDismiss={closeModal}
+            modalLabel="Pay up!"
+            modalDescription="To do this, you need to give us $1,000,000. Do so, or this little bird gets it!"
+            cta="Upgrade plan!"
+            withCloseButton={false}
+          />
+        )}
+      </AnimatePresence>
     </>
   );
 };
@@ -133,19 +140,22 @@ export const WithCustomCTA: Story<AnnouncementModalProps> = () => {
         {`See What's New Today`}
       </Button>
 
-      <AnnouncementModal
-        isOpen={isModalOpen}
-        imageSource="https://air.inc/_next/static/images/no-boards-or-assets-f8604f96572c26585d2040ebe7461a9e.png"
-        onDismiss={closeModal}
-        modalLabel="What is the meaning of life?"
-        modalDescription="We have all wondered this question. After many hours of work, the engineers at Air have figured out the meaning of life"
-        cta={{
-          href: 'https://en.wikipedia.org/wiki/42_(number)',
-          children: 'Tell me now!',
-          target: '_blank',
-        }}
-        withCloseButton={false}
-      />
+      <AnimatePresence>
+        {isModalOpen && (
+          <AnnouncementModal
+            imageSource="https://air.inc/_next/static/images/no-boards-or-assets-f8604f96572c26585d2040ebe7461a9e.png"
+            onDismiss={closeModal}
+            modalLabel="What is the meaning of life?"
+            modalDescription="We have all wondered this question. After many hours of work, the engineers at Air have figured out the meaning of life"
+            cta={{
+              href: 'https://en.wikipedia.org/wiki/42_(number)',
+              children: 'Tell me now!',
+              target: '_blank',
+            }}
+            withCloseButton={false}
+          />
+        )}
+      </AnimatePresence>
     </>
   );
 };
