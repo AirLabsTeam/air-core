@@ -57,7 +57,13 @@ Default.parameters = {
       callback used to dismiss the modal are both optional, you could attempt to render the "X" close button without
       giving it the power to close the modal - which is silly. To counteract this detriment, there exist dev-only
       errors for incorrect prop combinations. Focus on understanding what type of modal you're rendering, pass the
-      required props, and resolve errors as they throw during development.`,
+      required props, and resolve errors as they throw during development.
+
+      You must always use <AnimatePresence> (from <code>framer-motion</code>) in conjunction with this component. With
+      our desire to create modal abstraction components came the problem of not being able to reset state within those
+      abstraction components as they were always rendered. <AnimatePresence> automatically handles exit animations when
+      items are added or removed from an array, but not if there exists another <AnimatePresence> below. Hopefully
+      this requirement is temporary 🤞.`,
     },
   },
   chromatic: { disable: true },

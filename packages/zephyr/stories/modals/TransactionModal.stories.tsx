@@ -28,7 +28,8 @@ Default.parameters = {
   docs: {
     description: {
       component: `This is an abstraction purely to maintain style consistency and a better developer experience than
-      the more flexible base modal component.\nPlease see examples below the documentation table.`,
+      the more flexible base modal component.\nPlease see examples below the documentation table. Please read the
+      docs on our base Modal component to understand further.`,
     },
     page: () => (
       <>
