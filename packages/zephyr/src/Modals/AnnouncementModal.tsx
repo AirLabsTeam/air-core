@@ -52,7 +52,6 @@ export const AnnouncementModal = ({
   className,
   cta,
   imageSource,
-  isOpen = false,
   modalDescription,
   modalLabel,
   onDismiss,
@@ -66,7 +65,6 @@ export const AnnouncementModal = ({
     <Modal
       className={className}
       isAlertModal={withCloseButton ? false : true}
-      isOpen={isOpen}
       leastDestructiveRef={withCloseButton ? undefined : ctaRef}
       modalDescription={<VisuallyHidden>{modalDescription}</VisuallyHidden>}
       modalLabel={<VisuallyHidden>{modalLabel}</VisuallyHidden>}

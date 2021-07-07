@@ -34,7 +34,6 @@ export interface TransactionModalProps
 export const TransactionModal = ({
   children,
   className,
-  isOpen = false,
   modalDescription,
   modalLabel,
   onDismiss,
@@ -72,7 +71,6 @@ export const TransactionModal = ({
     <Modal
       className={className}
       isAlertModal={false}
-      isOpen={isOpen}
       modalDescription={modalDescription}
       modalLabel={modalLabel}
       onDismiss={onDismiss}
