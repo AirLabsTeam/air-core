@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.20.9](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.20.8...@air/zephyr@12.20.9) (2021-07-09)
+
+### Reverts
+
+- Revert "chore: removed children text wrapper" ([6cb04c1](https://github.com/AirLabsTeam/web-core/commit/6cb04c10a955d734136be68d82a2cc6ec23358f9))
+
 ## [12.20.8](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.20.7...@air/zephyr@12.20.8) (2021-07-07)
 
 **Note:** Version bump only for package @air/zephyr
