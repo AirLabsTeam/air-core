@@ -37,6 +37,7 @@ import _CloudUpload from './svgs/uncategorized/Cloud-Upload.svg';
 import _Comment from './svgs/uncategorized/Comment.svg';
 import _CompressedFiles from './svgs/uncategorized/CompressedFiles.svg';
 import _CreditCard from './svgs/uncategorized/CreditCard.svg';
+import _Dart from './svgs/uncategorized/Dart.svg';
 import _DashedPlus from './svgs/uncategorized/DashedPlus.svg';
 import _Database from './svgs/uncategorized/Database.svg';
 import _Delete from './svgs/uncategorized/Delete.svg';
@@ -184,6 +185,7 @@ export const CloudUpload = (props?: SVGProps<SVGElement>) => <_CloudUpload {...p
 export const Comment = (props?: SVGProps<SVGElement>) => <_Comment {...props} />;
 export const CompressedFiles = (props?: SVGProps<SVGElement>) => <_CompressedFiles {...props} />;
 export const CreditCard = (props?: SVGProps<SVGElement>) => <_CreditCard {...props} />;
+export const Dart = (props?: SVGProps<SVGElement>) => <_Dart {...props} />;
 export const DashedPlus = (props?: SVGProps<SVGElement>) => <_DashedPlus {...props} />;
 export const Database = (props?: SVGProps<SVGElement>) => <_Database {...props} />;
 export const Delete = (props?: SVGProps<SVGElement>) => <_Delete {...props} />;
