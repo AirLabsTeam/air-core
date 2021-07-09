@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.10.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@8.9.0...@air/icons@8.10.0) (2021-07-09)
+
+### Features
+
+- **@air/zephyr:** add in dart icon ([a7af0d0](https://github.com/AirLabsTeam/web-core/commit/a7af0d010e7ee406cc70da30df5097c760f99723))
+
 # [8.9.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@8.8.0...@air/icons@8.9.0) (2021-06-29)
 
 ### Features

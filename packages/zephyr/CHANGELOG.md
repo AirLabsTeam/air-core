@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [12.21.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.20.9...@air/zephyr@12.21.0) (2021-07-09)
+
+### Features
+
+- **@air/zephyr:** add in button link ([33b6aff](https://github.com/AirLabsTeam/web-core/commit/33b6aff866799f6a74f094602369a1e1de18e096))
+
 ## [12.20.9](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.20.8...@air/zephyr@12.20.9) (2021-07-09)
 
 ### Reverts
