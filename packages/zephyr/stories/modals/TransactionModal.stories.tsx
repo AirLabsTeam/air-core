@@ -131,46 +131,6 @@ export const DestructiveActionModal: Story<TransactionModalProps> = () => {
 
 export const TertiaryTransactionModal: Story<TransactionModalProps> = () => {
   const [isModalOpen, setIsModalOpen] = useState(isChromatic());
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
-
-  return (
-    <>
-      <Button type="button" onClick={openModal} variant="button-filled-blue">
-        Open Transaction Modal
-      </Button>
-
-      <AnimatePresence>
-        {isModalOpen && (
-          <TransactionModal
-            tertiaryCTA={
-              <Button onClick={closeModal} variant="button-outline-blue">
-                Feeling lucky
-              </Button>
-            }
-            onDismiss={closeModal}
-            modalLabel="Are you sure?"
-            modalDescription="This is a transaction! We want to confirm that you want to do this, before you do it."
-            primaryCTA={{ children: `I'm sure!`, onClick: closeModal }}
-            secondaryCTA={{ children: 'Nevermind', onClick: closeModal }}
-          />
-        )}
-      </AnimatePresence>
-    </>
-  );
-};
-
-TertiaryTransactionModal.parameters = {
-  docs: {
-    description: {
-      story:
-        'Although typically used with 2 buttons, this modal can take a 3rd button. In this case the button would be aligned towards the bottom left of the modal.',
-    },
-  },
-};
-
-export const TertiaryTransactionModalWithNonButtonCTA: Story<TransactionModalProps> = () => {
-  const [isModalOpen, setIsModalOpen] = useState(isChromatic());
   const [isChecked, setIsChecked] = useState(false);
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
@@ -203,7 +163,7 @@ export const TertiaryTransactionModalWithNonButtonCTA: Story<TransactionModalPro
   );
 };
 
-TertiaryTransactionModalWithNonButtonCTA.parameters = {
+TertiaryTransactionModal.parameters = {
   docs: {
     description: {
       story:
