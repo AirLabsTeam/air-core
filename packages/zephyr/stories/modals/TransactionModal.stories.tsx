@@ -167,7 +167,7 @@ TertiaryTransactionModal.parameters = {
   docs: {
     description: {
       story:
-        "We want to emphasize and reiterate that the tertiary format is optimal when you'd like to have they typical button set in addition to some other form of CTA.",
+        "We want to emphasize and reiterate that the tertiary format is optimal when you'd like to have the typical (2) button set, in addition to some other form of CTA.",
     },
   },
 };
