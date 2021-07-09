@@ -28,6 +28,12 @@ export interface TransactionModalProps
    */
   secondaryCTA?: TransactionModalButton | JSX.Element;
 
+  /**
+   * This is an optional JSX element that can be passed in, typically this will be a button. And the element will be placed in
+   * the bottom left corner of the modal.
+   */
+  tertiaryAction?: TransactionModalButton | JSX.Element;
+
   ['data-testid']?: string;
 }
 
@@ -39,6 +45,7 @@ export const TransactionModal = ({
   onDismiss,
   primaryCTA,
   secondaryCTA,
+  tertiaryAction,
   variant,
   ...rest
 }: TransactionModalProps) => {
@@ -83,14 +90,27 @@ export const TransactionModal = ({
       <Box
         tx={{
           display: 'flex',
-          justifyContent: 'flex-end',
+          justifyContent: tertiaryAction ? 'space-between' : 'flex-end',
           mt: 32,
-          '& > *:first-child': { mr: 12 },
         }}
       >
-        {secondaryCTAElement}
+        {tertiaryAction && (
+          <Box
+            tx={{
+              display: 'flex',
+              height: 40,
+              marginInlineEnd: 'auto',
+              alignItems: 'center',
+            }}
+          >
+            {tertiaryAction}
+          </Box>
+        )}
+        <Box tx={{ '& > *:first-child': { mr: 12 } }}>
+          {secondaryCTAElement}
 
-        {primaryCTAElement}
+          {primaryCTAElement}
+        </Box>
       </Box>
     </Modal>
   );
