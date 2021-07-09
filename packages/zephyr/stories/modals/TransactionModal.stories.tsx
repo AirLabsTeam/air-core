@@ -10,6 +10,7 @@ import {
   PRIMARY_STORY,
 } from '@storybook/addon-docs/blocks';
 import { AnimatePresence } from 'framer-motion';
+import { Checkbox } from '../../src/Forms/Checkbox';
 import { Button } from '../../src/Button';
 import { TransactionModal, TransactionModalProps } from '../../src/Modals/TransactionModal';
 import { modalStoryDecorator } from './shared';
@@ -142,7 +143,7 @@ export const TertiaryTransactionModal: Story<TransactionModalProps> = () => {
       <AnimatePresence>
         {isModalOpen && (
           <TransactionModal
-            tertiaryAction={
+            tertiaryCTA={
               <Button onClick={closeModal} variant="button-outline-blue">
                 Feeling lucky
               </Button>
@@ -164,6 +165,49 @@ TertiaryTransactionModal.parameters = {
     description: {
       story:
         'Although typically used with 2 buttons, this modal can take a 3rd button. In this case the button would be aligned towards the bottom left of the modal.',
+    },
+  },
+};
+
+export const TertiaryTransactionModalWithNonButtonCTA: Story<TransactionModalProps> = () => {
+  const [isModalOpen, setIsModalOpen] = useState(isChromatic());
+  const [isChecked, setIsChecked] = useState(false);
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+
+  return (
+    <>
+      <Button type="button" onClick={openModal} variant="button-filled-blue">
+        Open Transaction Modal
+      </Button>
+
+      <AnimatePresence>
+        {isModalOpen && (
+          <TransactionModal
+            tertiaryCTA={
+              <Checkbox
+                label="Apply for all items"
+                checked={isChecked}
+                onChange={() => setIsChecked(!isChecked)}
+              />
+            }
+            onDismiss={closeModal}
+            modalLabel="Uh oh! You have duplicates"
+            modalDescription="3 out of 3 of the items you'd like to upload already exist. What would you like to do for item 1 of 3?"
+            primaryCTA={{ children: `Upload Again`, onClick: closeModal }}
+            secondaryCTA={{ children: "Don't Upload", onClick: closeModal }}
+          />
+        )}
+      </AnimatePresence>
+    </>
+  );
+};
+
+TertiaryTransactionModalWithNonButtonCTA.parameters = {
+  docs: {
+    description: {
+      story:
+        "We want to emphasize and reiterate that the tertiary format is optimal when you'd like to have they typical button set in addition to some other form of CTA.",
     },
   },
 };
