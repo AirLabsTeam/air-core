@@ -253,7 +253,7 @@ export const Modal = ({
           </Box>
         )}
 
-        {children}
+        <Text variant="text-ui-16">{children}</Text>
       </ModalContent>
     </ModalOverlay>
   );
