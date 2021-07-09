@@ -28,6 +28,12 @@ export interface TransactionModalProps
    */
   secondaryCTA?: TransactionModalButton | JSX.Element;
 
+  /**
+   * This call-to-action (CTA) is optional and will appear in the bottom-left corner. If this CTA is not passed, nothing will be seen. You can pass any
+   * JSX.
+   */
+  tertiaryCTA?: TransactionModalButton | JSX.Element;
+
   ['data-testid']?: string;
 }
 
@@ -39,6 +45,7 @@ export const TransactionModal = ({
   onDismiss,
   primaryCTA,
   secondaryCTA,
+  tertiaryCTA,
   variant,
   ...rest
 }: TransactionModalProps) => {
@@ -83,14 +90,27 @@ export const TransactionModal = ({
       <Box
         tx={{
           display: 'flex',
-          justifyContent: 'flex-end',
+          justifyContent: tertiaryCTA ? 'space-between' : 'flex-end',
+          alignItems: 'center',
           mt: 32,
-          '& > *:first-child': { mr: 12 },
         }}
       >
-        {secondaryCTAElement}
+        {tertiaryCTA && (
+          <Box
+            tx={{
+              display: 'flex',
+              marginInlineEnd: 'auto',
+              alignItems: 'center',
+            }}
+          >
+            {tertiaryCTA}
+          </Box>
+        )}
+        <Box tx={{ '& > *:first-child': { mr: 12 } }}>
+          {secondaryCTAElement}
 
-        {primaryCTAElement}
+          {primaryCTAElement}
+        </Box>
       </Box>
     </Modal>
   );
