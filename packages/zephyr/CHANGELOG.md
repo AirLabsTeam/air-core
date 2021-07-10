@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [12.22.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.21.0...@air/zephyr@12.22.0) (2021-07-10)
+
+### Bug Fixes
+
+- rebasing with main ([0c546e8](https://github.com/AirLabsTeam/web-core/commit/0c546e8206e524c5f0818965f828796555f89787))
+
+### Features
+
+- adds tertiary option to transaction modal ([0fa6aa9](https://github.com/AirLabsTeam/web-core/commit/0fa6aa9bca95b9ad9565bf1b44dcc89c401c9e49))
+- fixing the doc comment ([679359b](https://github.com/AirLabsTeam/web-core/commit/679359b401ad9d8ee9478b16b35d9f88ce5349d0))
+- grammar fixes ([162aac7](https://github.com/AirLabsTeam/web-core/commit/162aac7a0c4d55ba3e6cc875d31fa768bededbf3))
+- remove the tertiary transac modal with button as its redundant ([38a7096](https://github.com/AirLabsTeam/web-core/commit/38a7096d0170ad341b0788f853e751fddd8edb6c))
+
 # [12.21.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.20.9...@air/zephyr@12.21.0) (2021-07-09)
 
 ### Features
