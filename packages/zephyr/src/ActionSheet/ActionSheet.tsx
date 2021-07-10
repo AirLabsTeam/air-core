@@ -1,5 +1,4 @@
 import { DialogContent } from '@reach/dialog';
-import { AnimatePresence } from 'framer-motion';
 import { noop } from 'lodash';
 import React, { MouseEvent, ReactNode } from 'react';
 
@@ -20,51 +19,43 @@ export type ActionSheetOptionsProps = {
 };
 
 export type ActionSheetProps = {
-  isOpened: boolean;
   isTitleHidden?: boolean;
   onClose: () => void;
   title: string;
 } & (ActionSheetChildrenProps | ActionSheetOptionsProps);
 
 export const ActionSheet = ({
-  isOpened,
   isTitleHidden,
   onClose = noop,
   title,
   ...restOfProps
 }: ActionSheetProps) => {
   return (
-    <>
-      <AnimatePresence key="action-sheet">
-        {isOpened && (
-          <ActionSheetOverlay key="action-sheet-overlay" onClose={onClose}>
-            <ActionSheetContainer key="action-sheet-container" onClose={onClose}>
-              <DialogContent aria-labelledby={title}>
-                <ActionSheetHeader isHidden={isTitleHidden} onClose={onClose} title={title} />
-                <Box tx={{ px: 12, py: 8 }}>
-                  {'children' in restOfProps
-                    ? restOfProps.children
-                    : restOfProps.options.map(({ id, ...option }, index) => {
-                        return (
-                          <ActionSheetItem
-                            key={id ?? index}
-                            data-testid={id}
-                            {...option}
-                            onSelect={(event: MouseEvent<HTMLButtonElement>) => {
-                              if (option.onSelect) {
-                                option.onSelect(event);
-                              }
-                              onClose();
-                            }}
-                          />
-                        );
-                      })}
-                </Box>
-              </DialogContent>
-            </ActionSheetContainer>
-          </ActionSheetOverlay>
-        )}
-      </AnimatePresence>
-    </>
+    <ActionSheetOverlay key="action-sheet-overlay" onClose={onClose}>
+      <ActionSheetContainer key="action-sheet-container" onClose={onClose}>
+        <DialogContent aria-labelledby={title}>
+          <ActionSheetHeader isHidden={isTitleHidden} onClose={onClose} title={title} />
+          <Box tx={{ px: 12, py: 8 }}>
+            {'children' in restOfProps
+              ? restOfProps.children
+              : restOfProps.options.map(({ id, ...option }, index) => {
+                  return (
+                    <ActionSheetItem
+                      key={id ?? index}
+                      data-testid={id}
+                      {...option}
+                      onSelect={(event: MouseEvent<HTMLButtonElement>) => {
+                        if (option.onSelect) {
+                          option.onSelect(event);
+                        }
+                        onClose();
+                      }}
+                    />
+                  );
+                })}
+          </Box>
+        </DialogContent>
+      </ActionSheetContainer>
+    </ActionSheetOverlay>
   );
 };
