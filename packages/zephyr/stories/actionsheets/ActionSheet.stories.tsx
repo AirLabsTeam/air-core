@@ -1,4 +1,5 @@
 import { Meta, Story } from '@storybook/react';
+import { AnimatePresence } from 'framer-motion';
 import React, { useState } from 'react';
 
 import { ActionSheet, ActionSheetProps } from '../../src/ActionSheet/ActionSheet';
@@ -23,7 +24,9 @@ const Template: Story<ActionSheetProps> = (args) => {
   return (
     <>
       <button onClick={() => setIsOpened(true)}>Open</button>
-      <ActionSheet {...args} isOpened={isOpened} onClose={() => setIsOpened(false)} />
+      <AnimatePresence>
+        {isOpened && <ActionSheet {...args} onClose={() => setIsOpened(false)} />}
+      </AnimatePresence>
     </>
   );
 };
