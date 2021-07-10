@@ -12,8 +12,12 @@ export default {
   parameters: {
     docs: {
       description: {
-        component:
-          'The `ActionSheet` component is modal that that is styled to look like an ActionSheet on mobile. Under the hood, it uses [@reach/dialog](https://reach.tech/dialog) and [framer-motion](https://www.framer.com/api/motion/gestures) to handle gestures.',
+        component: `The 'ActionSheet' component is modal that that is styled to look like an ActionSheet on mobile. Under the hood, it uses [@reach/dialog](https://reach.tech/dialog) and [framer-motion](https://www.framer.com/api/motion/gestures) to handle gestures.
+      You must always use <AnimatePresence> (from <code>framer-motion</code>) in conjunction with this component. With
+      our desire to create modal abstraction components came the problem of not being able to reset state within those
+      abstraction components as they were always rendered. <AnimatePresence> automatically handles exit animations when
+      items are added or removed from an array, but not if there exists another <AnimatePresence> below. Hopefully
+      this requirement is temporary 🤞.`,
       },
     },
   },
