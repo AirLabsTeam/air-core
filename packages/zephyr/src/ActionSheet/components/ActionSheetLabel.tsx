@@ -11,6 +11,7 @@ export const ActionSheetLabel = (props: ActionSheetLabelProps) => {
         whiteSpace: 'nowrap',
         overflow: 'hidden',
         textOverflow: 'ellipsis',
+        ...(props?.tx as any),
       }}
       variant="text-ui-16"
       {...props}
