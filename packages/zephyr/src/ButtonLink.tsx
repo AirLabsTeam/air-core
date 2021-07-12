@@ -8,7 +8,7 @@ import { ButtonLinkVariantName, TextVariantName } from './theme';
 type ButtonLinkSize = 'large' | 'medium' | 'small';
 
 export interface ButtonLinkProps
-  extends Pick<BoxProps<'button'>, 'children' | 'disabled' | 'onClick'> {
+  extends Pick<BoxProps<'button'>, 'children' | 'disabled' | 'onClick' | 'tx'> {
   size?: ButtonLinkSize;
   textVariant?: TextVariantName | TextVariantName[];
   variant?: ButtonLinkVariantName;
@@ -25,6 +25,7 @@ export const ButtonLink = ({
   disabled,
   size = 'medium',
   textVariant,
+  tx,
   variant = 'button-link-blue',
 }: ButtonLinkProps) => {
   const theme = useTheme();
@@ -56,6 +57,7 @@ export const ButtonLink = ({
           boxShadow: `0 0 0 3px ${theme.colors.focus}`,
         },
       }}
+      tx={tx}
       variant={variant}
     >
       <Text
