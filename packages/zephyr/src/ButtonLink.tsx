@@ -23,6 +23,7 @@ const LINK_BUTTON_TEXT_SIZE_MAP: { [key in ButtonLinkSize]: TextVariantName } = 
 export const ButtonLink = ({
   children,
   disabled,
+  onClick,
   size = 'medium',
   textVariant,
   tx,
@@ -57,6 +58,7 @@ export const ButtonLink = ({
           boxShadow: `0 0 0 3px ${theme.colors.focus}`,
         },
       }}
+      onClick={onClick}
       tx={tx}
       variant={variant}
     >
