@@ -27,6 +27,7 @@ export const ButtonLink = ({
   textVariant,
   tx,
   variant = 'button-link-blue',
+  onClick,
 }: ButtonLinkProps) => {
   const theme = useTheme();
 
@@ -57,6 +58,7 @@ export const ButtonLink = ({
           boxShadow: `0 0 0 3px ${theme.colors.focus}`,
         },
       }}
+      onClick={onClick}
       tx={tx}
       variant={variant}
     >
