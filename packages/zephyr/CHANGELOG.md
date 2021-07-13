@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.22.3](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.22.2...@air/zephyr@12.22.3) (2021-07-13)
+
+### Bug Fixes
+
+- **@air/zephyr:** add in tx prop to button link ([8b9ba5d](https://github.com/AirLabsTeam/web-core/commit/8b9ba5d229550d30b8a29ace80e1e1fbeeff9b72))
+- **zephyr/buttonlink:** pass onClick to ButtonLink ([41b9769](https://github.com/AirLabsTeam/web-core/commit/41b9769f2e2d8afd3b279a3593a0b62e60485fc7))
+
 ## [12.22.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.22.1...@air/zephyr@12.22.2) (2021-07-12)
 
 **Note:** Version bump only for package @air/zephyr
