@@ -2,7 +2,7 @@ import React from 'react';
 import { Story, Meta } from '@storybook/react';
 import { Formik, Form } from 'formik';
 import { number, object, string } from 'yup';
-import { StoryFnReactReturnType } from '@storybook/react/dist/client/preview/types';
+import { StoryFnReactReturnType } from '@storybook/react/dist/ts3.9/client/preview/types';
 import { Caution, Search, EyeClosed, Eye } from '@air/icons';
 import VisuallyHidden from '@reach/visually-hidden';
 import { capitalize, noop } from 'lodash';

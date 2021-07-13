@@ -93,8 +93,8 @@ const getCompoundVariant = (
   adornmentVariant: AdornmentVariation,
 ) =>
   Array.isArray(size)
-    ? size.map((s) => `${s}_adorned-${adornmentVariant}` as ButtonCompoundVariant)
-    : (`${size}_adorned-${adornmentVariant}` as ButtonCompoundVariant);
+    ? size.map((s) => `${s}_adorned-${adornmentVariant}`)
+    : `${size}_adorned-${adornmentVariant}`;
 
 interface ButtonAdornmentProps extends Required<Pick<NonSemanticButtonProps, 'size'>> {
   component: SVGComponent;

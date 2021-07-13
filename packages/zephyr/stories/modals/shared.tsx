@@ -1,6 +1,6 @@
 import * as React from 'react';
 import isChromatic from 'chromatic/isChromatic';
-import { StoryFnReactReturnType } from '@storybook/react/dist/client/preview/types';
+import { StoryFnReactReturnType } from '@storybook/react/dist/ts3.9/client/preview/types';
 
 /**
  * @see https://www.chromatic.com/docs/viewports under FAQ "Why is my content being cut off vertically?"
