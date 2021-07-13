@@ -17,7 +17,7 @@ import {
   ArgsTable,
   Stories,
   PRIMARY_STORY,
-} from '@storybook/addon-docs/blocks';
+} from '@storybook/addon-docs';
 import { Meta, Story } from '@storybook/react';
 import isChromatic from 'chromatic/isChromatic';
 import React from 'react';
