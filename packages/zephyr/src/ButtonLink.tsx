@@ -23,11 +23,11 @@ const LINK_BUTTON_TEXT_SIZE_MAP: { [key in ButtonLinkSize]: TextVariantName } = 
 export const ButtonLink = ({
   children,
   disabled,
+  onClick,
   size = 'medium',
   textVariant,
   tx,
   variant = 'button-link-blue',
-  onClick,
 }: ButtonLinkProps) => {
   const theme = useTheme();
 
