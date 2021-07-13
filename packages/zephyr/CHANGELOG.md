@@ -3,6 +3,111 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.22.3](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.22.2...@air/zephyr@12.22.3) (2021-07-13)
+
+### Bug Fixes
+
+- **@air/zephyr:** add in tx prop to button link ([8b9ba5d](https://github.com/AirLabsTeam/web-core/commit/8b9ba5d229550d30b8a29ace80e1e1fbeeff9b72))
+- **zephyr/buttonlink:** pass onClick to ButtonLink ([41b9769](https://github.com/AirLabsTeam/web-core/commit/41b9769f2e2d8afd3b279a3593a0b62e60485fc7))
+
+## [12.22.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.22.1...@air/zephyr@12.22.2) (2021-07-12)
+
+**Note:** Version bump only for package @air/zephyr
+
+## [12.22.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.22.0...@air/zephyr@12.22.1) (2021-07-12)
+
+**Note:** Version bump only for package @air/zephyr
+
+# [12.22.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.21.0...@air/zephyr@12.22.0) (2021-07-10)
+
+### Bug Fixes
+
+- rebasing with main ([0c546e8](https://github.com/AirLabsTeam/web-core/commit/0c546e8206e524c5f0818965f828796555f89787))
+
+### Features
+
+- adds tertiary option to transaction modal ([0fa6aa9](https://github.com/AirLabsTeam/web-core/commit/0fa6aa9bca95b9ad9565bf1b44dcc89c401c9e49))
+- fixing the doc comment ([679359b](https://github.com/AirLabsTeam/web-core/commit/679359b401ad9d8ee9478b16b35d9f88ce5349d0))
+- grammar fixes ([162aac7](https://github.com/AirLabsTeam/web-core/commit/162aac7a0c4d55ba3e6cc875d31fa768bededbf3))
+- remove the tertiary transac modal with button as its redundant ([38a7096](https://github.com/AirLabsTeam/web-core/commit/38a7096d0170ad341b0788f853e751fddd8edb6c))
+
+# [12.21.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.20.9...@air/zephyr@12.21.0) (2021-07-09)
+
+### Features
+
+- **@air/zephyr:** add in button link ([33b6aff](https://github.com/AirLabsTeam/web-core/commit/33b6aff866799f6a74f094602369a1e1de18e096))
+
+## [12.20.9](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.20.8...@air/zephyr@12.20.9) (2021-07-09)
+
+### Reverts
+
+- Revert "chore: removed children text wrapper" ([6cb04c1](https://github.com/AirLabsTeam/web-core/commit/6cb04c10a955d734136be68d82a2cc6ec23358f9))
+
+## [12.20.8](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.20.7...@air/zephyr@12.20.8) (2021-07-07)
+
+**Note:** Version bump only for package @air/zephyr
+
+## [12.20.7](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.20.6...@air/zephyr@12.20.7) (2021-07-06)
+
+**Note:** Version bump only for package @air/zephyr
+
+## [12.20.6](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.20.5...@air/zephyr@12.20.6) (2021-07-06)
+
+**Note:** Version bump only for package @air/zephyr
+
+## [12.20.5](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.20.4...@air/zephyr@12.20.5) (2021-07-06)
+
+**Note:** Version bump only for package @air/zephyr
+
+## [12.20.4](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.20.3...@air/zephyr@12.20.4) (2021-07-02)
+
+**Note:** Version bump only for package @air/zephyr
+
+## [12.20.3](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.20.2...@air/zephyr@12.20.3) (2021-06-29)
+
+**Note:** Version bump only for package @air/zephyr
+
+## [12.20.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.20.1...@air/zephyr@12.20.2) (2021-06-28)
+
+### Bug Fixes
+
+- **@air/zephyr:** make checkbox active icon optional ([7e2b761](https://github.com/AirLabsTeam/web-core/commit/7e2b7616dd915b5111d68746025d4f3e8422f034))
+
+## [12.20.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.20.0...@air/zephyr@12.20.1) (2021-06-28)
+
+### Bug Fixes
+
+- **@air/zephyr:** export checkbox component ([c33a81e](https://github.com/AirLabsTeam/web-core/commit/c33a81e05793393f897d438db36903f035e60bbf))
+
+# [12.20.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.19.0...@air/zephyr@12.20.0) (2021-06-28)
+
+### Bug Fixes
+
+- **@air/zephyr:** remove tx and rename props for checkbox component ([db666cb](https://github.com/AirLabsTeam/web-core/commit/db666cb41ef1996f68cfe14f3f23c22c712d04b1))
+
+### Features
+
+- **@air/zephyr:** add in checkbox component ([7c13852](https://github.com/AirLabsTeam/web-core/commit/7c13852c7fe8362e77b098d065b6059a19179de2))
+
+# [12.19.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.18.0...@air/zephyr@12.19.0) (2021-06-25)
+
+### Features
+
+- fix prop names ([0617020](https://github.com/AirLabsTeam/web-core/commit/06170200251a40c82ab7e917b16df5aa67bc6ca5))
+- for the tooltip - adds an optional tx prop to allow adding custom styles ([8e02444](https://github.com/AirLabsTeam/web-core/commit/8e02444b18343870e943c159c8f8400881c452a9))
+
+# [12.18.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.17.2...@air/zephyr@12.18.0) (2021-06-24)
+
+### Bug Fixes
+
+- **@air/zephyr:** fix icon button to always be a fixed width ([f890b16](https://github.com/AirLabsTeam/web-core/commit/f890b16911c5b52970088289bbf4f21e067ee9ae))
+
+### Features
+
+- update tooltip to have boolean control of arrow ([21c0d68](https://github.com/AirLabsTeam/web-core/commit/21c0d682812fd2da527c254749cd4fe84b69bc61))
+- **@air/zephyr:** update existing 32 text style and add in 36/40/48 sizes ([297f373](https://github.com/AirLabsTeam/web-core/commit/297f373e836fad8cea8c9e159ae1d2bac0aa3681))
+- **@air/zephyr:** update tooltip label type to ReactNode ([9406b5f](https://github.com/AirLabsTeam/web-core/commit/9406b5fe5ab981bddfefbb802f027d26a8ebdcc3))
+
 ## [12.17.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.17.1...@air/zephyr@12.17.2) (2021-06-23)
 
 ### Bug Fixes

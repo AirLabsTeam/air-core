@@ -12,6 +12,8 @@ export type TextVariantName =
   | 'text-heading-20'
   | 'text-heading-18'
   | 'text-heading-16'
+  | 'text-ui-48'
+  | 'text-ui-40'
   | 'text-ui-36'
   | 'text-ui-32'
   | 'text-ui-24'
@@ -127,6 +129,22 @@ const _text: { [key in TextVariantName]: TXProp } = {
     lineHeight: 1.1,
     textTransform: 'none',
   },
+  'text-ui-48': {
+    fontFamily: 'copy',
+    fontFeatureSettings: `'case' on`,
+    fontSize: 48,
+    letterSpacing: '-0.022em',
+    lineHeight: 1.2,
+    textTransform: 'none',
+  },
+  'text-ui-40': {
+    fontFamily: 'copy',
+    fontFeatureSettings: `'case' on`,
+    fontSize: 40,
+    letterSpacing: '-0.022em',
+    lineHeight: 1.2,
+    textTransform: 'none',
+  },
   'text-ui-36': {
     fontFamily: 'copy',
     fontFeatureSettings: `'case' on`,
@@ -139,7 +157,7 @@ const _text: { [key in TextVariantName]: TXProp } = {
     fontFamily: 'copy',
     fontFeatureSettings: `'case' on`,
     fontSize: 32,
-    lineHeight: 1.5,
+    lineHeight: 1.2,
     letterSpacing: '-0.021em',
     textTransform: 'none',
   },

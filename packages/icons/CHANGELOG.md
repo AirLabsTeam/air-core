@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.10.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@8.9.0...@air/icons@8.10.0) (2021-07-09)
+
+### Features
+
+- **@air/zephyr:** add in dart icon ([a7af0d0](https://github.com/AirLabsTeam/web-core/commit/a7af0d010e7ee406cc70da30df5097c760f99723))
+
+# [8.9.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@8.8.0...@air/icons@8.9.0) (2021-06-29)
+
+### Features
+
+- **downloadalt:** rename to download alt and get correct path ([67bf371](https://github.com/AirLabsTeam/web-core/commit/67bf3715dbef33dad8a29162d22089f1de3e731e))
+- **downloadalt:** update DownloadAlt to illustrator icon ([28e41d6](https://github.com/AirLabsTeam/web-core/commit/28e41d6d8e3a21663564b2ab18e7208a08f47d2f))
+- **savetobin:** change SaveToBin svg viewbox ([4fc00fa](https://github.com/AirLabsTeam/web-core/commit/4fc00fa1c5a7296c9ae5cd414ad782a7127ff21e))
+- **savetobin:** move fill none into path ([9471edc](https://github.com/AirLabsTeam/web-core/commit/9471edc89078f519ac42d701bfde3bafecabbc71))
+- **savetobin icon:** add SaveToBin icon ([a3b5002](https://github.com/AirLabsTeam/web-core/commit/a3b5002210a5e2c23596fcfd6d04320f1b3a6a74))
+
 # [8.8.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@8.7.1...@air/icons@8.8.0) (2021-06-15)
 
 ### Features
