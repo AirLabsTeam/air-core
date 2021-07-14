@@ -83,6 +83,11 @@ const config = {
       {
         paths: [
           {
+            name: 'react',
+            importNames: ['default'],
+            message: 'Please only do named imports from React.',
+          },
+          {
             name: '@testing-library/jest-dom',
             message: 'This is done globally. You do not need to import it in your test files.',
           },
