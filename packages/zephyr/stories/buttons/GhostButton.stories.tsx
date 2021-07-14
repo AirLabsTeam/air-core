@@ -1,4 +1,5 @@
 import { Title, Subtitle, Description, Stories } from '@storybook/addon-docs';
+import React from 'react';
 import { Story, Meta } from '@storybook/react';
 import { Button, ButtonProps } from '../../src/Button';
 

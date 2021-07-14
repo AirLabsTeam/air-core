@@ -1,3 +1,4 @@
+import React from 'react';
 import { Story, Meta } from '@storybook/react';
 import { capitalize, noop } from 'lodash';
 import { Close, Plus } from '@air/icons';

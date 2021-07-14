@@ -1,6 +1,6 @@
 import { DialogContent } from '@reach/dialog';
 import { noop } from 'lodash';
-import { MouseEvent, ReactNode } from 'react';
+import React, { MouseEvent, ReactNode } from 'react';
 
 import { Box } from '../Box';
 import { ActionSheetContainer } from './components/ActionSheetContainer';

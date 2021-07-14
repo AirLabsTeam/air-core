@@ -1,5 +1,6 @@
 import { Check as CheckIcon, Download as DownloadIcon } from '@air/icons';
 import { Meta, Story } from '@storybook/react';
+import React from 'react';
 
 import { Box } from '../../../src/Box';
 import {

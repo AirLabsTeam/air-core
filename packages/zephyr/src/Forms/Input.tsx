@@ -1,4 +1,4 @@
-import { ChangeEvent, MutableRefObject, ReactNode, useMemo } from 'react';
+import * as React from 'react';
 import { useField } from 'formik';
 import VisuallyHidden from '@reach/visually-hidden';
 import { variant as styledSystemVariant } from 'styled-system';
@@ -93,7 +93,7 @@ export interface InputProps extends Pick<BoxStylingProps, 'tx'> {
    */
   description?: {
     isHidden: boolean;
-    component: ReactNode;
+    component: React.ReactNode;
   };
 
   /**
@@ -111,7 +111,7 @@ export interface InputProps extends Pick<BoxStylingProps, 'tx'> {
    */
   adornment?: {
     location: LeftRight;
-    component: ReactNode;
+    component: React.ReactNode;
   };
 
   /**
@@ -159,10 +159,10 @@ export interface InputProps extends Pick<BoxStylingProps, 'tx'> {
   className?: string;
   id?: string;
   disabled?: boolean;
-  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   readOnly?: boolean;
   'data-testid'?: string;
-  innerInputRef?: MutableRefObject<HTMLInputElement | null>;
+  innerInputRef?: React.MutableRefObject<HTMLInputElement | null>;
 }
 
 const sharedAdornmentStyles: BoxStylingProps['tx'] = {
@@ -198,7 +198,7 @@ export const Input = ({
   const hasError = meta.touched && !!meta.error;
   const isChonky = variant === 'field-input-chonky';
 
-  const testID = useMemo(() => {
+  const testID = React.useMemo(() => {
     const prefix = `input_${name}`;
 
     if (!meta.touched) return `${prefix}_untouched`;
@@ -206,7 +206,7 @@ export const Input = ({
     return `${prefix}_valid`;
   }, [hasError]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  const adornmentSideBuffer = useMemo(
+  const adornmentSideBuffer = React.useMemo(
     () =>
       styledSystemVariant({
         prop: 'variant',
@@ -224,7 +224,7 @@ export const Input = ({
     [theme, variant],
   );
 
-  const nonAdornmentSideBuffer = useMemo(
+  const nonAdornmentSideBuffer = React.useMemo(
     () =>
       styledSystemVariant({
         prop: 'variant',

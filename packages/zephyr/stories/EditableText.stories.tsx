@@ -1,5 +1,5 @@
 import { Meta, Story } from '@storybook/react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 import { Text } from '../src/Text';
 import { EditableText, EditableTextProps } from '../src/EditableText';

@@ -1,4 +1,4 @@
-import { Ref } from 'react';
+import React from 'react';
 import { forwardRefWithAs, PropsWithAs } from '@reach/utils';
 import { Box, BoxStylingProps } from './Box';
 import { TextVariantName } from './theme/variants/text';
@@ -16,7 +16,7 @@ export const Text = forwardRefWithAs<NonSemanticTextProps, 'div'>(
       ref: _ref, // eslint-disable-line @typescript-eslint/no-unused-vars
       ...restOfProps
     }: TextProps,
-    ref: Ref<HTMLDivElement>,
+    ref: React.Ref<HTMLDivElement>,
   ) => {
     return (
       <Box variant={variant} ref={ref} {...restOfProps} __baseStyles={{ color: 'pigeon700' }} />

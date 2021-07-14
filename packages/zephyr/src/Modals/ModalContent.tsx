@@ -1,4 +1,4 @@
-import { ComponentProps } from 'react';
+import React from 'react';
 import { AlertDialogContent } from '@reach/alert-dialog';
 import { DialogContent } from '@reach/dialog';
 import { motion, MotionProps } from 'framer-motion';
@@ -16,7 +16,7 @@ interface ModalContentProps
 
 interface SharedContentComponentProps
   extends Pick<
-      ComponentProps<typeof DialogContent>,
+      React.ComponentProps<typeof DialogContent>,
       'aria-describedby' | 'aria-labelledby' | 'className'
     >,
     Pick<BoxStylingProps, 'tx' | '__baseStyles' | 'variant'> {

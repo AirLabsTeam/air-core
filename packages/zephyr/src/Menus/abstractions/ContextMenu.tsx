@@ -1,5 +1,5 @@
 import { ChevronRight as ChevronRightIcon } from '@air/icons';
-import { ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import {
   Item as ContexifyItem,
   ItemParams as ContexifyItemParams,

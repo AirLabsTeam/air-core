@@ -10,7 +10,7 @@ import {
 import { PRect } from '@reach/rect';
 import { AnimatePresence } from 'framer-motion';
 import { isUndefined, noop } from 'lodash';
-import { cloneElement, FC, MouseEvent, ReactElement, ReactNode, useEffect } from 'react';
+import React, { cloneElement, FC, MouseEvent, ReactElement, ReactNode, useEffect } from 'react';
 import { usePrevious } from 'react-use';
 
 import { Box, BoxProps } from '../../Box';
