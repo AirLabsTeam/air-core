@@ -365,7 +365,7 @@ const AirReactSelectOption = ({
         >
           {LeftAdornment && (
             <Box
-              as={LeftAdornment}
+              as={LeftAdornment as 'div'}
               tx={{
                 color: 'pigeon500',
                 width: isChonky ? 18 : 16,
