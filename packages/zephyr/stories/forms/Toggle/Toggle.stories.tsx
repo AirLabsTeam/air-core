@@ -1,4 +1,3 @@
-import React from 'react';
 import { Story, Meta } from '@storybook/react';
 
 import { Toggle, ToggleProps } from '../../../src/Forms/Toggle/Toggle';

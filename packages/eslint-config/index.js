@@ -83,6 +83,11 @@ const config = {
       {
         paths: [
           {
+            name: 'react',
+            importNames: ['default'],
+            message: 'Please only do named imports from React.',
+          },
+          {
             name: '@testing-library/jest-dom',
             message: 'This is done globally. You do not need to import it in your test files.',
           },
@@ -107,8 +112,13 @@ const config = {
      * React Plugin Rules
      * @see https://github.com/yannickcr/eslint-plugin-react#list-of-supported-rules
      * */
-    'react/jsx-uses-react': 'error',
-    'react/jsx-uses-vars': 'error',
+    /**
+     * Not needed after React 17
+     * @see https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html#eslint
+     */
+    'react/jsx-uses-react': 'off',
+    'react/jsx-uses-vars': 'off',
+    'react/react-in-jsx-scope': 'off',
 
     /**
      * Import Plugin Rules
@@ -364,7 +374,6 @@ const config = {
       // assuming Next.js application
       files: '**/pages/**/*.tsx',
       rules: {
-        'react/react-in-jsx-scope': 'off', // react is a global in this folder
         'import/no-default-export': 'off', // pages have to have a default export
       },
     },

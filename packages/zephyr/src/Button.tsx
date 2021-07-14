@@ -1,4 +1,4 @@
-import React from 'react';
+import { Ref } from 'react';
 import { transitions } from 'polished';
 import { forwardRefWithAs, PropsWithAs } from '@reach/utils';
 import { variant as styledSystemVariant } from 'styled-system';
@@ -255,7 +255,7 @@ export const Button = forwardRefWithAs<NonSemanticButtonProps, 'button'>(
       className,
       ...restOfProps
     }: ButtonProps,
-    ref: React.Ref<HTMLButtonElement>,
+    ref: Ref<HTMLButtonElement>,
   ) => {
     invariant(
       (isLoading &&
