@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { forwardRefWithAs } from '@reach/utils';
 import VisuallyHidden from '@reach/visually-hidden';
 import { variant as styledSystemVariant } from 'styled-system';

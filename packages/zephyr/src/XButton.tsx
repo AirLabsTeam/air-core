@@ -1,4 +1,4 @@
-import React from 'react';
+import { forwardRef } from 'react';
 import { Close } from '@air/icons';
 import { X_BUTTON } from './testIDs';
 import { IconButton, IconButtonProps, NonSemanticIconButtonProps } from './IconButton';
@@ -10,7 +10,7 @@ export interface XButtonProps
 /**
  * Used as the dismiss button in popovers, alerts, and modals.
  */
-export const XButton = React.forwardRef<HTMLButtonElement, XButtonProps>(
+export const XButton = forwardRef<HTMLButtonElement, XButtonProps>(
   (
     {
       children = 'Close Modal',

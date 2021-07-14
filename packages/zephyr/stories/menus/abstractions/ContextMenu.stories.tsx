@@ -20,7 +20,6 @@ import {
 } from '@storybook/addon-docs';
 import { Meta, Story } from '@storybook/react';
 import isChromatic from 'chromatic/isChromatic';
-import React from 'react';
 import { useContextMenu } from 'react-contexify';
 
 import { Box, BoxProps } from '../../../src/Box';

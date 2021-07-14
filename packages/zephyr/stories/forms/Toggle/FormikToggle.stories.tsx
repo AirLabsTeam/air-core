@@ -1,4 +1,3 @@
-import React from 'react';
 import { Story, Meta } from '@storybook/react';
 import { Formik } from 'formik';
 import { noop } from 'lodash';

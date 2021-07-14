@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import { Story, Meta } from '@storybook/react';
 import { Formik, Form } from 'formik';
 import { number, object, string } from 'yup';
@@ -148,7 +148,7 @@ WithLeftAdornment.parameters = {
 };
 
 export const PasswordField: Story<InputProps> = () => {
-  const [isValueVisible, setIsValueVisible] = React.useState(false);
+  const [isValueVisible, setIsValueVisible] = useState(false);
 
   const showValue = () => setIsValueVisible(true);
   const hideValue = () => setIsValueVisible(false);

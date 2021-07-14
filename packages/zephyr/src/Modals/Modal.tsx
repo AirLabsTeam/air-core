@@ -1,4 +1,5 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
+import * as React from 'react';
 import { useId } from '@reach/auto-id';
 import { DialogProps } from '@reach/dialog';
 import { AlertDialogDescription, AlertDialogLabel, AlertDialogProps } from '@reach/alert-dialog';

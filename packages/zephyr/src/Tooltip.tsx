@@ -1,4 +1,5 @@
-import React, { ComponentProps, FC, ReactNode } from 'react';
+import { ComponentProps, FC, ReactNode } from 'react';
+import * as React from 'react';
 import * as RadixTooltip from '@radix-ui/react-tooltip';
 import { PopperOwnProps } from '@radix-ui/react-popper';
 import { Slot } from '@radix-ui/react-slot';

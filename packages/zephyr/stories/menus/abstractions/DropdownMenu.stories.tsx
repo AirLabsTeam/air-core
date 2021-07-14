@@ -9,7 +9,6 @@ import {
 } from '@storybook/addon-docs';
 import { Meta, Story } from '@storybook/react';
 import isChromatic from 'chromatic/isChromatic';
-import React from 'react';
 
 import { Box, BoxProps } from '../../../src/Box';
 import { Button } from '../../../src/Button';

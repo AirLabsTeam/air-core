@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { AlertDialogContent } from '@reach/alert-dialog';
 import { DialogContent } from '@reach/dialog';
 import { motion, MotionProps } from 'framer-motion';

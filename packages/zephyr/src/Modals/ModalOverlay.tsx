@@ -1,4 +1,5 @@
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
+import * as React from 'react';
 import { AlertDialogOverlay, AlertDialogProps } from '@reach/alert-dialog';
 import { DialogOverlay, DialogProps } from '@reach/dialog';
 import { motion, MotionProps } from 'framer-motion';

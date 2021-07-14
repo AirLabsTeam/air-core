@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 
 import { Box, BoxProps } from '../../Box';
 import { Text } from '../../Text';

@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { transitions } from 'polished';
 import { forwardRefWithAs, PropsWithAs } from '@reach/utils';
 import { variant as styledSystemVariant } from 'styled-system';

@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { forwardRefWithAs, PropsWithAs } from '@reach/utils';
 import { Box, BoxStylingProps } from './Box';
 import { TextVariantName } from './theme/variants/text';

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Story, Meta } from '@storybook/react';
 import { Formik, Form } from 'formik';
 import { object, string } from 'yup';

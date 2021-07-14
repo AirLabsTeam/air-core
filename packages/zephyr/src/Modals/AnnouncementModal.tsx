@@ -1,4 +1,5 @@
-import React, { forwardRef, useRef } from 'react';
+import { forwardRef, useRef } from 'react';
+import * as React from 'react';
 import VisuallyHidden from '@reach/visually-hidden';
 import { isString } from 'lodash';
 import { Box, BoxProps } from '../Box';
