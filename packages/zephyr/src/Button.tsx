@@ -91,10 +91,13 @@ export type ButtonCompoundVariant = `${ButtonSize}_adorned-${AdornmentVariation}
 const getCompoundVariant = (
   size: ButtonSize | ButtonSize[],
   adornmentVariant: AdornmentVariation,
-) =>
-  Array.isArray(size)
+) => {
+  /* eslint-disable @typescript-eslint/no-unnecessary-type-assertion */
+  return Array.isArray(size)
     ? size.map((s) => `${s}_adorned-${adornmentVariant}` as ButtonCompoundVariant)
     : (`${size}_adorned-${adornmentVariant}` as ButtonCompoundVariant);
+  /* eslint-enable @typescript-eslint/no-unnecessary-type-assertion */
+};
 
 interface ButtonAdornmentProps extends Required<Pick<NonSemanticButtonProps, 'size'>> {
   component: SVGComponent;

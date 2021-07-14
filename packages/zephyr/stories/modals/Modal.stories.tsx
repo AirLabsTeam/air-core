@@ -7,7 +7,7 @@ import {
   ArgsTable,
   Stories,
   PRIMARY_STORY,
-} from '@storybook/addon-docs/blocks';
+} from '@storybook/addon-docs';
 import isChromatic from 'chromatic/isChromatic';
 import { AnimatePresence } from 'framer-motion';
 import { Box, Button, Modal, ModalProps, Text } from '../../src';

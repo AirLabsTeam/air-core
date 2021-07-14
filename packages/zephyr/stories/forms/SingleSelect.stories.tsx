@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Story, Meta } from '@storybook/react';
 import { Formik, Form } from 'formik';
 import { object, string } from 'yup';
-import { StoryFnReactReturnType } from '@storybook/react/dist/client/preview/types';
+import { StoryFnReactReturnType } from '@storybook/react/dist/ts3.9/client/preview/types';
 import { noop } from 'lodash';
 import { Twitter } from '@air/icons';
 import { AsyncProps } from 'react-select/async';

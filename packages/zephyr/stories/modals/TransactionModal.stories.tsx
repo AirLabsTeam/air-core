@@ -8,7 +8,7 @@ import {
   ArgsTable,
   Stories,
   PRIMARY_STORY,
-} from '@storybook/addon-docs/blocks';
+} from '@storybook/addon-docs';
 import { AnimatePresence } from 'framer-motion';
 import { Checkbox } from '../../src/Forms/Checkbox';
 import { Button } from '../../src/Button';

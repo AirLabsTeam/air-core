@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
-import { Title, Subtitle, Description, Stories } from '@storybook/addon-docs/blocks';
+import { Title, Subtitle, Description, Stories } from '@storybook/addon-docs';
 import { Bell } from '@air/icons';
 import { capitalize } from 'lodash';
 import {
