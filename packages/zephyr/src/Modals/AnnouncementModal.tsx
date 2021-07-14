@@ -1,5 +1,4 @@
-import { forwardRef, useRef } from 'react';
-import * as React from 'react';
+import { forwardRef, MutableRefObject, useRef } from 'react';
 import VisuallyHidden from '@reach/visually-hidden';
 import { isString } from 'lodash';
 import { Box, BoxProps } from '../Box';
@@ -14,7 +13,7 @@ export type AnnouncementModalCTARenderProp = ({
   onDismiss,
   ref,
 }: Pick<AnnouncementModalProps, 'onDismiss'> & {
-  ref: React.MutableRefObject<any>;
+  ref: MutableRefObject<any>;
 }) => JSX.Element;
 
 interface LinkCTA extends BoxProps<'a'> {}

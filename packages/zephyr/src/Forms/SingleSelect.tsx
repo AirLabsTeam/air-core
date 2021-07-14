@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { ReactNode, useMemo, useCallback } from 'react';
 import { useField } from 'formik';
 import ReactSelect, {
   components as defaultReactSelectComponents,
@@ -38,7 +38,7 @@ interface VariantProp {
 export type SelectOption = {
   label: string;
   value: string;
-  leftAdornment?: React.ReactNode;
+  leftAdornment?: ReactNode;
   description?: string;
 };
 
@@ -111,7 +111,7 @@ export interface SingleSelectProps
    */
   description?: {
     isHidden: boolean;
-    component: React.ReactNode;
+    component: ReactNode;
   };
 
   /**
@@ -365,7 +365,7 @@ const AirReactSelectOption = ({
         >
           {LeftAdornment && (
             <Box
-              as={LeftAdornment as any}
+              as={LeftAdornment}
               tx={{
                 color: 'pigeon500',
                 width: isChonky ? 18 : 16,
@@ -460,7 +460,7 @@ export const SingleSelect = ({
   const isDisabled = disabled || readOnly || isLoading;
   const isChonky = variant === 'field-input-chonky';
 
-  const testID = React.useMemo(() => {
+  const testID = useMemo(() => {
     const prefix = `select_${name}`;
 
     if (!meta.touched) return `${prefix}_untouched`;
@@ -468,7 +468,7 @@ export const SingleSelect = ({
     return `${prefix}_valid`;
   }, [name, meta, hasError]);
 
-  const value = React.useMemo(() => {
+  const value = useMemo(() => {
     if (isLoading) return undefined;
 
     invariant(
@@ -485,8 +485,8 @@ export const SingleSelect = ({
     return matchingOption;
   }, [field, isLoading, loadOptions, options]);
 
-  const onBlur = React.useCallback(() => helpers.setTouched(true), [helpers]);
-  const onChange = React.useCallback(
+  const onBlur = useCallback(() => helpers.setTouched(true), [helpers]);
+  const onChange = useCallback(
     (option) => {
       return isNull(option)
         ? // @ts-ignore - undefined is a valid argument for `helpers.setValue`
