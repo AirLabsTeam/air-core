@@ -1,6 +1,6 @@
 import { Meta, Story } from '@storybook/react';
 import { AnimatePresence } from 'framer-motion';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 import { ActionSheet, ActionSheetProps } from '../../src/ActionSheet/ActionSheet';
 import { Box } from '../../src/Box';

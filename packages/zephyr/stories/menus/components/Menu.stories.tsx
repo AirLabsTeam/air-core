@@ -1,4 +1,5 @@
 import { Meta, Story } from '@storybook/react';
+import React from 'react';
 
 import { Box } from '../../../src/Box';
 import { Menu, MenuProps } from '../../../src/Menus/components/Menu';

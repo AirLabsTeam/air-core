@@ -1,6 +1,7 @@
 import { DialogOverlay, DialogOverlayProps } from '@reach/dialog';
 import { motion, Variant } from 'framer-motion';
 import { rgba } from 'polished';
+import React from 'react';
 import { useTheme } from 'styled-components';
 
 import { Box } from '../../Box';
