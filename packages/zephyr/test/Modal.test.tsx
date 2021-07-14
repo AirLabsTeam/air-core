@@ -17,27 +17,13 @@ describe('Modal', () => {
   it('does not render with only required props passed', () => {
     const { queryByTestId } = render(<Modal.Default {...requiredProps} />);
 
-    expect(queryByTestId(testID)).toBeNull();
-  });
-
-  it('renders when "isOpen" is true', async () => {
-    const { queryByTestId } = render(<Modal.Default {...requiredProps} isOpen={true} />);
-
     expect(queryByTestId(testID)).not.toBeNull();
-
-    // TODO: Resolve https://github.com/testing-library/react-testing-library/issues/662
-    // asynchronous because of animation
-    // await waitFor(() => {
-    //   expect(queryByTestId(testID)).toBeVisible();
-    // });
   });
 
   it('should fire onDismiss callback when attempting to close the modal', () => {
     const onDismiss = jest.fn();
 
-    const { queryByTestId } = render(
-      <Modal.Default {...requiredProps} isOpen={true} onDismiss={onDismiss} />,
-    );
+    const { queryByTestId } = render(<Modal.Default {...requiredProps} onDismiss={onDismiss} />);
 
     expect(onDismiss).not.toHaveBeenCalled();
     fireEvent.click(queryByTestId(X_BUTTON)!);

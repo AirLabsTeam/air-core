@@ -4,12 +4,14 @@ import { Box, BoxProps } from '../../Box';
 import { Text } from '../../Text';
 import { MenuSize } from './Menu';
 import { MenuDivider } from './MenuDivider';
+import { MenuItemDescription } from './MenuItemDescription';
+import { MenuItemLabel } from './MenuItemLabel';
 
 export type MenuItemRenderProps =
   | { children: ReactNode }
   | { label: ReactNode; description?: ReactNode };
 
-export type MenuItemProps = Pick<BoxProps, 'tx'> & {
+export type MenuItemProps = Pick<BoxProps, 'onClick' | 'tx'> & {
   /**
    * Renders `<MenuDivider />` below the menu item.
    */
@@ -94,23 +96,12 @@ export const MenuItem = ({
             restOfProps.children
           ) : (
             <Box>
-              <Text
-                tx={{
-                  color: 'inherit',
-                  whiteSpace: 'nowrap',
-                  overflow: 'hidden',
-                  textOverflow: 'ellipsis',
-                }}
-                variant={isSmallSize ? 'text-ui-14' : 'text-ui-16'}
-              >
+              <MenuItemLabel variant={isSmallSize ? 'text-ui-14' : 'text-ui-16'}>
                 {restOfProps.label}
-              </Text>
-              <Text
-                tx={{ mt: 2, color: 'pigeon500' }}
-                variant={isSmallSize ? 'text-ui-12' : 'text-ui-14'}
-              >
+              </MenuItemLabel>
+              <MenuItemDescription variant={isSmallSize ? 'text-ui-12' : 'text-ui-14'}>
                 {restOfProps.description}
-              </Text>
+              </MenuItemDescription>
             </Box>
           )}
         </Box>

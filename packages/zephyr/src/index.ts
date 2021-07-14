@@ -2,6 +2,7 @@ export * from './shared';
 export * from './ActionSheet';
 export * from './Box';
 export * from './Button';
+export * from './ButtonLink';
 export * from './EditableText';
 export * from './IconButton';
 export * from './XButton';

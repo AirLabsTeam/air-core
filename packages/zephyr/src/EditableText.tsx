@@ -1,6 +1,6 @@
 import { Form, Formik, FormikConfig, useField, useFormikContext } from 'formik';
 import { noop } from 'lodash';
-import React, { forwardRef, KeyboardEvent, useEffect, useRef, useState } from 'react';
+import React, { forwardRef, KeyboardEvent, ReactNode, useEffect, useRef, useState } from 'react';
 import { usePrevious } from 'react-use';
 import * as Yup from 'yup';
 import VisuallyHidden from '@reach/visually-hidden';
@@ -20,15 +20,26 @@ interface EditableTextTextareaProps {
    * */
   label: string;
   maxLength?: number;
+  minLength?: number;
   name: string;
   onReset: () => void;
   onSubmit: () => void;
+  required?: boolean;
   tx?: TXProp;
 }
 
 const EditableTextTextarea = forwardRef<HTMLTextAreaElement, EditableTextTextareaProps>(
   (
-    { id, label, maxLength, name, onReset = noop, onSubmit = noop, tx }: EditableTextTextareaProps,
+    {
+      id,
+      label,
+      maxLength,
+      name,
+      onReset = noop,
+      onSubmit = noop,
+      required,
+      tx,
+    }: EditableTextTextareaProps,
     forwardedRef,
   ) => {
     const { handleReset, submitForm } = useFormikContext();
@@ -58,13 +69,14 @@ const EditableTextTextarea = forwardRef<HTMLTextAreaElement, EditableTextTextare
             }
           }}
           onKeyPress={(event: KeyboardEvent<HTMLTextAreaElement>) => {
-            if (event.key === 'Enter') {
+            if (event.key === 'Enter' && !event.shiftKey) {
               event.stopPropagation();
               submitForm();
               onSubmit();
             }
           }}
           ref={forwardedRef}
+          required={required}
           tx={{
             outline: 'none',
             position: 'absolute',
@@ -95,6 +107,10 @@ const EditableTextTextarea = forwardRef<HTMLTextAreaElement, EditableTextTextare
             ...(tx as any),
           }}
           {...field}
+          onBlur={() => {
+            submitForm();
+            onSubmit();
+          }}
         />
       </>
     );
@@ -113,14 +129,22 @@ export type EditableTextFormValues = {
 
 export interface EditableTextProps
   extends Pick<TextProps, 'as' | 'variant'>,
-    Pick<FormikConfig<EditableTextFormValues>, 'onSubmit'> {
+    Pick<FormikConfig<EditableTextFormValues>, 'onSubmit' | 'validationSchema'> {
   'data-testid'?: string;
   behavior?: 'box' | 'text';
+  formatValue?: (children: ReactNode) => ReactNode;
   isEditing?: boolean;
-  id: string;
+  id?: string;
   label: string;
-  name: string;
-  onEditingStateChange: (isEditingState: boolean) => void;
+  /**
+   * This will set the max character length for the textarea.
+   */
+  maxLength?: number;
+  /**
+   * This will set the min character length for the textarea.
+   */
+  minLength?: number;
+  onEditingStateChange?: (isEditingState: boolean) => void;
   onReset?: () => void;
   placeholder?: string;
   tx?: TXProp & {
@@ -128,10 +152,6 @@ export interface EditableTextProps
     EditableTextText?: TXProp;
     EditableTextTextarea?: TXProp;
   };
-  /**
-   * This will set the max character length for the textarea.
-   */
-  maxLength?: number;
   value: string;
 }
 
@@ -139,15 +159,18 @@ export const EditableText = ({
   as,
   behavior = 'box',
   ['data-testid']: testId,
+  formatValue = (value) => value,
   isEditing = false,
   id,
   label,
   maxLength,
+  minLength,
   onEditingStateChange = noop,
   onReset = noop,
   onSubmit = noop,
   placeholder,
   tx = {},
+  validationSchema = EditableTextSchema,
   value = '',
   variant = 'text-ui-16',
 }: EditableTextProps) => {
@@ -184,7 +207,7 @@ export const EditableText = ({
       enableReinitialize
       initialValues={{ ['editable-text-value']: value }}
       onSubmit={onSubmit}
-      validationSchema={EditableTextSchema}
+      validationSchema={validationSchema}
     >
       {({ values }) => (
         <Box
@@ -206,7 +229,7 @@ export const EditableText = ({
               py: 6,
               borderRadius: 4,
               cursor: 'pointer',
-              boxShadow: isEditingState ? `0 0 0 2px ${theme.colors.focus}` : 'none',
+              boxShadow: isEditingState ? `inset 0 0 0 2px ${theme.colors.focus}` : 'none',
             }}
           >
             <Text
@@ -268,7 +291,12 @@ export const EditableText = ({
                 }}
                 variant="button-unstyled"
               >
-                {values['editable-text-value'] || placeholder}
+                {formatValue(values['editable-text-value'] || placeholder)}
+                {/**
+                 * This is need to ensure that newlines will always show the proper spacing
+                 * when using the CSS property `white-space` with the value of `pre-wrap`.
+                 */}
+                {values['editable-text-value'].includes('\n') && <>&nbsp;</>}
               </Button>
 
               {isEditingState && (
@@ -277,6 +305,7 @@ export const EditableText = ({
                     id={autoId}
                     label={label}
                     maxLength={maxLength}
+                    minLength={minLength}
                     name="editable-text-value"
                     onReset={() => {
                       onReset();
@@ -287,6 +316,7 @@ export const EditableText = ({
                       onEditingStateChange(false);
                     }}
                     ref={textareaRef}
+                    required
                     tx={textareaStyles}
                   />
                 </Box>

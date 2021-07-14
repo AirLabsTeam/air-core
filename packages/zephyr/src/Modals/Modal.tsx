@@ -3,7 +3,7 @@ import { useId } from '@reach/auto-id';
 import { DialogProps } from '@reach/dialog';
 import { AlertDialogDescription, AlertDialogLabel, AlertDialogProps } from '@reach/alert-dialog';
 import invariant from 'tiny-invariant';
-import { AnimatePresence, useReducedMotion } from 'framer-motion';
+import { useReducedMotion } from 'framer-motion';
 import { isString } from 'lodash';
 import { Box, BoxStylingProps } from '../Box';
 import { Text } from '../Text';
@@ -12,8 +12,11 @@ import { ModalVariantName } from '../theme/variants/modal';
 import { ModalContent } from './ModalContent';
 import { ModalOverlay } from './ModalOverlay';
 
+export const MODAL_LABEL = 'MODAL_LABEL';
+export const MODAL_DESCRIPTION = 'MODAL_DESCRIPTION';
+
 export interface ModalProps
-  extends Pick<DialogProps, 'allowPinchZoom' | 'initialFocusRef' | 'isOpen'>,
+  extends Pick<DialogProps, 'allowPinchZoom' | 'initialFocusRef'>,
     Pick<AlertDialogProps, 'leastDestructiveRef'>,
     Pick<BoxStylingProps, 'tx'> {
   /**
@@ -120,7 +123,6 @@ export const Modal = ({
   'data-testid': testID,
   initialFocusRef,
   isAlertModal,
-  isOpen = false,
   leastDestructiveRef,
   modalDescription,
   modalLabel,
@@ -156,103 +158,103 @@ export const Modal = ({
     invariant(isAlertModal && hasDescription, 'AlertModal requires a "modalDescription"');
 
     return (
-      <AnimatePresence key="modal">
-        {isOpen && (
-          <ModalOverlay
-            isAlertModal={true}
-            onDismiss={onDismiss}
-            leastDestructiveRef={withCloseButton ? closeButtonRef : leastDestructiveRef}
-            shouldReduceMotion={shouldReduceMotion}
-            allowPinchZoom={allowPinchZoom}
-            initialFocusRef={initialFocusRef}
-          >
-            <ModalContent
-              isAlertModal={true}
-              className={className}
-              data-testid={testID}
-              tx={tx}
-              variant={variant}
-              shouldReduceMotion={shouldReduceMotion}
-              labelID={labelID}
-              descriptionID={descriptionID}
-            >
-              {withCloseButton && (
-                <XButton onClick={onDismiss} ref={closeButtonRef} size="medium" />
-              )}
+      <ModalOverlay
+        isAlertModal={true}
+        onDismiss={onDismiss}
+        leastDestructiveRef={withCloseButton ? closeButtonRef : leastDestructiveRef}
+        shouldReduceMotion={shouldReduceMotion}
+        allowPinchZoom={allowPinchZoom}
+        initialFocusRef={initialFocusRef}
+      >
+        <ModalContent
+          isAlertModal={true}
+          className={className}
+          data-testid={testID}
+          tx={tx}
+          variant={variant}
+          shouldReduceMotion={shouldReduceMotion}
+          labelID={labelID}
+          descriptionID={descriptionID}
+        >
+          {withCloseButton && <XButton onClick={onDismiss} ref={closeButtonRef} size="medium" />}
 
-              {isString(modalLabel) ? (
-                <Box as={AlertDialogLabel} tx={modalLabelLayoutStyles}>
-                  <Text variant="text-ui-24" tx={{ fontWeight: 'semibold' }}>
-                    {modalLabel}
-                  </Text>
-                </Box>
-              ) : (
-                <Box as={AlertDialogLabel}>{modalLabel}</Box>
-              )}
+          {isString(modalLabel) ? (
+            <Box as={AlertDialogLabel} tx={modalLabelLayoutStyles}>
+              <Text variant="text-ui-24" tx={{ fontWeight: 'semibold' }} data-testid={MODAL_LABEL}>
+                {modalLabel}
+              </Text>
+            </Box>
+          ) : (
+            <Box as={AlertDialogLabel} data-testid={MODAL_LABEL}>
+              {modalLabel}
+            </Box>
+          )}
 
-              {isModalDescriptionString ? (
-                <Box as={AlertDialogDescription}>
-                  <Text variant="text-ui-16">{modalDescription}</Text>
-                </Box>
-              ) : (
-                <Box as={AlertDialogDescription}>{modalDescription}</Box>
-              )}
+          {isModalDescriptionString ? (
+            <Box as={AlertDialogDescription}>
+              <Text variant="text-ui-16" data-testid={MODAL_DESCRIPTION}>
+                {modalDescription}
+              </Text>
+            </Box>
+          ) : (
+            <Box as={AlertDialogDescription} data-testid={MODAL_DESCRIPTION}>
+              {modalDescription}
+            </Box>
+          )}
 
-              <Text variant="text-ui-16">{children}</Text>
-            </ModalContent>
-          </ModalOverlay>
-        )}
-      </AnimatePresence>
+          <Text variant="text-ui-16">{children}</Text>
+        </ModalContent>
+      </ModalOverlay>
     );
   }
 
   return (
-    <AnimatePresence>
-      {isOpen && (
-        <ModalOverlay
-          isAlertModal={false}
-          leastDestructiveRef={withCloseButton ? closeButtonRef : leastDestructiveRef}
-          onDismiss={onDismiss}
-          shouldReduceMotion={shouldReduceMotion}
-          allowPinchZoom={allowPinchZoom}
-          initialFocusRef={initialFocusRef}
-        >
-          <ModalContent
-            isAlertModal={false}
-            className={className}
-            data-testid={testID}
-            tx={tx}
-            variant={variant}
-            shouldReduceMotion={shouldReduceMotion}
-            labelID={labelID}
-            descriptionID={descriptionID}
-          >
-            {withCloseButton && <XButton onClick={onDismiss} ref={closeButtonRef} size="medium" />}
+    <ModalOverlay
+      isAlertModal={false}
+      leastDestructiveRef={withCloseButton ? closeButtonRef : leastDestructiveRef}
+      onDismiss={onDismiss}
+      shouldReduceMotion={shouldReduceMotion}
+      allowPinchZoom={allowPinchZoom}
+      initialFocusRef={initialFocusRef}
+    >
+      <ModalContent
+        isAlertModal={false}
+        className={className}
+        data-testid={testID}
+        tx={tx}
+        variant={variant}
+        shouldReduceMotion={shouldReduceMotion}
+        labelID={labelID}
+        descriptionID={descriptionID}
+      >
+        {withCloseButton && <XButton onClick={onDismiss} ref={closeButtonRef} size="medium" />}
 
-            {isString(modalLabel) ? (
-              <Box id={labelID} tx={modalLabelLayoutStyles}>
-                <Text variant="text-ui-24" tx={{ fontWeight: 'semibold' }}>
-                  {modalLabel}
-                </Text>
-              </Box>
+        {isString(modalLabel) ? (
+          <Box id={labelID} tx={modalLabelLayoutStyles}>
+            <Text variant="text-ui-24" tx={{ fontWeight: 'semibold' }} data-testid={MODAL_LABEL}>
+              {modalLabel}
+            </Text>
+          </Box>
+        ) : (
+          <Box id={labelID} data-testid={MODAL_LABEL}>
+            {modalLabel}
+          </Box>
+        )}
+
+        {hasDescription && (
+          <Box id={descriptionID}>
+            {isModalDescriptionString ? (
+              <Text variant="text-ui-16" data-testid={MODAL_DESCRIPTION}>
+                {modalDescription}
+              </Text>
             ) : (
-              <Box id={labelID}>{modalLabel}</Box>
+              <Box data-testid={MODAL_DESCRIPTION}>{modalDescription}</Box>
             )}
+          </Box>
+        )}
 
-            {hasDescription && (
-              <Box id={descriptionID}>
-                {isModalDescriptionString ? (
-                  <Text variant="text-ui-16">{modalDescription}</Text>
-                ) : (
-                  modalDescription
-                )}
-              </Box>
-            )}
-
-            <Text variant="text-ui-16">{children}</Text>
-          </ModalContent>
-        </ModalOverlay>
-      )}
-    </AnimatePresence>
+        {children}
+      </ModalContent>
+    </ModalOverlay>
   );
 };
