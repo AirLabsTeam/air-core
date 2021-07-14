@@ -3,6 +3,7 @@
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig.json to read more about this file */
     "allowJs": false,
+    "allowUmdGlobalAccess": true,
     "alwaysStrict": true,
     "baseUrl": "./",
     "declaration": true,
@@ -22,6 +23,6 @@
     "strictFunctionTypes": true,
     "strictNullChecks": true,
     "strictPropertyInitialization": true,
-    "target": "es5"
+    "target": "es2015"
   }
 }
