@@ -52,7 +52,6 @@ export const AnnouncementModal = ({
   className,
   cta,
   imageSource,
-  isOpen = false,
   modalDescription,
   modalLabel,
   onDismiss,
@@ -66,7 +65,6 @@ export const AnnouncementModal = ({
     <Modal
       className={className}
       isAlertModal={withCloseButton ? false : true}
-      isOpen={isOpen}
       leastDestructiveRef={withCloseButton ? undefined : ctaRef}
       modalDescription={<VisuallyHidden>{modalDescription}</VisuallyHidden>}
       modalLabel={<VisuallyHidden>{modalLabel}</VisuallyHidden>}
@@ -111,7 +109,12 @@ export const AnnouncementModal = ({
             </CTAButton>
           ) : (
             // @ts-ignore
-            <Button as={cta?.href ? 'a' : 'button'} {...cta} ref={ctaRef} />
+            <Button
+              as={'href' in cta ? 'a' : 'button'}
+              {...cta}
+              data-testid={ANNOUNCEMENT_MODAL_CTA}
+              ref={ctaRef}
+            />
           )}
         </Box>
       </Box>

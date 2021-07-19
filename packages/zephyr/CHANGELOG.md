@@ -3,6 +3,229 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.22.5](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.22.4...@air/zephyr@12.22.5) (2021-07-14)
+
+**Note:** Version bump only for package @air/zephyr
+
+## [12.22.4](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.22.3...@air/zephyr@12.22.4) (2021-07-14)
+
+**Note:** Version bump only for package @air/zephyr
+
+## [12.22.3](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.22.2...@air/zephyr@12.22.3) (2021-07-13)
+
+### Bug Fixes
+
+- **@air/zephyr:** add in tx prop to button link ([8b9ba5d](https://github.com/AirLabsTeam/web-core/commit/8b9ba5d229550d30b8a29ace80e1e1fbeeff9b72))
+- **zephyr/buttonlink:** pass onClick to ButtonLink ([41b9769](https://github.com/AirLabsTeam/web-core/commit/41b9769f2e2d8afd3b279a3593a0b62e60485fc7))
+
+## [12.22.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.22.1...@air/zephyr@12.22.2) (2021-07-12)
+
+**Note:** Version bump only for package @air/zephyr
+
+## [12.22.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.22.0...@air/zephyr@12.22.1) (2021-07-12)
+
+**Note:** Version bump only for package @air/zephyr
+
+# [12.22.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.21.0...@air/zephyr@12.22.0) (2021-07-10)
+
+### Bug Fixes
+
+- rebasing with main ([0c546e8](https://github.com/AirLabsTeam/web-core/commit/0c546e8206e524c5f0818965f828796555f89787))
+
+### Features
+
+- adds tertiary option to transaction modal ([0fa6aa9](https://github.com/AirLabsTeam/web-core/commit/0fa6aa9bca95b9ad9565bf1b44dcc89c401c9e49))
+- fixing the doc comment ([679359b](https://github.com/AirLabsTeam/web-core/commit/679359b401ad9d8ee9478b16b35d9f88ce5349d0))
+- grammar fixes ([162aac7](https://github.com/AirLabsTeam/web-core/commit/162aac7a0c4d55ba3e6cc875d31fa768bededbf3))
+- remove the tertiary transac modal with button as its redundant ([38a7096](https://github.com/AirLabsTeam/web-core/commit/38a7096d0170ad341b0788f853e751fddd8edb6c))
+
+# [12.21.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.20.9...@air/zephyr@12.21.0) (2021-07-09)
+
+### Features
+
+- **@air/zephyr:** add in button link ([33b6aff](https://github.com/AirLabsTeam/web-core/commit/33b6aff866799f6a74f094602369a1e1de18e096))
+
+## [12.20.9](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.20.8...@air/zephyr@12.20.9) (2021-07-09)
+
+### Reverts
+
+- Revert "chore: removed children text wrapper" ([6cb04c1](https://github.com/AirLabsTeam/web-core/commit/6cb04c10a955d734136be68d82a2cc6ec23358f9))
+
+## [12.20.8](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.20.7...@air/zephyr@12.20.8) (2021-07-07)
+
+**Note:** Version bump only for package @air/zephyr
+
+## [12.20.7](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.20.6...@air/zephyr@12.20.7) (2021-07-06)
+
+**Note:** Version bump only for package @air/zephyr
+
+## [12.20.6](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.20.5...@air/zephyr@12.20.6) (2021-07-06)
+
+**Note:** Version bump only for package @air/zephyr
+
+## [12.20.5](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.20.4...@air/zephyr@12.20.5) (2021-07-06)
+
+**Note:** Version bump only for package @air/zephyr
+
+## [12.20.4](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.20.3...@air/zephyr@12.20.4) (2021-07-02)
+
+**Note:** Version bump only for package @air/zephyr
+
+## [12.20.3](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.20.2...@air/zephyr@12.20.3) (2021-06-29)
+
+**Note:** Version bump only for package @air/zephyr
+
+## [12.20.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.20.1...@air/zephyr@12.20.2) (2021-06-28)
+
+### Bug Fixes
+
+- **@air/zephyr:** make checkbox active icon optional ([7e2b761](https://github.com/AirLabsTeam/web-core/commit/7e2b7616dd915b5111d68746025d4f3e8422f034))
+
+## [12.20.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.20.0...@air/zephyr@12.20.1) (2021-06-28)
+
+### Bug Fixes
+
+- **@air/zephyr:** export checkbox component ([c33a81e](https://github.com/AirLabsTeam/web-core/commit/c33a81e05793393f897d438db36903f035e60bbf))
+
+# [12.20.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.19.0...@air/zephyr@12.20.0) (2021-06-28)
+
+### Bug Fixes
+
+- **@air/zephyr:** remove tx and rename props for checkbox component ([db666cb](https://github.com/AirLabsTeam/web-core/commit/db666cb41ef1996f68cfe14f3f23c22c712d04b1))
+
+### Features
+
+- **@air/zephyr:** add in checkbox component ([7c13852](https://github.com/AirLabsTeam/web-core/commit/7c13852c7fe8362e77b098d065b6059a19179de2))
+
+# [12.19.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.18.0...@air/zephyr@12.19.0) (2021-06-25)
+
+### Features
+
+- fix prop names ([0617020](https://github.com/AirLabsTeam/web-core/commit/06170200251a40c82ab7e917b16df5aa67bc6ca5))
+- for the tooltip - adds an optional tx prop to allow adding custom styles ([8e02444](https://github.com/AirLabsTeam/web-core/commit/8e02444b18343870e943c159c8f8400881c452a9))
+
+# [12.18.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.17.2...@air/zephyr@12.18.0) (2021-06-24)
+
+### Bug Fixes
+
+- **@air/zephyr:** fix icon button to always be a fixed width ([f890b16](https://github.com/AirLabsTeam/web-core/commit/f890b16911c5b52970088289bbf4f21e067ee9ae))
+
+### Features
+
+- update tooltip to have boolean control of arrow ([21c0d68](https://github.com/AirLabsTeam/web-core/commit/21c0d682812fd2da527c254749cd4fe84b69bc61))
+- **@air/zephyr:** update existing 32 text style and add in 36/40/48 sizes ([297f373](https://github.com/AirLabsTeam/web-core/commit/297f373e836fad8cea8c9e159ae1d2bac0aa3681))
+- **@air/zephyr:** update tooltip label type to ReactNode ([9406b5f](https://github.com/AirLabsTeam/web-core/commit/9406b5fe5ab981bddfefbb802f027d26a8ebdcc3))
+
+## [12.17.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.17.1...@air/zephyr@12.17.2) (2021-06-23)
+
+### Bug Fixes
+
+- **@air/zephyr:** update editable text box-shadow to be `inset` ([a91bc21](https://github.com/AirLabsTeam/web-core/commit/a91bc21b57cb1c1ff431bb7154799578427edf5c))
+
+## [12.17.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.17.0...@air/zephyr@12.17.1) (2021-06-15)
+
+**Note:** Version bump only for package @air/zephyr
+
+# [12.17.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.16.0...@air/zephyr@12.17.0) (2021-06-09)
+
+### Features
+
+- **@air/zephyr:** split up toggle component ([74546b1](https://github.com/AirLabsTeam/web-core/commit/74546b10c6298d712c5237ea423aa17aef2b4abc))
+
+# [12.16.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.15.3...@air/zephyr@12.16.0) (2021-06-08)
+
+### Bug Fixes
+
+- **@air/zephyr:** export toggle component ([78f5692](https://github.com/AirLabsTeam/web-core/commit/78f569240feaec73555183b0b855a78c1456dda5))
+- **@air/zephyr:** expose onClick in menu items ([1297b7b](https://github.com/AirLabsTeam/web-core/commit/1297b7bdbb5a77f095d29807b12f2ac627d1c2ee))
+- **@air/zephyr:** fix ts error in context menu ([c3d4882](https://github.com/AirLabsTeam/web-core/commit/c3d4882237f2834564d578b406f48a9328aa616a))
+
+### Features
+
+- **@air/zephyr:** add in toggle component ([736c20b](https://github.com/AirLabsTeam/web-core/commit/736c20b2463aecea7c81b23b94072c66287cb5bf))
+
+## [12.15.3](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.15.2...@air/zephyr@12.15.3) (2021-06-03)
+
+**Note:** Version bump only for package @air/zephyr
+
+## [12.15.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.15.1...@air/zephyr@12.15.2) (2021-06-03)
+
+**Note:** Version bump only for package @air/zephyr
+
+## [12.15.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.15.0...@air/zephyr@12.15.1) (2021-06-03)
+
+**Note:** Version bump only for package @air/zephyr
+
+# [12.15.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.14.2...@air/zephyr@12.15.0) (2021-06-02)
+
+### Bug Fixes
+
+- **@air/zephyr:** update `text-ui-14` line-height to be 20 instead of 21 ([4b2cb95](https://github.com/AirLabsTeam/web-core/commit/4b2cb954a3761888ec2bc4deba843d936f2cafd8))
+
+### Features
+
+- **@air/zephyr:** add in save on blur, and mutliline support ([3159415](https://github.com/AirLabsTeam/web-core/commit/31594150dd8b3f33cd1417f5ece3de25fcb961aa))
+
+## [12.14.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.14.1...@air/zephyr@12.14.2) (2021-06-02)
+
+### Bug Fixes
+
+- **@air/zephyr:** updated typing for editable text and expose validationSchema and minLength prop ([fdc12e2](https://github.com/AirLabsTeam/web-core/commit/fdc12e205b5cdeeae31e0ee58f045c3e2967f047))
+
+## [12.14.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.14.0...@air/zephyr@12.14.1) (2021-06-02)
+
+### Bug Fixes
+
+- **@air/zephyr:** fix editable text onEditStateChange type to be optional ([4377070](https://github.com/AirLabsTeam/web-core/commit/437707096f17baea8ebb04d32bdc0f29cee029b3))
+
+# [12.14.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.13.0...@air/zephyr@12.14.0) (2021-06-01)
+
+### Bug Fixes
+
+- **@air/zephyr:** fix editable text types ([a542c54](https://github.com/AirLabsTeam/web-core/commit/a542c541f84044053b6c0aa7ddd22f8aae10b256))
+
+### Features
+
+- **@air/zephyr:** add in format callback to editable text component ([2dc311a](https://github.com/AirLabsTeam/web-core/commit/2dc311a6b5c0af27c91c3518de1f74f2e4937291))
+
+# [12.13.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.12.1...@air/zephyr@12.13.0) (2021-05-28)
+
+### Bug Fixes
+
+- **@air/zephyr:** fix typing for editable text ([b75fc9c](https://github.com/AirLabsTeam/web-core/commit/b75fc9c792b0596e286890047af1e30882824873))
+- **@air/zephyr:** temporary fix for tx error ([9a2a470](https://github.com/AirLabsTeam/web-core/commit/9a2a47022cbb1aa3f27fa85f20c8f282e2c53ae4))
+
+### Features
+
+- **@air/zephyr:** add in maxLength, behavior and child style keys to editable text ([ce5797f](https://github.com/AirLabsTeam/web-core/commit/ce5797f837f72ba94a02c3865f058b25c908c82a))
+
+## [12.12.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.12.0...@air/zephyr@12.12.1) (2021-05-27)
+
+### Bug Fixes
+
+- **@air/zephyr:** add in as export to editable text ([cfdfb8a](https://github.com/AirLabsTeam/web-core/commit/cfdfb8a907a12dbbca7c44b04ae3d9ad5729fe95))
+- **@air/zephyr:** add in data-testid to editabletext component ([9c7af04](https://github.com/AirLabsTeam/web-core/commit/9c7af04833d70d820602fb2fd151841baf27343b))
+- **@air/zephyr:** fix as prop missing in prop destructure ([cc645e9](https://github.com/AirLabsTeam/web-core/commit/cc645e9a1fa5aeabe4839f625162fde41c3abf1b))
+- **@air/zephyr:** fix export for board title component ([83344aa](https://github.com/AirLabsTeam/web-core/commit/83344aa1bcc3a4fa80c2ae254b9ef60ffa9ff9e7))
+
+# [12.12.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.11.4...@air/zephyr@12.12.0) (2021-05-26)
+
+### Bug Fixes
+
+- **@air/zephyr:** fix editable not showing placeholder when there's no values present ([e312d51](https://github.com/AirLabsTeam/web-core/commit/e312d51d7511215d9864f66ba9a30ecbe4213e8d))
+- **@air/zephyr:** fix editable text not wrapping properly when theres whitespace ([c2c5bb0](https://github.com/AirLabsTeam/web-core/commit/c2c5bb0d049ba31bd34d960720963f923eb94ce3))
+- **@air/zephyr:** fix editabletext text not wrapping ([ec0f6da](https://github.com/AirLabsTeam/web-core/commit/ec0f6da6a93cabb61d528d57985b7795f0ca35a6))
+- **@air/zephyr:** fix scrollbar appearing in textarea for mouse users ([da6d4de](https://github.com/AirLabsTeam/web-core/commit/da6d4de9b0c527e00ac51b3e9c887815ad0aad44))
+- **@air/zephyr:** remove extending box props in textarea ([bd8977f](https://github.com/AirLabsTeam/web-core/commit/bd8977f43b9ba893de5bd5be3652fceb23927e2a))
+
+### Features
+
+- **@air/zephyr:** add in actionable buttons for non-seeing users ([430d6c2](https://github.com/AirLabsTeam/web-core/commit/430d6c2931e6bdbb175a8019830ea281aa4a50e0))
+- **@air/zephyr:** add in initial component for editable text component ([e111010](https://github.com/AirLabsTeam/web-core/commit/e111010c7faa2d5db2a704be3e6804cfb94aa075))
+- **@air/zephyr:** add in label to editable text input ([f403c56](https://github.com/AirLabsTeam/web-core/commit/f403c5623ed5e168af3c8c524f39cf770633ab58))
+- **@air/zephyr:** improve editabletext component and include formik ([3085a44](https://github.com/AirLabsTeam/web-core/commit/3085a4483051ea4aa94faf02b5a95a7219fdb906))
+- **@air/zephyr:** switch out hidden buttons with aria-describeby ([18e28af](https://github.com/AirLabsTeam/web-core/commit/18e28afe49f29986ee975190d9f4f0d2896c99ba))
+
 ## [12.11.4](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.11.3...@air/zephyr@12.11.4) (2021-05-26)
 
 **Note:** Version bump only for package @air/zephyr

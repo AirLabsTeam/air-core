@@ -1,9 +1,9 @@
 import React, { ReactNode } from 'react';
-
 import { Box } from '../../Box';
 import { Button, ButtonProps } from '../../Button';
-import { Text } from '../../Text';
+import { ActionSheetDescription } from './ActionSheetDescription';
 import { ActionSheetDivider } from './ActionSheetDivider';
+import { ActionSheetLabel } from './ActionSheetLabel';
 
 export type ActionSheetItemChildrenProps = {
   children: ReactNode;
@@ -94,20 +94,8 @@ export const ActionSheetItem = ({
             restOfProps.children
           ) : (
             <Box>
-              <Text
-                tx={{
-                  color: 'inherit',
-                  whiteSpace: 'nowrap',
-                  overflow: 'hidden',
-                  textOverflow: 'ellipsis',
-                }}
-                variant="text-ui-16"
-              >
-                {restOfProps.label}
-              </Text>
-              <Text tx={{ mt: 2, color: 'pigeon500' }} variant="text-ui-14">
-                {restOfProps.description}
-              </Text>
+              <ActionSheetLabel>{restOfProps.label}</ActionSheetLabel>
+              <ActionSheetDescription>{restOfProps.description}</ActionSheetDescription>
             </Box>
           )}
         </Box>

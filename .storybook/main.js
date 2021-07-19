@@ -1,4 +1,10 @@
 module.exports = {
+  refs: {
+    internal: {
+      title: 'Internal',
+      url: 'https://next-storybook-ochre.vercel.app/',
+    },
+  },
   stories: ['../packages/**/*.stories.{ts,tsx,js,jsx,mdx}'],
   addons: ['@storybook/addon-links', '@storybook/addon-actions', '@storybook/addon-essentials'],
   typescript: {

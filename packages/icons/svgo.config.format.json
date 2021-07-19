@@ -2,7 +2,14 @@
   "plugins": [
     {
       "addAttributesToSVGElement": {
-        "attributes": [{ "aria-hidden": "true" }]
+        "attributes": [
+          {
+            "aria-hidden": "true"
+          },
+          {
+            "fill": "currentColor"
+          }
+        ]
       }
     },
     {
@@ -34,7 +41,7 @@
     { "removeEmptyText": true },
     { "removeNonInheritableGroupAttrs": true },
     { "removeTitle": true },
-    { "removeUnknownsAndDefaults": true },
+    { "removeUnknownsAndDefaults": { "keepDataAttrs": false } },
     { "removeUnusedNS": true },
     { "removeUselessDefs": true },
     { "removeUselessStrokeAndFill": true },
