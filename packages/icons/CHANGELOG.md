@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.0.2](https://github.com/AirLabsTeam/web-core/compare/@air/icons@9.0.1...@air/icons@9.0.2) (2021-07-23)
+
+### Bug Fixes
+
+- **@air/icons:** add in missing sorting icon ([bd50b4a](https://github.com/AirLabsTeam/web-core/commit/bd50b4a87de697b8382379dcddb4e8f1b86eb71a))
+
 ## [9.0.1](https://github.com/AirLabsTeam/web-core/compare/@air/icons@9.0.0...@air/icons@9.0.1) (2021-07-23)
 
 ### Bug Fixes
