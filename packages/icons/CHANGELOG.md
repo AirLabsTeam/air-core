@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.0.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@8.10.1...@air/icons@9.0.0) (2021-07-23)
+
+### Bug Fixes
+
+- **@air/zephyr:** remove duplicate icons and fix skip, boardsadd, volumelow ([dc7eab5](https://github.com/AirLabsTeam/web-core/commit/dc7eab5caf78a2402d5bb9e1d6645f53a82682df))
+
+### Features
+
+- **@air/icons:** update icons ([7b85265](https://github.com/AirLabsTeam/web-core/commit/7b85265395dbbeceb2e31b3d1e4db153ca2f4315))
+
+### BREAKING CHANGES
+
+- **@air/icons:** AddMember -> MemberAdd, AddToBoard -> BoardAdd, BoardsAdd -> BoardAdd,
+  BoardsDuplicate -> BoardDuplicate, BoardsRemove -> BoardRemove, BoardsGrid -> Grid, CircledInfo ->
+  Info, CircledMinus -> ZoomOut, CircledPlus -> ZoomIn, Delete -> Trash, ImportFrom -> Import,
+  LineGraph -> Lifeline, Nonprofit -> House, Padlock -> Lock, Skip -> Sorting, ToggleGrid -> Grid,
+  ToggleList -> List
+
 ## [8.10.1](https://github.com/AirLabsTeam/web-core/compare/@air/icons@8.10.0...@air/icons@8.10.1) (2021-07-14)
 
 **Note:** Version bump only for package @air/icons
