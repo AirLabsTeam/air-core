@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.0.1](https://github.com/AirLabsTeam/web-core/compare/@air/icons@9.0.0...@air/icons@9.0.1) (2021-07-23)
+
+### Bug Fixes
+
+- **@air/icons:** fix icons paths still having fill="#HEX" ([fc28d5c](https://github.com/AirLabsTeam/web-core/commit/fc28d5ce1c770a4b147e044dfa6c2c2e86c67820))
+- **@air/icons:** fix missing boards duplicate icons ([41bf96a](https://github.com/AirLabsTeam/web-core/commit/41bf96a3c78ea869b88fee2f409d962e230ed87e))
+- **@air/icons:** remove class and ids from icons ([3fa61a4](https://github.com/AirLabsTeam/web-core/commit/3fa61a4e476a6bc6e8eefd9cc2d44d219eaeae71))
+
 # [9.0.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@8.10.1...@air/icons@9.0.0) (2021-07-23)
 
 ### Bug Fixes
