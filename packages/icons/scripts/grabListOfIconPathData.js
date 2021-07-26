@@ -15,7 +15,9 @@ const directories = fs
 //Creates a dictionary for the icons, {us-states: [list of icons], quick-actions: [], etc}
 let iconDictionary = {};
 directories.forEach((directory) => {
-  let arrayOfFiles = fs.readdirSync(`${svgPath}/${directory}`);
+  let arrayOfFiles = fs
+    .readdirSync(`${svgPath}/${directory}`)
+    .filter((name) => !!name.match(/.svg/));
   iconDictionary[directory] = arrayOfFiles;
 });
 
