@@ -1,23 +1,10 @@
 const fs = require('fs');
 const _ = require('lodash'); // eslint-disable-line lodash/import-scope
 const absolutePath = process.cwd(); // icons package root
-const svgPath = `${absolutePath}/src/svgs`;
+const { getDirectories, getIconDictionary } = require('./utils');
+const directories = getDirectories();
 
-//Grabs diretories where icons are stored
-//Here object is all the files and directories grabbed from svgPath
-//The endgoal is to only return directories from svgPath
-
-const directories = fs
-  .readdirSync(svgPath, { withFileTypes: true })
-  .filter((object) => object.isDirectory())
-  .map((object) => object.name);
-
-//Creates a dictionary for the icons, {us-states: [list of icons], quick-actions: [], etc}
-let iconDictionary = {};
-directories.forEach((directory) => {
-  let arrayOfFiles = fs.readdirSync(`${svgPath}/${directory}`);
-  iconDictionary[directory] = arrayOfFiles;
-});
+const { iconDictionary } = getIconDictionary(directories);
 
 //reads and stores index.tsx file as an array of lines
 let indexLines = fs.readFileSync(`${absolutePath}/src/index.tsx`, 'utf-8');
