@@ -21,7 +21,10 @@ const allIcons = [];
 let iconDictionary = {};
 
 directories.forEach((directory) => {
-  const arrayOfFiles = fs.readdirSync(`${svgPath}/${directory}`);
+  const arrayOfFiles = fs
+    .readdirSync(`${svgPath}/${directory}`)
+    .filter((name) => !!name.match(/.svg/));
+
   iconDictionary[directory] = arrayOfFiles;
   allIcons.push.apply(allIcons, arrayOfFiles);
 });
