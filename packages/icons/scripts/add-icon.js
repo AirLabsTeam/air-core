@@ -14,7 +14,7 @@ const generateTemplatesForFile = (fileName, relativePath) => {
   const pascalFileName = toPascalCase(fileName).replace(/ /g, '');
   const alias = `_${pascalFileName}`;
   const importLine = `\nimport ${alias} from '${relativePath}${fileName}.svg';`;
-  const typeMapLine = `\nexport const ${pascalFileName} = (props?: SVGProps<SVGElement>) => <${alias} {...props} />;`;
+  const typeMapLine = `\nexport const ${pascalFileName} = React.forwardRef<SVGElement, SVGProps<SVGElement>>((props, ref) => <${alias} {...props} ref={ref} />); ${pascalFileName}.displayName = '${pascalFileName}';`;
 
   return { importLine, typeMapLine };
 };
