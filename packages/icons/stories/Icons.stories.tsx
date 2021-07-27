@@ -21,7 +21,7 @@ const allIcons = iconNames.map((iconName) => ({
 
 export default {
   title: 'Icons/All Icons',
-  component: ProductionBundleIconsMap.Air as any,
+  component: ProductionBundleIconsMap.Air,
   parameters: {
     docs: {
       description: {
