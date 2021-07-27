@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.22.10](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.22.9...@air/zephyr@12.22.10) (2021-07-27)
+
+### Bug Fixes
+
+- **@air/icons:** resolve type issues ([22f8b38](https://github.com/AirLabsTeam/web-core/commit/22f8b38a74cbcc0212cb9b5e8aa21e3aebc50252))
+
 ## [12.22.9](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.22.8...@air/zephyr@12.22.9) (2021-07-26)
 
 **Note:** Version bump only for package @air/zephyr
