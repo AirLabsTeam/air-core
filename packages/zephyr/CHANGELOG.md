@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [12.23.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.22.10...@air/zephyr@12.23.0) (2021-07-28)
+
+### Features
+
+- **@air/zephyr:** update macaw colors ([018e818](https://github.com/AirLabsTeam/web-core/commit/018e818d9ae18eed04f92a3be81b58cc2f092fc1))
+
 ## [12.22.10](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.22.9...@air/zephyr@12.22.10) (2021-07-27)
 
 ### Bug Fixes
