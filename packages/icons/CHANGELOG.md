@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.1.1](https://github.com/AirLabsTeam/web-core/compare/@air/icons@9.1.0...@air/icons@9.1.1) (2021-07-27)
+
+### Bug Fixes
+
+- **@air/icons:** resolve type issues ([22f8b38](https://github.com/AirLabsTeam/web-core/commit/22f8b38a74cbcc0212cb9b5e8aa21e3aebc50252))
+- **@air/icons:** use forwardRef on icon exports ([3574766](https://github.com/AirLabsTeam/web-core/commit/35747668d4b56ae120532367f8509c36c260591f))
+
+# [9.1.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@9.0.2...@air/icons@9.1.0) (2021-07-26)
+
+### Bug Fixes
+
+- fix ds_store inclusion ([a149f54](https://github.com/AirLabsTeam/web-core/commit/a149f54e006bab3aa3a559b279c0d4241f9438c0))
+
+### Features
+
+- add kanban, triangle-in-circle, filtering ([eac0697](https://github.com/AirLabsTeam/web-core/commit/eac069764e8a86142cbe50903d9b0f3c7a2eafb8))
+
 ## [9.0.2](https://github.com/AirLabsTeam/web-core/compare/@air/icons@9.0.1...@air/icons@9.0.2) (2021-07-23)
 
 ### Bug Fixes

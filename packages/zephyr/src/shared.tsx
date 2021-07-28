@@ -1,7 +1,13 @@
+import * as React from 'react';
 import { ButtonSize } from './Button';
 import { ButtonVariantName } from './theme';
 
-export type SVGComponent = (props?: React.SVGProps<SVGElement> | undefined) => JSX.Element;
+// eslint-disable-next-line react/display-name
+const FakeAirIconComponent = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement>>(
+  (props, ref) => <svg {...props} ref={ref} />,
+);
+
+export type SVGComponent = typeof FakeAirIconComponent;
 export type LeftRight = 'left' | 'right';
 
 export const allButtonSizes: ButtonSize[] = ['extra-small', 'small', 'medium', 'large'];
