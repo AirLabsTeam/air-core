@@ -187,16 +187,16 @@ const lights = {
 
 const macaws = {
   macaw020: '#E7F1FF',
-  macaw040: '#CDDFFF',
+  macaw040: '#DDE9FF',
   macaw060: '#B4CFFF',
   macaw080: '#90B8FF',
   macaw100: '#6FA2FF',
   macaw200: '#448AFF',
-  macaw300: '#2D73FF',
+  macaw300: '#2E77FF',
   macaw350: '#2943FF',
-  macaw400: '#0044FF',
-  macaw500: '#003ADA',
-  macaw600: '#002CA4',
+  macaw400: '#3000FF',
+  macaw500: '#2009D8',
+  macaw600: '#0F009E',
 };
 
 const parrots = {
