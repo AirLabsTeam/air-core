@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.1.2](https://github.com/AirLabsTeam/web-core/compare/@air/icons@9.1.1...@air/icons@9.1.2) (2021-07-28)
+
+### Bug Fixes
+
+- arrow right pointed left ([feb750c](https://github.com/AirLabsTeam/web-core/commit/feb750c6b64936bc1672c55d42ca346b7c2741e7))
+
 ## [9.1.1](https://github.com/AirLabsTeam/web-core/compare/@air/icons@9.1.0...@air/icons@9.1.1) (2021-07-27)
 
 ### Bug Fixes
