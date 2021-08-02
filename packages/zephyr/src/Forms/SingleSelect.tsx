@@ -291,6 +291,7 @@ export const getBaseSelectStylesWithTheme = ({
   }),
   valueContainer: (base) => ({
     ...base,
+    height: '100%',
     padding: 0,
   }),
 });
