@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.23.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.23.1...@air/zephyr@12.23.2) (2021-08-02)
+
+### Bug Fixes
+
+- s4 - SingleSelect cuts off g ([b478fc6](https://github.com/AirLabsTeam/web-core/commit/b478fc62e63e180a59c8e985b18e0733a12f5612))
+
 ## [12.23.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.23.0...@air/zephyr@12.23.1) (2021-07-28)
 
 **Note:** Version bump only for package @air/zephyr
