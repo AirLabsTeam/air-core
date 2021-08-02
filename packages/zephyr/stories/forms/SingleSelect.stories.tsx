@@ -16,6 +16,7 @@ import { FieldVariantName, field } from '../../src/theme/variants/field';
 const variants = Object.keys(field) as FieldVariantName[];
 
 const options: SelectOption[] = [
+  { label: 'Big Fish', value: 'bgf' },
   { label: 'Red Fish', value: 'rf' },
   { label: 'Blue Fish', value: 'bf' },
   { label: 'Green Fish', value: 'gf' },
@@ -117,6 +118,7 @@ Default.args = {
   // name: 'default', purposefully not defined here (see story JSX)
   required: true,
   options,
+  isSearchable: false,
 };
 
 Default.parameters = {
