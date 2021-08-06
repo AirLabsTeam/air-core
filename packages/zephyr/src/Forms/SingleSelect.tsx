@@ -40,6 +40,7 @@ export type SelectOption = {
   value: string;
   leftAdornment?: React.ReactNode;
   description?: string;
+  ['data-testid']?: string;
 };
 
 type CanHaveMultipleSelections = false;
@@ -335,7 +336,7 @@ const AirReactSelectOption = ({
 }) => {
   const variant = props.selectProps.variant as FieldVariantName;
   const isChonky = variant === 'field-input-chonky';
-  const { leftAdornment: LeftAdornment, description } = props.data;
+  const { leftAdornment: LeftAdornment, description, ['data-testid']: dataTestId } = props.data;
 
   const propsWithoutStyleFn = {
     ...props,
@@ -345,6 +346,7 @@ const AirReactSelectOption = ({
   return (
     <defaultReactSelectComponents.Option {...propsWithoutStyleFn}>
       <Box
+        data-testid={dataTestId ?? undefined}
         tx={{
           bg: props.isFocused ? 'pigeon050' : 'inherit',
           borderRadius: 2,

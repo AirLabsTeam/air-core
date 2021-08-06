@@ -196,9 +196,9 @@ export const ComplexAsync: Story<SingleSelectProps> = () => {
   const loadingText = 'Loading options...';
 
   const colors: SelectOption[] = [
-    { value: 'ocean', label: 'Ocean' },
-    { value: 'blue', label: 'Blue' },
-    { value: 'purple', label: 'Purple' },
+    { value: 'ocean', label: 'Ocean', 'data-testid': 'SELECT_OPTION_OCEAN' },
+    { value: 'blue', label: 'Blue', 'data-testid': 'SELECT_OPTION_BLUE' },
+    { value: 'purple', label: 'Purple', 'data-testid': 'SELECT_OPTION_PURPLE' },
   ];
 
   const filterColors = (inputValue: string) => {
