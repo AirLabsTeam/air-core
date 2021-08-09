@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.23.3](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.23.2...@air/zephyr@12.23.3) (2021-08-09)
+
+### Bug Fixes
+
+- adds optional testId for options in singleSelect dropdown ([a9cbac9](https://github.com/AirLabsTeam/web-core/commit/a9cbac93d14b4089976cc8b44e60c3a769f1094c))
+- remove unnec brackets ([69e09c7](https://github.com/AirLabsTeam/web-core/commit/69e09c71907c46ebddce1ab06013b517d9f6769b))
+
 ## [12.23.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.23.1...@air/zephyr@12.23.2) (2021-08-02)
 
 ### Bug Fixes
