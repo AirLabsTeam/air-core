@@ -101,6 +101,7 @@ import _List from './svgs/uncategorized/List.svg';
 import _LockFilled from './svgs/uncategorized/Lock-Filled.svg';
 import _Lock from './svgs/uncategorized/Lock.svg';
 import _LogOut from './svgs/uncategorized/LogOut.svg';
+import _Loop from './svgs/uncategorized/Loop.svg';
 import _MagicWand from './svgs/uncategorized/MagicWand.svg';
 import _MagnifyingGlass from './svgs/uncategorized/MagnifyingGlass.svg';
 import _Maximize from './svgs/uncategorized/Maximize.svg';
@@ -272,6 +273,7 @@ export const List = React.forwardRef<SVGSVGElement, SVGProps<SVGSVGElement>>((pr
 export const LockFilled = React.forwardRef<SVGSVGElement, SVGProps<SVGSVGElement>>((props, ref) => <_LockFilled {...props} ref={ref} />); LockFilled.displayName = 'LockFilled';
 export const Lock = React.forwardRef<SVGSVGElement, SVGProps<SVGSVGElement>>((props, ref) => <_Lock {...props} ref={ref} />); Lock.displayName = 'Lock';
 export const LogOut = React.forwardRef<SVGSVGElement, SVGProps<SVGSVGElement>>((props, ref) => <_LogOut {...props} ref={ref} />); LogOut.displayName = 'LogOut';
+export const Loop = React.forwardRef<SVGSVGElement, SVGProps<SVGSVGElement>>((props, ref) => <_Loop {...props} ref={ref} />); Loop.displayName = 'Loop';
 export const MagicWand = React.forwardRef<SVGSVGElement, SVGProps<SVGSVGElement>>((props, ref) => <_MagicWand {...props} ref={ref} />); MagicWand.displayName = 'MagicWand';
 export const MagnifyingGlass = React.forwardRef<SVGSVGElement, SVGProps<SVGSVGElement>>((props, ref) => <_MagnifyingGlass {...props} ref={ref} />); MagnifyingGlass.displayName = 'MagnifyingGlass';
 export const Maximize = React.forwardRef<SVGSVGElement, SVGProps<SVGSVGElement>>((props, ref) => <_Maximize {...props} ref={ref} />); Maximize.displayName = 'Maximize';
