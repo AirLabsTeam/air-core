@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.2.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@9.1.2...@air/icons@9.2.0) (2021-08-11)
+
+### Features
+
+- **loop.svg:** add loop icon svg ([11d672b](https://github.com/AirLabsTeam/web-core/commit/11d672b3d70269080c60a1bb8c6679ae3355db59))
+
 ## [9.1.2](https://github.com/AirLabsTeam/web-core/compare/@air/icons@9.1.1...@air/icons@9.1.2) (2021-07-28)
 
 ### Bug Fixes
