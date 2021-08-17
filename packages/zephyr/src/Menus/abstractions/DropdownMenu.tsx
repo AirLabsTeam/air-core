@@ -92,6 +92,10 @@ export interface DropdownMenuProps
    * The trigger that will open the menu.
    */
   trigger: ReactNode;
+  /**
+   * The `isPortal` prop allows you to control whether the menu uses a portal.
+   */
+  isPortal: boolean;
 }
 
 export const DropdownMenu = ({
@@ -105,6 +109,7 @@ export const DropdownMenu = ({
   size = 'small',
   ['data-testid']: testId,
   trigger,
+  isPortal,
   tx,
 }: DropdownMenuProps) => {
   return (
@@ -131,6 +136,7 @@ export const DropdownMenu = ({
                 as: ReachMenuButton,
               })}
             <Box
+              portal={isPortal}
               as={ReachMenuPopover}
               position={(targetRect?: PRect | null, popoverRect?: PRect | null) =>
                 getPosition(targetRect, popoverRect, offset)
