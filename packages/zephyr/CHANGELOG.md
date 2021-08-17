@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [12.24.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.23.4...@air/zephyr@12.24.0) (2021-08-17)
+
+### Features
+
+- **@air/zephyr:** update colors ([0e5c1d9](https://github.com/AirLabsTeam/web-core/commit/0e5c1d924c3065ffec2fb20e3e0afbdb52258c2d))
+
 ## [12.23.4](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.23.3...@air/zephyr@12.23.4) (2021-08-11)
 
 **Note:** Version bump only for package @air/zephyr
