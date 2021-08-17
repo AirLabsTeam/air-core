@@ -95,7 +95,7 @@ export interface DropdownMenuProps
   /**
    * The `isPortal` prop allows you to control whether the menu uses a portal.
    */
-  isPortal: boolean;
+  isPortal?: boolean;
 }
 
 export const DropdownMenu = ({
@@ -109,7 +109,7 @@ export const DropdownMenu = ({
   size = 'small',
   ['data-testid']: testId,
   trigger,
-  isPortal,
+  isPortal = true,
   tx,
 }: DropdownMenuProps) => {
   return (
