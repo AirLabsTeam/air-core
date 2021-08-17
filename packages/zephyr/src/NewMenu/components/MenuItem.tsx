@@ -1,4 +1,7 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, FC, ComponentProps } from 'react';
+import { rgba } from 'polished';
+import { useTheme } from 'styled-components';
+import { DropdownMenuItem, Root, Group, Content } from '@radix-ui/react-dropdown-menu';
 
 import { Box, BoxProps } from '../../Box';
 import { Text } from '../../Text';
@@ -46,7 +49,7 @@ export type MenuItemProps = {
    * Event handler called when the user selects an item (via mouse of keyboard).
    * Calling event.preventDefault in this handler will prevent the dropdown menu from closing when selecting that item.
    */
-  onClick?: BoxProps['onClick'];
+  onSelect?: (event: Event) => void;
 
   /**
    * Prevents item selection.
@@ -57,6 +60,8 @@ export type MenuItemProps = {
    * Allows the user to extend the items styles.
    */
   tx?: BoxProps['tx'];
+
+  subOptions?: (MenuItemProps & MenuItemRenderProps & { id?: string })[];
 } & MenuItemRenderProps;
 
 export const MenuItem = ({
@@ -66,16 +71,22 @@ export const MenuItem = ({
   rightAdornment,
   shortcut,
   size = 'small',
-  ...restOfProps
+  onSelect,
+  tx,
+  disabled,
+  subOptions,
+  ...renderProps
 }: MenuItemProps) => {
-  const hasDescription = 'description' in restOfProps;
+  const hasDescription = 'description' in renderProps;
   const isSmallSize = size === 'small';
   const numberOfShortcutKeys = shortcut?.length ?? 0;
+  const theme = useTheme();
 
   return (
     <>
       {hasDividerTop && <MenuItemDivider isTop />}
       <Box
+        as={DropdownMenuItem as FC<Omit<ComponentProps<typeof DropdownMenuItem>, 'as' | 'ref'>>}
         __baseStyles={{
           display: 'flex',
           alignItems: hasDescription ? 'flex-start' : 'center',
@@ -99,7 +110,9 @@ export const MenuItem = ({
 
           '&:last-child': { mb: 0 },
         }}
-        {...restOfProps}
+        tx={tx}
+        disabled={disabled}
+        onSelect={onSelect}
       >
         {leftAdornment && (
           <Box tx={{ flexShrink: 0, mr: 8, mt: hasDescription ? (isSmallSize ? 2 : 4) : 0 }}>
@@ -108,15 +121,15 @@ export const MenuItem = ({
         )}
 
         <Box tx={{ flexGrow: 1 }}>
-          {'children' in restOfProps ? (
-            restOfProps.children
+          {'children' in renderProps ? (
+            renderProps.children
           ) : (
             <Box>
               <MenuItemLabel variant={isSmallSize ? 'text-ui-14' : 'text-ui-16'}>
-                {restOfProps.label}
+                {renderProps.label}
               </MenuItemLabel>
               <MenuItemDescription variant={isSmallSize ? 'text-ui-12' : 'text-ui-14'}>
-                {restOfProps.description}
+                {renderProps.description}
               </MenuItemDescription>
             </Box>
           )}
@@ -155,6 +168,51 @@ export const MenuItem = ({
         )}
       </Box>
       {hasDividerBottom && <MenuItemDivider />}
+      {subOptions && (
+        <Root>
+          <Box
+            as={Content as FC<Omit<ComponentProps<typeof Content>, 'as' | 'ref'>>}
+            tx={{
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'stretch',
+              backgroundColor: 'white',
+              width: size === 'small' ? 216 : 240,
+              p: size === 'small' ? 6 : 8,
+              outline: 'none',
+              borderRadius: 4,
+              boxShadow: `
+                0px 2px 8px ${rgba(theme.colors.black, 0.2)}, 
+                0px 1px 3px ${rgba(theme.colors.black, 0.15)}, 
+                0px 0px 2px ${rgba(theme.colors.black, 0.25)}
+              `,
+            }}
+          >
+            <Box
+              as={Group as FC<Omit<ComponentProps<typeof Group>, 'as' | 'ref'>>}
+              tx={{
+                outline: 'none',
+                p: 0,
+                border: 0,
+                fontSize: 'inherit',
+                background: 'transparent',
+                whiteSpace: 'initial',
+                color: 'inherit',
+              }}
+            >
+              {subOptions.map((option, index) => (
+                <MenuItem
+                  data-testid={option.id}
+                  onSelect={(event: Event) => event.stopPropagation()}
+                  key={index}
+                  size={size}
+                  {...option}
+                />
+              ))}
+            </Box>
+          </Box>
+        </Root>
+      )}
     </>
   );
 };

@@ -1,5 +1,4 @@
-import React, { FC, ComponentProps, memo } from 'react';
-import { DropdownMenuLabel } from '@radix-ui/react-dropdown-menu';
+import React, { memo } from 'react';
 
 import { Text, TextProps } from '../../Text';
 
@@ -13,7 +12,6 @@ export const MenuItemLabel = memo(({ tx, ...rest }: TextProps) => (
       ...(tx as any),
     }}
     variant="text-ui-16"
-    as={DropdownMenuLabel as FC<Omit<ComponentProps<typeof DropdownMenuLabel>, 'as' | 'ref'>>}
     {...rest}
   />
 ));
