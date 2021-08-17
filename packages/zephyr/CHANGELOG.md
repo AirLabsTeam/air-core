@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [12.25.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.24.0...@air/zephyr@12.25.0) (2021-08-17)
+
+### Features
+
+- add isPortal prop to DropdownMenu ([b344702](https://github.com/AirLabsTeam/web-core/commit/b3447023f888030b86fcc5e07c323283b9756386))
+- add isPortal prop to DropdownMenu ([22ef64d](https://github.com/AirLabsTeam/web-core/commit/22ef64d335bc75f6a6726a162d3317811abb2636))
+
 # [12.24.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.23.4...@air/zephyr@12.24.0) (2021-08-17)
 
 ### Features
