@@ -60,6 +60,5 @@ export const Box = styled('div')<BoxStylingProps>(
   baseStyles,
   variants,
   inlineStyles,
-  // (props) => props.css,
   compose(color, space),
 );
