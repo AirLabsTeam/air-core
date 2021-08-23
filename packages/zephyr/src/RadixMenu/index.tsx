@@ -1,3 +1,3 @@
-export * from './abstractions/DropdownMenu';
-export * from './components/MenuItemDivider';
-export * from './components/MenuItem';
+export * from './abstractions/RadixDropdownMenu';
+export * from './components/RadixMenuItemDivider';
+export * from './components/RadixMenuItem';

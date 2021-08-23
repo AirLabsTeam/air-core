@@ -8,15 +8,15 @@ import { Box, BoxProps } from '../../Box';
 import { Text } from '../../Text';
 import { MenuItemDescription } from '../../Menus/components/MenuItemDescription';
 import { MenuItemLabel } from '../../Menus/components/MenuItemLabel';
-import { MenuItemDivider } from './MenuItemDivider';
+import { RadixMenuItemDivider } from './RadixMenuItemDivider';
 
 export type MenuSize = 'small' | 'large';
 
-export type MenuItemRenderProps =
+export type RadixMenuItemRenderProps =
   | { children: ReactNode }
   | { label: ReactNode; description?: ReactNode };
 
-export type MenuItemProps = {
+export type RadixMenuItemProps = {
   /**
    * Renders `<MenuDivider />` below the menu item.
    */
@@ -51,7 +51,7 @@ export type MenuItemProps = {
    * Event handler called when the user selects an item (via mouse of keyboard).
    * Calling event.preventDefault in this handler will prevent the dropdown menu from closing when selecting that item.
    */
-  onSelect?: (event: Event) => void;
+  onClick?: (event: Event) => void;
 
   /**
    * Prevents item selection.
@@ -63,10 +63,10 @@ export type MenuItemProps = {
    */
   tx?: BoxProps['tx'];
 
-  subOptions?: (MenuItemProps & MenuItemRenderProps & { id?: string })[];
-} & MenuItemRenderProps;
+  subOptions?: (RadixMenuItemProps & RadixMenuItemRenderProps & { id?: string })[];
+} & RadixMenuItemRenderProps;
 
-export const MenuItem = memo(
+export const RadixMenuItem = memo(
   ({
     hasDividerBottom,
     hasDividerTop,
@@ -74,12 +74,12 @@ export const MenuItem = memo(
     rightAdornment,
     shortcut,
     size = 'small',
-    onSelect,
+    onClick,
     tx,
     disabled,
     subOptions,
     ...renderProps
-  }: MenuItemProps) => {
+  }: RadixMenuItemProps) => {
     const hasDescription = 'description' in renderProps;
     const isSmallSize = size === 'small';
     const numberOfShortcutKeys = shortcut?.length ?? 0;
@@ -204,11 +204,11 @@ export const MenuItem = memo(
       return (
         <Box tx={menuItemStyle}>
           <Root>
-            {hasDividerTop && <MenuItemDivider isTop />}
+            {hasDividerTop && <RadixMenuItemDivider isTop />}
             <TriggerItem className="radix-menu-item" disabled={disabled}>
               {menuItemContent}
             </TriggerItem>
-            {hasDividerBottom && <MenuItemDivider />}
+            {hasDividerBottom && <RadixMenuItemDivider />}
             <Content>
               <Box
                 tx={{
@@ -228,9 +228,9 @@ export const MenuItem = memo(
                 }}
               >
                 {subOptions.map((option, index) => (
-                  <MenuItem
+                  <RadixMenuItem
                     data-testid={option.id}
-                    onSelect={(event: Event) => event.stopPropagation()}
+                    onClick={(event: Event) => event.stopPropagation()}
                     key={index}
                     size={size}
                     {...option}
@@ -245,13 +245,14 @@ export const MenuItem = memo(
 
     return (
       <Box tx={menuItemStyle}>
-        {hasDividerTop && <MenuItemDivider isTop />}
-        <Item className="radix-menu-item" disabled={disabled} onSelect={onSelect}>
+        {hasDividerTop && <RadixMenuItemDivider isTop />}
+        <Item className="radix-menu-item" disabled={disabled} onSelect={onClick}>
           {menuItemContent}
         </Item>
+        {hasDividerBottom && <RadixMenuItemDivider />}
       </Box>
     );
   },
 );
 
-MenuItem.displayName = 'MenuItem';
+RadixMenuItem.displayName = 'RadixMenuItem';

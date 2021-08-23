@@ -3,11 +3,11 @@ import { Separator } from '@radix-ui/react-dropdown-menu';
 
 import { Box } from '../../Box';
 
-export interface MenuDividerProps {
+export interface RadixMenuItemDividerProps {
   isTop?: boolean;
 }
 
-export const MenuItemDivider = memo(({ isTop }: MenuDividerProps) => {
+export const RadixMenuItemDivider = memo(({ isTop }: RadixMenuItemDividerProps) => {
   return (
     <Box
       as={Separator as FC<Omit<ComponentProps<typeof Separator>, 'as' | 'ref'>>}
@@ -16,4 +16,4 @@ export const MenuItemDivider = memo(({ isTop }: MenuDividerProps) => {
   );
 });
 
-MenuItemDivider.displayName = 'MenuItemDivider';
+RadixMenuItemDivider.displayName = 'RadixMenuItemDivider';
