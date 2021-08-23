@@ -6,10 +6,11 @@ import { useTheme } from 'styled-components';
 
 import { Box, BoxProps } from '../../Box';
 import { Text } from '../../Text';
-import { MenuSize } from './Menu';
+import { MenuItemDescription } from '../../Menus/components/MenuItemDescription';
+import { MenuItemLabel } from '../../Menus/components/MenuItemLabel';
 import { MenuItemDivider } from './MenuItemDivider';
-import { MenuItemDescription } from './MenuItemDescription';
-import { MenuItemLabel } from './MenuItemLabel';
+
+export type MenuSize = 'small' | 'large';
 
 export type MenuItemRenderProps =
   | { children: ReactNode }

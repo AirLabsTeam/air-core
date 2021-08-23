@@ -1,4 +1,4 @@
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence, Variant } from 'framer-motion';
 import { noop } from 'lodash';
 import React, { ReactNode, useState, useCallback, useMemo } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
@@ -9,12 +9,26 @@ import { rgba } from 'polished';
 import { useTheme } from 'styled-components';
 
 import { Box, BoxProps } from '../../Box';
-import { MenuProps } from '../components/Menu';
-import { MenuItem, MenuItemProps } from '../components/MenuItem';
+import { MenuItem, MenuItemProps, MenuSize } from '../components/MenuItem';
 
 export type DropdownMenuOption = MenuItemProps & {
   id?: string;
 };
+
+interface MenuProps extends Pick<BoxProps, 'children' | 'tx'> {
+  /**
+   * The `animation` prop allows you to define the animation for each of the 4 animation states.
+   */
+  animation?: {
+    animate: Variant;
+    exit: Variant;
+    initial: Variant;
+  } | null;
+  /**
+   * The `size` prop determines the padding and default width of the menu.
+   */
+  size?: MenuSize;
+}
 
 export interface DropdownMenuProps
   extends Pick<BoxProps, 'tx'>,
