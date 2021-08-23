@@ -140,6 +140,7 @@ export const DropdownMenu = ({
           initial="initial"
           animate="animate"
           exit="exit"
+          align="start"
           transition={{ type: 'spring', damping: 20, stiffness: 300 }}
           variants={isNull(animation) ? undefined : defaultMenuAnimation}
           sideOffset={offset}
