@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [12.26.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.25.0...@air/zephyr@12.26.0) (2021-08-21)
+
+### Bug Fixes
+
+- **@air/zephyr:** remove comment ([862fc76](https://github.com/AirLabsTeam/web-core/commit/862fc7687d08e867717cb8dee8cb42f9ee005605))
+
+### Features
+
+- **@air/zephyr:** remove css prop support ([424a23a](https://github.com/AirLabsTeam/web-core/commit/424a23aafd9d7adace86d1146bd87e1938fd75e4))
+
 # [12.25.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.24.0...@air/zephyr@12.25.0) (2021-08-17)
 
 ### Features

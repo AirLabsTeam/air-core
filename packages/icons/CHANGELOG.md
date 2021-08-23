@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.3.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@9.2.0...@air/icons@9.3.0) (2021-08-21)
+
+### Features
+
+- **@air/zephyr:** remove css prop support ([424a23a](https://github.com/AirLabsTeam/web-core/commit/424a23aafd9d7adace86d1146bd87e1938fd75e4))
+
 # [9.2.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@9.1.2...@air/icons@9.2.0) (2021-08-11)
 
 ### Features
