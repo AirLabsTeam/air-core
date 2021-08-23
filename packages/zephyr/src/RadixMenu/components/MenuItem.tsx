@@ -201,7 +201,6 @@ export const MenuItem = memo(
     );
 
     if (!!subOptions && subOptions.length) {
-      console.log('HAS SUB OPTIONS');
       return (
         <Box tx={menuItemStyle}>
           <Root>
