@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [12.27.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.26.1...@air/zephyr@12.27.0) (2021-08-23)
+
+### Features
+
+- **component:** adds a radix dropdown menu abstraction that supports sub-menus ([494de4a](https://github.com/AirLabsTeam/web-core/commit/494de4a77c43c91c739a368125df760da5919f2d))
+
 ## [12.26.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.26.0...@air/zephyr@12.26.1) (2021-08-23)
 
 ### Reverts
