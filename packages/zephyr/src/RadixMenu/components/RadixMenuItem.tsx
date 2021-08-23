@@ -51,7 +51,7 @@ export type RadixMenuItemProps = {
    * Event handler called when the user selects an item (via mouse of keyboard).
    * Calling event.preventDefault in this handler will prevent the dropdown menu from closing when selecting that item.
    */
-  onSelect?: (event: Event) => void;
+  onClick?: (event: Event) => void;
 
   /**
    * Prevents item selection.
@@ -74,7 +74,7 @@ export const RadixMenuItem = memo(
     rightAdornment,
     shortcut,
     size = 'small',
-    onSelect,
+    onClick,
     tx,
     disabled,
     subOptions,
@@ -230,7 +230,7 @@ export const RadixMenuItem = memo(
                 {subOptions.map((option, index) => (
                   <RadixMenuItem
                     data-testid={option.id}
-                    onSelect={(event: Event) => event.stopPropagation()}
+                    onClick={(event: Event) => event.stopPropagation()}
                     key={index}
                     size={size}
                     {...option}
@@ -246,7 +246,7 @@ export const RadixMenuItem = memo(
     return (
       <Box tx={menuItemStyle}>
         {hasDividerTop && <RadixMenuItemDivider isTop />}
-        <Item className="radix-menu-item" disabled={disabled} onSelect={onSelect}>
+        <Item className="radix-menu-item" disabled={disabled} onSelect={onClick}>
           {menuItemContent}
         </Item>
         {hasDividerBottom && <RadixMenuItemDivider />}

@@ -179,7 +179,7 @@ export const RadixDropdownMenu = memo(
                 return (
                   <RadixMenuItem
                     data-testid={option.id}
-                    onSelect={(event: Event) => event.stopPropagation()}
+                    onClick={(event: Event) => event.stopPropagation()}
                     key={index}
                     size={size}
                     {...option}
