@@ -13,11 +13,14 @@ import React from 'react';
 
 import { Box, BoxProps } from '../../../src/Box';
 import { Button } from '../../../src/Button';
-import { DropdownMenu, DropdownMenuProps } from '../../../src/RadixMenu/abstractions/DropdownMenu';
+import {
+  RadixDropdownMenu,
+  RadixDropdownMenuProps,
+} from '../../../src/RadixMenu/abstractions/RadixDropdownMenu';
 
-const meta: Meta<DropdownMenuProps> = {
+const meta: Meta<RadixDropdownMenuProps> = {
   title: 'Zephyr/Menus/Abstractions/RadixMenu',
-  component: DropdownMenu,
+  component: RadixDropdownMenu,
   parameters: {
     docs: {
       description: {
@@ -75,10 +78,10 @@ const Container = ({ children, ...restOfProps }: BoxProps) => {
   );
 };
 
-const Template: Story<DropdownMenuProps> = (args) => {
+const Template: Story<RadixDropdownMenuProps> = (args) => {
   return (
     <Container>
-      <DropdownMenu {...args} />
+      <RadixDropdownMenu {...args} />
     </Container>
   );
 };
