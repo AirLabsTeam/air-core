@@ -4,13 +4,13 @@ import { Item, Root, Content, TriggerItem } from '@radix-ui/react-dropdown-menu'
 import { ChevronRight } from '@air/icons';
 import { useTheme } from 'styled-components';
 
-import { Box, BoxProps } from '../../Box';
+import { Box } from '../../Box';
 import { Text } from '../../Text';
 import { MenuItemDescription } from '../../Menus/components/MenuItemDescription';
 import { MenuItemLabel } from '../../Menus/components/MenuItemLabel';
+import { MenuSize } from '../../Menus/components/Menu';
+import { TXProp } from '../../theme';
 import { RadixMenuItemDivider } from './RadixMenuItemDivider';
-
-export type MenuSize = 'small' | 'large';
 
 export type RadixMenuItemRenderProps =
   | { children: ReactNode }
@@ -61,7 +61,7 @@ export type RadixMenuItemProps = {
   /**
    * Allows the user to extend the items styles.
    */
-  tx?: BoxProps['tx'];
+  tx?: TXProp;
 
   subOptions?: (RadixMenuItemProps & RadixMenuItemRenderProps & { id?: string })[];
 } & RadixMenuItemRenderProps;

@@ -9,7 +9,9 @@ import { rgba } from 'polished';
 import { useTheme } from 'styled-components';
 
 import { Box, BoxProps } from '../../Box';
-import { RadixMenuItem, RadixMenuItemProps, MenuSize } from '../components/RadixMenuItem';
+import { RadixMenuItem, RadixMenuItemProps } from '../components/RadixMenuItem';
+import { MenuSize } from '../../Menus/components/Menu';
+import { TXProp } from '../../theme';
 
 export type RadixDropdownMenuOption = RadixMenuItemProps & {
   id?: string;
@@ -30,9 +32,8 @@ interface MenuProps extends Pick<BoxProps, 'children' | 'tx'> {
   size?: MenuSize;
 }
 
-export interface RadixDropdownMenuProps
-  extends Pick<BoxProps, 'tx'>,
-    Pick<MenuProps, 'animation' | 'size'> {
+export interface RadixDropdownMenuProps extends Pick<MenuProps, 'animation' | 'size'> {
+  tx?: TXProp;
   /**
    * Children for the dropdown menu that is rendered below the options.
    */
