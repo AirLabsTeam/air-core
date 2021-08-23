@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.26.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.26.0...@air/zephyr@12.26.1) (2021-08-23)
+
+### Reverts
+
+- **@air/zephyr:** revert colors update ([ec70cf7](https://github.com/AirLabsTeam/web-core/commit/ec70cf79b56ec57e187b0a46103e9ba68419605a))
+
 # [12.26.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.25.0...@air/zephyr@12.26.0) (2021-08-21)
 
 ### Bug Fixes
