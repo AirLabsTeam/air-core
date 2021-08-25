@@ -79,7 +79,7 @@ export const TypicalTransactionModal: Story<TransactionModalProps> = () => {
             primaryCTA={{
               children: `I'm sure!`,
               onClick: closeModal,
-              ['data-testid']: 'CUSTOM_PRIMARY_CTA_TEST_ID',
+              'data-testid': 'CUSTOM_PRIMARY_CTA_TEST_ID',
             }}
             secondaryCTA={{ children: 'Nevermind', onClick: closeModal }}
           />
