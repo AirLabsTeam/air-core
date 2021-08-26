@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [12.29.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.28.0...@air/zephyr@12.29.0) (2021-08-26)
+
+### Bug Fixes
+
+- **@air/zephyr:** fix color types ([8309fca](https://github.com/AirLabsTeam/web-core/commit/8309fcac8f6cdbbf0a8140b613dea1149d733699))
+
+### Features
+
+- **@air/zephyr:** update button colors ([ca16990](https://github.com/AirLabsTeam/web-core/commit/ca16990f70723367c2f0d452ba5a4ea3503ea2c2))
+
 # [12.28.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.27.2...@air/zephyr@12.28.0) (2021-08-26)
 
 ### Bug Fixes
