@@ -165,16 +165,21 @@ const integrations = {
 };
 
 const jays = {
-  jay050: '#deeefc',
-  jay100: '#bfdbf9',
-  jay200: '#9bc1ef',
-  jay300: '#7ea6e0',
-  jay400: '#4c85d8',
-  jay500: '#2954af',
-  jay600: '#1b3889',
-  jay700: '#142a72',
-  jay800: '#102261',
-  jay900: '#0b1953',
+  jay020: '#E7F1FF',
+  jay050: '#DDE9FF',
+  jay100: '#B4CFFF',
+  jay150: '#90B8FF',
+  jay200: '#6FA2FF',
+  jay250: '#448AFF',
+  jay300: '#2E77FF',
+  jay350: '#2160FF',
+  jay400: '#034BFF',
+  jay450: '#052DE1',
+  jay500: '#0018CC',
+  jay600: '#0204A4',
+  jay700: '#000177',
+  jay800: '#010256',
+  jay900: '#020039',
 };
 
 const accessibility = {
@@ -187,16 +192,16 @@ const lights = {
 
 const macaws = {
   macaw020: '#E7F1FF',
-  macaw040: '#DDE9FF',
-  macaw060: '#B4CFFF',
-  macaw080: '#90B8FF',
-  macaw100: '#6FA2FF',
-  macaw200: '#448AFF',
-  macaw300: '#2E77FF',
-  macaw350: '#2943FF',
-  macaw400: '#3000FF',
-  macaw500: '#2009D8',
-  macaw600: '#0F009E',
+  macaw040: '#D7E5FF',
+  macaw060: '#BFD1FF',
+  macaw080: '#91AEFF',
+  macaw100: '#667EFF',
+  macaw200: '#5466FF',
+  macaw300: '#4A51FF',
+  macaw350: '#4030FF',
+  macaw400: '#3820EA',
+  macaw500: '#280DBC',
+  macaw600: '#1C0694',
 };
 
 const parrots = {
