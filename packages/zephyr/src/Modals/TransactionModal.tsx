@@ -7,7 +7,7 @@ export const TRANSACTION_MODAL_PRIMARY_CTA = 'TRANSACTION_MODAL_PRIMARY_CTA';
 export const TRANSACTION_MODAL_SECONDARY_CTA = 'TRANSACTION_MODAL_SECONDARY_CTA';
 export const TRANSACTION_MODAL_TERTIARY_CTA = 'TRANSACTION_MODAL_TERTIARY_CTA';
 
-export type TransactionModalButton = Omit<ButtonProps, 'ref'>;
+export type TransactionModalButton = Omit<ButtonProps, 'ref'> & { ['data-testid']?: string };
 
 export interface TransactionModalProps
   extends Omit<ModalProps, 'leastDestructiveRef' | 'withCloseButton' | 'isAlertModal'> {

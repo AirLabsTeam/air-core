@@ -76,7 +76,11 @@ export const TypicalTransactionModal: Story<TransactionModalProps> = () => {
             onDismiss={closeModal}
             modalLabel="Are you sure?"
             modalDescription="This is a transaction! We want to confirm that you want to do this, before you do it."
-            primaryCTA={{ children: `I'm sure!`, onClick: closeModal }}
+            primaryCTA={{
+              children: `I'm sure!`,
+              onClick: closeModal,
+              'data-testid': 'CUSTOM_PRIMARY_CTA_TEST_ID',
+            }}
             secondaryCTA={{ children: 'Nevermind', onClick: closeModal }}
           />
         )}
