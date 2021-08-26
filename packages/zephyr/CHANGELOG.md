@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [12.28.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.27.2...@air/zephyr@12.28.0) (2021-08-26)
+
+### Bug Fixes
+
+- **@air/zephyr:** remove duplicate macaw colors ([1927c48](https://github.com/AirLabsTeam/web-core/commit/1927c48d64973243fdc8ecaad518da144fba8fee))
+
+### Features
+
+- **@air/zephyr:** re-add colors ([7d48d7c](https://github.com/AirLabsTeam/web-core/commit/7d48d7cc3de8075740acf62163fd34f37cc040ac))
+- adds optional testId as prop to the cta's on TransactionModal ([cbafdf2](https://github.com/AirLabsTeam/web-core/commit/cbafdf2c147279bf74c710aebde26a7439433700))
+- removes unnec brackets in Storybook example ([f597042](https://github.com/AirLabsTeam/web-core/commit/f5970424e5738606793d039c5f829b1db12798ae))
+
 ## [12.27.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.27.1...@air/zephyr@12.27.2) (2021-08-23)
 
 **Note:** Version bump only for package @air/zephyr
