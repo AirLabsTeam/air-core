@@ -1,4 +1,6 @@
+import { rgba } from 'polished';
 import { TXProp } from '..';
+import { colors } from '../colors';
 
 export type ButtonVariantName =
   | 'button-filled-blue'
@@ -61,14 +63,14 @@ const _button: { [key in ButtonVariantName]: TXProp } = {
     },
   },
   'button-ghost-blue': {
-    color: 'jay500',
+    color: 'jay600',
     '&:hover:not(:disabled)': {
-      backgroundColor: 'jay050',
-      color: 'jay700',
+      backgroundColor: rgba(colors.jay300, 0.15),
+      color: 'jay600',
     },
     '&:active': {
-      backgroundColor: 'jay100',
-      color: 'jay900',
+      backgroundColor: rgba(colors.jay300, 0.3),
+      color: 'jay600',
     },
     '&:disabled': {
       backgroundColor: 'transparent',
@@ -108,16 +110,16 @@ const _button: { [key in ButtonVariantName]: TXProp } = {
     backgroundColor: 'transparent',
     border: '1px solid',
     borderColor: 'jay200',
-    color: 'jay500',
+    color: 'jay600',
     '&:hover:not(:disabled)': {
-      backgroundColor: 'jay100',
+      backgroundColor: rgba(colors.jay300, 0.15),
       borderColor: 'transparent',
       color: 'jay600',
     },
     '&:active:not(.is-loading)': {
-      backgroundColor: 'jay200',
+      backgroundColor: rgba(colors.jay300, 0.3),
       borderColor: 'transparent',
-      color: 'jay700',
+      color: 'jay600',
     },
     '&:disabled:not(.is-loading)': {
       color: 'pigeon300',
