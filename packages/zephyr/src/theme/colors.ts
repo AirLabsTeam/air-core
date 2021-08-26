@@ -191,6 +191,7 @@ const lights = {
 };
 
 const macaws = {
+  macaw020: '#E7F1FF',
   macaw040: '#D7E5FF',
   macaw060: '#BFD1FF',
   macaw080: '#91AEFF',
@@ -201,16 +202,6 @@ const macaws = {
   macaw400: '#3820EA',
   macaw500: '#280DBC',
   macaw600: '#1C0694',
-  macaw040: '#DDE9FF',
-  macaw060: '#B4CFFF',
-  macaw080: '#90B8FF',
-  macaw100: '#6FA2FF',
-  macaw200: '#448AFF',
-  macaw300: '#2E77FF',
-  macaw350: '#2943FF',
-  macaw400: '#3000FF',
-  macaw500: '#2009D8',
-  macaw600: '#0F009E',
 };
 
 const parrots = {
