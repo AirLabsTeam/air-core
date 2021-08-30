@@ -139,6 +139,16 @@ export const TertiaryTransactionModal: Story<TransactionModalProps> = () => {
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
+  const defaultTertiaryCTA = {
+    children: 'Default CTA',
+    onClick: () => setIsChecked(true),
+    'data-testid': 'MY_CUSTOM_TERTIARY_TEST_ID',
+  };
+
+  const checkboxTertiaryCTA = (
+    <Checkbox label="Custom CTA Checkbox" checked={false} onChange={() => setIsChecked(false)} />
+  );
+
   return (
     <>
       <Button type="button" onClick={openModal} variant="button-filled-blue">
@@ -148,13 +158,7 @@ export const TertiaryTransactionModal: Story<TransactionModalProps> = () => {
       <AnimatePresence>
         {isModalOpen && (
           <TransactionModal
-            tertiaryCTA={
-              <Checkbox
-                label="Apply for all items"
-                checked={isChecked}
-                onChange={() => setIsChecked(!isChecked)}
-              />
-            }
+            tertiaryCTA={isChecked ? checkboxTertiaryCTA : defaultTertiaryCTA}
             onDismiss={closeModal}
             modalLabel="Uh oh! You have duplicates"
             modalDescription="3 out of 3 of the items you'd like to upload already exist. What would you like to do for item 1 of 3?"
