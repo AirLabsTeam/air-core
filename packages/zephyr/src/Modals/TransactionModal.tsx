@@ -29,8 +29,8 @@ export interface TransactionModalProps
   secondaryCTA?: TransactionModalButton | JSX.Element;
 
   /**
-   * This call-to-action (CTA) is optional and will appear in the bottom-left corner. If this CTA is not passed, nothing will be seen. You can pass any
-   * JSX.
+   * This call-to-action (CTA) is optional and will appear in the bottom-left corner. It renders a button ("button-ghost-destructive" variant)
+   * by default, but this can be overridden by passing JSX.
    */
   tertiaryCTA?: TransactionModalButton | JSX.Element;
 
