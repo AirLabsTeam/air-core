@@ -74,6 +74,16 @@ export const TransactionModal = ({
     secondaryCTA
   );
 
+  const tertiaryCTAElement = !tertiaryCTA ? null : isUsingButtonSchema(tertiaryCTA) ? (
+    <Button
+      variant="button-ghost-destructive"
+      data-testid={TRANSACTION_MODAL_TERTIARY_CTA}
+      {...tertiaryCTA}
+    />
+  ) : (
+    tertiaryCTA
+  );
+
   return (
     <Modal
       className={className}
@@ -103,7 +113,7 @@ export const TransactionModal = ({
               alignItems: 'center',
             }}
           >
-            {tertiaryCTA}
+            {tertiaryCTAElement}
           </Box>
         )}
         <Box tx={{ '& > *:first-child': { mr: 12 } }}>
