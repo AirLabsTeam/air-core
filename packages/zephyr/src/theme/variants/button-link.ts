@@ -4,14 +4,14 @@ export type ButtonLinkVariantName = 'button-link-blue' | 'button-link-grey';
 
 const _buttonLink: { [key in ButtonLinkVariantName]: TXProp } = {
   'button-link-blue': {
-    color: 'jay500',
+    color: 'jay600',
 
     '&:hover': {
-      color: 'jay500',
+      color: 'jay700',
     },
 
     '&:active': {
-      color: 'jay600',
+      color: 'jay800',
     },
 
     '&:disabled': {

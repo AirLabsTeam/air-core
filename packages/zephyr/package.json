@@ -1,6 +1,6 @@
 {
   "name": "@air/zephyr",
-  "version": "12.22.5",
+  "version": "12.30.2",
   "description": "Air's React component library",
   "keywords": [
     "react",
@@ -45,7 +45,7 @@
     "react": ">=16"
   },
   "devDependencies": {
-    "@air/icons": "^8.10.1",
+    "@air/icons": "^9.4.0",
     "@styled-system/css": "^5.1.5",
     "@types/classnames": "^2.2.11",
     "@types/react-select": "^3.0.27",
@@ -59,6 +59,7 @@
     "yup": "^0.32.9"
   },
   "dependencies": {
+    "@radix-ui/react-dropdown-menu": "^0.0.23",
     "@radix-ui/react-slot": "^0.0.4",
     "@radix-ui/react-tooltip": "^0.0.9",
     "@reach/alert-dialog": "^0.11.2",

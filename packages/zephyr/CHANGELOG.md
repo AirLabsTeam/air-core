@@ -3,6 +3,134 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.30.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.30.1...@air/zephyr@12.30.2) (2021-08-31)
+
+**Note:** Version bump only for package @air/zephyr
+
+## [12.30.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.30.0...@air/zephyr@12.30.1) (2021-08-31)
+
+**Note:** Version bump only for package @air/zephyr
+
+# [12.30.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.29.0...@air/zephyr@12.30.0) (2021-08-30)
+
+### Features
+
+- allow object syntax use with TertiaryCTAs ([9671d4b](https://github.com/AirLabsTeam/web-core/commit/9671d4b98d99b2e9c93b180e098d42329982a227))
+
+# [12.29.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.28.0...@air/zephyr@12.29.0) (2021-08-26)
+
+### Bug Fixes
+
+- **@air/zephyr:** fix color types ([8309fca](https://github.com/AirLabsTeam/web-core/commit/8309fcac8f6cdbbf0a8140b613dea1149d733699))
+
+### Features
+
+- **@air/zephyr:** update button colors ([ca16990](https://github.com/AirLabsTeam/web-core/commit/ca16990f70723367c2f0d452ba5a4ea3503ea2c2))
+
+# [12.28.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.27.2...@air/zephyr@12.28.0) (2021-08-26)
+
+### Bug Fixes
+
+- **@air/zephyr:** remove duplicate macaw colors ([1927c48](https://github.com/AirLabsTeam/web-core/commit/1927c48d64973243fdc8ecaad518da144fba8fee))
+
+### Features
+
+- **@air/zephyr:** re-add colors ([7d48d7c](https://github.com/AirLabsTeam/web-core/commit/7d48d7cc3de8075740acf62163fd34f37cc040ac))
+- adds optional testId as prop to the cta's on TransactionModal ([cbafdf2](https://github.com/AirLabsTeam/web-core/commit/cbafdf2c147279bf74c710aebde26a7439433700))
+- removes unnec brackets in Storybook example ([f597042](https://github.com/AirLabsTeam/web-core/commit/f5970424e5738606793d039c5f829b1db12798ae))
+
+## [12.27.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.27.1...@air/zephyr@12.27.2) (2021-08-23)
+
+**Note:** Version bump only for package @air/zephyr
+
+## [12.27.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.27.0...@air/zephyr@12.27.1) (2021-08-23)
+
+**Note:** Version bump only for package @air/zephyr
+
+# [12.27.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.26.1...@air/zephyr@12.27.0) (2021-08-23)
+
+### Features
+
+- **component:** adds a radix dropdown menu abstraction that supports sub-menus ([494de4a](https://github.com/AirLabsTeam/web-core/commit/494de4a77c43c91c739a368125df760da5919f2d))
+
+## [12.26.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.26.0...@air/zephyr@12.26.1) (2021-08-23)
+
+### Reverts
+
+- **@air/zephyr:** revert colors update ([ec70cf7](https://github.com/AirLabsTeam/web-core/commit/ec70cf79b56ec57e187b0a46103e9ba68419605a))
+
+# [12.26.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.25.0...@air/zephyr@12.26.0) (2021-08-21)
+
+### Bug Fixes
+
+- **@air/zephyr:** remove comment ([862fc76](https://github.com/AirLabsTeam/web-core/commit/862fc7687d08e867717cb8dee8cb42f9ee005605))
+
+### Features
+
+- **@air/zephyr:** remove css prop support ([424a23a](https://github.com/AirLabsTeam/web-core/commit/424a23aafd9d7adace86d1146bd87e1938fd75e4))
+
+# [12.25.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.24.0...@air/zephyr@12.25.0) (2021-08-17)
+
+### Features
+
+- add isPortal prop to DropdownMenu ([b344702](https://github.com/AirLabsTeam/web-core/commit/b3447023f888030b86fcc5e07c323283b9756386))
+- add isPortal prop to DropdownMenu ([22ef64d](https://github.com/AirLabsTeam/web-core/commit/22ef64d335bc75f6a6726a162d3317811abb2636))
+
+# [12.24.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.23.4...@air/zephyr@12.24.0) (2021-08-17)
+
+### Features
+
+- **@air/zephyr:** update colors ([0e5c1d9](https://github.com/AirLabsTeam/web-core/commit/0e5c1d924c3065ffec2fb20e3e0afbdb52258c2d))
+
+## [12.23.4](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.23.3...@air/zephyr@12.23.4) (2021-08-11)
+
+**Note:** Version bump only for package @air/zephyr
+
+## [12.23.3](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.23.2...@air/zephyr@12.23.3) (2021-08-09)
+
+### Bug Fixes
+
+- adds optional testId for options in singleSelect dropdown ([a9cbac9](https://github.com/AirLabsTeam/web-core/commit/a9cbac93d14b4089976cc8b44e60c3a769f1094c))
+- remove unnec brackets ([69e09c7](https://github.com/AirLabsTeam/web-core/commit/69e09c71907c46ebddce1ab06013b517d9f6769b))
+
+## [12.23.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.23.1...@air/zephyr@12.23.2) (2021-08-02)
+
+### Bug Fixes
+
+- s4 - SingleSelect cuts off g ([b478fc6](https://github.com/AirLabsTeam/web-core/commit/b478fc62e63e180a59c8e985b18e0733a12f5612))
+
+## [12.23.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.23.0...@air/zephyr@12.23.1) (2021-07-28)
+
+**Note:** Version bump only for package @air/zephyr
+
+# [12.23.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.22.10...@air/zephyr@12.23.0) (2021-07-28)
+
+### Features
+
+- **@air/zephyr:** update macaw colors ([018e818](https://github.com/AirLabsTeam/web-core/commit/018e818d9ae18eed04f92a3be81b58cc2f092fc1))
+
+## [12.22.10](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.22.9...@air/zephyr@12.22.10) (2021-07-27)
+
+### Bug Fixes
+
+- **@air/icons:** resolve type issues ([22f8b38](https://github.com/AirLabsTeam/web-core/commit/22f8b38a74cbcc0212cb9b5e8aa21e3aebc50252))
+
+## [12.22.9](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.22.8...@air/zephyr@12.22.9) (2021-07-26)
+
+**Note:** Version bump only for package @air/zephyr
+
+## [12.22.8](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.22.7...@air/zephyr@12.22.8) (2021-07-23)
+
+**Note:** Version bump only for package @air/zephyr
+
+## [12.22.7](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.22.6...@air/zephyr@12.22.7) (2021-07-23)
+
+**Note:** Version bump only for package @air/zephyr
+
+## [12.22.6](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.22.5...@air/zephyr@12.22.6) (2021-07-23)
+
+**Note:** Version bump only for package @air/zephyr
+
 ## [12.22.5](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.22.4...@air/zephyr@12.22.5) (2021-07-14)
 
 **Note:** Version bump only for package @air/zephyr

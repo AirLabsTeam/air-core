@@ -16,6 +16,7 @@ import { FieldVariantName, field } from '../../src/theme/variants/field';
 const variants = Object.keys(field) as FieldVariantName[];
 
 const options: SelectOption[] = [
+  { label: 'Big Fish', value: 'bgf' },
   { label: 'Red Fish', value: 'rf' },
   { label: 'Blue Fish', value: 'bf' },
   { label: 'Green Fish', value: 'gf' },
@@ -117,6 +118,7 @@ Default.args = {
   // name: 'default', purposefully not defined here (see story JSX)
   required: true,
   options,
+  isSearchable: false,
 };
 
 Default.parameters = {
@@ -194,9 +196,9 @@ export const ComplexAsync: Story<SingleSelectProps> = () => {
   const loadingText = 'Loading options...';
 
   const colors: SelectOption[] = [
-    { value: 'ocean', label: 'Ocean' },
-    { value: 'blue', label: 'Blue' },
-    { value: 'purple', label: 'Purple' },
+    { value: 'ocean', label: 'Ocean', 'data-testid': 'SELECT_OPTION_OCEAN' },
+    { value: 'blue', label: 'Blue', 'data-testid': 'SELECT_OPTION_BLUE' },
+    { value: 'purple', label: 'Purple', 'data-testid': 'SELECT_OPTION_PURPLE' },
   ];
 
   const filterColors = (inputValue: string) => {

@@ -3,6 +3,79 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.4.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@9.3.0...@air/icons@9.4.0) (2021-08-31)
+
+### Features
+
+- adds broken link icon ([0c4fca3](https://github.com/AirLabsTeam/web-core/commit/0c4fca3598b02065979fe773305232e89550b6ee))
+
+# [9.3.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@9.2.0...@air/icons@9.3.0) (2021-08-21)
+
+### Features
+
+- **@air/zephyr:** remove css prop support ([424a23a](https://github.com/AirLabsTeam/web-core/commit/424a23aafd9d7adace86d1146bd87e1938fd75e4))
+
+# [9.2.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@9.1.2...@air/icons@9.2.0) (2021-08-11)
+
+### Features
+
+- **loop.svg:** add loop icon svg ([11d672b](https://github.com/AirLabsTeam/web-core/commit/11d672b3d70269080c60a1bb8c6679ae3355db59))
+
+## [9.1.2](https://github.com/AirLabsTeam/web-core/compare/@air/icons@9.1.1...@air/icons@9.1.2) (2021-07-28)
+
+### Bug Fixes
+
+- arrow right pointed left ([feb750c](https://github.com/AirLabsTeam/web-core/commit/feb750c6b64936bc1672c55d42ca346b7c2741e7))
+
+## [9.1.1](https://github.com/AirLabsTeam/web-core/compare/@air/icons@9.1.0...@air/icons@9.1.1) (2021-07-27)
+
+### Bug Fixes
+
+- **@air/icons:** resolve type issues ([22f8b38](https://github.com/AirLabsTeam/web-core/commit/22f8b38a74cbcc0212cb9b5e8aa21e3aebc50252))
+- **@air/icons:** use forwardRef on icon exports ([3574766](https://github.com/AirLabsTeam/web-core/commit/35747668d4b56ae120532367f8509c36c260591f))
+
+# [9.1.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@9.0.2...@air/icons@9.1.0) (2021-07-26)
+
+### Bug Fixes
+
+- fix ds_store inclusion ([a149f54](https://github.com/AirLabsTeam/web-core/commit/a149f54e006bab3aa3a559b279c0d4241f9438c0))
+
+### Features
+
+- add kanban, triangle-in-circle, filtering ([eac0697](https://github.com/AirLabsTeam/web-core/commit/eac069764e8a86142cbe50903d9b0f3c7a2eafb8))
+
+## [9.0.2](https://github.com/AirLabsTeam/web-core/compare/@air/icons@9.0.1...@air/icons@9.0.2) (2021-07-23)
+
+### Bug Fixes
+
+- **@air/icons:** add in missing sorting icon ([bd50b4a](https://github.com/AirLabsTeam/web-core/commit/bd50b4a87de697b8382379dcddb4e8f1b86eb71a))
+
+## [9.0.1](https://github.com/AirLabsTeam/web-core/compare/@air/icons@9.0.0...@air/icons@9.0.1) (2021-07-23)
+
+### Bug Fixes
+
+- **@air/icons:** fix icons paths still having fill="#HEX" ([fc28d5c](https://github.com/AirLabsTeam/web-core/commit/fc28d5ce1c770a4b147e044dfa6c2c2e86c67820))
+- **@air/icons:** fix missing boards duplicate icons ([41bf96a](https://github.com/AirLabsTeam/web-core/commit/41bf96a3c78ea869b88fee2f409d962e230ed87e))
+- **@air/icons:** remove class and ids from icons ([3fa61a4](https://github.com/AirLabsTeam/web-core/commit/3fa61a4e476a6bc6e8eefd9cc2d44d219eaeae71))
+
+# [9.0.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@8.10.1...@air/icons@9.0.0) (2021-07-23)
+
+### Bug Fixes
+
+- **@air/zephyr:** remove duplicate icons and fix skip, boardsadd, volumelow ([dc7eab5](https://github.com/AirLabsTeam/web-core/commit/dc7eab5caf78a2402d5bb9e1d6645f53a82682df))
+
+### Features
+
+- **@air/icons:** update icons ([7b85265](https://github.com/AirLabsTeam/web-core/commit/7b85265395dbbeceb2e31b3d1e4db153ca2f4315))
+
+### BREAKING CHANGES
+
+- **@air/icons:** AddMember -> MemberAdd, AddToBoard -> BoardAdd, BoardsAdd -> BoardAdd,
+  BoardsDuplicate -> BoardDuplicate, BoardsRemove -> BoardRemove, BoardsGrid -> Grid, CircledInfo ->
+  Info, CircledMinus -> ZoomOut, CircledPlus -> ZoomIn, Delete -> Trash, ImportFrom -> Import,
+  LineGraph -> Lifeline, Nonprofit -> House, Padlock -> Lock, Skip -> Sorting, ToggleGrid -> Grid,
+  ToggleList -> List
+
 ## [8.10.1](https://github.com/AirLabsTeam/web-core/compare/@air/icons@8.10.0...@air/icons@8.10.1) (2021-07-14)
 
 **Note:** Version bump only for package @air/icons

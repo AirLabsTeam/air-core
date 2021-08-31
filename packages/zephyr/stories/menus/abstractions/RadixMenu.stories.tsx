@@ -13,16 +13,19 @@ import React from 'react';
 
 import { Box, BoxProps } from '../../../src/Box';
 import { Button } from '../../../src/Button';
-import { DropdownMenu, DropdownMenuProps } from '../../../src/Menus/abstractions/DropdownMenu';
+import {
+  RadixDropdownMenu,
+  RadixDropdownMenuProps,
+} from '../../../src/RadixMenu/abstractions/RadixDropdownMenu';
 
-const meta: Meta<DropdownMenuProps> = {
-  title: 'Zephyr/Menus/Abstractions/DropdownMenu',
-  component: DropdownMenu,
+const meta: Meta<RadixDropdownMenuProps> = {
+  title: 'Zephyr/Menus/Abstractions/RadixMenu',
+  component: RadixDropdownMenu,
   parameters: {
     docs: {
       description: {
         component:
-          'This is an abstraction of the Menu component that wraps around [@reach/menu-button](https://reach.tech/menu-button/).',
+          'This is an abstraction of the Menu component that wraps around [@radix-ui/react-dropdown-menu](https://www.radix-ui.com/docs/primitives/components/dropdown-menu).',
       },
       page: () => (
         <>
@@ -75,10 +78,10 @@ const Container = ({ children, ...restOfProps }: BoxProps) => {
   );
 };
 
-const Template: Story<DropdownMenuProps> = (args) => {
+const Template: Story<RadixDropdownMenuProps> = (args) => {
   return (
     <Container>
-      <DropdownMenu {...args} />
+      <RadixDropdownMenu {...args} />
     </Container>
   );
 };
@@ -278,6 +281,52 @@ withChangeEvent.parameters = {
   docs: {
     description: {
       story: 'The `onChange` prop returns the state of the menu everytime it is opened and closed.',
+    },
+  },
+};
+
+export const withSubOptions = Template.bind({});
+
+withSubOptions.args = {
+  options: [
+    {
+      label: 'More options',
+      subOptions: [
+        {
+          leftAdornment: <Box as={LinkIcon} tx={{ display: 'block', width: 16 }} />,
+          label: 'Share a link',
+          description: 'Generate a share link for public or private use',
+          onSelect: () => {},
+        },
+        {
+          leftAdornment: <Box as={AddMemberIcon} tx={{ display: 'block', width: 16 }} />,
+          label: 'Add members',
+          description: 'Invite members or guests to collaborate on this board',
+          hasDividerBottom: true,
+          onSelect: () => {},
+        },
+      ],
+    },
+    {
+      description: 'Noooooooooooooooooo, please don’t delete me 😢',
+      leftAdornment: (
+        <Box as={LinkIcon} tx={{ display: 'block', width: 16, color: 'flamingo500' }} />
+      ),
+      label: 'Delete',
+      onSelect: () => window.alert('You actually tried to....'),
+      tx: {
+        color: 'flamingo800',
+      },
+    },
+  ],
+  trigger: <Button variant="button-filled-blue">Options</Button>,
+};
+
+withSubOptions.parameters = {
+  docs: {
+    description: {
+      story:
+        'The `subOptions` prop inside `DropdownMenuItem` will cause a sub-menu to render when the item is hovered.',
     },
   },
 };

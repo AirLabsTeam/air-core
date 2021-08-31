@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { memo } from 'react';
+
 import { Text, TextProps } from '../../Text';
 
-export const MenuItemLabel = ({ tx, ...rest }: TextProps) => (
+export const MenuItemLabel = memo(({ tx, ...rest }: TextProps) => (
   <Text
     tx={{
       color: 'inherit',
@@ -13,4 +14,6 @@ export const MenuItemLabel = ({ tx, ...rest }: TextProps) => (
     variant="text-ui-16"
     {...rest}
   />
-);
+));
+
+MenuItemLabel.displayName = 'MenuItemLabel';
