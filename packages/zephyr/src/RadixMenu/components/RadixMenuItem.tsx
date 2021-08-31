@@ -93,7 +93,6 @@ export const RadixMenuItem = memo(
           justifyContent: 'space-between',
           backgroundColor: 'transparent',
           height: hasDescription ? 'auto' : isSmallSize ? 32 : 36,
-          mb: hasDividerBottom ? 0 : 8,
           px: 6,
           py: hasDescription ? 6 : 0,
           border: 0,
@@ -107,10 +106,10 @@ export const RadixMenuItem = memo(
           '&:hover': { backgroundColor: 'pigeon050' },
 
           '&:focus': { outline: 'none', backgroundColor: 'pigeon050' },
-
-          '&:last-child': { mb: 0 },
           ...tx,
         },
+        mb: hasDividerBottom ? 0 : 8,
+        '&:last-child': { mb: 0 },
       }),
       [hasDescription, hasDividerBottom, isSmallSize, tx],
     );
@@ -221,8 +220,8 @@ export const RadixMenuItem = memo(
                   outline: 'none',
                   borderRadius: 4,
                   boxShadow: `
-                    0px 2px 8px ${rgba(theme.colors.black, 0.2)}, 
-                    0px 1px 3px ${rgba(theme.colors.black, 0.15)}, 
+                    0px 2px 8px ${rgba(theme.colors.black, 0.2)},
+                    0px 1px 3px ${rgba(theme.colors.black, 0.15)},
                     0px 0px 2px ${rgba(theme.colors.black, 0.25)}
                   `,
                 }}
