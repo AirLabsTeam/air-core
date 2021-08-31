@@ -158,6 +158,13 @@ export interface InputProps {
   variant?: FieldVariantName | FieldVariantName[];
   className?: string;
   id?: string;
+  /**
+   * This prop can be used to pass custom styles to specific portions of the input You can pass styles
+   * to the tx prop as normal, and the styles will be applied to the div containing the entire input. However if you’d like
+   * to style a specific portion, there are 2 optional properties that you may use to style that section of the Input. You should use`InnerInput` for
+   * specific styles to be placed on the div that immediately wraps the Input, and the `InnerInput` for the styles
+   * to be applied directly to the Input.
+   */
   tx?: TXProp & {
     InnerInput?: TXProp;
     InnerInputContainer?: TXProp;
