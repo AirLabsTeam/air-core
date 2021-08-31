@@ -20,6 +20,7 @@ import _BoardsList from './svgs/uncategorized/Boards-List.svg';
 import _Boards from './svgs/uncategorized/Boards.svg';
 import _Bookmark from './svgs/uncategorized/Bookmark.svg';
 import _BoxLogo from './svgs/uncategorized/BoxLogo.svg';
+import _BrokenLink from './svgs/uncategorized/Broken-Link.svg';
 import _CameraFilled from './svgs/uncategorized/Camera-Filled.svg';
 import _Camera from './svgs/uncategorized/Camera.svg';
 import _Cart from './svgs/uncategorized/Cart.svg';
@@ -192,6 +193,7 @@ export const BoardsList = React.forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGEl
 export const Boards = React.forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>>((props, ref) => <_Boards {...props} ref={ref} />); Boards.displayName = 'Boards';
 export const Bookmark = React.forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>>((props, ref) => <_Bookmark {...props} ref={ref} />); Bookmark.displayName = 'Bookmark';
 export const BoxLogo = React.forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>>((props, ref) => <_BoxLogo {...props} ref={ref} />); BoxLogo.displayName = 'BoxLogo';
+export const BrokenLink = React.forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>>((props, ref) => <_BrokenLink {...props} ref={ref} />); BrokenLink.displayName = 'BrokenLink';
 export const CameraFilled = React.forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>>((props, ref) => <_CameraFilled {...props} ref={ref} />); CameraFilled.displayName = 'CameraFilled';
 export const Camera = React.forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>>((props, ref) => <_Camera {...props} ref={ref} />); Camera.displayName = 'Camera';
 export const Cart = React.forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>>((props, ref) => <_Cart {...props} ref={ref} />); Cart.displayName = 'Cart';
