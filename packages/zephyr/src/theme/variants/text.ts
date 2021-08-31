@@ -26,7 +26,9 @@ export type TextVariantName =
   | 'text-ui-12'
   | 'text-ui-12-uppercase'
   | 'text-ui-10'
-  | 'text-ui-10-uppercase';
+  | 'text-ui-10-uppercase'
+  | 'text-ui-8'
+  | 'text-ui-8-uppercase';
 
 const _text: { [key in TextVariantName]: TXProp } = {
   'text-heading-80': {
@@ -247,6 +249,22 @@ const _text: { [key in TextVariantName]: TXProp } = {
     fontSize: 10,
     letterSpacing: '0.04em',
     lineHeight: '12px',
+    textTransform: 'uppercase',
+  },
+  'text-ui-8': {
+    fontFamily: 'copy',
+    fontFeatureSettings: 'normal',
+    fontSize: 8,
+    letterSpacing: '0.01em',
+    lineHeight: '10px',
+    textTransform: 'none',
+  },
+  'text-ui-8-uppercase': {
+    fontFamily: 'copy',
+    fontFeatureSettings: `'pnum' on, 'lnum' on, 'ss01' on`,
+    fontSize: 8,
+    letterSpacing: '0.04em',
+    lineHeight: '10px',
     textTransform: 'uppercase',
   },
 };

@@ -124,6 +124,8 @@ export const UI: Story<TextProps> = (args) => {
       <PreviewRow {...args} variant="text-ui-12-uppercase" />
       <PreviewRow {...args} variant="text-ui-10" />
       <PreviewRow {...args} variant="text-ui-10-uppercase" />
+      <PreviewRow {...args} variant="text-ui-8" />
+      <PreviewRow {...args} variant="text-ui-8-uppercase" />
     </>
   );
 };
