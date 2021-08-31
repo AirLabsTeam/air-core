@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [12.31.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.30.2...@air/zephyr@12.31.0) (2021-08-31)
+
+### Bug Fixes
+
+- fix spacing in Radix Menu ([ec3e454](https://github.com/AirLabsTeam/web-core/commit/ec3e45404740c978abf981cf81b39df59322f3ee))
+
+### Features
+
+- **text:** add font size 8 ([82775b9](https://github.com/AirLabsTeam/web-core/commit/82775b9aa6e22625308b6fb5dea4ecfba4cbab9f))
+
 ## [12.30.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.30.1...@air/zephyr@12.30.2) (2021-08-31)
 
 **Note:** Version bump only for package @air/zephyr

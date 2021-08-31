@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.5.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@9.4.0...@air/icons@9.5.0) (2021-08-31)
+
+### Bug Fixes
+
+- **@air/icons:** add in icon path data ([8ccd294](https://github.com/AirLabsTeam/web-core/commit/8ccd294fbe5586199c510df24c5bb832e9689936))
+
+### Features
+
+- **@air/icons:** add in sales, support and marker icons ([8bcb75d](https://github.com/AirLabsTeam/web-core/commit/8bcb75d81592236065046746be146fb6909a7b18))
+
 # [9.4.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@9.3.0...@air/icons@9.4.0) (2021-08-31)
 
 ### Features
