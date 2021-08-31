@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.4.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@9.3.0...@air/icons@9.4.0) (2021-08-31)
+
+### Features
+
+- adds broken link icon ([0c4fca3](https://github.com/AirLabsTeam/web-core/commit/0c4fca3598b02065979fe773305232e89550b6ee))
+
 # [9.3.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@9.2.0...@air/icons@9.3.0) (2021-08-21)
 
 ### Features
