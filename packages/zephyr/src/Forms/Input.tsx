@@ -6,11 +6,11 @@ import { useTheme } from 'styled-components';
 import { LeftRight } from '../shared';
 import { Box, BoxStylingProps } from '../Box';
 import { Text } from '../Text';
-import { FieldVariantName } from '../theme';
+import { FieldVariantName, TXProp } from '../theme';
 import { Label } from './Label';
 import { Error } from './Error';
 
-export interface InputProps extends Pick<BoxStylingProps, 'tx'> {
+export interface InputProps {
   /**
    * Autocomplete helps to fill an input with device-remembered values. See MDN's documentation on the [attribute and
    * its values](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete#Values).
@@ -158,6 +158,10 @@ export interface InputProps extends Pick<BoxStylingProps, 'tx'> {
   variant?: FieldVariantName | FieldVariantName[];
   className?: string;
   id?: string;
+  tx?: TXProp & {
+    InnerInput?: TXProp;
+    InnerInputContainer?: TXProp;
+  };
   disabled?: boolean;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   readOnly?: boolean;
@@ -185,7 +189,7 @@ export const Input = ({
   placeholder,
   readOnly = false,
   required,
-  tx,
+  tx = {},
   type = 'text',
   variant = 'field-input-smol',
   ...restOfProps
@@ -197,6 +201,12 @@ export const Input = ({
   const descriptionIdentifier = `${inputIdentifier}_description`;
   const hasError = meta.touched && !!meta.error;
   const isChonky = variant === 'field-input-chonky';
+
+  const {
+    InnerInput: inputStyles,
+    InnerInputContainer: inputContainerStyles,
+    ...outerContainerStyles
+  } = tx;
 
   const testID = React.useMemo(() => {
     const prefix = `input_${name}`;
@@ -252,7 +262,7 @@ export const Input = ({
         justifyContent: 'center',
         minWidth: '256px',
         position: 'relative',
-        ...tx,
+        ...outerContainerStyles,
       }}
       data-testid={topLevelTestID}
     >
@@ -265,7 +275,7 @@ export const Input = ({
         {label}
       </Label>
 
-      <Box tx={{ position: 'relative', width: '100%' }}>
+      <Box tx={{ position: 'relative', width: '100%', ...inputContainerStyles }}>
         {adornment?.location === 'left' && (
           <Box
             tx={{
@@ -316,6 +326,7 @@ export const Input = ({
               adornment?.location === 'right'
                 ? adornmentSideBuffer['paddingRight']
                 : nonAdornmentSideBuffer['paddingRight'],
+            ...inputStyles,
           }}
           type={type}
           variant={variant}

@@ -249,6 +249,40 @@ export const WithPlaceholder: Story<InputProps> = () => (
 
 WithPlaceholder.decorators = [FormikDecorator];
 
+export const WithCustomStyles: Story<InputProps> = () => (
+  <>
+    {variants.map((variant) => {
+      const isChonky = variant === 'field-input-chonky';
+
+      return (
+        <Input
+          label={`Placeholder ${isChonky ? '(Chonky)' : '(Smol)'}`}
+          placeholder="This is a placeholder for an input with custom styles..."
+          name={`nonRequired${isChonky ? 2 : ''}`}
+          required={false}
+          variant={variant}
+          key={variant}
+          tx={{
+            borderColor: 'red',
+            InnerInputContainer: {
+              width: '432px',
+            },
+            InnerInput: {
+              color: 'pigeon600',
+              backgroundColor: 'parrot025',
+              '::placeholder': {
+                color: 'pigeon600',
+              },
+            },
+          }}
+        />
+      );
+    })}
+  </>
+);
+
+WithCustomStyles.decorators = [FormikDecorator];
+
 const longString = 'This is input is totally fullllllllllllllllllllllllllllllll';
 
 export const FilledInputs: Story<InputProps> = () => {
