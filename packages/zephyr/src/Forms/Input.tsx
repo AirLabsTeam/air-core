@@ -170,11 +170,11 @@ export interface InputProps {
     InnerInputContainer?: TXProp;
   };
   /**
-   * This is a formik based component. As a result, this input has access to it's specific error message. By default, this value is set to true and any
+   * This is a formik based component. As a result, this input has access to its specific error message. By default, this value is set to false and any
    * errors incurred by this component will display below the input field. If you'd like to use alternative tools to handle displaying your errors (i.e. Formik's `<ErrorMessage>`
    * component), then you should set this prop to false to prevent duplicate, or ill-formatted error messages.
    */
-  displayFormikError?: boolean;
+  isErrorHidden?: boolean;
   disabled?: boolean;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   readOnly?: boolean;
@@ -202,7 +202,7 @@ export const Input = ({
   placeholder,
   readOnly = false,
   required,
-  displayFormikError = true,
+  isErrorHidden = false,
   tx = {},
   type = 'text',
   variant = 'field-input-smol',
@@ -394,7 +394,7 @@ export const Input = ({
         )}
       </Text>
 
-      {displayFormikError && (
+      {!isErrorHidden && (
         <Error
           errorText={meta.error}
           isErrorVisible={hasError}
