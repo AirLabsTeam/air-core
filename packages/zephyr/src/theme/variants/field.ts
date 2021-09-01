@@ -47,7 +47,7 @@ export const variantStyles = {
     height: 48,
   },
   smol: {
-    fontSize: 14,
+    fontSize: 16,
     height: 40,
   },
 };
