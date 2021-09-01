@@ -263,7 +263,6 @@ export const WithCustomStyles: Story<InputProps> = () => (
           variant={variant}
           key={variant}
           tx={{
-            borderColor: 'red',
             InnerInputContainer: {
               width: '432px',
             },
