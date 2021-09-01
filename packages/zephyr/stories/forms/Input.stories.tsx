@@ -257,20 +257,23 @@ export const WithCustomStyles: Story<InputProps> = () => (
       return (
         <Input
           label={`Placeholder ${isChonky ? '(Chonky)' : '(Smol)'}`}
-          placeholder="This is a placeholder for an input with custom styles..."
+          placeholder="Click or hover over this placeholder to interact"
           name={`nonRequired${isChonky ? 2 : ''}`}
           required={false}
           variant={variant}
           key={variant}
           tx={{
-            InnerInputContainer: {
-              width: '432px',
-            },
             InnerInput: {
-              color: 'pigeon600',
-              backgroundColor: 'parrot025',
-              '::placeholder': {
-                color: 'pigeon600',
+              width: '380px',
+              border: 'none',
+              px: isChonky ? 10 : 8,
+              '&:hover': {
+                backgroundColor: 'pigeon050',
+                cursor: 'pointer',
+              },
+              '&:focus': {
+                backgroundColor: 'white',
+                boxShadow: '#5466ff 0 0 0 2px !important',
               },
             },
           }}
