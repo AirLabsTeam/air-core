@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.32.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.32.0...@air/zephyr@12.32.1) (2021-09-01)
+
+### Bug Fixes
+
+- prevent RadixDropdownMenu component from injecting aria-hidden to all root nodes ([8b14937](https://github.com/AirLabsTeam/web-core/commit/8b14937522146f1e6b35936a42068b868836854a))
+
 # [12.32.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.31.1...@air/zephyr@12.32.0) (2021-09-01)
 
 ### Features
