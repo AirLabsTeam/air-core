@@ -120,7 +120,7 @@ export const RadixDropdownMenu = memo(
     );
 
     return (
-      <Root onOpenChange={handleChange}>
+      <Root onOpenChange={handleChange} modal={false}>
         {/* This overlay is conditional rendered based on if `hasOverlay` prop is passed and it'll apply a transparent div over the entire screen to prevent the user from being able to right click on anything else while the menu is opened. */}
         {hasOverlay && (
           <Box
