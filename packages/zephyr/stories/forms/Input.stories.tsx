@@ -264,16 +264,15 @@ export const WithCustomStyles: Story<InputProps> = () => (
           key={variant}
           tx={{
             InnerInput: {
-              width: '256px',
-              border: 'none',
+              borderColor: 'transparent',
               px: isChonky ? 10 : 8,
-              '&:hover': {
+              '&:hover:not(:focus)': {
                 backgroundColor: 'pigeon050',
                 cursor: 'pointer',
+                borderColor: 'transparent !important',
               },
               '&:focus': {
                 backgroundColor: 'white',
-                boxShadow: '#5466ff 0 0 0 2px !important',
               },
             },
           }}
