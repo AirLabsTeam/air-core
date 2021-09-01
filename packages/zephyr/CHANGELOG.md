@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [12.32.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.31.1...@air/zephyr@12.32.0) (2021-09-01)
+
+### Features
+
+- updates fontSize on smol inputs to match web components figma ([06d6246](https://github.com/AirLabsTeam/web-core/commit/06d624626cbea2f9dec9f0cd2e10b2f9ae13123a))
+
 ## [12.31.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.31.0...@air/zephyr@12.31.1) (2021-09-01)
 
 **Note:** Version bump only for package @air/zephyr
