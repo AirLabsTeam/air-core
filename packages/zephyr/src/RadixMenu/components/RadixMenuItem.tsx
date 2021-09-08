@@ -4,19 +4,19 @@ import { Item, Root, Content, TriggerItem } from '@radix-ui/react-dropdown-menu'
 import { ChevronRight } from '@air/icons';
 import { useTheme } from 'styled-components';
 
-import { Box } from '../../Box';
+import { Box, BoxProps } from '../../Box';
 import { Text } from '../../Text';
 import { MenuItemDescription } from '../../Menus/components/MenuItemDescription';
 import { MenuItemLabel } from '../../Menus/components/MenuItemLabel';
 import { MenuSize } from '../../Menus/components/Menu';
-import { TXProp } from '../../theme';
+import { MenuVariantName } from '../../theme/variants/menus';
 import { RadixMenuItemDivider } from './RadixMenuItemDivider';
 
 export type RadixMenuItemRenderProps =
   | { children: ReactNode }
   | { label: ReactNode; description?: ReactNode };
 
-export type RadixMenuItemProps = {
+export type RadixMenuItemProps = Pick<BoxProps, 'tx' | 'id' | 'onClick'> & {
   /**
    * Renders `<MenuDivider />` below the menu item.
    */
@@ -52,6 +52,7 @@ export type RadixMenuItemProps = {
    * Calling event.preventDefault in this handler will prevent the dropdown menu from closing when selecting that item.
    */
   onClick?: (event: Event) => void;
+  onSelect?: () => void;
 
   /**
    * Prevents item selection.
@@ -59,9 +60,11 @@ export type RadixMenuItemProps = {
   disabled?: boolean;
 
   /**
-   * Allows the user to extend the items styles.
+   * Defaults to value of `id`
    */
-  tx?: TXProp;
+  ['data-testid']?: string;
+
+  variant?: MenuVariantName;
 
   subOptions?: (RadixMenuItemProps & RadixMenuItemRenderProps & { id?: string })[];
 } & RadixMenuItemRenderProps;
@@ -75,9 +78,11 @@ export const RadixMenuItem = memo(
     shortcut,
     size = 'small',
     onClick,
+    onSelect,
     tx,
     disabled,
     subOptions,
+    variant,
     ...renderProps
   }: RadixMenuItemProps) => {
     const hasDescription = 'description' in renderProps;
@@ -97,21 +102,30 @@ export const RadixMenuItem = memo(
           py: hasDescription ? 6 : 0,
           border: 0,
           borderRadius: 4,
-          color: 'pigeon700',
+          color: variant === 'dark' ? 'pigeon100' : 'pigeon700',
           textAlign: 'left',
           cursor: 'pointer',
 
-          '&[data-selected]': { backgroundColor: 'pigeon050', color: 'pigeon700' },
+          '&[data-selected], &:active': {
+            backgroundColor: variant === 'dark' ? 'pigeon800' : 'pigeon050',
+            color: variant === 'dark' ? 'pigeon100' : 'pigeon700',
+          },
 
-          '&:hover': { backgroundColor: 'pigeon050' },
+          '&:hover': {
+            backgroundColor: variant === 'dark' ? 'pigeon800' : 'pigeon050',
+            color: variant === 'dark' ? 'white' : undefined,
+          },
 
-          '&:focus': { outline: 'none', backgroundColor: 'pigeon050' },
+          '&:focus': {
+            outline: 'none',
+            backgroundColor: variant === 'dark' ? 'pigeon700' : 'pigeon050',
+          },
           ...tx,
         },
         mb: hasDividerBottom ? 0 : 8,
         '&:last-child': { mb: 0 },
       }),
-      [hasDescription, hasDividerBottom, isSmallSize, tx],
+      [hasDescription, hasDividerBottom, isSmallSize, tx, variant],
     );
 
     const menuItemContent = useMemo(
@@ -131,7 +145,10 @@ export const RadixMenuItem = memo(
                 <MenuItemLabel variant={isSmallSize ? 'text-ui-14' : 'text-ui-16'}>
                   {renderProps.label}
                 </MenuItemLabel>
-                <MenuItemDescription variant={isSmallSize ? 'text-ui-12' : 'text-ui-14'}>
+                <MenuItemDescription
+                  variant={isSmallSize ? 'text-ui-12' : 'text-ui-14'}
+                  tx={variant === 'dark' ? { color: 'pigeon100' } : undefined}
+                >
                   {renderProps.description}
                 </MenuItemDescription>
               </Box>
@@ -195,6 +212,7 @@ export const RadixMenuItem = memo(
         numberOfShortcutKeys,
         renderProps,
         rightAdornment,
+        variant,
         shortcut,
       ],
     );
@@ -214,7 +232,7 @@ export const RadixMenuItem = memo(
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'stretch',
-                  backgroundColor: 'white',
+                  backgroundColor: variant === 'dark' ? 'black' : 'white',
                   width: size === 'small' ? 216 : 240,
                   p: size === 'small' ? 6 : 8,
                   outline: 'none',
@@ -229,9 +247,10 @@ export const RadixMenuItem = memo(
                 {subOptions.map((option, index) => (
                   <RadixMenuItem
                     data-testid={option.id}
-                    onClick={(event: Event) => event.stopPropagation()}
+                    onClick={(event) => event.stopPropagation()}
                     key={index}
                     size={size}
+                    variant={variant}
                     {...option}
                   />
                 ))}
@@ -243,12 +262,12 @@ export const RadixMenuItem = memo(
     }
 
     return (
-      <Box tx={menuItemStyle}>
-        {hasDividerTop && <RadixMenuItemDivider isTop />}
-        <Item className="radix-menu-item" disabled={disabled} onSelect={onClick}>
+      <Box tx={menuItemStyle} {...renderProps}>
+        {hasDividerTop && <RadixMenuItemDivider variant={variant} isTop />}
+        <Item className="radix-menu-item" disabled={disabled} onSelect={onClick ?? onSelect}>
           {menuItemContent}
         </Item>
-        {hasDividerBottom && <RadixMenuItemDivider />}
+        {hasDividerBottom && <RadixMenuItemDivider variant={variant} />}
       </Box>
     );
   },

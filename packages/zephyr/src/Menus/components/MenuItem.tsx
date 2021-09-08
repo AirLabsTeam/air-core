@@ -38,6 +38,11 @@ export type MenuItemProps = Pick<BoxProps, 'onClick' | 'tx'> & {
   shortcut?: string[];
 
   /**
+   * Defaults to value of `id`
+   */
+  ['data-testid']?: string;
+
+  /**
    * The `size` prop determines the height of the menu item and the spacing of the adornments.
    */
   size?: MenuSize;
