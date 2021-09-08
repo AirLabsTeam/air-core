@@ -111,7 +111,10 @@ export const RadixMenuItem = memo(
             color: variant === 'dark' ? 'pigeon100' : 'pigeon700',
           },
 
-          '&:hover': { backgroundColor: variant === 'dark' ? 'pigeon700' : 'pigeon050' },
+          '&:hover': {
+            backgroundColor: variant === 'dark' ? 'pigeon800' : 'pigeon050',
+            color: variant === 'dark' ? 'white' : undefined,
+          },
 
           '&:focus': {
             outline: 'none',
@@ -144,7 +147,7 @@ export const RadixMenuItem = memo(
                 </MenuItemLabel>
                 <MenuItemDescription
                   variant={isSmallSize ? 'text-ui-12' : 'text-ui-14'}
-                  tx={variant === 'dark' ? { color: 'pigeon400' } : undefined}
+                  tx={variant === 'dark' ? { color: 'pigeon100' } : undefined}
                 >
                   {renderProps.description}
                 </MenuItemDescription>
