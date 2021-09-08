@@ -102,7 +102,7 @@ export const RadixMenuItem = memo(
           py: hasDescription ? 6 : 0,
           border: 0,
           borderRadius: 4,
-          color: variant === 'dark' ? 'pigeon200' : 'pigeon700',
+          color: variant === 'dark' ? 'pigeon100' : 'pigeon700',
           textAlign: 'left',
           cursor: 'pointer',
 
