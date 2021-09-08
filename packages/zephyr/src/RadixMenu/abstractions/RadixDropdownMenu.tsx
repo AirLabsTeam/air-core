@@ -12,6 +12,7 @@ import { Box, BoxProps } from '../../Box';
 import { RadixMenuItem, RadixMenuItemProps } from '../components/RadixMenuItem';
 import { MenuSize } from '../../Menus/components/Menu';
 import { TXProp } from '../../theme';
+import { MenuVariantName } from '../../theme/variants/menus';
 
 export type RadixDropdownMenuOption = RadixMenuItemProps & {
   id?: string;
@@ -71,6 +72,8 @@ export interface RadixDropdownMenuProps extends Pick<MenuProps, 'animation' | 's
    * The trigger that will open the menu.
    */
   trigger: ReactNode;
+
+  variant?: MenuVariantName;
 }
 
 export const RadixDropdownMenu = memo(
@@ -83,6 +86,7 @@ export const RadixDropdownMenu = memo(
     options,
     onChange = noop,
     size = 'small',
+    variant = 'bright',
     ['data-testid']: testId,
     trigger,
     tx,
@@ -153,7 +157,7 @@ export const RadixDropdownMenu = memo(
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'stretch',
-                backgroundColor: 'white',
+                backgroundColor: variant === 'dark' ? 'black' : 'white',
                 width: size === 'small' ? 216 : 240,
                 p: size === 'small' ? 6 : 8,
                 outline: 'none',
@@ -180,7 +184,8 @@ export const RadixDropdownMenu = memo(
                 return (
                   <RadixMenuItem
                     data-testid={option.id}
-                    onClick={(event: Event) => event.stopPropagation()}
+                    onClick={(event) => event.stopPropagation()}
+                    variant={variant}
                     key={index}
                     size={size}
                     {...option}

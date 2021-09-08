@@ -94,6 +94,8 @@ Default.args = {
       leftAdornment: <Box as={LinkIcon} tx={{ display: 'block', width: 16 }} />,
       label: 'Share a link',
       description: 'Generate a share link for public or private use',
+      id: 'share-link',
+
       onSelect: () => {},
     },
     {
@@ -285,11 +287,53 @@ withChangeEvent.parameters = {
   },
 };
 
+export const withDarkMode = Template.bind({});
+
+withDarkMode.args = {
+  options: [
+    {
+      leftAdornment: (
+        <Box as={LinkIcon} tx={{ display: 'block', width: 16, color: 'flamingo500' }} />
+      ),
+      label: 'More options',
+      subOptions: [
+        {
+          leftAdornment: <Box as={LinkIcon} tx={{ display: 'block', width: 16 }} />,
+          label: 'Share a link',
+          description: 'Generate a share link for public or private use',
+          onSelect: () => {},
+        },
+        {
+          leftAdornment: <Box as={AddMemberIcon} tx={{ display: 'block', width: 16 }} />,
+          label: 'Add members',
+          description: 'Invite members or guests to collaborate on this board',
+          hasDividerTop: true,
+          onSelect: () => {},
+        },
+      ],
+    },
+  ],
+  variant: 'dark',
+  trigger: <Button variant="button-filled-blue">Options</Button>,
+};
+
+withDarkMode.parameters = {
+  docs: {
+    description: {
+      story:
+        'The `subOptions` prop inside `DropdownMenuItem` will cause a sub-menu to render when the item is hovered.',
+    },
+  },
+};
+
 export const withSubOptions = Template.bind({});
 
 withSubOptions.args = {
   options: [
     {
+      leftAdornment: (
+        <Box as={LinkIcon} tx={{ display: 'block', width: 16, color: 'flamingo500' }} />
+      ),
       label: 'More options',
       subOptions: [
         {
