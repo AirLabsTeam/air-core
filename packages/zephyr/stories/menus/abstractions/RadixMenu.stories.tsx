@@ -320,8 +320,7 @@ withDarkMode.args = {
 withDarkMode.parameters = {
   docs: {
     description: {
-      story:
-        'The `subOptions` prop inside `DropdownMenuItem` will cause a sub-menu to render when the item is hovered.',
+      story: 'The `variant` prop inside `RadixMenu` will have a dark theme if the value is `dark`.',
     },
   },
 };
