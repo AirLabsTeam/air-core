@@ -92,6 +92,12 @@ export const RadixMenuItem = memo(
 
     const menuItemStyle = useMemo(
       () => ({
+        mb: hasDividerBottom ? 0 : 8,
+
+        '&:last-child': {
+          mb: 0,
+        },
+
         ['.radix-menu-item']: {
           display: 'flex',
           alignItems: hasDescription ? 'flex-start' : 'center',
@@ -122,8 +128,6 @@ export const RadixMenuItem = memo(
           },
           ...tx,
         },
-        mb: hasDividerBottom ? 0 : 8,
-        '&:last-child': { mb: 0 },
       }),
       [hasDescription, hasDividerBottom, isSmallSize, tx, variant],
     );
