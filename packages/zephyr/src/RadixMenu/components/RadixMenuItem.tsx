@@ -83,6 +83,8 @@ export const RadixMenuItem = memo(
     disabled,
     subOptions,
     variant,
+    id,
+    'data-testid': testId,
     ...renderProps
   }: RadixMenuItemProps) => {
     const hasDescription = 'description' in renderProps;
@@ -264,7 +266,13 @@ export const RadixMenuItem = memo(
     return (
       <Box tx={menuItemStyle} {...renderProps}>
         {hasDividerTop && <RadixMenuItemDivider variant={variant} isTop />}
-        <Item className="radix-menu-item" disabled={disabled} onSelect={onClick ?? onSelect}>
+        <Item
+          data-testid={testId ?? id}
+          id={id}
+          className="radix-menu-item"
+          disabled={disabled}
+          onSelect={onClick ?? onSelect}
+        >
           {menuItemContent}
         </Item>
         {hasDividerBottom && <RadixMenuItemDivider variant={variant} />}
