@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.33.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.33.1...@air/zephyr@12.33.2) (2021-09-09)
+
+### Bug Fixes
+
+- pass test-ids directly to .radix-menu-item as opposed to the wrapper ([054cf55](https://github.com/AirLabsTeam/web-core/commit/054cf55e7472ca62492d6d3dc3bcf22a4ea92353))
+
 ## [12.33.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.33.0...@air/zephyr@12.33.1) (2021-09-08)
 
 **Note:** Version bump only for package @air/zephyr
