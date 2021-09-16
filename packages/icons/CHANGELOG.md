@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.6.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@9.5.0...@air/icons@9.6.0) (2021-09-16)
+
+### Features
+
+- adds a lockOpen icon ([ecc4bdb](https://github.com/AirLabsTeam/web-core/commit/ecc4bdbf0f4c853eb6447b3a9a82041895d8ab4c))
+
 # [9.5.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@9.4.0...@air/icons@9.5.0) (2021-08-31)
 
 ### Bug Fixes
