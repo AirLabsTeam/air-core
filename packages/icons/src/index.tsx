@@ -102,6 +102,7 @@ import _LinkedIn from './svgs/uncategorized/LinkedIn.svg';
 import _List from './svgs/uncategorized/List.svg';
 import _LockFilled from './svgs/uncategorized/Lock-Filled.svg';
 import _Lock from './svgs/uncategorized/Lock.svg';
+import _LockOpen from './svgs/uncategorized/LockOpen.svg';
 import _LogOut from './svgs/uncategorized/LogOut.svg';
 import _Loop from './svgs/uncategorized/Loop.svg';
 import _MagicWand from './svgs/uncategorized/MagicWand.svg';
@@ -280,6 +281,7 @@ export const LinkedIn = React.forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElem
 export const List = React.forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>>((props, ref) => <_List {...props} ref={ref} />); List.displayName = 'List';
 export const LockFilled = React.forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>>((props, ref) => <_LockFilled {...props} ref={ref} />); LockFilled.displayName = 'LockFilled';
 export const Lock = React.forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>>((props, ref) => <_Lock {...props} ref={ref} />); Lock.displayName = 'Lock';
+export const LockOpen = React.forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>>((props, ref) => <_LockOpen {...props} ref={ref} />); LockOpen.displayName = 'LockOpen';
 export const LogOut = React.forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>>((props, ref) => <_LogOut {...props} ref={ref} />); LogOut.displayName = 'LogOut';
 export const Loop = React.forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>>((props, ref) => <_Loop {...props} ref={ref} />); Loop.displayName = 'Loop';
 export const MagicWand = React.forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>>((props, ref) => <_MagicWand {...props} ref={ref} />); MagicWand.displayName = 'MagicWand';
