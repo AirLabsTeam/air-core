@@ -68,7 +68,7 @@ const _button: { [key in ButtonVariantName]: TXProp } = {
       backgroundColor: rgba(colors.jay300, 0.15),
       color: 'jay600',
     },
-    '&:active': {
+    '&:active:not(:disabled)': {
       backgroundColor: rgba(colors.jay300, 0.3),
       color: 'jay600',
     },
@@ -79,12 +79,12 @@ const _button: { [key in ButtonVariantName]: TXProp } = {
   },
   'button-ghost-destructive': {
     color: 'flamingo700',
-    '&:hover': {
-      backgroundColor: 'flamingo050',
+    '&:hover:not(:disabled)': {
+      backgroundColor: rgba(colors.flamingo300, 0.15),
     },
-    '&:active': {
+    '&:active:not(:disabled)': {
       color: 'flamingo800',
-      backgroundColor: 'flamingo050',
+      backgroundColor: rgba(colors.flamingo300, 0.3),
     },
     '&:disabled': {
       backgroundColor: 'transparent',
