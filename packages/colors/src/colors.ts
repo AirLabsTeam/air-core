@@ -11,6 +11,8 @@ export const canaries = {
   canary900: '#4C2103',
 };
 
+export type CanaryNames = keyof typeof canaries;
+
 export const cockatoos = {
   cockatoo025: '#FDD2FF',
   cockatoo050: '#FFAEF9',
@@ -24,6 +26,8 @@ export const cockatoos = {
   cockatoo800: '#3E0234',
 };
 
+export type CockatooNames = keyof typeof cockatoos;
+
 export const cuckoos = {
   cuckoo100: '#EDE6FF',
   cuckoo200: '#D7C6FF',
@@ -35,6 +39,8 @@ export const cuckoos = {
   cuckoo800: '#5618B7',
   cuckoo900: '#341078',
 };
+
+export type CuckooNames = keyof typeof cockatoos;
 
 export const flamingos = {
   flamingo050: '#FCF0F0',
@@ -48,6 +54,8 @@ export const flamingos = {
   flamingo800: '#841328',
   flamingo900: '#511421',
 };
+
+export type FlamingoNames = keyof typeof flamingos;
 
 export const jays = {
   jay020: '#E7F1FF',
@@ -67,6 +75,8 @@ export const jays = {
   jay900: '#020039',
 };
 
+export type JayNames = keyof typeof flamingos;
+
 export const macaws = {
   macaw020: '#E7F1FF',
   macaw040: '#DDE9FF',
@@ -81,6 +91,8 @@ export const macaws = {
   macaw600: '#0F009E',
 };
 
+export type MacawNames = keyof typeof macaws;
+
 export const parrots = {
   parrot025: '#DEFABB',
   parrot050: '#C6F68D',
@@ -94,6 +106,8 @@ export const parrots = {
   parrot800: '#026802',
 };
 
+export type ParrotNames = keyof typeof parrots;
+
 export const peacocks = {
   peacock050: '#E6F4F6',
   peacock100: '#CEEDEF',
@@ -106,6 +120,7 @@ export const peacocks = {
   peacock800: '#01486A',
   peacock900: '#033B51',
 };
+export type PeacockNames = keyof typeof peacocks;
 
 export const pigeons = {
   pigeon025: '#F7F7F7',
@@ -123,6 +138,8 @@ export const pigeons = {
   pigeon900: '#0F0F0F',
 };
 
+export type PigeonNames = keyof typeof pigeons;
+
 export const robins = {
   robin300: '#FFAA3B',
   robin400: '#FF9800',
@@ -130,3 +147,5 @@ export const robins = {
   robin600: '#FB7D00',
   robin700: '#FF6D00',
 };
+
+export type RobinNames = keyof typeof robins;
