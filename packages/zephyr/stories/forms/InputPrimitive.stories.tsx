@@ -49,30 +49,31 @@ interface StorybookFormData {
   formikMyOnChange2: string;
 }
 
+// This validation schema supplies every (formik-based) input in this story page
+const validationSchema = object({
+  formikMyOnChange: string().notRequired(),
+  formikMyOnChange2: string().notRequired(),
+  formikPassword: string()
+    .required('This is a required password ')
+    .min(10, 'Custom Message that this should be at least 10 characters'),
+  formikPassword2: string()
+    .required('This is another required password')
+    .min(10, 'Custom Message that this should be at least 10 characters'),
+  formikRequired: string().required('Custom Formik Error message'),
+  formikRequired2: string().required('Custom Formik Error message'),
+});
+
+const initialValues = validationSchema.cast({
+  formikMyOnChange: '',
+  formikMyOnChange2: '',
+  formikPassword: '',
+  formikPassword2: '',
+  formikRequired: '',
+  formikRequired2: '',
+});
+
 // NOTE: If this changes, please change the hard-coded code sample in the Default story's doc source code parameter.
 const FormikDecorator = (Story: () => StoryFnReactReturnType) => {
-  // This validation schema supplies every (formik-based) input in this story page
-  const validationSchema = object({
-    formikRequired: string().required('Custom Formik Error message'),
-    formikRequired2: string().required('Custom Formik Error message'),
-    formikPassword: string()
-      .required('This is a required password ')
-      .min(10, 'Custom Message that this should be at least 10 characters'),
-    formikPassword2: string()
-      .required('This is another required password')
-      .min(10, 'Custom Message that this should be at least 10 characters'),
-    formikMyOnChange: string().notRequired(),
-    formikMyOnChange2: string().notRequired(),
-  });
-
-  const initialValues = validationSchema.cast({
-    formikRequired: '',
-    formikRequired2: '',
-    formikPassword: '',
-    formikPassword2: '',
-    formikMyOnChange: '',
-    formikMyOnChange2: '',
-  });
   return (
     <Formik validationSchema={validationSchema} initialValues={initialValues} onSubmit={noop}>
       {() => (
@@ -106,12 +107,12 @@ const Template: Story<InputPrimitiveProps> = (args) => {
         return (
           <InputPrimitive
             {...args}
-            onChange={(e) => setIValue(e.target.value)}
-            value={iValue}
             id={`default_${isChonky ? 'Chonky' : 'smol'}`}
-            variant={variant}
             key={variant}
+            onChange={(e) => setIValue(e.target.value)}
             tx={{ width: 200, mr: 12 }}
+            value={iValue}
+            variant={variant}
           />
         );
       })}
@@ -140,8 +141,8 @@ const InputWithCustomLabel: Story<InputPrimitiveProps> = () => {
         return (
           <Box key={variant}>
             <LabelPrimitive
-              isFieldRequired
               for={fieldId}
+              isFieldRequired
               tx={{ mb: 4, Asterisk: { color: 'red' } }}
             >
               {label}
@@ -149,10 +150,10 @@ const InputWithCustomLabel: Story<InputPrimitiveProps> = () => {
             <InputPrimitive
               id={fieldId}
               onChange={(e) => setIValue(e.target.value)}
-              value={iValue}
-              variant={variant}
               required
               tx={{ mr: 24, mb: 24 }}
+              value={iValue}
+              variant={variant}
             />
           </Box>
         );
@@ -182,10 +183,10 @@ const InputWithLabel: Story<InputPrimitiveProps> = (args) => {
               {...args}
               id={fieldId}
               onChange={(e) => setIValue(e.target.value)}
-              value={iValue}
-              variant={variant}
               required
               tx={{ mr: 24, mb: 24 }}
+              value={iValue}
+              variant={variant}
             />
           </Box>
         );
@@ -223,21 +224,21 @@ export const WithLabelAndFormik: Story<InputPrimitiveProps> = (args) => {
               <InputPrimitive
                 {...args}
                 {...props}
-                name={name}
-                id={name}
-                type="text"
-                required
                 aria-invalid={!!info.error && info.touched}
-                variant={variant}
+                id={name}
                 key={variant}
+                name={name}
+                required
                 tx={{ mr: 24, mb: 24 }}
+                type="text"
+                variant={variant}
               />
               <Error
+                data-testid={`${name}-ERROR-TEST-ID`}
                 errorText={info.error}
                 id={`${name}_error`}
-                data-testid={`${name}-ERROR-TEST-ID`}
-                tx={{ mt: isChonky ? 52 : 44 }}
                 isErrorVisible={!!info.error && info.touched}
+                tx={{ mt: isChonky ? 52 : 44 }}
               />
             </Box>
           </Box>
@@ -251,8 +252,8 @@ WithLabelAndFormik.decorators = [FormikDecorator];
 
 WithLabelAndFormik.args = {
   disabled: false,
-  type: 'text',
   required: true,
+  type: 'text',
 };
 
 export const WithLeftAdornment: Story<InputPrimitiveProps> = () => {
@@ -264,17 +265,17 @@ export const WithLeftAdornment: Story<InputPrimitiveProps> = () => {
         const isChonky = variant === 'field-input-chonky';
         return (
           <InputPrimitive
-            required={false}
-            id={`withLeftAdornment${isChonky ? 2 : ''}`}
             adornment={{
               location: 'left',
               component: <Search />,
             }}
-            tx={{ mb: 12, width: 200 }}
+            id={`withLeftAdornment${isChonky ? 2 : ''}`}
+            key={variant}
             onChange={(e) => setIValue(e.target.value)}
+            required={false}
+            tx={{ mb: 12, width: 200 }}
             value={iValue}
             variant={variant}
-            key={variant}
           />
         );
       })}
@@ -301,12 +302,10 @@ export const WithCustomStyles: Story<InputPrimitiveProps> = () => {
 
         return (
           <InputPrimitive
-            placeholder="Click or hover to interact"
-            required={false}
-            variant={variant}
             key={variant}
             onChange={(e) => setIValue(e.target.value)}
-            value={iValue}
+            placeholder="Click or hover to interact"
+            required={false}
             tx={{
               mb: 12,
               width: 200,
@@ -323,6 +322,8 @@ export const WithCustomStyles: Story<InputPrimitiveProps> = () => {
                 },
               },
             }}
+            value={iValue}
+            variant={variant}
           />
         );
       })}
@@ -347,21 +348,6 @@ export const PasswordField: Story<InputPrimitiveProps> = () => {
 
         return (
           <InputPrimitive
-            id={fieldID}
-            type={isValueVisible ? 'text' : 'password'}
-            required
-            tx={{ mb: 32, width: 200 }}
-            onChange={(e) => setIValue(e.target.value)}
-            value={iValue}
-            description={{
-              isHidden: false,
-              component: (
-                <>
-                  Password must be 10 characters long.
-                  <VisuallyHidden> Password visibility control exists after input.</VisuallyHidden>
-                </>
-              ),
-            }}
             adornment={{
               location: 'right',
               component: (
@@ -382,8 +368,23 @@ export const PasswordField: Story<InputPrimitiveProps> = () => {
                 </Button>
               ),
             }}
-            variant={variant}
+            description={{
+              isHidden: false,
+              component: (
+                <>
+                  Password must be 10 characters long.
+                  <VisuallyHidden> Password visibility control exists after input.</VisuallyHidden>
+                </>
+              ),
+            }}
+            id={fieldID}
             key={variant}
+            onChange={(e) => setIValue(e.target.value)}
+            required
+            tx={{ mb: 32, width: 200 }}
+            type={isValueVisible ? 'text' : 'password'}
+            value={iValue}
+            variant={variant}
           />
         );
       })}
@@ -415,21 +416,6 @@ export const PasswordFieldWithFormik: Story<InputPrimitiveProps> = () => {
           <Box key={variant} tx={{ width: 340, mb: isChonky ? undefined : 32 }}>
             <InputPrimitive
               {...props}
-              id={name}
-              type={isValueVisible ? 'text' : 'password'}
-              required
-              description={{
-                isHidden: !!info.error && info.touched,
-                component: (
-                  <>
-                    Password must be 10 characters long.
-                    <VisuallyHidden>
-                      {' '}
-                      Password visibility control exists after input.
-                    </VisuallyHidden>
-                  </>
-                ),
-              }}
               adornment={{
                 location: 'right',
                 component: (
@@ -450,10 +436,25 @@ export const PasswordFieldWithFormik: Story<InputPrimitiveProps> = () => {
                   </Button>
                 ),
               }}
-              variant={variant}
-              key={variant}
               aria-invalid={!!info.error && info.touched}
+              description={{
+                isHidden: !!info.error && info.touched,
+                component: (
+                  <>
+                    Password must be 10 characters long.
+                    <VisuallyHidden>
+                      {' '}
+                      Password visibility control exists after input.
+                    </VisuallyHidden>
+                  </>
+                ),
+              }}
+              id={name}
+              key={variant}
               name={name}
+              required
+              type={isValueVisible ? 'text' : 'password'}
+              variant={variant}
             />
             <Error
               errorText={info.error}
@@ -500,22 +501,22 @@ export const WithFormikAndCustomEventHandler: Story<InputPrimitiveProps> = (args
               <InputPrimitive
                 {...args}
                 {...props}
+                aria-invalid={!!info.error && info.touched}
+                id={name}
+                key={variant}
                 name={name}
                 onChange={onChange}
-                id={name}
-                type="text"
                 required
-                aria-invalid={!!info.error && info.touched}
+                tx={{ mr: 24, mb: 32 }}
+                type="text"
                 variant={variant}
-                key={variant}
-                tx={{ mr: 24, mb: 24 }}
               />
               <Error
+                data-testid={`${name}-ERROR-TEST-ID`}
                 errorText={info.error}
                 id={`${name}_error`}
-                data-testid={`${name}-ERROR-TEST-ID`}
-                tx={{ mt: isChonky ? 52 : 44 }}
                 isErrorVisible={!!info.error && info.touched}
+                tx={{ mt: isChonky ? 52 : 44 }}
               />
             </Box>
           </Box>
@@ -529,8 +530,8 @@ WithFormikAndCustomEventHandler.decorators = [FormikDecorator];
 
 WithFormikAndCustomEventHandler.args = {
   disabled: false,
-  type: 'text',
   required: true,
+  type: 'text',
 };
 
 WithFormikAndCustomEventHandler.parameters = {
