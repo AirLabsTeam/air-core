@@ -183,186 +183,194 @@ const sharedAdornmentStyles: BoxStylingProps['tx'] = {
   position: 'absolute',
 };
 
-export const InputPrimitive = ({
-  adornment,
-  autoComplete = 'off',
-  'data-testid': testId,
-  description,
-  disabled = false,
-  id,
-  innerInputRef,
-  name,
-  placeholder,
-  readOnly = false,
-  required,
-  tx = {},
-  type = 'text',
-  variant = 'field-input-smol',
-  ...restOfProps
-}: InputPrimitiveProps) => {
-  const theme = useTheme();
-  const inputIdentifier = id ?? name;
-  const errorIdentifier = `${inputIdentifier}_error`;
-  const descriptionIdentifier = `${inputIdentifier}_description`;
-  const isChonky = variant === 'field-input-chonky';
+export const InputPrimitive = React.memo(
+  ({
+    adornment,
+    autoComplete = 'off',
+    'data-testid': testId,
+    description,
+    disabled = false,
+    id,
+    innerInputRef,
+    name,
+    placeholder,
+    readOnly = false,
+    required,
+    tx = {},
+    type = 'text',
+    variant = 'field-input-smol',
+    ...restOfProps
+  }: InputPrimitiveProps) => {
+    const theme = useTheme();
+    const inputIdentifier = id ?? name;
+    const errorIdentifier = `${inputIdentifier}_error`;
+    const descriptionIdentifier = `${inputIdentifier}_description`;
+    const isChonky = variant === 'field-input-chonky';
 
-  const {
-    InnerInput: inputStyles,
-    InnerInputContainer: inputContainerStyles,
-    ...outerContainerStyles
-  } = tx;
+    const {
+      InnerInput: inputStyles,
+      InnerInputContainer: inputContainerStyles,
+      ...outerContainerStyles
+    } = tx;
 
-  const adornmentSideBuffer = React.useMemo(
-    () =>
-      styledSystemVariant({
-        prop: 'variant',
-        variants: {
-          'field-input-chonky': {
-            pl: 40,
-            pr: 40,
+    const adornmentSideBuffer = React.useMemo(
+      () =>
+        styledSystemVariant({
+          prop: 'variant',
+          variants: {
+            'field-input-chonky': {
+              pl: 40,
+              pr: 40,
+            },
+            'field-input-smol': {
+              pl: 36,
+              pr: 36,
+            },
           },
-          'field-input-smol': {
-            pl: 36,
-            pr: 36,
-          },
+        })({ theme, variant }) as {
+          paddingLeft: number | number[];
+          paddingRight: number | number[];
         },
-      })({ theme, variant }) as { paddingLeft: number | number[]; paddingRight: number | number[] },
-    [theme, variant],
-  );
+      [theme, variant],
+    );
 
-  const nonAdornmentSideBuffer = React.useMemo(
-    () =>
-      styledSystemVariant({
-        prop: 'variant',
-        variants: {
-          'field-input-chonky': {
-            pl: 16,
-            pr: 16,
+    const nonAdornmentSideBuffer = React.useMemo(
+      () =>
+        styledSystemVariant({
+          prop: 'variant',
+          variants: {
+            'field-input-chonky': {
+              pl: 16,
+              pr: 16,
+            },
+            'field-input-smol': {
+              pl: 12,
+              pr: 12,
+            },
           },
-          'field-input-smol': {
-            pl: 12,
-            pr: 12,
-          },
+        })({ theme, variant }) as {
+          paddingLeft: number | number[];
+          paddingRight: number | number[];
         },
-      })({ theme, variant }) as { paddingLeft: number | number[]; paddingRight: number | number[] },
-    [theme, variant],
-  );
+      [theme, variant],
+    );
 
-  return (
-    <Box
-      tx={{
-        alignItems: 'flex-start',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        minWidth: '256px',
-        position: 'relative',
-        ...outerContainerStyles,
-      }}
-    >
-      <Box tx={{ position: 'relative', width: '100%', ...inputContainerStyles }}>
-        {adornment?.location === 'left' && (
-          <Box
-            tx={{
-              ...sharedAdornmentStyles,
-              ...styledSystemVariant({
-                prop: 'variant',
-                variants: {
-                  'field-input-chonky': {
-                    top: 14,
-                    width: 20,
-                    left: 14,
-                  },
-                  'field-input-smol': {
-                    top: 12,
-                    width: 16,
-                    left: 12,
-                  },
-                },
-              })({ theme, variant }),
-            }}
-          >
-            {adornment.component}
-          </Box>
-        )}
-
-        <Box
-          as="input"
-          ref={(instance: HTMLInputElement | null) =>
-            innerInputRef ? (innerInputRef.current = instance) : undefined
-          }
-          aria-describedby={
-            description ? `${descriptionIdentifier} ${errorIdentifier}` : errorIdentifier
-          }
-          autoComplete={autoComplete}
-          data-testid={testId}
-          disabled={disabled || readOnly}
-          id={inputIdentifier}
-          placeholder={placeholder}
-          readOnly={readOnly}
-          required={required}
-          tx={{
-            pl:
-              adornment?.location === 'left'
-                ? adornmentSideBuffer['paddingLeft']
-                : nonAdornmentSideBuffer['paddingLeft'],
-            pr:
-              adornment?.location === 'right'
-                ? adornmentSideBuffer['paddingRight']
-                : nonAdornmentSideBuffer['paddingRight'],
-            ...inputStyles,
-          }}
-          type={type}
-          variant={variant}
-          {...restOfProps}
-        />
-
-        {adornment?.location === 'right' && (
-          <Box
-            tx={{
-              ...sharedAdornmentStyles,
-              ...styledSystemVariant({
-                prop: 'variant',
-                variants: {
-                  'field-input-chonky': {
-                    top: 14,
-                    width: 20,
-                    right: 14,
-                  },
-                  'field-input-smol': {
-                    top: 12,
-                    width: 16,
-                    right: 12,
-                  },
-                },
-              })({ theme, variant }),
-            }}
-          >
-            {adornment.component}
-          </Box>
-        )}
-      </Box>
-
-      <Text
-        as="span"
-        id={descriptionIdentifier}
-        variant="text-ui-12"
-        data-testid={`${testId}_description`}
+    return (
+      <Box
         tx={{
-          position: 'absolute',
-          bottom: isChonky ? -22 : -18,
-          display: 'block',
-          color: 'pigeon500',
+          alignItems: 'flex-start',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          minWidth: '256px',
+          position: 'relative',
+          ...outerContainerStyles,
         }}
       >
-        {description?.isHidden ? (
-          <VisuallyHidden>{description.component}</VisuallyHidden>
-        ) : (
-          description?.component
-        )}
-      </Text>
-    </Box>
-  );
-};
+        <Box tx={{ position: 'relative', width: '100%', ...inputContainerStyles }}>
+          {adornment?.location === 'left' && (
+            <Box
+              tx={{
+                ...sharedAdornmentStyles,
+                ...styledSystemVariant({
+                  prop: 'variant',
+                  variants: {
+                    'field-input-chonky': {
+                      top: 14,
+                      width: 20,
+                      left: 14,
+                    },
+                    'field-input-smol': {
+                      top: 12,
+                      width: 16,
+                      left: 12,
+                    },
+                  },
+                })({ theme, variant }),
+              }}
+            >
+              {adornment.component}
+            </Box>
+          )}
+
+          <Box
+            as="input"
+            ref={(instance: HTMLInputElement | null) =>
+              innerInputRef ? (innerInputRef.current = instance) : undefined
+            }
+            aria-describedby={
+              description ? `${descriptionIdentifier} ${errorIdentifier}` : errorIdentifier
+            }
+            autoComplete={autoComplete}
+            data-testid={testId}
+            disabled={disabled || readOnly}
+            id={inputIdentifier}
+            placeholder={placeholder}
+            readOnly={readOnly}
+            required={required}
+            tx={{
+              pl:
+                adornment?.location === 'left'
+                  ? adornmentSideBuffer['paddingLeft']
+                  : nonAdornmentSideBuffer['paddingLeft'],
+              pr:
+                adornment?.location === 'right'
+                  ? adornmentSideBuffer['paddingRight']
+                  : nonAdornmentSideBuffer['paddingRight'],
+              ...inputStyles,
+            }}
+            type={type}
+            variant={variant}
+            {...restOfProps}
+          />
+
+          {adornment?.location === 'right' && (
+            <Box
+              tx={{
+                ...sharedAdornmentStyles,
+                ...styledSystemVariant({
+                  prop: 'variant',
+                  variants: {
+                    'field-input-chonky': {
+                      top: 14,
+                      width: 20,
+                      right: 14,
+                    },
+                    'field-input-smol': {
+                      top: 12,
+                      width: 16,
+                      right: 12,
+                    },
+                  },
+                })({ theme, variant }),
+              }}
+            >
+              {adornment.component}
+            </Box>
+          )}
+        </Box>
+
+        <Text
+          as="span"
+          id={descriptionIdentifier}
+          variant="text-ui-12"
+          data-testid={`${testId}_description`}
+          tx={{
+            position: 'absolute',
+            bottom: isChonky ? -22 : -18,
+            display: 'block',
+            color: 'pigeon500',
+          }}
+        >
+          {description?.isHidden ? (
+            <VisuallyHidden>{description.component}</VisuallyHidden>
+          ) : (
+            description?.component
+          )}
+        </Text>
+      </Box>
+    );
+  },
+);
 
 InputPrimitive.displayName = 'InputPrimitive';

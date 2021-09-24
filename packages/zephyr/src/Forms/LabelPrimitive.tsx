@@ -40,40 +40,44 @@ export interface LabelPrimitiveProps extends Pick<BoxProps, 'children'> {
   };
 }
 
-export const LabelPrimitive = ({
-  children,
-  for: htmlFor,
-  isVisuallyHidden = false,
-  isFieldRequired = false,
-  size = 12,
-  tx = {},
-}: LabelPrimitiveProps) => {
-  const { Asterisk: asteriskStyles, ...containerStyles } = tx;
+export const LabelPrimitive = React.memo(
+  ({
+    children,
+    for: htmlFor,
+    isVisuallyHidden = false,
+    isFieldRequired = false,
+    size = 12,
+    tx = {},
+  }: LabelPrimitiveProps) => {
+    const { Asterisk: asteriskStyles, ...containerStyles } = tx;
 
-  const TheLabelElement = (
-    <Text
-      as="label"
-      variant={`text-ui-${size}` as TextVariantName}
-      htmlFor={htmlFor}
-      tx={{ color: 'pigeon600', fontWeight: 'semibold', ...containerStyles }}
-    >
-      {children}
+    const TheLabelElement = (
+      <Text
+        as="label"
+        variant={`text-ui-${size}` as TextVariantName}
+        htmlFor={htmlFor}
+        tx={{ color: 'pigeon600', fontWeight: 'semibold', ...containerStyles }}
+      >
+        {children}
 
-      {/* If a field is required, screen readers already announce that fact. An asterisk only supplies noise to them. */}
-      {isFieldRequired ? (
-        <span aria-hidden="true" style={{ ...asteriskStyles }}>
-          {' '}
-          *
-        </span>
-      ) : (
-        ''
-      )}
-    </Text>
-  );
+        {/* If a field is required, screen readers already announce that fact. An asterisk only supplies noise to them. */}
+        {isFieldRequired ? (
+          <span aria-hidden="true" style={{ ...asteriskStyles }}>
+            {' '}
+            *
+          </span>
+        ) : (
+          ''
+        )}
+      </Text>
+    );
 
-  return isVisuallyHidden ? (
-    <VisuallyHidden>{TheLabelElement}</VisuallyHidden>
-  ) : (
-    <>{TheLabelElement}</>
-  );
-};
+    return isVisuallyHidden ? (
+      <VisuallyHidden>{TheLabelElement}</VisuallyHidden>
+    ) : (
+      <>{TheLabelElement}</>
+    );
+  },
+);
+
+LabelPrimitive.displayName = 'LabelPrimitive';
