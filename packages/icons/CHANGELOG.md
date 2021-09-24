@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.6.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@9.5.0...@air/icons@9.6.0) (2021-09-16)
+
+### Features
+
+- adds a lockOpen icon ([ecc4bdb](https://github.com/AirLabsTeam/web-core/commit/ecc4bdbf0f4c853eb6447b3a9a82041895d8ab4c))
+
+# [9.5.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@9.4.0...@air/icons@9.5.0) (2021-08-31)
+
+### Bug Fixes
+
+- **@air/icons:** add in icon path data ([8ccd294](https://github.com/AirLabsTeam/web-core/commit/8ccd294fbe5586199c510df24c5bb832e9689936))
+
+### Features
+
+- **@air/icons:** add in sales, support and marker icons ([8bcb75d](https://github.com/AirLabsTeam/web-core/commit/8bcb75d81592236065046746be146fb6909a7b18))
+
+# [9.4.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@9.3.0...@air/icons@9.4.0) (2021-08-31)
+
+### Features
+
+- adds broken link icon ([0c4fca3](https://github.com/AirLabsTeam/web-core/commit/0c4fca3598b02065979fe773305232e89550b6ee))
+
 # [9.3.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@9.2.0...@air/icons@9.3.0) (2021-08-21)
 
 ### Features

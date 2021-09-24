@@ -3,6 +3,98 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.33.4](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.33.3...@air/zephyr@12.33.4) (2021-09-23)
+
+### Bug Fixes
+
+- fix active colors for blue and destructive ghost buttons ([f5e8b58](https://github.com/AirLabsTeam/web-core/commit/f5e8b58b685cc5da590f80b6a867183f4298d8a4))
+
+## [12.33.3](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.33.2...@air/zephyr@12.33.3) (2021-09-16)
+
+**Note:** Version bump only for package @air/zephyr
+
+## [12.33.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.33.1...@air/zephyr@12.33.2) (2021-09-09)
+
+### Bug Fixes
+
+- pass test-ids directly to .radix-menu-item as opposed to the wrapper ([054cf55](https://github.com/AirLabsTeam/web-core/commit/054cf55e7472ca62492d6d3dc3bcf22a4ea92353))
+
+## [12.33.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.33.0...@air/zephyr@12.33.1) (2021-09-08)
+
+**Note:** Version bump only for package @air/zephyr
+
+# [12.33.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.32.2...@air/zephyr@12.33.0) (2021-09-08)
+
+### Features
+
+- **radixmenu:** add dark variant ([900d7d1](https://github.com/AirLabsTeam/web-core/commit/900d7d11ade6dee118606b8270b08b66a9450b7d))
+
+## [12.32.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.32.1...@air/zephyr@12.32.2) (2021-09-01)
+
+**Note:** Version bump only for package @air/zephyr
+
+## [12.32.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.32.0...@air/zephyr@12.32.1) (2021-09-01)
+
+### Bug Fixes
+
+- prevent RadixDropdownMenu component from injecting aria-hidden to all root nodes ([8b14937](https://github.com/AirLabsTeam/web-core/commit/8b14937522146f1e6b35936a42068b868836854a))
+
+# [12.32.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.31.1...@air/zephyr@12.32.0) (2021-09-01)
+
+### Features
+
+- updates fontSize on smol inputs to match web components figma ([06d6246](https://github.com/AirLabsTeam/web-core/commit/06d624626cbea2f9dec9f0cd2e10b2f9ae13123a))
+
+## [12.31.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.31.0...@air/zephyr@12.31.1) (2021-09-01)
+
+**Note:** Version bump only for package @air/zephyr
+
+# [12.31.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.30.2...@air/zephyr@12.31.0) (2021-08-31)
+
+### Bug Fixes
+
+- fix spacing in Radix Menu ([ec3e454](https://github.com/AirLabsTeam/web-core/commit/ec3e45404740c978abf981cf81b39df59322f3ee))
+
+### Features
+
+- **text:** add font size 8 ([82775b9](https://github.com/AirLabsTeam/web-core/commit/82775b9aa6e22625308b6fb5dea4ecfba4cbab9f))
+
+## [12.30.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.30.1...@air/zephyr@12.30.2) (2021-08-31)
+
+**Note:** Version bump only for package @air/zephyr
+
+## [12.30.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.30.0...@air/zephyr@12.30.1) (2021-08-31)
+
+**Note:** Version bump only for package @air/zephyr
+
+# [12.30.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.29.0...@air/zephyr@12.30.0) (2021-08-30)
+
+### Features
+
+- allow object syntax use with TertiaryCTAs ([9671d4b](https://github.com/AirLabsTeam/web-core/commit/9671d4b98d99b2e9c93b180e098d42329982a227))
+
+# [12.29.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.28.0...@air/zephyr@12.29.0) (2021-08-26)
+
+### Bug Fixes
+
+- **@air/zephyr:** fix color types ([8309fca](https://github.com/AirLabsTeam/web-core/commit/8309fcac8f6cdbbf0a8140b613dea1149d733699))
+
+### Features
+
+- **@air/zephyr:** update button colors ([ca16990](https://github.com/AirLabsTeam/web-core/commit/ca16990f70723367c2f0d452ba5a4ea3503ea2c2))
+
+# [12.28.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.27.2...@air/zephyr@12.28.0) (2021-08-26)
+
+### Bug Fixes
+
+- **@air/zephyr:** remove duplicate macaw colors ([1927c48](https://github.com/AirLabsTeam/web-core/commit/1927c48d64973243fdc8ecaad518da144fba8fee))
+
+### Features
+
+- **@air/zephyr:** re-add colors ([7d48d7c](https://github.com/AirLabsTeam/web-core/commit/7d48d7cc3de8075740acf62163fd34f37cc040ac))
+- adds optional testId as prop to the cta's on TransactionModal ([cbafdf2](https://github.com/AirLabsTeam/web-core/commit/cbafdf2c147279bf74c710aebde26a7439433700))
+- removes unnec brackets in Storybook example ([f597042](https://github.com/AirLabsTeam/web-core/commit/f5970424e5738606793d039c5f829b1db12798ae))
+
 ## [12.27.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.27.1...@air/zephyr@12.27.2) (2021-08-23)
 
 **Note:** Version bump only for package @air/zephyr

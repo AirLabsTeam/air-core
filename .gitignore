@@ -79,6 +79,7 @@ out
 .idea
 .editorconfig
 .vscode
+.vim
 
 # File system stuff
 **/.DS_Store

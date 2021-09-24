@@ -6,11 +6,11 @@ import { useTheme } from 'styled-components';
 import { LeftRight } from '../shared';
 import { Box, BoxStylingProps } from '../Box';
 import { Text } from '../Text';
-import { FieldVariantName } from '../theme';
+import { FieldVariantName, TXProp } from '../theme';
 import { Label } from './Label';
 import { Error } from './Error';
 
-export interface InputProps extends Pick<BoxStylingProps, 'tx'> {
+export interface InputProps {
   /**
    * Autocomplete helps to fill an input with device-remembered values. See MDN's documentation on the [attribute and
    * its values](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete#Values).
@@ -158,6 +158,23 @@ export interface InputProps extends Pick<BoxStylingProps, 'tx'> {
   variant?: FieldVariantName | FieldVariantName[];
   className?: string;
   id?: string;
+  /**
+   * This prop can be used to pass custom styles to specific portions of the input You can pass styles
+   * to the tx prop as normal, and the styles will be applied to the div containing the entire input. However if you’d like
+   * to style a specific portion, there are 2 optional properties that you may use to style that section of the Input. You should use`InnerInput` for
+   * specific styles to be placed on the div that immediately wraps the Input, and the `InnerInput` for the styles
+   * to be applied directly to the Input.
+   */
+  tx?: TXProp & {
+    InnerInput?: TXProp;
+    InnerInputContainer?: TXProp;
+  };
+  /**
+   * This is a formik based component. As a result, this input has access to its specific error message. By default, this value is set to false and any
+   * errors incurred by this component will display below the input field. If you'd like to use alternative tools to handle displaying your errors (i.e. Formik's `<ErrorMessage>`
+   * component), then you should set this prop to false to prevent duplicate, or ill-formatted error messages.
+   */
+  isErrorHidden?: boolean;
   disabled?: boolean;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   readOnly?: boolean;
@@ -185,7 +202,8 @@ export const Input = ({
   placeholder,
   readOnly = false,
   required,
-  tx,
+  isErrorHidden = false,
+  tx = {},
   type = 'text',
   variant = 'field-input-smol',
   ...restOfProps
@@ -197,6 +215,12 @@ export const Input = ({
   const descriptionIdentifier = `${inputIdentifier}_description`;
   const hasError = meta.touched && !!meta.error;
   const isChonky = variant === 'field-input-chonky';
+
+  const {
+    InnerInput: inputStyles,
+    InnerInputContainer: inputContainerStyles,
+    ...outerContainerStyles
+  } = tx;
 
   const testID = React.useMemo(() => {
     const prefix = `input_${name}`;
@@ -252,7 +276,7 @@ export const Input = ({
         justifyContent: 'center',
         minWidth: '256px',
         position: 'relative',
-        ...tx,
+        ...outerContainerStyles,
       }}
       data-testid={topLevelTestID}
     >
@@ -265,7 +289,7 @@ export const Input = ({
         {label}
       </Label>
 
-      <Box tx={{ position: 'relative', width: '100%' }}>
+      <Box tx={{ position: 'relative', width: '100%', ...inputContainerStyles }}>
         {adornment?.location === 'left' && (
           <Box
             tx={{
@@ -316,6 +340,7 @@ export const Input = ({
               adornment?.location === 'right'
                 ? adornmentSideBuffer['paddingRight']
                 : nonAdornmentSideBuffer['paddingRight'],
+            ...inputStyles,
           }}
           type={type}
           variant={variant}
@@ -369,13 +394,15 @@ export const Input = ({
         )}
       </Text>
 
-      <Error
-        errorText={meta.error}
-        isErrorVisible={hasError}
-        id={errorIdentifier}
-        tx={{ bottom: isChonky ? -22 : -18 }}
-        data-testid={`${topLevelTestID}_error`}
-      />
+      {!isErrorHidden && (
+        <Error
+          errorText={meta.error}
+          isErrorVisible={hasError}
+          id={errorIdentifier}
+          tx={{ bottom: isChonky ? -22 : -18 }}
+          data-testid={`${topLevelTestID}_error`}
+        />
+      )}
     </Box>
   );
 };
