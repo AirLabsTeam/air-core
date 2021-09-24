@@ -34,6 +34,7 @@ const EditableTextTextarea = forwardRef<HTMLTextAreaElement, EditableTextTextare
       id,
       label,
       maxLength,
+      minLength,
       name,
       onReset = noop,
       onSubmit = noop,
@@ -60,6 +61,7 @@ const EditableTextTextarea = forwardRef<HTMLTextAreaElement, EditableTextTextare
           aria-describedby={autoId}
           as="textarea"
           id={id}
+          minLength={minLength}
           maxLength={maxLength}
           onKeyUp={(event: KeyboardEvent<HTMLTextAreaElement>) => {
             if (event.key === 'Escape') {
