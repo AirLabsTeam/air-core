@@ -45,6 +45,8 @@ interface StorybookFormData {
   formikRequired2: string;
   formikPassword: string;
   formikPassword2: string;
+  formikMyOnChange: string;
+  formikMyOnChange2: string;
 }
 
 // NOTE: If this changes, please change the hard-coded code sample in the Default story's doc source code parameter.
@@ -59,6 +61,8 @@ const FormikDecorator = (Story: () => StoryFnReactReturnType) => {
     formikPassword2: string()
       .required('This is another required password')
       .min(10, 'Custom Message that this should be at least 10 characters'),
+    formikMyOnChange: string().notRequired(),
+    formikMyOnChange2: string().notRequired(),
   });
 
   const initialValues = validationSchema.cast({
@@ -66,6 +70,8 @@ const FormikDecorator = (Story: () => StoryFnReactReturnType) => {
     formikRequired2: '',
     formikPassword: '',
     formikPassword2: '',
+    formikMyOnChange: '',
+    formikMyOnChange2: '',
   });
   return (
     <Formik validationSchema={validationSchema} initialValues={initialValues} onSubmit={noop}>
@@ -441,3 +447,82 @@ export const PasswordFieldWithFormik: Story<InputPrimitiveProps> = () => {
 };
 
 PasswordFieldWithFormik.decorators = [FormikDecorator];
+
+export const WithFormikAndCustomEventHandler: Story<InputPrimitiveProps> = (args) => {
+  const [{ onChange: formikOnChange, ...field }, meta] = useField<
+    StorybookFormData['formikMyOnChange']
+  >('formikMyOnChange');
+  const [field2, meta2] = useField<StorybookFormData['formikMyOnChange2']>('formikMyOnChange2');
+
+  const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    formikOnChange(event);
+    alert(`Inside custom onChange with value: ${event.target.value}`);
+  };
+
+  return (
+    <Box tx={{ display: 'flex', flexDirection: 'column' }}>
+      {variants.map((variant) => {
+        const isChonky = variant === 'field-input-chonky';
+        const label = `Label For Custom OnChange${isChonky ? '(Chonky)' : '(Smol)'}`;
+        const name = `formikMyOnChange${isChonky ? 2 : ''}`;
+        const props = isChonky ? field2 : field;
+        const info = isChonky ? meta2 : meta;
+
+        return (
+          <Box key={variant}>
+            <LabelPrimitive
+              isFieldRequired={true}
+              for={name}
+              tx={{
+                Asterisk: {
+                  color: 'blue',
+                },
+                mb: 4,
+              }}
+            >
+              {label}
+            </LabelPrimitive>
+            <Box tx={{ display: 'flex' }}>
+              <InputPrimitive
+                {...args}
+                {...props}
+                name={name}
+                onChange={onChange}
+                id={name}
+                type="text"
+                required
+                aria-invalid={!!info.error && info.touched}
+                variant={variant}
+                key={variant}
+                tx={{ mr: 24, mb: 24 }}
+              />
+              <Error
+                errorText={info.error}
+                id={`${name}_error`}
+                data-testid={`${name}-ERROR-TEST-ID`}
+                tx={{ mt: isChonky ? 52 : 44 }}
+                isErrorVisible={!!info.error && info.touched}
+              />
+            </Box>
+          </Box>
+        );
+      })}
+    </Box>
+  );
+};
+
+WithFormikAndCustomEventHandler.decorators = [FormikDecorator];
+
+WithFormikAndCustomEventHandler.args = {
+  disabled: false,
+  type: 'text',
+  required: true,
+};
+
+WithFormikAndCustomEventHandler.parameters = {
+  docs: {
+    description: {
+      story: `There may be a case where you need to do something specific within an event handler (i.e. you want something to happen onBlur), while also using Formik. In this story, we use our own custom onChange function, **and** Formiks. We do this properly, by calling Formik's onChange in our onChange function.`,
+    },
+  },
+};
