@@ -5,7 +5,7 @@ import { Text } from '../Text';
 import { TextVariantName } from '../theme/variants/text';
 import { TXProp } from '..';
 
-export interface LabelPrimitiveProps extends Pick<BoxProps, 'children' | 'className'> {
+export interface LabelPrimitiveProps extends Pick<BoxProps, 'children'> {
   /**
    * The id of the input this label is meant to identify.
    */
@@ -42,7 +42,6 @@ export interface LabelPrimitiveProps extends Pick<BoxProps, 'children' | 'classN
 
 export const LabelPrimitive = ({
   children,
-  className,
   for: htmlFor,
   isVisuallyHidden = false,
   isFieldRequired = false,
@@ -55,7 +54,6 @@ export const LabelPrimitive = ({
     <Text
       as="label"
       variant={`text-ui-${size}` as TextVariantName}
-      className={className}
       htmlFor={htmlFor}
       tx={{ color: 'pigeon600', fontWeight: 'semibold', ...containerStyles }}
     >
