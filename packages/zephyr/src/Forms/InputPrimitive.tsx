@@ -152,7 +152,7 @@ export interface InputPrimitiveProps {
 
   /**
    * A small subset of [all possible types from a typical HTML input element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#%3Cinput%3E_types).
-   * If the type is not valid, it belongs to a different component or we havent tested that it works with this component.
+   * If the type is not valid, it belongs to a different component or we haven't tested that it works with this component.
    * If you do add to the possible types, please also check the Attributes table on the MDN page for "input" to ensure the
    * typings are inclusive.
    *

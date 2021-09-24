@@ -466,9 +466,9 @@ export const PasswordFieldWithFormik: Story<InputPrimitiveProps> = () => {
               variant={variant}
             />
             <Error
+              data-testid={`${name}-ERROR-TEST-ID`}
               errorText={info.error}
               id={`${name}_error`}
-              data-testid={`${name}-ERROR-TEST-ID`}
               isErrorVisible={!!info.error && info.touched}
               tx={{ mt: isChonky ? 4 : 1 }}
             />
@@ -546,7 +546,7 @@ WithFormikAndCustomEventHandler.args = {
 WithFormikAndCustomEventHandler.parameters = {
   docs: {
     description: {
-      story: `There may be a case where you need to do something specific within an event handler (i.e. you want something to happen onBlur), while also using Formik. In this story, we use our own custom onChange function, **and** Formiks. We do this properly, by calling Formik's onChange in our onChange function.`,
+      story: `There may be a case where you need to do something specific within an event handler (i.e. you want something to happen onBlur), while also using Formik. In this story, we use our own custom onChange function, **and** Formik's. We do this properly, by calling Formik's onChange in our onChange function.`,
     },
   },
 };

@@ -18,7 +18,7 @@ export interface LabelPrimitiveProps extends Pick<BoxProps, 'children'> {
   isVisuallyHidden?: boolean;
 
   /**
-   * Booolean used to determine if text is completely opaque or not.
+   * Boolean used to determine if text is completely opaque or not.
    */
   isDisabled?: boolean;
 
