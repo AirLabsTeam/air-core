@@ -40,9 +40,16 @@ export default {
 
 const variants = Object.keys(field) as FieldVariantName[];
 
+interface StorybookFormData {
+  formikRequired: string;
+  formikRequired2: string;
+  formikPassword: string;
+  formikPassword2: string;
+}
+
 // NOTE: If this changes, please change the hard-coded code sample in the Default story's doc source code parameter.
 const FormikDecorator = (Story: () => StoryFnReactReturnType) => {
-  // This validation schema supplies every input in this story page.
+  // This validation schema supplies every (formik-based) input in this story page
   const validationSchema = object({
     formikRequired: string().required('Custom Formik Error message'),
     formikRequired2: string().required('Custom Formik Error message'),
@@ -168,8 +175,8 @@ WithLabel.args = {
 };
 
 export const WithLabelAndFormik: Story<InputPrimitiveProps> = (args) => {
-  const [field, meta] = useField('formikRequired');
-  const [field2, meta2] = useField('formikRequired2');
+  const [field, meta] = useField<StorybookFormData['formikRequired']>('formikRequired');
+  const [field2, meta2] = useField<StorybookFormData['formikRequired2']>('formikRequired2');
 
   return (
     <Box tx={{ display: 'flex', flexDirection: 'column' }}>
@@ -357,8 +364,8 @@ export const PasswordField: Story<InputPrimitiveProps> = () => {
 
 export const PasswordFieldWithFormik: Story<InputPrimitiveProps> = () => {
   const [isValueVisible, setIsValueVisible] = React.useState(false);
-  const [field, meta] = useField('formikPassword');
-  const [field2, meta2] = useField('formikPassword2');
+  const [field, meta] = useField<StorybookFormData['formikPassword']>('formikPassword');
+  const [field2, meta2] = useField<StorybookFormData['formikPassword2']>('formikPassword2');
 
   const showValue = () => setIsValueVisible(true);
   const hideValue = () => setIsValueVisible(false);
