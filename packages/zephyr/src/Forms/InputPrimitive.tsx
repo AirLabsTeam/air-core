@@ -121,7 +121,7 @@ export interface InputPrimitiveProps {
   multiple?: boolean;
 
   /**
-   * Field typically used to identify a Formik field.
+   * This prop is typically used to identify a Formik field; when doing so, its value should match the relevant key name inside the Formik schema.
    */
   name?: string;
 
