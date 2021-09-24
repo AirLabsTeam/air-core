@@ -108,9 +108,6 @@ const Template: Story<InputPrimitiveProps> = (args) => {
             {...args}
             onChange={(e) => setIValue(e.target.value)}
             value={iValue}
-            name={
-              args.required ? `required${isChonky ? 2 : ''}` : `nonRequired${isChonky ? 2 : ''}`
-            }
             id={`default_${isChonky ? 'Chonky' : 'smol'}`}
             variant={variant}
             key={variant}
@@ -130,6 +127,42 @@ Default.args = {
   type: 'text',
 };
 
+const InputWithCustomLabel: Story<InputPrimitiveProps> = () => {
+  const [iValue, setIValue] = useState('');
+
+  return (
+    <Box tx={{ display: 'flex', flexDirection: 'column', width: 200 }}>
+      {variants.map((variant) => {
+        const isChonky = variant === 'field-input-chonky';
+        const label = `Custom Label ${isChonky ? '(Chonky)' : '(Smol)'}`;
+        const fieldId = `input-with-c-label-default_${isChonky ? 'Chonky' : 'smol'}`;
+
+        return (
+          <Box key={variant}>
+            <LabelPrimitive
+              isFieldRequired
+              for={fieldId}
+              tx={{ mb: 4, Asterisk: { color: 'red' } }}
+            >
+              {label}
+            </LabelPrimitive>
+            <InputPrimitive
+              id={fieldId}
+              onChange={(e) => setIValue(e.target.value)}
+              value={iValue}
+              variant={variant}
+              required
+              tx={{ mr: 24, mb: 24 }}
+            />
+          </Box>
+        );
+      })}
+    </Box>
+  );
+};
+
+export const WithCustomLabel = InputWithCustomLabel.bind({});
+
 const InputWithLabel: Story<InputPrimitiveProps> = (args) => {
   const [iValue, setIValue] = useState('');
 
@@ -142,23 +175,11 @@ const InputWithLabel: Story<InputPrimitiveProps> = (args) => {
 
         return (
           <Box key={variant}>
-            <LabelPrimitive
-              isFieldRequired
-              for={fieldId}
-              tx={{
-                Asterisk: {
-                  color: 'blue',
-                },
-                mb: 4,
-              }}
-            >
+            <LabelPrimitive isFieldRequired for={fieldId} tx={{ mb: 4 }}>
               {label}
             </LabelPrimitive>
             <InputPrimitive
               {...args}
-              name={
-                args.required ? `required${isChonky ? 2 : ''}` : `nonRequired${isChonky ? 2 : ''}`
-              }
               id={fieldId}
               onChange={(e) => setIValue(e.target.value)}
               value={iValue}
@@ -195,16 +216,7 @@ export const WithLabelAndFormik: Story<InputPrimitiveProps> = (args) => {
 
         return (
           <Box key={variant}>
-            <LabelPrimitive
-              isFieldRequired={true}
-              for={name}
-              tx={{
-                Asterisk: {
-                  color: 'blue',
-                },
-                mb: 4,
-              }}
-            >
+            <LabelPrimitive isFieldRequired={true} for={name} tx={{ mb: 4 }}>
               {label}
             </LabelPrimitive>
             <Box tx={{ display: 'flex' }}>
@@ -244,6 +256,8 @@ WithLabelAndFormik.args = {
 };
 
 export const WithLeftAdornment: Story<InputPrimitiveProps> = () => {
+  const [iValue, setIValue] = useState('');
+
   return (
     <>
       {variants.map((variant) => {
@@ -251,13 +265,14 @@ export const WithLeftAdornment: Story<InputPrimitiveProps> = () => {
         return (
           <InputPrimitive
             required={false}
-            name={`nonRequired${isChonky ? 2 : ''}`}
             id={`withLeftAdornment${isChonky ? 2 : ''}`}
             adornment={{
               location: 'left',
               component: <Search />,
             }}
             tx={{ mb: 12, width: 200 }}
+            onChange={(e) => setIValue(e.target.value)}
+            value={iValue}
             variant={variant}
             key={variant}
           />
@@ -276,42 +291,48 @@ WithLeftAdornment.parameters = {
   },
 };
 
-export const WithCustomStyles: Story<InputPrimitiveProps> = () => (
-  <>
-    {variants.map((variant) => {
-      const isChonky = variant === 'field-input-chonky';
+export const WithCustomStyles: Story<InputPrimitiveProps> = () => {
+  const [iValue, setIValue] = useState('');
 
-      return (
-        <InputPrimitive
-          placeholder="Click or hover to interact"
-          name={`nonRequired${isChonky ? 2 : ''}`}
-          required={false}
-          variant={variant}
-          key={variant}
-          tx={{
-            mb: 12,
-            width: 200,
-            InnerInput: {
-              borderColor: 'transparent',
-              px: isChonky ? 10 : 8,
-              '&:hover:not(:focus)': {
-                backgroundColor: 'pigeon050',
-                cursor: 'pointer',
-                borderColor: 'transparent !important',
+  return (
+    <>
+      {variants.map((variant) => {
+        const isChonky = variant === 'field-input-chonky';
+
+        return (
+          <InputPrimitive
+            placeholder="Click or hover to interact"
+            required={false}
+            variant={variant}
+            key={variant}
+            onChange={(e) => setIValue(e.target.value)}
+            value={iValue}
+            tx={{
+              mb: 12,
+              width: 200,
+              InnerInput: {
+                borderColor: 'transparent',
+                px: isChonky ? 10 : 8,
+                '&:hover:not(:focus)': {
+                  backgroundColor: 'pigeon050',
+                  cursor: 'pointer',
+                  borderColor: 'transparent !important',
+                },
+                '&:focus': {
+                  backgroundColor: 'white',
+                },
               },
-              '&:focus': {
-                backgroundColor: 'white',
-              },
-            },
-          }}
-        />
-      );
-    })}
-  </>
-);
+            }}
+          />
+        );
+      })}
+    </>
+  );
+};
 
 export const PasswordField: Story<InputPrimitiveProps> = () => {
   const [isValueVisible, setIsValueVisible] = React.useState(false);
+  const [iValue, setIValue] = useState('');
 
   const showValue = () => setIsValueVisible(true);
   const hideValue = () => setIsValueVisible(false);
@@ -330,6 +351,8 @@ export const PasswordField: Story<InputPrimitiveProps> = () => {
             type={isValueVisible ? 'text' : 'password'}
             required
             tx={{ mb: 32, width: 200 }}
+            onChange={(e) => setIValue(e.target.value)}
+            value={iValue}
             description={{
               isHidden: false,
               component: (
@@ -470,16 +493,7 @@ export const WithFormikAndCustomEventHandler: Story<InputPrimitiveProps> = (args
 
         return (
           <Box key={variant}>
-            <LabelPrimitive
-              isFieldRequired={true}
-              for={name}
-              tx={{
-                Asterisk: {
-                  color: 'blue',
-                },
-                mb: 4,
-              }}
-            >
+            <LabelPrimitive isFieldRequired={true} for={name} tx={{ mb: 4 }}>
               {label}
             </LabelPrimitive>
             <Box tx={{ display: 'flex' }}>
