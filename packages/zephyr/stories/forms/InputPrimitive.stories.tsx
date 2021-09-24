@@ -229,7 +229,7 @@ export const WithLabelAndFormik: Story<InputPrimitiveProps> = (args) => {
                 key={variant}
                 name={name}
                 required
-                tx={{ mr: 24, mb: 24 }}
+                tx={{ mr: 24, mb: isChonky ? undefined : 32 }}
                 type="text"
                 variant={variant}
               />
@@ -254,6 +254,15 @@ WithLabelAndFormik.args = {
   disabled: false,
   required: true,
   type: 'text',
+};
+
+WithLabelAndFormik.parameters = {
+  docs: {
+    description: {
+      story:
+        'Although the default state of this component is not using Formik, use of Formik is supported. In this story, we use the `InputPrimitive` and the `LabelPrimitive` to illustrate how this component might behave when used with Formik. ',
+    },
+  },
 };
 
 export const WithLeftAdornment: Story<InputPrimitiveProps> = () => {
