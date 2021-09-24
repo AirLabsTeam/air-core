@@ -126,12 +126,12 @@ export interface InputPrimitiveProps {
   name?: string;
 
   /**
-   * This `onBlur` eventHandler can be passed a callback. If you would like to have custom logic while also using Formik, you will need to call the formik `onBlur` function and pass it the event received before continuing with your own logic ([relevant Stack Overflow](https://stackoverflow.com/a/48980424)).
+   * This `onBlur` eventHandler can be passed a callback. If you would like to have custom logic while also using Formik, you will need to (in your custom function) call the formik `onBlur` function and pass it the event you received, before continuing with your own logic in the custom function ([relevant Stack Overflow](https://stackoverflow.com/a/48980424)).
    * @see https://stackoverflow.com/a/48980424
    */
   onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void | FormikHandlers['handleBlur'];
   /**
-   * This `onChange` eventHandler can be passed a callback. If you would like to have custom logic while also using Formik, you will need to call the formik `onChange` function and pass it the event received before continuing with your own logic ([relevant Stack Overflow](https://stackoverflow.com/a/48980424)).
+   * This `onChange` eventHandler can be passed a callback. If you would like to have custom logic while also using Formik, you will need to (in your custom function) call the formik `onChange` function and pass it the event you received, before continuing with your own logic in the custom function ([relevant Stack Overflow](https://stackoverflow.com/a/48980424)).
    * @see https://stackoverflow.com/a/48980424
    */
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void | FormikHandlers['handleChange'];
