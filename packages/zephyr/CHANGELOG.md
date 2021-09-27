@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [13.0.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.33.6...@air/zephyr@13.0.0) (2021-09-27)
+
+### Bug Fixes
+
+- fixes Tooltip types ([3bed03d](https://github.com/AirLabsTeam/web-core/commit/3bed03d53d8818b1432e7235213bb8baf1b54b87))
+- grammar ([a226de3](https://github.com/AirLabsTeam/web-core/commit/a226de35fab28883c3fa87ad9c7e9922d1f4a1ae))
+- maintains omission of the ref for the anchor ([5fb7fde](https://github.com/AirLabsTeam/web-core/commit/5fb7fde530baca773775b153cd13be104bc80847))
+- removes styling and replace with asChild to prevent layout break ([0945405](https://github.com/AirLabsTeam/web-core/commit/0945405c291462295cda13e758e12979ac9bc210))
+
+### BREAKING CHANGES
+
+- updating the react-tooltip dependency
+
 ## [12.33.6](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.33.5...@air/zephyr@12.33.6) (2021-09-27)
 
 ### Bug Fixes
