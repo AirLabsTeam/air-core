@@ -160,7 +160,8 @@ export const Tooltip = ({
   return (
     <RadixTooltip.Root {...manualControlProps}>
       {/**
-       * We set the border to none and padding 0 to remove the trigger's default styles
+       * We use the asChild prop to ensure our layout isn't broken when using the Trigger
+       * @see https://www.radix-ui.com/docs/primitives/components/tooltip#trigger
        * We set `type={undefined}` so when Tooltip wraps non-button elements, Safari would not apply button styles
        *  */}
       <RadixTooltip.Trigger asChild type={undefined}>
