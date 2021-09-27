@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.33.5](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.33.4...@air/zephyr@12.33.5) (2021-09-27)
+
+### Code Refactoring
+
+- removes the hasTooltip prop and replaces it with actual tooltip ([fdd5a23](https://github.com/AirLabsTeam/web-core/commit/fdd5a23afb8bfd217dc205d401feef732e06c6e0))
+
+### BREAKING CHANGES
+
+- removing the hasTooltip
+
 ## [12.33.4](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.33.3...@air/zephyr@12.33.4) (2021-09-23)
 
 ### Bug Fixes
