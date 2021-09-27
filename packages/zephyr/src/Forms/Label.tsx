@@ -33,6 +33,9 @@ export interface LabelProps extends Pick<BoxProps, 'children' | 'className' | 't
   size?: 12 | 14;
 }
 
+/**
+ * @deprecated This component is no longer supported and will soon be removed. It will be replaced with a `LabelPrimitive` component.
+ */
 export const Label = ({
   children,
   className,
