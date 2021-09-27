@@ -1,13 +1,13 @@
 import React, { ComponentProps, FC, ReactNode } from 'react';
 import * as RadixTooltip from '@radix-ui/react-tooltip';
-import { PopperOwnProps } from '@radix-ui/react-popper';
-import { Slot } from '@radix-ui/react-slot';
+import { PopperContentProps } from '@radix-ui/react-popper';
 import { Side } from '@radix-ui/popper';
 import { Box } from './Box';
 import { Text } from './Text';
 import { TXProp } from './theme';
 
-export interface TooltipProps extends Omit<PopperOwnProps, 'anchorRef' | 'sideOffset' | 'side'> {
+export interface TooltipProps
+  extends Omit<PopperContentProps, 'anchorRef' | 'sideOffset' | 'side'> {
   /**
    * Must be a real element to attach the tooltip to. This can either be a node, an element, or a component whose ref
    * is properly forwarded.
@@ -38,7 +38,7 @@ export interface TooltipProps extends Omit<PopperOwnProps, 'anchorRef' | 'sideOf
    * explanation. When defined, we're assuming that you're in total control of the rendering of the component. If
    * undefined, we'll render the tooltip on hover and on focus (if the element is focusable).
    */
-  manualControlProps?: Required<RadixTooltip.TooltipOwnProps>;
+  manualControlProps?: Required<RadixTooltip.TooltipContentProps>;
 
   /**
    * This prop can be used to pass custom styles to specific portions of the rendered tooltip. You can pass styles
@@ -159,13 +159,10 @@ export const Tooltip = ({
   return (
     <RadixTooltip.Root {...manualControlProps}>
       {/**
-       * We cast `Trigger` as a button but would only render as a button if you pass it a button
-       * We cast it this way to appease the TypeScript gods
-       * @see https://github.com/radix-ui/primitives/blob/main/packages/react/tooltip/src/Tooltip.tsx#L147
-       *
+       * We set the border to none and padding 0 to remove the trigger default styles
        * We set `type={undefined}` so when Tooltip wraps non-button elements, Safari would not apply button styles
        *  */}
-      <RadixTooltip.Trigger as={(Slot as unknown) as 'button'} type={undefined}>
+      <RadixTooltip.Trigger style={{ border: 'none', padding: 0 }} type={undefined}>
         {children}
       </RadixTooltip.Trigger>
 
