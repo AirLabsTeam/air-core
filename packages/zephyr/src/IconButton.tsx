@@ -22,7 +22,7 @@ export interface NonSemanticIconButtonProps
   /**
    * If you would like for the button to have its own tooltip, you can pass in the necessary props and the tooltip will be rendered immediately outside the IconButton, with the contents of this prop spread onto the Tooltip component.
    */
-  tooltip?: Omit<TooltipProps, 'children'>;
+  tooltip?: Pick<TooltipProps, 'label' | 'side'> & Omit<TooltipProps, 'children'>;
 }
 
 export interface IconButtonProps
