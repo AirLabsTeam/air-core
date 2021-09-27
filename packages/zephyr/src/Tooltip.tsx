@@ -1,13 +1,14 @@
 import React, { ComponentProps, FC, ReactNode } from 'react';
 import * as RadixTooltip from '@radix-ui/react-tooltip';
-import { PopperContentProps } from '@radix-ui/react-popper';
+import { PopperContentProps, PopperAnchorProps } from '@radix-ui/react-popper';
 import { Side } from '@radix-ui/popper';
 import { Box } from './Box';
 import { Text } from './Text';
 import { TXProp } from './theme';
 
 export interface TooltipProps
-  extends Omit<PopperContentProps, 'anchorRef' | 'sideOffset' | 'side'> {
+  extends Omit<PopperContentProps, 'sideOffset' | 'side'>,
+    Omit<PopperAnchorProps, 'virtualRef'> {
   /**
    * Must be a real element to attach the tooltip to. This can either be a node, an element, or a component whose ref
    * is properly forwarded.
