@@ -163,7 +163,7 @@ export const Tooltip = ({
        * We set the border to none and padding 0 to remove the trigger's default styles
        * We set `type={undefined}` so when Tooltip wraps non-button elements, Safari would not apply button styles
        *  */}
-      <RadixTooltip.Trigger style={{ border: 'none', padding: 0 }} type={undefined}>
+      <RadixTooltip.Trigger asChild type={undefined}>
         {children}
       </RadixTooltip.Trigger>
 
