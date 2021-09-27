@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.33.6](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.33.5...@air/zephyr@12.33.6) (2021-09-27)
+
+### Bug Fixes
+
+- explicitly req nec tooltip props ([549f2b4](https://github.com/AirLabsTeam/web-core/commit/549f2b4f24287cac343656d334ffe29577f84716))
+
 ## [12.33.5](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.33.4...@air/zephyr@12.33.5) (2021-09-27)
 
 ### Code Refactoring
