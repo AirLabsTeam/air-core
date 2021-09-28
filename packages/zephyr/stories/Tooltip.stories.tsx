@@ -3,10 +3,12 @@ import { Meta, Story } from '@storybook/react';
 import isChromatic from 'chromatic/isChromatic';
 import { StoryFnReactReturnType } from '@storybook/react/dist/ts3.9/client/preview/types';
 import { noop } from 'lodash';
+import { Bell } from '@air/icons';
 import { Text } from '../src/Text';
 import { Tooltip, TooltipProps } from '../src/Tooltip';
 import { Box, BoxStylingProps } from '../src/Box';
 import { Button } from '../src/Button';
+import { IconButton } from '../src';
 
 const TooltipStoryDecorator = (Story: () => StoryFnReactReturnType) => (
   <Box tx={{ display: 'grid', placeItems: 'center', width: '100%', height: 300 }}>
@@ -239,6 +241,39 @@ export const WithoutArrow = () => {
         Hover over me to see a tooltip without an arrow
       </Button>
     </Tooltip>
+  );
+};
+
+export const AsPropOnIconButton = () => {
+  return (
+    <IconButton
+      icon={Bell}
+      size="medium"
+      variant="button-filled-grey"
+      tooltip={{
+        label: 'Bell',
+        side: 'top',
+      }}
+    >
+      See Notifications
+    </IconButton>
+  );
+};
+
+export const AsPropOnIconButtonUsingManualControlProps = () => {
+  return (
+    <IconButton
+      icon={Bell}
+      size="medium"
+      variant="button-filled-grey"
+      tooltip={{
+        label: 'Bell',
+        side: 'top',
+        manualControlProps: { open: true, defaultOpen: false, onOpenChange: noop },
+      }}
+    >
+      See Notifications
+    </IconButton>
   );
 };
 
