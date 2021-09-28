@@ -185,7 +185,6 @@ export const WithoutBorder = () => (
       manualControlProps={
         isChromatic() ? { open: true, onOpenChange: noop, defaultOpen: true } : undefined
       }
-      withBorder={false}
     >
       <Button onClick={noop} variant="button-filled-grey">
         Hover over me to see a tooltip without a white border!
@@ -208,7 +207,6 @@ export const WithCustomStyles = () => {
         bg: '#B4CFFF',
       }}
       withArrow={true}
-      withBorder={false}
       label={'Custom is cool'}
       data-testid={meta.title}
       side="bottom"

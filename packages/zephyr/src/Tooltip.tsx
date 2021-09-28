@@ -46,8 +46,7 @@ export interface TooltipProps
    * to the tx prop as normal, and the styles will be applied to the div containing the entire tooltip. However if you’d like
    * to style a specific portion, there are 3 optional properties that you may use to style that section of the Tooltip. You should use`TooltipArrow` for
    * specific arrow styles, `tooltipBorder` for the Tooltip's border styles, and the `TooltipContentBox` for the styles
-   * to be applied to the immediate div surrounding the label. Please note these styles do not override existing props (i.e. if
-   * `withBorder` is false, the styles in `TooltipBorder` will have no effect); these properties only supplement the styles.
+   * to be applied to the immediate div surrounding the label. Please note these styles do not override existing props.
    */
   tx?: TXProp & {
     TooltipArrow?: TXProp;
