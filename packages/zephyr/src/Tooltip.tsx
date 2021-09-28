@@ -62,12 +62,6 @@ export interface TooltipProps
   baseZIndex?: number;
 
   /**
-   * Determines whether or not the tooltip has a white border around it. Useful for rendering a tooltip that visually
-   * spans across multiple, differently colored backgrounds.
-   */
-  withBorder?: boolean;
-
-  /**
    * This determines whether or not the arrow shows on the tooltip
    * @default true
    */
@@ -146,7 +140,6 @@ export const Tooltip = ({
   side,
   sideOffset = 10,
   tx = {},
-  withBorder = true,
   withArrow = true,
   'data-testid': testID,
 }: TooltipProps) => {
@@ -188,7 +181,7 @@ export const Tooltip = ({
           px: 10,
           py: 5,
           height: 36,
-          borderColor: withBorder ? 'white' : 'transparent',
+          borderColor: 'transparent',
           borderWidth: 2,
           borderStyle: 'solid',
           borderRadius: 4,
@@ -200,34 +193,32 @@ export const Tooltip = ({
           variant="text-ui-14"
           tx={{
             color: 'currentColor',
+            fontWeight: 'medium',
             ...(textContentStyles as any),
           }}
         >
           {label}
         </Text>
 
-        {withBorder && (
-          <Box
-            as={
-              RadixTooltip.Arrow as FC<
-                Omit<ComponentProps<typeof RadixTooltip.Arrow>, 'as' | 'ref'>
-              >
-            }
-            tx={{
-              fill: 'white',
-              zIndex: baseZIndex,
-              strokeLinejoin: 'round',
-              strokeLinecap: 'round',
-              stroke: 'white',
-              strokeWidth: 1,
-              ...triangleOffsetMapping['border'][side],
-              ...(borderStyles as any),
-            }}
-            width={12}
-            height={8}
-            offset={arrowOffset}
-          />
-        )}
+        <Box
+          as={
+            RadixTooltip.Arrow as FC<Omit<ComponentProps<typeof RadixTooltip.Arrow>, 'as' | 'ref'>>
+          }
+          tx={{
+            fill: 'white',
+            zIndex: baseZIndex,
+            strokeLinejoin: 'round',
+            strokeLinecap: 'round',
+            stroke: 'white',
+            strokeWidth: 1,
+            ...triangleOffsetMapping['border'][side],
+            ...(borderStyles as any),
+          }}
+          width={12}
+          height={8}
+          offset={arrowOffset}
+        />
+
         {withArrow && (
           <Box
             as={
