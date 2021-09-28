@@ -39,7 +39,7 @@ export interface TooltipProps
    * explanation. When defined, we're assuming that you're in total control of the rendering of the component. If
    * undefined, we'll render the tooltip on hover and on focus (if the element is focusable).
    */
-  manualControlProps?: Required<RadixTooltip.TooltipContentProps>;
+  manualControlProps?: Required<RadixTooltip.PopperContentProps>;
 
   /**
    * This prop can be used to pass custom styles to specific portions of the rendered tooltip. You can pass styles
