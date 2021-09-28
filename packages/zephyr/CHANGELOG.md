@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [13.0.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@13.0.0...@air/zephyr@13.0.1) (2021-09-28)
+
+### Bug Fixes
+
+- fix the props type ([1cae319](https://github.com/AirLabsTeam/web-core/commit/1cae319f7e6fcf3926542b34f5009c4cbbdd234c))
+
 # [13.0.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.33.6...@air/zephyr@13.0.0) (2021-09-27)
 
 ### Bug Fixes
