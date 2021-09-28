@@ -50,7 +50,6 @@ export interface TooltipProps
    */
   tx?: TXProp & {
     TooltipArrow?: TXProp;
-    TooltipBorder?: TXProp;
     TooltipContent?: TXProp;
   };
 
@@ -142,12 +141,7 @@ export const Tooltip = ({
   withArrow = true,
   'data-testid': testID,
 }: TooltipProps) => {
-  const {
-    TooltipArrow: arrowStyles,
-    TooltipBorder: borderStyles,
-    TooltipContent: textContentStyles,
-    ...containerStyles
-  } = tx;
+  const { TooltipArrow: arrowStyles, TooltipContent: textContentStyles, ...containerStyles } = tx;
 
   return (
     <RadixTooltip.Root {...manualControlProps}>
@@ -198,25 +192,6 @@ export const Tooltip = ({
         >
           {label}
         </Text>
-
-        <Box
-          as={
-            RadixTooltip.Arrow as FC<Omit<ComponentProps<typeof RadixTooltip.Arrow>, 'as' | 'ref'>>
-          }
-          tx={{
-            fill: 'white',
-            zIndex: baseZIndex,
-            strokeLinejoin: 'round',
-            strokeLinecap: 'round',
-            stroke: 'white',
-            strokeWidth: 1,
-            ...triangleOffsetMapping['border'][side],
-            ...(borderStyles as any),
-          }}
-          width={12}
-          height={8}
-          offset={arrowOffset}
-        />
 
         {withArrow && (
           <Box
