@@ -1,10 +1,7 @@
 import { AnimatePresence, Variant } from 'framer-motion';
 import { noop } from 'lodash';
-import React, { ReactNode, useState, useCallback, useMemo, memo } from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
+import React, { ReactNode, useState, useCallback, memo } from 'react';
 import { Trigger, Content, Root } from '@radix-ui/react-dropdown-menu';
-import { Slot } from '@radix-ui/react-slot';
-import { isNull } from 'lodash';
 import { rgba } from 'polished';
 import { useTheme } from 'styled-components';
 
@@ -78,7 +75,6 @@ export interface RadixDropdownMenuProps extends Pick<MenuProps, 'animation' | 's
 
 export const RadixDropdownMenu = memo(
   ({
-    animation,
     childrenBottom,
     childrenTop,
     hasOverlay = true,
@@ -92,7 +88,6 @@ export const RadixDropdownMenu = memo(
     tx,
   }: RadixDropdownMenuProps) => {
     const [isExpanded, setExpanded] = useState(false);
-    const shouldReduceMotion = useReducedMotion();
     const theme = useTheme();
 
     const handleChange = useCallback(
@@ -103,24 +98,6 @@ export const RadixDropdownMenu = memo(
         setExpanded(isOpen);
       },
       [onChange],
-    );
-
-    const defaultMenuAnimation = useMemo(
-      () => ({
-        animate: {
-          opacity: 1,
-          y: 0,
-        },
-        exit: {
-          opacity: 0,
-          y: shouldReduceMotion ? 0 : -12,
-        },
-        initial: {
-          opacity: 0,
-          y: shouldReduceMotion ? 0 : -12,
-        },
-      }),
-      [shouldReduceMotion],
     );
 
     return (
@@ -139,18 +116,9 @@ export const RadixDropdownMenu = memo(
             }}
           />
         )}
-        <Trigger as={Slot}>{trigger}</Trigger>
+        <Trigger asChild>{trigger}</Trigger>
         <AnimatePresence>
-          <Content
-            as={motion.div}
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            align="start"
-            transition={{ type: 'spring', damping: 20, stiffness: 300 }}
-            variants={isNull(animation) ? undefined : defaultMenuAnimation}
-            sideOffset={offset}
-          >
+          <Content asChild align="start" sideOffset={offset}>
             <Box
               data-testid={testId}
               tx={{
