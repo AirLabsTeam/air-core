@@ -3,7 +3,7 @@ import { forwardRefWithAs } from '@reach/utils';
 import VisuallyHidden from '@reach/visually-hidden';
 import { variant as styledSystemVariant } from 'styled-system';
 import { useTheme } from 'styled-components';
-import { Tooltip, TooltipProps } from '../src/Tooltip';
+import { TooltipProps } from '../src/Tooltip';
 import { Box } from './Box';
 import { Button, ButtonProps, NonSemanticButtonProps } from './Button';
 import { SVGComponent } from './shared';
@@ -19,6 +19,7 @@ export interface NonSemanticIconButtonProps
    */
   children: string;
   icon: SVGComponent;
+  hasTooltip?: boolean;
   /**
    * If you would like for the button to have its own tooltip, you can pass in the necessary props and the tooltip will be rendered immediately outside the IconButton, with the contents of this prop spread onto the Tooltip component.
    */
@@ -36,6 +37,7 @@ export const IconButton = forwardRefWithAs<NonSemanticIconButtonProps, 'button'>
       children,
       className,
       disabled = false,
+      hasTooltip,
       tooltip: tooltipProps,
       icon,
       isLoading = false,
@@ -93,7 +95,7 @@ export const IconButton = forwardRefWithAs<NonSemanticIconButtonProps, 'button'>
         variant={variant}
       >
         {/* If button is wrapped with tooltip, it doesn't require assistive text. It's already provided on focus via the tooltip. */}
-        {!tooltipProps && <VisuallyHidden>{children}</VisuallyHidden>}
+        {(!tooltipProps || !hasTooltip) && <VisuallyHidden>{children}</VisuallyHidden>}
         <Box
           as={icon}
           tx={{
@@ -122,6 +124,6 @@ export const IconButton = forwardRefWithAs<NonSemanticIconButtonProps, 'button'>
       </Button>
     );
 
-    return tooltipProps ? <Tooltip {...tooltipProps}>{iconButton}</Tooltip> : iconButton;
+    return iconButton;
   },
 );
