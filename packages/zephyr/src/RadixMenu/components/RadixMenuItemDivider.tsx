@@ -13,7 +13,6 @@ export const RadixMenuItemDivider = memo(({ isTop, variant }: RadixMenuItemDivid
   return (
     <Box
       as={Separator as FC<Omit<ComponentProps<typeof Separator>, 'as' | 'ref'>>}
-      asChild
       tx={{
         backgroundColor: variant === 'dark' ? 'pigeon500' : 'pigeon100',
         height: 1,
