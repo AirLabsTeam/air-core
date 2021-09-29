@@ -46,12 +46,10 @@ export interface TooltipProps
    * to the tx prop as normal, and the styles will be applied to the div containing the entire tooltip. However if you’d like
    * to style a specific portion, there are 3 optional properties that you may use to style that section of the Tooltip. You should use`TooltipArrow` for
    * specific arrow styles, `tooltipBorder` for the Tooltip's border styles, and the `TooltipContentBox` for the styles
-   * to be applied to the immediate div surrounding the label. Please note these styles do not override existing props (i.e. if
-   * `withBorder` is false, the styles in `TooltipBorder` will have no effect); these properties only supplement the styles.
+   * to be applied to the immediate div surrounding the label. Please note these styles do not override existing props.
    */
   tx?: TXProp & {
     TooltipArrow?: TXProp;
-    TooltipBorder?: TXProp;
     TooltipContent?: TXProp;
   };
 
@@ -60,12 +58,6 @@ export interface TooltipProps
    * so we give you the power to control the underlying z-index number all of the primitives use in relation to eachother.
    */
   baseZIndex?: number;
-
-  /**
-   * Determines whether or not the tooltip has a white border around it. Useful for rendering a tooltip that visually
-   * spans across multiple, differently colored backgrounds.
-   */
-  withBorder?: boolean;
 
   /**
    * This determines whether or not the arrow shows on the tooltip
@@ -146,16 +138,10 @@ export const Tooltip = ({
   side,
   sideOffset = 10,
   tx = {},
-  withBorder = true,
   withArrow = true,
   'data-testid': testID,
 }: TooltipProps) => {
-  const {
-    TooltipArrow: arrowStyles,
-    TooltipBorder: borderStyles,
-    TooltipContent: textContentStyles,
-    ...containerStyles
-  } = tx;
+  const { TooltipArrow: arrowStyles, TooltipContent: textContentStyles, ...containerStyles } = tx;
 
   return (
     <RadixTooltip.Root {...manualControlProps}>
@@ -188,7 +174,7 @@ export const Tooltip = ({
           px: 10,
           py: 5,
           height: 36,
-          borderColor: withBorder ? 'white' : 'transparent',
+          borderColor: 'transparent',
           borderWidth: 2,
           borderStyle: 'solid',
           borderRadius: 4,
@@ -200,34 +186,13 @@ export const Tooltip = ({
           variant="text-ui-14"
           tx={{
             color: 'currentColor',
+            fontWeight: 'medium',
             ...(textContentStyles as any),
           }}
         >
           {label}
         </Text>
 
-        {withBorder && (
-          <Box
-            as={
-              RadixTooltip.Arrow as FC<
-                Omit<ComponentProps<typeof RadixTooltip.Arrow>, 'as' | 'ref'>
-              >
-            }
-            tx={{
-              fill: 'white',
-              zIndex: baseZIndex,
-              strokeLinejoin: 'round',
-              strokeLinecap: 'round',
-              stroke: 'white',
-              strokeWidth: 1,
-              ...triangleOffsetMapping['border'][side],
-              ...(borderStyles as any),
-            }}
-            width={12}
-            height={8}
-            offset={arrowOffset}
-          />
-        )}
         {withArrow && (
           <Box
             as={
