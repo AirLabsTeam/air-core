@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [14.0.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@13.0.1...@air/zephyr@14.0.0) (2021-09-29)
+
+### Bug Fixes
+
+- remove border and story ([6627c0c](https://github.com/AirLabsTeam/web-core/commit/6627c0cf48cb605b7817197e6300db5de7e7346a))
+- remove unnec prop ([a06a091](https://github.com/AirLabsTeam/web-core/commit/a06a091183006e5581e65227baf65073cd66b5be))
+
+### BREAKING CHANGES
+
+- remove props
+
 ## [13.0.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@13.0.0...@air/zephyr@13.0.1) (2021-09-28)
 
 ### Bug Fixes
