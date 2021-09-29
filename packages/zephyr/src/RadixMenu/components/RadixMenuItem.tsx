@@ -1,4 +1,4 @@
-import React, { ReactNode, memo, useMemo } from 'react';
+import { ReactNode, memo, useMemo } from 'react';
 import { rgba } from 'polished';
 import { Item, Root, Content, TriggerItem } from '@radix-ui/react-dropdown-menu';
 import { ChevronRight } from '@air/icons';

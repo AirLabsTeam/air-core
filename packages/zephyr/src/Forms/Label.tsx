@@ -1,4 +1,3 @@
-import React from 'react';
 import VisuallyHidden from '@reach/visually-hidden';
 import { BoxProps } from '../Box';
 import { Text } from '../Text';

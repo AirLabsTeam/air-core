@@ -107,8 +107,9 @@ const config = {
      * React Plugin Rules
      * @see https://github.com/yannickcr/eslint-plugin-react#list-of-supported-rules
      * */
-    'react/jsx-uses-react': 'error',
     'react/jsx-uses-vars': 'error',
+    'react/jsx-uses-react': 'off',
+    'react/react-in-jsx-scope': 'off',
 
     /**
      * Import Plugin Rules

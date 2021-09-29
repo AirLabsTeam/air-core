@@ -1,4 +1,3 @@
-import React from 'react';
 import { transitions } from 'polished';
 import { forwardRefWithAs, PropsWithAs } from '@reach/utils';
 import { variant as styledSystemVariant } from 'styled-system';
@@ -6,6 +5,7 @@ import invariant from 'tiny-invariant';
 import { useReducedMotion } from 'framer-motion';
 import VisuallyHidden from '@reach/visually-hidden';
 import classNames from 'classnames';
+import { Ref } from 'react';
 import styled, { keyframes, useTheme } from 'styled-components';
 import { Box, BoxStylingProps } from './Box';
 import { ButtonVariantName } from './theme/variants/button';
@@ -255,7 +255,7 @@ export const Button = forwardRefWithAs<NonSemanticButtonProps, 'button'>(
       className,
       ...restOfProps
     }: ButtonProps,
-    ref: React.Ref<HTMLButtonElement>,
+    ref: Ref<HTMLButtonElement>,
   ) => {
     invariant(
       (isLoading &&

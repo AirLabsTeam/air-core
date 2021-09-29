@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Box, BoxStylingProps } from '../../Box';
 
 export interface ActionSheetDividerProps extends Pick<BoxStylingProps, 'tx'> {}
