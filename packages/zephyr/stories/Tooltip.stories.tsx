@@ -171,31 +171,6 @@ export const AllSides = () => {
   );
 };
 
-export const WithoutBorder = () => (
-  <Box
-    tx={{
-      display: 'grid',
-      placeItems: 'center',
-      width: '100%',
-      height: '100%',
-      bg: 'jay500',
-    }}
-  >
-    <Tooltip
-      label="No borders here."
-      side="right"
-      manualControlProps={
-        isChromatic() ? { open: true, onOpenChange: noop, defaultOpen: true } : undefined
-      }
-      withBorder={false}
-    >
-      <Button onClick={noop} variant="button-filled-grey">
-        Hover over me to see a tooltip without a white border!
-      </Button>
-    </Tooltip>
-  </Box>
-);
-
 export const WithCustomStyles = () => {
   return (
     <Tooltip
@@ -210,7 +185,6 @@ export const WithCustomStyles = () => {
         bg: '#B4CFFF',
       }}
       withArrow={true}
-      withBorder={false}
       label={'Custom is cool'}
       data-testid={meta.title}
       side="bottom"
