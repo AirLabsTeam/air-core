@@ -1,6 +1,5 @@
 import { Close as CloseIcon } from '@air/icons';
 import VisuallyHidden from '@reach/visually-hidden';
-import React from 'react';
 
 import { Box } from '../../Box';
 import { IconButton } from '../../IconButton';

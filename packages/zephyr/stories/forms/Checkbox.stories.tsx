@@ -1,4 +1,3 @@
-import React from 'react';
 import { Story, Meta } from '@storybook/react';
 
 import { Checkbox, CheckboxProps } from '../../src/Forms/Checkbox';

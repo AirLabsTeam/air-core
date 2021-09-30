@@ -1,7 +1,7 @@
 import { motion, useReducedMotion, Variant } from 'framer-motion';
 import { isNull } from 'lodash';
 import { rgba } from 'polished';
-import React from 'react';
+
 import { useTheme } from 'styled-components';
 
 import { Box, BoxProps } from '../../Box';
