@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import { forwardRef, RefObject } from 'react';
 import { AlertDialogOverlay, AlertDialogProps } from '@reach/alert-dialog';
 import { DialogOverlay, DialogProps } from '@reach/dialog';
 import { motion, MotionProps } from 'framer-motion';
@@ -14,7 +14,7 @@ interface ModalOverlayProps
     Pick<AlertDialogProps, 'leastDestructiveRef'> {
   children: JSX.Element;
   isAlertModal: boolean;
-  leastDestructiveRef?: React.RefObject<HTMLElement>;
+  leastDestructiveRef?: RefObject<HTMLElement>;
   shouldReduceMotion: boolean;
 }
 

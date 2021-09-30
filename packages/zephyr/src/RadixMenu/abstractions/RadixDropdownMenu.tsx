@@ -1,6 +1,6 @@
 import { AnimatePresence, Variant } from 'framer-motion';
 import { noop } from 'lodash';
-import React, { ReactNode, useState, useCallback, useMemo, memo } from 'react';
+import { ReactNode, useState, useCallback, useMemo, memo } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { Trigger, Content, Root } from '@radix-ui/react-dropdown-menu';
 import { Slot } from '@radix-ui/react-slot';

@@ -1,6 +1,5 @@
 import { useId } from '@reach/auto-id';
 import VisuallyHidden from '@reach/visually-hidden';
-import React from 'react';
 
 import { TXProp } from '../../theme';
 import { Box, BoxProps } from '../../Box';

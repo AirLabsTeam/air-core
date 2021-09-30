@@ -1,11 +1,11 @@
-import * as React from 'react';
+import { forwardRef, SVGProps } from 'react';
 import { ButtonSize } from './Button';
 import { ButtonVariantName } from './theme';
 
 // eslint-disable-next-line react/display-name
-const FakeAirIconComponent = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement>>(
-  (props, ref) => <svg {...props} ref={ref} />,
-);
+const FakeAirIconComponent = forwardRef<SVGSVGElement, SVGProps<SVGSVGElement>>((props, ref) => (
+  <svg {...props} ref={ref} />
+));
 
 export type SVGComponent = typeof FakeAirIconComponent;
 export type LeftRight = 'left' | 'right';

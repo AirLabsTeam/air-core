@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import { memo } from 'react';
 import { Text, TextProps } from '../../Text';
 
 export const MenuItemDescription = memo(({ tx, ...restOfProps }: TextProps) => (

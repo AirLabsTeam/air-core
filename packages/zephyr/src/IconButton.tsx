@@ -1,7 +1,7 @@
-import React from 'react';
 import { forwardRefWithAs } from '@reach/utils';
 import VisuallyHidden from '@reach/visually-hidden';
 import { variant as styledSystemVariant } from 'styled-system';
+import { Ref } from 'react';
 import { useTheme } from 'styled-components';
 import { Box } from './Box';
 import { Button, ButtonProps, NonSemanticButtonProps } from './Button';
@@ -41,7 +41,7 @@ export const IconButton = forwardRefWithAs<NonSemanticIconButtonProps, 'button'>
       variant = 'button-filled-blue',
       ...restOfProps
     }: IconButtonProps,
-    ref: React.Ref<HTMLButtonElement>,
+    ref: Ref<HTMLButtonElement>,
   ) => {
     const theme = useTheme();
 
