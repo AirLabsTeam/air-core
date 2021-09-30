@@ -1,13 +1,24 @@
 import { ComponentProps, FC, ReactNode, ReactElement } from 'react';
 import * as RadixTooltip from '@radix-ui/react-tooltip';
-import { PopperOwnProps } from '@radix-ui/react-popper';
 import { Slot } from '@radix-ui/react-slot';
-import { Side } from '@radix-ui/popper';
+import { Side, Align } from '@radix-ui/popper';
+import { Measurable } from '@radix-ui/rect';
 import { Box } from './Box';
 import { Text } from './Text';
 import { TXProp } from './theme';
 
-export interface TooltipProps extends Omit<PopperOwnProps, 'anchorRef' | 'sideOffset' | 'side'> {
+export type DuplicatedPopperOwnProps = {
+  anchorRef: React.RefObject<Measurable>;
+  side?: Side;
+  sideOffset?: number;
+  align?: Align;
+  alignOffset?: number;
+  collisionTolerance?: number;
+  avoidCollisions?: boolean;
+};
+
+export interface TooltipProps
+  extends Omit<DuplicatedPopperOwnProps, 'anchorRef' | 'sideOffset' | 'side'> {
   /**
    * Must be a real element to attach the tooltip to. This can either be a node, an element, or a component whose ref
    * is properly forwarded.

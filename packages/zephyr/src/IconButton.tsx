@@ -3,6 +3,7 @@ import VisuallyHidden from '@reach/visually-hidden';
 import { variant as styledSystemVariant } from 'styled-system';
 import { Ref } from 'react';
 import { useTheme } from 'styled-components';
+import { Tooltip, TooltipProps } from '../src/Tooltip';
 import { Box } from './Box';
 import { Button, ButtonProps, NonSemanticButtonProps } from './Button';
 import { SVGComponent } from './shared';
@@ -18,7 +19,14 @@ export interface NonSemanticIconButtonProps
    */
   children: string;
   icon: SVGComponent;
-  hasTooltip: boolean;
+  /**
+   * If you would like for the button to have its own tooltip, you can pass in the necessary props and the tooltip will be rendered immediately outside the IconButton, with the contents of this prop spread onto the Tooltip component.
+   */
+  tooltip?: Pick<TooltipProps, 'label' | 'side'> & Omit<TooltipProps, 'children'>;
+  /**
+   * When this prop is set to  false, the assistive text is hidden. It should be set to true when an IconButton is wrapped in a tree where a Tooltip is wrapped around the parent element.
+   */
+  hideAssistiveText?: boolean;
 }
 
 export interface IconButtonProps
@@ -32,9 +40,10 @@ export const IconButton = forwardRefWithAs<NonSemanticIconButtonProps, 'button'>
       children,
       className,
       disabled = false,
-      hasTooltip,
+      tooltip,
       icon,
       isLoading = false,
+      hideAssistiveText = false,
       size = 'medium',
       tx,
       type = 'button',
@@ -89,7 +98,7 @@ export const IconButton = forwardRefWithAs<NonSemanticIconButtonProps, 'button'>
         variant={variant}
       >
         {/* If button is wrapped with tooltip, it doesn't require assistive text. It's already provided on focus via the tooltip. */}
-        {!hasTooltip && <VisuallyHidden>{children}</VisuallyHidden>}
+        {(!tooltip || hideAssistiveText) && <VisuallyHidden>{children}</VisuallyHidden>}
         <Box
           as={icon}
           tx={{
@@ -118,6 +127,6 @@ export const IconButton = forwardRefWithAs<NonSemanticIconButtonProps, 'button'>
       </Button>
     );
 
-    return iconButton;
+    return tooltip ? <Tooltip {...tooltip}>{iconButton}</Tooltip> : iconButton;
   },
 );
