@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [14.0.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@14.0.0...@air/zephyr@14.0.1) (2021-09-30)
+
+### Bug Fixes
+
+- return back to requiring hasTooltip ([8649689](https://github.com/AirLabsTeam/web-core/commit/8649689034854eb668ef6338691d201030b2077a))
+- returns to state before iconButton and tooltip implementation ([9945098](https://github.com/AirLabsTeam/web-core/commit/994509822148497662b1048588f7d578d6e7d2f5))
+
 # [14.0.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@13.0.1...@air/zephyr@14.0.0) (2021-09-29)
 
 ### Bug Fixes
