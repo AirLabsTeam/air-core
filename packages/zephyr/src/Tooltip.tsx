@@ -1,14 +1,13 @@
 import { ComponentProps, FC, ReactNode, ReactElement } from 'react';
 import * as RadixTooltip from '@radix-ui/react-tooltip';
-import { PopperContentProps, PopperAnchorProps } from '@radix-ui/react-popper';
+import { PopperOwnProps } from '@radix-ui/react-popper';
+import { Slot } from '@radix-ui/react-slot';
 import { Side } from '@radix-ui/popper';
 import { Box } from './Box';
 import { Text } from './Text';
 import { TXProp } from './theme';
 
-export interface TooltipProps
-  extends Omit<PopperContentProps, 'sideOffset' | 'side'>,
-    Omit<PopperAnchorProps, 'virtualRef'> {
+export interface TooltipProps extends Omit<PopperOwnProps, 'anchorRef' | 'sideOffset' | 'side'> {
   /**
    * Must be a real element to attach the tooltip to. This can either be a node, an element, or a component whose ref
    * is properly forwarded.
@@ -39,7 +38,7 @@ export interface TooltipProps
    * explanation. When defined, we're assuming that you're in total control of the rendering of the component. If
    * undefined, we'll render the tooltip on hover and on focus (if the element is focusable).
    */
-  manualControlProps?: Required<RadixTooltip.PopperContentProps>;
+  manualControlProps?: Required<RadixTooltip.TooltipOwnProps>;
 
   /**
    * This prop can be used to pass custom styles to specific portions of the rendered tooltip. You can pass styles
@@ -146,11 +145,13 @@ export const Tooltip = ({
   return (
     <RadixTooltip.Root {...manualControlProps}>
       {/**
-       * We use the asChild prop to ensure our layout isn't broken when using the Trigger
-       * @see https://www.radix-ui.com/docs/primitives/components/tooltip#trigger
+       * We cast `Trigger` as a button but would only render as a button if you pass it a button
+       * We cast it this way to appease the TypeScript gods
+       * @see https://github.com/radix-ui/primitives/blob/main/packages/react/tooltip/src/Tooltip.tsx#L147
        * We set `type={undefined}` so when Tooltip wraps non-button elements, Safari would not apply button styles
+       * @see https://www.radix-ui.com/docs/primitives/components/tooltip#trigger
        *  */}
-      <RadixTooltip.Trigger asChild type={undefined}>
+      <RadixTooltip.Trigger as={(Slot as unknown) as 'button'} type={undefined}>
         {children}
       </RadixTooltip.Trigger>
 
