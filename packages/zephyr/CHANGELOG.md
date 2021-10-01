@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [15.0.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@14.0.1...@air/zephyr@15.0.0) (2021-10-01)
+
+### Bug Fixes
+
+- remove Duplicate from type name ([aa4edc9](https://github.com/AirLabsTeam/web-core/commit/aa4edc95d212d8f4ba9b24521165b92e9be01dc5))
+- rename prop to showAssistiveText ([637c62e](https://github.com/AirLabsTeam/web-core/commit/637c62e9a1af5ec58edb1f8445805c3abff3bdf0))
+
+### Features
+
+- replace hasTooltip prop with hideAssistiveText; add tooltip prop ([6827b35](https://github.com/AirLabsTeam/web-core/commit/6827b3563054848a1bd7afbdffe879fae443a5ec))
+
+### BREAKING CHANGES
+
+- removes the hasTooltip prop
+
 ## [14.0.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@14.0.0...@air/zephyr@14.0.1) (2021-09-30)
 
 ### Bug Fixes
