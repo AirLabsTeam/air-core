@@ -7,9 +7,9 @@ import { Box } from './Box';
 import { Text } from './Text';
 import { TXProp } from './theme';
 /**
- * This type is necessary but it is not exported from @radix-ui/react-popper so we duplicate it here
+ * This type is necessary, but it is not exported from @radix-ui/react-popper, so we duplicate it here using the pieces of the package that are exported
  */
-type DuplicatePopperOwnProps = {
+type PopperOwnProps = {
   anchorRef: React.RefObject<Measurable>;
   side?: Side;
   sideOffset?: number;
@@ -19,8 +19,7 @@ type DuplicatePopperOwnProps = {
   avoidCollisions?: boolean;
 };
 
-export interface TooltipProps
-  extends Omit<DuplicatePopperOwnProps, 'anchorRef' | 'sideOffset' | 'side'> {
+export interface TooltipProps extends Omit<PopperOwnProps, 'anchorRef' | 'sideOffset' | 'side'> {
   /**
    * Must be a real element to attach the tooltip to. This can either be a node, an element, or a component whose ref
    * is properly forwarded.
