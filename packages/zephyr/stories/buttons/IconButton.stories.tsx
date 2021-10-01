@@ -64,7 +64,12 @@ export const AllPossibleIconButtons: Story<IconButtonProps> = () => {
                       {label}
                     </Text>
 
-                    <IconButton icon={Bell} size={size} variant={variant} hasTooltip={false}>
+                    <IconButton
+                      icon={Bell}
+                      size={size}
+                      variant={variant}
+                      tooltip={{ label: 'Bell', side: 'top' }}
+                    >
                       See Notifications
                     </IconButton>
                   </Box>
