@@ -7,7 +7,7 @@ import { Box } from './Box';
 import { Text } from './Text';
 import { TXProp } from './theme';
 /**
- * This type is necessary, but it is not exported from @radix-ui/react-popper, so we duplicate it here using the pieces of the package that are exported
+ * This type is necessary, but it is not exported from @radix-ui/react-popper, so we duplicate it
  */
 type PopperOwnProps = {
   anchorRef: React.RefObject<Measurable>;
