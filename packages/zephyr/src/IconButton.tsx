@@ -24,9 +24,9 @@ export interface NonSemanticIconButtonProps
    */
   tooltip?: Pick<TooltipProps, 'label' | 'side'> & Omit<TooltipProps, 'children'>;
   /**
-   * When this prop is set to  false, the assistive text is hidden. It should be set to true when an IconButton is wrapped in a tree where a Tooltip is wrapped around the parent element.
+   * When this prop is set to `false`, the assistive text is hidden. By default this is `true`. This should only be set to `false` when an iconButton has a parent element that already has a tooltip. In this case, assistive text is not required because a tooltip is present.
    */
-  hideAssistiveText?: boolean;
+  showAssistiveText?: boolean;
 }
 
 export interface IconButtonProps
@@ -43,7 +43,7 @@ export const IconButton = forwardRefWithAs<NonSemanticIconButtonProps, 'button'>
       tooltip,
       icon,
       isLoading = false,
-      hideAssistiveText = false,
+      showAssistiveText = true,
       size = 'medium',
       tx,
       type = 'button',
@@ -53,6 +53,7 @@ export const IconButton = forwardRefWithAs<NonSemanticIconButtonProps, 'button'>
     ref: Ref<HTMLButtonElement>,
   ) => {
     const theme = useTheme();
+    const shouldShowAssistiveText = !tooltip && showAssistiveText;
 
     const iconButton = (
       <Button
@@ -98,7 +99,7 @@ export const IconButton = forwardRefWithAs<NonSemanticIconButtonProps, 'button'>
         variant={variant}
       >
         {/* If button is wrapped with tooltip, it doesn't require assistive text. It's already provided on focus via the tooltip. */}
-        {(!tooltip || hideAssistiveText) && <VisuallyHidden>{children}</VisuallyHidden>}
+        {shouldShowAssistiveText && <VisuallyHidden>{children}</VisuallyHidden>}
         <Box
           as={icon}
           tx={{
