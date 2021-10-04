@@ -1,6 +1,6 @@
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 import { Box, BoxProps } from '../Box';
-import { FieldVariantName, TXProp } from '../theme';
+import { FieldVariantName } from '../theme';
 import { AutoCompleteOptions } from './types';
 
 export type HTMLInputProps = Omit<
@@ -15,10 +15,6 @@ export interface InputPrimitiveProps extends HTMLInputProps {
    */
   autoComplete?: AutoCompleteOptions;
   'data-testid'?: string;
-  /**
-   * This prop can be used to pass custom styles to the input
-   */
-  tx?: TXProp;
   variant?: FieldVariantName | FieldVariantName[];
 }
 

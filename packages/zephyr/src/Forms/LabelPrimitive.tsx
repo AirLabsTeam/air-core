@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 import { Box, BoxProps } from '../Box';
 import { Text } from '../Text';
 import { TXProp } from '..';
