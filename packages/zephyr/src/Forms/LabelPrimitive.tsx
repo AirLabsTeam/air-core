@@ -1,6 +1,6 @@
 import React from 'react';
 import { forwardRefWithAs } from '@reach/utils';
-import { BoxProps } from '../Box';
+import { Box, BoxProps } from '../Box';
 import { Text } from '../Text';
 import { TXProp } from '..';
 
@@ -30,7 +30,7 @@ export interface LabelPrimitiveProps extends Pick<BoxProps, 'children'>, HTMLLab
    * This `tx` prop can be used to style the `Text` container that surrounds the `children` prop. If the default asterisk color is insufficient (it will be the same color as the label text), you may style the asterisk, using the `Asterisk` property within the `tx` prop. Please be advised that the `Asterisk` styles will be placed directly on the `span` containing the asterisk so the type is **not** TXProp but React.CSSProperties.
    */
   tx?: TXProp & {
-    Asterisk?: React.CSSProperties;
+    Asterisk?: TXProp;
   };
 }
 
@@ -61,10 +61,10 @@ export const LabelPrimitive = forwardRefWithAs<LabelPrimitiveProps, 'label'>(
 
         {/* If a field is required, screen readers already announce that fact. An asterisk only supplies noise to them. */}
         {isFieldRequired ? (
-          <span aria-hidden="true" style={{ ...asteriskStyles }}>
+          <Box as="span" aria-hidden="true" tx={asteriskStyles}>
             {' '}
             *
-          </span>
+          </Box>
         ) : (
           ''
         )}
