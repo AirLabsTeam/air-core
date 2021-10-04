@@ -1,15 +1,10 @@
 import React from 'react';
 import { forwardRefWithAs } from '@reach/utils';
-import { Box } from '../Box';
+import { Box, BoxProps } from '../Box';
 import { FieldVariantName, TXProp } from '../theme';
 import { AutoCompleteOptions } from './types';
 
-export type ReactInputProps = React.DetailedHTMLProps<
-  React.InputHTMLAttributes<HTMLInputElement>,
-  HTMLInputElement
->;
-
-export type HTMLInputProps = Omit<ReactInputProps, 'ref' | 'autoComplete'>;
+export type HTMLInputProps = Omit<BoxProps<'input'>, 'ref' | 'autoComplete' | 'as'>;
 
 export interface InputPrimitiveProps extends HTMLInputProps {
   /**

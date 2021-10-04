@@ -6,7 +6,9 @@ import { TXProp } from '..';
 
 export type LabelSize = 'text-ui-12' | 'text-ui-14';
 
-export interface LabelPrimitiveProps extends Pick<BoxProps, 'children'> {
+export type HTMLLabelProps = Omit<BoxProps<'label'>, 'as' | 'ref'>;
+
+export interface LabelPrimitiveProps extends Pick<BoxProps, 'children'>, HTMLLabelProps {
   /**
    * The id of the input this label is meant to identify.
    */
