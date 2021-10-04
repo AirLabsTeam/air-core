@@ -1,10 +1,12 @@
-import React from 'react';
-import { forwardRefWithAs } from '@reach/utils';
+import React, { forwardRef } from 'react';
 import { Box, BoxProps } from '../Box';
 import { FieldVariantName, TXProp } from '../theme';
 import { AutoCompleteOptions } from './types';
 
-export type HTMLInputProps = Omit<BoxProps<'input'>, 'ref' | 'autoComplete' | 'as'>;
+export type HTMLInputProps = Omit<
+  BoxProps<'input'>,
+  'ref' | 'autoComplete' | 'as' | '__themeKey' | '__baseStyles'
+>;
 
 export interface InputPrimitiveProps extends HTMLInputProps {
   /**
@@ -20,7 +22,7 @@ export interface InputPrimitiveProps extends HTMLInputProps {
   variant?: FieldVariantName | FieldVariantName[];
 }
 
-export const InputPrimitive = forwardRefWithAs<InputPrimitiveProps, 'input'>(
+export const InputPrimitive = forwardRef<HTMLInputElement, InputPrimitiveProps>(
   (
     {
       autoComplete = 'off',

@@ -1,12 +1,14 @@
-import React from 'react';
-import { forwardRefWithAs } from '@reach/utils';
+import React, { forwardRef } from 'react';
 import { Box, BoxProps } from '../Box';
 import { Text } from '../Text';
 import { TXProp } from '..';
 
 export type LabelSize = 'text-ui-12' | 'text-ui-14';
 
-export type HTMLLabelProps = Omit<BoxProps<'label'>, 'as' | 'ref'>;
+export type HTMLLabelProps = Omit<
+  BoxProps<'label'>,
+  'as' | 'ref' | '__themeKey' | '__baseStyles' | 'htmlFor'
+>;
 
 export interface LabelPrimitiveProps extends Pick<BoxProps, 'children'>, HTMLLabelProps {
   /**
@@ -34,7 +36,7 @@ export interface LabelPrimitiveProps extends Pick<BoxProps, 'children'>, HTMLLab
   };
 }
 
-export const LabelPrimitive = forwardRefWithAs<LabelPrimitiveProps, 'label'>(
+export const LabelPrimitive = forwardRef<HTMLLabelElement, LabelPrimitiveProps>(
   (
     {
       children,
