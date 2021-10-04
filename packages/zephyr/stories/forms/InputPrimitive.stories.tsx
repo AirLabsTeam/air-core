@@ -42,8 +42,6 @@ const variants = Object.keys(field) as FieldVariantName[];
 interface StorybookFormData {
   formikRequired: string;
   formikRequired2: string;
-  formikPassword: string;
-  formikPassword2: string;
   formikMyOnChange: string;
   formikMyOnChange2: string;
 }
@@ -52,12 +50,6 @@ interface StorybookFormData {
 const validationSchema = object({
   formikMyOnChange: string().notRequired(),
   formikMyOnChange2: string().notRequired(),
-  formikPassword: string()
-    .required('This is a required password ')
-    .min(10, 'Custom Message that this should be at least 10 characters'),
-  formikPassword2: string()
-    .required('This is another required password')
-    .min(10, 'Custom Message that this should be at least 10 characters'),
   formikRequired: string().required('Custom Formik Error message'),
   formikRequired2: string().required('Custom Formik Error message'),
 });
@@ -65,8 +57,6 @@ const validationSchema = object({
 const initialValues = validationSchema.cast({
   formikMyOnChange: '',
   formikMyOnChange2: '',
-  formikPassword: '',
-  formikPassword2: '',
   formikRequired: '',
   formikRequired2: '',
 });
@@ -415,81 +405,6 @@ export const PasswordField: Story<InputPrimitiveProps> = () => {
     </Box>
   );
 };
-
-export const PasswordFieldWithFormik: Story<InputPrimitiveProps> = () => {
-  const [field, meta] = useField<StorybookFormData['formikPassword']>('formikPassword');
-  const [field2, meta2] = useField<StorybookFormData['formikPassword2']>('formikPassword2');
-  const [isValueVisible, setIsValueVisible] = React.useState(false);
-
-  const showValue = () => setIsValueVisible(true);
-  const hideValue = () => setIsValueVisible(false);
-  const toggleValueVisibility = () => (isValueVisible ? hideValue() : showValue());
-
-  return (
-    <Box tx={{ display: 'flex', flexDirection: 'column' }}>
-      {variants.map((variant) => {
-        const isChonky = variant === 'field-input-chonky';
-
-        const props = isChonky ? field2 : field;
-        const info = isChonky ? meta2 : meta;
-        const name = `formikPassword${isChonky ? 2 : ''}`;
-
-        return (
-          <Box key={variant} tx={{ mb: isChonky ? undefined : 32 }}>
-            <Box
-              tx={{
-                alignItems: 'flex-start',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-              }}
-            >
-              <Box tx={{ position: 'relative', mr: 32 }}>
-                <InputPrimitive
-                  {...props}
-                  aria-invalid={!!info.error && info.touched}
-                  id={name}
-                  key={variant}
-                  name={name}
-                  required
-                  variant={variant}
-                  tx={{ width: 340, pr: isChonky ? 40 : 36, pl: isChonky ? 16 : 12 }}
-                  type={isValueVisible ? 'text' : 'password'}
-                />
-                <IconButton
-                  icon={isValueVisible ? EyeClosed : Eye}
-                  size="small"
-                  variant="button-unstyled"
-                  onClick={toggleValueVisibility}
-                  tx={{
-                    color: 'pigeon500',
-                    position: 'absolute',
-                    margin: 'auto',
-                    height: undefined,
-                    top: isChonky ? 14 : 12,
-                    width: isChonky ? 20 : 16,
-                    right: isChonky ? 14 : 12,
-                  }}
-                >
-                  Eye
-                </IconButton>
-              </Box>
-            </Box>
-            <Error
-              data-testid={`${name}-ERROR-TEST-ID`}
-              errorText={info.error}
-              id={`${name}_error`}
-              isErrorVisible={!!info.error && info.touched}
-              tx={{ mt: isChonky ? 4 : 1 }}
-            />
-          </Box>
-        );
-      })}
-    </Box>
-  );
-};
-
-PasswordFieldWithFormik.decorators = [FormikDecorator];
 
 export const WithFormikAndCustomEventHandler: Story<InputPrimitiveProps> = (args) => {
   const [{ onChange: formikOnChange, ...field }, meta] = useField<
