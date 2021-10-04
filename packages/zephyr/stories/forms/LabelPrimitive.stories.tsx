@@ -29,6 +29,7 @@ Required.args = {
   children: 'Label Primitive',
   for: 'some-field-element-id',
   isFieldRequired: true,
+  size: 'text-ui-14',
 };
 
 export const RequiredWithCustomAsteriskStyles: Story<LabelPrimitiveProps> = (args) => {

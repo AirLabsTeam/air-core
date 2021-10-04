@@ -1,4 +1,5 @@
-import * as React from 'react';
+import React from 'react';
+import { forwardRefWithAs } from '@reach/utils';
 import { Box } from '../Box';
 import { FieldVariantName, TXProp } from '../theme';
 
@@ -71,7 +72,6 @@ export interface InputPrimitiveProps extends HTMLInputProps {
     | 'url'
     | 'photo';
   'data-testid'?: string;
-  innerInputRef?: React.MutableRefObject<HTMLInputElement | null>;
   /**
    * This prop can be used to pass custom styles to the input
    */
@@ -79,30 +79,30 @@ export interface InputPrimitiveProps extends HTMLInputProps {
   variant?: FieldVariantName | FieldVariantName[];
 }
 
-export const InputPrimitive = React.memo(
-  ({
-    autoComplete = 'off',
-    'data-testid': testId,
-    disabled = false,
-    id,
-    innerInputRef,
-    name,
-    placeholder,
-    readOnly = false,
-    required,
-    tx,
-    type = 'text',
-    variant = 'field-input-smol',
-    ...restOfProps
-  }: InputPrimitiveProps) => {
+export const InputPrimitive = forwardRefWithAs<InputPrimitiveProps, 'input'>(
+  (
+    {
+      autoComplete = 'off',
+      'data-testid': testId,
+      disabled = false,
+      id,
+      name,
+      placeholder,
+      readOnly = false,
+      required,
+      tx,
+      type = 'text',
+      variant = 'field-input-smol',
+      ...restOfProps
+    }: InputPrimitiveProps,
+    forwardedRef,
+  ) => {
     const inputIdentifier = id ?? name;
 
     return (
       <Box
         as="input"
-        ref={(instance: HTMLInputElement | null) =>
-          innerInputRef ? (innerInputRef.current = instance) : undefined
-        }
+        ref={forwardedRef}
         autoComplete={autoComplete}
         data-testid={testId}
         disabled={disabled || readOnly}
