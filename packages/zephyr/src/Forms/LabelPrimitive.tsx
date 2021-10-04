@@ -1,33 +1,30 @@
 import React from 'react';
-import VisuallyHidden from '@reach/visually-hidden';
 import { BoxProps } from '../Box';
 import { Text } from '../Text';
 import { TextVariantName } from '../theme/variants/text';
 import { TXProp } from '..';
 
-export interface LabelPrimitiveProps extends Pick<BoxProps, 'children'> {
+export type ReactLabelProps = React.DetailedHTMLProps<
+  React.LabelHTMLAttributes<HTMLLabelElement>,
+  HTMLLabelElement
+>;
+
+export type HTMLLabelProps = Omit<ReactLabelProps, 'children' | 'ref' | 'htmlFor'>;
+
+export interface LabelPrimitiveProps extends HTMLLabelProps, Pick<BoxProps, 'children'> {
   /**
    * The id of the input this label is meant to identify.
    */
   for: string;
-
-  /**
-   * Boolean used to determine whether or not the element is hidden visually. It will always be rendered for
-   * accessibility reasons.
-   */
-  isVisuallyHidden?: boolean;
-
   /**
    * Boolean used to determine if text is completely opaque or not.
    */
   isDisabled?: boolean;
-
   /**
    * Boolean used to conditionally render asterisk. If the field being labelled is required, suffix label with an
    * asterisk.
    */
   isFieldRequired?: boolean;
-
   /**
    * The size of the label in pixels. Default is 12px.
    */
@@ -43,17 +40,18 @@ export interface LabelPrimitiveProps extends Pick<BoxProps, 'children'> {
 export const LabelPrimitive = React.memo(
   ({
     children,
-    for: htmlFor,
-    isVisuallyHidden = false,
     isFieldRequired = false,
     size = 12,
     tx = {},
+    for: htmlFor,
+    ...labelProps
   }: LabelPrimitiveProps) => {
     const { Asterisk: asteriskStyles, ...containerStyles } = tx;
 
-    const TheLabelElement = (
+    return (
       <Text
         as="label"
+        {...labelProps}
         variant={`text-ui-${size}` as TextVariantName}
         htmlFor={htmlFor}
         tx={{ color: 'pigeon600', fontWeight: 'semibold', ...containerStyles }}
@@ -70,12 +68,6 @@ export const LabelPrimitive = React.memo(
           ''
         )}
       </Text>
-    );
-
-    return isVisuallyHidden ? (
-      <VisuallyHidden>{TheLabelElement}</VisuallyHidden>
-    ) : (
-      <>{TheLabelElement}</>
     );
   },
 );
