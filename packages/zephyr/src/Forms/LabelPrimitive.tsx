@@ -11,6 +11,15 @@ export type ReactLabelProps = React.DetailedHTMLProps<
 
 export type HTMLLabelProps = Omit<ReactLabelProps, 'children' | 'ref' | 'htmlFor'>;
 
+export type LabelSize = 12 | 14;
+
+const TEXT_SIZE_VARIANTS: {
+  [key in LabelSize]: TextVariantName;
+} = {
+  12: 'text-ui-12',
+  14: 'text-ui-14',
+};
+
 export interface LabelPrimitiveProps extends HTMLLabelProps, Pick<BoxProps, 'children'> {
   /**
    * The id of the input this label is meant to identify.
@@ -52,7 +61,7 @@ export const LabelPrimitive = React.memo(
       <Text
         as="label"
         {...labelProps}
-        variant={`text-ui-${size}` as TextVariantName}
+        variant={TEXT_SIZE_VARIANTS[size]}
         htmlFor={htmlFor}
         tx={{ color: 'pigeon600', fontWeight: 'semibold', ...containerStyles }}
       >
