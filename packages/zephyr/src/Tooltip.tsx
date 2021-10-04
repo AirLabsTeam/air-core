@@ -1,18 +1,30 @@
-import React, { ComponentProps, FC, ReactNode } from 'react';
+import { ComponentProps, FC, ReactNode, ReactElement } from 'react';
 import * as RadixTooltip from '@radix-ui/react-tooltip';
-import { PopperOwnProps } from '@radix-ui/react-popper';
 import { Slot } from '@radix-ui/react-slot';
-import { Side } from '@radix-ui/popper';
+import { Side, Align } from '@radix-ui/popper';
+import { Measurable } from '@radix-ui/rect';
 import { Box } from './Box';
 import { Text } from './Text';
 import { TXProp } from './theme';
+/**
+ * This type is necessary, but it is not exported from @radix-ui/react-popper, so we duplicate it
+ */
+type PopperOwnProps = {
+  anchorRef: React.RefObject<Measurable>;
+  side?: Side;
+  sideOffset?: number;
+  align?: Align;
+  alignOffset?: number;
+  collisionTolerance?: number;
+  avoidCollisions?: boolean;
+};
 
 export interface TooltipProps extends Omit<PopperOwnProps, 'anchorRef' | 'sideOffset' | 'side'> {
   /**
    * Must be a real element to attach the tooltip to. This can either be a node, an element, or a component whose ref
    * is properly forwarded.
    */
-  children: React.ReactElement;
+  children: ReactElement;
 
   /** The actual tooltip content. */
   label: ReactNode;
@@ -45,12 +57,10 @@ export interface TooltipProps extends Omit<PopperOwnProps, 'anchorRef' | 'sideOf
    * to the tx prop as normal, and the styles will be applied to the div containing the entire tooltip. However if you’d like
    * to style a specific portion, there are 3 optional properties that you may use to style that section of the Tooltip. You should use`TooltipArrow` for
    * specific arrow styles, `tooltipBorder` for the Tooltip's border styles, and the `TooltipContentBox` for the styles
-   * to be applied to the immediate div surrounding the label. Please note these styles do not override existing props (i.e. if
-   * `withBorder` is false, the styles in `TooltipBorder` will have no effect); these properties only supplement the styles.
+   * to be applied to the immediate div surrounding the label. Please note these styles do not override existing props.
    */
   tx?: TXProp & {
     TooltipArrow?: TXProp;
-    TooltipBorder?: TXProp;
     TooltipContent?: TXProp;
   };
 
@@ -59,12 +69,6 @@ export interface TooltipProps extends Omit<PopperOwnProps, 'anchorRef' | 'sideOf
    * so we give you the power to control the underlying z-index number all of the primitives use in relation to eachother.
    */
   baseZIndex?: number;
-
-  /**
-   * Determines whether or not the tooltip has a white border around it. Useful for rendering a tooltip that visually
-   * spans across multiple, differently colored backgrounds.
-   */
-  withBorder?: boolean;
 
   /**
    * This determines whether or not the arrow shows on the tooltip
@@ -145,16 +149,10 @@ export const Tooltip = ({
   side,
   sideOffset = 10,
   tx = {},
-  withBorder = true,
   withArrow = true,
   'data-testid': testID,
 }: TooltipProps) => {
-  const {
-    TooltipArrow: arrowStyles,
-    TooltipBorder: borderStyles,
-    TooltipContent: textContentStyles,
-    ...containerStyles
-  } = tx;
+  const { TooltipArrow: arrowStyles, TooltipContent: textContentStyles, ...containerStyles } = tx;
 
   return (
     <RadixTooltip.Root {...manualControlProps}>
@@ -162,8 +160,8 @@ export const Tooltip = ({
        * We cast `Trigger` as a button but would only render as a button if you pass it a button
        * We cast it this way to appease the TypeScript gods
        * @see https://github.com/radix-ui/primitives/blob/main/packages/react/tooltip/src/Tooltip.tsx#L147
-       *
        * We set `type={undefined}` so when Tooltip wraps non-button elements, Safari would not apply button styles
+       * @see https://www.radix-ui.com/docs/primitives/components/tooltip#trigger
        *  */}
       <RadixTooltip.Trigger as={(Slot as unknown) as 'button'} type={undefined}>
         {children}
@@ -189,7 +187,7 @@ export const Tooltip = ({
           px: 10,
           py: 5,
           height: 36,
-          borderColor: withBorder ? 'white' : 'transparent',
+          borderColor: 'transparent',
           borderWidth: 2,
           borderStyle: 'solid',
           borderRadius: 4,
@@ -201,34 +199,13 @@ export const Tooltip = ({
           variant="text-ui-14"
           tx={{
             color: 'currentColor',
+            fontWeight: 'medium',
             ...(textContentStyles as any),
           }}
         >
           {label}
         </Text>
 
-        {withBorder && (
-          <Box
-            as={
-              RadixTooltip.Arrow as FC<
-                Omit<ComponentProps<typeof RadixTooltip.Arrow>, 'as' | 'ref'>
-              >
-            }
-            tx={{
-              fill: 'white',
-              zIndex: baseZIndex,
-              strokeLinejoin: 'round',
-              strokeLinecap: 'round',
-              stroke: 'white',
-              strokeWidth: 1,
-              ...triangleOffsetMapping['border'][side],
-              ...(borderStyles as any),
-            }}
-            width={12}
-            height={8}
-            offset={arrowOffset}
-          />
-        )}
         {withArrow && (
           <Box
             as={

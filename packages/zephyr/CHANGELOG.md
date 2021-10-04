@@ -3,6 +3,74 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [15.0.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@14.0.1...@air/zephyr@15.0.0) (2021-10-01)
+
+### Bug Fixes
+
+- remove Duplicate from type name ([aa4edc9](https://github.com/AirLabsTeam/web-core/commit/aa4edc95d212d8f4ba9b24521165b92e9be01dc5))
+- rename prop to showAssistiveText ([637c62e](https://github.com/AirLabsTeam/web-core/commit/637c62e9a1af5ec58edb1f8445805c3abff3bdf0))
+
+### Features
+
+- replace hasTooltip prop with hideAssistiveText; add tooltip prop ([6827b35](https://github.com/AirLabsTeam/web-core/commit/6827b3563054848a1bd7afbdffe879fae443a5ec))
+
+### BREAKING CHANGES
+
+- removes the hasTooltip prop
+
+## [14.0.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@14.0.0...@air/zephyr@14.0.1) (2021-09-30)
+
+### Bug Fixes
+
+- return back to requiring hasTooltip ([8649689](https://github.com/AirLabsTeam/web-core/commit/8649689034854eb668ef6338691d201030b2077a))
+- returns to state before iconButton and tooltip implementation ([9945098](https://github.com/AirLabsTeam/web-core/commit/994509822148497662b1048588f7d578d6e7d2f5))
+
+# [14.0.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@13.0.1...@air/zephyr@14.0.0) (2021-09-29)
+
+### Bug Fixes
+
+- remove border and story ([6627c0c](https://github.com/AirLabsTeam/web-core/commit/6627c0cf48cb605b7817197e6300db5de7e7346a))
+- remove unnec prop ([a06a091](https://github.com/AirLabsTeam/web-core/commit/a06a091183006e5581e65227baf65073cd66b5be))
+
+### BREAKING CHANGES
+
+- remove props
+
+## [13.0.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@13.0.0...@air/zephyr@13.0.1) (2021-09-28)
+
+### Bug Fixes
+
+- fix the props type ([1cae319](https://github.com/AirLabsTeam/web-core/commit/1cae319f7e6fcf3926542b34f5009c4cbbdd234c))
+
+# [13.0.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.33.6...@air/zephyr@13.0.0) (2021-09-27)
+
+### Bug Fixes
+
+- fixes Tooltip types ([3bed03d](https://github.com/AirLabsTeam/web-core/commit/3bed03d53d8818b1432e7235213bb8baf1b54b87))
+- grammar ([a226de3](https://github.com/AirLabsTeam/web-core/commit/a226de35fab28883c3fa87ad9c7e9922d1f4a1ae))
+- maintains omission of the ref for the anchor ([5fb7fde](https://github.com/AirLabsTeam/web-core/commit/5fb7fde530baca773775b153cd13be104bc80847))
+- removes styling and replace with asChild to prevent layout break ([0945405](https://github.com/AirLabsTeam/web-core/commit/0945405c291462295cda13e758e12979ac9bc210))
+
+### BREAKING CHANGES
+
+- updating the react-tooltip dependency
+
+## [12.33.6](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.33.5...@air/zephyr@12.33.6) (2021-09-27)
+
+### Bug Fixes
+
+- explicitly req nec tooltip props ([549f2b4](https://github.com/AirLabsTeam/web-core/commit/549f2b4f24287cac343656d334ffe29577f84716))
+
+## [12.33.5](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.33.4...@air/zephyr@12.33.5) (2021-09-27)
+
+### Code Refactoring
+
+- removes the hasTooltip prop and replaces it with actual tooltip ([fdd5a23](https://github.com/AirLabsTeam/web-core/commit/fdd5a23afb8bfd217dc205d401feef732e06c6e0))
+
+### BREAKING CHANGES
+
+- removing the hasTooltip
+
 ## [12.33.4](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.33.3...@air/zephyr@12.33.4) (2021-09-23)
 
 ### Bug Fixes

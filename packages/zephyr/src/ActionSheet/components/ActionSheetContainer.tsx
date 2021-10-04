@@ -1,6 +1,5 @@
 import { motion, PanInfo, useReducedMotion } from 'framer-motion';
 import { noop } from 'lodash';
-import React from 'react';
 
 import { Box, BoxProps } from '../../Box';
 

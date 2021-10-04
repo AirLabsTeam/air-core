@@ -1,7 +1,6 @@
 import { Check } from '@air/icons';
 import { useId } from '@reach/auto-id';
 import VisuallyHidden from '@reach/visually-hidden';
-import React from 'react';
 
 import { SVGComponent } from '../shared';
 import { Box, BoxProps } from '../Box';

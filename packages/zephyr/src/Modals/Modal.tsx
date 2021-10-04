@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import { useRef, ReactNode, SyntheticEvent } from 'react';
 import { useId } from '@reach/auto-id';
 import { DialogProps } from '@reach/dialog';
 import { AlertDialogDescription, AlertDialogLabel, AlertDialogProps } from '@reach/alert-dialog';
@@ -26,7 +26,7 @@ export interface ModalProps
    *
    * `<Text variant="text-ui-24">`
    */
-  modalLabel: React.ReactNode;
+  modalLabel: ReactNode;
 
   /**
    * This will be used to go into further detail regarding the modal. Optional, but required if leveraging an
@@ -41,7 +41,7 @@ export interface ModalProps
    *
    * `<Text variant="text-ui-16">`
    */
-  modalDescription?: React.ReactNode;
+  modalDescription?: ReactNode;
 
   /**
    * When true, this modal will leverage the "alertdialog" role, making the description required. This
@@ -75,7 +75,7 @@ export interface ModalProps
    *
    * [See more: https://reach.tech/dialog#dialog-ondismiss](https://reach.tech/dialog#dialog-ondismiss)
    */
-  onDismiss: (event?: React.SyntheticEvent) => void;
+  onDismiss: (event?: SyntheticEvent) => void;
 
   /**
    * Accepts any renderable content.
@@ -86,7 +86,7 @@ export interface ModalProps
    *
    * [When isAlertModal=true](https://reach.tech/alert-dialog/#alertdialogcontent-element-props)
    */
-  children?: React.ReactNode;
+  children?: ReactNode;
 
   /**
    * Note that these styles get applied to the modal container itself as opposed to the overlay which is the true

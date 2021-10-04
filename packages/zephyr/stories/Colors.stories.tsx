@@ -1,4 +1,3 @@
-import React from 'react';
 import { Story, Meta } from '@storybook/react';
 import { Box } from '../src/Box';
 import { Text } from '../src/Text';

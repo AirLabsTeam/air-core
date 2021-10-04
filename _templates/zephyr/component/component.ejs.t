@@ -1,7 +1,7 @@
 ---
 to: packages/zephyr/src/<%= name %>.tsx
 ---
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 
 import { Box, BoxProps } from './Box';
 

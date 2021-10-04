@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Meta, Story } from '@storybook/react';
 import isChromatic from 'chromatic/isChromatic';
 import { StoryFnReactReturnType } from '@storybook/react/dist/ts3.9/client/preview/types';
 import { noop } from 'lodash';
+import { Bell } from '@air/icons';
 import { Text } from '../src/Text';
 import { Tooltip, TooltipProps } from '../src/Tooltip';
 import { Box, BoxStylingProps } from '../src/Box';
+import { IconButton } from '../src';
 import { Button } from '../src/Button';
 
 const TooltipStoryDecorator = (Story: () => StoryFnReactReturnType) => (
@@ -169,31 +171,6 @@ export const AllSides = () => {
   );
 };
 
-export const WithoutBorder = () => (
-  <Box
-    tx={{
-      display: 'grid',
-      placeItems: 'center',
-      width: '100%',
-      height: '100%',
-      bg: 'jay500',
-    }}
-  >
-    <Tooltip
-      label="No borders here."
-      side="right"
-      manualControlProps={
-        isChromatic() ? { open: true, onOpenChange: noop, defaultOpen: true } : undefined
-      }
-      withBorder={false}
-    >
-      <Button onClick={noop} variant="button-filled-grey">
-        Hover over me to see a tooltip without a white border!
-      </Button>
-    </Tooltip>
-  </Box>
-);
-
 export const WithCustomStyles = () => {
   return (
     <Tooltip
@@ -208,7 +185,6 @@ export const WithCustomStyles = () => {
         bg: '#B4CFFF',
       }}
       withArrow={true}
-      withBorder={false}
       label={'Custom is cool'}
       data-testid={meta.title}
       side="bottom"
@@ -239,6 +215,39 @@ export const WithoutArrow = () => {
         Hover over me to see a tooltip without an arrow
       </Button>
     </Tooltip>
+  );
+};
+
+export const AsPropOnIconButton = () => {
+  return (
+    <IconButton
+      icon={Bell}
+      size="medium"
+      variant="button-filled-grey"
+      tooltip={{
+        label: 'Bell',
+        side: 'top',
+      }}
+    >
+      See Notifications
+    </IconButton>
+  );
+};
+
+export const AsPropOnIconButtonUsingManualControlProps = () => {
+  return (
+    <IconButton
+      icon={Bell}
+      size="medium"
+      variant="button-filled-grey"
+      tooltip={{
+        label: 'Bell',
+        side: 'top',
+        manualControlProps: { open: true, defaultOpen: false, onOpenChange: noop },
+      }}
+    >
+      See Notifications
+    </IconButton>
   );
 };
 
