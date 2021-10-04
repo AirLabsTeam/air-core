@@ -2,6 +2,7 @@ import React from 'react';
 import { forwardRefWithAs } from '@reach/utils';
 import { Box } from '../Box';
 import { FieldVariantName, TXProp } from '../theme';
+import { AutoCompleteOptions } from './types';
 
 export type ReactInputProps = React.DetailedHTMLProps<
   React.InputHTMLAttributes<HTMLInputElement>,
@@ -15,62 +16,7 @@ export interface InputPrimitiveProps extends HTMLInputProps {
    * Autocomplete helps to fill an input with device-remembered values. See MDN's documentation on the [attribute and
    * its values](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete#Values).
    */
-  autoComplete?:
-    | 'on'
-    | 'off'
-    | 'name'
-    | 'honorific-prefix'
-    | 'given-name'
-    | 'additional-name'
-    | 'family-name'
-    | 'honorific-suffix'
-    | 'nickname'
-    | 'email'
-    | 'username'
-    | 'new-password'
-    | 'current-password'
-    | 'one-time-code'
-    | 'organization-title'
-    | 'organization'
-    | 'street-address'
-    | 'address-line1'
-    | 'address-line2'
-    | 'address-line3'
-    | 'address-level4'
-    | 'address-level3'
-    | 'address-level2'
-    | 'address-level1'
-    | 'country'
-    | 'country-name'
-    | 'postal-code'
-    | 'cc-name'
-    | 'cc-given-name'
-    | 'cc-additional-name'
-    | 'cc-family-name'
-    | 'cc-number'
-    | 'cc-exp'
-    | 'cc-exp-month'
-    | 'cc-exp-year'
-    | 'cc-csc'
-    | 'cc-type'
-    | 'transaction-currency'
-    | 'transaction-amount'
-    | 'language'
-    | 'bday'
-    | 'bday-day'
-    | 'bday-month'
-    | 'bday-year'
-    | 'sex'
-    | 'search'
-    | 'tel'
-    | 'tel-country-code'
-    | 'tel-national'
-    | 'tel-area-code'
-    | 'tel-local'
-    | 'tel-extension'
-    | 'impp'
-    | 'url'
-    | 'photo';
+  autoComplete?: AutoCompleteOptions;
   'data-testid'?: string;
   /**
    * This prop can be used to pass custom styles to the input
