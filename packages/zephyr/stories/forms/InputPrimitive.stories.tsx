@@ -325,7 +325,7 @@ export const WithCustomStyles: Story<InputPrimitiveProps> = () => {
             required={false}
             tx={{
               mr: 12,
-              width: 200,
+              width: 232,
               borderColor: 'transparent',
               px: isChonky ? 10 : 8,
               '&:hover:not(:focus)': {

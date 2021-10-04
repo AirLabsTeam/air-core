@@ -1,6 +1,5 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import VisuallyHidden from '@reach/visually-hidden';
 import { LabelPrimitive, LabelPrimitiveProps } from '../../src/Forms/LabelPrimitive';
 
 const meta: Meta<LabelPrimitiveProps> = {
@@ -34,25 +33,6 @@ Required.args = {
 
 export const RequiredWithCustomAsteriskStyles: Story<LabelPrimitiveProps> = (args) => {
   return <LabelPrimitive {...args} />;
-};
-
-RequiredWithCustomAsteriskStyles.args = {
-  children: 'Label Primitive',
-  for: 'some-field-element-id',
-  isFieldRequired: true,
-  tx: {
-    Asterisk: {
-      color: 'red',
-    },
-  },
-};
-
-export const WrappedInVisuallyHidden: Story<LabelPrimitiveProps> = (args) => {
-  return (
-    <VisuallyHidden>
-      <LabelPrimitive {...args} />
-    </VisuallyHidden>
-  );
 };
 
 RequiredWithCustomAsteriskStyles.args = {
