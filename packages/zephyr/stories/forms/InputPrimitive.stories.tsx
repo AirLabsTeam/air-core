@@ -4,14 +4,13 @@ import { Form, Formik, useField } from 'formik';
 import { noop } from 'lodash';
 import { StoryFnReactReturnType } from '@storybook/react/dist/ts3.9/client/preview/types';
 import { object, string } from 'yup';
-import VisuallyHidden from '@reach/visually-hidden';
 import { Box } from '../../src/Box';
 import { InputPrimitive, InputPrimitiveProps } from '../../src/Forms/InputPrimitive';
 import { FieldVariantName, field } from '../../src/theme/variants/field';
 import { LabelPrimitive } from '../../src/Forms/LabelPrimitive';
 import { Error } from '../../src/Forms/Error';
 import { Eye, EyeClosed, Search } from '../../../icons/';
-import { Button } from '../../src/Button';
+import { IconButton } from '../../src/IconButton';
 
 export default {
   title: 'Zephyr/Forms/InputPrimitive',
@@ -272,33 +271,52 @@ export const WithLeftAdornment: Story<InputPrimitiveProps> = () => {
     <>
       {variants.map((variant) => {
         const isChonky = variant === 'field-input-chonky';
+
         return (
-          <InputPrimitive
-            adornment={{
-              location: 'left',
-              component: <Search />,
-            }}
-            id={`withLeftAdornment${isChonky ? 2 : ''}`}
-            key={variant}
-            onChange={(e) => setIValue(e.target.value)}
-            required={false}
-            tx={{ mb: 12, width: 200 }}
-            value={iValue}
-            variant={variant}
-          />
+          <>
+            <Box
+              key={variant}
+              tx={{
+                alignItems: 'flex-start',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+              }}
+            >
+              <Box tx={{ position: 'relative', mb: 32 }}>
+                <Box
+                  as={Search}
+                  width={16}
+                  height={16}
+                  tx={{
+                    color: 'pigeon500',
+                    position: 'absolute',
+                    alignItems: 'center',
+                    top: isChonky ? 16 : 12,
+                    width: isChonky ? 20 : 16,
+                    left: isChonky ? 10 : 12,
+                  }}
+                />
+                <InputPrimitive
+                  key={variant}
+                  onChange={(e) => setIValue(e.target.value)}
+                  required
+                  tx={{
+                    width: 200,
+                    pl: isChonky ? 40 : 36,
+                    pr: isChonky ? 16 : 12,
+                  }}
+                  type="text"
+                  value={iValue}
+                  variant={variant}
+                />
+              </Box>
+            </Box>
+          </>
         );
       })}
     </>
   );
-};
-
-WithLeftAdornment.parameters = {
-  docs: {
-    description: {
-      story:
-        'Often used to build a search input. You can change the placement of the adornment by simply modifying the `location` prop (that is within the `adornment` prop) to be "right" or "left"',
-    },
-  },
 };
 
 export const WithCustomStyles: Story<InputPrimitiveProps> = () => {
@@ -316,19 +334,17 @@ export const WithCustomStyles: Story<InputPrimitiveProps> = () => {
             placeholder="Click or hover to interact"
             required={false}
             tx={{
-              mb: 12,
+              mr: 12,
               width: 200,
-              InnerInput: {
-                borderColor: 'transparent',
-                px: isChonky ? 10 : 8,
-                '&:hover:not(:focus)': {
-                  backgroundColor: 'pigeon050',
-                  cursor: 'pointer',
-                  borderColor: 'transparent !important',
-                },
-                '&:focus': {
-                  backgroundColor: 'white',
-                },
+              borderColor: 'transparent',
+              px: isChonky ? 10 : 8,
+              '&:hover:not(:focus)': {
+                backgroundColor: 'pigeon050',
+                cursor: 'pointer',
+                borderColor: 'transparent !important',
+              },
+              '&:focus': {
+                backgroundColor: 'white',
               },
             }}
             value={iValue}
@@ -349,62 +365,61 @@ export const PasswordField: Story<InputPrimitiveProps> = () => {
   const toggleValueVisibility = () => (isValueVisible ? hideValue() : showValue());
 
   return (
-    <>
+    <Box tx={{ display: 'flex' }}>
       {variants.map((variant) => {
         const isChonky = variant === 'field-input-chonky';
         const label = `Password ${isChonky ? '(Chonky)' : '(Smol)'}`;
         const fieldID = label;
 
         return (
-          <InputPrimitive
-            adornment={{
-              location: 'right',
-              component: (
-                <Button
-                  onClick={toggleValueVisibility}
-                  aria-controls={fieldID}
-                  aria-expanded={isValueVisible}
-                  variant="button-unstyled"
-                  tx={{
-                    color: 'inherit',
-                    '> svg': { width: '100%' },
-                  }}
-                >
-                  <VisuallyHidden>
-                    {isValueVisible ? 'Hide password' : 'Show password'}
-                  </VisuallyHidden>
-                  {isValueVisible ? <Eye /> : <EyeClosed />}
-                </Button>
-              ),
-            }}
-            description={{
-              isHidden: false,
-              component: (
-                <>
-                  Password must be 10 characters long.
-                  <VisuallyHidden> Password visibility control exists after input.</VisuallyHidden>
-                </>
-              ),
-            }}
-            id={fieldID}
+          <Box
             key={variant}
-            onChange={(e) => setIValue(e.target.value)}
-            required
-            tx={{ mb: 32, width: 200 }}
-            type={isValueVisible ? 'text' : 'password'}
-            value={iValue}
-            variant={variant}
-          />
+            tx={{
+              alignItems: 'flex-start',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+            }}
+          >
+            <Box tx={{ position: 'relative', mr: 32 }}>
+              <InputPrimitive
+                id={fieldID}
+                key={variant}
+                onChange={(e) => setIValue(e.target.value)}
+                required
+                tx={{ width: 200, pr: isChonky ? 40 : 36, pl: isChonky ? 16 : 12 }}
+                type={isValueVisible ? 'text' : 'password'}
+                value={iValue}
+                variant={variant}
+              />
+              <IconButton
+                icon={isValueVisible ? EyeClosed : Eye}
+                size="small"
+                variant="button-unstyled"
+                onClick={toggleValueVisibility}
+                tx={{
+                  color: 'pigeon500',
+                  position: 'absolute',
+                  height: undefined,
+                  top: isChonky ? 14 : 12,
+                  width: isChonky ? 20 : 16,
+                  right: isChonky ? 14 : 12,
+                }}
+              >
+                Eye
+              </IconButton>
+            </Box>
+          </Box>
         );
       })}
-    </>
+    </Box>
   );
 };
 
 export const PasswordFieldWithFormik: Story<InputPrimitiveProps> = () => {
-  const [isValueVisible, setIsValueVisible] = React.useState(false);
   const [field, meta] = useField<StorybookFormData['formikPassword']>('formikPassword');
   const [field2, meta2] = useField<StorybookFormData['formikPassword2']>('formikPassword2');
+  const [isValueVisible, setIsValueVisible] = React.useState(false);
 
   const showValue = () => setIsValueVisible(true);
   const hideValue = () => setIsValueVisible(false);
@@ -414,57 +429,52 @@ export const PasswordFieldWithFormik: Story<InputPrimitiveProps> = () => {
     <Box tx={{ display: 'flex', flexDirection: 'column' }}>
       {variants.map((variant) => {
         const isChonky = variant === 'field-input-chonky';
-        const label = `PasswordWithFormik ${isChonky ? '(Chonky)' : '(Smol)'}`;
-        const fieldID = label;
 
         const props = isChonky ? field2 : field;
         const info = isChonky ? meta2 : meta;
         const name = `formikPassword${isChonky ? 2 : ''}`;
 
         return (
-          <Box key={variant} tx={{ width: 340, mb: isChonky ? undefined : 32 }}>
-            <InputPrimitive
-              {...props}
-              adornment={{
-                location: 'right',
-                component: (
-                  <Button
-                    onClick={toggleValueVisibility}
-                    aria-controls={fieldID}
-                    aria-expanded={isValueVisible}
-                    variant="button-unstyled"
-                    tx={{
-                      color: 'inherit',
-                      '> svg': { width: '100%' },
-                    }}
-                  >
-                    <VisuallyHidden>
-                      {isValueVisible ? 'Hide password' : 'Show password'}
-                    </VisuallyHidden>
-                    {isValueVisible ? <Eye /> : <EyeClosed />}
-                  </Button>
-                ),
+          <Box key={variant} tx={{ mb: isChonky ? undefined : 32 }}>
+            <Box
+              tx={{
+                alignItems: 'flex-start',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
               }}
-              aria-invalid={!!info.error && info.touched}
-              description={{
-                isHidden: !!info.error && info.touched,
-                component: (
-                  <>
-                    Password must be 10 characters long.
-                    <VisuallyHidden>
-                      {' '}
-                      Password visibility control exists after input.
-                    </VisuallyHidden>
-                  </>
-                ),
-              }}
-              id={name}
-              key={variant}
-              name={name}
-              required
-              type={isValueVisible ? 'text' : 'password'}
-              variant={variant}
-            />
+            >
+              <Box tx={{ position: 'relative', mr: 32 }}>
+                <InputPrimitive
+                  {...props}
+                  aria-invalid={!!info.error && info.touched}
+                  id={name}
+                  key={variant}
+                  name={name}
+                  required
+                  variant={variant}
+                  tx={{ width: 340, pr: isChonky ? 40 : 36, pl: isChonky ? 16 : 12 }}
+                  type={isValueVisible ? 'text' : 'password'}
+                />
+                <IconButton
+                  icon={isValueVisible ? EyeClosed : Eye}
+                  size="small"
+                  variant="button-unstyled"
+                  onClick={toggleValueVisibility}
+                  tx={{
+                    color: 'pigeon500',
+                    position: 'absolute',
+                    margin: 'auto',
+                    height: undefined,
+                    top: isChonky ? 14 : 12,
+                    width: isChonky ? 20 : 16,
+                    right: isChonky ? 14 : 12,
+                  }}
+                >
+                  Eye
+                </IconButton>
+              </Box>
+            </Box>
             <Error
               data-testid={`${name}-ERROR-TEST-ID`}
               errorText={info.error}
@@ -516,7 +526,7 @@ export const WithFormikAndCustomEventHandler: Story<InputPrimitiveProps> = (args
                 name={name}
                 onChange={onChange}
                 required
-                tx={{ mr: 24, mb: 32 }}
+                tx={{ mr: 24, mb: 32, width: 240 }}
                 type="text"
                 variant={variant}
               />
