@@ -18,6 +18,7 @@ export const Default = Template.bind({});
 Default.args = {
   children: 'Label Primitive',
   for: 'some-field-element-id',
+  isDisabled: true,
 };
 
 export const Required: Story<LabelPrimitiveProps> = (args) => {
@@ -27,7 +28,7 @@ export const Required: Story<LabelPrimitiveProps> = (args) => {
 Required.args = {
   children: 'Label Primitive',
   for: 'some-field-element-id',
-  isFieldRequired: true,
+  showAsterisk: true,
   size: 'text-ui-14',
 };
 
@@ -38,7 +39,7 @@ export const RequiredWithCustomAsteriskStyles: Story<LabelPrimitiveProps> = (arg
 RequiredWithCustomAsteriskStyles.args = {
   children: 'Label Primitive',
   for: 'some-field-element-id',
-  isFieldRequired: true,
+  showAsterisk: true,
   tx: {
     Asterisk: {
       color: 'red',

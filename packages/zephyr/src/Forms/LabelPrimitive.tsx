@@ -23,7 +23,7 @@ export interface LabelPrimitiveProps extends Pick<BoxProps, 'children'>, HTMLLab
    * Boolean used to conditionally render asterisk. If the field being labelled is required, suffix label with an
    * asterisk.
    */
-  isFieldRequired?: boolean;
+  showAsterisk?: boolean;
   /**
    * The size of the label in pixels. Default is 12px.
    */
@@ -40,7 +40,7 @@ export const LabelPrimitive = forwardRef<HTMLLabelElement, LabelPrimitiveProps>(
   (
     {
       children,
-      isFieldRequired = false,
+      showAsterisk = false,
       size = 'text-ui-12',
       tx = {},
       for: htmlFor,
@@ -56,13 +56,13 @@ export const LabelPrimitive = forwardRef<HTMLLabelElement, LabelPrimitiveProps>(
         {...labelProps}
         variant={size}
         htmlFor={htmlFor}
-        tx={{ color: 'pigeon600', fontWeight: 'semibold', ...containerStyles }}
+        tx={{ color: 'pigeon600', fontWeight: 'semibold', mb: 6, ...containerStyles }}
         ref={forwardedRef}
       >
         {children}
 
         {/* If a field is required, screen readers already announce that fact. An asterisk only supplies noise to them. */}
-        {isFieldRequired ? (
+        {showAsterisk ? (
           <Box as="span" aria-hidden="true" tx={asteriskStyles}>
             {' '}
             *

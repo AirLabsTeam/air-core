@@ -129,11 +129,7 @@ const InputWithCustomLabel: Story<InputPrimitiveProps> = () => {
 
         return (
           <Box key={variant}>
-            <LabelPrimitive
-              for={fieldId}
-              isFieldRequired
-              tx={{ mb: 4, Asterisk: { color: 'red' } }}
-            >
+            <LabelPrimitive for={fieldId} showAsterisk tx={{ mb: 4, Asterisk: { color: 'red' } }}>
               {label}
             </LabelPrimitive>
             <InputPrimitive
@@ -165,7 +161,7 @@ const InputWithLabel: Story<InputPrimitiveProps> = (args) => {
 
         return (
           <Box key={variant}>
-            <LabelPrimitive isFieldRequired for={fieldId} tx={{ mb: 4 }}>
+            <LabelPrimitive showAsterisk for={fieldId} tx={{ mb: 4 }}>
               {label}
             </LabelPrimitive>
             <InputPrimitive
@@ -206,7 +202,7 @@ export const WithLabelAndFormik: Story<InputPrimitiveProps> = (args) => {
 
         return (
           <Box key={variant}>
-            <LabelPrimitive isFieldRequired={true} for={name} tx={{ mb: 4 }}>
+            <LabelPrimitive showAsterisk for={name} tx={{ mb: 4 }}>
               {label}
             </LabelPrimitive>
             <Box tx={{ display: 'flex' }}>
@@ -428,7 +424,7 @@ export const WithFormikAndCustomEventHandler: Story<InputPrimitiveProps> = (args
 
         return (
           <Box key={variant}>
-            <LabelPrimitive isFieldRequired={true} for={name} tx={{ mb: 4 }}>
+            <LabelPrimitive showAsterisk for={name} tx={{ mb: 4 }}>
               {label}
             </LabelPrimitive>
             <Box tx={{ display: 'flex' }}>
