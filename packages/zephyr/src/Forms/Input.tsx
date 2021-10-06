@@ -187,6 +187,11 @@ const sharedAdornmentStyles: BoxStylingProps['tx'] = {
   position: 'absolute',
 };
 
+/**
+ * @deprecated This component is no longer supported and will soon be removed. It will be replaced with an `InputPrimitive` component
+ * which will not have any reliance on Formik (though it will have the necessary props to use Formik). The `InputPrimitive` will also not
+ * come with a label, instead you will need to use the `LabelPrimitive` component.
+ */
 export const Input = ({
   adornment,
   autoComplete = 'off',
