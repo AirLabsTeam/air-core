@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [15.1.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.0.0...@air/zephyr@15.1.0) (2021-10-06)
+
+### Bug Fixes
+
+- add story for InputP with custom label; rm unnec name use in story ([46e6bf2](https://github.com/AirLabsTeam/web-core/commit/46e6bf2a8c642f31360ff7edc47e23f599a746be))
+- asterisk styles prop ([5d84d57](https://github.com/AirLabsTeam/web-core/commit/5d84d5754cf323cc6f8d0758fe2b42559f66c4f4))
+- export primitives from form dir ([cba1167](https://github.com/AirLabsTeam/web-core/commit/cba1167a25cb3ab51879e35a655251edc7173515))
+- exports the error component ([7580132](https://github.com/AirLabsTeam/web-core/commit/758013224df61ceecbca8be1b40278d1981f1722))
+- inherit textVariantName on labelPrimitive ([9803d92](https://github.com/AirLabsTeam/web-core/commit/9803d922e55e98df695dc890b13949918663b097))
+- make LabelPrimitive more primitive ([1a96efb](https://github.com/AirLabsTeam/web-core/commit/1a96efbae99e32fb151a4fc30610dde80f422483))
+- memoize InputPrimitive and LabelPrimitive ([6822808](https://github.com/AirLabsTeam/web-core/commit/6822808f2d8ecd3f8b88b7328e9e2e986839362d))
+- move autocomplete types to sep file ([7ec1639](https://github.com/AirLabsTeam/web-core/commit/7ec1639a3307335e9956aad71505b11a25d7528d))
+- omit unnec props from primitives ([6f4eab5](https://github.com/AirLabsTeam/web-core/commit/6f4eab59d71cdf20fcb5d4416dffcfafb76e3f51))
+- remove redundant inputPrimitive story ([0aa2534](https://github.com/AirLabsTeam/web-core/commit/0aa2534a7727062fae5c2dc38b2f703dd187625d))
+- remove unnec prop and import ([66e2cf3](https://github.com/AirLabsTeam/web-core/commit/66e2cf303de3f3dbad2fdea837f1db9c251cd626))
+- rename prop to showAsterisk ([153bba0](https://github.com/AirLabsTeam/web-core/commit/153bba093ac873e1a24adafaad430b280c45458f))
+- rm unnec story and import ([d75ddee](https://github.com/AirLabsTeam/web-core/commit/d75ddeeb81ec6c485cc4d82a72d8c884ee57c1bd))
+- shave off more from InputPrimitive to make more primitive ([68f32f6](https://github.com/AirLabsTeam/web-core/commit/68f32f6fcda02f3d1e2b0452f850a17a06f29506))
+- use BoxProps for styling ([518c061](https://github.com/AirLabsTeam/web-core/commit/518c06118626ecdc83332492f736110c63336508))
+- wrap primitives in forwardRef; resolve label size prop ([1827ee9](https://github.com/AirLabsTeam/web-core/commit/1827ee90899eafc79f11386b07959d2094d5a3ff))
+
+### Features
+
+- adds LabelPrimitive and InputPrimitive ([eb99b7f](https://github.com/AirLabsTeam/web-core/commit/eb99b7f2ce06b5957c17efb137732e1945a8cc61))
+
 # [15.0.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@14.0.1...@air/zephyr@15.0.0) (2021-10-01)
 
 ### Bug Fixes
