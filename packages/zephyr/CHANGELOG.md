@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [15.2.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.2.0...@air/zephyr@15.2.1) (2021-10-08)
+
+### Bug Fixes
+
+- **zephyr/buttonlink:** use PropsWithAs and forwardRefWithAs to access anchor HTML element ([f64621f](https://github.com/AirLabsTeam/web-core/commit/f64621f571d9e95c945d2f34cf47827606c5fa78))
+
 # [15.2.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.1.0...@air/zephyr@15.2.0) (2021-10-08)
 
 ### Features
