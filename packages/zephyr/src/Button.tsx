@@ -1,7 +1,6 @@
 import { transitions } from 'polished';
 import { forwardRefWithAs, PropsWithAs } from '@reach/utils';
 import { variant as styledSystemVariant } from 'styled-system';
-import invariant from 'tiny-invariant';
 import { useReducedMotion } from 'framer-motion';
 import VisuallyHidden from '@reach/visually-hidden';
 import classNames from 'classnames';
@@ -257,17 +256,6 @@ export const Button = forwardRefWithAs<NonSemanticButtonProps, 'button'>(
     }: ButtonProps,
     ref: Ref<HTMLButtonElement>,
   ) => {
-    invariant(
-      (isLoading &&
-        (variant === 'button-filled-blue' ||
-          variant === 'button-filled-grey' ||
-          variant === 'button-filled-destructive' ||
-          variant === 'button-outline-blue' ||
-          variant === 'button-outline-grey')) ||
-        !isLoading,
-      "Button can only have loading state if it is a filled or outlined variant. Currently, there is no 'button-outline-destructive' variant. Please discuss deviations with Design.",
-    );
-
     const theme = useTheme();
     const shouldReduceMotion = useReducedMotion();
 

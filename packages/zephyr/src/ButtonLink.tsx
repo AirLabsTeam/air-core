@@ -1,3 +1,4 @@
+import { noop } from 'lodash';
 import { useTheme } from 'styled-components';
 
 import { Box, BoxProps } from './Box';
@@ -7,7 +8,8 @@ import { ButtonLinkVariantName, TextVariantName } from './theme';
 type ButtonLinkSize = 'large' | 'medium' | 'small';
 
 export interface ButtonLinkProps
-  extends Pick<BoxProps<'button'>, 'children' | 'disabled' | 'onClick' | 'tx'> {
+  extends Pick<BoxProps<'button' | 'a'>, 'as' | 'children' | 'onClick' | 'tx'> {
+  disabled?: boolean;
   size?: ButtonLinkSize;
   textVariant?: TextVariantName | TextVariantName[];
   variant?: ButtonLinkVariantName;
@@ -20,8 +22,9 @@ const LINK_BUTTON_TEXT_SIZE_MAP: { [key in ButtonLinkSize]: TextVariantName } = 
 };
 
 export const ButtonLink = ({
+  as = 'button',
   children,
-  disabled,
+  disabled = false,
   onClick,
   size = 'medium',
   textVariant,
@@ -29,12 +32,13 @@ export const ButtonLink = ({
   variant = 'button-link-blue',
 }: ButtonLinkProps) => {
   const theme = useTheme();
+  const buttonProps = as === 'button' ? { disabled } : {};
 
   return (
     <Box
-      as="button"
-      disabled={disabled}
+      as={as}
       __baseStyles={{
+        display: 'inline-block',
         outline: 'none',
         background: 'transparent',
         p: 2,
@@ -48,7 +52,7 @@ export const ButtonLink = ({
           textDecoration: 'underline',
         },
 
-        '&:disabled': {
+        '&:disabled, &.disabled': {
           textDecoration: 'none',
           cursor: 'not-allowed',
         },
@@ -57,9 +61,11 @@ export const ButtonLink = ({
           boxShadow: `0 0 0 3px ${theme.colors.focus}`,
         },
       }}
-      onClick={onClick}
+      className={disabled ? 'disabled' : ''}
+      onClick={disabled ? noop : onClick}
       tx={tx}
       variant={variant}
+      {...buttonProps}
     >
       <Text
         tx={{ color: 'inherit', fontWeight: 'inherit' }}
