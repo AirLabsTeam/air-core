@@ -41,3 +41,29 @@ export const GreyButtonLink = () => (
     </ButtonLink>
   </>
 );
+
+export const BlueButtonLinkAsAsAnchor = () => (
+  <>
+    <ButtonLink as="a" size="medium" variant="button-link-blue">
+      Blue button link
+    </ButtonLink>
+    <br />
+    <br />
+    <ButtonLink as="a" size="medium" disabled variant="button-link-blue">
+      Disabled blue button link
+    </ButtonLink>
+  </>
+);
+
+export const GreyButtonLinkAsAnchor = () => (
+  <>
+    <ButtonLink as="a" size="medium" variant="button-link-grey">
+      Grey button link
+    </ButtonLink>
+    <br />
+    <br />
+    <ButtonLink as="a" size="medium" disabled variant="button-link-grey">
+      Disabled grey button link
+    </ButtonLink>
+  </>
+);
