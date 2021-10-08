@@ -42,14 +42,29 @@ export const GreyButtonLink = () => (
   </>
 );
 
-export const BlueButtonLinkAsAsAnchor = () => (
+export const BlueButtonLinkAsAnchor = () => (
   <>
-    <ButtonLink as="a" size="medium" variant="button-link-blue">
+    <ButtonLink
+      as="a"
+      href="https://air.inc/"
+      rel="noopener noreferrer"
+      target="_blank"
+      size="medium"
+      variant="button-link-blue"
+    >
       Blue anchor link
     </ButtonLink>
     <br />
     <br />
-    <ButtonLink as="a" size="medium" disabled variant="button-link-blue">
+    <ButtonLink
+      as="a"
+      href="https://air.inc/"
+      rel="noopener noreferrer"
+      target="_blank"
+      size="medium"
+      disabled
+      variant="button-link-blue"
+    >
       Disabled blue anchor link
     </ButtonLink>
   </>
@@ -57,12 +72,27 @@ export const BlueButtonLinkAsAsAnchor = () => (
 
 export const GreyButtonLinkAsAnchor = () => (
   <>
-    <ButtonLink as="a" size="medium" variant="button-link-grey">
+    <ButtonLink
+      as="a"
+      href="https://air.inc/"
+      rel="noopener noreferrer"
+      target="_blank"
+      size="medium"
+      variant="button-link-grey"
+    >
       Grey anchor link
     </ButtonLink>
     <br />
     <br />
-    <ButtonLink as="a" size="medium" disabled variant="button-link-grey">
+    <ButtonLink
+      as="a"
+      href="https://air.inc/"
+      rel="noopener noreferrer"
+      target="_blank"
+      size="medium"
+      disabled
+      variant="button-link-grey"
+    >
       Disabled grey anchor link
     </ButtonLink>
   </>
