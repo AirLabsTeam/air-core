@@ -22,7 +22,7 @@ const LINK_BUTTON_TEXT_SIZE_MAP: { [key in ButtonLinkSize]: TextVariantName } = 
 };
 
 export const ButtonLink = ({
-  as,
+  as = 'button',
   children,
   disabled = false,
   onClick,
@@ -38,6 +38,7 @@ export const ButtonLink = ({
     <Box
       as={as}
       __baseStyles={{
+        display: 'inline-block',
         outline: 'none',
         background: 'transparent',
         p: 2,
