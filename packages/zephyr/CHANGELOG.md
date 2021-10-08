@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [15.2.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.1.0...@air/zephyr@15.2.0) (2021-10-08)
+
+### Features
+
+- **storybook/buttonlink:** reflect as anchor tag ButtonLink in storybook ([e065694](https://github.com/AirLabsTeam/web-core/commit/e065694ed58cd47a4a9edddedef413ca6b4d6acd))
+- **zephry/button:** remove invariant restriction for isLoading prop on ghost & unstyled buttons ([07bbc5c](https://github.com/AirLabsTeam/web-core/commit/07bbc5c96b84d6d57194da03f776ba2c692f0340))
+- **zephyr/buttonlink:** expose as prop so ButtonLink can be cast as an anchor with disabled styling ([4cedd6d](https://github.com/AirLabsTeam/web-core/commit/4cedd6dc6cc92d73cc4b28c0da4353ae9cc48159))
+- **zephyr/buttonlink:** set default as to button, add disabled classname styling to variant ([4fa4cc6](https://github.com/AirLabsTeam/web-core/commit/4fa4cc614299a6c395bce8cf0a597bcfc6b5cb9a))
+
 # [15.1.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.0.0...@air/zephyr@15.1.0) (2021-10-06)
 
 ### Bug Fixes
