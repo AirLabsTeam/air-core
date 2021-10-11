@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [15.2.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.2.1...@air/zephyr@15.2.2) (2021-10-11)
+
+### Bug Fixes
+
+- add prop to RadixMenu.Root to prevent looping code ([9141c72](https://github.com/AirLabsTeam/web-core/commit/9141c72c68cb73d67cea550f9011516a5d3310c0))
+
 ## [15.2.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.2.0...@air/zephyr@15.2.1) (2021-10-08)
 
 ### Bug Fixes
