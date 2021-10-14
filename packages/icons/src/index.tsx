@@ -2,6 +2,7 @@
 import { SVGProps, forwardRef } from 'react';
 
 import _Air from './svgs/uncategorized/Air.svg';
+import _Annotation from './svgs/uncategorized/Annotation.svg';
 import _Apple from './svgs/uncategorized/Apple.svg';
 import _ArrowDown from './svgs/uncategorized/Arrow-Down.svg';
 import _ArrowLeft from './svgs/uncategorized/Arrow-Left.svg';
@@ -181,6 +182,7 @@ import _ZoomIn from './svgs/uncategorized/ZoomIn.svg';
 import _ZoomOut from './svgs/uncategorized/ZoomOut.svg';
 
 export const Air = forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>>((props, ref) => <_Air {...props} ref={ref} />); Air.displayName = 'Air';
+export const Annotation = forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>>((props, ref) => <_Annotation {...props} ref={ref} />); Annotation.displayName = 'Annotation';
 export const Apple = forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>>((props, ref) => <_Apple {...props} ref={ref} />); Apple.displayName = 'Apple';
 export const ArrowDown = forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>>((props, ref) => <_ArrowDown {...props} ref={ref} />); ArrowDown.displayName = 'ArrowDown';
 export const ArrowLeft = forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>>((props, ref) => <_ArrowLeft {...props} ref={ref} />); ArrowLeft.displayName = 'ArrowLeft';
