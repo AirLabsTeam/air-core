@@ -79,16 +79,16 @@ export type JayNames = keyof typeof flamingos;
 
 export const macaws = {
   macaw020: '#E7F1FF',
-  macaw040: '#DDE9FF',
-  macaw060: '#B4CFFF',
-  macaw080: '#90B8FF',
-  macaw100: '#6FA2FF',
-  macaw200: '#448AFF',
-  macaw300: '#2E77FF',
-  macaw350: '#2943FF',
-  macaw400: '#3000FF',
-  macaw500: '#2009D8',
-  macaw600: '#0F009E',
+  macaw040: '#D7E5FF',
+  macaw060: '#BFD1FF',
+  macaw080: '#91AEFF',
+  macaw100: '#667EFF',
+  macaw200: '#5466FF',
+  macaw300: '#4A51FF',
+  macaw350: '#4030FF',
+  macaw400: '#3820EA',
+  macaw500: '#280DBC',
+  macaw600: '#1C0694',
 };
 
 export type MacawNames = keyof typeof macaws;
