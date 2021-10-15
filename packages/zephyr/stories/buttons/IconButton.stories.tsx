@@ -1,4 +1,3 @@
-import React from 'react';
 import { Meta, Story } from '@storybook/react';
 import { Title, Subtitle, Description, Stories } from '@storybook/addon-docs';
 import { Bell } from '@air/icons';
@@ -18,9 +17,8 @@ const meta: Meta<IconButtonProps> = {
   parameters: {
     docs: {
       description: {
-        component: `\`<IconButton>\` is meant for use when the only content within the button is an icon. Sometimes,
-an \`<IconButton>\` is rendered within a \`<Tooltip>\` component. In those instances, the \`hasTooltip\` prop should
-be "true" so that the assistive label is not read twice to users with assistive technology.`,
+        component:
+          '`<IconButton>` is meant for use when the only content within the button is an icon. You can pass it a tooltip if you would like, using the `tooltip` prop.',
       },
       page: () => (
         <>
@@ -66,7 +64,12 @@ export const AllPossibleIconButtons: Story<IconButtonProps> = () => {
                       {label}
                     </Text>
 
-                    <IconButton hasTooltip={false} icon={Bell} size={size} variant={variant}>
+                    <IconButton
+                      icon={Bell}
+                      size={size}
+                      variant={variant}
+                      tooltip={{ label: 'Bell', side: 'top' }}
+                    >
                       See Notifications
                     </IconButton>
                   </Box>

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { ReactNode, ChangeEvent, MutableRefObject, useMemo } from 'react';
 import { useField } from 'formik';
 import VisuallyHidden from '@reach/visually-hidden';
 import { variant as styledSystemVariant } from 'styled-system';
@@ -93,7 +93,7 @@ export interface InputProps {
    */
   description?: {
     isHidden: boolean;
-    component: React.ReactNode;
+    component: ReactNode;
   };
 
   /**
@@ -111,7 +111,7 @@ export interface InputProps {
    */
   adornment?: {
     location: LeftRight;
-    component: React.ReactNode;
+    component: ReactNode;
   };
 
   /**
@@ -176,10 +176,10 @@ export interface InputProps {
    */
   isErrorHidden?: boolean;
   disabled?: boolean;
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
   readOnly?: boolean;
   'data-testid'?: string;
-  innerInputRef?: React.MutableRefObject<HTMLInputElement | null>;
+  innerInputRef?: MutableRefObject<HTMLInputElement | null>;
 }
 
 const sharedAdornmentStyles: BoxStylingProps['tx'] = {
@@ -187,6 +187,11 @@ const sharedAdornmentStyles: BoxStylingProps['tx'] = {
   position: 'absolute',
 };
 
+/**
+ * @deprecated This component is no longer supported and will soon be removed. It will be replaced with an `InputPrimitive` component
+ * which will not have any reliance on Formik (though it will have the necessary props to use Formik). The `InputPrimitive` will also not
+ * come with a label, instead you will need to use the `LabelPrimitive` component.
+ */
 export const Input = ({
   adornment,
   autoComplete = 'off',
@@ -222,7 +227,7 @@ export const Input = ({
     ...outerContainerStyles
   } = tx;
 
-  const testID = React.useMemo(() => {
+  const testID = useMemo(() => {
     const prefix = `input_${name}`;
 
     if (!meta.touched) return `${prefix}_untouched`;
@@ -230,7 +235,7 @@ export const Input = ({
     return `${prefix}_valid`;
   }, [hasError]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  const adornmentSideBuffer = React.useMemo(
+  const adornmentSideBuffer = useMemo(
     () =>
       styledSystemVariant({
         prop: 'variant',
@@ -248,7 +253,7 @@ export const Input = ({
     [theme, variant],
   );
 
-  const nonAdornmentSideBuffer = React.useMemo(
+  const nonAdornmentSideBuffer = useMemo(
     () =>
       styledSystemVariant({
         prop: 'variant',

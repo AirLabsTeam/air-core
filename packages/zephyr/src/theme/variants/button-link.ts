@@ -14,7 +14,7 @@ const _buttonLink: { [key in ButtonLinkVariantName]: TXProp } = {
       color: 'jay800',
     },
 
-    '&:disabled': {
+    '&:disabled, &.disabled': {
       color: 'jay200',
     },
   },
@@ -29,7 +29,7 @@ const _buttonLink: { [key in ButtonLinkVariantName]: TXProp } = {
       color: 'pigeon500',
     },
 
-    '&:disabled': {
+    '&:disabled, &.disabled': {
       color: 'pigeon300',
     },
   },

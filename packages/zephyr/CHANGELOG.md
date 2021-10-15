@@ -3,6 +3,124 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [15.2.3](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.2.2...@air/zephyr@15.2.3) (2021-10-14)
+
+**Note:** Version bump only for package @air/zephyr
+
+## [15.2.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.2.1...@air/zephyr@15.2.2) (2021-10-11)
+
+### Bug Fixes
+
+- add prop to RadixMenu.Root to prevent looping code ([9141c72](https://github.com/AirLabsTeam/web-core/commit/9141c72c68cb73d67cea550f9011516a5d3310c0))
+
+## [15.2.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.2.0...@air/zephyr@15.2.1) (2021-10-08)
+
+### Bug Fixes
+
+- **zephyr/buttonlink:** use PropsWithAs and forwardRefWithAs to access anchor HTML element ([f64621f](https://github.com/AirLabsTeam/web-core/commit/f64621f571d9e95c945d2f34cf47827606c5fa78))
+
+# [15.2.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.1.0...@air/zephyr@15.2.0) (2021-10-08)
+
+### Features
+
+- **storybook/buttonlink:** reflect as anchor tag ButtonLink in storybook ([e065694](https://github.com/AirLabsTeam/web-core/commit/e065694ed58cd47a4a9edddedef413ca6b4d6acd))
+- **zephry/button:** remove invariant restriction for isLoading prop on ghost & unstyled buttons ([07bbc5c](https://github.com/AirLabsTeam/web-core/commit/07bbc5c96b84d6d57194da03f776ba2c692f0340))
+- **zephyr/buttonlink:** expose as prop so ButtonLink can be cast as an anchor with disabled styling ([4cedd6d](https://github.com/AirLabsTeam/web-core/commit/4cedd6dc6cc92d73cc4b28c0da4353ae9cc48159))
+- **zephyr/buttonlink:** set default as to button, add disabled classname styling to variant ([4fa4cc6](https://github.com/AirLabsTeam/web-core/commit/4fa4cc614299a6c395bce8cf0a597bcfc6b5cb9a))
+
+# [15.1.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.0.0...@air/zephyr@15.1.0) (2021-10-06)
+
+### Bug Fixes
+
+- add story for InputP with custom label; rm unnec name use in story ([46e6bf2](https://github.com/AirLabsTeam/web-core/commit/46e6bf2a8c642f31360ff7edc47e23f599a746be))
+- asterisk styles prop ([5d84d57](https://github.com/AirLabsTeam/web-core/commit/5d84d5754cf323cc6f8d0758fe2b42559f66c4f4))
+- export primitives from form dir ([cba1167](https://github.com/AirLabsTeam/web-core/commit/cba1167a25cb3ab51879e35a655251edc7173515))
+- exports the error component ([7580132](https://github.com/AirLabsTeam/web-core/commit/758013224df61ceecbca8be1b40278d1981f1722))
+- inherit textVariantName on labelPrimitive ([9803d92](https://github.com/AirLabsTeam/web-core/commit/9803d922e55e98df695dc890b13949918663b097))
+- make LabelPrimitive more primitive ([1a96efb](https://github.com/AirLabsTeam/web-core/commit/1a96efbae99e32fb151a4fc30610dde80f422483))
+- memoize InputPrimitive and LabelPrimitive ([6822808](https://github.com/AirLabsTeam/web-core/commit/6822808f2d8ecd3f8b88b7328e9e2e986839362d))
+- move autocomplete types to sep file ([7ec1639](https://github.com/AirLabsTeam/web-core/commit/7ec1639a3307335e9956aad71505b11a25d7528d))
+- omit unnec props from primitives ([6f4eab5](https://github.com/AirLabsTeam/web-core/commit/6f4eab59d71cdf20fcb5d4416dffcfafb76e3f51))
+- remove redundant inputPrimitive story ([0aa2534](https://github.com/AirLabsTeam/web-core/commit/0aa2534a7727062fae5c2dc38b2f703dd187625d))
+- remove unnec prop and import ([66e2cf3](https://github.com/AirLabsTeam/web-core/commit/66e2cf303de3f3dbad2fdea837f1db9c251cd626))
+- rename prop to showAsterisk ([153bba0](https://github.com/AirLabsTeam/web-core/commit/153bba093ac873e1a24adafaad430b280c45458f))
+- rm unnec story and import ([d75ddee](https://github.com/AirLabsTeam/web-core/commit/d75ddeeb81ec6c485cc4d82a72d8c884ee57c1bd))
+- shave off more from InputPrimitive to make more primitive ([68f32f6](https://github.com/AirLabsTeam/web-core/commit/68f32f6fcda02f3d1e2b0452f850a17a06f29506))
+- use BoxProps for styling ([518c061](https://github.com/AirLabsTeam/web-core/commit/518c06118626ecdc83332492f736110c63336508))
+- wrap primitives in forwardRef; resolve label size prop ([1827ee9](https://github.com/AirLabsTeam/web-core/commit/1827ee90899eafc79f11386b07959d2094d5a3ff))
+
+### Features
+
+- adds LabelPrimitive and InputPrimitive ([eb99b7f](https://github.com/AirLabsTeam/web-core/commit/eb99b7f2ce06b5957c17efb137732e1945a8cc61))
+
+# [15.0.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@14.0.1...@air/zephyr@15.0.0) (2021-10-01)
+
+### Bug Fixes
+
+- remove Duplicate from type name ([aa4edc9](https://github.com/AirLabsTeam/web-core/commit/aa4edc95d212d8f4ba9b24521165b92e9be01dc5))
+- rename prop to showAssistiveText ([637c62e](https://github.com/AirLabsTeam/web-core/commit/637c62e9a1af5ec58edb1f8445805c3abff3bdf0))
+
+### Features
+
+- replace hasTooltip prop with hideAssistiveText; add tooltip prop ([6827b35](https://github.com/AirLabsTeam/web-core/commit/6827b3563054848a1bd7afbdffe879fae443a5ec))
+
+### BREAKING CHANGES
+
+- removes the hasTooltip prop
+
+## [14.0.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@14.0.0...@air/zephyr@14.0.1) (2021-09-30)
+
+### Bug Fixes
+
+- return back to requiring hasTooltip ([8649689](https://github.com/AirLabsTeam/web-core/commit/8649689034854eb668ef6338691d201030b2077a))
+- returns to state before iconButton and tooltip implementation ([9945098](https://github.com/AirLabsTeam/web-core/commit/994509822148497662b1048588f7d578d6e7d2f5))
+
+# [14.0.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@13.0.1...@air/zephyr@14.0.0) (2021-09-29)
+
+### Bug Fixes
+
+- remove border and story ([6627c0c](https://github.com/AirLabsTeam/web-core/commit/6627c0cf48cb605b7817197e6300db5de7e7346a))
+- remove unnec prop ([a06a091](https://github.com/AirLabsTeam/web-core/commit/a06a091183006e5581e65227baf65073cd66b5be))
+
+### BREAKING CHANGES
+
+- remove props
+
+## [13.0.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@13.0.0...@air/zephyr@13.0.1) (2021-09-28)
+
+### Bug Fixes
+
+- fix the props type ([1cae319](https://github.com/AirLabsTeam/web-core/commit/1cae319f7e6fcf3926542b34f5009c4cbbdd234c))
+
+# [13.0.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.33.6...@air/zephyr@13.0.0) (2021-09-27)
+
+### Bug Fixes
+
+- fixes Tooltip types ([3bed03d](https://github.com/AirLabsTeam/web-core/commit/3bed03d53d8818b1432e7235213bb8baf1b54b87))
+- grammar ([a226de3](https://github.com/AirLabsTeam/web-core/commit/a226de35fab28883c3fa87ad9c7e9922d1f4a1ae))
+- maintains omission of the ref for the anchor ([5fb7fde](https://github.com/AirLabsTeam/web-core/commit/5fb7fde530baca773775b153cd13be104bc80847))
+- removes styling and replace with asChild to prevent layout break ([0945405](https://github.com/AirLabsTeam/web-core/commit/0945405c291462295cda13e758e12979ac9bc210))
+
+### BREAKING CHANGES
+
+- updating the react-tooltip dependency
+
+## [12.33.6](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.33.5...@air/zephyr@12.33.6) (2021-09-27)
+
+### Bug Fixes
+
+- explicitly req nec tooltip props ([549f2b4](https://github.com/AirLabsTeam/web-core/commit/549f2b4f24287cac343656d334ffe29577f84716))
+
+## [12.33.5](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.33.4...@air/zephyr@12.33.5) (2021-09-27)
+
+### Code Refactoring
+
+- removes the hasTooltip prop and replaces it with actual tooltip ([fdd5a23](https://github.com/AirLabsTeam/web-core/commit/fdd5a23afb8bfd217dc205d401feef732e06c6e0))
+
+### BREAKING CHANGES
+
+- removing the hasTooltip
+
 ## [12.33.4](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@12.33.3...@air/zephyr@12.33.4) (2021-09-23)
 
 ### Bug Fixes

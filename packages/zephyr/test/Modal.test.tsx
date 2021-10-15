@@ -1,4 +1,3 @@
-import React from 'react';
 // import { waitFor } from '@testing-library/react';
 import { render, fireEvent } from '../test-utils';
 import ModalMeta, * as Modal from '../stories/modals/Modal.stories';

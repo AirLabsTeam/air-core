@@ -1,18 +1,23 @@
-import React from 'react';
+import { noop } from 'lodash';
+import { forwardRefWithAs, PropsWithAs } from '@reach/utils';
+import { Ref } from 'react';
 import { useTheme } from 'styled-components';
 
-import { Box, BoxProps } from './Box';
+import { Box, BoxStylingProps } from './Box';
 import { Text } from './Text';
 import { ButtonLinkVariantName, TextVariantName } from './theme';
 
 type ButtonLinkSize = 'large' | 'medium' | 'small';
 
-export interface ButtonLinkProps
-  extends Pick<BoxProps<'button'>, 'children' | 'disabled' | 'onClick' | 'tx'> {
+export type NonSemanticButtonLinkProps = Pick<BoxStylingProps, 'tx'> & {
+  /** We need to define the `disabled` prop as it's not an HTML attribute for an anchor tag */
+  disabled?: boolean;
   size?: ButtonLinkSize;
   textVariant?: TextVariantName | TextVariantName[];
   variant?: ButtonLinkVariantName;
-}
+};
+
+export interface ButtonLinkProps extends PropsWithAs<'button', NonSemanticButtonLinkProps> {}
 
 const LINK_BUTTON_TEXT_SIZE_MAP: { [key in ButtonLinkSize]: TextVariantName } = {
   large: 'text-ui-16',
@@ -20,54 +25,66 @@ const LINK_BUTTON_TEXT_SIZE_MAP: { [key in ButtonLinkSize]: TextVariantName } = 
   small: 'text-ui-12',
 };
 
-export const ButtonLink = ({
-  children,
-  disabled,
-  onClick,
-  size = 'medium',
-  textVariant,
-  tx,
-  variant = 'button-link-blue',
-}: ButtonLinkProps) => {
-  const theme = useTheme();
+export const ButtonLink = forwardRefWithAs<NonSemanticButtonLinkProps, 'button'>(
+  (
+    {
+      as = 'button',
+      children,
+      disabled = false,
+      onClick,
+      size = 'medium',
+      textVariant,
+      tx,
+      variant = 'button-link-blue',
+      ...restOfProps
+    }: ButtonLinkProps,
+    ref: Ref<HTMLButtonElement>,
+  ) => {
+    const theme = useTheme();
+    const buttonProps = as === 'button' ? { disabled } : {};
 
-  return (
-    <Box
-      as="button"
-      disabled={disabled}
-      __baseStyles={{
-        outline: 'none',
-        background: 'transparent',
-        p: 2,
-        border: 0,
-        borderRadius: 4,
-        textDecoration: 'none',
-        fontWeight: 'semibold',
-        cursor: 'pointer',
-
-        '&:hover': {
-          textDecoration: 'underline',
-        },
-
-        '&:disabled': {
+    return (
+      <Box
+        as={as}
+        __baseStyles={{
+          display: 'inline-block',
+          outline: 'none',
+          background: 'transparent',
+          p: 2,
+          border: 0,
+          borderRadius: 4,
           textDecoration: 'none',
-          cursor: 'not-allowed',
-        },
+          fontWeight: 'semibold',
+          cursor: 'pointer',
 
-        '&:focus-visible': {
-          boxShadow: `0 0 0 3px ${theme.colors.focus}`,
-        },
-      }}
-      onClick={onClick}
-      tx={tx}
-      variant={variant}
-    >
-      <Text
-        tx={{ color: 'inherit', fontWeight: 'inherit' }}
-        variant={textVariant ?? LINK_BUTTON_TEXT_SIZE_MAP[size]}
+          '&:hover': {
+            textDecoration: 'underline',
+          },
+
+          '&:disabled, &.disabled': {
+            textDecoration: 'none',
+            cursor: 'not-allowed',
+          },
+
+          '&:focus-visible': {
+            boxShadow: `0 0 0 3px ${theme.colors.focus}`,
+          },
+        }}
+        className={disabled ? 'disabled' : ''}
+        ref={ref}
+        onClick={disabled ? noop : onClick}
+        tx={tx}
+        variant={variant}
+        {...buttonProps}
+        {...restOfProps}
       >
-        {children}
-      </Text>
-    </Box>
-  );
-};
+        <Text
+          tx={{ color: 'inherit', fontWeight: 'inherit' }}
+          variant={textVariant ?? LINK_BUTTON_TEXT_SIZE_MAP[size]}
+        >
+          {children}
+        </Text>
+      </Box>
+    );
+  },
+);

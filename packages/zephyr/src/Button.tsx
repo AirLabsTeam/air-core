@@ -1,11 +1,10 @@
-import React from 'react';
 import { transitions } from 'polished';
 import { forwardRefWithAs, PropsWithAs } from '@reach/utils';
 import { variant as styledSystemVariant } from 'styled-system';
-import invariant from 'tiny-invariant';
 import { useReducedMotion } from 'framer-motion';
 import VisuallyHidden from '@reach/visually-hidden';
 import classNames from 'classnames';
+import { Ref } from 'react';
 import styled, { keyframes, useTheme } from 'styled-components';
 import { Box, BoxStylingProps } from './Box';
 import { ButtonVariantName } from './theme/variants/button';
@@ -19,9 +18,6 @@ export type ButtonSize = 'extra-small' | 'small' | 'medium' | 'large';
 export type NonSemanticButtonProps = Pick<BoxStylingProps, 'tx'> & {
   size?: ButtonSize | ButtonSize[];
   variant?: ButtonVariantName | ButtonVariantName[];
-  /**
-   * `isLoading` can only be true for buttons with boundaries (ie. filled and outline variants). Note: `button-outline-destructive` is not currently a variant.
-   */
   isLoading?: boolean;
   adornmentLeft?: SVGComponent;
   adornmentRight?: SVGComponent;
@@ -255,19 +251,8 @@ export const Button = forwardRefWithAs<NonSemanticButtonProps, 'button'>(
       className,
       ...restOfProps
     }: ButtonProps,
-    ref: React.Ref<HTMLButtonElement>,
+    ref: Ref<HTMLButtonElement>,
   ) => {
-    invariant(
-      (isLoading &&
-        (variant === 'button-filled-blue' ||
-          variant === 'button-filled-grey' ||
-          variant === 'button-filled-destructive' ||
-          variant === 'button-outline-blue' ||
-          variant === 'button-outline-grey')) ||
-        !isLoading,
-      "Button can only have loading state if it is a filled or outlined variant. Currently, there is no 'button-outline-destructive' variant. Please discuss deviations with Design.",
-    );
-
     const theme = useTheme();
     const shouldReduceMotion = useReducedMotion();
 

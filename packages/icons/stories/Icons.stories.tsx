@@ -1,4 +1,4 @@
-import React, { SVGProps } from 'react';
+import { SVGProps } from 'react';
 import { noop } from 'lodash';
 import { Story } from '@storybook/react';
 import { Box, Text, Input, SingleSelect } from '@air/zephyr';

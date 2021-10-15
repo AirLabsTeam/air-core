@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { upperFirst } from 'lodash';
 import { BoxStylingProps } from '../Box';
 import { Text } from '../Text';

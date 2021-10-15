@@ -1,4 +1,4 @@
-import React, { memo, FC, ComponentProps } from 'react';
+import { memo, FC, ComponentProps } from 'react';
 import { Separator } from '@radix-ui/react-dropdown-menu';
 
 import { Box } from '../../Box';

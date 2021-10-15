@@ -1,17 +1,15 @@
-import React from 'react';
 import { forwardRefWithAs } from '@reach/utils';
 import VisuallyHidden from '@reach/visually-hidden';
 import { variant as styledSystemVariant } from 'styled-system';
+import { Ref } from 'react';
 import { useTheme } from 'styled-components';
+import { Tooltip, TooltipProps } from '../src/Tooltip';
 import { Box } from './Box';
 import { Button, ButtonProps, NonSemanticButtonProps } from './Button';
 import { SVGComponent } from './shared';
 
 export interface NonSemanticIconButtonProps
   extends Omit<NonSemanticButtonProps, 'children' | 'adornmentLeft' | 'adornmentRight'> {
-  icon: SVGComponent;
-  hasTooltip: boolean;
-
   /**
    * Unlike usual, this prop only accepts a string. It is also never visible. It represents an accessible label when the
    * button is not wrapped by a Tooltip. You may ask: "Why not name this prop better, and not use 'children'"?. Many
@@ -20,6 +18,15 @@ export interface NonSemanticIconButtonProps
    * would be required.
    */
   children: string;
+  icon: SVGComponent;
+  /**
+   * If you would like for the button to have its own tooltip, you can pass in the necessary props and the tooltip will be rendered immediately outside the IconButton, with the contents of this prop spread onto the Tooltip component.
+   */
+  tooltip?: Pick<TooltipProps, 'label' | 'side'> & Omit<TooltipProps, 'children'>;
+  /**
+   * When this prop is set to `false`, the assistive text is hidden. By default this is `true`. This should only be set to `false` when an iconButton has a parent element that already has a tooltip. In this case, assistive text is not required because a tooltip is present.
+   */
+  showAssistiveText?: boolean;
 }
 
 export interface IconButtonProps
@@ -33,20 +40,22 @@ export const IconButton = forwardRefWithAs<NonSemanticIconButtonProps, 'button'>
       children,
       className,
       disabled = false,
-      hasTooltip,
+      tooltip,
       icon,
       isLoading = false,
+      showAssistiveText = true,
       size = 'medium',
       tx,
       type = 'button',
       variant = 'button-filled-blue',
       ...restOfProps
     }: IconButtonProps,
-    ref: React.Ref<HTMLButtonElement>,
+    ref: Ref<HTMLButtonElement>,
   ) => {
     const theme = useTheme();
+    const shouldShowAssistiveText = !tooltip && showAssistiveText;
 
-    return (
+    const iconButton = (
       <Button
         {...restOfProps}
         as={as}
@@ -90,7 +99,7 @@ export const IconButton = forwardRefWithAs<NonSemanticIconButtonProps, 'button'>
         variant={variant}
       >
         {/* If button is wrapped with tooltip, it doesn't require assistive text. It's already provided on focus via the tooltip. */}
-        {!hasTooltip && <VisuallyHidden>{children}</VisuallyHidden>}
+        {shouldShowAssistiveText && <VisuallyHidden>{children}</VisuallyHidden>}
         <Box
           as={icon}
           tx={{
@@ -118,5 +127,7 @@ export const IconButton = forwardRefWithAs<NonSemanticIconButtonProps, 'button'>
         />
       </Button>
     );
+
+    return tooltip ? <Tooltip {...tooltip}>{iconButton}</Tooltip> : iconButton;
   },
 );

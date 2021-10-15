@@ -1,4 +1,3 @@
-import React from 'react';
 import { Meta, Story } from '@storybook/react';
 import { ButtonLink, ButtonLinkProps } from '../../src/ButtonLink';
 
@@ -39,6 +38,62 @@ export const GreyButtonLink = () => (
     <br />
     <ButtonLink size="medium" disabled variant="button-link-grey">
       Disabled grey button link
+    </ButtonLink>
+  </>
+);
+
+export const BlueButtonLinkAsAnchor = () => (
+  <>
+    <ButtonLink
+      as="a"
+      href="https://air.inc/"
+      rel="noopener noreferrer"
+      target="_blank"
+      size="medium"
+      variant="button-link-blue"
+    >
+      Blue anchor link
+    </ButtonLink>
+    <br />
+    <br />
+    <ButtonLink
+      as="a"
+      href="https://air.inc/"
+      rel="noopener noreferrer"
+      target="_blank"
+      size="medium"
+      disabled
+      variant="button-link-blue"
+    >
+      Disabled blue anchor link
+    </ButtonLink>
+  </>
+);
+
+export const GreyButtonLinkAsAnchor = () => (
+  <>
+    <ButtonLink
+      as="a"
+      href="https://air.inc/"
+      rel="noopener noreferrer"
+      target="_blank"
+      size="medium"
+      variant="button-link-grey"
+    >
+      Grey anchor link
+    </ButtonLink>
+    <br />
+    <br />
+    <ButtonLink
+      as="a"
+      href="https://air.inc/"
+      rel="noopener noreferrer"
+      target="_blank"
+      size="medium"
+      disabled
+      variant="button-link-grey"
+    >
+      Disabled grey anchor link
     </ButtonLink>
   </>
 );
