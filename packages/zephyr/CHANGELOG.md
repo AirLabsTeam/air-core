@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [15.2.4](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.2.3...@air/zephyr@15.2.4) (2021-10-19)
+
+### Bug Fixes
+
+- min-length was not being passed to the editabletext textarea ([f0ab43d](https://github.com/AirLabsTeam/web-core/commit/f0ab43da7c3ffa13b04d8e5e92e320911db4f9c1))
+
 ## [15.2.3](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.2.2...@air/zephyr@15.2.3) (2021-10-14)
 
 **Note:** Version bump only for package @air/zephyr
