@@ -1,0 +1,50 @@
+{
+  "name": "@air/zephyr-stitches",
+  "version": "0.0.1",
+  "description": "Air's React component library built with Stitches",
+  "keywords": [
+    "react",
+    "components",
+    "typescript",
+    "tsdx"
+  ],
+  "homepage": "https://github.com/AirLabsTeam/web-core/tree/master/packages/zephyr#readme",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "main": "dist/index.js",
+  "module": "dist/zephyr-stitches.esm.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "repository": {
+    "directory": "packages/zephyr",
+    "type": "git",
+    "url": "git+https://github.com/AirLabsTeam/web-core.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AirLabsTeam/web-core/issues"
+  },
+  "scripts": {
+    "start": "tsdx watch --verbose --noClean --tsconfig tsconfig.build.json",
+    "build": "tsdx build --tsconfig tsconfig.build.json",
+    "test": "tsdx test --passWithNoTests",
+    "lint": "tsdx lint"
+  },
+  "peerDependencies": {
+    "react": ">=17"
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "@air/colors": "^1.1.2",
+    "@radix-ui/react-visually-hidden": "^0.1.1",
+    "@stitches/react": "^1.2.5"
+  }
+}
