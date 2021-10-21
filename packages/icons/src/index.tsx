@@ -115,6 +115,7 @@ import _Medium from './svgs/uncategorized/Medium.svg';
 import _Megaphone from './svgs/uncategorized/Megaphone.svg';
 import _MemberAdd from './svgs/uncategorized/Member-Add.svg';
 import _Member from './svgs/uncategorized/Member.svg';
+import _Merge from './svgs/uncategorized/Merge.svg';
 import _Minimize from './svgs/uncategorized/Minimize.svg';
 import _Minus from './svgs/uncategorized/Minus.svg';
 import _Move from './svgs/uncategorized/Move.svg';
@@ -295,6 +296,7 @@ export const Medium = forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'c
 export const Megaphone = forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>>((props, ref) => <_Megaphone {...props} ref={ref} />); Megaphone.displayName = 'Megaphone';
 export const MemberAdd = forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>>((props, ref) => <_MemberAdd {...props} ref={ref} />); MemberAdd.displayName = 'MemberAdd';
 export const Member = forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>>((props, ref) => <_Member {...props} ref={ref} />); Member.displayName = 'Member';
+export const Merge = forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>>((props, ref) => <_Merge {...props} ref={ref} />); Merge.displayName = 'Merge';
 export const Minimize = forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>>((props, ref) => <_Minimize {...props} ref={ref} />); Minimize.displayName = 'Minimize';
 export const Minus = forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>>((props, ref) => <_Minus {...props} ref={ref} />); Minus.displayName = 'Minus';
 export const Move = forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>>((props, ref) => <_Move {...props} ref={ref} />); Move.displayName = 'Move';
