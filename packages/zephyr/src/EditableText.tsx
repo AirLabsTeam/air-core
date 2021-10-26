@@ -1,6 +1,6 @@
 import { Form, Formik, FormikConfig, useField, useFormikContext } from 'formik';
 import { noop } from 'lodash';
-import { forwardRef, KeyboardEvent, ReactNode, useEffect, useRef, useState } from 'react';
+import React, { forwardRef, KeyboardEvent, ReactNode, useEffect, useRef, useState } from 'react';
 import { usePrevious } from 'react-use';
 import VisuallyHidden from '@reach/visually-hidden';
 import { useId } from '@reach/auto-id';
@@ -25,6 +25,7 @@ interface EditableTextTextareaProps {
   required?: boolean;
   tx?: TXProp;
   error?: string;
+  onValueChange?: (value: string) => void;
 }
 
 const EditableTextTextarea = forwardRef<HTMLTextAreaElement, EditableTextTextareaProps>(
@@ -39,6 +40,7 @@ const EditableTextTextarea = forwardRef<HTMLTextAreaElement, EditableTextTextare
       required,
       tx,
       error,
+      onValueChange,
     }: EditableTextTextareaProps,
     forwardedRef,
   ) => {
@@ -71,6 +73,7 @@ const EditableTextTextarea = forwardRef<HTMLTextAreaElement, EditableTextTextare
           onKeyPress={(event: KeyboardEvent<HTMLTextAreaElement>) => {
             if (event.key === 'Enter' && !event.shiftKey) {
               event.stopPropagation();
+              event.preventDefault();
               if (!error) {
                 submitForm();
                 onSubmit();
@@ -109,6 +112,10 @@ const EditableTextTextarea = forwardRef<HTMLTextAreaElement, EditableTextTextare
             ...(tx as any),
           }}
           {...field}
+          onChange={(event: React.ChangeEvent<HTMLTextAreaElement>) => {
+            field.onChange(event);
+            onValueChange?.(event.target?.value);
+          }}
           onBlur={() => {
             submitForm();
             onSubmit();
@@ -152,6 +159,7 @@ export interface EditableTextProps
   };
   value: string;
   error?: string;
+  onValueChange?: (value: string) => void;
 }
 
 export const EditableText = ({
@@ -172,6 +180,7 @@ export const EditableText = ({
   value = '',
   variant = 'text-ui-16',
   error,
+  onValueChange,
 }: EditableTextProps) => {
   const theme = useTheme();
   const autoId = useId(id)!;
@@ -306,6 +315,7 @@ export const EditableText = ({
                 {isEditingState && (
                   <Box as={Form} tx={{ position: 'unset' }}>
                     <EditableTextTextarea
+                      onValueChange={onValueChange}
                       error={formError}
                       id={autoId}
                       label={label}
