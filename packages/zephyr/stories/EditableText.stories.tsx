@@ -40,9 +40,6 @@ const Template: Story<EditableTextProps> = (args) => {
 export const Default = Template.bind({});
 
 Default.args = {
-  tx: {
-    width: '100%',
-  },
   label: 'Editable text 1',
 };
 
@@ -65,6 +62,7 @@ TextBehavior.parameters = {
 export const ControlledState = Template.bind({});
 
 ControlledState.args = {
+  isEditing: true,
   label: 'Editable text 3',
 };
 
