@@ -19,7 +19,6 @@ interface EditableTextTextareaProps {
    * */
   label: string;
   maxLength?: number;
-  minLength?: number;
   name: string;
   onReset: () => void;
   onSubmit: () => void;
@@ -34,7 +33,6 @@ const EditableTextTextarea = forwardRef<HTMLTextAreaElement, EditableTextTextare
       id,
       label,
       maxLength,
-      minLength,
       name,
       onReset = noop,
       onSubmit = noop,
@@ -62,7 +60,6 @@ const EditableTextTextarea = forwardRef<HTMLTextAreaElement, EditableTextTextare
           aria-describedby={autoId}
           as="textarea"
           id={id}
-          minLength={minLength}
           maxLength={maxLength}
           onKeyUp={(event: KeyboardEvent<HTMLTextAreaElement>) => {
             if (event.key === 'Escape') {
@@ -145,10 +142,6 @@ export interface EditableTextProps
    * This will set the max character length for the textarea.
    */
   maxLength?: number;
-  /**
-   * This will set the min character length for the textarea.
-   */
-  minLength?: number;
   onEditingStateChange?: (isEditingState: boolean) => void;
   onReset?: () => void;
   placeholder?: string;
@@ -170,7 +163,6 @@ export const EditableText = ({
   id,
   label,
   maxLength,
-  minLength,
   onEditingStateChange = noop,
   onReset = noop,
   onSubmit = noop,
@@ -318,7 +310,6 @@ export const EditableText = ({
                       id={autoId}
                       label={label}
                       maxLength={maxLength}
-                      minLength={minLength}
                       name="editable-text-value"
                       onReset={() => {
                         onReset();
