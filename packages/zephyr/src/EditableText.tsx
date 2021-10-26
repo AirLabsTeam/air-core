@@ -155,6 +155,7 @@ export interface EditableTextProps
     EditableTextTextarea?: TXProp;
   };
   value: string;
+  error?: string;
 }
 
 export const EditableText = ({
@@ -175,6 +176,7 @@ export const EditableText = ({
   validationSchema = EditableTextSchema,
   value = '',
   variant = 'text-ui-16',
+  error,
 }: EditableTextProps) => {
   const theme = useTheme();
   const autoId = useId(id)!;
@@ -215,6 +217,7 @@ export const EditableText = ({
         <Box
           data-testid={testId}
           tx={{
+            position: 'relative',
             display: 'inline-flex',
             verticalAlign: 'text-top',
             textAlign: 'left',
@@ -231,7 +234,9 @@ export const EditableText = ({
               py: 6,
               borderRadius: 4,
               cursor: 'pointer',
-              boxShadow: isEditingState ? `inset 0 0 0 2px ${theme.colors.focus}` : 'none',
+              boxShadow: isEditingState
+                ? `inset 0 0 0 2px ${error ? theme.colors.flamingo600 : theme.colors.focus}`
+                : 'none',
             }}
           >
             <Text
@@ -304,6 +309,7 @@ export const EditableText = ({
               {isEditingState && (
                 <Box as={Form} tx={{ position: 'unset' }}>
                   <EditableTextTextarea
+                    error={error}
                     id={autoId}
                     label={label}
                     maxLength={maxLength}
@@ -325,6 +331,23 @@ export const EditableText = ({
               )}
             </Text>
           </Box>
+          {isEditingState && !!error && (
+            <Text
+              variant="text-ui-10"
+              tx={{
+                bottom: -6,
+                right: 15,
+                position: 'absolute',
+                color: 'flamingo600',
+                backgroundColor: 'white',
+                px: 3,
+                py: 2,
+                fontWeight: 500,
+              }}
+            >
+              {error}
+            </Text>
+          )}
         </Box>
       )}
     </Formik>
