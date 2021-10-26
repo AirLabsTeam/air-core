@@ -309,7 +309,6 @@ export const EditableText = ({
               {isEditingState && (
                 <Box as={Form} tx={{ position: 'unset' }}>
                   <EditableTextTextarea
-                    error={error}
                     id={autoId}
                     label={label}
                     maxLength={maxLength}
