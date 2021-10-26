@@ -62,6 +62,18 @@ TextBehavior.parameters = {
 export const ControlledState = Template.bind({});
 
 ControlledState.args = {
+  label: 'Editable text 3',
+};
+
+ControlledState.parameters = {
+  docs: {
+    description: {
+      story: 'You can control the edit state for the EditableText by using the `isEditing` prop.',
+    },
+  },
+};
+
+ControlledState.args = {
   isEditing: true,
   label: 'Editable text 3',
 };
