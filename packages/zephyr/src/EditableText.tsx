@@ -71,6 +71,7 @@ const EditableTextTextarea = forwardRef<HTMLTextAreaElement, EditableTextTextare
           onKeyPress={(event: KeyboardEvent<HTMLTextAreaElement>) => {
             if (event.key === 'Enter' && !event.shiftKey) {
               event.stopPropagation();
+              event.preventDefault();
               if (!error) {
                 submitForm();
                 onSubmit();
