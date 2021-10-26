@@ -65,7 +65,6 @@ TextBehavior.parameters = {
 export const ControlledState = Template.bind({});
 
 ControlledState.args = {
-  isEditing: true,
   label: 'Editable text 3',
 };
 
