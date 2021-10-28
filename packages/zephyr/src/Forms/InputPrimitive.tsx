@@ -51,6 +51,7 @@ export const InputPrimitive = forwardRef<HTMLInputElement, InputPrimitiveProps>(
         required={required}
         tx={tx}
         type={type}
+        name={name}
         variant={variant}
         {...restOfProps}
       />
