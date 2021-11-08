@@ -17,7 +17,7 @@ export const Tag = ({
   adornmentRight,
   children,
   color = 'grey',
-  onClick = () => {},
+  onClick,
   size = 'small',
   ...restOfProps
 }: TagProps) => {
