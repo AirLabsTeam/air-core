@@ -65,4 +65,21 @@ export const Root = styled('div', {
   },
 });
 
-export const Adornment = styled('div', {});
+export const Adornment = styled('div', {
+  variants: {
+    side: {
+      left: {
+        marginLeft: -2,
+        marginRight: 2,
+      },
+      right: {
+        marginLeft: 2,
+        marginRight: -2,
+      },
+    },
+  },
+
+  defaultVariants: {
+    side: 'right',
+  },
+});
