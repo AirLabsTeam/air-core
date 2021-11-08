@@ -41,10 +41,11 @@
   "peerDependencies": {
     "react": ">=17"
   },
-  "devDependencies": {},
   "dependencies": {
     "@air/colors": "^1.1.2",
+    "@radix-ui/react-tooltip": "^0.1.1",
     "@radix-ui/react-visually-hidden": "^0.1.1",
+    "@reach/dialog": "^0.16.2",
     "@stitches/react": "^1.2.5"
   }
 }
