@@ -65,6 +65,8 @@ export const Root = styled('div', {
   },
 });
 
+export type AdornmentProps = ComponentProps<typeof Adornment>;
+
 export const Adornment = styled('div', {
   variants: {
     side: {
