@@ -55,3 +55,7 @@ export const IconButton = forwardRef<ElementRef<typeof StyledIconButton.Root>, I
 );
 
 IconButton.displayName = 'IconButton';
+
+IconButton.toString = () => StyledIconButton.Root.className;
+
+export const IconButtonRoot = StyledIconButton.Root;
