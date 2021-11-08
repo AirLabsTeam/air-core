@@ -5,7 +5,19 @@ import { VisuallyHidden } from './VisuallyHidden';
 
 export type ButtonProps = Pick<
   StyledButton.RootProps,
-  'appearance' | 'children' | 'className' | 'color' | 'css' | 'disabled' | 'size' | 'type'
+  | 'appearance'
+  | 'children'
+  | 'className'
+  | 'color'
+  | 'css'
+  | 'disabled'
+  | 'onClick'
+  | 'onMouseDown'
+  | 'onMouseEnter'
+  | 'onMouseLeave'
+  | 'onMouseUp'
+  | 'size'
+  | 'type'
 > & {
   adornmentLeft?: ReactNode;
   adornmentRight?: ReactNode;
@@ -28,6 +40,7 @@ export const Button = forwardRef<ElementRef<typeof StyledButton.Root>, ButtonPro
       isLoading = false,
       size = 'medium',
       type = 'button',
+      ...restOfProps
     }: ButtonProps,
     forwardedRef,
   ) => {
@@ -58,6 +71,7 @@ export const Button = forwardRef<ElementRef<typeof StyledButton.Root>, ButtonPro
         ref={forwardedRef}
         size={size}
         type={type}
+        {...restOfProps}
       >
         {isLoading ? (
           <Box css={{ position: 'relative' }} role="status">

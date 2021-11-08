@@ -43,7 +43,7 @@ export const Default: Story<ButtonProps & { theme: 'dark' | 'light' }> = (args) 
   return (
     <div
       className={isDarkMode ? darkTheme : undefined}
-      style={{ backgroundColor: isDarkMode ? '#1C1C1C' : '#FFFFF', padding: 32 }}
+      style={{ backgroundColor: isDarkMode ? '#1C1C1C' : '#FFFFF', padding: 64 }}
     >
       <Button {...args} data-testid={meta.title} />
     </div>
