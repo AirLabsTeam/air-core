@@ -66,3 +66,8 @@ export const Tooltip = ({
     </RadixTooltip.Root>
   );
 };
+
+Tooltip.toString = () => StyledTooltip.Content.className;
+
+export const TooltipArrow = StyledTooltip.Arrow;
+export const TooltipContent = StyledTooltip.Content;
