@@ -7,6 +7,7 @@ import { useId } from '@reach/auto-id';
 import * as Yup from 'yup';
 import { useTheme } from 'styled-components';
 import { TXProp } from './theme';
+import { MenuVariantName } from './theme/variants/menus';
 import { Box } from './Box';
 import { Button } from './Button';
 import { Label } from './Forms/Label';
@@ -160,6 +161,7 @@ export interface EditableTextProps
   value: string;
   error?: string;
   onValueChange?: (value: string) => void;
+  mode?: MenuVariantName;
 }
 
 export const EditableText = ({
@@ -180,6 +182,7 @@ export const EditableText = ({
   value = '',
   variant = 'text-ui-16',
   error,
+  mode = 'bright',
   onValueChange,
 }: EditableTextProps) => {
   const theme = useTheme();
@@ -241,7 +244,11 @@ export const EditableText = ({
                 borderRadius: 4,
                 cursor: 'pointer',
                 boxShadow: isEditingState
-                  ? `inset 0 0 0 2px ${formError ? theme.colors.flamingo600 : theme.colors.focus}`
+                  ? mode === 'bright'
+                    ? `inset 0 0 0 2px ${formError ? theme.colors.flamingo600 : theme.colors.focus}`
+                    : `inset 0 0 0 2px ${
+                        formError ? theme.colors.flamingo300 : theme.colors.jay250
+                      }`
                   : 'none',
               }}
             >
