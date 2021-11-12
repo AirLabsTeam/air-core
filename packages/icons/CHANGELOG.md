@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.8.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@9.7.3...@air/icons@9.8.0) (2021-11-12)
+
+### Features
+
+- **icons:** add marketing nav icons ([59d1e69](https://github.com/AirLabsTeam/web-core/commit/59d1e693fbed2eab61833c2f04931e85e4be967a))
+
 ## [9.7.3](https://github.com/AirLabsTeam/web-core/compare/@air/icons@9.7.2...@air/icons@9.7.3) (2021-10-28)
 
 **Note:** Version bump only for package @air/icons
