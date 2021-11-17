@@ -125,6 +125,7 @@ import _NavBlog from './svgs/uncategorized/Nav-Blog.svg';
 import _NavCulture from './svgs/uncategorized/Nav-Culture.svg';
 import _NavDiversity from './svgs/uncategorized/Nav-Diversity.svg';
 import _NavFeedback from './svgs/uncategorized/Nav-Feedback.svg';
+import _NavGrowth from './svgs/uncategorized/Nav-Growth.svg';
 import _NavImgRecognition from './svgs/uncategorized/Nav-Img-Recognition.svg';
 import _NavPolicies from './svgs/uncategorized/Nav-Policies.svg';
 import _NavSlaManager from './svgs/uncategorized/Nav-SLA-Manager.svg';
@@ -313,6 +314,7 @@ export const NavBlog = forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, '
 export const NavCulture = forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>>((props, ref) => <_NavCulture {...props} ref={ref} />); NavCulture.displayName = 'NavCulture';
 export const NavDiversity = forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>>((props, ref) => <_NavDiversity {...props} ref={ref} />); NavDiversity.displayName = 'NavDiversity';
 export const NavFeedback = forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>>((props, ref) => <_NavFeedback {...props} ref={ref} />); NavFeedback.displayName = 'NavFeedback';
+export const NavGrowth = forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>>((props, ref) => <_NavGrowth {...props} ref={ref} />); NavGrowth.displayName = 'NavGrowth';
 export const NavImgRecognition = forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>>((props, ref) => <_NavImgRecognition {...props} ref={ref} />); NavImgRecognition.displayName = 'NavImgRecognition';
 export const NavPolicies = forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>>((props, ref) => <_NavPolicies {...props} ref={ref} />); NavPolicies.displayName = 'NavPolicies';
 export const NavSlaManager = forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>>((props, ref) => <_NavSlaManager {...props} ref={ref} />); NavSlaManager.displayName = 'NavSlaManager';
