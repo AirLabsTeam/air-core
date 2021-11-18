@@ -235,6 +235,8 @@ export const EditableText = ({
     ...containerStyles
   } = tx;
 
+  const TextWrapper = supportLinks ? Linkify : React.Fragment;
+
   useEffect(() => {
     if (isEditingState && textareaRef?.current) {
       textareaRef.current?.focus();
@@ -248,204 +250,6 @@ export const EditableText = ({
       buttonRef.current.focus();
     }
   }, [buttonRef, isEditingState, isPreviousIsEditing, textareaRef]);
-
-  const TextContent = ({
-    formError,
-    values,
-  }: {
-    formError: string | undefined;
-    values: {
-      'editable-text-value': string;
-    };
-  }) => {
-    return supportLinks ? (
-      <Linkify>
-        <Text
-          as={as}
-          tx={{
-            display: 'flex',
-            position: 'relative',
-            flexGrow: 1,
-            ...textStyles,
-          }}
-          variant={variant}
-        >
-          <Button
-            onClick={() => {
-              setIsEditingState(true);
-              onEditingStateChange(true);
-            }}
-            ref={buttonRef}
-            tabIndex={isEditingState ? -1 : undefined}
-            tx={{
-              alignItems: 'flex-start',
-              flexGrow: 1,
-              justifyContent: 'flex-start',
-              mx: -8,
-              my: -6,
-              px: 8,
-              py: 6,
-              borderRadius: 4,
-              color: values['editable-text-value'] ? 'inherit' : 'pigeon300',
-              fontFamily: 'inherit',
-              fontFeatureSettings: 'inherit',
-              fontSize: 'inherit',
-              fontWeight: values['editable-text-value'] ? 'inherit' : 'regular',
-              letterSpacing: 'inherit',
-              lineHeight: 'inherit',
-              textAlign: 'inherit',
-              whiteSpace: 'pre-wrap',
-              opacity: isEditingState && values['editable-text-value'] !== '' ? 0 : 1,
-
-              '&:hover': {
-                backgroundColor: isEditingState ? 'transparent' : 'pigeon050',
-                color: values['editable-text-value'] !== '' ? 'inherit' : 'pigeon300',
-              },
-
-              '&:active': {
-                backgroundColor: isEditingState ? 'transparent' : 'pigeon050',
-                color: values['editable-text-value'] !== '' ? 'inherit' : 'pigeon300',
-              },
-
-              '&:focus-visible': {
-                backgroundColor: 'pigeon050',
-                boxShadow: 'none',
-              },
-
-              /**
-               * @todo I will deal with this at a later date, already spent 1+ hours on this.
-               */
-              ...(buttonStyles as any),
-            }}
-            variant="button-unstyled"
-          >
-            {formatValue(values['editable-text-value'] || placeholder)}
-            {/**
-             * This is need to ensure that newlines will always show the proper spacing
-             * when using the CSS property `white-space` with the value of `pre-wrap`.
-             */}
-            {values['editable-text-value'].includes('\n') && <>&nbsp;</>}
-          </Button>
-
-          {isEditingState && (
-            <Box as={Form} tx={{ position: 'unset' }}>
-              <EditableTextTextarea
-                onValueChange={onValueChange}
-                error={formError}
-                id={autoId}
-                label={label}
-                maxLength={maxLength}
-                name="editable-text-value"
-                onReset={() => {
-                  onReset();
-                  setIsEditingState(false);
-                }}
-                onSubmit={() => {
-                  setIsEditingState(false);
-                  onEditingStateChange(false);
-                }}
-                ref={textareaRef}
-                required
-                tx={textareaStyles}
-              />
-            </Box>
-          )}
-        </Text>
-      </Linkify>
-    ) : (
-      <Text
-        as={as}
-        tx={{
-          display: 'flex',
-          position: 'relative',
-          flexGrow: 1,
-          ...textStyles,
-        }}
-        variant={variant}
-      >
-        <Button
-          onClick={() => {
-            setIsEditingState(true);
-            onEditingStateChange(true);
-          }}
-          ref={buttonRef}
-          tabIndex={isEditingState ? -1 : undefined}
-          tx={{
-            alignItems: 'flex-start',
-            flexGrow: 1,
-            justifyContent: 'flex-start',
-            mx: -8,
-            my: -6,
-            px: 8,
-            py: 6,
-            borderRadius: 4,
-            color: values['editable-text-value'] ? 'inherit' : 'pigeon300',
-            fontFamily: 'inherit',
-            fontFeatureSettings: 'inherit',
-            fontSize: 'inherit',
-            fontWeight: values['editable-text-value'] ? 'inherit' : 'regular',
-            letterSpacing: 'inherit',
-            lineHeight: 'inherit',
-            textAlign: 'inherit',
-            whiteSpace: 'pre-wrap',
-            opacity: isEditingState && values['editable-text-value'] !== '' ? 0 : 1,
-
-            '&:hover': {
-              backgroundColor: isEditingState ? 'transparent' : 'pigeon050',
-              color: values['editable-text-value'] !== '' ? 'inherit' : 'pigeon300',
-            },
-
-            '&:active': {
-              backgroundColor: isEditingState ? 'transparent' : 'pigeon050',
-              color: values['editable-text-value'] !== '' ? 'inherit' : 'pigeon300',
-            },
-
-            '&:focus-visible': {
-              backgroundColor: 'pigeon050',
-              boxShadow: 'none',
-            },
-
-            /**
-             * @todo I will deal with this at a later date, already spent 1+ hours on this.
-             */
-            ...(buttonStyles as any),
-          }}
-          variant="button-unstyled"
-        >
-          {formatValue(values['editable-text-value'] || placeholder)}
-          {/**
-           * This is need to ensure that newlines will always show the proper spacing
-           * when using the CSS property `white-space` with the value of `pre-wrap`.
-           */}
-          {values['editable-text-value'].includes('\n') && <>&nbsp;</>}
-        </Button>
-
-        {isEditingState && (
-          <Box as={Form} tx={{ position: 'unset' }}>
-            <EditableTextTextarea
-              onValueChange={onValueChange}
-              error={formError}
-              id={autoId}
-              label={label}
-              maxLength={maxLength}
-              name="editable-text-value"
-              onReset={() => {
-                onReset();
-                setIsEditingState(false);
-              }}
-              onSubmit={() => {
-                setIsEditingState(false);
-                onEditingStateChange(false);
-              }}
-              ref={textareaRef}
-              required
-              tx={textareaStyles}
-            />
-          </Box>
-        )}
-      </Text>
-    );
-  };
 
   return (
     <Formik
@@ -482,7 +286,99 @@ export const EditableText = ({
                   : 'none',
               }}
             >
-              <TextContent formError={formError} values={values} />
+              <TextWrapper>
+                <Text
+                  as={as}
+                  tx={{
+                    display: 'flex',
+                    position: 'relative',
+                    flexGrow: 1,
+                    ...textStyles,
+                  }}
+                  variant={variant}
+                >
+                  <Button
+                    onClick={() => {
+                      setIsEditingState(true);
+                      onEditingStateChange(true);
+                    }}
+                    ref={buttonRef}
+                    tabIndex={isEditingState ? -1 : undefined}
+                    tx={{
+                      alignItems: 'flex-start',
+                      flexGrow: 1,
+                      justifyContent: 'flex-start',
+                      mx: -8,
+                      my: -6,
+                      px: 8,
+                      py: 6,
+                      borderRadius: 4,
+                      color: values['editable-text-value'] ? 'inherit' : 'pigeon300',
+                      fontFamily: 'inherit',
+                      fontFeatureSettings: 'inherit',
+                      fontSize: 'inherit',
+                      fontWeight: values['editable-text-value'] ? 'inherit' : 'regular',
+                      letterSpacing: 'inherit',
+                      lineHeight: 'inherit',
+                      textAlign: 'inherit',
+                      whiteSpace: 'pre-wrap',
+                      opacity: isEditingState && values['editable-text-value'] !== '' ? 0 : 1,
+
+                      '&:hover': {
+                        backgroundColor: isEditingState ? 'transparent' : 'pigeon050',
+                        color: values['editable-text-value'] !== '' ? 'inherit' : 'pigeon300',
+                      },
+
+                      '&:active': {
+                        backgroundColor: isEditingState ? 'transparent' : 'pigeon050',
+                        color: values['editable-text-value'] !== '' ? 'inherit' : 'pigeon300',
+                      },
+
+                      '&:focus-visible': {
+                        backgroundColor: 'pigeon050',
+                        boxShadow: 'none',
+                      },
+
+                      /**
+                       * @todo I will deal with this at a later date, already spent 1+ hours on this.
+                       */
+                      ...(buttonStyles as any),
+                    }}
+                    variant="button-unstyled"
+                  >
+                    {formatValue(values['editable-text-value'] || placeholder)}
+                    {/**
+                     * This is need to ensure that newlines will always show the proper spacing
+                     * when using the CSS property `white-space` with the value of `pre-wrap`.
+                     */}
+                    {values['editable-text-value'].includes('\n') && <>&nbsp;</>}
+                  </Button>
+
+                  {isEditingState && (
+                    <Box as={Form} tx={{ position: 'unset' }}>
+                      <EditableTextTextarea
+                        onValueChange={onValueChange}
+                        error={formError}
+                        id={autoId}
+                        label={label}
+                        maxLength={maxLength}
+                        name="editable-text-value"
+                        onReset={() => {
+                          onReset();
+                          setIsEditingState(false);
+                        }}
+                        onSubmit={() => {
+                          setIsEditingState(false);
+                          onEditingStateChange(false);
+                        }}
+                        ref={textareaRef}
+                        required
+                        tx={textareaStyles}
+                      />
+                    </Box>
+                  )}
+                </Text>
+              </TextWrapper>
             </Box>
             {isEditingState && !!formError && (
               <Text
