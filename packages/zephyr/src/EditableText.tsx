@@ -206,7 +206,7 @@ export const EditableText = ({
   ['data-testid']: testId,
   formatValue = (value) => value,
   isEditing = false,
-  supportLinks = true,
+  supportLinks = false,
   id,
   label,
   maxLength,
