@@ -1,4 +1,4 @@
-import { ReactNode, memo, useMemo } from 'react';
+import { ReactNode, memo, useCallback, useMemo } from 'react';
 import { rgba } from 'polished';
 import { Item, Root, Content, TriggerItem } from '@radix-ui/react-dropdown-menu';
 import { ChevronRight } from '@air/icons';
@@ -14,7 +14,8 @@ import { RadixMenuItemDivider } from './RadixMenuItemDivider';
 
 export type RadixMenuItemRenderProps =
   | { children: ReactNode }
-  | { label: ReactNode; description?: ReactNode };
+  | { label: ReactNode; description?: ReactNode }
+  | { title: string };
 
 export type RadixMenuItemProps = Pick<BoxProps, 'tx' | 'id' | 'onClick'> & {
   /**
@@ -134,6 +135,29 @@ export const RadixMenuItem = memo(
       [hasDescription, hasDividerBottom, isSmallSize, tx, variant],
     );
 
+    const renderChildren = useCallback(() => {
+      if ('children' in renderProps) {
+        return renderProps.children;
+      }
+
+      if ('label' in renderProps) {
+        return (
+          <Box>
+            <MenuItemLabel variant={isSmallSize ? 'text-ui-14' : 'text-ui-16'}>
+              {renderProps.label}
+            </MenuItemLabel>
+            <MenuItemDescription
+              variant={isSmallSize ? 'text-ui-12' : 'text-ui-14'}
+              tx={variant === 'dark' ? { color: 'pigeon100' } : undefined}
+            >
+              {renderProps.description}
+            </MenuItemDescription>
+          </Box>
+        );
+      }
+      return null;
+    }, [isSmallSize, renderProps, variant]);
+
     const menuItemContent = useMemo(
       () => (
         <>
@@ -143,23 +167,7 @@ export const RadixMenuItem = memo(
             </Box>
           )}
 
-          <Box tx={{ flexGrow: 1 }}>
-            {'children' in renderProps ? (
-              renderProps.children
-            ) : (
-              <Box>
-                <MenuItemLabel variant={isSmallSize ? 'text-ui-14' : 'text-ui-16'}>
-                  {renderProps.label}
-                </MenuItemLabel>
-                <MenuItemDescription
-                  variant={isSmallSize ? 'text-ui-12' : 'text-ui-14'}
-                  tx={variant === 'dark' ? { color: 'pigeon100' } : undefined}
-                >
-                  {renderProps.description}
-                </MenuItemDescription>
-              </Box>
-            )}
-          </Box>
+          <Box tx={{ flexGrow: 1 }}>{renderChildren()}</Box>
 
           {rightAdornment ||
             (!!subOptions && subOptions.length && (
@@ -216,12 +224,32 @@ export const RadixMenuItem = memo(
         isSmallSize,
         leftAdornment,
         numberOfShortcutKeys,
-        renderProps,
+        renderChildren,
         rightAdornment,
-        variant,
         shortcut,
       ],
     );
+
+    if ('title' in renderProps) {
+      return (
+        <Text
+          tx={{
+            marginTop: 10,
+            marginBottom: 8,
+            paddingX: 10,
+            color: 'pigeon500',
+            fontWeight: 'bold',
+
+            '&:not(:first-child)': {
+              marginTop: 24,
+            },
+          }}
+          variant="text-ui-12-uppercase"
+        >
+          {renderProps.title}
+        </Text>
+      );
+    }
 
     if (!!subOptions && subOptions.length) {
       return (
