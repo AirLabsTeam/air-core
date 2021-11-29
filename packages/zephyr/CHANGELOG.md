@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [15.2.12](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.2.11...@air/zephyr@15.2.12) (2021-11-29)
+
+### Bug Fixes
+
+- **@air/zephyr:** add in title to RadixDropdownMenu ([507b653](https://github.com/AirLabsTeam/web-core/commit/507b653aa9bdf3044cdc134a6abaac5abc0a92f8))
+
 ## [15.2.11](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.2.10...@air/zephyr@15.2.11) (2021-11-12)
 
 **Note:** Version bump only for package @air/zephyr
