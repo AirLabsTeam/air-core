@@ -13,7 +13,7 @@
     "access": "public",
     "registry": "https://registry.npmjs.org"
   },
-  "main": "dist/colors.js",
+  "main": "dist/index.js",
   "module": "dist/colors.esm.js",
   "typings": "dist/index.d.ts",
   "files": [
