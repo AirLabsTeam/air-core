@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.3](https://github.com/AirLabsTeam/air-core/compare/@air/colors@1.1.2...@air/colors@1.1.3) (2021-11-30)
+
+### Bug Fixes
+
+- **@air/colors:** fix "main" file path ([811834d](https://github.com/AirLabsTeam/air-core/commit/811834d66ed8fe7fad07c0c437d62d208bcf2ea0))
+
 ## [1.1.2](https://github.com/AirLabsTeam/air-core/compare/@air/colors@1.1.1...@air/colors@1.1.2) (2021-10-14)
 
 ### Bug Fixes
