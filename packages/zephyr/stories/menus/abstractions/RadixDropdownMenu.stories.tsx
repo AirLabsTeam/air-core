@@ -18,7 +18,7 @@ import {
 } from '../../../src/RadixMenu/abstractions/RadixDropdownMenu';
 
 const meta: Meta<RadixDropdownMenuProps> = {
-  title: 'Zephyr/Menus/Abstractions/RadixMenu',
+  title: 'Zephyr/Menus/Abstractions/RadixDropdownMenu',
   component: RadixDropdownMenu,
   parameters: {
     docs: {
@@ -89,6 +89,31 @@ export const Default = Template.bind({});
 
 Default.args = {
   options: [
+    {
+      leftAdornment: <Box as={LinkIcon} tx={{ display: 'block', width: 16 }} />,
+      label: 'Share a link',
+      description: 'Generate a share link for public or private use',
+      id: 'share-link',
+
+      onSelect: () => {},
+    },
+    {
+      leftAdornment: <Box as={AddMemberIcon} tx={{ display: 'block', width: 16 }} />,
+      label: 'Add members',
+      description: 'Invite members or guests to collaborate on this board',
+      onSelect: () => {},
+    },
+  ],
+  trigger: <Button variant="button-filled-blue">Options</Button>,
+  tx: {
+    width: 240,
+  },
+};
+export const withTitle = Template.bind({});
+
+withTitle.args = {
+  options: [
+    { title: 'Title' },
     {
       leftAdornment: <Box as={LinkIcon} tx={{ display: 'block', width: 16 }} />,
       label: 'Share a link',

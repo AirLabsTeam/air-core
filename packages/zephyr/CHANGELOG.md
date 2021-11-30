@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [15.2.12](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.2.11...@air/zephyr@15.2.12) (2021-11-29)
+
+### Bug Fixes
+
+- **@air/zephyr:** add in title to RadixDropdownMenu ([507b653](https://github.com/AirLabsTeam/web-core/commit/507b653aa9bdf3044cdc134a6abaac5abc0a92f8))
+
+## [15.2.11](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.2.10...@air/zephyr@15.2.11) (2021-11-12)
+
+**Note:** Version bump only for package @air/zephyr
+
+## [15.2.10](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.2.9...@air/zephyr@15.2.10) (2021-10-29)
+
+### Bug Fixes
+
+- removes inputIdentifier ([c43241b](https://github.com/AirLabsTeam/web-core/commit/c43241bbe4afc510d5dc8039d5918362253962a1))
+- uses the passed in name prop ([018b69f](https://github.com/AirLabsTeam/web-core/commit/018b69f1aa814aebd4be29cdecf9c1b3f7c6c5a7))
+
+## [15.2.9](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.2.8...@air/zephyr@15.2.9) (2021-10-28)
+
+**Note:** Version bump only for package @air/zephyr
+
+## [15.2.8](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.2.6...@air/zephyr@15.2.8) (2021-10-26)
+
+**Note:** Version bump only for package @air/zephyr
+
+## [15.2.6](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.2.5...@air/zephyr@15.2.6) (2021-10-26)
+
+**Note:** Version bump only for package @air/zephyr
+
+## [15.2.5](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.2.4...@air/zephyr@15.2.5) (2021-10-22)
+
+**Note:** Version bump only for package @air/zephyr
+
 ## [15.2.4](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.2.3...@air/zephyr@15.2.4) (2021-10-19)
 
 ### Bug Fixes

@@ -36,8 +36,6 @@ export const InputPrimitive = forwardRef<HTMLInputElement, InputPrimitiveProps>(
     }: InputPrimitiveProps,
     forwardedRef,
   ) => {
-    const inputIdentifier = id ?? name;
-
     return (
       <Box
         as="input"
@@ -45,12 +43,13 @@ export const InputPrimitive = forwardRef<HTMLInputElement, InputPrimitiveProps>(
         autoComplete={autoComplete}
         data-testid={testId}
         disabled={disabled || readOnly}
-        id={inputIdentifier}
+        id={id}
         placeholder={placeholder}
         readOnly={readOnly}
         required={required}
         tx={tx}
         type={type}
+        name={name}
         variant={variant}
         {...restOfProps}
       />
