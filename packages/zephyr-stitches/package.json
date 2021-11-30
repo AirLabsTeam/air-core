@@ -16,7 +16,7 @@
   },
   "main": "dist/index.js",
   "module": "dist/zephyr-stitches.esm.js",
-  "typings": "dist/index.d.ts",
+  "typings": "dist/zephyr/stitches/index.d.ts",
   "files": [
     "dist",
     "src"
@@ -25,7 +25,7 @@
     "node": ">=10"
   },
   "repository": {
-    "directory": "packages/zephyr",
+    "directory": "packages/zephyr-stitches",
     "type": "git",
     "url": "git+https://github.com/AirLabsTeam/web-core.git"
   },

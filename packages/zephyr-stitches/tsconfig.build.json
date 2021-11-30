@@ -3,6 +3,6 @@
   "include": ["./src", "../../@types/*.ts"],
   "compilerOptions": {
     "outDir": "./dist",
-    "jsx": "react-jsx",
+    "jsx": "react-jsx"
   }
 }
