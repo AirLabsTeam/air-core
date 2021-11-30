@@ -1,6 +1,6 @@
 {
   "name": "@air/zephyr-stitches",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Air's React component library built with Stitches",
   "keywords": [
     "react",
