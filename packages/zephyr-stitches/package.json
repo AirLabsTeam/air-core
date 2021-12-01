@@ -16,7 +16,7 @@
   },
   "main": "dist/index.js",
   "module": "dist/zephyr-stitches.esm.js",
-  "typings": "dist/zephyr/stitches/index.d.ts",
+  "typings": "dist/zephyr-stitches/src/index.d.ts",
   "files": [
     "dist",
     "src"
