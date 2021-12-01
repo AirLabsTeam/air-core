@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.3](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr-stitches@0.1.2...@air/zephyr-stitches@0.1.3) (2021-12-01)
+
+### Bug Fixes
+
+- **@air/zephyr-stitches:** fix types file path ([561e4d4](https://github.com/AirLabsTeam/web-core/commit/561e4d488ae95758742107ec6585456582d07e97))
+
 ## [0.1.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr-stitches@0.1.1...@air/zephyr-stitches@0.1.2) (2021-11-30)
 
 **Note:** Version bump only for package @air/zephyr-stitches
