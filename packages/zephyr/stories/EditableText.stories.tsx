@@ -148,10 +148,57 @@ Disabled.parameters = {
   },
 };
 
+export const DisabledValue = Template.bind({});
+
+DisabledValue.args = {
+  label: 'Editable text 8',
+  disabled: true,
+  value: 'This is a value',
+};
+
+DisabledValue.parameters = {
+  docs: {
+    description: {
+      story: 'Disables the thing.',
+    },
+  },
+};
+
+export const ReadOnly = Template.bind({});
+
+ReadOnly.args = {
+  label: 'Editable text 9',
+  readOnly: true,
+};
+
+ReadOnly.parameters = {
+  docs: {
+    description: {
+      story: 'Read Only version',
+    },
+  },
+};
+
+export const ReadOnlyValue = Template.bind({});
+
+ReadOnlyValue.args = {
+  label: 'Editable text 10',
+  readOnly: true,
+  value: 'This is a value',
+};
+
+ReadOnlyValue.parameters = {
+  docs: {
+    description: {
+      story: 'Read Only version',
+    },
+  },
+};
+
 export const CustomStyles = Template.bind({});
 
 CustomStyles.args = {
-  label: 'Editable text 8',
+  label: 'Editable text 11',
   tx: {
     display: 'flex',
     width: '100%',

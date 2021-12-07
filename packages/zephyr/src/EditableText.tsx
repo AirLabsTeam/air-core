@@ -153,6 +153,7 @@ export interface EditableTextProps
   onEditingStateChange?: (isEditingState: boolean) => void;
   onReset?: () => void;
   placeholder?: string;
+  readOnly?: boolean;
   tx?: TXProp & {
     EditableTextButton?: TXProp;
     EditableTextText?: TXProp;
@@ -177,6 +178,7 @@ export const EditableText = ({
   onReset = noop,
   onSubmit = noop,
   placeholder,
+  readOnly,
   tx = {},
   validationSchema = EditableTextSchema,
   value = '',
@@ -248,7 +250,7 @@ export const EditableText = ({
                 px: 8,
                 py: 6,
                 borderRadius: 4,
-                cursor: disabled ? 'not-allowed' : 'pointer',
+                cursor: disabled ? 'not-allowed' : readOnly ? 'default' : 'pointer',
                 boxShadow: isEditingState
                   ? `inset 0 0 0 2px ${formError ? theme.colors.flamingo600 : theme.colors.focus}`
                   : 'none',
@@ -265,7 +267,7 @@ export const EditableText = ({
                 variant={variant}
               >
                 <Button
-                  disabled={disabled}
+                  disabled={disabled ?? readOnly}
                   onClick={() => {
                     setIsEditingState(true);
                     onEditingStateChange(true);
@@ -305,6 +307,14 @@ export const EditableText = ({
                     '&:focus-visible': {
                       backgroundColor: 'pigeon050',
                       boxShadow: 'none',
+                    },
+
+                    '&:disabled': {
+                      color: readOnly
+                        ? values['editable-text-value'] !== ''
+                          ? 'inherit'
+                          : 'pigeon300'
+                        : 'pigeon200',
                     },
 
                     /**
