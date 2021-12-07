@@ -13,6 +13,7 @@ import { Label } from './Forms/Label';
 import { Text, TextProps } from './Text';
 
 interface EditableTextTextareaProps {
+  error?: string;
   id: string;
   /**
    * This label will not be visible. It's here for accessibility purposes.
@@ -22,25 +23,24 @@ interface EditableTextTextareaProps {
   name: string;
   onReset: () => void;
   onSubmit: () => void;
+  onValueChange?: (value: string) => void;
   required?: boolean;
   tx?: TXProp;
-  error?: string;
-  onValueChange?: (value: string) => void;
 }
 
 const EditableTextTextarea = forwardRef<HTMLTextAreaElement, EditableTextTextareaProps>(
   (
     {
+      error,
       id,
       label,
       maxLength,
       name,
       onReset = noop,
       onSubmit = noop,
+      onValueChange,
       required,
       tx,
-      error,
-      onValueChange,
     }: EditableTextTextareaProps,
     forwardedRef,
   ) => {
@@ -141,6 +141,7 @@ export interface EditableTextProps
     Pick<FormikConfig<EditableTextFormValues>, 'onSubmit' | 'validationSchema'> {
   'data-testid'?: string;
   behavior?: 'box' | 'text';
+  disabled?: boolean;
   formatValue?: (children: ReactNode) => ReactNode;
   isEditing?: boolean;
   id?: string;
@@ -166,6 +167,7 @@ export const EditableText = ({
   as,
   behavior = 'box',
   ['data-testid']: testId,
+  disabled,
   formatValue = (value) => value,
   isEditing = false,
   id,
@@ -246,7 +248,7 @@ export const EditableText = ({
                 px: 8,
                 py: 6,
                 borderRadius: 4,
-                cursor: 'pointer',
+                cursor: disabled ? 'not-allowed' : 'pointer',
                 boxShadow: isEditingState
                   ? `inset 0 0 0 2px ${formError ? theme.colors.flamingo600 : theme.colors.focus}`
                   : 'none',
@@ -263,6 +265,7 @@ export const EditableText = ({
                 variant={variant}
               >
                 <Button
+                  disabled={disabled}
                   onClick={() => {
                     setIsEditingState(true);
                     onEditingStateChange(true);

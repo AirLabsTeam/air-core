@@ -133,10 +133,25 @@ MaxLength.parameters = {
   },
 };
 
+export const Disabled = Template.bind({});
+
+Disabled.args = {
+  label: 'Editable text 7',
+  disabled: true,
+};
+
+Disabled.parameters = {
+  docs: {
+    description: {
+      story: 'Disables the thing.',
+    },
+  },
+};
+
 export const CustomStyles = Template.bind({});
 
 CustomStyles.args = {
-  label: 'Editable text 7',
+  label: 'Editable text 8',
   tx: {
     display: 'flex',
     width: '100%',
