@@ -214,7 +214,14 @@ export const EditableText = ({
     <Formik
       enableReinitialize
       initialValues={{ ['editable-text-value']: value }}
-      onSubmit={onSubmit}
+      onSubmit={(values, formikHelpers) => {
+        /**
+         * Only submit the form if the value has changed.
+         */
+        if (values['editable-text-value'] !== value) {
+          onSubmit(values, formikHelpers);
+        }
+      }}
       validationSchema={validationSchema}
     >
       {({ values, errors }) => {
