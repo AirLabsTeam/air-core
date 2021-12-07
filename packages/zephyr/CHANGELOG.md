@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [15.3.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.2.13...@air/zephyr@15.3.0) (2021-12-07)
+
+### Bug Fixes
+
+- **@air/zephyr:** prevent onSubmit from firing when the value remains the same ([97ca452](https://github.com/AirLabsTeam/web-core/commit/97ca452e1080afc95b391204ed217224f366cf5c))
+
+### Features
+
+- add disabled to editabletext ([fd3eeee](https://github.com/AirLabsTeam/web-core/commit/fd3eeee07aa2e641bb25f5e6aaaec3781d082b7c))
+
 ## [15.2.13](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.2.12...@air/zephyr@15.2.13) (2021-12-07)
 
 **Note:** Version bump only for package @air/zephyr
