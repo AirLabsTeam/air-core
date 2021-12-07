@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [15.4.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.3.0...@air/zephyr@15.4.0) (2021-12-07)
+
+### Features
+
+- add readOnly to EditableText ([68647fb](https://github.com/AirLabsTeam/web-core/commit/68647fb9628b7889efa296a54240ab3f4f65bf54))
+
 # [15.3.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.2.13...@air/zephyr@15.3.0) (2021-12-07)
 
 ### Bug Fixes
