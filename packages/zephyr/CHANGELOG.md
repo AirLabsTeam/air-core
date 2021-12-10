@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [15.4.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.4.0...@air/zephyr@15.4.1) (2021-12-10)
+
+### Bug Fixes
+
+- wait for formik submission in editabletext ([99a9c7d](https://github.com/AirLabsTeam/web-core/commit/99a9c7dc6de624e6992f1d94ae40076176592314))
+
 # [15.4.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.3.0...@air/zephyr@15.4.0) (2021-12-07)
 
 ### Features
