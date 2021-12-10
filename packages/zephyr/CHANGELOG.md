@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [15.4.4](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.4.3...@air/zephyr@15.4.4) (2021-12-10)
+
+### Bug Fixes
+
+- no trailing spaces in editable text ([c5b49af](https://github.com/AirLabsTeam/web-core/commit/c5b49afa873f64a75acdef27095d847c42589591))
+
 ## [15.4.3](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.4.2...@air/zephyr@15.4.3) (2021-12-10)
 
 ### Bug Fixes
