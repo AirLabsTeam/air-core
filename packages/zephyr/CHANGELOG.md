@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [15.4.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.4.1...@air/zephyr@15.4.2) (2021-12-10)
+
+### Bug Fixes
+
+- add required to editabletext ([a7fe336](https://github.com/AirLabsTeam/web-core/commit/a7fe3369da7df2da50e1fecba98f50b8c3da0274))
+
 ## [15.4.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.4.0...@air/zephyr@15.4.1) (2021-12-10)
 
 ### Bug Fixes
