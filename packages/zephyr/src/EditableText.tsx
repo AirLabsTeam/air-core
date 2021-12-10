@@ -134,7 +134,7 @@ const EditableTextSchema = Yup.object().shape({
 });
 
 const RequiredEditableTextSchema = Yup.object().shape({
-  ['editable-text-value']: Yup.string().required(),
+  ['editable-text-value']: Yup.string().required('This field is required'),
 });
 
 export type EditableTextFormValues = {
