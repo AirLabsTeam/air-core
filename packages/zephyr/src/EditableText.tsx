@@ -133,13 +133,17 @@ const EditableTextSchema = Yup.object().shape({
   ['editable-text-value']: Yup.string(),
 });
 
+const RequiredEditableTextSchema = Yup.object().shape({
+  ['editable-text-value']: Yup.string().required(),
+});
+
 export type EditableTextFormValues = {
   ['editable-text-value']: string;
 };
 
 export interface EditableTextProps
   extends Pick<TextProps, 'as' | 'variant'>,
-    Pick<FormikConfig<EditableTextFormValues>, 'onSubmit' | 'validationSchema'> {
+    Pick<FormikConfig<EditableTextFormValues>, 'onSubmit'> {
   'data-testid'?: string;
   behavior?: 'box' | 'text';
   disabled?: boolean;
@@ -163,6 +167,7 @@ export interface EditableTextProps
   value: string;
   error?: string;
   onValueChange?: (value: string) => void;
+  required?: boolean;
 }
 
 export const EditableText = ({
@@ -181,11 +186,11 @@ export const EditableText = ({
   placeholder,
   readOnly,
   tx = {},
-  validationSchema = EditableTextSchema,
   value = '',
   variant = 'text-ui-16',
   error,
   onValueChange,
+  required,
 }: EditableTextProps) => {
   const theme = useTheme();
   const autoId = useId(id)!;
@@ -227,7 +232,7 @@ export const EditableText = ({
           onSubmit(values, formikHelpers);
         }
       }}
-      validationSchema={validationSchema}
+      validationSchema={required ? RequiredEditableTextSchema : EditableTextSchema}
     >
       {({ values, errors }) => {
         const formError = error ?? errors['editable-text-value'];
