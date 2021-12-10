@@ -195,10 +195,26 @@ ReadOnlyValue.parameters = {
   },
 };
 
+export const Required = Template.bind({});
+
+Required.args = {
+  label: 'Editable text 11',
+  value: 'This is a value',
+  required: true,
+};
+
+Required.parameters = {
+  docs: {
+    description: {
+      story: 'No empty field or whitespace-only input allowed',
+    },
+  },
+};
+
 export const CustomStyles = Template.bind({});
 
 CustomStyles.args = {
-  label: 'Editable text 11',
+  label: 'Editable text 12',
   tx: {
     display: 'flex',
     width: '100%',

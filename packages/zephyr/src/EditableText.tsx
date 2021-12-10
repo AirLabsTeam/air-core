@@ -130,11 +130,14 @@ const EditableTextTextarea = forwardRef<HTMLTextAreaElement, EditableTextTextare
 EditableTextTextarea.displayName = 'EditableTextTextarea';
 
 const EditableTextSchema = Yup.object().shape({
-  ['editable-text-value']: Yup.string(),
+  ['editable-text-value']: Yup.string().strict().trim('No trailing spaces'),
 });
 
 const RequiredEditableTextSchema = Yup.object().shape({
-  ['editable-text-value']: Yup.string().required('This field is required'),
+  ['editable-text-value']: Yup.string()
+    .strict()
+    .trim('No trailing spaces')
+    .required('This field is required'),
 });
 
 export type EditableTextFormValues = {
