@@ -70,12 +70,13 @@ const EditableTextTextarea = forwardRef<HTMLTextAreaElement, EditableTextTextare
               onReset();
             }
           }}
-          onKeyPress={(event: KeyboardEvent<HTMLTextAreaElement>) => {
+          onKeyPress={async (event: KeyboardEvent<HTMLTextAreaElement>) => {
             if (event.key === 'Enter' && !event.shiftKey) {
               event.stopPropagation();
               event.preventDefault();
               if (!error) {
-                submitForm();
+                // ensure the formik form submission happens before setting isEditing to false
+                await submitForm();
                 onSubmit();
               }
             }
