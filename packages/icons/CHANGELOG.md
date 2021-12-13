@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.9.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@9.8.2...@air/icons@9.9.0) (2021-12-13)
+
+### Features
+
+- textEdit, SearchImage, and remove icon path file ([fe94628](https://github.com/AirLabsTeam/web-core/commit/fe94628eb941d3119734ddc19875b8c380471f2b))
+
 ## [9.8.2](https://github.com/AirLabsTeam/web-core/compare/@air/icons@9.8.1...@air/icons@9.8.2) (2021-12-07)
 
 **Note:** Version bump only for package @air/icons
