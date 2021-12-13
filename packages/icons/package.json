@@ -34,8 +34,7 @@
   },
   "scripts": {
     "add-icon": "node ./scripts/add-icon.js",
-    "build": "NODE_ENV=production BABEL_ENV=production yarn add-icon && yarn create-storybook-directories && tsdx build --tsconfig tsconfig.build.json && yarn transpile",
-    "create-storybook-directories": "node ./scripts/grabListOfIconPathData.js",
+    "build": "NODE_ENV=production BABEL_ENV=production yarn add-icon && tsdx build --tsconfig tsconfig.build.json && yarn transpile",
     "format:svgs": "yarn svgo --pretty --config=svgo.config.format.json",
     "format:svgs:all": "yarn svgo src/svgs/**/*.svg --pretty --config=svgo.config.format.json",
     "lint": "tsdx lint",
