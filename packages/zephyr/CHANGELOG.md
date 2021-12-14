@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [15.6.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.5.1...@air/zephyr@15.6.0) (2021-12-14)
+
+### Features
+
+- editableText: remove onBlur, fix submit on blur ([42d77f3](https://github.com/AirLabsTeam/web-core/commit/42d77f3662f8ca4c581cff19a65b0f90bc47adc0))
+
 ## [15.5.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.5.0...@air/zephyr@15.5.1) (2021-12-14)
 
 ### Bug Fixes
