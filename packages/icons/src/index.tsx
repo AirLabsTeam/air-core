@@ -47,6 +47,8 @@ import _Database from './svgs/uncategorized/Database.svg';
 import _DesktopApp from './svgs/uncategorized/DesktopApp.svg';
 import _Device from './svgs/uncategorized/Device.svg';
 import _Devices from './svgs/uncategorized/Devices.svg';
+import _DiscussionsFilled from './svgs/uncategorized/Discussions-Filled.svg';
+import _Discussions from './svgs/uncategorized/Discussions.svg';
 import _Document from './svgs/uncategorized/Document.svg';
 import _Documents from './svgs/uncategorized/Documents.svg';
 import _DoubleChevronDown from './svgs/uncategorized/DoubleChevron-Down.svg';
@@ -240,6 +242,8 @@ export const Database = forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 
 export const DesktopApp = forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>>((props, ref) => <_DesktopApp {...props} ref={ref} />); DesktopApp.displayName = 'DesktopApp';
 export const Device = forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>>((props, ref) => <_Device {...props} ref={ref} />); Device.displayName = 'Device';
 export const Devices = forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>>((props, ref) => <_Devices {...props} ref={ref} />); Devices.displayName = 'Devices';
+export const DiscussionsFilled = forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>>((props, ref) => <_DiscussionsFilled {...props} ref={ref} />); DiscussionsFilled.displayName = 'DiscussionsFilled';
+export const Discussions = forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>>((props, ref) => <_Discussions {...props} ref={ref} />); Discussions.displayName = 'Discussions';
 export const Document = forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>>((props, ref) => <_Document {...props} ref={ref} />); Document.displayName = 'Document';
 export const Documents = forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>>((props, ref) => <_Documents {...props} ref={ref} />); Documents.displayName = 'Documents';
 export const DoubleChevronDown = forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>>((props, ref) => <_DoubleChevronDown {...props} ref={ref} />); DoubleChevronDown.displayName = 'DoubleChevronDown';
