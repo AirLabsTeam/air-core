@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.10.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@9.9.0...@air/icons@9.10.0) (2021-12-14)
+
+### Features
+
+- add calendar icon ([112f790](https://github.com/AirLabsTeam/web-core/commit/112f790a404cae16555ef2180a6c884779d68441))
+
 # [9.9.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@9.8.2...@air/icons@9.9.0) (2021-12-13)
 
 ### Features
