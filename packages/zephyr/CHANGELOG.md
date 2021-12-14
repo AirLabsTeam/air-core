@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [15.5.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.4.5...@air/zephyr@15.5.0) (2021-12-14)
+
+### Features
+
+- add onBlur prop in EditableText ([7ee45cb](https://github.com/AirLabsTeam/web-core/commit/7ee45cbd96b2d53cf82b95ff8ff3b250f172325e))
+
 ## [15.4.5](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.4.4...@air/zephyr@15.4.5) (2021-12-13)
 
 **Note:** Version bump only for package @air/zephyr
