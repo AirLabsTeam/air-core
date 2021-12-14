@@ -236,12 +236,12 @@ export const RadixMenuItem = memo(
           tx={{
             marginTop: 10,
             marginBottom: 8,
-            paddingX: 10,
+            paddingX: size === 'small' ? 6 : 8,
             color: 'pigeon500',
             fontWeight: 'bold',
 
             '&:not(:first-child)': {
-              marginTop: 24,
+              marginTop: 12,
             },
           }}
           variant="text-ui-12-uppercase"
