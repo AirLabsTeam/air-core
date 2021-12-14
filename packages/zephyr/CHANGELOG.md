@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [15.5.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.5.0...@air/zephyr@15.5.1) (2021-12-14)
+
+### Bug Fixes
+
+- **@air/zephyr:** fix menu item title spacing ([f1441b3](https://github.com/AirLabsTeam/web-core/commit/f1441b35c2a7d6ac3edb4cb0e7861cc782654e8c))
+
 # [15.5.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.4.5...@air/zephyr@15.5.0) (2021-12-14)
 
 ### Features
