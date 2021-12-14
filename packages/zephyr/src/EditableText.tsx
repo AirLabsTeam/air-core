@@ -1,6 +1,15 @@
 import { Form, Formik, FormikConfig, useField, useFormikContext } from 'formik';
 import { noop } from 'lodash';
-import React, { forwardRef, KeyboardEvent, ReactNode, useEffect, useRef, useState } from 'react';
+import React, {
+  forwardRef,
+  KeyboardEvent,
+  ReactNode,
+  useEffect,
+  useRef,
+  useState,
+  FocusEvent,
+  FocusEventHandler,
+} from 'react';
 import { usePrevious } from 'react-use';
 import VisuallyHidden from '@reach/visually-hidden';
 import { useId } from '@reach/auto-id';
@@ -23,6 +32,7 @@ interface EditableTextTextareaProps {
   name: string;
   onReset: () => void;
   onSubmit: () => void;
+  onBlur?: FocusEventHandler;
   onValueChange?: (value: string) => void;
   required?: boolean;
   tx?: TXProp;
@@ -38,6 +48,7 @@ const EditableTextTextarea = forwardRef<HTMLTextAreaElement, EditableTextTextare
       name,
       onReset = noop,
       onSubmit = noop,
+      onBlur = noop,
       onValueChange,
       required,
       tx,
@@ -117,9 +128,10 @@ const EditableTextTextarea = forwardRef<HTMLTextAreaElement, EditableTextTextare
             field.onChange(event);
             onValueChange?.(event.target?.value);
           }}
-          onBlur={() => {
+          onBlur={(e: FocusEvent) => {
             submitForm();
             onSubmit();
+            onBlur(e);
           }}
         />
       </>
@@ -170,6 +182,7 @@ export interface EditableTextProps
   value: string;
   error?: string;
   onValueChange?: (value: string) => void;
+  onBlur?: FocusEventHandler;
   required?: boolean;
 }
 
@@ -193,6 +206,7 @@ export const EditableText = ({
   variant = 'text-ui-16',
   error,
   onValueChange,
+  onBlur,
   required,
 }: EditableTextProps) => {
   const theme = useTheme();
@@ -361,6 +375,7 @@ export const EditableText = ({
                       ref={textareaRef}
                       required
                       tx={textareaStyles}
+                      onBlur={onBlur}
                     />
                   </Box>
                 )}
