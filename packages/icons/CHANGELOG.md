@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.11.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@9.10.0...@air/icons@9.11.0) (2021-12-14)
+
+### Features
+
+- **@air/icons:** add in discussions and discussions filled icons ([95cd631](https://github.com/AirLabsTeam/web-core/commit/95cd631f811b3704f210c78192dd8c6d6969457d))
+
 # [9.10.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@9.9.0...@air/icons@9.10.0) (2021-12-14)
 
 ### Features
