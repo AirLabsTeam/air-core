@@ -15,7 +15,8 @@ import { RadixMenuItemDivider } from './RadixMenuItemDivider';
 export type RadixMenuItemRenderProps =
   | { children: ReactNode }
   | { label: ReactNode; description?: ReactNode }
-  | { title: string };
+  | { title: string }
+  | { divider: boolean };
 
 export type RadixMenuItemProps = Pick<BoxProps, 'tx' | 'id' | 'onClick'> & {
   /**
@@ -234,8 +235,7 @@ export const RadixMenuItem = memo(
       return (
         <Text
           tx={{
-            marginTop: 10,
-            marginBottom: 8,
+            marginY: 8,
             paddingX: size === 'small' ? 6 : 8,
             color: 'pigeon500',
             fontWeight: 'bold',
@@ -250,6 +250,8 @@ export const RadixMenuItem = memo(
         </Text>
       );
     }
+
+    if ('divider' in renderProps) return <RadixMenuItemDivider tx={{ my: 0 }} />;
 
     if (!!subOptions && subOptions.length) {
       return (
