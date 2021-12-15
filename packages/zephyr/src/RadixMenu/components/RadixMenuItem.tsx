@@ -251,7 +251,7 @@ export const RadixMenuItem = memo(
       );
     }
 
-    if ('divider' in renderProps) return <RadixMenuItemDivider tx={{ my: 0 }} />;
+    if ('divider' in renderProps) return <RadixMenuItemDivider tx={{ marginY: 0 }} />;
 
     if (!!subOptions && subOptions.length) {
       return (
