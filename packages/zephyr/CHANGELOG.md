@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [15.7.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.6.2...@air/zephyr@15.7.0) (2021-12-15)
+
+### Bug Fixes
+
+- switch to marginY instead of my syntax ([2bc872f](https://github.com/AirLabsTeam/web-core/commit/2bc872f8595b70d6340f9090072ceb80b0529465))
+
+### Features
+
+- add divider to radixMenuItemRenderProps ([34a8c5d](https://github.com/AirLabsTeam/web-core/commit/34a8c5d5a22cdf8834bafd1bf8e2ef1e316ae417))
+
 ## [15.6.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.6.1...@air/zephyr@15.6.2) (2021-12-14)
 
 **Note:** Version bump only for package @air/zephyr
