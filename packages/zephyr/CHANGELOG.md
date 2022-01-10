@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [15.7.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.7.0...@air/zephyr@15.7.1) (2022-01-10)
+
+### Bug Fixes
+
+- added missing key to ContextMenu suboptions ([dcd91d1](https://github.com/AirLabsTeam/web-core/commit/dcd91d14f83535a542b5e9a0e0ca1ef4623f0b79))
+
 # [15.7.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.6.2...@air/zephyr@15.7.0) (2021-12-15)
 
 ### Bug Fixes
