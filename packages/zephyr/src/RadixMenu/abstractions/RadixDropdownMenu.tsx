@@ -74,6 +74,8 @@ export interface RadixDropdownMenuProps extends Pick<MenuProps, 'animation' | 's
   trigger: ReactNode;
 
   variant?: MenuVariantName;
+
+  subOptionsTx?: TXProp;
 }
 
 export const RadixDropdownMenu = memo(
@@ -86,6 +88,7 @@ export const RadixDropdownMenu = memo(
     options,
     onChange = noop,
     size = 'small',
+    subOptionsTx,
     variant = 'bright',
     ['data-testid']: testId,
     trigger,
@@ -195,6 +198,7 @@ export const RadixDropdownMenu = memo(
                     variant={variant}
                     key={index}
                     size={size}
+                    subOptionsTx={subOptionsTx}
                     {...option}
                   />
                 );

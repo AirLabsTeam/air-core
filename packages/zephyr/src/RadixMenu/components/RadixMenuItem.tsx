@@ -10,6 +10,7 @@ import { MenuItemDescription } from '../../Menus/components/MenuItemDescription'
 import { MenuItemLabel } from '../../Menus/components/MenuItemLabel';
 import { MenuSize } from '../../Menus/components/Menu';
 import { MenuVariantName } from '../../theme/variants/menus';
+import { TXProp } from '../../theme';
 import { RadixMenuItemDivider } from './RadixMenuItemDivider';
 
 export type RadixMenuItemRenderProps =
@@ -69,6 +70,7 @@ export type RadixMenuItemProps = Pick<BoxProps, 'tx' | 'id' | 'onClick'> & {
   variant?: MenuVariantName;
 
   subOptions?: (RadixMenuItemProps & RadixMenuItemRenderProps & { id?: string })[];
+  subOptionsTx?: TXProp;
 } & RadixMenuItemRenderProps;
 
 export const RadixMenuItem = memo(
@@ -87,6 +89,7 @@ export const RadixMenuItem = memo(
     variant,
     id,
     'data-testid': testId,
+    subOptionsTx,
     ...renderProps
   }: RadixMenuItemProps) => {
     const hasDescription = 'description' in renderProps;
@@ -278,6 +281,7 @@ export const RadixMenuItem = memo(
                     0px 1px 3px ${rgba(theme.colors.black, 0.15)},
                     0px 0px 2px ${rgba(theme.colors.black, 0.25)}
                   `,
+                  ...subOptionsTx,
                 }}
               >
                 {subOptions.map((option, index) => (
