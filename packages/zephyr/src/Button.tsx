@@ -249,6 +249,7 @@ export const Button = forwardRefWithAs<NonSemanticButtonProps, 'button'>(
       ref: _ref, // eslint-disable-line @typescript-eslint/no-unused-vars
       children,
       className,
+      tx,
       ...restOfProps
     }: ButtonProps,
     ref: Ref<HTMLButtonElement>,
@@ -279,7 +280,7 @@ export const Button = forwardRefWithAs<NonSemanticButtonProps, 'button'>(
         type={type}
         variant={variant}
         className={classNames({ 'is-loading': isLoading }, className)}
-        __baseStyles={{
+        tx={{
           appearance: 'none',
           outline: 'none',
           display: 'inline-flex',
@@ -312,6 +313,7 @@ export const Button = forwardRefWithAs<NonSemanticButtonProps, 'button'>(
           '&.is-loading': {
             cursor: 'progress',
           },
+          ...tx,
         }}
         {...restOfProps}
         ref={ref}

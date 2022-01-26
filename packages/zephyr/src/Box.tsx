@@ -13,12 +13,6 @@ export type BoxStylingProps = {
   tx?: TXProp;
 
   /**
-   * Used to define base styles for the component. These cannot/will not be overridden by `tx` and should only be
-   * leveraged on "primitave" components. Ask if you're uncertain about distinguishing "primitave" versus not.
-   */
-  __baseStyles?: TXProp;
-
-  /**
    * This is used to place a component's potential `variant` usage in the correct object.
    * TODO: Suggest removing this and flattening variants object using long key names
    */
@@ -26,7 +20,6 @@ export type BoxStylingProps = {
 
   /**
    * Used to apply predefined styles.
-   * TODO: Define merging behavior for tx and __baseStyles.
    */
   variant?: string | string[];
 };
@@ -37,8 +30,6 @@ export type BoxProps<TDefaultElement extends As = 'div'> = PropsWithAs<
 >;
 
 const inlineStyles = ({ tx, theme }: any) => css({ ...tx })(theme);
-
-const baseStyles = (props: any) => css(props.__baseStyles)(props.theme);
 
 const variants = ({
   theme,
@@ -57,7 +48,6 @@ export const Box = styled('div')<BoxStylingProps>(
     margin: 0,
     boxSizing: 'border-box',
   },
-  baseStyles,
   variants,
   inlineStyles,
   compose(color, space),
