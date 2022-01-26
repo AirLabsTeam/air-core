@@ -3,10 +3,7 @@ import { Box, BoxProps } from '../Box';
 import { FieldVariantName } from '../theme';
 import { AutoCompleteOptions } from './types';
 
-export type HTMLInputProps = Omit<
-  BoxProps<'input'>,
-  'ref' | 'autoComplete' | 'as' | '__themeKey' | '__baseStyles'
->;
+export type HTMLInputProps = Omit<BoxProps<'input'>, 'ref' | 'autoComplete' | 'as' | '__themeKey'>;
 
 export interface InputPrimitiveProps extends HTMLInputProps {
   /**
