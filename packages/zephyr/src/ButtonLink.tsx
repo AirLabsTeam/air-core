@@ -46,7 +46,8 @@ export const ButtonLink = forwardRefWithAs<NonSemanticButtonLinkProps, 'button'>
     return (
       <Box
         as={as}
-        tx={{
+        // @ts-ignore - Allowing it here
+        __baseStyles={{
           display: 'inline-block',
           outline: 'none',
           background: 'transparent',
@@ -69,11 +70,11 @@ export const ButtonLink = forwardRefWithAs<NonSemanticButtonLinkProps, 'button'>
           '&:focus-visible': {
             boxShadow: `0 0 0 3px ${theme.colors.focus}`,
           },
-          ...tx,
         }}
         className={disabled ? 'disabled' : ''}
         ref={ref}
         onClick={disabled ? noop : onClick}
+        tx={tx}
         variant={variant}
         {...buttonProps}
         {...restOfProps}
