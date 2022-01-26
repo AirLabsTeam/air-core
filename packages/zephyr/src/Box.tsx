@@ -20,6 +20,7 @@ export type BoxStylingProps = {
 
   /**
    * Used to apply predefined styles.
+   * TODO: Define merging behavior for tx and __baseStyles.
    */
   variant?: string | string[];
 };
@@ -30,6 +31,8 @@ export type BoxProps<TDefaultElement extends As = 'div'> = PropsWithAs<
 >;
 
 const inlineStyles = ({ tx, theme }: any) => css({ ...tx })(theme);
+
+const baseStyles = (props: any) => css(props.__baseStyles)(props.theme);
 
 const variants = ({
   theme,
@@ -48,6 +51,7 @@ export const Box = styled('div')<BoxStylingProps>(
     margin: 0,
     boxSizing: 'border-box',
   },
+  baseStyles,
   variants,
   inlineStyles,
   compose(color, space),
