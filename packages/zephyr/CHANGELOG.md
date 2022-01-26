@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [16.0.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.7.2...@air/zephyr@16.0.0) (2022-01-26)
+
+### Bug Fixes
+
+- **@air/zephyr:** allow baseStyles in specific areas ([c109b5e](https://github.com/AirLabsTeam/web-core/commit/c109b5eb865631f0e29d40d48e73a876247a481a))
+- **@air/zephyr:** allowing baseStyles in button link as well ([54689a6](https://github.com/AirLabsTeam/web-core/commit/54689a6708968d484a20bb709ea8d6a682e6279f))
+
+### Code Refactoring
+
+- **@air/zephyr:** remove baseStyles prop support ([2f7f3ea](https://github.com/AirLabsTeam/web-core/commit/2f7f3ea82bffc5dad4379e7302a85365f8efffb2))
+
+### BREAKING CHANGES
+
+- **@air/zephyr:** All `baseStyles` usage has been removed and is no longer a supported API
+
 ## [15.7.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.7.1...@air/zephyr@15.7.2) (2022-01-21)
 
 **Note:** Version bump only for package @air/zephyr
