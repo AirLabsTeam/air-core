@@ -46,6 +46,7 @@ export const ButtonLink = forwardRefWithAs<NonSemanticButtonLinkProps, 'button'>
     return (
       <Box
         as={as}
+        // @ts-ignore - Allowing it here
         __baseStyles={{
           display: 'inline-block',
           outline: 'none',

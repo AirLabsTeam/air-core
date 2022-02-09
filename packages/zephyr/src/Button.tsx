@@ -279,6 +279,7 @@ export const Button = forwardRefWithAs<NonSemanticButtonProps, 'button'>(
         type={type}
         variant={variant}
         className={classNames({ 'is-loading': isLoading }, className)}
+        // @ts-ignore - Allowing it here
         __baseStyles={{
           appearance: 'none',
           outline: 'none',

@@ -13,12 +13,6 @@ export type BoxStylingProps = {
   tx?: TXProp;
 
   /**
-   * Used to define base styles for the component. These cannot/will not be overridden by `tx` and should only be
-   * leveraged on "primitave" components. Ask if you're uncertain about distinguishing "primitave" versus not.
-   */
-  __baseStyles?: TXProp;
-
-  /**
    * This is used to place a component's potential `variant` usage in the correct object.
    * TODO: Suggest removing this and flattening variants object using long key names
    */

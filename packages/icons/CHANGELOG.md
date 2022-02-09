@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.12.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@9.11.0...@air/icons@9.12.0) (2022-02-09)
+
+### Features
+
+- [ACT-108] add SideNavOpen/Closed, Field, FileExtension, update Eye, EyeClosed, TextEdit icons ([797e971](https://github.com/AirLabsTeam/web-core/commit/797e97142dc0f12ff119e52edc7f544d825b302a))
+
+# [9.11.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@9.10.0...@air/icons@9.11.0) (2021-12-14)
+
+### Features
+
+- **@air/icons:** add in discussions and discussions filled icons ([95cd631](https://github.com/AirLabsTeam/web-core/commit/95cd631f811b3704f210c78192dd8c6d6969457d))
+
+# [9.10.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@9.9.0...@air/icons@9.10.0) (2021-12-14)
+
+### Features
+
+- add calendar icon ([112f790](https://github.com/AirLabsTeam/web-core/commit/112f790a404cae16555ef2180a6c884779d68441))
+
+# [9.9.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@9.8.2...@air/icons@9.9.0) (2021-12-13)
+
+### Features
+
+- textEdit, SearchImage, and remove icon path file ([fe94628](https://github.com/AirLabsTeam/web-core/commit/fe94628eb941d3119734ddc19875b8c380471f2b))
+
 ## [9.8.2](https://github.com/AirLabsTeam/web-core/compare/@air/icons@9.8.1...@air/icons@9.8.2) (2021-12-07)
 
 **Note:** Version bump only for package @air/icons
