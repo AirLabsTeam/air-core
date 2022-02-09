@@ -62,7 +62,7 @@ export const ModalOverlay = forwardRef<HTMLElement, ModalOverlayProps>(
         as={MotionAlertDialogOverlay}
         {...motionStyles}
         transition={motionStyles.transition}
-        __baseStyles={baseStyles}
+        tx={baseStyles}
         data-testid={testID}
         key={testID}
         leastDestructiveRef={leastDestructiveRef}
@@ -76,7 +76,7 @@ export const ModalOverlay = forwardRef<HTMLElement, ModalOverlayProps>(
       <Box
         as={MotionDialogOverlay}
         {...motionStyles}
-        __baseStyles={baseStyles}
+        tx={baseStyles}
         data-testid={testID}
         key={testID}
         onDismiss={onDismiss}

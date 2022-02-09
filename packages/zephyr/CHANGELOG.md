@@ -3,6 +3,115 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [16.0.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@16.0.0...@air/zephyr@16.0.1) (2022-02-09)
+
+**Note:** Version bump only for package @air/zephyr
+
+# [16.0.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.7.2...@air/zephyr@16.0.0) (2022-01-26)
+
+### Bug Fixes
+
+- **@air/zephyr:** allow baseStyles in specific areas ([c109b5e](https://github.com/AirLabsTeam/web-core/commit/c109b5eb865631f0e29d40d48e73a876247a481a))
+- **@air/zephyr:** allowing baseStyles in button link as well ([54689a6](https://github.com/AirLabsTeam/web-core/commit/54689a6708968d484a20bb709ea8d6a682e6279f))
+
+### Code Refactoring
+
+- **@air/zephyr:** remove baseStyles prop support ([2f7f3ea](https://github.com/AirLabsTeam/web-core/commit/2f7f3ea82bffc5dad4379e7302a85365f8efffb2))
+
+### BREAKING CHANGES
+
+- **@air/zephyr:** All `baseStyles` usage has been removed and is no longer a supported API
+
+## [15.7.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.7.1...@air/zephyr@15.7.2) (2022-01-21)
+
+**Note:** Version bump only for package @air/zephyr
+
+## [15.7.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.7.0...@air/zephyr@15.7.1) (2022-01-10)
+
+### Bug Fixes
+
+- added missing key to ContextMenu suboptions ([dcd91d1](https://github.com/AirLabsTeam/web-core/commit/dcd91d14f83535a542b5e9a0e0ca1ef4623f0b79))
+
+# [15.7.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.6.2...@air/zephyr@15.7.0) (2021-12-15)
+
+### Bug Fixes
+
+- switch to marginY instead of my syntax ([2bc872f](https://github.com/AirLabsTeam/web-core/commit/2bc872f8595b70d6340f9090072ceb80b0529465))
+
+### Features
+
+- add divider to radixMenuItemRenderProps ([34a8c5d](https://github.com/AirLabsTeam/web-core/commit/34a8c5d5a22cdf8834bafd1bf8e2ef1e316ae417))
+
+## [15.6.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.6.1...@air/zephyr@15.6.2) (2021-12-14)
+
+**Note:** Version bump only for package @air/zephyr
+
+## [15.6.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.6.0...@air/zephyr@15.6.1) (2021-12-14)
+
+**Note:** Version bump only for package @air/zephyr
+
+# [15.6.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.5.1...@air/zephyr@15.6.0) (2021-12-14)
+
+### Features
+
+- editableText: remove onBlur, fix submit on blur ([42d77f3](https://github.com/AirLabsTeam/web-core/commit/42d77f3662f8ca4c581cff19a65b0f90bc47adc0))
+
+## [15.5.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.5.0...@air/zephyr@15.5.1) (2021-12-14)
+
+### Bug Fixes
+
+- **@air/zephyr:** fix menu item title spacing ([f1441b3](https://github.com/AirLabsTeam/web-core/commit/f1441b35c2a7d6ac3edb4cb0e7861cc782654e8c))
+
+# [15.5.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.4.5...@air/zephyr@15.5.0) (2021-12-14)
+
+### Features
+
+- add onBlur prop in EditableText ([7ee45cb](https://github.com/AirLabsTeam/web-core/commit/7ee45cbd96b2d53cf82b95ff8ff3b250f172325e))
+
+## [15.4.5](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.4.4...@air/zephyr@15.4.5) (2021-12-13)
+
+**Note:** Version bump only for package @air/zephyr
+
+## [15.4.4](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.4.3...@air/zephyr@15.4.4) (2021-12-10)
+
+### Bug Fixes
+
+- no trailing spaces in editable text ([c5b49af](https://github.com/AirLabsTeam/web-core/commit/c5b49afa873f64a75acdef27095d847c42589591))
+
+## [15.4.3](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.4.2...@air/zephyr@15.4.3) (2021-12-10)
+
+### Bug Fixes
+
+- change required text ([941cbb8](https://github.com/AirLabsTeam/web-core/commit/941cbb87a4fd1a669a76a5a165cf00cb515c21b3))
+
+## [15.4.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.4.1...@air/zephyr@15.4.2) (2021-12-10)
+
+### Bug Fixes
+
+- add required to editabletext ([a7fe336](https://github.com/AirLabsTeam/web-core/commit/a7fe3369da7df2da50e1fecba98f50b8c3da0274))
+
+## [15.4.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.4.0...@air/zephyr@15.4.1) (2021-12-10)
+
+### Bug Fixes
+
+- wait for formik submission in editabletext ([99a9c7d](https://github.com/AirLabsTeam/web-core/commit/99a9c7dc6de624e6992f1d94ae40076176592314))
+
+# [15.4.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.3.0...@air/zephyr@15.4.0) (2021-12-07)
+
+### Features
+
+- add readOnly to EditableText ([68647fb](https://github.com/AirLabsTeam/web-core/commit/68647fb9628b7889efa296a54240ab3f4f65bf54))
+
+# [15.3.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.2.13...@air/zephyr@15.3.0) (2021-12-07)
+
+### Bug Fixes
+
+- **@air/zephyr:** prevent onSubmit from firing when the value remains the same ([97ca452](https://github.com/AirLabsTeam/web-core/commit/97ca452e1080afc95b391204ed217224f366cf5c))
+
+### Features
+
+- add disabled to editabletext ([fd3eeee](https://github.com/AirLabsTeam/web-core/commit/fd3eeee07aa2e641bb25f5e6aaaec3781d082b7c))
+
 ## [15.2.13](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@15.2.12...@air/zephyr@15.2.13) (2021-12-07)
 
 **Note:** Version bump only for package @air/zephyr
