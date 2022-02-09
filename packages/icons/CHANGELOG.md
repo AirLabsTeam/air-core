@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.12.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@9.11.0...@air/icons@9.12.0) (2022-02-09)
+
+### Features
+
+- [ACT-108] add SideNavOpen/Closed, Field, FileExtension, update Eye, EyeClosed, TextEdit icons ([797e971](https://github.com/AirLabsTeam/web-core/commit/797e97142dc0f12ff119e52edc7f544d825b302a))
+
 # [9.11.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@9.10.0...@air/icons@9.11.0) (2021-12-14)
 
 ### Features
