@@ -19,7 +19,7 @@ interface SharedContentComponentProps
       ComponentProps<typeof DialogContent>,
       'aria-describedby' | 'aria-labelledby' | 'className'
     >,
-    Pick<BoxStylingProps, 'tx' | '__baseStyles' | 'variant'> {
+    Pick<BoxStylingProps, 'tx' | 'variant'> {
   'data-testid'?: string;
   key: string;
 }
@@ -76,9 +76,8 @@ export const ModalContent = ({
     'aria-describedby': descriptionID,
     'aria-labelledby': labelID,
     'data-testid': testID,
-    __baseStyles: baseStyles,
+    tx: { ...baseStyles, ...tx },
     className,
-    tx,
     variant,
     key: testID ?? isAlertModal ? ALERT_MODAL_DIALOG_CONTENT : MODAL_DIALOG_CONTENT,
   };

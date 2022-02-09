@@ -115,7 +115,7 @@ export const ContextMenu = ({
 
         <Menu animation={animation} size={size} tx={{ position: 'relative' }}>
           {childrenTop}
-          {options.map((option, index) => {
+          {options.map((option, optionIndex) => {
             const hasDescription = 'description' in option;
 
             if (option.subOptions) {
@@ -133,9 +133,10 @@ export const ContextMenu = ({
                       }
                     />
                   }
+                  key={optionIndex}
                 >
                   <Menu>
-                    {subOptions?.map((subOption, index) => {
+                    {subOptions?.map((subOption, suboptionIndex) => {
                       const hasDescription = 'description' in subOption;
 
                       return (
@@ -143,7 +144,7 @@ export const ContextMenu = ({
                           {...subOption}
                           // @ts-ignore
                           as={ContexifyItem}
-                          key={index}
+                          key={suboptionIndex}
                           tx={{
                             '.react-contexify__item__content': {
                               alignItems: hasDescription ? 'flex-start' : 'center',
@@ -163,7 +164,7 @@ export const ContextMenu = ({
                 {...option}
                 // @ts-ignore
                 as={ContexifyItem}
-                key={index}
+                key={optionIndex}
                 size={size}
                 tx={{
                   position: 'relative',

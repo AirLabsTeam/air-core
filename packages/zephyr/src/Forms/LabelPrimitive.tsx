@@ -5,10 +5,7 @@ import { TXProp } from '..';
 
 export type LabelSize = 'text-ui-12' | 'text-ui-14';
 
-export type HTMLLabelProps = Omit<
-  BoxProps<'label'>,
-  'as' | 'ref' | '__themeKey' | '__baseStyles' | 'htmlFor'
->;
+export type HTMLLabelProps = Omit<BoxProps<'label'>, 'as' | 'ref' | '__themeKey' | 'htmlFor'>;
 
 export interface LabelPrimitiveProps extends Pick<BoxProps, 'children'>, HTMLLabelProps {
   /**

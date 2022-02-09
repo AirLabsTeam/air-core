@@ -1,146 +1,35 @@
-import { Form, Formik, FormikConfig, useField, useFormikContext } from 'formik';
+import { Form, Formik, FormikConfig } from 'formik';
 import { noop } from 'lodash';
-import React, { forwardRef, KeyboardEvent, ReactNode, useEffect, useRef, useState } from 'react';
+import { ReactNode, useEffect, useRef, useState, useCallback } from 'react';
 import { usePrevious } from 'react-use';
-import VisuallyHidden from '@reach/visually-hidden';
 import { useId } from '@reach/auto-id';
 import * as Yup from 'yup';
 import { useTheme } from 'styled-components';
-import { TXProp } from './theme';
-import { Box } from './Box';
-import { Button } from './Button';
-import { Label } from './Forms/Label';
-import { Text, TextProps } from './Text';
-
-interface EditableTextTextareaProps {
-  id: string;
-  /**
-   * This label will not be visible. It's here for accessibility purposes.
-   * */
-  label: string;
-  maxLength?: number;
-  name: string;
-  onReset: () => void;
-  onSubmit: () => void;
-  required?: boolean;
-  tx?: TXProp;
-  error?: string;
-  onValueChange?: (value: string) => void;
-}
-
-const EditableTextTextarea = forwardRef<HTMLTextAreaElement, EditableTextTextareaProps>(
-  (
-    {
-      id,
-      label,
-      maxLength,
-      name,
-      onReset = noop,
-      onSubmit = noop,
-      required,
-      tx,
-      error,
-      onValueChange,
-    }: EditableTextTextareaProps,
-    forwardedRef,
-  ) => {
-    const { handleReset, submitForm } = useFormikContext();
-    const autoId = useId();
-    const [field] = useField(name);
-
-    return (
-      <>
-        <Label for={id} isVisuallyHidden>
-          {label}
-        </Label>
-        <VisuallyHidden>
-          <Box as="p" id={autoId}>
-            Press <kbd>Enter</kbd> to save changes and <kbd>ESC</kbd> to cancel changes.
-          </Box>
-        </VisuallyHidden>
-        <Box
-          aria-describedby={autoId}
-          as="textarea"
-          id={id}
-          maxLength={maxLength}
-          onKeyUp={(event: KeyboardEvent<HTMLTextAreaElement>) => {
-            if (event.key === 'Escape') {
-              event.stopPropagation();
-              handleReset();
-              onReset();
-            }
-          }}
-          onKeyPress={(event: KeyboardEvent<HTMLTextAreaElement>) => {
-            if (event.key === 'Enter' && !event.shiftKey) {
-              event.stopPropagation();
-              event.preventDefault();
-              if (!error) {
-                submitForm();
-                onSubmit();
-              }
-            }
-          }}
-          ref={forwardedRef}
-          required={required}
-          tx={{
-            outline: 'none',
-            position: 'absolute',
-            backgroundColor: 'transparent',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            width: '100%',
-            maxWidth: '100%',
-            height: '100%',
-            maxHeight: '100%',
-            p: 0,
-            border: 'none',
-            color: 'inherit',
-            fontFamily: 'inherit',
-            fontFeatureSettings: 'inherit',
-            fontSize: 'inherit',
-            fontWeight: 'inherit',
-            letterSpacing: 'inherit',
-            lineHeight: 'inherit',
-            whiteSpace: 'pre-wrap',
-            resize: 'none',
-            overflow: 'hidden',
-            /**
-             * @todo I will deal with this at a later date, already spent 1+ hours on this.
-             */
-            ...(tx as any),
-          }}
-          {...field}
-          onChange={(event: React.ChangeEvent<HTMLTextAreaElement>) => {
-            field.onChange(event);
-            onValueChange?.(event.target?.value);
-          }}
-          onBlur={() => {
-            submitForm();
-            onSubmit();
-          }}
-        />
-      </>
-    );
-  },
-);
-
-EditableTextTextarea.displayName = 'EditableTextTextarea';
+import { TXProp } from '../theme';
+import { Box } from '../Box';
+import { Button } from '../Button';
+import { Text, TextProps } from '../Text';
+import { EDITABLE_TEXT_FIELD_NAME, EditableTextFormikValues } from './types';
+import { EditableTextTextarea } from './EditableTextTextarea';
 
 const EditableTextSchema = Yup.object().shape({
-  ['editable-text-value']: Yup.string(),
+  [EDITABLE_TEXT_FIELD_NAME]: Yup.string().trim(),
+});
+
+const RequiredEditableTextSchema = Yup.object().shape({
+  [EDITABLE_TEXT_FIELD_NAME]: Yup.string().trim().required('This field is required'),
 });
 
 export type EditableTextFormValues = {
-  ['editable-text-value']: string;
+  [EDITABLE_TEXT_FIELD_NAME]: string;
 };
 
 export interface EditableTextProps
   extends Pick<TextProps, 'as' | 'variant'>,
-    Pick<FormikConfig<EditableTextFormValues>, 'onSubmit' | 'validationSchema'> {
+    Pick<FormikConfig<EditableTextFormValues>, 'onSubmit'> {
   'data-testid'?: string;
   behavior?: 'box' | 'text';
+  disabled?: boolean;
   formatValue?: (children: ReactNode) => ReactNode;
   isEditing?: boolean;
   id?: string;
@@ -152,6 +41,7 @@ export interface EditableTextProps
   onEditingStateChange?: (isEditingState: boolean) => void;
   onReset?: () => void;
   placeholder?: string;
+  readOnly?: boolean;
   tx?: TXProp & {
     EditableTextButton?: TXProp;
     EditableTextText?: TXProp;
@@ -160,12 +50,14 @@ export interface EditableTextProps
   value: string;
   error?: string;
   onValueChange?: (value: string) => void;
+  required?: boolean;
 }
 
 export const EditableText = ({
   as,
   behavior = 'box',
   ['data-testid']: testId,
+  disabled,
   formatValue = (value) => value,
   isEditing = false,
   id,
@@ -175,12 +67,13 @@ export const EditableText = ({
   onReset = noop,
   onSubmit = noop,
   placeholder,
+  readOnly,
   tx = {},
-  validationSchema = EditableTextSchema,
   value = '',
   variant = 'text-ui-16',
   error,
   onValueChange,
+  required,
 }: EditableTextProps) => {
   const theme = useTheme();
   const autoId = useId(id)!;
@@ -195,6 +88,14 @@ export const EditableText = ({
     EditableTextTextarea: textareaStyles,
     ...containerStyles
   } = tx;
+
+  const setIsEditing = useCallback(
+    (isEditing: boolean) => {
+      setIsEditingState(isEditing);
+      onEditingStateChange(isEditing);
+    },
+    [onEditingStateChange],
+  );
 
   useEffect(() => {
     if (isEditingState && textareaRef?.current) {
@@ -211,21 +112,35 @@ export const EditableText = ({
   }, [buttonRef, isEditingState, isPreviousIsEditing, textareaRef]);
 
   return (
-    <Formik
+    <Formik<EditableTextFormikValues>
       enableReinitialize
-      initialValues={{ ['editable-text-value']: value }}
-      onSubmit={(values, formikHelpers) => {
+      onReset={() => {
+        onReset();
+        setIsEditing(false);
+      }}
+      validateOnChange={false}
+      initialValues={{ [EDITABLE_TEXT_FIELD_NAME]: value }}
+      onSubmit={async (values, formikHelpers) => {
         /**
          * Only submit the form if the value has changed.
          */
-        if (values['editable-text-value'] !== value) {
-          onSubmit(values, formikHelpers);
+        const formikError = await formikHelpers.validateForm();
+        const fieldError = formikError[EDITABLE_TEXT_FIELD_NAME];
+        const rawValue = values[EDITABLE_TEXT_FIELD_NAME];
+        const trimmedValue = rawValue.trim();
+        const trimmedValues: EditableTextFormikValues = {
+          [EDITABLE_TEXT_FIELD_NAME]: trimmedValue,
+        };
+        formikHelpers.setFieldValue(EDITABLE_TEXT_FIELD_NAME, trimmedValue);
+        if (!fieldError) {
+          setIsEditing(false);
+          onSubmit(trimmedValues, formikHelpers);
         }
       }}
-      validationSchema={validationSchema}
+      validationSchema={required ? RequiredEditableTextSchema : EditableTextSchema}
     >
       {({ values, errors }) => {
-        const formError = error ?? errors['editable-text-value'];
+        const formError = error ?? errors[EDITABLE_TEXT_FIELD_NAME];
         return (
           <Box
             data-testid={testId}
@@ -246,7 +161,7 @@ export const EditableText = ({
                 px: 8,
                 py: 6,
                 borderRadius: 4,
-                cursor: 'pointer',
+                cursor: disabled ? 'not-allowed' : readOnly ? 'default' : 'pointer',
                 boxShadow: isEditingState
                   ? `inset 0 0 0 2px ${formError ? theme.colors.flamingo600 : theme.colors.focus}`
                   : 'none',
@@ -263,9 +178,9 @@ export const EditableText = ({
                 variant={variant}
               >
                 <Button
+                  disabled={disabled ?? readOnly}
                   onClick={() => {
-                    setIsEditingState(true);
-                    onEditingStateChange(true);
+                    setIsEditing(true);
                   }}
                   ref={buttonRef}
                   tabIndex={isEditingState ? -1 : undefined}
@@ -278,30 +193,38 @@ export const EditableText = ({
                     px: 8,
                     py: 6,
                     borderRadius: 4,
-                    color: values['editable-text-value'] ? 'inherit' : 'pigeon300',
+                    color: values[EDITABLE_TEXT_FIELD_NAME] ? 'inherit' : 'pigeon300',
                     fontFamily: 'inherit',
                     fontFeatureSettings: 'inherit',
                     fontSize: 'inherit',
-                    fontWeight: values['editable-text-value'] ? 'inherit' : 'regular',
+                    fontWeight: values[EDITABLE_TEXT_FIELD_NAME] ? 'inherit' : 'regular',
                     letterSpacing: 'inherit',
                     lineHeight: 'inherit',
                     textAlign: 'inherit',
                     whiteSpace: 'pre-wrap',
-                    opacity: isEditingState && values['editable-text-value'] !== '' ? 0 : 1,
+                    opacity: isEditingState && values[EDITABLE_TEXT_FIELD_NAME] !== '' ? 0 : 1,
 
                     '&:hover': {
                       backgroundColor: isEditingState ? 'transparent' : 'pigeon050',
-                      color: values['editable-text-value'] !== '' ? 'inherit' : 'pigeon300',
+                      color: values[EDITABLE_TEXT_FIELD_NAME] !== '' ? 'inherit' : 'pigeon300',
                     },
 
                     '&:active': {
                       backgroundColor: isEditingState ? 'transparent' : 'pigeon050',
-                      color: values['editable-text-value'] !== '' ? 'inherit' : 'pigeon300',
+                      color: values[EDITABLE_TEXT_FIELD_NAME] !== '' ? 'inherit' : 'pigeon300',
                     },
 
                     '&:focus-visible': {
                       backgroundColor: 'pigeon050',
                       boxShadow: 'none',
+                    },
+
+                    '&:disabled': {
+                      color: readOnly
+                        ? values[EDITABLE_TEXT_FIELD_NAME] !== ''
+                          ? 'inherit'
+                          : 'pigeon300'
+                        : 'pigeon200',
                     },
 
                     /**
@@ -311,31 +234,22 @@ export const EditableText = ({
                   }}
                   variant="button-unstyled"
                 >
-                  {formatValue(values['editable-text-value'] || placeholder)}
+                  {formatValue(values[EDITABLE_TEXT_FIELD_NAME] || placeholder)}
                   {/**
                    * This is need to ensure that newlines will always show the proper spacing
                    * when using the CSS property `white-space` with the value of `pre-wrap`.
                    */}
-                  {values['editable-text-value'].includes('\n') && <>&nbsp;</>}
+                  {values[EDITABLE_TEXT_FIELD_NAME].includes('\n') && <>&nbsp;</>}
                 </Button>
 
                 {isEditingState && (
                   <Box as={Form} tx={{ position: 'unset' }}>
                     <EditableTextTextarea
                       onValueChange={onValueChange}
-                      error={formError}
                       id={autoId}
                       label={label}
                       maxLength={maxLength}
                       name="editable-text-value"
-                      onReset={() => {
-                        onReset();
-                        setIsEditingState(false);
-                      }}
-                      onSubmit={() => {
-                        setIsEditingState(false);
-                        onEditingStateChange(false);
-                      }}
                       ref={textareaRef}
                       required
                       tx={textareaStyles}

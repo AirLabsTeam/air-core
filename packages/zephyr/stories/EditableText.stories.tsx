@@ -133,10 +133,88 @@ MaxLength.parameters = {
   },
 };
 
+export const Disabled = Template.bind({});
+
+Disabled.args = {
+  label: 'Editable text 7',
+  disabled: true,
+};
+
+Disabled.parameters = {
+  docs: {
+    description: {
+      story: 'Disables the thing.',
+    },
+  },
+};
+
+export const DisabledValue = Template.bind({});
+
+DisabledValue.args = {
+  label: 'Editable text 8',
+  disabled: true,
+  value: 'This is a value',
+};
+
+DisabledValue.parameters = {
+  docs: {
+    description: {
+      story: 'Disables the thing.',
+    },
+  },
+};
+
+export const ReadOnly = Template.bind({});
+
+ReadOnly.args = {
+  label: 'Editable text 9',
+  readOnly: true,
+};
+
+ReadOnly.parameters = {
+  docs: {
+    description: {
+      story: 'Read Only version',
+    },
+  },
+};
+
+export const ReadOnlyValue = Template.bind({});
+
+ReadOnlyValue.args = {
+  label: 'Editable text 10',
+  readOnly: true,
+  value: 'This is a value',
+};
+
+ReadOnlyValue.parameters = {
+  docs: {
+    description: {
+      story: 'Read Only version',
+    },
+  },
+};
+
+export const Required = Template.bind({});
+
+Required.args = {
+  label: 'Editable text 11',
+  value: 'This is a value',
+  required: true,
+};
+
+Required.parameters = {
+  docs: {
+    description: {
+      story: 'No empty field or whitespace-only input allowed',
+    },
+  },
+};
+
 export const CustomStyles = Template.bind({});
 
 CustomStyles.args = {
-  label: 'Editable text 7',
+  label: 'Editable text 12',
   tx: {
     display: 'flex',
     width: '100%',

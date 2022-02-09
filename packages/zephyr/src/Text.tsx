@@ -19,7 +19,13 @@ export const Text = forwardRefWithAs<NonSemanticTextProps, 'div'>(
     ref: Ref<HTMLDivElement>,
   ) => {
     return (
-      <Box variant={variant} ref={ref} {...restOfProps} __baseStyles={{ color: 'pigeon700' }} />
+      <Box
+        variant={variant}
+        ref={ref}
+        {...restOfProps}
+        // @ts-ignore - Allowing it here
+        __baseStyles={{ color: 'pigeon700' }}
+      />
     );
   },
 );
