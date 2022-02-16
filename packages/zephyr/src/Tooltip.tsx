@@ -1,25 +1,21 @@
 import { ComponentProps, FC, ReactNode, ReactElement } from 'react';
 import * as RadixTooltip from '@radix-ui/react-tooltip';
-import { Slot } from '@radix-ui/react-slot';
 import { Side, Align } from '@radix-ui/popper';
-import { Measurable } from '@radix-ui/rect';
 import { Box } from './Box';
 import { Text } from './Text';
 import { TXProp } from './theme';
+
 /**
  * This type is necessary, but it is not exported from @radix-ui/react-popper, so we duplicate it
  */
-type PopperOwnProps = {
-  anchorRef: React.RefObject<Measurable>;
-  side?: Side;
-  sideOffset?: number;
+type PopperContentProps = {
   align?: Align;
   alignOffset?: number;
   collisionTolerance?: number;
   avoidCollisions?: boolean;
 };
 
-export interface TooltipProps extends Omit<PopperOwnProps, 'anchorRef' | 'sideOffset' | 'side'> {
+export interface TooltipProps extends PopperContentProps {
   /**
    * Must be a real element to attach the tooltip to. This can either be a node, an element, or a component whose ref
    * is properly forwarded.
@@ -50,7 +46,10 @@ export interface TooltipProps extends Omit<PopperOwnProps, 'anchorRef' | 'sideOf
    * explanation. When defined, we're assuming that you're in total control of the rendering of the component. If
    * undefined, we'll render the tooltip on hover and on focus (if the element is focusable).
    */
-  manualControlProps?: Required<RadixTooltip.TooltipOwnProps>;
+  manualControlProps?: Required<
+    Pick<RadixTooltip.TooltipProps, 'open' | 'defaultOpen' | 'onOpenChange'>
+  > &
+    Pick<RadixTooltip.TooltipProps, 'delayDuration'>;
 
   /**
    * This prop can be used to pass custom styles to specific portions of the rendered tooltip. You can pass styles
@@ -155,17 +154,11 @@ export const Tooltip = ({
   const { TooltipArrow: arrowStyles, TooltipContent: textContentStyles, ...containerStyles } = tx;
 
   return (
-    <RadixTooltip.Root {...manualControlProps}>
+    <RadixTooltip.Root delayDuration={500} {...manualControlProps}>
       {/**
-       * We cast `Trigger` as a button but would only render as a button if you pass it a button
-       * We cast it this way to appease the TypeScript gods
-       * @see https://github.com/radix-ui/primitives/blob/main/packages/react/tooltip/src/Tooltip.tsx#L147
-       * We set `type={undefined}` so when Tooltip wraps non-button elements, Safari would not apply button styles
-       * @see https://www.radix-ui.com/docs/primitives/components/tooltip#trigger
+       * asChild renders the resulting Trigger as a fragment instead of a button
        *  */}
-      <RadixTooltip.Trigger as={(Slot as unknown) as 'button'} type={undefined}>
-        {children}
-      </RadixTooltip.Trigger>
+      <RadixTooltip.Trigger asChild>{children}</RadixTooltip.Trigger>
 
       <Box
         as={
