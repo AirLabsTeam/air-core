@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [16.0.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@16.0.1...@air/zephyr@16.0.2) (2022-02-16)
+
+### Bug Fixes
+
+- **@air/zephyr:** update radix tooltip and dropdown ([298ffa3](https://github.com/AirLabsTeam/web-core/commit/298ffa31ad52299b6742001a575655b8e1b66c36))
+
 ## [16.0.1](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@16.0.0...@air/zephyr@16.0.1) (2022-02-09)
 
 **Note:** Version bump only for package @air/zephyr
