@@ -1,4 +1,4 @@
-import { ComponentProps, FC, ReactNode, ReactElement } from 'react';
+import { ReactNode } from 'react';
 import * as RadixTooltip from '@radix-ui/react-tooltip';
 import { Side, Align } from '@radix-ui/popper';
 import { Box } from './Box';
@@ -15,13 +15,9 @@ type PopperContentProps = {
   avoidCollisions?: boolean;
 };
 
-export interface TooltipProps extends PopperContentProps {
-  /**
-   * Must be a real element to attach the tooltip to. This can either be a node, an element, or a component whose ref
-   * is properly forwarded.
-   */
-  children: ReactElement;
-
+export interface TooltipProps
+  extends PopperContentProps,
+    Pick<RadixTooltip.TooltipTriggerProps, 'children'> {
   /** The actual tooltip content. */
   label: ReactNode;
 
@@ -160,67 +156,59 @@ export const Tooltip = ({
        *  */}
       <RadixTooltip.Trigger asChild>{children}</RadixTooltip.Trigger>
 
-      <Box
-        as={
-          RadixTooltip.Content as FC<
-            Omit<ComponentProps<typeof RadixTooltip.Content>, 'as' | 'ref'>
-          >
-        }
+      <RadixTooltip.Content
         side={side}
-        aria-label={ariaLabel}
-        data-testid={testID}
         sideOffset={sideOffset}
         align={align}
         alignOffset={alignOffset}
         collisionTolerance={collisionTolerance}
         avoidCollisions={avoidCollisions}
-        tx={{
-          bg: 'black',
-          color: 'white',
-          px: 10,
-          py: 5,
-          height: 36,
-          borderColor: 'transparent',
-          borderWidth: 2,
-          borderStyle: 'solid',
-          borderRadius: 4,
-          zIndex: baseZIndex + 1,
-          ...(containerStyles as any),
-        }}
       >
-        <Text
-          variant="text-ui-14"
+        <Box
+          aria-label={ariaLabel}
+          data-testid={testID}
           tx={{
-            color: 'currentColor',
-            fontWeight: 'medium',
-            ...(textContentStyles as any),
+            bg: 'black',
+            color: 'white',
+            px: 10,
+            py: 5,
+            height: 36,
+            borderColor: 'transparent',
+            borderWidth: 2,
+            borderStyle: 'solid',
+            borderRadius: 4,
+            zIndex: baseZIndex + 1,
+            ...(containerStyles as any),
           }}
         >
-          {label}
-        </Text>
-
-        {withArrow && (
-          <Box
-            as={
-              RadixTooltip.Arrow as FC<
-                Omit<ComponentProps<typeof RadixTooltip.Arrow>, 'as' | 'ref'>
-              >
-            }
+          <Text
+            variant="text-ui-14"
             tx={{
-              zIndex: baseZIndex + 1,
-              strokeLinejoin: 'round',
-              strokeLinecap: 'round',
-              stroke: 'black',
-              strokeWidth: 1,
-              ...triangleOffsetMapping['base'][side],
-              ...(arrowStyles as any),
+              color: 'currentColor',
+              fontWeight: 'medium',
+              ...(textContentStyles as any),
             }}
-            width={10}
-            height={7}
-            offset={arrowOffset}
-          />
-        )}
-      </Box>
+          >
+            {label}
+          </Text>
+
+          {withArrow && (
+            <RadixTooltip.Arrow width={10} height={7} offset={arrowOffset}>
+              <Box
+                tx={{
+                  zIndex: baseZIndex + 1,
+                  strokeLinejoin: 'round',
+                  strokeLinecap: 'round',
+                  stroke: 'black',
+                  strokeWidth: 1,
+                  ...triangleOffsetMapping['base'][side],
+                  ...(arrowStyles as any),
+                }}
+              />
+            </RadixTooltip.Arrow>
+          )}
+        </Box>
+      </RadixTooltip.Content>
     </RadixTooltip.Root>
   );
 };
