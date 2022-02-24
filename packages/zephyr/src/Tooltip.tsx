@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactElement, ReactNode } from 'react';
 import * as RadixTooltip from '@radix-ui/react-tooltip';
 import { Side, Align } from '@radix-ui/popper';
 import { Box } from './Box';
@@ -15,9 +15,8 @@ type PopperContentProps = {
   avoidCollisions?: boolean;
 };
 
-export interface TooltipProps
-  extends PopperContentProps,
-    Pick<RadixTooltip.TooltipTriggerProps, 'children'> {
+export interface TooltipProps extends PopperContentProps {
+  children: ReactElement;
   /** The actual tooltip content. */
   label: ReactNode;
 
