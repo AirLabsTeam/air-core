@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [16.0.4](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@16.0.3...@air/zephyr@16.0.4) (2022-02-24)
+
+### Bug Fixes
+
+- **@air/zephyr:** fix second typescript error in tooltip.tsx ([b86ded2](https://github.com/AirLabsTeam/web-core/commit/b86ded2a44637cb9fdbaefacbb29e68346f731b3))
+
 ## [16.0.3](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@16.0.2...@air/zephyr@16.0.3) (2022-02-23)
 
 ### Bug Fixes
