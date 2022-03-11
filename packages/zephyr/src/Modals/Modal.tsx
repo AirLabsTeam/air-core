@@ -112,6 +112,10 @@ export interface ModalProps
    * an asset or approving a new version of an asset). Can also be used to cue a fork in the road for multi-step forms.
    */
   variant?: ModalVariantName;
+  /**
+   * You should avoid using this. However if you need to use a Radix menu in a modal, this may become necessary since the ModalOverlay used (that is from Radix) "swallows" the onClick that happens with the trigger.
+   */
+  dangerouslyBypassFocusLock?: boolean;
 
   ['data-testid']?: string;
 }
@@ -128,6 +132,7 @@ export const Modal = ({
   modalLabel,
   onDismiss,
   tx,
+  dangerouslyBypassFocusLock = false,
   variant = 'modal-medium',
   withCloseButton = true,
 }: ModalProps) => {
@@ -159,6 +164,7 @@ export const Modal = ({
 
     return (
       <ModalOverlay
+        dangerouslyBypassFocusLock={dangerouslyBypassFocusLock}
         isAlertModal={true}
         onDismiss={onDismiss}
         leastDestructiveRef={withCloseButton ? closeButtonRef : leastDestructiveRef}

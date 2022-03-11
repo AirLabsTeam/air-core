@@ -16,6 +16,10 @@ interface ModalOverlayProps
   isAlertModal: boolean;
   leastDestructiveRef?: RefObject<HTMLElement>;
   shouldReduceMotion: boolean;
+  /**
+   * You should avoid using this. However if you need to use a Radix menu in a modal, this may become necessary since the ModalOverlay used (that is from Radix) "swallows" the onClick that happens with the trigger.
+   */
+  dangerouslyBypassFocusLock?: boolean;
 }
 
 const MotionAlertDialogOverlay = motion.custom(AlertDialogOverlay);

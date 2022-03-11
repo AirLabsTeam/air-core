@@ -33,6 +33,10 @@ export interface TransactionModalProps
    * by default, but this can be overridden by passing JSX.
    */
   tertiaryCTA?: TransactionModalButton | JSX.Element;
+  /**
+   * You should avoid using this. However if you need to use a Radix menu in a modal, this may become necessary since the ModalOverlay used (that is from Radix) "swallows" the onClick that happens with the trigger.
+   */
+  dangerouslyBypassFocusLock?: boolean;
 
   ['data-testid']?: string;
 }
@@ -47,6 +51,7 @@ export const TransactionModal = ({
   secondaryCTA,
   tertiaryCTA,
   variant,
+  dangerouslyBypassFocusLock,
   ...rest
 }: TransactionModalProps) => {
   const isUsingButtonSchema = useCallback(
@@ -86,6 +91,7 @@ export const TransactionModal = ({
 
   return (
     <Modal
+      dangerouslyBypassFocusLock={dangerouslyBypassFocusLock}
       className={className}
       isAlertModal={false}
       modalDescription={modalDescription}
