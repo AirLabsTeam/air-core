@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [16.0.6](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@16.0.5...@air/zephyr@16.0.6) (2022-03-15)
+
+### Bug Fixes
+
+- adds prop to other modal overlay as well ([2c78f7f](https://github.com/AirLabsTeam/web-core/commit/2c78f7f5717bd9f18cfc5e663b488e18e0cc5ff1))
+
 ## [16.0.5](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@16.0.4...@air/zephyr@16.0.5) (2022-03-11)
 
 **Note:** Version bump only for package @air/zephyr
