@@ -216,6 +216,7 @@ export const Modal = ({
 
   return (
     <ModalOverlay
+      dangerouslyBypassFocusLock={dangerouslyBypassFocusLock}
       isAlertModal={false}
       leastDestructiveRef={withCloseButton ? closeButtonRef : leastDestructiveRef}
       onDismiss={onDismiss}
