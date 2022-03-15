@@ -181,6 +181,7 @@ import _Team from './svgs/uncategorized/Team.svg';
 import _TextEdit from './svgs/uncategorized/TextEdit.svg';
 import _TextFiles from './svgs/uncategorized/TextFiles.svg';
 import _ThreeD from './svgs/uncategorized/ThreeD.svg';
+import _Tiktok from './svgs/uncategorized/Tiktok.svg';
 import _ToGo from './svgs/uncategorized/To-Go.svg';
 import _Trash from './svgs/uncategorized/Trash.svg';
 import _TriangleDown from './svgs/uncategorized/Triangle-Down.svg';
@@ -380,6 +381,7 @@ export const Team = forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css
 export const TextEdit = forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>>((props, ref) => <_TextEdit {...props} ref={ref} />); TextEdit.displayName = 'TextEdit';
 export const TextFiles = forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>>((props, ref) => <_TextFiles {...props} ref={ref} />); TextFiles.displayName = 'TextFiles';
 export const ThreeD = forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>>((props, ref) => <_ThreeD {...props} ref={ref} />); ThreeD.displayName = 'ThreeD';
+export const Tiktok = forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>>((props, ref) => <_Tiktok {...props} ref={ref} />); Tiktok.displayName = 'Tiktok';
 export const ToGo = forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>>((props, ref) => <_ToGo {...props} ref={ref} />); ToGo.displayName = 'ToGo';
 export const Trash = forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>>((props, ref) => <_Trash {...props} ref={ref} />); Trash.displayName = 'Trash';
 export const TriangleDown = forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>>((props, ref) => <_TriangleDown {...props} ref={ref} />); TriangleDown.displayName = 'TriangleDown';
