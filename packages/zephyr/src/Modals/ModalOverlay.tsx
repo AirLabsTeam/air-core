@@ -35,6 +35,7 @@ export const ModalOverlay = forwardRef<HTMLElement, ModalOverlayProps>(
       shouldReduceMotion,
       initialFocusRef,
       allowPinchZoom,
+      dangerouslyBypassFocusLock,
     }: ModalOverlayProps,
     ref,
   ) => {
@@ -80,6 +81,7 @@ export const ModalOverlay = forwardRef<HTMLElement, ModalOverlayProps>(
       <Box
         as={MotionDialogOverlay}
         {...motionStyles}
+        dangerouslyBypassFocusLock={dangerouslyBypassFocusLock}
         tx={baseStyles}
         data-testid={testID}
         key={testID}
