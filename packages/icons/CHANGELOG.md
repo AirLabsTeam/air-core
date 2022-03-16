@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.13.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@9.12.0...@air/icons@9.13.0) (2022-03-15)
+
+### Features
+
+- **@air/icons:** add in tiktok icon ([36459a0](https://github.com/AirLabsTeam/web-core/commit/36459a0d314fad47be559404cc7949050076cce6))
+
 # [9.12.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@9.11.0...@air/icons@9.12.0) (2022-02-09)
 
 ### Features
