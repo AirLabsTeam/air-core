@@ -137,6 +137,7 @@ import _NavSlaManager from './svgs/uncategorized/Nav-SLA-Manager.svg';
 import _NestedHidden from './svgs/uncategorized/NestedHidden.svg';
 import _NestedVisible from './svgs/uncategorized/NestedVisible.svg';
 import _Notion from './svgs/uncategorized/Notion.svg';
+import _Open from './svgs/uncategorized/Open.svg';
 import _Pdf from './svgs/uncategorized/PDF.svg';
 import _Palette from './svgs/uncategorized/Palette.svg';
 import _Pause from './svgs/uncategorized/Pause.svg';
@@ -337,6 +338,7 @@ export const NavSlaManager = forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGEleme
 export const NestedHidden = forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>>((props, ref) => <_NestedHidden {...props} ref={ref} />); NestedHidden.displayName = 'NestedHidden';
 export const NestedVisible = forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>>((props, ref) => <_NestedVisible {...props} ref={ref} />); NestedVisible.displayName = 'NestedVisible';
 export const Notion = forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>>((props, ref) => <_Notion {...props} ref={ref} />); Notion.displayName = 'Notion';
+export const Open = forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>>((props, ref) => <_Open {...props} ref={ref} />); Open.displayName = 'Open';
 export const Pdf = forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>>((props, ref) => <_Pdf {...props} ref={ref} />); Pdf.displayName = 'Pdf';
 export const Palette = forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>>((props, ref) => <_Palette {...props} ref={ref} />); Palette.displayName = 'Palette';
 export const Pause = forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>>((props, ref) => <_Pause {...props} ref={ref} />); Pause.displayName = 'Pause';
