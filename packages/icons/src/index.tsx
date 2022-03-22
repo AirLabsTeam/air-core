@@ -12,6 +12,7 @@ import _At from './svgs/uncategorized/At.svg';
 import _Audio from './svgs/uncategorized/Audio.svg';
 import _Behance from './svgs/uncategorized/Behance.svg';
 import _Bell from './svgs/uncategorized/Bell.svg';
+import _BilateralCornerArrows from './svgs/uncategorized/BilateralCornerArrows.svg';
 import _BoardAdd from './svgs/uncategorized/Board-Add.svg';
 import _BoardDuplicate from './svgs/uncategorized/Board-Duplicate.svg';
 import _BoardMove from './svgs/uncategorized/Board-Move.svg';
@@ -212,6 +213,7 @@ export const At = forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>
 export const Audio = forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>>((props, ref) => <_Audio {...props} ref={ref} />); Audio.displayName = 'Audio';
 export const Behance = forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>>((props, ref) => <_Behance {...props} ref={ref} />); Behance.displayName = 'Behance';
 export const Bell = forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>>((props, ref) => <_Bell {...props} ref={ref} />); Bell.displayName = 'Bell';
+export const BilateralCornerArrows = forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>>((props, ref) => <_BilateralCornerArrows {...props} ref={ref} />); BilateralCornerArrows.displayName = 'BilateralCornerArrows';
 export const BoardAdd = forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>>((props, ref) => <_BoardAdd {...props} ref={ref} />); BoardAdd.displayName = 'BoardAdd';
 export const BoardDuplicate = forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>>((props, ref) => <_BoardDuplicate {...props} ref={ref} />); BoardDuplicate.displayName = 'BoardDuplicate';
 export const BoardMove = forwardRef<SVGSVGElement, Omit<SVGProps<SVGSVGElement>, 'css'>>((props, ref) => <_BoardMove {...props} ref={ref} />); BoardMove.displayName = 'BoardMove';
