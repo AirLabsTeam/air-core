@@ -17,7 +17,7 @@
   "scripts": {
     "bootstrap": "yarn install --frozen-lockfile && yarn build",
     "build": "lerna run build",
-    "build:storybook": "yarn storybook:build",
+    "storybook:build": "yarn build && build-storybook --docs",
     "format": "yarn prettier --write \"**/*\"",
     "lint": "yarn eslint \"**/*.{js,jsx,ts,tsx,mdx}\"",
     "prepublishOnly": "yarn bootstrap",
