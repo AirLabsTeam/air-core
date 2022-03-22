@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [16.0.8](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@16.0.7...@air/zephyr@16.0.8) (2022-03-22)
+
+### Bug Fixes
+
+- adds prop on base level component ([d1057fd](https://github.com/AirLabsTeam/web-core/commit/d1057fdf5712b50ae407de16e0da9c0dd33b2df5))
+
 ## [16.0.7](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@16.0.6...@air/zephyr@16.0.7) (2022-03-15)
 
 **Note:** Version bump only for package @air/zephyr

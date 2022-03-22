@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.14.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@9.13.0...@air/icons@9.14.0) (2022-03-22)
+
+### Features
+
+- **icons:** add open icon ([bf4daac](https://github.com/AirLabsTeam/web-core/commit/bf4daac69dcf64a82e025123b1e73e02bf130ceb))
+- **icons:** rename Open icon to BilateralCornerArrows ([5e856e9](https://github.com/AirLabsTeam/web-core/commit/5e856e9cb68c7ed222f48c1815622f842c42873f))
+
 # [9.13.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@9.12.0...@air/icons@9.13.0) (2022-03-15)
 
 ### Features
