@@ -1,6 +1,6 @@
 {
   "name": "@air/zephyr",
-  "version": "16.0.8",
+  "version": "17.0.0",
   "description": "Air's React component library",
   "keywords": [
     "react",
@@ -45,7 +45,7 @@
     "react": ">=16"
   },
   "devDependencies": {
-    "@air/icons": "^9.14.0",
+    "@air/icons": "^10.0.0",
     "@styled-system/css": "^5.1.5",
     "@types/classnames": "^2.2.11",
     "@types/react-select": "^3.0.27",

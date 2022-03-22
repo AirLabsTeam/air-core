@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [17.0.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@16.0.8...@air/zephyr@17.0.0) (2022-03-22)
+
+### Features
+
+- save actual SVG components in icons ([7c6028c](https://github.com/AirLabsTeam/web-core/commit/7c6028c453b10608d1d6a0c66a7aa9f907f422f9))
+
+### BREAKING CHANGES
+
+- No longer saving uncategorized svgs, now we use a script and change the build
+
 ## [16.0.8](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@16.0.7...@air/zephyr@16.0.8) (2022-03-22)
 
 ### Bug Fixes

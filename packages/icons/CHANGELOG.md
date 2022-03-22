@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [10.0.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@9.14.0...@air/icons@10.0.0) (2022-03-22)
+
+### Bug Fixes
+
+- google drive colors ([9cc6a73](https://github.com/AirLabsTeam/web-core/commit/9cc6a7341ce644a9b788925707efebaa11de21da))
+- help dot ([761bac3](https://github.com/AirLabsTeam/web-core/commit/761bac3fe0e6f4c5d33a87472aec4de1c42405a0))
+
+### Features
+
+- save actual SVG components in icons ([7c6028c](https://github.com/AirLabsTeam/web-core/commit/7c6028c453b10608d1d6a0c66a7aa9f907f422f9))
+
+### BREAKING CHANGES
+
+- No longer saving uncategorized svgs, now we use a script and change the build
+
 # [9.14.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@9.13.0...@air/icons@9.14.0) (2022-03-22)
 
 ### Features
