@@ -33,13 +33,11 @@
     "url": "https://github.com/AirLabsTeam/web-core/issues"
   },
   "scripts": {
-    "add-icon": "node ./scripts/add-icon.js",
-    "build": "NODE_ENV=production BABEL_ENV=production yarn add-icon && tsdx build --tsconfig tsconfig.build.json && yarn transpile",
-    "format:svgs": "yarn svgo --pretty --config=svgo.config.format.json",
-    "format:svgs:all": "yarn svgo src/svgs/**/*.svg --pretty --config=svgo.config.format.json",
+    "build": "tsdx build --tsconfig tsconfig.build.json",
+    "add:icon": "node ./scripts/svgToTsx.js",
     "lint": "tsdx lint",
-    "test": "tsdx test --passWithNoTests",
-    "transpile": "babel --source-maps true --no-babelrc --presets=@babel/preset-env --plugins=@babel/plugin-proposal-object-rest-spread --plugins=@babel/plugin-transform-arrow-functions dist/icons.esm.js --out-file dist/icons.esm.js"
+    "transpile": "babel --source-maps true --no-babelrc --presets=@babel/preset-env --plugins=@babel/plugin-proposal-object-rest-spread --plugins=@babel/plugin-transform-arrow-functions dist/icons.esm.js --out-file dist/icons.esm.js",
+    "test": "tsdx test --passWithNoTests"
   },
   "peerDependencies": {
     "react": ">=16",
@@ -50,9 +48,11 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.14.7",
     "@babel/plugin-transform-arrow-functions": "^7.14.5",
     "@babel/plugin-transform-react-display-name": "^7.14.5",
-    "@innocuous/svgo": "2.1.2",
+    "case": "^1.6.3",
     "glob": "^7.1.6",
     "rollup-plugin-peer-deps-external": "^2.2.4",
-    "rollup-plugin-react-svg": "^3.0.3"
+    "rollup-plugin-react-svg": "^3.0.3",
+    "svgo": "^2.8.0",
+    "xml2js": "^0.4.23"
   }
 }

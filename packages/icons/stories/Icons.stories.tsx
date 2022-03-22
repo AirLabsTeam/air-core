@@ -1,27 +1,25 @@
-import { SVGProps } from 'react';
+import { ElementType, SVGProps, useCallback, useEffect, useState } from 'react';
 import { noop } from 'lodash';
 import { Story } from '@storybook/react';
 import { Box, Text, Input, SingleSelect } from '@air/zephyr';
 import { Formik, Form } from 'formik';
-import { InfoFilled } from '@air/icons';
+import { InfoFilled, Air } from '@air/icons';
 import { useTheme } from 'styled-components';
+import { iconList } from './iconList';
 /*
  * We don't want to import the src modules lest we need to maintain a development environment via a
  * custom webpack configuration for Storybook. This will more closely emulate the manner with which
  * our consumers will use our components, also.
  */
 
-import * as ProductionBundleIconsMap from '../dist/icons.esm';
-
-const iconNames = Object.keys(ProductionBundleIconsMap);
-const allIcons = iconNames.map((iconName) => ({
-  iconName,
-  Icon: ProductionBundleIconsMap[iconName],
-}));
+type ImportedIcon = {
+  iconName: string;
+  Icon: ElementType;
+};
 
 export default {
   title: 'Icons/All Icons',
-  component: ProductionBundleIconsMap.Air,
+  component: Air,
   parameters: {
     docs: {
       description: {
@@ -36,6 +34,7 @@ export default {
 };
 
 export const GridOfAllIcons: Story<SVGProps<SVGElement>> = (args) => {
+  const [allIcons, setAllIcons] = useState<ImportedIcon[]>([]);
   const theme = useTheme();
   const colorOptions = Object.keys(theme.colors).map((colorName) => {
     // @ts-ignore indexer should be fine
@@ -48,6 +47,31 @@ export const GridOfAllIcons: Story<SVGProps<SVGElement>> = (args) => {
       ),
     };
   });
+  const importIcons = useCallback(() => {
+    const promises = iconList.map(
+      (iconName) =>
+        new Promise((resolve) => {
+          import(/* webpackChunkName: "@air/icons" */ `../src/svgComponents/${iconName}.tsx`).then(
+            (imported) => {
+              const Icon = imported[iconName] as ElementType;
+              resolve({
+                iconName,
+                Icon,
+              });
+            },
+          );
+        }),
+    );
+    Promise.all(promises).then((newIcons) => {
+      setAllIcons(newIcons as ImportedIcon[]);
+    });
+  }, []);
+  useEffect(() => {
+    if (!allIcons.length) {
+      importIcons();
+    }
+  }, [importIcons, allIcons]);
+
   return (
     <Formik
       initialValues={{ iconFilter: '', iconSize: '40', iconColor: '', backgroundColor: '' }}
@@ -108,7 +132,9 @@ export const GridOfAllIcons: Story<SVGProps<SVGElement>> = (args) => {
                     >
                       {icon.iconName}
                     </Text>
-                    <icon.Icon {...args} width={values.iconSize} color={values.iconColor} />
+                    {icon.Icon && (
+                      <icon.Icon {...args} width={values.iconSize} color={values.iconColor} />
+                    )}
                   </Box>
                 );
               })}

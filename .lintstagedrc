@@ -5,8 +5,5 @@
   ],
   "*.md": [
     "prettier --write"
-  ],
-  "*.svg": [
-    "svgo --pretty --config=./packages/icons/svgo.config.format.json"
   ]
 }
