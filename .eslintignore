@@ -4,4 +4,4 @@
 **/.cache
 **/coverage
 storybook-static
-packages/icons/src/index.tsx
+packages/icons/src/index.ts

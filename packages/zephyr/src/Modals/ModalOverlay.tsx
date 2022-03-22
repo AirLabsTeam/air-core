@@ -25,7 +25,7 @@ interface ModalOverlayProps
 const MotionAlertDialogOverlay = motion.custom(AlertDialogOverlay);
 const MotionDialogOverlay = motion.custom(DialogOverlay);
 
-export const ModalOverlay = forwardRef<HTMLElement, ModalOverlayProps>(
+export const ModalOverlay = forwardRef<HTMLElement | SVGElement, ModalOverlayProps>(
   (
     {
       children,

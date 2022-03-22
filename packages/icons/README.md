@@ -8,14 +8,14 @@ Source of truth for SVG icons used at Air. Published as an NPM library for React
 
 ## How do I add new icons to this collection?
 
-1. Put your SVG icon into a folder in `src/svgs` (`src/svgs/uncategorized` unless otherwise stated by design)
-2. Run `yarn workspace @air/icons run format:svgs:all` to format the source code. Unfortunately, currently this updates other SVGs ([see here for more context](https://github.com/svg/svgo/issues/1133)), so just discard the changes to the SVGs you're not working on.
-3. Add the correct props to the `<path>` tag:
+1. Download your SVG to any location on your computer. Note the location as you will need it in the next step.
+2. Run `yarn workspace @air/icons run add:icon {path/to/icon}` and follow the prompts.
+3. Ensure the icon is loaded correctly into the component: Add the correct props to the `<path>` tag
 
-  1. If there is only one path, you can still follow the proceeding rules, but you could also instead add the attribute to the `svg` element itself.
-  2. If the `<path>` has no `stoke` or `fill`, you need to add `fill="currentColor"` to it.
-  3. If the `<path>` has a defined `fill` and it's value isn't `"currentColor"`, change it to that.
-  4. If the `<path>` has a defined `stroke` or other `stroke-*` properties, set `stroke`'s value to `"currentColor"`
+   - If there is only one path, you can still follow the proceeding rules, but you could also instead add the attribute to the `svg` element itself.
+   - If the `<path>` has no `stoke` or `fill`, you need to add `fill="currentColor"` to it.
+   - If the `<path>` has a defined `fill` and it's value isn't `"currentColor"`, change it to that.
+   - If the `<path>` has a defined `stroke` or other `stroke-*` properties, set `stroke`'s value to `"currentColor"`
 
 4. Run `yarn build` to map the newly added icons
 5. `yarn storybook` to go and see the result of your work in Storybook.

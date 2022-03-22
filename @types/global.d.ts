@@ -11,3 +11,5 @@ declare type RequireProps<T, K extends keyof T> = Required<Pick<T, K>> & Omit<T,
  * Take K properties of T and make them optional in resultant type.
  */
 declare type Optional<T, K extends keyof T> = Partial<Pick<T, K>>;
+
+declare module 'react/jsx-runtime';
