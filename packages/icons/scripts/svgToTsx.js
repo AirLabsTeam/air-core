@@ -9,7 +9,7 @@ const generateStoryList = require('./generateStoryList');
 const generateExports = require('./generateExports');
 const svgoConfig = require('./svgoConfig');
 
-async function promptIconName() {
+async function promptIconName(potentialName) {
   function onCancel() {
     console.log('Aborting icon creation');
     process.exit(1);
@@ -21,6 +21,7 @@ async function promptIconName() {
         name: 'rawName',
         message: `What is the name of this icon? Example: MyIcon`,
         validate: (val) => (!val ? 'Please provide a value' : true),
+        initial: potentialName,
       },
       {
         type: 'confirm',
@@ -89,7 +90,8 @@ async function formatSvg(pathToSvg) {
 async function svgToTsx() {
   const pathToSvg = process.argv[2];
   validateSvgPath(pathToSvg);
-  const { iconName } = await promptIconName();
+  const potentialName = path.basename(pathToSvg, '.svg');
+  const { iconName } = await promptIconName(pascal(potentialName));
   const outputPath = path.resolve('src/svgComponents', iconName + '.tsx');
   if (fs.existsSync(outputPath)) {
     console.log(chalk.red(`An icon with the name of ${chalk.yellow(iconName)} already exists.`));
