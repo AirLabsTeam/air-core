@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [17.1.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@17.0.2...@air/zephyr@17.1.0) (2022-04-19)
+
+### Features
+
+- **@air/zephyr:** add a Textarea Primative ([acdef61](https://github.com/AirLabsTeam/web-core/commit/acdef6187506bd1e8133c40a38b60119a83c36cb))
+
 ## [17.0.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@17.0.1...@air/zephyr@17.0.2) (2022-04-19)
 
 **Note:** Version bump only for package @air/zephyr
