@@ -245,11 +245,11 @@ export const EditableText = ({
                 {isEditingState && (
                   <Box as={Form} tx={{ position: 'unset' }}>
                     <EditableTextTextarea
-                      onValueChange={onValueChange}
                       id={autoId}
                       label={label}
                       maxLength={maxLength}
                       name="editable-text-value"
+                      onValueChange={onValueChange}
                       ref={textareaRef}
                       required
                       tx={textareaStyles}
