@@ -31,6 +31,7 @@ export const iconList = [
   'Cart',
   'Caution',
   'Check',
+  'CheckCircled',
   'ChevronDown',
   'ChevronLeft',
   'ChevronRight',

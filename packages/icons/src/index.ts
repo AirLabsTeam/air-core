@@ -32,6 +32,7 @@ export { CameraFilled } from './svgComponents/CameraFilled';
 export { Cart } from './svgComponents/Cart';
 export { Caution } from './svgComponents/Caution';
 export { Check } from './svgComponents/Check';
+export { CheckCircled } from './svgComponents/CheckCircled';
 export { ChevronDown } from './svgComponents/ChevronDown';
 export { ChevronLeft } from './svgComponents/ChevronLeft';
 export { ChevronRight } from './svgComponents/ChevronRight';
