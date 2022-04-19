@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [10.1.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@10.0.1...@air/icons@10.1.0) (2022-04-19)
+
+### Features
+
+- Add Checkcircled icon ([8a38dfa](https://github.com/AirLabsTeam/web-core/commit/8a38dfae2dc14e7fb812634451a571bdc5af640a))
+
+### Performance Improvements
+
+- default icon name to file name ([f72d5f6](https://github.com/AirLabsTeam/web-core/commit/f72d5f6cf12c40c28417b5c61a0fc195427fb9c5))
+
 ## [10.0.1](https://github.com/AirLabsTeam/web-core/compare/@air/icons@10.0.0...@air/icons@10.0.1) (2022-03-24)
 
 **Note:** Version bump only for package @air/icons
