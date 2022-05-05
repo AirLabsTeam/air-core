@@ -1,8 +1,8 @@
 import { ElementType, SVGProps, useCallback, useEffect, useState } from 'react';
 import { noop } from 'lodash';
 import { Story } from '@storybook/react';
-import { Box, Text, Input, SingleSelect } from '@air/zephyr';
-import { Formik, Form } from 'formik';
+import { Box, Text, Input } from '@air/zephyr';
+import { Formik, Form, useField } from 'formik';
 import { InfoFilled, Air } from '@air/icons';
 import { useTheme } from 'styled-components';
 import { iconList } from './iconList';
@@ -72,6 +72,45 @@ export const GridOfAllIcons: Story<SVGProps<SVGElement>> = (args) => {
     }
   }, [importIcons, allIcons]);
 
+  //this is a temporary solution while there is no prebuilt Select component
+  const FormikSelect = ({
+    label,
+    name,
+    options,
+  }: {
+    label: string;
+    name: string;
+    options: any[];
+  }) => {
+    const [field] = useField(name);
+
+    const mappedOptions = options.map((option) => {
+      return (
+        <option key={option.label} value={option.value}>
+          {option.label}
+        </option>
+      );
+    });
+
+    return (
+      <label style={{ display: 'flex', flexDirection: 'column' }}>
+        <Text variant={`text-ui-12`} tx={{ color: 'pigeon600', fontWeight: 'semibold', mb: 6 }}>
+          {label}
+        </Text>
+        <select
+          {...field}
+          style={{
+            height: 40,
+            borderRadius: 4,
+            border: '1px solid #C1C1C1',
+          }}
+        >
+          {mappedOptions}
+        </select>
+      </label>
+    );
+  };
+
   return (
     <Formik
       initialValues={{ iconFilter: '', iconSize: '40', iconColor: '', backgroundColor: '' }}
@@ -92,15 +131,9 @@ export const GridOfAllIcons: Story<SVGProps<SVGElement>> = (args) => {
               }}
             >
               <Input required={false} name="iconFilter" label="Name Filter" />
-              <SingleSelect
-                required={false}
-                name="iconColor"
-                label="Color"
-                options={colorOptions}
-              />
+              <FormikSelect name="iconColor" label="Color" options={colorOptions} />
               <Input required={false} name="iconSize" label="Size" type="number" />
-              <SingleSelect
-                required={false}
+              <FormikSelect
                 name="backgroundColor"
                 label="Background Color"
                 options={colorOptions}
