@@ -177,6 +177,7 @@ export { SidePanelClosed } from './svgComponents/SidePanelClosed';
 export { SidePanelOpen } from './svgComponents/SidePanelOpen';
 export { SingleSelect } from './svgComponents/SingleSelect';
 export { Skip } from './svgComponents/Skip';
+export { Slack } from './svgComponents/Slack';
 export { Soccer } from './svgComponents/Soccer';
 export { SortAscending } from './svgComponents/SortAscending';
 export { SortDescending } from './svgComponents/SortDescending';
