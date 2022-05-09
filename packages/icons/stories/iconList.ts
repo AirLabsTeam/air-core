@@ -176,6 +176,7 @@ export const iconList = [
   'SidePanelOpen',
   'SingleSelect',
   'Skip',
+  'Slack',
   'Soccer',
   'SortAscending',
   'SortDescending',
