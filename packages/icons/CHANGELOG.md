@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [10.2.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@10.1.0...@air/icons@10.2.0) (2022-05-10)
+
+### Features
+
+- add slack icon ([ab3ce80](https://github.com/AirLabsTeam/web-core/commit/ab3ce807c84c2c5221ce8ec463f233b161dbb1b9))
+
 # [10.1.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@10.0.1...@air/icons@10.1.0) (2022-04-19)
 
 ### Features
