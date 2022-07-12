@@ -5,6 +5,7 @@ import {
   ItemParams as ContexifyItemParams,
   ItemProps as ContexifyItemProps,
   Menu as ContexifyMenu,
+  MenuProps as ContextifyMenuProps,
   Submenu as ContexifySubmenu,
 } from 'react-contexify';
 
@@ -47,6 +48,8 @@ export interface ContextMenuProps
   options: (ContextMenuOption & {
     subOptions?: ContextMenuOption[];
   })[];
+  onHidden?: ContextifyMenuProps['onHidden'];
+  onShown?: ContextifyMenuProps['onShown'];
 }
 
 export const ContextMenu = ({
@@ -61,43 +64,49 @@ export const ContextMenu = ({
   hasOverlay = false,
   options,
   size = 'small',
+  onHidden,
+  onShown,
 }: ContextMenuProps) => {
   return (
-    <>
-      <Box
-        as={ContexifyMenu}
+    <Box
+      tx={{
+        '.react-contexify': {
+          position: 'fixed',
+        },
+
+        '.react-contexify__item': {
+          position: 'relative',
+          outline: 'none',
+
+          '&:hover, &.react-contexify__submenu--is-open': {
+            '> .react-contexify__submenu': {
+              pointerEvents: 'initial',
+              opacity: 1,
+            },
+          },
+        },
+
+        '.react-contexify__item__content': {
+          display: 'flex',
+          justifyContent: 'space-between',
+          width: '100%',
+          maxWidth: '100%',
+        },
+
+        '.react-contexify__submenu': {
+          position: 'absolute',
+          top: 0,
+          pointerEvents: 'none',
+          opacity: 0,
+        },
+      }}
+    >
+      <ContexifyMenu
         animation={false}
         data-context-menu
         id={id}
-        tx={{
-          position: 'fixed',
-
-          '.react-contexify__item': {
-            position: 'relative',
-            outline: 'none',
-
-            '&:hover, &.react-contexify__submenu--is-open': {
-              '> .react-contexify__submenu': {
-                pointerEvents: 'initial',
-                opacity: 1,
-              },
-            },
-          },
-
-          '.react-contexify__item__content': {
-            display: 'flex',
-            justifyContent: 'space-between',
-            width: '100%',
-            maxWidth: '100%',
-          },
-
-          '.react-contexify__submenu': {
-            position: 'absolute',
-            top: 0,
-            pointerEvents: 'none',
-            opacity: 0,
-          },
-        }}
+        onHidden={onHidden}
+        onShown={onShown}
       >
         {/* This overlay is conditional rendered based on if `hasOverlay` prop is passed and it'll apply a transparent div over the entire screen to prevent the user from being able to right click on anything else while the menu is opened. */}
         {hasOverlay && (
@@ -181,7 +190,7 @@ export const ContextMenu = ({
           })}
           {childrenBottom}
         </Menu>
-      </Box>
-    </>
+      </ContexifyMenu>
+    </Box>
   );
 };
