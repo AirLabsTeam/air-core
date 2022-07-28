@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [18.0.3](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@18.0.2...@air/zephyr@18.0.3) (2022-07-28)
+
+### Bug Fixes
+
+- **@air/zephyr:** update tooltip to use minHeight instead of fixed height ([8284237](https://github.com/AirLabsTeam/web-core/commit/82842378846fd6bfe82a9c6217660228120db81b))
+
 ## [18.0.2](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@18.0.1...@air/zephyr@18.0.2) (2022-07-12)
 
 **Note:** Version bump only for package @air/zephyr
