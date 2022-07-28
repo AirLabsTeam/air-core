@@ -171,7 +171,7 @@ export const Tooltip = ({
             color: 'white',
             px: 10,
             py: 5,
-            height: 36,
+            minHeight: 36,
             borderColor: 'transparent',
             borderWidth: 2,
             borderStyle: 'solid',
