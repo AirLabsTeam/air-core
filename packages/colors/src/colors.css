@@ -1,0 +1,114 @@
+.air-colors {
+  --canary050: #fff1b9;
+  --canary100: #ffe784;
+  --canary200: #fdd778;
+  --canary300: #ffbe3c;
+  --canary400: #ffac00;
+  --canary500: #ff9d00;
+  --canary600: #ef7600;
+  --canary700: #ce4d13;
+  --canary800: #833602;
+  --canary900: #4c2103;
+
+  --cockatoo025: #fdd2ff;
+  --cockatoo050: #ffaef9;
+  --cockatoo100: #ff83f3;
+  --cockatoo200: #ff4ae6;
+  --cockatoo300: #ff00d5;
+  --cockatoo400: #e004bc;
+  --cockatoo500: #b702a0;
+  --cockatoo600: #86017c;
+  --cockatoo700: #5d034e;
+  --cockatoo800: #3e0234;
+
+  --cuckoo100: #ede6ff;
+  --cuckoo200: #d7c6ff;
+  --cuckoo300: #c1a1ff;
+  --cuckoo400: #ac78ff;
+  --cuckoo500: #9f5cff;
+  --cuckoo600: #9640ff;
+  --cuckoo700: #8029ef;
+  --cuckoo800: #5618b7;
+  --cuckoo900: #341078;
+
+  --flamingo050: #fcf0f0;
+  --flamingo100: #ffd9d9;
+  --flamingo200: #ff9797;
+  --flamingo300: #ff6969;
+  --flamingo400: #ff5050;
+  --flamingo500: #ed3b3b;
+  --flamingo600: #d23939;
+  --flamingo700: #a1222f;
+  --flamingo800: #841328;
+  --flamingo900: #511421;
+
+  --jay020: #e7f1ff;
+  --jay050: #dde9ff;
+  --jay100: #b4cfff;
+  --jay150: #90b8ff;
+  --jay200: #6fa2ff;
+  --jay250: #448aff;
+  --jay300: #2e77ff;
+  --jay350: #2160ff;
+  --jay400: #034bff;
+  --jay450: #052de1;
+  --jay500: #0018cc;
+  --jay600: #0204a4;
+  --jay700: #000177;
+  --jay800: #010256;
+  --jay900: #020039;
+
+  --macaw020: #e7f1ff;
+  --macaw040: #d7e5ff;
+  --macaw060: #bfd1ff;
+  --macaw080: #91aeff;
+  --macaw100: #667eff;
+  --macaw200: #5466ff;
+  --macaw300: #4a51ff;
+  --macaw350: #4030ff;
+  --macaw400: #3820ea;
+  --macaw500: #280dbc;
+  --macaw600: #1c0694;
+
+  --parrot025: #defabb;
+  --parrot050: #c6f68d;
+  --parrot100: #aaf255;
+  --parrot200: #90ee02;
+  --parrot300: #75e900;
+  --parrot400: #61d800;
+  --parrot500: #41c300;
+  --parrot600: #09af00;
+  --parrot700: #008b00;
+  --parrot800: #026802;
+
+  --peacock050: #e6f4f6;
+  --peacock100: #ceedef;
+  --peacock200: #b2eced;
+  --peacock300: #70e8e8;
+  --peacock400: #33dbdb;
+  --peacock500: #07b3be;
+  --peacock600: #05889f;
+  --peacock700: #036280;
+  --peacock800: #01486a;
+  --peacock900: #033b51;
+
+  --pigeon025: #f7f7f7;
+  --pigeon050: #efefef;
+  --pigeon100: #dcdcdc;
+  --pigeon200: #c1c1c1;
+  --pigeon300: #a4a4a4;
+  --pigeon400: #808080;
+  --pigeon500: #666666;
+  --pigeon600: #4d4d4d;
+  --pigeon650: #3f3e3e;
+  --pigeon700: #333333;
+  --pigeon800: #262626;
+  --pigeon850: #1a1a1a;
+  --pigeon900: #0f0f0f;
+
+  --robin300: #ffaa3b;
+  --robin400: #ff9800;
+  --robin500: #fb8800;
+  --robin600: #fb7d00;
+  --robin700: #ff6d00;
+}
