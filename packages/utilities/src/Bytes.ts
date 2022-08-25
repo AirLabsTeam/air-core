@@ -1,5 +1,6 @@
 interface FormatBytesOptions {
   numberOfDecimals: number;
+  hasUnit?: boolean;
 }
 
 /**
@@ -11,7 +12,7 @@ interface FormatBytesOptions {
  */
 export const formatBytes = (bytes: number, options?: Partial<FormatBytesOptions>): string => {
   const sizes = [`bytes`, `KB`, `MB`, `GB`, `TB`, `PB`, `EB`, `ZB`, `YB`];
-  const { numberOfDecimals = 0 } = options ?? {};
+  const { numberOfDecimals = 0, hasUnit = true } = options ?? {};
 
   if (!bytes || bytes <= 0) return `0 bytes`;
   if (bytes === 1) return `1 byte`;
@@ -27,9 +28,9 @@ export const formatBytes = (bytes: number, options?: Partial<FormatBytesOptions>
     whole += `.${partial.slice(0, numberOfDecimals)}`;
   }
 
-  const abbreviationSuffix = sizes[exponent];
+  const abbreviationSuffix = hasUnit && ` ${sizes[exponent]}`;
 
-  return `${whole} ${abbreviationSuffix}`;
+  return whole + abbreviationSuffix;
 };
 
 /**
