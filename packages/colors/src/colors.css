@@ -1,4 +1,8 @@
 .air-colors {
+  --transparent: transparent;
+  --black: #000000;
+  --white: #ffffff;
+
   --canary050: #fff1b9;
   --canary100: #ffe784;
   --canary200: #fdd778;
