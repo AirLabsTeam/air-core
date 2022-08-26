@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/AirLabsTeam/air-core/compare/@air/colors@1.2.0...@air/colors@1.3.0) (2022-08-26)
+
+### Features
+
+- **@air/colors:** add in basic colors ([47416c1](https://github.com/AirLabsTeam/air-core/commit/47416c123feae7d8289a9a75e1b3cc2828009eec))
+
 # [1.2.0](https://github.com/AirLabsTeam/air-core/compare/@air/colors@1.1.3...@air/colors@1.2.0) (2022-08-01)
 
 ### Features
