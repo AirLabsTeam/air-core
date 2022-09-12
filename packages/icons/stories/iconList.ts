@@ -211,6 +211,7 @@ export const iconList = [
   'VolumeLow',
   'VolumeMuted',
   'Web',
+  'YouTube',
   'ZoomIn',
   'ZoomOut',
 ];

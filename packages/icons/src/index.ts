@@ -212,5 +212,6 @@ export { VolumeHigh } from './svgComponents/VolumeHigh';
 export { VolumeLow } from './svgComponents/VolumeLow';
 export { VolumeMuted } from './svgComponents/VolumeMuted';
 export { Web } from './svgComponents/Web';
+export { YouTube } from './svgComponents/YouTube';
 export { ZoomIn } from './svgComponents/ZoomIn';
 export { ZoomOut } from './svgComponents/ZoomOut';
