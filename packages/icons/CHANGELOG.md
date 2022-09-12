@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [10.3.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@10.2.0...@air/icons@10.3.0) (2022-09-12)
+
+### Features
+
+- **added youtube icon:** added youtube icon to our icons list ([d6372fd](https://github.com/AirLabsTeam/web-core/commit/d6372fd8202466f11c903357f0247a7730739ea8))
+
 # [10.2.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@10.1.0...@air/icons@10.2.0) (2022-05-10)
 
 ### Features
