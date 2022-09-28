@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/AirLabsTeam/air-core/compare/@air/colors@1.3.0...@air/colors@1.4.0) (2022-09-28)
+
+### Features
+
+- **@air/colors:** add in tailwind color config ([491c4db](https://github.com/AirLabsTeam/air-core/commit/491c4db728e35941f7008b16b0c620a10cc16ed9))
+
 # [1.3.0](https://github.com/AirLabsTeam/air-core/compare/@air/colors@1.2.0...@air/colors@1.3.0) (2022-08-26)
 
 ### Features
