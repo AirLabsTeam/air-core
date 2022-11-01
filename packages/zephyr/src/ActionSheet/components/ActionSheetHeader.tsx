@@ -1,9 +1,9 @@
 import { Close as CloseIcon } from '@air/icons';
-import VisuallyHidden from '@reach/visually-hidden';
 
 import { Box } from '../../Box';
 import { IconButton } from '../../IconButton';
 import { Text } from '../../Text';
+import { VisuallyHidden } from './VisuallyHidden';
 
 export interface ActionSheetHeaderProps {
   isHidden?: boolean;

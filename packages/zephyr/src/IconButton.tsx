@@ -1,5 +1,4 @@
 import { forwardRefWithAs } from '@reach/utils';
-import VisuallyHidden from '@reach/visually-hidden';
 import { variant as styledSystemVariant } from 'styled-system';
 import { Ref } from 'react';
 import { useTheme } from 'styled-components';
@@ -7,6 +6,7 @@ import { Tooltip, TooltipProps } from '../src/Tooltip';
 import { Box } from './Box';
 import { Button, ButtonProps, NonSemanticButtonProps } from './Button';
 import { SVGComponent } from './shared';
+import { VisuallyHidden } from './VisuallyHidden';
 
 export interface NonSemanticIconButtonProps
   extends Omit<NonSemanticButtonProps, 'children' | 'adornmentLeft' | 'adornmentRight'> {

@@ -2,12 +2,12 @@ import { transitions } from 'polished';
 import { forwardRefWithAs, PropsWithAs } from '@reach/utils';
 import { variant as styledSystemVariant } from 'styled-system';
 import { useReducedMotion } from 'framer-motion';
-import VisuallyHidden from '@reach/visually-hidden';
 import classNames from 'classnames';
 import { Ref } from 'react';
 import styled, { keyframes, useTheme } from 'styled-components';
 import { Box, BoxStylingProps } from './Box';
 import { ButtonVariantName } from './theme/variants/button';
+import { VisuallyHidden } from './VisuallyHidden';
 import { LeftRight, SVGComponent } from './shared';
 
 export type ButtonSize = 'extra-small' | 'small' | 'medium' | 'large';

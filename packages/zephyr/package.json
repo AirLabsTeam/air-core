@@ -47,29 +47,28 @@
   "devDependencies": {
     "@air/icons": "^10.3.0",
     "@styled-system/css": "^5.1.5",
-    "@types/classnames": "^2.2.11",
-    "@types/styled-system": "^5.1.10",
-    "@types/styled-system__css": "^5.0.14",
-    "@types/yup": "^0.29.11",
+    "@types/classnames": "^2.3.1",
+    "@types/styled-system": "^5.1.15",
+    "@types/styled-system__css": "^5.0.17",
+    "@types/yup": "^0.32.0",
     "babel-plugin-polished": "^1.1.0",
-    "formik": "^2.2.6",
+    "formik": "^2.2.9",
     "framer-motion": "^3.6.2",
     "polished": "^3.6.7",
-    "yup": "^0.32.9"
+    "yup": "^0.32.11"
   },
   "dependencies": {
     "@radix-ui/react-dropdown-menu": "^0.1.4",
-    "@radix-ui/react-slot": "^0.0.4",
     "@radix-ui/react-tooltip": "^0.1.6",
+    "@radix-ui/react-visually-hidden": "^1.0.1",
     "@reach/alert-dialog": "^0.11.2",
-    "@reach/auto-id": "^0.11.2",
+    "@reach/auto-id": "^0.18.0",
     "@reach/dialog": "^0.11.2",
     "@reach/menu-button": "^0.11.2",
     "@reach/rect": "^0.11.2",
     "@reach/utils": "0.11.2",
-    "@reach/visually-hidden": "^0.11.1",
-    "classnames": "^2.2.6",
+    "classnames": "^2.3.2",
     "react-contexify": "^5.0.0",
-    "react-use": "^15.3.4"
+    "react-use": "^17.4.0"
   }
 }

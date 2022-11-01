@@ -31,7 +31,7 @@ export interface ModalProps
   /**
    * This will be used to go into further detail regarding the modal. Optional, but required if leveraging an
    * alert modal. If you want the description invisible, please render the node within
-   * [@reach/visually-hidden](https://reach.tech/visually-hidden).
+   * [@radix-ui/react-visually-hidden](https://www.radix-ui.com/docs/primitives/utilities/visually-hidden).
    *
    * - Example: `<VisuallyHidden>This action is permanent, are you sure?</VisuallyHidden>`
    *

@@ -1,10 +1,10 @@
 import { Check } from '@air/icons';
 import { useId } from '@reach/auto-id';
-import VisuallyHidden from '@reach/visually-hidden';
 
 import { SVGComponent } from '../shared';
 import { Box, BoxProps } from '../Box';
 import { Label } from './Label';
+import { VisuallyHidden } from '../VisuallyHidden';
 
 export interface CheckboxProps
   extends Pick<BoxProps<'input'>, 'checked' | 'id' | 'name' | 'onChange' | 'tx' | 'value'> {
@@ -76,7 +76,7 @@ export const Checkbox = ({
         />
       </Box>
       {isLabelHidden ? (
-        <VisuallyHidden>{label}</VisuallyHidden>
+        <VisuallyHiddenn>{label}</VisuallyHidden>
       ) : (
         <Box as="span" tx={{ my: -1, ml: 8 }}>
           {label}

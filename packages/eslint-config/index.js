@@ -44,6 +44,7 @@ const config = {
     'react',
     'testing-library',
     'unicorn',
+    'simple-import-sort',
   ],
   extends: [
     'prettier',
@@ -66,6 +67,12 @@ const config = {
   rules: {
     // Looking for TypeScript Plugin rules? They're in overrides per
     // https://github.com/typescript-eslint/typescript-eslint/issues/1928#issuecomment-617969784
+
+    /**
+     * Simple Import Sort Rules
+     */
+    'simple-import-sort/imports': 'error',
+    'simple-import-sort/exports': 'error',
 
     /**
      * Prettier Plugin Rules
