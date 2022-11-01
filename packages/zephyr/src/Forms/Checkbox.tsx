@@ -3,8 +3,8 @@ import { useId } from '@reach/auto-id';
 
 import { SVGComponent } from '../shared';
 import { Box, BoxProps } from '../Box';
-import { Label } from './Label';
 import { VisuallyHidden } from '../VisuallyHidden';
+import { Label } from './Label';
 
 export interface CheckboxProps
   extends Pick<BoxProps<'input'>, 'checked' | 'id' | 'name' | 'onChange' | 'tx' | 'value'> {
@@ -76,7 +76,7 @@ export const Checkbox = ({
         />
       </Box>
       {isLabelHidden ? (
-        <VisuallyHiddenn>{label}</VisuallyHidden>
+        <VisuallyHidden>{label}</VisuallyHidden>
       ) : (
         <Box as="span" tx={{ my: -1, ml: 8 }}>
           {label}
