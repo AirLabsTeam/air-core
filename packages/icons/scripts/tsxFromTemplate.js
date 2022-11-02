@@ -14,7 +14,7 @@ const parser = new Xml.Parser({ attrkey: attrKey });
 const builder = new Xml.Builder({ attrkey: attrKey, headless: true });
 
 const template = (iconName, data) => {
-  return `import { forwardRef, SVGProps } from 'react';
+  return `import React, { forwardRef, SVGProps } from 'react';
 
 export interface ${iconName}Props extends Omit<SVGProps<SVGSVGElement>, 'css'> {}
 

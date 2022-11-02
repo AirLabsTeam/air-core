@@ -2,7 +2,7 @@ import { AnimatePresence, Variant } from 'framer-motion';
 import { noop } from 'lodash';
 import { ReactNode, useState, useCallback, useMemo, memo } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
-import { Trigger, Content, Root } from '@radix-ui/react-dropdown-menu';
+import { Portal, Trigger, Content, Root } from '@radix-ui/react-dropdown-menu';
 import { isNull } from 'lodash';
 import { rgba } from 'polished';
 import { useTheme } from 'styled-components';
@@ -150,60 +150,62 @@ export const RadixDropdownMenu = memo(
         )}
         <Trigger asChild>{trigger}</Trigger>
         <AnimatePresence>
-          <Content asChild sideOffset={offset} align="start">
-            <motion.div
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              transition={{ type: 'spring', damping: 20, stiffness: 300 }}
-              variants={isNull(animation) ? undefined : defaultMenuAnimation}
-            >
-              <Box
-                data-testid={testId}
-                tx={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'stretch',
-                  backgroundColor: variant === 'dark' ? 'black' : 'white',
-                  width: size === 'small' ? 216 : 240,
-                  p: size === 'small' ? 6 : 8,
-                  outline: 'none',
-                  borderRadius: 4,
-                  boxShadow: `
+          <Portal>
+            <Content asChild sideOffset={offset} align="start">
+              <motion.div
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                transition={{ type: 'spring', damping: 20, stiffness: 300 }}
+                variants={isNull(animation) ? undefined : defaultMenuAnimation}
+              >
+                <Box
+                  data-testid={testId}
+                  tx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'stretch',
+                    backgroundColor: variant === 'dark' ? 'black' : 'white',
+                    width: size === 'small' ? 216 : 240,
+                    p: size === 'small' ? 6 : 8,
+                    outline: 'none',
+                    borderRadius: 4,
+                    boxShadow: `
                   0px 2px 8px ${rgba(theme.colors.black, 0.2)},
                   0px 1px 3px ${rgba(theme.colors.black, 0.15)},
                   0px 0px 2px ${rgba(theme.colors.black, 0.25)}
                 `,
-                  ...tx,
-                  ['.radix-menu-group']: {
-                    outline: 'none',
-                    p: 0,
-                    border: 0,
-                    fontSize: 'inherit',
-                    background: 'transparent',
-                    whiteSpace: 'initial',
-                    color: 'inherit',
-                  },
-                }}
-              >
-                {childrenTop}
-                {options.map((option, index) => {
-                  return (
-                    <RadixMenuItem
-                      data-testid={option.id}
-                      onClick={(event) => event.stopPropagation()}
-                      variant={variant}
-                      key={index}
-                      size={size}
-                      subOptionsTx={subOptionsTx}
-                      {...option}
-                    />
-                  );
-                })}
-                {childrenBottom}
-              </Box>
-            </motion.div>
-          </Content>
+                    ...tx,
+                    ['.radix-menu-group']: {
+                      outline: 'none',
+                      p: 0,
+                      border: 0,
+                      fontSize: 'inherit',
+                      background: 'transparent',
+                      whiteSpace: 'initial',
+                      color: 'inherit',
+                    },
+                  }}
+                >
+                  {childrenTop}
+                  {options.map((option, index) => {
+                    return (
+                      <RadixMenuItem
+                        data-testid={option.id}
+                        onClick={(event) => event.stopPropagation()}
+                        variant={variant}
+                        key={index}
+                        size={size}
+                        subOptionsTx={subOptionsTx}
+                        {...option}
+                      />
+                    );
+                  })}
+                  {childrenBottom}
+                </Box>
+              </motion.div>
+            </Content>
+          </Portal>
         </AnimatePresence>
       </Root>
     );

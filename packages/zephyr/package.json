@@ -33,8 +33,8 @@
     "url": "https://github.com/AirLabsTeam/web-core/issues"
   },
   "scripts": {
-    "start": "tsdx watch --verbose --noClean --tsconfig tsconfig.build.json",
-    "build": "tsdx build --tsconfig tsconfig.build.json",
+    "start": "tsdx watch --verbose --noClean --tsconfig tsconfig.json",
+    "build": "tsdx build --tsconfig tsconfig.json",
     "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint"
   },
@@ -45,20 +45,28 @@
     "react": ">=16"
   },
   "devDependencies": {
-    "@air/icons": "^10.3.0",
+    "@air/icons": "*",
+    "@air/tsconfig": "*",
+    "@storybook/addon-docs": "^6.5.13",
+    "@storybook/react": "^6.5.13",
     "@styled-system/css": "^5.1.5",
     "@types/classnames": "^2.3.1",
+    "@types/styled-components": "^5.1.26",
     "@types/styled-system": "^5.1.15",
     "@types/styled-system__css": "^5.0.17",
-    "@types/yup": "^0.32.0",
     "babel-plugin-polished": "^1.1.0",
     "formik": "^2.2.9",
     "framer-motion": "^3.6.2",
     "polished": "^3.6.7",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "styled-components": "^5.3.6",
+    "typescript": "^4.8.4",
     "yup": "^0.32.11"
   },
   "dependencies": {
-    "@radix-ui/react-dropdown-menu": "^0.1.4",
+    "@radix-ui/popper": "^0.1.0",
+    "@radix-ui/react-dropdown-menu": "^2.0.1",
     "@radix-ui/react-tooltip": "^1.0.2",
     "@radix-ui/react-visually-hidden": "^1.0.1",
     "@reach/alert-dialog": "^0.11.2",
@@ -69,6 +77,8 @@
     "@reach/utils": "0.11.2",
     "classnames": "^2.3.2",
     "react-contexify": "^5.0.0",
-    "react-use": "^17.4.0"
+    "react-use": "^17.4.0",
+    "tiny-invariant": "^1.3.1",
+    "yup": "^0.32.11"
   }
 }
