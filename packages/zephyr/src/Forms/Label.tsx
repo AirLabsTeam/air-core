@@ -1,4 +1,4 @@
-import VisuallyHidden from '@reach/visually-hidden';
+import { VisuallyHidden } from '../VisuallyHidden';
 import { BoxProps } from '../Box';
 import { Text } from '../Text';
 import { TextVariantName } from '../theme/variants/text';

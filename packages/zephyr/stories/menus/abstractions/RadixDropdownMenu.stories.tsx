@@ -369,7 +369,6 @@ withSubOptions.args = {
           leftAdornment: <Box as={AddMemberIcon} tx={{ display: 'block', width: 16 }} />,
           label: 'Add members',
           description: 'Invite members or guests to collaborate on this board',
-          hasDividerBottom: true,
           onSelect: () => {},
         },
       ],

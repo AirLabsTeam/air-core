@@ -1,9 +1,9 @@
 import { forwardRef, useRef, MutableRefObject } from 'react';
-import VisuallyHidden from '@reach/visually-hidden';
 import { isString } from 'lodash';
 import { Box, BoxProps } from '../Box';
 import { Button, ButtonProps } from '../Button';
 import { Text } from '../Text';
+import { VisuallyHidden } from '../VisuallyHidden';
 import { Modal, ModalProps } from './Modal';
 
 export const ANNOUNCEMENT_MODAL_CTA = 'ANNOUNCEMENT_MODAL_CTA';

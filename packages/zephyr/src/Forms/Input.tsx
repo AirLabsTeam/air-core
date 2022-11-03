@@ -1,12 +1,12 @@
 import { ReactNode, ChangeEvent, MutableRefObject, useMemo } from 'react';
 import { useField } from 'formik';
-import VisuallyHidden from '@reach/visually-hidden';
 import { variant as styledSystemVariant } from 'styled-system';
 import { useTheme } from 'styled-components';
 import { LeftRight } from '../shared';
 import { Box, BoxStylingProps } from '../Box';
 import { Text } from '../Text';
 import { FieldVariantName, TXProp } from '../theme';
+import { VisuallyHidden } from '../VisuallyHidden';
 import { Label } from './Label';
 import { Error } from './Error';
 

@@ -1,6 +1,7 @@
 import { ThemeProvider } from 'styled-components';
 
 import { theme } from '../packages/zephyr/src/theme';
+import { TooltipProvider } from '../packages/zephyr/src/Tooltip';
 
 export const parameters = {
   actions: { argTypesRegex: '^on.*' },
@@ -12,9 +13,11 @@ export const parameters = {
 };
 
 const ThemeWrapper = (Story) => (
-  <ThemeProvider theme={theme}>
-    <Story />
-  </ThemeProvider>
+  <TooltipProvider>
+    <ThemeProvider theme={theme}>
+      <Story />
+    </ThemeProvider>
+  </TooltipProvider>
 );
 
 export const decorators = [ThemeWrapper];

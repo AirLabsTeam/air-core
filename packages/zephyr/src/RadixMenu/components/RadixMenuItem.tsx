@@ -1,6 +1,6 @@
 import { ReactNode, memo, useCallback, useMemo } from 'react';
 import { rgba } from 'polished';
-import { Item, Root, Content, TriggerItem } from '@radix-ui/react-dropdown-menu';
+import * as RadixDropdownMenu from '@radix-ui/react-dropdown-menu';
 import { ChevronRight } from '@air/icons';
 import { useTheme } from 'styled-components';
 
@@ -259,13 +259,13 @@ export const RadixMenuItem = memo(
     if (!!subOptions && subOptions.length) {
       return (
         <Box tx={menuItemStyle}>
-          <Root>
+          <RadixDropdownMenu.Sub>
             {hasDividerTop && <RadixMenuItemDivider isTop />}
-            <TriggerItem className="radix-menu-item" disabled={disabled}>
+            <RadixDropdownMenu.SubTrigger className="radix-menu-item" disabled={disabled}>
               {menuItemContent}
-            </TriggerItem>
+            </RadixDropdownMenu.SubTrigger>
             {hasDividerBottom && <RadixMenuItemDivider />}
-            <Content>
+            <RadixDropdownMenu.SubContent>
               <Box
                 tx={{
                   display: 'flex',
@@ -295,8 +295,8 @@ export const RadixMenuItem = memo(
                   />
                 ))}
               </Box>
-            </Content>
-          </Root>
+            </RadixDropdownMenu.SubContent>
+          </RadixDropdownMenu.Sub>
         </Box>
       );
     }
@@ -304,7 +304,7 @@ export const RadixMenuItem = memo(
     return (
       <Box tx={menuItemStyle} {...renderProps}>
         {hasDividerTop && <RadixMenuItemDivider variant={variant} isTop />}
-        <Item
+        <RadixDropdownMenu.Item
           data-testid={testId ?? id}
           id={id}
           className="radix-menu-item"
@@ -312,7 +312,7 @@ export const RadixMenuItem = memo(
           onSelect={onClick ?? onSelect}
         >
           {menuItemContent}
-        </Item>
+        </RadixDropdownMenu.Item>
         {hasDividerBottom && <RadixMenuItemDivider variant={variant} />}
       </Box>
     );

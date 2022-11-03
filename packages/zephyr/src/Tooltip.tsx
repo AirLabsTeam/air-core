@@ -137,7 +137,6 @@ export const Tooltip = ({
   avoidCollisions,
   baseZIndex = 10,
   children,
-  collisionTolerance,
   label,
   manualControlProps,
   side,
@@ -155,59 +154,62 @@ export const Tooltip = ({
        *  */}
       <RadixTooltip.Trigger asChild>{children}</RadixTooltip.Trigger>
 
-      <RadixTooltip.Content
-        side={side}
-        sideOffset={sideOffset}
-        align={align}
-        alignOffset={alignOffset}
-        collisionTolerance={collisionTolerance}
-        avoidCollisions={avoidCollisions}
-      >
-        <Box
-          aria-label={ariaLabel}
-          data-testid={testID}
-          tx={{
-            bg: 'black',
-            color: 'white',
-            px: 10,
-            py: 5,
-            minHeight: 36,
-            borderColor: 'transparent',
-            borderWidth: 2,
-            borderStyle: 'solid',
-            borderRadius: 4,
-            zIndex: baseZIndex + 1,
-            ...(containerStyles as any),
-          }}
+      <RadixTooltip.Portal>
+        <RadixTooltip.Content
+          side={side}
+          sideOffset={sideOffset}
+          align={align}
+          alignOffset={alignOffset}
+          avoidCollisions={avoidCollisions}
         >
-          <Text
-            variant="text-ui-14"
+          <Box
+            aria-label={ariaLabel}
+            data-testid={testID}
             tx={{
-              color: 'currentColor',
-              fontWeight: 'medium',
-              ...(textContentStyles as any),
+              bg: 'black',
+              color: 'white',
+              px: 10,
+              py: 5,
+              minHeight: 36,
+              borderColor: 'transparent',
+              borderWidth: 2,
+              borderStyle: 'solid',
+              borderRadius: 4,
+              zIndex: baseZIndex + 1,
+              ...(containerStyles as any),
             }}
           >
-            {label}
-          </Text>
+            <Text
+              variant="text-ui-14"
+              tx={{
+                color: 'currentColor',
+                fontWeight: 'medium',
+                ...(textContentStyles as any),
+              }}
+            >
+              {label}
+            </Text>
 
-          {withArrow && (
-            <RadixTooltip.Arrow width={10} height={7} offset={arrowOffset}>
-              <Box
-                tx={{
-                  zIndex: baseZIndex + 1,
-                  strokeLinejoin: 'round',
-                  strokeLinecap: 'round',
-                  stroke: 'black',
-                  strokeWidth: 1,
-                  ...triangleOffsetMapping['base'][side],
-                  ...(arrowStyles as any),
-                }}
-              />
-            </RadixTooltip.Arrow>
-          )}
-        </Box>
-      </RadixTooltip.Content>
+            {withArrow && (
+              <RadixTooltip.Arrow width={10} height={7} offset={arrowOffset}>
+                <Box
+                  tx={{
+                    zIndex: baseZIndex + 1,
+                    strokeLinejoin: 'round',
+                    strokeLinecap: 'round',
+                    stroke: 'black',
+                    strokeWidth: 1,
+                    ...triangleOffsetMapping['base'][side],
+                    ...(arrowStyles as any),
+                  }}
+                />
+              </RadixTooltip.Arrow>
+            )}
+          </Box>
+        </RadixTooltip.Content>
+      </RadixTooltip.Portal>
     </RadixTooltip.Root>
   );
 };
+
+export const TooltipProvider = RadixTooltip.Provider;

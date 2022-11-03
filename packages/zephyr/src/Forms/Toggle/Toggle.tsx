@@ -1,9 +1,9 @@
 import { useId } from '@reach/auto-id';
-import VisuallyHidden from '@reach/visually-hidden';
 
 import { TXProp } from '../../theme';
 import { Box, BoxProps } from '../../Box';
 import { Label } from '../Label';
+import { VisuallyHidden } from '../../VisuallyHidden';
 
 export interface ToggleProps {
   ['data-testid']?: string;

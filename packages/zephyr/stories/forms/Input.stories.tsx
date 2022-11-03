@@ -4,13 +4,13 @@ import { Formik, Form } from 'formik';
 import { number, object, string } from 'yup';
 import { StoryFnReactReturnType } from '@storybook/react/dist/ts3.9/client/preview/types';
 import { Caution, Search, EyeClosed, Eye } from '@air/icons';
-import VisuallyHidden from '@reach/visually-hidden';
 import { capitalize, noop } from 'lodash';
 import { Box } from '../../src/Box';
 import { Button } from '../../src/Button';
 import { Text } from '../../src/Text';
 import { Input, InputProps } from '../../src/Forms/Input';
 import { FieldVariantName, field } from '../../src/theme/variants/field';
+import { VisuallyHidden } from '../../src/VisuallyHidden';
 
 const variants = Object.keys(field) as FieldVariantName[];
 
