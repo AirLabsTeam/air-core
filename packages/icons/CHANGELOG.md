@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [10.4.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@10.3.0...@air/icons@10.4.0) (2022-11-04)
+
+
+### Features
+
+* **@air/icons:** add copy icon ([db33c68](https://github.com/AirLabsTeam/web-core/commit/db33c68292fb82c10d7122294d6c38411ab904f1))
+
+
+
+
+
 # [10.3.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@10.2.0...@air/icons@10.3.0) (2022-09-12)
 
 ### Features
