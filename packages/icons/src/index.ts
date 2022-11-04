@@ -45,6 +45,7 @@ export { CloudUpload } from './svgComponents/CloudUpload';
 export { Code } from './svgComponents/Code';
 export { Comment } from './svgComponents/Comment';
 export { CompressedFiles } from './svgComponents/CompressedFiles';
+export { Copy } from './svgComponents/Copy';
 export { CreditCard } from './svgComponents/CreditCard';
 export { Dart } from './svgComponents/Dart';
 export { DashedPlus } from './svgComponents/DashedPlus';
