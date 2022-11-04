@@ -44,6 +44,7 @@ export const iconList = [
   'Code',
   'Comment',
   'CompressedFiles',
+  'Copy',
   'CreditCard',
   'Dart',
   'DashedPlus',
