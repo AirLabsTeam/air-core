@@ -80,6 +80,7 @@ export const iconList = [
   'FileExtension',
   'FilledPlay',
   'Filters',
+  'Finder',
   'Flash',
   'Folder',
   'FolderOpen',
