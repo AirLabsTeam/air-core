@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [10.5.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@10.4.0...@air/icons@10.5.0) (2022-11-08)
+
+
+### Features
+
+* **@air/icons:** add Finder icon ([2b61f9e](https://github.com/AirLabsTeam/web-core/commit/2b61f9ee50cc775f88437446012da4e912f4f310))
+
+
+
+
+
 # [10.4.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@10.3.0...@air/icons@10.4.0) (2022-11-04)
 
 
