@@ -81,6 +81,7 @@ export { Fields } from './svgComponents/Fields';
 export { FileExtension } from './svgComponents/FileExtension';
 export { FilledPlay } from './svgComponents/FilledPlay';
 export { Filters } from './svgComponents/Filters';
+export { Finder } from './svgComponents/Finder';
 export { Flash } from './svgComponents/Flash';
 export { Folder } from './svgComponents/Folder';
 export { FolderOpen } from './svgComponents/FolderOpen';
