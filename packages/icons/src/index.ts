@@ -61,6 +61,7 @@ export { DoubleChevronDown } from './svgComponents/DoubleChevronDown';
 export { DoubleChevronLeft } from './svgComponents/DoubleChevronLeft';
 export { DoubleChevronRight } from './svgComponents/DoubleChevronRight';
 export { DoubleChevronUp } from './svgComponents/DoubleChevronUp';
+export { Dollar } from './svgComponents/Dollar';
 export { Download } from './svgComponents/Download';
 export { DownloadAlt } from './svgComponents/DownloadAlt';
 export { DownloadAltCircled } from './svgComponents/DownloadAltCircled';

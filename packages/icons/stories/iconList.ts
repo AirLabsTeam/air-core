@@ -60,6 +60,7 @@ export const iconList = [
   'DoubleChevronLeft',
   'DoubleChevronRight',
   'DoubleChevronUp',
+  'Dollar',
   'Download',
   'DownloadAlt',
   'DownloadAltCircled',
