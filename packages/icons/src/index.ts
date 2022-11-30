@@ -57,6 +57,7 @@ export { Discussions } from './svgComponents/Discussions';
 export { DiscussionsFilled } from './svgComponents/DiscussionsFilled';
 export { Document } from './svgComponents/Document';
 export { Documents } from './svgComponents/Documents';
+export { Dollar } from './svgComponents/Dollar';
 export { DoubleChevronDown } from './svgComponents/DoubleChevronDown';
 export { DoubleChevronLeft } from './svgComponents/DoubleChevronLeft';
 export { DoubleChevronRight } from './svgComponents/DoubleChevronRight';

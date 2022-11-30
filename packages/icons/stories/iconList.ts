@@ -56,6 +56,7 @@ export const iconList = [
   'DiscussionsFilled',
   'Document',
   'Documents',
+  'Dollar',
   'DoubleChevronDown',
   'DoubleChevronLeft',
   'DoubleChevronRight',
