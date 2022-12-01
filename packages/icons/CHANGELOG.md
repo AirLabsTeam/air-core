@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [10.6.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@10.5.0...@air/icons@10.6.0) (2022-12-01)
+
+
+### Bug Fixes
+
+* ran svgo ([003fea4](https://github.com/AirLabsTeam/web-core/commit/003fea4310161b2c79efc55d340f20d483a191dc))
+* reorder iconList ([9dad1d5](https://github.com/AirLabsTeam/web-core/commit/9dad1d5cb41a27676ed15a213a0e4d9a7878a66d))
+
+
+### Features
+
+* **@air/icons:** add Dollar icon ([744de72](https://github.com/AirLabsTeam/web-core/commit/744de72905031050e2e84e1da58634c1edc01a36))
+
+
+
+
+
 # [10.5.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@10.4.0...@air/icons@10.5.0) (2022-11-08)
 
 
