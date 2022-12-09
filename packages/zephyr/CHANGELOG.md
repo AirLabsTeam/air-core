@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [18.0.9](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@18.0.8...@air/zephyr@18.0.9) (2022-12-09)
+
+### Bug Fixes
+
+- **@air/zephyr:** add in portal to sub menus ([8b970df](https://github.com/AirLabsTeam/web-core/commit/8b970df6cfa4245f65b0da79bc3bc23ef441d2a3))
+
 ## [18.0.8](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@18.0.7...@air/zephyr@18.0.8) (2022-12-09)
 
 ### Bug Fixes
