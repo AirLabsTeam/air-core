@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [18.0.10](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@18.0.9...@air/zephyr@18.0.10) (2022-12-09)
+
+### Bug Fixes
+
+- **@air/zephyr:** remove AnimatePresence from dropdown ([6424a30](https://github.com/AirLabsTeam/web-core/commit/6424a3027c619e458bc1ac5156870dc229eadafb))
+
 ## [18.0.9](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@18.0.8...@air/zephyr@18.0.9) (2022-12-09)
 
 ### Bug Fixes
