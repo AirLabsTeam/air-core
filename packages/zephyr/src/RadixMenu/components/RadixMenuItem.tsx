@@ -265,37 +265,39 @@ export const RadixMenuItem = memo(
               {menuItemContent}
             </RadixDropdownMenu.SubTrigger>
             {hasDividerBottom && <RadixMenuItemDivider />}
-            <RadixDropdownMenu.SubContent>
-              <Box
-                tx={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'stretch',
-                  backgroundColor: variant === 'dark' ? 'black' : 'white',
-                  width: size === 'small' ? 216 : 240,
-                  p: size === 'small' ? 6 : 8,
-                  outline: 'none',
-                  borderRadius: 4,
-                  boxShadow: `
+            <RadixDropdownMenu.Portal>
+              <RadixDropdownMenu.SubContent>
+                <Box
+                  tx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'stretch',
+                    backgroundColor: variant === 'dark' ? 'black' : 'white',
+                    width: size === 'small' ? 216 : 240,
+                    p: size === 'small' ? 6 : 8,
+                    outline: 'none',
+                    borderRadius: 4,
+                    boxShadow: `
                     0px 2px 8px ${rgba(theme.colors.black, 0.2)},
                     0px 1px 3px ${rgba(theme.colors.black, 0.15)},
                     0px 0px 2px ${rgba(theme.colors.black, 0.25)}
                   `,
-                  ...subOptionsTx,
-                }}
-              >
-                {subOptions.map((option, index) => (
-                  <RadixMenuItem
-                    data-testid={option.id}
-                    onClick={(event) => event.stopPropagation()}
-                    key={index}
-                    size={size}
-                    variant={variant}
-                    {...option}
-                  />
-                ))}
-              </Box>
-            </RadixDropdownMenu.SubContent>
+                    ...subOptionsTx,
+                  }}
+                >
+                  {subOptions.map((option, index) => (
+                    <RadixMenuItem
+                      data-testid={option.id}
+                      onClick={(event) => event.stopPropagation()}
+                      key={index}
+                      size={size}
+                      variant={variant}
+                      {...option}
+                    />
+                  ))}
+                </Box>
+              </RadixDropdownMenu.SubContent>
+            </RadixDropdownMenu.Portal>
           </RadixDropdownMenu.Sub>
         </Box>
       );
