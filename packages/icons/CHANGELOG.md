@@ -3,44 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [10.6.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@10.5.0...@air/icons@10.6.0) (2022-12-01)
+# [10.7.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@10.6.0...@air/icons@10.7.0) (2022-12-13)
 
+### Features
+
+- **@air/icons:** add A icon ([6f56081](https://github.com/AirLabsTeam/web-core/commit/6f560818f8a5d83557c2f8c14261668b99a3084a))
+
+# [10.6.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@10.5.0...@air/icons@10.6.0) (2022-12-01)
 
 ### Bug Fixes
 
-* ran svgo ([003fea4](https://github.com/AirLabsTeam/web-core/commit/003fea4310161b2c79efc55d340f20d483a191dc))
-* reorder iconList ([9dad1d5](https://github.com/AirLabsTeam/web-core/commit/9dad1d5cb41a27676ed15a213a0e4d9a7878a66d))
-
+- ran svgo ([003fea4](https://github.com/AirLabsTeam/web-core/commit/003fea4310161b2c79efc55d340f20d483a191dc))
+- reorder iconList ([9dad1d5](https://github.com/AirLabsTeam/web-core/commit/9dad1d5cb41a27676ed15a213a0e4d9a7878a66d))
 
 ### Features
 
-* **@air/icons:** add Dollar icon ([744de72](https://github.com/AirLabsTeam/web-core/commit/744de72905031050e2e84e1da58634c1edc01a36))
-
-
-
-
+- **@air/icons:** add Dollar icon ([744de72](https://github.com/AirLabsTeam/web-core/commit/744de72905031050e2e84e1da58634c1edc01a36))
 
 # [10.5.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@10.4.0...@air/icons@10.5.0) (2022-11-08)
 
-
 ### Features
 
-* **@air/icons:** add Finder icon ([2b61f9e](https://github.com/AirLabsTeam/web-core/commit/2b61f9ee50cc775f88437446012da4e912f4f310))
-
-
-
-
+- **@air/icons:** add Finder icon ([2b61f9e](https://github.com/AirLabsTeam/web-core/commit/2b61f9ee50cc775f88437446012da4e912f4f310))
 
 # [10.4.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@10.3.0...@air/icons@10.4.0) (2022-11-04)
 
-
 ### Features
 
-* **@air/icons:** add copy icon ([db33c68](https://github.com/AirLabsTeam/web-core/commit/db33c68292fb82c10d7122294d6c38411ab904f1))
-
-
-
-
+- **@air/icons:** add copy icon ([db33c68](https://github.com/AirLabsTeam/web-core/commit/db33c68292fb82c10d7122294d6c38411ab904f1))
 
 # [10.3.0](https://github.com/AirLabsTeam/web-core/compare/@air/icons@10.2.0...@air/icons@10.3.0) (2022-09-12)
 
