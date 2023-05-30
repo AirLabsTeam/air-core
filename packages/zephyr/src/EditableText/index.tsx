@@ -51,6 +51,7 @@ export interface EditableTextProps
   error?: string;
   onValueChange?: (value: string) => void;
   required?: boolean;
+  validationSchema?: any | (() => any);
 }
 
 export const EditableText = ({
@@ -74,6 +75,7 @@ export const EditableText = ({
   error,
   onValueChange,
   required,
+  validationSchema,
 }: EditableTextProps) => {
   const theme = useTheme();
   const autoId = useId(id)!;
@@ -137,7 +139,9 @@ export const EditableText = ({
           onSubmit(trimmedValues, formikHelpers);
         }
       }}
-      validationSchema={required ? RequiredEditableTextSchema : EditableTextSchema}
+      validationSchema={
+        validationSchema || required ? RequiredEditableTextSchema : EditableTextSchema
+      }
     >
       {({ values, errors }) => {
         const formError = error ?? errors[EDITABLE_TEXT_FIELD_NAME];
