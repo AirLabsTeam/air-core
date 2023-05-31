@@ -113,6 +113,10 @@ export const EditableText = ({
     }
   }, [buttonRef, isEditingState, isPreviousIsEditing, textareaRef]);
 
+  const computedSchema = required
+    ? RequiredEditableTextSchema
+    : validationSchema || EditableTextSchema;
+
   return (
     <Formik<EditableTextFormikValues>
       enableReinitialize
@@ -139,9 +143,7 @@ export const EditableText = ({
           onSubmit(trimmedValues, formikHelpers);
         }
       }}
-      validationSchema={
-        validationSchema || required ? RequiredEditableTextSchema : EditableTextSchema
-      }
+      validationSchema={computedSchema}
     >
       {({ values, errors }) => {
         const formError = error ?? errors[EDITABLE_TEXT_FIELD_NAME];
