@@ -113,9 +113,7 @@ export const EditableText = ({
     }
   }, [buttonRef, isEditingState, isPreviousIsEditing, textareaRef]);
 
-  const computedSchema = required
-    ? RequiredEditableTextSchema
-    : validationSchema || EditableTextSchema;
+  const computedSchema = validationSchema || (required ? RequiredEditableTextSchema : EditableText);
 
   return (
     <Formik<EditableTextFormikValues>
