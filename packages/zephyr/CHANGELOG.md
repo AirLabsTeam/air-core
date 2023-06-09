@@ -3,21 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [18.0.18](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@18.0.17...@air/zephyr@18.0.18) (2023-06-09)
+
+**Note:** Version bump only for package @air/zephyr
+
 ## [18.0.17](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@18.0.16...@air/zephyr@18.0.17) (2023-06-09)
 
 **Note:** Version bump only for package @air/zephyr
 
-
-
-
-
 ## [18.0.16](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@18.0.15...@air/zephyr@18.0.16) (2023-06-09)
 
 **Note:** Version bump only for package @air/zephyr
-
-
-
-
 
 ## [18.0.15](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@18.0.14...@air/zephyr@18.0.15) (2023-06-01)
 
