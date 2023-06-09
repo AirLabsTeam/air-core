@@ -13,9 +13,11 @@ type PopperContentProps = Pick<RadixTooltip.TooltipContentProps, 'align'> & {
   avoidCollisions?: boolean;
 };
 
+type Side = Required<RadixTooltip.TooltipContentImplProps>['side'];
+
 export interface TooltipProps
   extends PopperContentProps,
-    Pick<RadixTooltip.TooltipContentProps, 'side'> {
+    Required<Pick<RadixTooltip.TooltipContentProps, 'side'>> {
   children: ReactElement;
   /** The actual tooltip content. */
   label: ReactNode;
@@ -81,7 +83,9 @@ export interface TooltipProps
  * of the trigger element (and over its border too).
  */
 const triangleOffsetMapping: {
-  [key in 'base' | 'border']: { [key in Side]: TXProp | undefined };
+  [key in 'base' | 'border']: {
+    [key in Side]: TXProp | undefined;
+  };
 } = {
   border: {
     top: undefined,
