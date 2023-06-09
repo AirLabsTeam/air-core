@@ -1,6 +1,5 @@
 import { ReactElement, ReactNode } from 'react';
 import * as RadixTooltip from '@radix-ui/react-tooltip';
-import { Side, Align } from '@radix-ui/popper';
 import { Box } from './Box';
 import { Text } from './Text';
 import { TXProp } from './theme';
@@ -8,20 +7,18 @@ import { TXProp } from './theme';
 /**
  * This type is necessary, but it is not exported from @radix-ui/react-popper, so we duplicate it
  */
-type PopperContentProps = {
-  align?: Align;
+type PopperContentProps = Pick<RadixTooltip.TooltipContentProps, 'align'> & {
   alignOffset?: number;
   collisionTolerance?: number;
   avoidCollisions?: boolean;
 };
 
-export interface TooltipProps extends PopperContentProps {
+export interface TooltipProps
+  extends PopperContentProps,
+    Pick<RadixTooltip.TooltipContentProps, 'side'> {
   children: ReactElement;
   /** The actual tooltip content. */
   label: ReactNode;
-
-  /** Represents where the tooltip renders in relation to the wrapped component/element. */
-  side: Side;
 
   /**
    * The amount of pixels away the tooltip renders from the wrapped element's rect.
