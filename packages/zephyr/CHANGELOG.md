@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [18.1.0](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@18.0.18...@air/zephyr@18.1.0) (2024-01-04)
+
+### Features
+
+- **air-zephyr:** remove deprecated components ([7c22646](https://github.com/AirLabsTeam/web-core/commit/7c22646a8d50b2394ceb4c4869d9ea694f5dda7f))
+
 ## [18.0.18](https://github.com/AirLabsTeam/web-core/compare/@air/zephyr@18.0.17...@air/zephyr@18.0.18) (2023-06-09)
 
 **Note:** Version bump only for package @air/zephyr
