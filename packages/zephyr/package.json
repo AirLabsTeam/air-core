@@ -69,5 +69,6 @@
     "@reach/utils": "0.11.2",
     "classnames": "2.3.2",
     "react-use": "15.3.4"
-  }
+  },
+  "gitHead": "d37d883c8534e36b01161d9db042383345b11967"
 }

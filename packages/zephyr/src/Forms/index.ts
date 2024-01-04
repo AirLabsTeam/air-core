@@ -5,5 +5,3 @@ export * from './InputPrimitive';
 export * from './Label';
 export * from './LabelPrimitive';
 export * from './TextareaPrimitive';
-export * from './Toggle/Toggle';
-export * from './Toggle/FormikToggle';
