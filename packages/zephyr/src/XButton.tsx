@@ -1,3 +1,4 @@
+// @ts-ignore
 import { Close } from '@air/icons';
 import { forwardRef } from 'react';
 import { X_BUTTON } from './testIDs';

@@ -134,6 +134,7 @@ export { Medium } from './svgComponents/Medium';
 export { Megaphone } from './svgComponents/Megaphone';
 export { Member } from './svgComponents/Member';
 export { MemberAdd } from './svgComponents/MemberAdd';
+export { MemberRemove } from './svgComponents/MemberRemove';
 export { Merge } from './svgComponents/Merge';
 export { Minimize } from './svgComponents/Minimize';
 export { Minus } from './svgComponents/Minus';
