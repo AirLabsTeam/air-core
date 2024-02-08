@@ -133,6 +133,7 @@ export const iconList = [
   'Megaphone',
   'Member',
   'MemberAdd',
+  'MemberRemove',
   'Merge',
   'Minimize',
   'Minus',
